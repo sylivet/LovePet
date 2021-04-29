@@ -1,0 +1,68 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: map-get($color, headerColor);
+    height: 87px;
+    overflow: hidden;
+
+
+    .i_logo {
+        img {
+            max-width: 62px;
+            margin-left: 54px;
+        }
+    }
+
+    .i_navigation {
+        display: flex;
+
+        li {
+            display: flex;
+            align-items: center;
+
+            &:hover img {
+                opacity: 1;
+                transform: translateY(0px);
+                transition: .4s;
+            }
+
+            img {
+                max-width: 33px;
+                margin-bottom: -15px;
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            a {
+                color: map-get($color, headerfont);
+                display: flex;
+                align-items: center;
+
+            }
+        }
+        li:not(:first-child){
+            margin-left: 60px;
+        }
+        li.i_click a{
+            font-weight: bold;
+            color: white;
+        }
+        li.i_click img{
+            opacity: 1;
+        }
+    }
+
+    .i_accountShopping {
+        display: flex;
+        margin-right: 54px;
+
+        span {
+            font-size: 30px;
+            color: map-get($color, headerfont);
+            &:last-child {
+                margin-left: 20px;
+            }
+        }
+    }
+}
