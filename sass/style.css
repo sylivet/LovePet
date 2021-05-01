@@ -1,4 +1,4 @@
-@import url(reset.css);
+@import url(base/reset.css);
 h1 {
   font-size: 30px;
 }
