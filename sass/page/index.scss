@@ -83,10 +83,8 @@
 }
 
 #location {
-    background-image: url("/img/index/map.png");
+    background-image: url("../img/index/map.png");
     background-repeat: no-repeat;
-    background-position: top;
-    background-position: center;
     display: flex;
     flex-direction: column;
     align-items: center;
