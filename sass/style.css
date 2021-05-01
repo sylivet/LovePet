@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC &display=swap");
+@import url(reset.css);
 h1 {
   font-size: 30px;
 }
@@ -37,6 +37,7 @@ a {
 
 img {
   width: 100%;
+  display: block;
 }
 
 body {
@@ -44,3 +45,304 @@ body {
           box-sizing: border-box;
   font-family: "Noto Sans TC", sans-serif;
 }
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #FFC857;
+  height: 87px;
+  overflow: hidden;
+}
+
+header .i_logo img {
+  max-width: 62px;
+  margin-left: 54px;
+}
+
+header .i_navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header .i_navigation li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .i_navigation li:hover img {
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+header .i_navigation li img {
+  max-width: 33px;
+  margin-bottom: -15px;
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
+}
+
+header .i_navigation li a {
+  color: #734b23;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .i_navigation li:not(:first-child) {
+  margin-left: 60px;
+}
+
+header .i_navigation li.i_click a {
+  font-weight: bold;
+  color: white;
+}
+
+header .i_navigation li.i_click img {
+  opacity: 1;
+}
+
+header .i_accountShopping {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 54px;
+}
+
+header .i_accountShopping span {
+  font-size: 30px;
+  color: #734b23;
+}
+
+header .i_accountShopping span:last-child {
+  margin-left: 20px;
+}
+
+footer {
+  color: white;
+  background-color: #915727;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer a {
+  color: white;
+}
+
+footer .i_footerWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+footer .i_footerWrapper .i_footerLeft {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 42px;
+  text-align: center;
+}
+
+footer .i_footerWrapper .i_footerLeft .i_footerLeftColumn:not(:first-child) {
+  margin-left: 75px;
+}
+
+footer .i_footerWrapper .i_footerLeft ul li {
+  margin-top: 16px;
+}
+
+footer .i_footerWrapper .i_divider {
+  border-right: 1px dashed;
+  margin: 36px 75px 0;
+}
+
+footer .i_footerWrapper .i_footerRight {
+  margin-top: 42px;
+}
+
+footer .i_footerWrapper .i_footerRight li:not(:first-child) {
+  margin-top: 21px;
+}
+
+footer .i_copyright {
+  font-size: 9px;
+  margin-top: 28px;
+  margin-bottom: 32px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+#news h3 {
+  margin-top: 42px;
+  margin-bottom: 27px;
+  color: #915727;
+  text-align: center;
+}
+
+#news ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#news ul li {
+  width: 250px;
+  position: relative;
+}
+
+#news ul li:not(:first-child) {
+  margin-left: 34px;
+}
+
+#news ul li img {
+  width: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#news ul li div {
+  position: absolute;
+  bottom: 0px;
+  border: 1px solid black;
+  overflow: auto;
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+  padding: 15px 20px 20px 20px;
+  height: 161px;
+  line-height: 2;
+}
+
+.hotelPanorama h3 {
+  margin-top: 60px;
+  margin-bottom: 28px;
+  color: #915727;
+  text-align: center;
+}
+
+.hotelPanorama #panorama {
+  width: 100%;
+  height: 800px;
+}
+
+.hotelPanorama #panorama #controls {
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 3px;
+}
+
+.hotelPanorama #panorama #controls .ctrl {
+  padding: 8px 5px;
+  width: 30px;
+  text-align: center;
+  background: rgba(255, 200, 87, 0.8);
+  color: white;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.hotelPanorama #panorama #controls .ctrl:hover {
+  background: #ffc857;
+}
+
+#location {
+  background-image: url("/img/index/map.png");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #558b6e;
+  padding-bottom: 60px;
+}
+
+#location h3 {
+  margin-top: 105px;
+  margin-bottom: 30px;
+  color: #915727;
+  text-align: center;
+}
+
+#location iframe {
+  width: 657px;
+  height: 423px;
+  margin-bottom: 33px;
+  border: 5px solid #558b6e;
+  border-radius: 60px;
+}
+
+#location .locationContent {
+  max-width: 468px;
+  width: 100%;
+}
+
+#location .locationInfo:nth-child(2) {
+  margin-top: 25px;
+}
+
+#location .locationInfo:last-child {
+  margin-top: 50px;
+}
+
+#location .locationInfo .locationInfoTitle {
+  background-color: #ffc857;
+  border-radius: 30px;
+  padding: 5px;
+  color: black;
+  margin-right: 10px;
+}
+
+#location .locationInfo ul li {
+  line-height: 2;
+}
+
+#location .locationInfo ul li span {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#location .locationInfo ul li span:first-child {
+  margin-top: 15px;
+}
+/*# sourceMappingURL=style.css.map */

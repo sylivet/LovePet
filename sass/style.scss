@@ -1,8 +1,13 @@
 // 順序
-// var
-// mixin
 // reset
+@import url(reset.css);
+// common
+@import "base/common";
+// mixin
 // bootstrap
 // module
-// common
 // layout
+@import "layout/header";
+@import "layout/footer";
+//page
+@import "page/index";
