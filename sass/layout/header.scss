@@ -2,12 +2,22 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include pad{
+        justify-content: flex-end;
+        width: 100%;
+        position: fixed;
+        top:0;
+        z-index: 10;
+    }
     background-color: map-get($color, headerColor);
     height: 87px;
     overflow: hidden;
 
 
     .i_logo {
+        @include pad{
+            display: none;
+        }
         img {
             max-width: 62px;
             margin-left: 54px;
@@ -16,6 +26,9 @@ header {
 
     .i_navigation {
         display: flex;
+        @include pad{
+            display: none;
+        }
 
         li {
             display: flex;
@@ -41,14 +54,17 @@ header {
 
             }
         }
-        li:not(:first-child){
+
+        li:not(:first-child) {
             margin-left: 60px;
         }
-        li.i_click a{
+
+        li.i_click a {
             font-weight: bold;
             color: white;
         }
-        li.i_click img{
+
+        li.i_click img {
             opacity: 1;
         }
     }
@@ -60,8 +76,149 @@ header {
         span {
             font-size: 30px;
             color: map-get($color, headerfont);
+
             &:last-child {
                 margin-left: 20px;
+            }
+        }
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 5px;
+        z-index: 2;
+        display: none;
+        @include pad{
+            display: block;
+        }
+        .toggler {
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            z-index: 3;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            opacity: 0;
+
+            &:checked+.hamburger>div {
+                transform: rotate(135deg);
+            }
+
+            &:checked+.hamburger>div:before,
+            &:checked+.hamburger>div:after {
+                top: 0;
+                transform: rotate(90deg);
+            }
+
+            /* On Hover */
+            &:checked:hover+.hamburger>div {
+                transform: rotate(225deg);
+            }
+
+            /* Show Menu */
+            &:checked~.menu {
+                visibility: visible;
+            }
+
+            &:checked~.menu>div {
+                transform: scale(1);
+                transition-duration: 0.75s;
+            }
+
+            &:checked~.menu>div>div {
+                opacity: 1;
+                transition: opacity 0.5s ease 0.5s;
+            }
+        }
+        .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            visibility: hidden;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+            >div {
+                background: #ffc857;
+                border-radius: 50%;
+                width: 250vw;
+                height: 250vw;
+                display: flex;
+                flex: none;
+                align-items: center;
+                justify-content: center;
+                transform: scale(0);
+                transition: all 0.5s ease;
+                >div {
+                    /* ==選單文字== */
+                    text-align: center;
+                    max-width: 50vw;
+                    max-height: 100vh;
+                    opacity: 0;
+                    transition: opacity 0.5s ease;
+                    >ul {
+                        margin-top: 1em;
+                        >li {
+                            color: map-get($color, headerfont );
+                            padding: 0.5em;
+        
+                            >a {
+                                color: map-get($color, headerfont);
+                                text-decoration: none;
+                                transition: color 0.4s ease;
+        
+                                &:hover {
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .hamburger {
+            position: absolute;
+            top: 0;
+            left: 5px;
+            z-index: 2;
+            width: 30px;
+            height: 60px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+            >div {
+                position: relative;
+                flex: none;
+                width: 100%;
+                height: 2px;
+                background: black;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.4s ease;
+    
+                &::before,
+                &::after {
+                    content: "";
+                    position: absolute;
+                    z-index: 2;
+                    top: -10px;
+                    width: 100%;
+                    height: 2px;
+                    background: black;
+                }
+    
+                &::after {
+                    top: 10px;
+                }
             }
         }
     }

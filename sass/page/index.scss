@@ -1,4 +1,4 @@
-#news {
+#news {   
     h3 {
         margin-top: 42px;
         margin-bottom: 27px;
@@ -7,6 +7,8 @@
     }
 
     ul {
+        //暫時
+        overflow: hidden;
         display: flex;
         justify-content: center;
 
@@ -90,6 +92,8 @@
     align-items: center;
     color: #558b6e;
     padding-bottom: 60px;
+    //暫時
+    overflow: hidden;
 
     h3 {
         margin-top: 105px;
