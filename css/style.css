@@ -48,7 +48,8 @@ body {
 }
 
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .i_mealData_BK {
@@ -64,7 +65,8 @@ body {
   max-width: 720px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   width: 100%;
   position: absolute;
   background-color: #D3E0BE;
@@ -126,13 +128,18 @@ body {
 }
 
 .i_mealData_BK .i_mealData .i_mealMain {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
 }
 
 @media (max-width: 1024px) {
   .i_mealData_BK .i_mealData .i_mealMain {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 
@@ -145,7 +152,9 @@ body {
 
 @media (max-width: 1024px) {
   .i_mealData_BK .i_mealData .i_mealMain .i_meal {
-    order: 2;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
     margin: 30px 45px 65px 42px;
   }
 }
@@ -166,7 +175,9 @@ body {
 
 @media (max-width: 1024px) {
   .i_mealData_BK .i_mealData .i_mealMain .i_mealDataContent {
-    order: 1;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
     margin-left: 85px;
   }
 }
@@ -191,7 +202,8 @@ body {
   max-width: 720px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   width: 100%;
   position: absolute;
   background-color: #D3E0BE;
@@ -212,8 +224,12 @@ body {
 }
 
 .i_reservation_BK .i_reservationData .i_reservationContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .i_reservation_BK .i_reservationData .i_reservationContent .i_calendar {
@@ -224,12 +240,16 @@ body {
 
 .i_reservation_BK .i_reservationData .i_reservationContent .i_people {
   margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   background-color: #FFC857;
 }
 
 .i_reservation_BK .i_reservationData .i_reservationContent .i_pets {
   margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   background-color: #FFC857;
 }
@@ -247,14 +267,22 @@ body {
   max-width: 720px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   width: 100%;
   position: absolute;
   background-color: #D3E0BE;
   border-radius: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .i_shoppingList_BK .i_shoppingList .i_closeButton img {
@@ -275,8 +303,12 @@ body {
 }
 
 .i_shoppingList_BK .i_shoppingList .i_shoppingListContent section table tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .i_shoppingList_BK .i_shoppingList .i_shoppingListContent section table tr:not(:first-child) {
@@ -352,9 +384,15 @@ body {
 }
 
 header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   background-color: #FFC857;
   height: 87px;
   overflow: hidden;
@@ -362,7 +400,9 @@ header {
 
 @media (max-width: 1024px) {
   header {
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
     width: 100%;
     position: fixed;
     top: 0;
@@ -382,6 +422,8 @@ header .i_logo img {
 }
 
 header .i_navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -392,13 +434,19 @@ header .i_navigation {
 }
 
 header .i_navigation li {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 header .i_navigation li:hover img {
   opacity: 1;
-  transform: translateY(0px);
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  -webkit-transition: .4s;
   transition: .4s;
 }
 
@@ -406,13 +454,18 @@ header .i_navigation li img {
   max-width: 33px;
   margin-bottom: -15px;
   opacity: 0;
-  transform: translateY(30px);
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
 }
 
 header .i_navigation li a {
   color: #734b23;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 header .i_navigation li:not(:first-child) {
@@ -429,6 +482,8 @@ header .i_navigation li.i_click img {
 }
 
 header .i_accountShopping {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-right: 54px;
 }
@@ -470,17 +525,20 @@ header nav .toggler {
 }
 
 header nav .toggler:checked + .hamburger > div {
-  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
 }
 
 header nav .toggler:checked + .hamburger > div:before,
 header nav .toggler:checked + .hamburger > div:after {
   top: 0;
-  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 
 header nav .toggler:checked:hover + .hamburger > div {
-  transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
+          transform: rotate(225deg);
 }
 
 header nav .toggler:checked ~ .menu {
@@ -488,12 +546,15 @@ header nav .toggler:checked ~ .menu {
 }
 
 header nav .toggler:checked ~ .menu > div {
-  transform: scale(1);
-  transition-duration: 0.75s;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition-duration: 0.75s;
+          transition-duration: 0.75s;
 }
 
 header nav .toggler:checked ~ .menu > div > div {
   opacity: 1;
+  -webkit-transition: opacity 0.5s ease 0.5s;
   transition: opacity 0.5s ease 0.5s;
 }
 
@@ -505,9 +566,15 @@ header nav .menu {
   height: 100%;
   visibility: hidden;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 header nav .menu > div {
@@ -515,11 +582,21 @@ header nav .menu > div {
   border-radius: 50%;
   width: 250vw;
   height: 250vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex: none;
-  align-items: center;
-  justify-content: center;
-  transform: scale(0);
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 
@@ -529,6 +606,7 @@ header nav .menu > div > div {
   max-width: 50vw;
   max-height: 100vh;
   opacity: 0;
+  -webkit-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease;
 }
 
@@ -544,6 +622,7 @@ header nav .menu > div > div > ul > li {
 header nav .menu > div > div > ul > li > a {
   color: #734b23;
   text-decoration: none;
+  -webkit-transition: color 0.4s ease;
   transition: color 0.4s ease;
 }
 
@@ -559,20 +638,35 @@ header nav .hamburger {
   width: 60px;
   height: 60px;
   padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 header nav .hamburger > div {
   position: relative;
-  flex: none;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
   width: 100%;
   height: 2px;
   background: #734B23;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
 
@@ -593,9 +687,16 @@ header nav .hamburger > div::after {
 footer {
   color: white;
   background-color: #915727;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 footer a {
@@ -603,12 +704,19 @@ footer a {
 }
 
 footer .i_footerWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 footer .i_footerWrapper .i_footerLeft {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-top: 42px;
   text-align: center;
@@ -616,13 +724,19 @@ footer .i_footerWrapper .i_footerLeft {
 
 @media (max-width: 1024px) {
   footer .i_footerWrapper .i_footerLeft {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 
 @media (max-width: 375px) {
   footer .i_footerWrapper .i_footerLeft {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 
@@ -660,12 +774,17 @@ footer .i_footerWrapper .i_footerRight {
 }
 
 footer .i_footerWrapper .i_footerRight li {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
 @media (max-width: 1024px) {
   footer .i_footerWrapper .i_footerRight li {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 
@@ -701,8 +820,12 @@ footer .i_copyright {
 
 #news ul {
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #news ul li {
@@ -716,7 +839,8 @@ footer .i_copyright {
 
 #news ul li img {
   width: 250px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #news ul li div {
@@ -769,9 +893,16 @@ footer .i_copyright {
 #location {
   background-image: url("../img/index/map.png");
   background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: #558b6e;
   padding-bottom: 60px;
   overflow: hidden;
@@ -828,6 +959,295 @@ footer .i_copyright {
   margin-top: 15px;
 }
 
+/* ----- 旅館banner動畫 -----*/
+.h_banner {
+  margin-bottom: 60px;
+}
+
+/* @media(max-width: 375px){
+    .h_banner{
+        margin-bottom: 10px;
+    }
+} */
+/* .h_banner img{} */
+/* ----- 房型選擇跟介紹-----*/
+.h_room {
+  margin: 0 54px;
+  margin-bottom: 36px;
+}
+
+/* @media(max-width: 375px){
+    .h_room{
+        margin: 0;
+        要留邊嗎？
+    }
+} */
+.h_type {
+  margin-bottom: 18px;
+}
+
+.h_type button {
+  background-color: rgba(255, 200, 87, 0.15);
+  color: #707070;
+  font-size: 19px;
+  font-weight: bold;
+  margin-right: 48px;
+  padding: 18px 27px;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+}
+
+.h_type button:hover {
+  background-color: #ffc857;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  /* 這裡動畫要弄什麼? */
+}
+
+/* @media(max-width: 375px){
+    .h_type{
+        margin-bottom: 0;
+        改兩層置中還是？
+    }
+
+    .h_type button{
+        margin-right: 10px;
+        margin-bottom: 10px;
+        padding: 5px 15px;
+        縮小這樣會怪怪的嗎 按鈕很大顆
+    }
+} */
+.h_photo {
+  margin-bottom: 18px;
+}
+
+.h_bigimage {
+  margin-bottom: 18px;
+  /* 圖片失真 */
+}
+
+/* .h_bigimage img{} */
+.h_smallimage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.h_smallimage .h_left {
+  margin-right: 18px;
+  width: calc((100% - 18px) / 2);
+}
+
+.h_smallimage .h_right {
+  width: calc((100% - 18px) / 2);
+}
+
+/* @media(max-width: 375px){
+    .h_bigimage{
+        margin-bottom: 10px;
+    }
+
+    .h_smallimage .h_left{
+        margin-right: 10px;
+        width: calc((100% - 10px) / 2);
+    }
+    
+    .h_smallimage .h_right{
+        width: calc((100% - 10px) / 2);
+    }
+縮小的間距
+} */
+.h_introduction {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* @media(max-width: 375px){
+    .h_introduction{
+        display: block;
+        確認背景 調整間距
+    }
+} */
+.h_device {
+  background-image: url(../img/hotel/h_device_bg.png);
+  background-size: cover;
+  width: calc(((100% - 18px) / 10) * 3.5);
+  margin-right: 18px;
+  /* padding-top: 36px; */
+  /* 上面有留了不知道的距離>< */
+  padding-left: 48px;
+  padding-right: 48px;
+  border-radius: 60px;
+}
+
+/* @media(max-width: 375px){
+    .h_device{
+        width: 100%;
+    }
+} */
+.h_device h3 {
+  color: #707070;
+  font-weight: bold;
+  /* 共用設定沒有吃到QQ */
+  /* margin-bottom: 18px; */
+  /* 上面有留了不知道的距離>< */
+}
+
+/* .h_list{} */
+.h_list ul {
+  /* margin-bottom: 36px; */
+  /* 下面有留了不知道的距離>< */
+}
+
+/* .h_list li{
+    上下的間距自動有了O_O
+} */
+.h_list li img {
+  width: 21px;
+  display: inline-block;
+}
+
+.h_list li h4 {
+  color: #000000;
+  font-size: 21px;
+  font-weight: bold;
+  /* 完全沒吃到設定 */
+  margin-left: 6px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.h_list li p {
+  color: #707070;
+  font-size: 16px;
+  margin-left: 30px;
+}
+
+.h_reserve {
+  background-image: url(../img/hotel/h_reserve_bg.png);
+  /* 延伸不夠下去 人被咖掉 */
+  background-size: cover;
+  width: calc(((100% - 18px) / 10) * 6.5);
+  /* padding-top: 36px; */
+  /* 上面有留了不知道的距離>< */
+  padding-left: 48px;
+  padding-right: 48px;
+  border-radius: 60px;
+}
+
+/* @media(max-width: 375px){
+    .h_reserve{
+        width: 100%;
+    }
+} */
+.h_reserve h3 {
+  color: #707070;
+  font-weight: bold;
+  /* 共用設定沒有吃到QQ */
+  /* margin-bottom: 18px; */
+  /* 上面有留了不知道的距離 跟左邊衛浴不等高 */
+}
+
+.h_reserve h4 {
+  color: #000000;
+  font-size: 21px;
+  font-weight: bold;
+  /* 共用沒吃到 */
+  line-height: 36px;
+  /* margin-bottom: 48px; */
+  /* 下面留有空間Q */
+}
+
+.h_reserve h1 {
+  color: #F39800;
+  font-size: 30px;
+  font-weight: bold;
+  /* 共用沒吃到 */
+  text-align: center;
+  /* margin-bottom: 19px; */
+  /* 下面留有一點空間了 */
+}
+
+.h_reserve button {
+  background-color: #F39800;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 20px 16px;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  /*按鈕怎麼置中ＱＱ*/
+}
+
+.h_reserve button:hover {
+  /*hover要什麼顏色*/
+  background-color: red;
+  color: #000000;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  /* 這裡動畫要弄什麼? */
+}
+
+.h_reserve img {
+  width: 21px;
+  /* 跟著按鈕跑 */
+}
+
+/*----- 旅館Q&A-----*/
+.h_faq1, .h_faq2 {
+  margin-bottom: 18px;
+}
+
+.h_faq3 {
+  margin-bottom: 36px;
+}
+
+.h_flip {
+  background-color: #FFC857;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 11px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  /*張開的時候內文的圓角問題？*/
+  text-align: center;
+  cursor: pointer;
+  /* 右邊黑色三角形放圖片嗎?? */
+}
+
+.h_panel {
+  background-color: #F2EFEF;
+  color: #000000;
+  font-size: 16px;
+  line-height: 35px;
+  /* 增加下面的空間了@@ */
+  padding: 6px 21px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  display: none;
+}
+
+.h_panel .h_notice {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.h_panel li img {
+  width: 13px;
+  height: 100%;
+  /* 高度變形了OAO */
+  /* 這樣設不知道可不可以 */
+  margin-top: 10px;
+  margin-right: 19px;
+}
+
+/*手機版 是不是要調li斷句 不然好亂ＱＱ*/
 .c_banner {
   font-size: 0;
 }
@@ -838,18 +1258,26 @@ footer .i_copyright {
 
 .c_nav {
   background-color: #E4E4E4;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 300px;
   width: 100vw;
 }
 
 .c_nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 800px;
   height: 175px;
   margin-top: 60px;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .c_nav li {
@@ -871,6 +1299,8 @@ footer .i_copyright {
 
 .c_content {
   background-color: #E4E4E4;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100vw;
 }
@@ -918,6 +1348,8 @@ footer .i_copyright {
 
 .c_report_title {
   margin-top: 43px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
 }
@@ -947,6 +1379,8 @@ footer .i_copyright {
 }
 
 .c_report_light {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -957,6 +1391,8 @@ footer .i_copyright {
 }
 
 .c_report_light ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-left: 15px;
 }
@@ -995,6 +1431,8 @@ footer .i_copyright {
 }
 
 .c_report_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: 0 auto;
   width: 1000px;
@@ -1003,7 +1441,9 @@ footer .i_copyright {
 }
 
 .c_report_content ul {
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 .c_report_content li {
@@ -1675,9 +2115,12 @@ footer .i_copyright {
 
 .c_doctor_introduce {
   width: 700px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: 0 auto;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .c_doctor_introduce_left {
