@@ -1,15 +1,16 @@
+
 .c_banner{
     font-size: 0;
     img{
-        width:100vw;
+        max-width:1263px;
     }
 }
 .c_nav{
-    background-color: #E4E4E4;
+    
     display: flex;
     justify-content: center;
+    max-width:1263px;
     height: 300px;
-    width: 100vw;
     ul{
        display: flex;
        width: 800px;
@@ -40,9 +41,10 @@
  }
 }
 .c_content{
-    background-color: #E4E4E4;
+  
     display: flex;
-    width: 100vw;
+    max-width:1263px;
+    margin-bottom: 50px;
     img{
         display: block;
         width: 300px;
@@ -52,7 +54,7 @@
     }
 }
 .c_right_content_t1{
-
+    margin: 0 20px;
     h3{
        font-size: 24px;
        font-weight: bold;
@@ -61,13 +63,14 @@
     p{
        font-size: 19px;
        margin-bottom: 21px;
-       width: 730px;
+       max-width: 730px;
        line-height: 2;
+    
    
     }
 }
 .c_right_content_t2{
-
+    margin: 0 20px;
     h3{
     font-size: 24px;
     font-weight: bold;
@@ -75,7 +78,7 @@
 }
     p{
     font-size: 19px;
-    width: 730px;
+    max-width: 730px;
     line-height: 2;
 
 }
