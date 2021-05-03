@@ -1144,15 +1144,14 @@ footer .i_copyright {
 }
 
 .c_banner img {
-  width: 100vw;
+  max-width: 1263px;
 }
 
 .c_nav {
-  background-color: #E4E4E4;
   display: flex;
   justify-content: center;
+  max-width: 1263px;
   height: 300px;
-  width: 100vw;
 }
 
 .c_nav ul {
@@ -1181,9 +1180,9 @@ footer .i_copyright {
 }
 
 .c_content {
-  background-color: #E4E4E4;
   display: flex;
-  width: 100vw;
+  max-width: 1263px;
+  margin-bottom: 50px;
 }
 
 .c_content img {
@@ -1192,6 +1191,10 @@ footer .i_copyright {
   height: 492px;
   margin-left: 60px;
   margin-right: 57px;
+}
+
+.c_right_content_t1 {
+  margin: 0 20px;
 }
 
 .c_right_content_t1 h3 {
@@ -1203,8 +1206,12 @@ footer .i_copyright {
 .c_right_content_t1 p {
   font-size: 19px;
   margin-bottom: 21px;
-  width: 730px;
+  max-width: 730px;
   line-height: 2;
+}
+
+.c_right_content_t2 {
+  margin: 0 20px;
 }
 
 .c_right_content_t2 h3 {
@@ -1215,7 +1222,7 @@ footer .i_copyright {
 
 .c_right_content_t2 p {
   font-size: 19px;
-  width: 730px;
+  max-width: 730px;
   line-height: 2;
 }
 
@@ -1224,7 +1231,7 @@ footer .i_copyright {
 }
 
 .c_illustration1 img {
-  width: 1263px;
+  max-width: 1263px;
 }
 
 .c_report_title {
@@ -1948,16 +1955,18 @@ footer .i_copyright {
 }
 
 .c_illustration2 img {
-  width: 1263px;
+  max-width: 1263px;
 }
 
 .suggestion {
   background-image: url("../img/clinic/Group 2462.png");
-  width: 850px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  max-width: 850px;
   height: 430px;
   display: block;
   margin: 0 auto;
-  background-repeat: no-repeat;
+  margin-top: 50px;
   margin-bottom: 50px;
 }
 
@@ -1966,33 +1975,32 @@ footer .i_copyright {
 }
 
 .c_illustration img {
-  width: 1263px;
+  max-width: 1263px;
+}
+
+.c_emergency_info {
+  margin: 0 100px;
 }
 
 .c_emergency_info h3 {
   font-size: 30px;
   color: red;
-  margin-left: 50px;
   margin-top: 50px;
   margin-bottom: 30px;
 }
 
 .c_emergency_info p {
   font-size: 19px;
-  width: 1150px;
   line-height: 1.6;
-  margin-left: 50px;
 }
 
 .c_doctor_introduce {
   width: 700px;
   display: flex;
   margin: 0 auto;
+  margin-top: 80px;
+  margin-bottom: 80px;
   justify-content: space-around;
-}
-
-.c_doctor_introduce_left {
-  font-size: 0;
 }
 
 .c_doctor_introduce_left img {
@@ -2005,7 +2013,149 @@ footer .i_copyright {
   border-radius: 20px;
 }
 
-.c_doctor_introduce_right p {
+.c_doctor_introduce_right_inner {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.c_doctor_introduce_right_inner h3 {
+  font-size: 24px;
+  text-align: center;
+  color: #FFC857;
+  line-height: 1.8;
+}
+
+.c_doctor_introduce_right_inner p {
   font-size: 19px;
+  text-align: center;
+  line-height: 2;
+  padding: 0 15PX;
+}
+
+.c_emergency_item {
+  margin: 0 100px;
+}
+
+.c_emergency_item h3 {
+  font-size: 30px;
+  color: red;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.c_emergency_item img {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.c_emergency_item .c_item_top {
+  display: flex;
+  margin: 38px;
+}
+
+.c_emergency_item .c_item_top .c_item1 {
+  display: flex;
+}
+
+.c_emergency_item .c_item_top .c_item1 .c_item1_left {
+  width: 200px;
+  height: 300px;
+  background-color: #FFC857;
+}
+
+.c_emergency_item .c_item_top .c_item1 .c_item1_left p {
+  text-align: center;
+  font-size: 19px;
+  line-height: 300px;
+}
+
+.c_emergency_item .c_item_top .c_item2 {
+  display: flex;
+}
+
+.c_emergency_item .c_item_top .c_item2 .c_item2_right {
+  width: 200px;
+  height: 300px;
+  background-color: #D3E0BE;
+}
+
+.c_emergency_item .c_item_top .c_item2 .c_item2_right p {
+  text-align: center;
+  font-size: 19px;
+  line-height: 300px;
+}
+
+.c_emergency_item .c_item_mid {
+  display: flex;
+  margin: 38px;
+}
+
+.c_emergency_item .c_item_mid .c_item3 {
+  display: flex;
+}
+
+.c_emergency_item .c_item_mid .c_item3_right {
+  width: 200px;
+  height: 300px;
+  background-color: #D3E0BE;
+}
+
+.c_emergency_item .c_item_mid .c_item3_right p {
+  text-align: center;
+  font-size: 19px;
+  line-height: 300px;
+}
+
+.c_emergency_item .c_item_mid .c_item4 {
+  display: flex;
+}
+
+.c_emergency_item .c_item_mid .c_item4 .c_item4_left {
+  width: 200px;
+  height: 300px;
+  background-color: #FFC857;
+}
+
+.c_emergency_item .c_item_mid .c_item4 .c_item4_left p {
+  text-align: center;
+  font-size: 19px;
+  line-height: 300px;
+}
+
+.c_emergency_item .c_item_bottom {
+  display: flex;
+  margin: 38px;
+}
+
+.c_emergency_item .c_item_bottom .c_item5 {
+  display: flex;
+}
+
+.c_emergency_item .c_item_bottom .c_item5 .c_item5_left {
+  width: 200px;
+  height: 300px;
+  background-color: #FFC857;
+}
+
+.c_emergency_item .c_item_bottom .c_item5 .c_item5_left p {
+  text-align: center;
+  font-size: 19px;
+  line-height: 300px;
+}
+
+.c_emergency_item .c_item_bottom .c_item6 {
+  display: flex;
+}
+
+.c_emergency_item .c_item_bottom .c_item6 .c_item6_right {
+  width: 200px;
+  height: 300px;
+  background-color: #D3E0BE;
+}
+
+.c_emergency_item .c_item_bottom .c_item6 .c_item6_right p {
+  text-align: center;
+  font-size: 19px;
+  line-height: 300px;
 }
 /*# sourceMappingURL=style.css.map */

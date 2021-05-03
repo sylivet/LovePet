@@ -1,33 +1,34 @@
+
 .c_illustration{
     font-size: 0;
     img{
-        width: 1263px;
+        max-width: 1263px;
     }
 }
 .c_emergency_info{
-
+    margin: 0 100px;
     h3{
     font-size: 30px;
     color: red;
-    margin-left: 50px;
     margin-top: 50px;
     margin-bottom: 30px;
 }
     p{
     font-size: 19px;
-    width: 1150px;
     line-height: 1.6;
-    margin-left: 50px;
 }
 }
 .c_doctor_introduce{
     width: 700px;
     display: flex;
     margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 80px;
     justify-content: space-around;
+    
 }
 .c_doctor_introduce_left{
-    font-size: 0;
+    
     img{
         width: 270px;
         height: 330px;
@@ -37,11 +38,166 @@
 .c_doctor_introduce_right{
     background-color: #F2F2F2;
     border-radius: 20px;
+    
+}
+.c_doctor_introduce_right_inner{
+    margin-top: 50px;
+    margin-bottom: 50px;
     h3{
-
+        font-size: 24px;
+        text-align: center;
+        color:#FFC857;
+        line-height: 1.8;
     }
     p{
         font-size:19px;
+        text-align: center;
+        line-height: 2;
+        padding: 0 15PX;
     }
 }
+.c_emergency_item{
+    margin: 0 100px;
+    h3{
+        font-size: 30px;
+        color: red;
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+    img{
+        max-width: 300px;
+        max-height: 300px;
+    }
+    .c_item_top{
+        display: flex;
+        margin: 38px;
+        .c_item1{
+            display: flex;
+            
+           .c_item1_left{
+            width: 200px;
+            height: 300px;
+            background-color:#FFC857;
+            
+                p{
+                    text-align:center;
+                    font-size: 19px;
+                    line-height: 300px;
+                }
+           } 
+           .c_item1_right{
+                
+                img{
+                    
+                }
+           }
+        }
+        .c_item2{
+            display:flex;
+           
+            .c_item2_left{
+                img{
+                    
+                }
+            } 
+            .c_item2_right{
+                width: 200px;
+                height: 300px;
+                background-color:#D3E0BE;
+                p{
+                    text-align:center;
+                    font-size: 19px;
+                    line-height: 300px;
+                }
+            }
+        }
+    }
+    .c_item_mid{
+        display: flex;
+        margin: 38px;
+        .c_item3{
+            display: flex;
+           .c_item3_left{
+           
+                img{
+                    
+                }
+            }
+                
+           } 
+            .c_item3_right{
+                width: 200px;
+                height: 300px;
+                background-color:#D3E0BE;
+                p{
+                    text-align:center;
+                    font-size: 19px;
+                    line-height: 300px;
+                }
+                
+            }
+        .c_item4{
+            display:flex;
+            .c_item4_left{
+                width: 200px;
+                height: 300px;
+                background-color:#FFC857;
+                p{
+                    text-align:center;
+                    font-size: 19px;
+                    line-height: 300px;
+                }
+                
+            } 
+            .c_item4_right{
+                
+                img{
+                    
+                }
+            }
+        }
+    }
+    .c_item_bottom{
+        display: flex;
+        margin: 38px;
+        .c_item5{
+            display: flex;
+            
+           .c_item5_left{
+            width: 200px;
+            height: 300px;
+            background-color:#FFC857;
+            
+                p{
+                    text-align:center;
+                    font-size: 19px;
+                    line-height: 300px;
+                }
+           } 
+           .c_item5_right{
+            
+                img{
+                   
+                }
+           }
+        }
+        .c_item6{
+            display:flex;
+            .c_item6_left{
+                img{
 
+                }
+            } 
+            .c_item6_right{
+                width: 200px;
+                height: 300px;
+                background-color:#D3E0BE;
+                p{
+                    text-align:center;
+                    font-size: 19px;
+                    line-height: 300px;
+                }
+            }
+        }
+    }
+}
