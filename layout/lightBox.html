@@ -1,232 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="../css/style.css"/>
-        <title>Document</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../css/tavo-calendar.css">
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Document</title>
+</head>
 
-    <body>
-        <!-- 餐廳燈箱 1 -->
-        <!-- <div class="i_mealData_BK">
-                        <div class="i_mealData">
-                            <a href="#" class="i_closeButton">
-                                <img src="img/common/close.png" alt="">
-                            </a>
-                            <div class="i_mealName">
-                                <h2>元氣滿滿配方</h2>
-                            </div>
-                            <div class="i_mealIMG">
-                                <img src="img/common/dogfreshfood.png" alt=""/>
-                            </div>
-                            <div class="i_mealMain">
-                                <div class="i_meal i_button">
-                                    <p>元氣滿滿配方</p>
-                                    <div class="i_orangeLine"></div>
-                                </div>
-                                <div>
-                                    <p class="i_mealDataContent">豐富的牛肉肉塊，加上細碎的燉菜，還有蘋果以及枸杞，讓狗狗除了吃得開心，也達到養生的效果。讓狗狗建立好體質，遠離醫生。</p>
-                                </div>
-                            </div>
-                            <a href="#" class="i_addMenuButton i_button">加入菜單</a>
-                        </div>
-                    </div> -->
-        <!-- <div class="i_mealData_BK">
-                        <div class="i_mealData">
-                            <a href="#" class="i_closeButton">
-                                <img src="img/common/close.png" alt="">
-                            </a>
-                            <div class="i_mealName">
-                                <h2>雞肉沙拉</h2>
-                            </div>
-                            <div class="i_mealIMG">
-                                <img src="img/common/salad.png" alt=""/>
-                            </div>
-                            <div class="i_mealMain">
-                                <div class="i_meal i_button">
-                                    <p>雞肉沙拉</p>
-                                    <div class="i_orangeLine"></div>
-                                </div>
-                                <div>
-                                    <p class="i_mealDataContent">炎炎夏日，來道清爽的雞肉沙拉，讓狗狗攝取一天運動的養分，添加芹菜及番茄等涼性蔬菜，有助於清熱解暑，再加上適量的油脂，提高身體的吸收度，最後淋上特製的沙拉醬，保證毛孩們食慾大開。
-                                    </p>
-                                </div>
-                            </div>
-                            <a href="#" class="i_addMenuButton i_button">加入菜單</a>
-                        </div>
-                    </div> -->
-        <!-- 餐廳燈箱 2 -->
-        <div class="i_mealData_BK">
-                        <div class="i_mealData">
-                            <div class="i_menu">
-                                <p>主菜</p>
-                                <div class="i_orangeLine"></div>
-                            </div>
-                            <a href="#" class="i_closeButton">
-                                <img src="../img/common/close.png" alt="">
-                            </a>
-                            <div class="i_mealName">
-                                <h2>安格斯牛肉漢堡</h2>
-                            </div>
-                            <div class="i_mealIMG">
-                                <img src="../img/common/hamburger.png" alt=""/>
-                            </div>
-                            <div class="i_mealMain">
-                                <div class="i_meal i_button">
-                                    <p>美式餐點</p>
-                                    <div class="i_orangeLine"></div>
-                                </div>
-                                <div>
-                                    <p class="i_mealDataContent">選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。
-                                    </p>
-                                </div>
-                                <a href="#" class="i_addMenuButton i_button">加入菜單</a>
-                            </div>
-                        </div>
-        <!-- <div class="i_mealData_BK">
-                            <div class="i_mealData">
-                                <div class="i_menu">
-                                    <p>主菜</p>
-                                    <div class="i_orangeLine"></div>
-                                </div>
-                                <a href="#" class="i_closeButton">
-                                    <img src="img/common/close.png" alt="">
-                                </a>
-                                <div class="i_mealName">
-                                    <h2>番茄義大利麵</h2>
-                                </div>
-                                <div class="i_mealIMG">
-                                    <img src="img/common/spaghetti.png" alt=""/>
-                                </div>
-                                <div class="i_mealMain">
-                                    <div class="i_meal i_button">
-                                        <p>義式餐點</p>
-                                        <div class="i_orangeLine"></div>
-                                    </div>
-                                    <div>
-                                        <p class="i_mealDataContent">美味的番茄肉醬義大利麵，關鍵來自於肉的選擇。選用香味十足的牛肉，再加上義式香腸做食物的基底，搭配新鮮的小番茄及濃縮的醬料，最後撒上滿滿的起士粉，讓舌尖上的味蕾，更上一層樓。
-                                        </p>
-                                    </div>
-                                    <a href="#" class="i_addMenuButton i_button">加入菜單</a>
-                                </div>
-                            </div> -->
-        <!-- 餐廳燈箱 3 -->
-            <!-- <div class="i_reservation_BK"> <div class="i_reservationData">
-                <a href="#" class="i_closeButton">
-                    <img src="img/common/close.png" alt="">
-                </a>
-                <div class="i_reservationTitle">
-                    <h2>預訂內容</h2>
+<body>
+    <!-- 餐廳燈箱 1 -->
+    <div class="i_mealData_BK">
+        <div class="i_mealData">
+            <a href="#" class="i_closeButton">
+                <img src="../img/common/close.png" alt="">
+            </a>
+            <div class="i_mealName">
+                <h2>元氣滿滿配方</h2>
+            </div>
+            <div class="i_mealIMG">
+                <img src="../img/common/dogfreshfood.png" alt="" />
+            </div>
+            <div class="i_mealMain">
+                <div class="i_meal i_button">
+                    <p>元氣滿滿配方</p>
+                    <div class="i_orangeLine"></div>
                 </div>
-                <div class="i_reservationContent">
-                    <div>
-                        <div id="my-calendar"></div>
-                        <div class="i_people">
-                            <div>成人<select>
-                                    <option value="1">1</option>
-                                    <option value="1">2</option>
-                                    <option value="1">3</option>
-                                    <option value="1">4</option>
-                                </select>人</div>
-                            <div>孩童<select>
-                                    <option value="1">1</option>
-                                    <option value="1">2</option>
-                                    <option value="1">3</option>
-                                    <option value="1">4</option>
-                                </select>人</div>
-                        </div>
-                        <div class="i_pets">
-                            <div>狗<select>
-                                    <option value="1">1</option>
-                                    <option value="1">2</option>
-                                    <option value="1">3</option>
-                                    <option value="1">4</option>
-                                </select>隻</div>
-                            <div>貓<select>
-                                    <option value="1">1</option>
-                                    <option value="1">2</option>
-                                    <option value="1">3</option>
-                                    <option value="1">4</option>
-                                </select>隻</div>
-                        </div>
+                <div>
+                    <p class="i_mealDataContent">豐富的牛肉肉塊，加上細碎的燉菜，還有蘋果以及枸杞，讓狗狗除了吃得開心，也達到養生的效果。讓狗狗建立好體質，遠離醫生。</p>
+                </div>
+            </div>
+            <a href="#" class="i_addMenuButton i_button">加入菜單</a>
+        </div>
+    </div>
+    <div class="i_mealData_BK">
+        <div class="i_mealData">
+            <a href="#" class="i_closeButton">
+                <img src="../img/common/close.png" alt="">
+            </a>
+            <div class="i_mealName">
+                <h2>雞肉沙拉</h2>
+            </div>
+            <div class="i_mealIMG">
+                <img src="../img/common/salad.png" alt="" />
+            </div>
+            <div class="i_mealMain">
+                <div class="i_meal i_button">
+                    <p>雞肉沙拉</p>
+                    <div class="i_orangeLine"></div>
+                </div>
+                <div>
+                    <p class="i_mealDataContent">
+                        炎炎夏日，來道清爽的雞肉沙拉，讓狗狗攝取一天運動的養分，添加芹菜及番茄等涼性蔬菜，有助於清熱解暑，再加上適量的油脂，提高身體的吸收度，最後淋上特製的沙拉醬，保證毛孩們食慾大開。
+                    </p>
+                </div>
+            </div>
+            <a href="#" class="i_addMenuButton i_button">加入菜單</a>
+        </div>
+    </div>
+    <!-- 餐廳燈箱 2 -->
+    <div class="i_mealData_BK">
+        <div class="i_mealData">
+            <div class="i_menu">
+                <p>主菜</p>
+                <div class="i_orangeLine"></div>
+            </div>
+            <a href="#" class="i_closeButton">
+                <img src="../img/common/close.png" alt="">
+            </a>
+            <div class="i_mealName">
+                <h2>安格斯牛肉漢堡</h2>
+            </div>
+            <div class="i_mealIMG">
+                <img src="../img/common/hamburger.png" alt="" />
+            </div>
+            <div class="i_mealMain">
+                <div class="i_meal i_button">
+                    <p>美式餐點</p>
+                    <div class="i_orangeLine"></div>
+                </div>
+                <div>
+                    <p class="i_mealDataContent">選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。
+                    </p>
+                </div>
+                <a href="#" class="i_addMenuButton i_button">加入菜單</a>
+            </div>
+        </div>
+        <div class="i_mealData_BK">
+            <div class="i_mealData">
+                <div class="i_menu">
+                    <p>主菜</p>
+                    <div class="i_orangeLine"></div>
+                </div>
+                <a href="#" class="i_closeButton">
+                    <img src="../img/common/close.png" alt="">
+                </a>
+                <div class="i_mealName">
+                    <h2>番茄義大利麵</h2>
+                </div>
+                <div class="i_mealIMG">
+                    <img src="../img/common/spaghetti.png" alt="" />
+                </div>
+                <div class="i_mealMain">
+                    <div class="i_meal i_button">
+                        <p>義式餐點</p>
+                        <div class="i_orangeLine"></div>
                     </div>
                     <div>
-                        <div>您的寵物菜單</div>
-                        <div>您的菜單</div>
-                        <div></div>
-                        <div>總價 NT 300元</div>
-                        <div class="button">確認預約</div>
+                        <p class="i_mealDataContent">
+                            美味的番茄肉醬義大利麵，關鍵來自於肉的選擇。選用香味十足的牛肉，再加上義式香腸做食物的基底，搭配新鮮的小番茄及濃縮的醬料，最後撒上滿滿的起士粉，讓舌尖上的味蕾，更上一層樓。
+                        </p>
+                    </div>
+                    <a href="#" class="i_addMenuButton i_button">加入菜單</a>
+                </div>
+            </div>
+            <!-- 餐廳燈箱 3 -->
+            <div class="i_reservation_BK">
+                <div class="i_reservationData">
+                    <a href="#" class="i_closeButton">
+                        <img src="../img/common/close.png" alt="">
+                    </a>
+                    <div class="i_reservationTitle">
+                        <h2>預訂內容</h2>
+                    </div>
+                    <div class="i_reservationContent">
+                        <div class="i_combine">
+                            <div id="my-calendar"></div>
+                            <div class="i_people">
+                                <div>成人<select>
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                        <option value="1">4</option>
+                                    </select>人</div>
+                                <div>孩童<select>
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                        <option value="1">4</option>
+                                    </select>人</div>
+                            </div>
+                            <div class="i_pets">
+                                <div>狗<select>
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                        <option value="1">4</option>
+                                    </select>隻</div>
+                                <div>貓<select>
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                        <option value="1">4</option>
+                                    </select>隻</div>
+                            </div>
+                        </div>
+                        <div class="bookingMenu">
+                            <div>您的寵物菜單</div>
+                            <div>您的菜單</div>
+                            <div></div>
+                            <div>總價 NT 300元</div>
+                            <button type="button" class="i_search">確認預約</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div> -->
-        <!-- 購物車燈箱 -->
-        <!-- <div class="i_shoppingList_BK">
-                <div class="i_shoppingList">
-                    <a href="#" class="i_closeButton">
-                        <img src="img/common/close.png" alt="">
-                    </a>
-                    <div class="i_shoppingListContent">
-                        <div class="i_shoppingListTitle">
-                            <h2>購物車清單</h2>
+            <!-- 購物車燈箱 -->
+            <!-- <div class="i_shoppingList_BK">
+                                            <div class="i_shoppingList">
+                                                <a href="#" class="i_closeButton">
+                                                    <img src="img/common/close.png" alt="">
+                                                </a>
+                                                <div class="i_shoppingListContent">
+                                                    <div class="i_shoppingListTitle">
+                                                        <h2>購物車清單</h2>
+                                                    </div>
+                                                    <section>
+                                                        <table>
+                                                            <tr>
+                                                                <td><img src="#" alt=""></td>
+                                                                <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+                                                                <td>商品商品</td>
+                                                                <td>
+                                                                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                                                    <input type="text" id="number" value="1" readonly="readonly">
+                                                                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                                                </td>
+                                                                <td>NT 100元</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><img src="#" alt=""></td>
+                                                                <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+                                                                <td>商品商品</td>
+                                                                <td>
+                                                                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                                                    <input type="text" id="number" value="1" readonly="readonly">
+                                                                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                                                </td>
+                                                                <td>NT 100元</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><img src="#" alt=""></td>
+                                                                <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+                                                                <td>商品商品</td>
+                                                                <td>
+                                                                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                                                    <input type="text" id="number" value="1" readonly="readonly">
+                                                                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                                                </td>
+                                                                <td>NT 100元</td>
+                                                            </tr>
+                                                        </table>
+                                                    </section>
+                                                    <hr>
+                                                    <div></div>
+                                                    <div class="i_total">
+                                                        <h3>總價 NT 300元</h3>
+                                                    </div>
+                                                </div>
+                                                <div class="button">
+                                                    結帳
+                                                </div>
+                                            </div>
+                                        </div> -->
+            <!-- 旅館預約燈箱 1 -->
+            <!-- <div class="i_reservation_BK">
+                    <div class="i_reservationData">
+                        <a href="#" class="i_closeButton">
+                            <img src="../img/common/close.png" alt="">
+                        </a>
+                        <div class="i_reservationTitle">
+                            <h2>房況預約查詢</h2>
                         </div>
-                        <section>
-                            <table>
-                                <tr>
-                                    <td><img src="#" alt=""></td>
-                                    <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
-                                    <td>商品商品</td>
-                                    <td>
-                                        <i class="fa fa-minus-circle" aria-hidden="true"></i>
-                                        <input type="text" id="number" value="1" readonly="readonly">
-                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                    </td>
-                                    <td>NT 100元</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="#" alt=""></td>
-                                    <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
-                                    <td>商品商品</td>
-                                    <td>
-                                        <i class="fa fa-minus-circle" aria-hidden="true"></i>
-                                        <input type="text" id="number" value="1" readonly="readonly">
-                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                    </td>
-                                    <td>NT 100元</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="#" alt=""></td>
-                                    <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
-                                    <td>商品商品</td>
-                                    <td>
-                                        <i class="fa fa-minus-circle" aria-hidden="true"></i>
-                                        <input type="text" id="number" value="1" readonly="readonly">
-                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                    </td>
-                                    <td>NT 100元</td>
-                                </tr>
-                            </table>
-                        </section>
-                        <hr>
-                        <div></div>
-                        <div class="i_total">
-                            <h3>總價 NT 300元</h3>
-                        </div>
-                    </div>
-                    <div class="button">
-                        結帳
-                    </div>
-                </div>
-            </div> -->
-        <!-- 旅館預約燈箱 1 -->
-        <!-- 旅館預約燈箱 2 -->
-        <!-- 旅館預約燈箱 3 -->
-        <!-- 健檢預約燈箱 -->
-    </body>
+                        <div class="i_reservationContent">
+                            <div class="i_vacant">
+                                <div id="my-calendar"></div>
+                                <div>
+                                    <div class="i_people">
+                                        <div>成人<select>
+                                                <option value="1">1</option>
+                                                <option value="1">2</option>
+                                                <option value="1">3</option>
+                                                <option value="1">4</option>
+                                            </select>人</div>
+                                        <div>孩童<select>
+                                                <option value="1">1</option>
+                                                <option value="1">2</option>
+                                                <option value="1">3</option>
+                                                <option value="1">4</option>
+                                            </select>人</div>
+                                    </div>
+                                    <div class="i_pets">
+                                        <div>狗<select>
+                                                <option value="1">1</option>
+                                                <option value="1">2</option>
+                                                <option value="1">3</option>
+                                                <option value="1">4</option>
+                                            </select>隻</div>
+                                        <div>貓<select>
+                                                <option value="1">1</option>
+                                                <option value="1">2</option>
+                                                <option value="1">3</option>
+                                                <option value="1">4</option>
+                                            </select>隻</div>
+                                    </div>
+                                </div>
+                                <button class="i_search" type="button">查詢</button>
+                            </div>
+                        </div> -->
+            <!-- 旅館預約燈箱 2 -->
+            <!-- 旅館預約燈箱 3 -->
+            <!-- 健檢預約燈箱 -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"> </script>
+            <script src="../js/tavo-calendar.js"></script>
+            <script>
+                const myCalendar = new TavoCalendar('#my-calendar', {
+                    date: new Date(),
+                    range_select: true
+                })
+            </script>
+</body>
+</body>
 
 </html>
