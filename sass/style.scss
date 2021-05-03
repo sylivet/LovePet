@@ -7,9 +7,15 @@
 @import "mixins/mixins";
 // bootstrap
 // module
-@import "module/lightbox.scss";
+@import "module/lightbox";
 // layout
 @import "layout/header";
 @import "layout/footer";
 //page
 @import "page/index";
+@import "page/restaurant";
+@import "page/hotel";
+@import "page/mall";
+@import "page/clinic";
+@import "page/member";
+@import "page/backend";
