@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url(base/reset.css);
+@import url(../css/reset.css);
 h1 {
   font-size: 30px;
 }
@@ -826,11 +826,6 @@ footer .i_copyright {
   margin-top: 15px;
 }
 
-* {
-  box-sizing: border-box;
-  /* outline: 1px solid red; */
-}
-
 .c_banner {
   font-size: 0;
 }
@@ -909,10 +904,6 @@ footer .i_copyright {
   font-size: 19px;
   width: 730px;
   line-height: 2;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 .c_illustration1 {
@@ -1655,11 +1646,6 @@ footer .i_copyright {
   margin: 0 auto;
   background-repeat: no-repeat;
   margin-bottom: 50px;
-}
-
-* {
-  box-sizing: border-box;
-  outline: 1px solid red;
 }
 
 .c_illustration {
