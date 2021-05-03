@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+    outline: 1px solid red; 
+}
+.c_illustration{
+    font-size: 0;
+    img{
+        width: 1263px;
+    }
+}
+.c_emergency_info{
+
+    h3{
+    font-size: 30px;
+    color: red;
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+    p{
+    font-size: 19px;
+    width: 1150px;
+    line-height: 1.6;
+    margin-left: 50px;
+}
+}
+.c_doctor_introduce{
+    width: 700px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+.c_doctor_introduce_left{
+    font-size: 0;
+    img{
+        width: 270px;
+        height: 330px;
+        
+    }
+}
+.c_doctor_introduce_right{
+    background-color: #F2F2F2;
+    border-radius: 20px;
+    h3{
+
+    }
+    p{
+        font-size:19px;
+    }
+}
+
