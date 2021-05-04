@@ -11,7 +11,7 @@
 </head>
 
 <body>
-
+  <div id="header"></div>
   <div class="banner">
     <img src="img/mall/rough_cart-01@2x.png" alt="">
   </div>
@@ -35,7 +35,7 @@
 
     <div class="another"></div>
   </main>
-
+  <div id="footer"></div>
   <script>
 
     $('.another').load('./Supplies.html');//在首頁先預設是物品頁面
@@ -48,6 +48,11 @@
         $('.another div').css('display', 'none');//若等於空字串，another底下的div全部隱藏
       }
     })
+
+    $(function () {
+      $("#header").load("layout/header.html");
+      $("#footer").load("layout/footer.html");
+    });
   </script>
 </body>
 
