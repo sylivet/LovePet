@@ -4121,8 +4121,13 @@ li, p, td {
   line-height: 1;
 }
 
+<<<<<<< HEAD
 .m_msg_details img {
   width: 100px;
+=======
+.c_illustration img {
+  max-width: 1920px;
+>>>>>>> Tony
 }
 
 .m_msg_details li {
