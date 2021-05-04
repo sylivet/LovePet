@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        
+        <div id="header"></div>
 
 <!-- =================================================加入會員===================================================== -->
 
@@ -62,5 +62,14 @@
                 <p>備註事項二、這是備註事項二</p>
             </article>
         </div>
+        <div id="footer"></div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script>
+            $(function () {
+              $("#header").load("layout/header.html");
+              $("#footer").load("layout/footer.html");
+            });    
+          </script>
     </body>
 </html> 

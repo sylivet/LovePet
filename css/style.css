@@ -3674,14 +3674,6 @@ main {
   }
 }
 
-a {
-  text-decoration: none;
-  display: block;
-  color: #707070;
-  text-align: center;
-  font-size: 30px;
-}
-
 .m_wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3720,130 +3712,12 @@ a {
           flex-grow: 7;
 }
 
-aside h5 {
-  width: 100%;
-  padding: 40px 0;
-}
-
-aside .m_underline_1 {
-  width: 90%;
-  height: 1px;
-  background-color: #734b23;
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-aside ul {
-  -ms-flex-preferred-size: 60%;
-      flex-basis: 60%;
-  width: 100%;
-}
-
-aside input {
-  width: 50%;
-  border-radius: 20px;
-  padding: 10px;
-}
-
-aside {
-  background-color: #f2f2f2;
-}
-
-aside > div {
-  height: calc(100vh - 87px);
-  width: 100%;
-  text-align: center;
-}
-
-aside h5 img {
-  opacity: 0;
-}
-
-aside h5:hover {
-  background-color: #FFC857;
-}
-
-aside h5:hover img {
-  opacity: 1;
-}
-
-aside h5:hover a {
-  color: white;
-}
-
-aside h5:hover .m_imgblock {
-  opacity: 0;
-}
-
-aside ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-aside li {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-}
-
-aside li img {
-  opacity: 0;
-}
-
-aside li:hover {
-  background-color: #FFC857;
-}
-
-aside li:hover img {
-  opacity: 1;
-}
-
-aside li:hover a {
-  color: white;
-}
-
-aside li:hover .m_imgblock {
-  opacity: 0;
-}
-
-aside li.m_little_li {
-  -webkit-box-flex: 0.4;
-      -ms-flex-positive: 0.4;
-          flex-grow: 0.4;
-}
-
-aside img {
-  display: inline-block;
-  margin: 0 15px;
-  font-size: 0;
-}
-
 .m_underline_2 {
   width: 98%;
   height: 1px;
   background-color: #ccc;
   margin: 30px 0;
   display: inline-block;
-}
-
-main {
-  padding: 80px 50px;
-  text-align: center;
-}
-
-main h5 {
-  font-size: 30px;
-  color: #ffa990;
-  margin-top: 60px;
-}
-
-label, p {
-  font-size: 24px;
 }
 
 .m_person_pic {
@@ -3853,14 +3727,6 @@ label, p {
 
 .m_person_pic:hover {
   opacity: 0.7;
-}
-
-img {
-  opacity: 0.2;
-}
-
-img:hover {
-  opacity: 0.6;
 }
 
 ul.personal_info {
@@ -3952,21 +3818,6 @@ section input.m_btn:hover {
   background-color: #FFC857;
   margin: 30px 0 0;
   display: block;
-}
-
-main {
-  padding: 80px 50px;
-  text-align: center;
-}
-
-main h5 {
-  font-size: 30px;
-  color: #ffa990;
-  margin-top: 30px;
-}
-
-li, p, td {
-  font-size: 24px;
 }
 
 .m_get_type {
@@ -4124,14 +3975,6 @@ li, p, td {
   background-color: #ccc;
   margin: 30px 0;
   display: inline-block;
-}
-
-img {
-  opacity: 0.1;
-}
-
-img:hover {
-  opacity: 0.6;
 }
 
 main {

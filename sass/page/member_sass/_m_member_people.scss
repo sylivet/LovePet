@@ -57,24 +57,24 @@ $m_bg_color:#FFC857;
 
 //================================== 外層 ==================================//
 
-main{
-  padding: 80px 50px;
-  text-align: center;
+// main{
+//   padding: 80px 50px;
+//   text-align: center;
 
-  h5{
-    font-size: $m_title_fs;
-    color: $m_title_color;
+//   h5{
+//     font-size: $m_title_fs;
+//     color: $m_title_color;
   
-    margin-top: 60px;
-  }
-}
+//     margin-top: 60px;
+//   }
+// }
 
 
 //================================== 層 ==================================//
 
-label,p{
-  font-size: $m_content_fs;
-}
+// label,p{
+//   font-size: $m_content_fs;
+// }
 
 .m_person_pic{
   opacity: 0.4;
@@ -85,12 +85,12 @@ label,p{
 }
 
 
-img{
-  opacity: 0.2;
-  &:hover{
-    opacity: 0.6;
-  }
-}
+// img{
+//   opacity: 0.2;
+//   &:hover{
+//     opacity: 0.6;
+//   }
+// }
 
 
 
