@@ -1,0 +1,215 @@
+// *{
+//   outline: 1px solid red;
+//   font-style: Verdana;
+// }
+
+
+
+//================================== 變數 ==================================//
+$m_title_fs:30px;
+$m_content_fs:24px;
+$m_btn_fs:19px;
+
+$m_title_color:rgb(255,169,144);
+$m_line_color:#ccc;
+$m_bg_color:#FFC857;
+
+$m_item_title_color:rgb(186,212,135);
+$m_item_title_color2:rgb(112,112,112);
+$m_item_title_color3:rgb(211,224,190);
+
+
+//================================== 組件 ==================================//
+.m_underline_2{
+  width: 98%;
+  height: 1px;
+  background-color: $m_line_color;
+  margin: 0 0 30px;
+  display: inline-block;
+}
+
+.m_underline_3{
+  width: 100%;
+  height: 10px;
+  background-color: $m_bg_color;
+  margin: 30px 0 0;
+  display: block;
+}
+
+//================================== 模型 ==================================//
+
+@mixin m_input_style($width) {
+  li{
+    padding: 25px 0;
+  }
+  input{
+    width: $width;
+    border: 0;
+    border-bottom: 1px solid $m_line_color;
+    margin: 0 15px;
+  }
+}
+
+@mixin m_btn {
+  background-color: $m_bg_color;
+  width: 200px;
+  border: 0;
+  padding: 12px 0;
+  font-size: $m_btn_fs;
+  border-radius: 20px;
+
+  margin: 20px 0 45px;
+
+  &:hover{
+    color: white;
+    background-color: darken($m_bg_color, 20%);
+  }
+}
+
+@mixin m_item_style{
+  padding: 20px 15px;
+}
+
+@mixin m_line_h($line_h){
+  padding: $line_h 0;
+}
+
+//================================== 外層 ==================================//
+
+main{
+  padding: 80px 50px;
+  text-align: center;
+
+  h5{
+    font-size: $m_title_fs;
+    color: $m_title_color;
+  
+    margin-top: 30px;
+  }
+}
+
+//================================== 層 ==================================//
+
+li,p,td{
+  font-size: $m_content_fs;
+}
+
+.m_get_type{
+  margin-top: 30px;
+
+  display: flex;
+  justify-content: center;
+  li{
+    margin: 0 50px;
+  }
+}
+
+.m_item_details{
+  display: flex;
+  flex-wrap: wrap;
+
+
+  .m_item_title{
+    flex-basis: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    @include m_item_style();
+
+    background-color: $m_item_title_color;
+    p{
+      color: $m_item_title_color2;
+    }
+    span{
+      color: white;
+    }
+  }
+
+  li{
+    flex-basis: 50%;
+    //padding: 15px 0;
+
+    display: flex;
+    justify-content: flex-start;
+  }
+  h6{ 
+    margin: 0 15px;
+  }
+}
+
+.m_buy_details{
+  table{
+    width: 100%;
+  }
+  .m_item_pic{
+    width: 10%;
+  }
+  .m_item_id{
+    width: 30%;
+  }
+  .m_item_type{
+    width: 30%;
+  }
+  .m_item_amount{
+    width: 15%;
+  }
+  .m_item_price{
+    width: 15%;
+  }
+  img{
+    display: block;
+    margin: 0 auto;
+  }
+  td{
+    line-height:1 ;
+  }
+}
+
+.m_msg_details{
+  img{
+    width: 100px;
+  }
+  li{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .m_client_ask{
+    flex-direction: row;
+    text-align: right;
+    
+  }
+
+  .m_lovepet_re{
+    flex-direction: row-reverse;
+    text-align: left;
+    p:first-child{
+      text-align: right;
+      background-color: $m_item_title_color3;
+    }
+  }
+
+  article{
+    width: 70%;
+    margin: 15px;
+
+    p:first-child{
+      height: 60px;
+      line-height: 60px;  
+      
+      border-radius: 10px;
+      width: 100%;
+
+      padding: 0 15px;
+      box-sizing: border-box;
+
+      text-align: left;
+      background-color:$m_item_title_color;
+    }
+
+    p+p{
+      color:$m_item_title_color2;
+    }
+  }
+}

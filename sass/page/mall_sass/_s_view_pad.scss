@@ -1,0 +1,150 @@
+@import url('reset.css');
+
+@media (min-width:768px)and(max-width:1024px) {
+
+  body {
+    box-sizing: border-box;
+    font-family: 'Noto Sans TC', sans-serif;
+
+    .s_wrapper {
+      width: 100vw;
+      margin: 0 auto;
+
+      header img {
+        display: block;
+        width: 100vw;
+      }
+
+      main {
+        width: calc(100% - 100px);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+
+        .s_ph {
+          padding-top: 50px;
+          width: 55%;
+          // border: 1px solid red;
+
+          .s_big_ph {
+
+            img {
+              display: none;
+            }
+
+            .img_pad {
+              margin-bottom: 15px;
+              display: block;
+              width: 100%;
+            }
+          }
+
+          .s_small_ph {
+            padding-bottom: 50px;
+
+            img {
+              margin-bottom: 15px;
+              display: block;
+              width: 100%;
+            }
+          }
+        }
+
+        .s_text {
+          padding-top: 50px;
+          width: 40%;
+          // border: 1px solid red;
+
+          h3 {
+            font-size: 40px;
+            line-height: 60px;
+            font-weight: 700;
+            color: #707070;
+            // border: 1px solid red;
+          }
+
+          span {
+            font-size: 32px;
+            line-height: 58px;
+            font-weight: 400;
+            text-align: end;
+            color: #707070;
+          }
+
+          p {
+            font-size: 32px;
+            line-height: 58px;
+            color: #707070;
+            padding-top: 30px;
+            // border: 1px solid red;
+          }
+
+          .s_button {
+            display: flex;
+            padding: 20px 0;
+
+            .s_buy {
+              font-size: 30px;
+              width: 150px;
+              height: 55px;
+              border-radius: 50px;
+              border: 0px;
+              margin-right: 10px;
+            }
+
+            .s_buy:hover {
+              background-color: #f39800;
+            }
+
+            .s_back {
+              font-size: 16px;
+              text-align: center;
+              width: 150px;
+              height: 55px;
+              border-radius: 50px;
+              border: 0px;
+            }
+
+            .s_back:hover {
+              background-color: #f39800;
+            }
+          }
+
+        }
+
+      }
+
+      .s_Carousel {
+        background-color: #d3e0be;
+        padding-top: 50px;
+        padding-left: 50px;
+        padding-bottom: 50px;
+
+        h3 {
+          font-size: 40px;
+          font-weight: 700;
+          color: #707070;
+          padding-left: 10px;
+          padding-bottom: 30px;
+        }
+
+        .s_others {
+          display: flex;
+          overflow: hidden;
+
+          img {
+            margin-right: 15px;
+            margin-bottom: 15px;
+            flex-wrap: nowrap;
+          }
+        }
+
+      }
+
+      footer img {
+        display: block;
+        width: 100vw;
+      }
+    }
+  }
+}

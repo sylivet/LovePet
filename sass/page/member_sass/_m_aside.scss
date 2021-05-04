@@ -1,0 +1,166 @@
+// <!-- =================================================側邊攔===================================================== -->
+//     <div class="m_wrapper">
+//          <aside>
+//               <h5><a href="#">會員專區</a></h5>
+//               <div class="m_underline_1"></div>
+//               <ul>
+//                   <li><a href="#"><span>我的帳號</span></a></li>
+//                   <li><a href="#"><span>我的寵物</span></a></li>
+//                   <li><a href="#"><span>訂單管理</span></a></li>
+//                   <li><a href="#"><span>已完成</span></a></li>
+//                   <li><a href="#"><span>未完成</span></a></li>
+//               </ul>
+//               <input type="button" value="登出">
+//          </aside>
+         
+// <!-- =================================================主要內容===================================================== -->
+//          <main>
+
+//          </main>
+//     </div>
+
+
+
+// *{
+//   outline: 1px solid red;
+// }
+
+//=======================================變數設定=======================================//
+$m_font-color:rgb(112, 112, 112);
+$m_line_color:#734b23; 
+$m_aside_hover_color: #FFC857;
+$m_title_fs: 30px;
+
+
+
+
+
+//=======================================組件設定=======================================//
+@mixin underline($c){
+  width: 90%;
+  height: 1px;
+  background-color: $c;
+  display: inline-block;
+}
+
+
+
+
+
+//=======================================模型設定=======================================//
+@mixin m_aside_link {
+ 
+    img{
+      opacity: 0;
+    }
+  &:hover{
+    
+    background-color: $m_aside_hover_color;
+    img{
+      opacity: 1;
+    }
+    a{
+      color: white;
+    }
+    .m_imgblock{
+      opacity: 0;
+    }
+  }
+}
+
+
+
+
+//=======================================內容撰寫=======================================//
+
+//================================== 外層 ==================================//
+a{
+  text-decoration: none;
+  display: block;
+  color: $m_font-color; 
+  text-align: center;
+  font-size: $m_title_fs;
+}
+
+.m_wrapper{
+  display: flex;
+  aside{
+    flex-basis: 0;
+    flex-grow: 3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    &>div{
+    padding: 50px 0 ;
+    box-sizing: border-box;
+    }
+  }
+
+  main{
+    flex-basis: 0;
+    flex-grow: 7;
+  }
+}
+
+//============================== aside flex =================================//
+  aside{
+    h5{
+      width: 100%;
+      padding: 40px 0;
+    }
+    .m_underline_1{
+      @include underline($m_line_color);
+      margin-bottom: 10px;
+    }
+
+    ul{
+      flex-basis: 60%;
+      //background-color: gray;
+      width: 100%;
+    }
+    input{
+      width: 50%;
+      border-radius: 20px;
+      padding: 10px;
+    }
+  }
+
+
+
+aside{
+  background-color: rgb(242,242,242);
+ 
+
+  &>div{
+    height: calc(100vh - 87px); //剪掉header的高度
+    width: 100%;
+    text-align: center;
+  }
+
+  h5{
+    @include m_aside_link()
+
+  }
+  ul{
+    display: flex;
+    flex-direction: column;
+  }
+
+  li{
+    flex-grow: 1;
+    @include m_aside_link()
+
+  }
+
+  li.m_little_li{
+    flex-grow: 0.4;
+  }
+
+  img{
+    display: inline-block;
+    margin: 0 15px;
+    font-size: 0;
+  }
+}

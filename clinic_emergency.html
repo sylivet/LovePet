@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
     <link rel="stylesheet" href="css/style.css">
     <title>clinic_emergency</title>
 </head>
 <body>
+    <div id="header"></div>
     <div class="c_illustration">
         <img src="./img/clinic/Group 1512@2x.png" >
     </div>
@@ -26,16 +28,82 @@
        </div> 
        <div class="c_doctor_introduce_right">
 
-            <h3>值班醫師:吳梁新醫師</h3>
-            <p>國立台灣大學獸醫系學士</p>
-            <p>哥本哈根大學獸醫系碩士</p>
-            <p>國家專門職業及技術人員檢核考試及格</p>
-            <p>台大動物醫院住院醫師</p>
-            <p>台大動物醫院急診醫師</p>
-            
+            <div class="c_doctor_introduce_right_inner">
+                <h3>值班醫師:吳梁新醫師</h3>
+                <p>國立台灣大學獸醫系學士</p>
+                <p>哥本哈根大學獸醫系碩士</p>
+                <p>國家專門職業及技術人員檢核考試及格</p>
+                <p>台大動物醫院住院醫師</p>
+                <p>台大動物醫院急診醫師</p>
+            </div>
+                        
        </div>
 
     </div>
-    
+    <div class="c_emergency_item">
+        <h3>寵物緊急急救項目</h3>
+        <div class="c_item_top">
+            <div class="c_item1">
+                <div class="c_item1_left">
+                    <p>寵物熱衰竭</p>
+                </div>
+                <div class="c_item1_right">
+                    <img src="./img/clinic/Image 5@2x.png">
+                </div>
+            </div>
+            <div class="c_item2">
+                <div class="c_item2_left">
+                    <img src="./img/clinic/Image 2@2x.png">
+                </div>
+                <div class="c_item2_right">
+                    <p>寵物燒燙傷</p>
+                </div>
+            </div>
+        </div>
+        <div class="c_item_mid">
+            <div class="c_item3">
+                <div class="c_item3_left">
+                    <img src="./img/clinic/Image 4@2x.png" alt="">
+                </div>
+                <div class="c_item3_right">
+                    <p>寵物中毒</p>
+                </div>
+            </div>
+            <div class="c_item4">
+                <div class="c_item4_left">
+                    <p>寵物骨折</p>
+                </div>
+                <div class="c_item4_right">
+                    <img src="./img/clinic/Image 6@2x.png" alt="">
+                </div>
+            </div>
+
+        </div>
+        <div class="c_item_bottom">
+            <div class="c_item5">
+                <div class="c_item5_left">
+                    <p>寵物暈車暈船</p>
+                </div>
+                <div class="c_item5_right">
+                    <img src="./img/clinic/Image 7@2x.png" alt="">
+                </div>
+            </div>
+            <div class="c_item6">
+                <div class="c_item6_left">
+                    <img src="./img/clinic/Image 8@2x.png" alt="">
+                </div>
+                <div class="c_item6_right">
+                    <p>寵物擦撞傷</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+    <script>  
+        $(function(){ 
+          $("#header").load("layout/header.html");  
+          $("#footer").load("layout/footer.html");  
+        }); 
+    </script> 
 </body>
 </html>

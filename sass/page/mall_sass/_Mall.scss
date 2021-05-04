@@ -1,0 +1,41 @@
+.banner {
+  width: 100%;
+  img{
+    width: 100%;
+  }
+}
+
+main{
+  width: 100%;
+  padding: 0 90px;
+}
+
+/* 選擇區塊 */
+
+.choose_button{
+  width: 100%;
+  display: flex;
+  align-items: center;/*垂直置中*/
+  justify-content: space-between;
+  margin-top: 41px;
+  
+  select {
+    width: 475px;
+    height: 36px;
+    background-color: #558B6E;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;/*取消預設框線*/
+    text-align: center;/*除了Chrome跟Edge以外都支援*/
+    text-align-last: center;/*支援Chrome跟Edge瀏覽器*/
+  }
+}
+
+.search_btn{
+  cursor: pointer;
+  img{
+   width: 45px;
+ }
+}
