@@ -1007,7 +1007,7 @@ footer .i_copyright {
 
 @media (max-width: 375px) {
   .h_room {
-    margin: 0 150px;
+    margin: 0 10px;
   }
 }
 
@@ -1073,6 +1073,13 @@ footer .i_copyright {
   border-radius: 60px;
 }
 
+@media (max-width: 1024px) {
+  .h_room .h_introduction .h_device {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
 .h_room .h_introduction .h_device h3 {
   color: #707070;
   margin-bottom: 36px;
@@ -1115,6 +1122,13 @@ footer .i_copyright {
   position: relative;
 }
 
+@media (max-width: 1024px) {
+  .h_room .h_introduction .h_reserve {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
 .h_room .h_introduction .h_reserve h3 {
   color: #707070;
   text-align: left;
@@ -1155,6 +1169,12 @@ footer .i_copyright {
 /*----- 旅館Q&A-----*/
 .h_wrapper {
   margin: 0 54px;
+}
+
+@media (max-width: 375px) {
+  .h_wrapper {
+    margin: 0 10px;
+  }
 }
 
 .h_wrapper .h_faq1, .h_wrapper .h_faq2 {
@@ -2906,6 +2926,12 @@ main {
   margin: 0 50px;
 }
 
+@media (max-width: 375px) {
+  .c_wrapper {
+    margin: 0 10px;
+  }
+}
+
 .c_wrapper .c_faq1, .c_wrapper .c_faq2, .c_wrapper .c_faq3, .c_wrapper .c_faq4, .c_wrapper .c_faq5, .c_wrapper .c_faq6 {
   margin-bottom: 24px;
 }
@@ -2921,6 +2947,13 @@ main {
   /*張開的時候 內文的圓角破口*/
   text-align: left;
   position: relative;
+}
+
+@media (max-width: 375px) {
+  .c_wrapper .c_faq1 .c_flip, .c_wrapper .c_faq2 .c_flip, .c_wrapper .c_faq3 .c_flip, .c_wrapper .c_faq4 .c_flip, .c_wrapper .c_faq5 .c_flip, .c_wrapper .c_faq6 .c_flip {
+    line-height: 36px;
+    padding-right: 43px;
+  }
 }
 
 .c_wrapper .c_faq1 .c_flip img, .c_wrapper .c_faq2 .c_flip img, .c_wrapper .c_faq3 .c_flip img, .c_wrapper .c_faq4 .c_flip img, .c_wrapper .c_faq5 .c_flip img, .c_wrapper .c_faq6 .c_flip img {
