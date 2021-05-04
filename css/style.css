@@ -1826,7 +1826,7 @@ main {
 }
 
 .c_banner img {
-  max-width: 1263px;
+  max-width: 1920px;
 }
 
 .c_nav {
@@ -1836,7 +1836,7 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  max-width: 1263px;
+  max-width: 1920px;
   height: 300px;
 }
 
@@ -1873,10 +1873,7 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-width: 1263px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  max-width: 1920px;
   margin-bottom: 50px;
 }
 
@@ -1926,7 +1923,7 @@ main {
 }
 
 .c_illustration1 img {
-  max-width: 1263px;
+  max-width: 1920px;
 }
 
 .c_report_title {
@@ -2660,7 +2657,7 @@ main {
 }
 
 .c_illustration2 img {
-  max-width: 1263px;
+  max-width: 1920px;
 }
 
 .suggestion {
@@ -2680,7 +2677,7 @@ main {
 }
 
 .c_illustration img {
-  max-width: 1263px;
+  max-width: 1920px;
 }
 
 .c_emergency_info {
@@ -3972,13 +3969,8 @@ section input.m_btn:hover {
   line-height: 1;
 }
 
-<<<<<<< HEAD
 .m_msg_details img {
   width: 100px;
-=======
-.c_illustration img {
-  max-width: 1920px;
->>>>>>> Tony
 }
 
 .m_msg_details li {
