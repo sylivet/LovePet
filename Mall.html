@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mall</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+  <div class="banner">
+    <img src="img/mall/rough_cart-01@2x.png" alt="">
+  </div>
+
+  <main>
+    <!-- 選擇區塊 -->
+    <div class="choose_button">
+      <select name="" id="">
+        <option value="./Supplies.html" selected>用品</option>
+        <option value="">食品</option>
+        <option value="">服飾</option>
+        <option value="./Simulation.html">虛擬試衣間</option>
+        <option value="./Customized.html">客製化商品</option>
+      </select>
+
+      <div class="search_btn">
+        <img src="img/mall/search@2x.png" alt="">
+      </div>
+    </div>
+
+
+    <div class="another"></div>
+  </main>
+
+  <script>
+
+    $('.another').load('./Supplies.html');//在首頁先預設是物品頁面
+
+    $('select').on('change', function (e) {
+      if (this.value !== '') {//如果當下值不等於空字串，則another底下的div全部隱藏，並載入當前值得value
+        $('.another div').css('display', 'none');
+        $('.another').load(e.target.value);
+      } else {
+        $('.another div').css('display', 'none');//若等於空字串，another底下的div全部隱藏
+      }
+    })
+  </script>
+</body>
+
+</html>

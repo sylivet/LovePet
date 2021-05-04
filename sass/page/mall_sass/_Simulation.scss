@@ -1,0 +1,84 @@
+@mixin notebook {
+  @media (min-width:1024px) and (max-width:1280px){
+    @content
+  }
+}
+
+
+.banner {
+  width: 100%;
+  .banner img {
+    width: 100%;
+  }
+}
+
+main {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/*試穿服飾區塊*/
+.clothes_block{
+  margin-top: 29px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.clothes{
+  width: 840px;
+  margin-bottom: 55px;
+  position: relative;
+  @include notebook{
+    max-width: 530px;
+    width: 100%;
+    img{
+      width: 100%;
+    }
+  }
+  .icon{
+    width: 175px;
+    height: 88px;
+    background-color: #B7B7B7;
+    border-radius: 0 0 88px 88px;
+    background-image: url(../img/mall/98712761-hanger-icon-vector-line-clothes-hanger-symbol-@2x.png);
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    @include notebook{
+      max-width: 105px;
+      max-height: 53px;
+      background-size: 70%;
+      background-position: 50% 70%;
+    }
+  }
+  .view_btn{
+    width: 150px;
+    height: 55px;
+    background-color: #FFC857;
+    border-radius: 100px;
+    cursor: pointer;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    h3{
+      font-size: 40px;
+      line-height: 55px;
+      color: #FFFFFF;
+      text-align: center;
+    }
+    @include notebook{
+      width: 90px;
+      height: 33px;
+      h3{
+        font-size: 24px;
+        line-height: 33px;
+      }
+    }
+  }
+}
