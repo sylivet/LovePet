@@ -1,21 +1,235 @@
 /* ----- 旅館banner動畫 -----*/
-.h_banner{
+.h_banner {
     margin-bottom: 60px;
 }
+
+/* ----- 房型選擇跟介紹-----*/
+.h_room {
+    margin: 0 54px;
+    margin-bottom: 36px;
+
+    @include mobile{
+        margin: 0 150px;
+    }
+
+    .h_type {
+        margin-bottom: 18px;
+
+        button {
+            background-color: rgba(255, 200, 87, .15);
+            color: #707070;
+            font-size: 19px;
+            font-weight: bold;
+            margin-right: 48px;
+            padding: 18px 27px;
+            border: none;
+            outline: none;
+            border-radius: 30px;
+
+            &:hover {
+                background-color: rgba(255, 200, 87, 1);
+                transition: 0.8s;
+                /* 這裡動畫要弄什麼? */
+            }
+        }
+    }
+
+    .h_photo {
+        margin-bottom: 18px;
+
+        .h_bigimage {
+            margin-bottom: 18px;
+            /* 圖片失真 */
+        }
+
+        .h_smallimage {
+            display: flex;
+
+            .h_left {
+                margin-right: 18px;
+                width: calc((100% - 18px) / 2);
+            }
+
+            .h_right {
+                width: calc((100% - 18px) / 2);
+            }
+        }
+    }
+
+    .h_introduction {
+        display: flex;
+
+        .h_device {
+            background-image: url(../img/hotel/h_device_bg.png);
+            background-size: cover;
+            width: calc(((100% - 18px) / 10) * 3.5);
+            margin-right: 18px;
+            padding: 36px 48px 0 48px;
+            border-radius: 60px;
+
+            h3 {
+                color: #707070;
+                margin-bottom: 36px;
+            }
+
+            .h_list {
+                li {
+                    img {
+                        width: 21px;
+                        display: inline-block;
+                    }
+
+                    h4 {
+                        color: #000000;
+                        margin-left: 6px;
+                        margin-bottom: 16px;
+                        display: inline-block;
+                        vertical-align: top;
+                    }
+
+                    p {
+                        color: #707070;
+                        font-size: 16px;
+                        margin-left: 30px;
+                        margin-bottom: 21px;
+                        line-height: 23px;
+                    }
+
+                    .h_offer {
+                        margin-bottom: 36px;
+                    }
+                }
+            }
+        }
+
+        .h_reserve {
+            background-color: rgba(255, 200, 87, .15);
+            background-image: url(../img/hotel/h_reserve.png);
+            background-repeat: no-repeat;
+            background-position: 35% 85%;
+            width: calc(((100% - 18px) / 10) * 6.5);
+            padding: 36px 48px 0 48px;
+            border-radius: 60px;
+            text-align: center;
+            position: relative;
+
+            h3 {
+                color: #707070;
+                text-align: left;
+                margin-bottom: 30px;
+            }
+
+            h4 {
+                color: #000000;
+                line-height: 36px;
+                text-align: left;
+                margin-bottom: 48px;
+            }
+
+            h1 {
+                color: #F39800;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+
+            button {
+                background-color: #F39800;
+                color: #ffffff;                
+                font-size: 16px;                
+                padding: 20px 16px;
+                border: none;
+                outline: none;
+                border-radius: 30px;
+
+                &:hover {
+                    background-color: rgb(221, 131, 131);
+                    color: #000000;
+                    transition: 0.8s;
+                    /* 這裡動畫要弄什麼? */
+                }
+            }            
+        }
+    }
+}
+
+/*----- 旅館Q&A-----*/
+.h_wrapper{
+    margin: 0 54px;
+
+    .h_faq1, .h_faq2 {
+        margin-bottom: 18px;
+    }
+    
+    .h_faq3 {
+        margin-bottom: 36px;
+    }
+    
+    .h_flip {
+        background-color: #FFC857;
+        color: #ffffff;
+        padding: 24px;    
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        /*張開的時候 內文的圓角破口*/    
+        text-align: left;
+        position: relative;
+
+        img{
+            width: 24px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 19px;
+            cursor: pointer;
+        }
+    }
+    
+    .h_panel1, .h_panel2, .h_panel3 {
+        background-color: #F2EFEF;
+        color: #000000;
+        font-size: 19px;
+        line-height: 37px;
+        padding: 14px 30px;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;        
+        display: none;
+    
+        .h_notice {
+            display: flex;
+    
+            img {
+                width: 15px;
+    
+                height: 100%;
+                /* 高度變形了 有點沒對齊OAO */
+    
+                margin-top: 12px;
+                margin-right: 19px;
+            }
+        }
+    }
+
+    .h_panel1{
+        display: block;
+    }
+}
+
+/*手機版 是不是要調li斷句 不然好亂ＱＱ*/
+
+
+
+
+
+
+
 
 /* @media(max-width: 375px){
     .h_banner{
         margin-bottom: 10px;
     }
 } */
-
-/* .h_banner img{} */
-
-/* ----- 房型選擇跟介紹-----*/
-.h_room{
-    margin: 0 54px;
-    margin-bottom: 36px;
-}
 
 /* @media(max-width: 375px){
     .h_room{
@@ -24,33 +238,11 @@
     }
 } */
 
-.h_type{
-    margin-bottom: 18px;
-}
-
-.h_type button{
-    background-color: rgba(255,200,87,.15);
-    color: #707070;
-    font-size: 19px;
-    font-weight: bold;
-    margin-right: 48px;
-    padding: 18px 27px;
-    border: none;
-    outline: none;
-    border-radius: 30px;
-}
-
 // @media(max-width: 1024px){
 //     .h_type button{
 //         /* flex-grow: inherit; */
 //     }
 // }
-
-.h_type button:hover{
-    background-color: rgba(255,200,87,1);
-    transition: 0.8s;
-    /* 這裡動畫要弄什麼? */
-}
 
 /* @media(max-width: 375px){
     .h_type{
@@ -65,30 +257,6 @@
         縮小這樣會怪怪的嗎 按鈕很大顆
     }
 } */
-
-.h_photo{
-    margin-bottom: 18px;
-}
-
-.h_bigimage{
-    margin-bottom: 18px;
-    /* 圖片失真 */
-}
-
-/* .h_bigimage img{} */
-
-.h_smallimage{
-    display: flex;
-}
-
-.h_smallimage .h_left{
-    margin-right: 18px;
-    width: calc((100% - 18px) / 2);
-}
-
-.h_smallimage .h_right{
-    width: calc((100% - 18px) / 2);
-}
 
 /* @media(max-width: 375px){
     .h_bigimage{
@@ -106,10 +274,6 @@
 縮小的間距
 } */
 
-.h_introduction{
-    display: flex;
-}
-
 /* @media(max-width: 375px){
     .h_introduction{
         display: block;
@@ -117,183 +281,23 @@
     }
 } */
 
-.h_device{
-    background-image: url(../img/hotel/h_device_bg.png);
-    background-size: cover;
-    width: calc(((100% - 18px) / 10) * 3.5);
-    margin-right: 18px;
-    /* padding-top: 36px; */
-    /* 上面有留了不知道的距離>< */
-    padding-left: 48px;
-    padding-right: 48px;
-    border-radius: 60px;
-}
-
 /* @media(max-width: 375px){
     .h_device{
         width: 100%;
     }
 } */
 
-.h_device h3{
-    color: #707070;
-    font-weight: bold;
-    /* 共用設定沒有吃到QQ */
-    /* margin-bottom: 18px; */
-    /* 上面有留了不知道的距離>< */
-}
-
-/* .h_list{} */
-
-.h_list ul{
-    /* margin-bottom: 36px; */
-    /* 下面有留了不知道的距離>< */
-}
+// .h_list ul {
+//     /* margin-bottom: 36px; */
+//     /* 下面有留了不知道的距離>< */
+// }
 
 /* .h_list li{
     上下的間距自動有了O_O
 } */
-
-.h_list li img{
-    width: 21px;
-    display: inline-block;
-}
-
-.h_list li h4{
-    color: #000000;
-    font-size: 21px;
-    font-weight: bold;
-    /* 完全沒吃到設定 */
-    margin-left: 6px;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.h_list li p{
-    color: #707070;
-    font-size: 16px;
-    margin-left: 30px;
-}
-
-.h_reserve{
-    background-image: url(../img/hotel/h_reserve_bg.png);
-    /* 延伸不夠下去 人被咖掉 */
-    background-size: cover;
-    width: calc(((100% - 18px) / 10) * 6.5);
-    /* padding-top: 36px; */
-    /* 上面有留了不知道的距離>< */
-    padding-left: 48px;
-    padding-right: 48px;
-    border-radius: 60px;
-}
 
 /* @media(max-width: 375px){
     .h_reserve{
         width: 100%;
     }
 } */
-
-.h_reserve h3{
-    color: #707070;
-    font-weight: bold;
-    /* 共用設定沒有吃到QQ */
-    /* margin-bottom: 18px; */
-    /* 上面有留了不知道的距離 跟左邊衛浴不等高 */
-}
-
-.h_reserve h4{
-    color: #000000;
-    font-size: 21px;
-    font-weight: bold;
-    /* 共用沒吃到 */
-    line-height: 36px;
-    /* margin-bottom: 48px; */
-    /* 下面留有空間Q */
-}
-
-.h_reserve h1{
-    color: #F39800;
-    font-size: 30px;
-    font-weight: bold;
-    /* 共用沒吃到 */
-    text-align: center;
-    /* margin-bottom: 19px; */
-    /* 下面留有一點空間了 */
-}
-
-.h_reserve button{
-    background-color: #F39800;
-    color: #ffffff;
-    font-size: 16px;
-    padding: 20px 16px;
-    border: none;
-    outline: none;
-    border-radius: 30px;
-    /*按鈕怎麼置中ＱＱ*/
-}
-
-.h_reserve button:hover{
-    /*hover要什麼顏色*/
-    background-color: red;
-    color: #000000;
-    transition: 0.8s;
-    /* 這裡動畫要弄什麼? */
-}
-
-.h_reserve img{
-    width: 21px;
-    /* 跟著按鈕跑 */
-}
-
-/*----- 旅館Q&A-----*/
-.h_faq1, .h_faq2{
-    margin-bottom: 18px;
-}
-
-.h_faq3{
-    margin-bottom: 36px;
-}
-
-.h_flip{
-    background-color: #FFC857;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 11px;
-
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
-    /*張開的時候內文的圓角問題？*/
-    text-align: center;
-    cursor: pointer;
-    /* 右邊黑色三角形放圖片嗎?? */
-}
-
-.h_panel{
-    background-color: #F2EFEF;
-    color: #000000;
-    font-size: 16px;
-    line-height: 35px;
-    /* 增加下面的空間了@@ */
-    padding: 6px 21px;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
-    display:none;
-}
-
-.h_panel .h_notice{
-    display: flex;
-}
-
-.h_panel li img{
-    width: 13px;
-    height: 100%;
-    /* 高度變形了OAO */
-    /* 這樣設不知道可不可以 */
-    margin-top: 10px;
-    margin-right: 19px;
-}
-
-/*手機版 是不是要調li斷句 不然好亂ＱＱ*/
