@@ -1007,7 +1007,7 @@ footer .i_copyright {
 
 @media (max-width: 375px) {
   .h_room {
-    margin: 0 150px;
+    margin: 0 10px;
   }
 }
 
@@ -1073,6 +1073,13 @@ footer .i_copyright {
   border-radius: 60px;
 }
 
+@media (max-width: 1024px) {
+  .h_room .h_introduction .h_device {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
 .h_room .h_introduction .h_device h3 {
   color: #707070;
   margin-bottom: 36px;
@@ -1115,6 +1122,13 @@ footer .i_copyright {
   position: relative;
 }
 
+@media (max-width: 1024px) {
+  .h_room .h_introduction .h_reserve {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
 .h_room .h_introduction .h_reserve h3 {
   color: #707070;
   text-align: left;
@@ -1155,6 +1169,12 @@ footer .i_copyright {
 /*----- 旅館Q&A-----*/
 .h_wrapper {
   margin: 0 54px;
+}
+
+@media (max-width: 375px) {
+  .h_wrapper {
+    margin: 0 10px;
+  }
 }
 
 .h_wrapper .h_faq1, .h_wrapper .h_faq2 {
@@ -2899,15 +2919,21 @@ main {
 }
 
 /*----- 健檢中心Q&A-----*/
-.c_wrapper {
+.clinic_wrapper {
   margin: 0 50px;
 }
 
-.c_wrapper .c_faq1, .c_wrapper .c_faq2, .c_wrapper .c_faq3, .c_wrapper .c_faq4, .c_wrapper .c_faq5, .c_wrapper .c_faq6 {
+@media (max-width: 375px) {
+  .clinic_wrapper {
+    margin: 0 10px;
+  }
+}
+
+.clinic_wrapper .c_faq1, .clinic_wrapper .c_faq2, .clinic_wrapper .c_faq3, .clinic_wrapper .c_faq4, .clinic_wrapper .c_faq5, .clinic_wrapper .c_faq6 {
   margin-bottom: 24px;
 }
 
-.c_wrapper .c_faq1 .c_flip, .c_wrapper .c_faq2 .c_flip, .c_wrapper .c_faq3 .c_flip, .c_wrapper .c_faq4 .c_flip, .c_wrapper .c_faq5 .c_flip, .c_wrapper .c_faq6 .c_flip {
+.clinic_wrapper .c_faq1 .c_flip, .clinic_wrapper .c_faq2 .c_flip, .clinic_wrapper .c_faq3 .c_flip, .clinic_wrapper .c_faq4 .c_flip, .clinic_wrapper .c_faq5 .c_flip, .clinic_wrapper .c_faq6 .c_flip {
   background-color: #FFC857;
   color: #ffffff;
   padding: 24px;
@@ -2920,7 +2946,14 @@ main {
   position: relative;
 }
 
-.c_wrapper .c_faq1 .c_flip img, .c_wrapper .c_faq2 .c_flip img, .c_wrapper .c_faq3 .c_flip img, .c_wrapper .c_faq4 .c_flip img, .c_wrapper .c_faq5 .c_flip img, .c_wrapper .c_faq6 .c_flip img {
+@media (max-width: 375px) {
+  .clinic_wrapper .c_faq1 .c_flip, .clinic_wrapper .c_faq2 .c_flip, .clinic_wrapper .c_faq3 .c_flip, .clinic_wrapper .c_faq4 .c_flip, .clinic_wrapper .c_faq5 .c_flip, .clinic_wrapper .c_faq6 .c_flip {
+    line-height: 36px;
+    padding-right: 43px;
+  }
+}
+
+.clinic_wrapper .c_faq1 .c_flip img, .clinic_wrapper .c_faq2 .c_flip img, .clinic_wrapper .c_faq3 .c_flip img, .clinic_wrapper .c_faq4 .c_flip img, .clinic_wrapper .c_faq5 .c_flip img, .clinic_wrapper .c_faq6 .c_flip img {
   width: 24px;
   position: absolute;
   top: 50%;
@@ -2930,7 +2963,7 @@ main {
   cursor: pointer;
 }
 
-.c_wrapper .c_faq1 .c_panel1, .c_wrapper .c_faq1 .c_panel2, .c_wrapper .c_faq1 .c_panel3, .c_wrapper .c_faq1 .c_panel4, .c_wrapper .c_faq1 .c_panel5, .c_wrapper .c_faq1 .c_panel6, .c_wrapper .c_faq2 .c_panel1, .c_wrapper .c_faq2 .c_panel2, .c_wrapper .c_faq2 .c_panel3, .c_wrapper .c_faq2 .c_panel4, .c_wrapper .c_faq2 .c_panel5, .c_wrapper .c_faq2 .c_panel6, .c_wrapper .c_faq3 .c_panel1, .c_wrapper .c_faq3 .c_panel2, .c_wrapper .c_faq3 .c_panel3, .c_wrapper .c_faq3 .c_panel4, .c_wrapper .c_faq3 .c_panel5, .c_wrapper .c_faq3 .c_panel6, .c_wrapper .c_faq4 .c_panel1, .c_wrapper .c_faq4 .c_panel2, .c_wrapper .c_faq4 .c_panel3, .c_wrapper .c_faq4 .c_panel4, .c_wrapper .c_faq4 .c_panel5, .c_wrapper .c_faq4 .c_panel6, .c_wrapper .c_faq5 .c_panel1, .c_wrapper .c_faq5 .c_panel2, .c_wrapper .c_faq5 .c_panel3, .c_wrapper .c_faq5 .c_panel4, .c_wrapper .c_faq5 .c_panel5, .c_wrapper .c_faq5 .c_panel6, .c_wrapper .c_faq6 .c_panel1, .c_wrapper .c_faq6 .c_panel2, .c_wrapper .c_faq6 .c_panel3, .c_wrapper .c_faq6 .c_panel4, .c_wrapper .c_faq6 .c_panel5, .c_wrapper .c_faq6 .c_panel6 {
+.clinic_wrapper .c_faq1 .c_panel1, .clinic_wrapper .c_faq1 .c_panel2, .clinic_wrapper .c_faq1 .c_panel3, .clinic_wrapper .c_faq1 .c_panel4, .clinic_wrapper .c_faq1 .c_panel5, .clinic_wrapper .c_faq1 .c_panel6, .clinic_wrapper .c_faq2 .c_panel1, .clinic_wrapper .c_faq2 .c_panel2, .clinic_wrapper .c_faq2 .c_panel3, .clinic_wrapper .c_faq2 .c_panel4, .clinic_wrapper .c_faq2 .c_panel5, .clinic_wrapper .c_faq2 .c_panel6, .clinic_wrapper .c_faq3 .c_panel1, .clinic_wrapper .c_faq3 .c_panel2, .clinic_wrapper .c_faq3 .c_panel3, .clinic_wrapper .c_faq3 .c_panel4, .clinic_wrapper .c_faq3 .c_panel5, .clinic_wrapper .c_faq3 .c_panel6, .clinic_wrapper .c_faq4 .c_panel1, .clinic_wrapper .c_faq4 .c_panel2, .clinic_wrapper .c_faq4 .c_panel3, .clinic_wrapper .c_faq4 .c_panel4, .clinic_wrapper .c_faq4 .c_panel5, .clinic_wrapper .c_faq4 .c_panel6, .clinic_wrapper .c_faq5 .c_panel1, .clinic_wrapper .c_faq5 .c_panel2, .clinic_wrapper .c_faq5 .c_panel3, .clinic_wrapper .c_faq5 .c_panel4, .clinic_wrapper .c_faq5 .c_panel5, .clinic_wrapper .c_faq5 .c_panel6, .clinic_wrapper .c_faq6 .c_panel1, .clinic_wrapper .c_faq6 .c_panel2, .clinic_wrapper .c_faq6 .c_panel3, .clinic_wrapper .c_faq6 .c_panel4, .clinic_wrapper .c_faq6 .c_panel5, .clinic_wrapper .c_faq6 .c_panel6 {
   background-color: #F2EFEF;
   color: #000000;
   font-size: 19px;
@@ -2941,11 +2974,11 @@ main {
   display: none;
 }
 
-.c_wrapper .c_faq1 .c_panel1, .c_wrapper .c_faq2 .c_panel1, .c_wrapper .c_faq3 .c_panel1, .c_wrapper .c_faq4 .c_panel1, .c_wrapper .c_faq5 .c_panel1, .c_wrapper .c_faq6 .c_panel1 {
+.clinic_wrapper .c_faq1 .c_panel1, .clinic_wrapper .c_faq2 .c_panel1, .clinic_wrapper .c_faq3 .c_panel1, .clinic_wrapper .c_faq4 .c_panel1, .clinic_wrapper .c_faq5 .c_panel1, .clinic_wrapper .c_faq6 .c_panel1 {
   display: block;
 }
 
-.c_wrapper .c_faq6 {
+.clinic_wrapper .c_faq6 {
   margin-bottom: 52px;
 }
 
