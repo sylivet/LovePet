@@ -13,6 +13,64 @@
 </head>
 
 <body>
+    <!-- 購物車燈箱 -->
+    <div class="i_shoppingList_BK">
+        <div class="i_shoppingList">
+            <a href="#" class="i_closeButton">
+                <img src="../img/common/close.png" alt="">
+            </a>
+            <div class="i_shoppingListContent">
+                <div class="i_shoppingListTitle">
+                    <h2>購物車清單</h2>
+                </div>
+                <section>
+                    <table>
+                        <tr>
+                            <td><img src="#" alt=""></td>
+                            <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+                            <td>商品商品</td>
+                            <td>
+                                <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                <input type="text" id="number" value="1" readonly="readonly">
+                                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                            </td>
+                            <td>NT 100元</td>
+                        </tr>
+                        <tr>
+                            <td><img src="#" alt=""></td>
+                            <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+                            <td>商品商品</td>
+                            <td>
+                                <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                <input type="text" id="number" value="1" readonly="readonly">
+                                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                            </td>
+                            <td>NT 100元</td>
+                        </tr>
+                        <tr>
+                            <td><img src="#" alt=""></td>
+                            <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+                            <td>商品商品</td>
+                            <td>
+                                <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                <input type="text" id="number" value="1" readonly="readonly">
+                                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                            </td>
+                            <td>NT 100元</td>
+                        </tr>
+                    </table>
+                </section>
+                <hr>
+                <div></div>
+                <div class="i_total">
+                    <h3>總價 NT 300元</h3>
+                </div>
+            </div>
+            <div class="button">
+                結帳
+            </div>
+        </div>
+    </div>
     <!-- 餐廳燈箱 1 -->
     <div class="i_mealData_BK">
         <div class="i_mealData">
@@ -161,7 +219,71 @@
                         </div>
                         <div class="bookingMenu">
                             <div>您的寵物菜單</div>
+                            <table>
+                                <tr>
+                                    <td>雞肉沙拉</td>
+                                    <td><i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                        <input type="text" id="number" value="1" readonly="readonly">
+                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                    </td>
+                                    <td>
+                                        NT 100元 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>牛肉沙拉</td>
+                                    <td><i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                        <input type="text" id="number" value="1" readonly="readonly">
+                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                    </td>
+                                    <td>
+                                        NT 200元 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>嫩煎鮭魚沙拉</td>
+                                    <td><i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                        <input type="text" id="number" value="1" readonly="readonly">
+                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                    </td>
+                                    <td>
+                                        NT 100元 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>寵物客製餐點</td>
+                                    <td><i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                        <input type="text" id="number" value="1" readonly="readonly">
+                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                    </td>
+                                    <td>
+                                        NT 100元 
+                                    </td>
+                                </tr>
+                            </table>
                             <div>您的菜單</div>
+                            <table>
+                                <tr>
+                                    <td>雞肉沙拉</td>
+                                    <td><i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                        <input type="text" id="number" value="1" readonly="readonly">
+                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                    </td>
+                                    <td>
+                                        NT 100元 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>牛肉沙拉</td>
+                                    <td><i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                        <input type="text" id="number" value="1" readonly="readonly">
+                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                    </td>
+                                    <td>
+                                        NT 200元 
+                                    </td>
+                                </tr>
+                            </table>
                             <div></div>
                             <div>總價 NT 300元</div>
                             <button type="button" class="i_search">確認預約</button>
@@ -169,64 +291,6 @@
                     </div>
                 </div>
             </div>
-            <!-- 購物車燈箱 -->
-            <!-- <div class="i_shoppingList_BK">
-                                            <div class="i_shoppingList">
-                                                <a href="#" class="i_closeButton">
-                                                    <img src="img/common/close.png" alt="">
-                                                </a>
-                                                <div class="i_shoppingListContent">
-                                                    <div class="i_shoppingListTitle">
-                                                        <h2>購物車清單</h2>
-                                                    </div>
-                                                    <section>
-                                                        <table>
-                                                            <tr>
-                                                                <td><img src="#" alt=""></td>
-                                                                <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
-                                                                <td>商品商品</td>
-                                                                <td>
-                                                                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
-                                                                    <input type="text" id="number" value="1" readonly="readonly">
-                                                                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                                                </td>
-                                                                <td>NT 100元</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td><img src="#" alt=""></td>
-                                                                <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
-                                                                <td>商品商品</td>
-                                                                <td>
-                                                                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
-                                                                    <input type="text" id="number" value="1" readonly="readonly">
-                                                                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                                                </td>
-                                                                <td>NT 100元</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td><img src="#" alt=""></td>
-                                                                <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
-                                                                <td>商品商品</td>
-                                                                <td>
-                                                                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
-                                                                    <input type="text" id="number" value="1" readonly="readonly">
-                                                                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                                                </td>
-                                                                <td>NT 100元</td>
-                                                            </tr>
-                                                        </table>
-                                                    </section>
-                                                    <hr>
-                                                    <div></div>
-                                                    <div class="i_total">
-                                                        <h3>總價 NT 300元</h3>
-                                                    </div>
-                                                </div>
-                                                <div class="button">
-                                                    結帳
-                                                </div>
-                                            </div>
-                                        </div> -->
             <!-- 旅館預約燈箱 1 -->
             <!-- <div class="i_reservation_BK">
                     <div class="i_reservationData">
