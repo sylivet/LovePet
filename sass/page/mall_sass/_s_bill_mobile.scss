@@ -1,0 +1,269 @@
+@import url('reset.css');
+
+@media (min-width:375px)and(max-width:767px) {
+
+  body {
+    box-sizing: border-box;
+    font-family: 'Noto Sans TC', sans-serif;
+
+    .s_wrapper {
+      width: 100vw;
+      margin: 0 auto;
+
+      header img {
+        display: block;
+        width: 100vw;
+      }
+
+      main {
+        width: calc(100% - 50px);
+        margin: 50px auto;
+
+
+        .s_order {
+          h4 {
+            font-size: 21px;
+            padding-left: 30px;
+            color: black;
+            background-color: rgba(0, 0, 0, 0.3);
+            height: 60px;
+            border-radius: 30px;
+            line-height: 60px;
+          }
+
+          .s_member {
+
+            li {
+              font-size: 21px;
+              line-height: 34px;
+              margin: 15px 15px;
+
+            }
+          }
+        }
+
+        .s_ATTN {
+          padding-top: 30px;
+
+          .s_radio {
+            h4 {
+              font-size: 21px;
+              padding-left: 30px;
+              color: black;
+              background-color: rgba(0, 0, 0, 0.3);
+              height: 60px;
+              border-radius: 30px;
+              line-height: 60px;
+            }
+
+            label {
+              font-size: 21px;
+            }
+          }
+
+          .s_name {
+            padding-top: 15px;
+
+            label {
+              font-size: 21px;
+              margin-left: 15px;
+            }
+
+            input {
+              height: 50px;
+              width: 85%;
+              margin-left: 15px;
+              margin-top: 5px;
+            }
+          }
+
+          .s_mail {
+            padding-top: 15px;
+
+            label {
+              font-size: 21px;
+              margin-left: 15px;
+            }
+
+            input {
+              height: 50px;
+              width: 85%;
+              margin-left: 15px;
+              margin-top: 5px;
+            }
+          }
+
+          .s_phone {
+            padding-top: 15px;
+
+            label {
+              font-size: 21px;
+              margin-left: 15px;
+            }
+
+            input {
+              height: 50px;
+              width: 85%;
+              margin-left: 15px;
+              margin-top: 5px;
+            }
+          }
+
+          .s_add {
+
+            label {
+              font-size: 21px;
+              line-height: 55px;
+              margin-left: 15px;
+            }
+
+            .s_postoffice {
+              width: 88%;
+              margin-left: 15px;
+
+              select {
+                height: 55px;
+                font-size: 16px;
+                text-align: center;
+                text-align-last: center;
+                width: 100%;
+                margin-bottom: 15px;
+
+                option {
+                  font-size: 16px;
+                }
+              }
+
+              input {
+                height: 50px;
+                width: 98%;
+              }
+            }
+
+          }
+
+        }
+
+        .s_credit {
+          padding-top: 30px;
+
+          h4 {
+            font-size: 21px;
+            padding-left: 30px;
+            color: black;
+            background-color: rgba(0, 0, 0, 0.3);
+            height: 60px;
+            border-radius: 30px;
+            line-height: 60px;
+          }
+
+          .s_card {
+            margin-left: 15px;
+
+            input {
+              height: 30px;
+              width: 20%;
+              margin-top: 15px;
+            }
+
+            input:nth-of-type(4) {
+              margin-right: 10px;
+              //把授權碼擠到下一行
+            }
+
+            input:nth-of-type(5) {
+              width: 75%;
+              //授權碼
+            }
+
+            label {
+              font-size: 16px;
+              margin-top: 5px;
+            }
+          }
+        }
+
+        .s_invoice {
+          padding-top: 15px;
+
+          h4 {
+            font-size: 21px;
+            padding-left: 30px;
+            color: black;
+            background-color: rgba(0, 0, 0, 0.3);
+            height: 60px;
+            border-radius: 30px;
+            line-height: 60px;
+          }
+
+          select {
+            height: 55px;
+            font-size: 16px;
+            width: 88%;
+            margin-left: 15px;
+            margin-top: 15px;
+
+            option {
+              font-size: 16px;
+            }
+          }
+        }
+
+        form {
+          h3 {
+            font-size: 27px;
+            font-weight: 700;
+            text-align: center;
+            color: #707070;
+            padding-top: 30px;
+          }
+
+          .s_BTN {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+
+            a {
+              display: block;
+              width: 170px;
+              height: 55px;
+              font-size: 16px;
+              color: black;
+              text-align: center;
+              line-height: 55px;
+              background-color: #ffc857;
+              border-radius: 50px;
+              text-decoration: none;
+            }
+
+            a:hover {
+              background-color: #F39800;
+            }
+
+            input {
+              width: 170px;
+              height: 55px;
+              font-size: 16px;
+              color: black;
+              text-align: center;
+              line-height: 55px;
+              background-color: #ffc857;
+              border-radius: 50px;
+              border: 0px;
+              margin-left: 15px;
+            }
+
+            input:hover {
+              background-color: #F39800;
+            }
+          }
+        }
+      }
+
+      footer img {
+        display: block;
+        width: 100vw;
+      }
+    }
+  }
+}
