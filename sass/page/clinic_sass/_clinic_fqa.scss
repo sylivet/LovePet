@@ -1,0 +1,66 @@
+/* ----- 毛孩FAQ -----*/
+.c_banner {
+    margin-bottom: 36px;
+    position: relative;
+
+    h1 {
+        color: #707070;
+        font-weight: bold;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 18px;
+    }
+}
+
+/*----- 健檢中心Q&A-----*/
+.c_wrapper {
+    margin: 0 50px;
+
+    .c_faq1, .c_faq2, .c_faq3, .c_faq4, .c_faq5 , .c_faq6{
+        margin-bottom: 24px;
+
+        .c_flip {
+            background-color: #FFC857;
+            color: #ffffff;
+            padding: 24px;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            /*張開的時候 內文的圓角破口*/
+            text-align: left;
+            position: relative;
+
+            img{
+                width: 24px;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 19px;
+                cursor: pointer;
+            }
+        }
+
+        .c_panel1, .c_panel2, .c_panel3, .c_panel4, .c_panel5, .c_panel6 {
+            background-color: #F2EFEF;
+            color: #000000;
+            font-size: 19px;
+            line-height: 37px;
+            padding: 14px 30px;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            display: none;
+        }
+
+        .c_panel1{
+            display: block;
+        }
+    }
+
+    .c_faq6 {
+        margin-bottom: 52px;
+    }
+}
+
+/*手機版斷句跟圓角問題*/
