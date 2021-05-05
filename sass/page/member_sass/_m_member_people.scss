@@ -29,13 +29,19 @@ $m_bg_color:#FFC857;
 
 @mixin m_input_style($width) {
   li{
-    padding: 25px 0;
+    padding: 5px 0;
   }
   input{
     width: $width;
     border: 0;
     border-bottom: 1px solid $m_line_color;
     margin: 0 15px;
+    
+    &:focus{
+      outline: 0;
+      background-color: $m_line_color;
+      color: white;
+    }
   }
 }
 
@@ -47,7 +53,7 @@ $m_bg_color:#FFC857;
   font-size: $m_btn_fs;
   border-radius: 20px;
 
-  margin: 20px 0 45px;
+  margin: 20px 0 20px;
 
   &:hover{
     color: white;
@@ -55,19 +61,35 @@ $m_bg_color:#FFC857;
   }
 }
 
+@mixin m_img_hover {
+  img{
+  opacity: 0.2;
+  &:hover{
+    opacity: 0.6;
+  }
+}
+
+}
+
 //================================== 外層 ==================================//
 
-// main{
-//   padding: 80px 50px;
-//   text-align: center;
+.m_wrapper main{
+  padding: 80px 50px;
+  text-align: center;
 
-//   h5{
-//     font-size: $m_title_fs;
-//     color: $m_title_color;
+  h5{
+    font-size: $m_title_fs;
+    color: $m_title_color;
   
-//     margin-top: 60px;
-//   }
-// }
+    margin: 60px 0 20px;
+  }
+
+  section{
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+}
 
 
 //================================== 層 ==================================//
@@ -82,15 +104,12 @@ $m_bg_color:#FFC857;
     opacity: 0.7;
   }
   width: 200px;
+
+  margin: 0 auto 15px;
+  border-radius: 50%;
 }
 
 
-// img{
-//   opacity: 0.2;
-//   &:hover{
-//     opacity: 0.6;
-//   }
-// }
 
 
 
@@ -99,6 +118,9 @@ ul.personal_info{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
+  @include m_img_hover();
+
   li{
     //background-color: #ccc;
     flex-basis: 40%;
@@ -106,10 +128,10 @@ ul.personal_info{
 
     display: flex;
   }
-  @include m_input_style(70%);
+  @include m_input_style(60%);
 
   .m_address{
-    width: 85%;
+    width: 80%;
   }
 
 
@@ -127,6 +149,7 @@ ul.personal_info{
 }
 
 .m_info_option{
+  
   input{
     margin: 20px 0 50px 20px;
     
