@@ -1,0 +1,302 @@
+// *{
+//   outline: 1px solid red;
+//   font-style: Verdana;
+// }
+
+
+
+//================================== 變數 ==================================//
+$m_title_fs:30px;
+$m_content_fs:24px;
+$m_btn_fs:19px;
+
+$m_title_color:rgb(255,169,144);
+$m_line_color:#ccc;
+$m_bg_color:#FFC857;
+
+$m_item_title_color:rgb(186,212,135);
+$m_item_title_color2:rgb(112,112,112);
+$m_item_title_color3:rgb(211,224,190);
+$m_bg_color2: rgba(71, 71, 71, 0.1); //from _m_order_management
+
+
+//================================== 組件 ==================================//
+div.m_underline_2{
+  width: 100%;
+  height: 1px;
+  background-color: $m_line_color;
+  margin: 0 0 30px;
+  display: inline-block;
+}
+
+.m_underline_3{
+  width: 100%;
+  height: 10px;
+  background-color: $m_bg_color;
+  margin: 30px 0 0;
+  display: block;
+}
+
+//================================== 模型 ==================================//
+
+@mixin m_input_style($width) {
+  li{
+    padding: 25px 0;
+  }
+  input{
+    width: $width;
+    border: 0;
+    border-bottom: 1px solid $m_line_color;
+    margin: 0 15px;
+  }
+}
+
+@mixin m_btn {
+  background-color: $m_bg_color;
+  width: 200px;
+  border: 0;
+  padding: 12px 0;
+  font-size: $m_btn_fs;
+  border-radius: 20px;
+
+  margin: 20px 0 45px;
+
+  &:hover{
+    color: white;
+    background-color: darken($m_bg_color, 20%);
+  }
+}
+
+@mixin m_item_style{
+  padding: 20px 15px;
+}
+
+@mixin outline_style{
+  border: 0.5px solid $m_item_title_color3;
+}
+
+@mixin m_dt_title{
+    padding: 15px;
+    @include outline_style();
+}
+
+//================================== 外層 ==================================//
+
+div.m_wrapper main{
+  padding: 40px 50px 80px;
+  text-align: center;
+  background-color: $m_bg_color2;
+
+  h5{
+    font-size: $m_title_fs;
+    color: $m_title_color;
+  
+    margin-top: 30px;
+  }
+}
+
+.m_wrapper main li,p,td{
+  font-size: $m_content_fs;
+}
+
+.m_wrapper section{
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+//================================== 層 ==================================//
+
+
+.m_get_type{
+  margin-top: 30px;
+
+  display: flex;
+  justify-content: center;
+  li{
+    margin: 0 50px;
+  }
+}
+
+.m_item_details{
+  display: flex;
+  flex-wrap: wrap;
+
+
+  .m_item_title{
+    flex-basis: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    @include m_item_style();
+
+    background-color: $m_item_title_color;
+    
+    span{
+      color: white;
+    }
+  }
+
+  li{
+    flex-basis: 50%;
+    padding: 15px 0;
+
+    display: flex;
+    justify-content: flex-start;
+    @include outline_style();
+
+    p{
+      color: $m_item_title_color2;
+      font-size: $m_btn_fs;
+    }
+    
+  }
+  h6{ 
+    margin: 0 15px;
+    font-size: $m_btn_fs;
+  }
+}
+
+.m_buy_details{
+
+  table{
+    width: 100%;
+  }
+  tr{
+    vertical-align: center;
+  }
+  td{
+    display: inline-block;
+    box-sizing: content-box;
+    line-height: 70px ;
+    background-color: $m_item_title_color3;
+    border:0.5px solid white;
+    border-radius: 5px;
+    vertical-align: middle;
+
+    color: $m_item_title_color2;
+    font-size: $m_btn_fs;
+  }
+
+  .m_item_title{
+    td{
+      background-color: lighten( $m_item_title_color3 , 10%);
+      color: darken($m_item_title_color, 25%);
+    }
+  }
+  .m_item_pic{
+    width: 10%;
+    background-color: white;
+  }
+  .m_item_id{
+    width: 30%;
+  }
+  .m_item_type{
+    width: 30%;
+  }
+  .m_item_amount{
+    width: 15%;
+  }
+  .m_item_price{
+    width: 14%;
+  }
+  img{
+    display: inline-block;
+    width: 60% ;
+    margin: 0 auto;
+    vertical-align: middle;
+  }
+  
+
+  p{
+    @include  m_dt_title();
+  }
+}
+
+.m_msg_details{
+
+  &>p{
+    @include  m_dt_title();
+  }
+  ul{
+    background-color:  lighten( $m_item_title_color3 , 10%);
+    padding: 15px 0;
+    box-sizing: content-box;
+  }
+
+  img{
+    width: 100px;
+    margin: 0 15px;
+    border-radius: 50px;
+  }
+  li{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .m_client_ask{
+    flex-direction: row;
+    text-align: right;
+    
+  }
+
+  .m_lovepet_re{
+    flex-direction: row-reverse;
+    text-align: left;
+    p:first-child{
+      text-align: right;
+      background-color: $m_item_title_color3;
+    }
+  }
+
+  article{
+    width: 70%;
+    margin: 15px;
+
+    p:first-child{
+      height: 60px;
+      line-height: 60px;  
+      
+      border-radius: 10px;
+      width: 100%;
+
+      padding: 0 15px;
+      box-sizing: border-box;
+
+      text-align: left;
+      font-size: $m_btn_fs;
+      background-color:$m_item_title_color;
+    }
+
+    p+p{
+      font-size: 15px;
+      padding: 5px;
+      color:$m_item_title_color2;
+    }
+  }
+}
+
+.m_dt_streth_btn{
+  padding: 15px;
+  text-align: right;
+  @include  outline_style();
+
+  input[type="button"]{
+    border: 0;
+    background-color: $m_item_title_color;
+
+    padding: 5px 30px;
+    box-sizing: content-box;
+
+    border-radius: 10px;
+    &:hover{
+      color: white;
+      background-color: darken($m_item_title_color, 20%);
+    }
+  }
+}
+
+.m_appear{
+  display: none;
+  
+}

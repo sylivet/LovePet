@@ -1,0 +1,160 @@
+
+// *{
+//   outline: 1px solid red;
+// }
+
+//=======================================變數設定=======================================//
+$m_font-color:rgb(112, 112, 112);
+$m_line_color:#734b23; 
+$m_aside_hover_color: #FFC857;
+$m_title_fs: 24px;
+
+
+
+
+
+//=======================================組件設定=======================================//
+@mixin underline($c){
+  width: 90%;
+  height: 1px;
+  background-color: $c;
+  display: inline-block;
+}
+
+
+
+
+
+//=======================================模型設定=======================================//
+@mixin m_aside_link {
+ 
+    img{
+      opacity: 0;
+    }
+  &:hover{
+
+    background-color: $m_aside_hover_color;
+    img{
+      opacity: 1;
+    }
+    a{
+      color: white;
+    }
+    .m_imgblock{
+      opacity: 0;
+    }
+  }
+}
+
+
+
+
+//=======================================內容撰寫=======================================//
+
+//================================== 外層 ==================================//
+
+
+.m_wrapper{
+  display: flex;
+  aside{
+    flex-basis: 0;
+    flex-grow: 2.5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    &>div{
+    padding: 10px 0 ;
+    box-sizing: border-box;
+    }
+  }
+
+  main{
+    flex-basis: 0;
+    flex-grow: 7.5;
+  }
+}
+
+//============================== aside flex =================================//
+.m_wrapper aside{
+    h5{
+      width: 100%;
+      padding: 40px 0;
+    }
+    .m_underline_1{
+      @include underline($m_line_color);
+      margin-bottom: 10px;
+    }
+
+    ul{
+      flex-basis: 60%;
+      //background-color: gray;
+      width: 100%;
+    }
+    input{
+      width: 50%;
+      border-radius: 20px;
+      padding: 10px;
+    }
+    a{
+      text-decoration: none;
+      display: block;
+      color: $m_font-color; 
+      text-align: center;
+      font-size: $m_title_fs;
+    }
+  }
+
+
+
+  .m_wrapper aside{
+  background-color:lighten($m_font-color,51%);
+ 
+
+  &>div{
+    height: calc(100vh - 87px); //剪掉header的高度
+    width: 100%;
+    text-align: center;
+  }
+
+  h5{
+    @include m_aside_link()
+
+  }
+  ul{
+    display: flex;
+    flex-direction: column;
+  }
+
+  li{
+    padding: 10px 0;
+    flex-grow: 1;
+    @include m_aside_link()
+
+  }
+
+  li.m_little_li{
+    flex-grow: 0.4;
+  }
+
+  img{
+    display: inline-block;
+    margin: 0 15px;
+    font-size: 0;
+    width: 50px;
+  }
+
+  input[type="button"]{
+    margin-top: 30px;
+    color: $m_font-color;
+
+    border: 0;
+    background-color: $m_aside_hover_color;
+    &:hover{
+      color: white;
+      background-color: darken($m_aside_hover_color, 20%);
+      cursor: pointer;
+    }
+  }
+}
