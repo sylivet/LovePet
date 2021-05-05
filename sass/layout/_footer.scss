@@ -16,14 +16,11 @@ footer {
 
         .i_footerLeft {
             display: flex;
+            margin-top: 42px;
+            text-align: center;
             @include pad{
                 flex-direction: column;
             }
-            @include mobile{
-                flex-direction: column;
-            }
-            margin-top: 42px;
-            text-align: center;
 
             .i_footerLeftColumn {
                 &:not(:first-child) {

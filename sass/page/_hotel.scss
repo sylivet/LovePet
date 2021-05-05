@@ -9,7 +9,7 @@
     margin-bottom: 36px;
 
     @include mobile{
-        margin: 0 150px;
+        margin: 0 10px;
     }
 
     .h_type {
@@ -67,6 +67,11 @@
             padding: 36px 48px 0 48px;
             border-radius: 60px;
 
+            @include pad{
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
             h3 {
                 color: #707070;
                 margin-bottom: 36px;
@@ -113,6 +118,11 @@
             text-align: center;
             position: relative;
 
+            @include pad{
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
             h3 {
                 color: #707070;
                 text-align: left;
@@ -155,6 +165,10 @@
 /*----- 旅館Q&A-----*/
 .h_wrapper{
     margin: 0 54px;
+
+    @include mobile{
+        margin: 0 10px;
+    }
 
     .h_faq1, .h_faq2 {
         margin-bottom: 18px;

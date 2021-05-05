@@ -1,4 +1,9 @@
 <header>
+  <button id="hamberger" class="hamburger hamburger--spin" type="button">
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button>
   <a href="index.html" class="i_logo"><img src="img/common/i_logo.png" alt="" /></a>
   <ul class="i_navigation">
     <li>
@@ -40,8 +45,8 @@
       </a>
     </li>
   </ul>
-  <nav>
-    <!-- hamburger -->
+  <!-- <nav>
+    
     <input type="checkbox" class="toggler">
     <div class="hamburger">
       <div></div>
@@ -54,18 +59,30 @@
             <li><a href="#">
                 <h5>毛起來吃</h5>
               </a></li>
-            <li><a href="#">
+            <li><a href="hotel.html">
                 <h5>毛起來睡</h5>
               </a></li>
-            <li><a href="#">
+            <li><a href="Mall.html">
                 <h5>毛起來買</h5>
               </a></li>
-            <li><a href="#">
+            <li><a href="clinic_index.html">
                 <h5>什麼毛病</h5>
               </a></li>
           </ul>
         </div>
       </div>
     </div>
-  </nav>
+  </nav> -->
 </header>
+<script>
+  var hamburger = document.querySelector(".hamburger");
+hamburger.addEventListener("click", function () {
+  hamburger.classList.toggle("is-active");
+  // let nav = document.getElementsByClassName("rwd_nav")[0];
+  // if (nav.style.display === "none") {
+  //   nav.style.display = "block";
+  // } else if (nav.style.display === "block") {
+  //   nav.style.display = "none";
+  // }
+});
+</script>

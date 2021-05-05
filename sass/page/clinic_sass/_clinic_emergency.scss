@@ -7,11 +7,18 @@
 }
 .c_emergency_info{
     margin: 0 100px;
+    @include iphoneX{
+        margin: 0 20px;
+    }
     h3{
     font-size: 30px;
     color: red;
     margin-top: 50px;
     margin-bottom: 30px;
+    @include iphoneX{
+        display: block;
+        text-align:center;
+    }
 }
     p{
     font-size: 19px;
@@ -19,25 +26,36 @@
 }
 }
 .c_doctor_introduce{
-    width: 700px;
+    max-width: 700px;
     display: flex;
     margin: 0 auto;
     margin-top: 80px;
     margin-bottom: 80px;
     justify-content: space-around;
-    
+    @include iphoneX{
+        flex-direction: column;
+    }
 }
 .c_doctor_introduce_left{
-    
+    @include iphoneX{
+        margin-bottom: 20px;
+    }
     img{
         width: 270px;
         height: 330px;
-        
+        @include iphoneX{
+            display: block;
+            margin: 0 auto;
+        }
     }
 }
 .c_doctor_introduce_right{
     background-color: #F2F2F2;
     border-radius: 20px;
+    @include iphoneX{
+        display: block;
+        margin: 0 auto;
+    }
     
 }
 .c_doctor_introduce_right_inner{
@@ -57,32 +75,57 @@
     }
 }
 .c_emergency_item{
-    margin: 0 100px;
+    // outline: 1px solid red;
+    display: block;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 50px;
     h3{
         font-size: 30px;
         color: red;
         margin-top: 50px;
         margin-bottom: 30px;
+        @include iphoneX{
+            display: block;
+            text-align:center;
+        }
     }
     img{
-        max-width: 300px;
-        max-height: 300px;
+        width: 300px;
+        height: 300px;
     }
     .c_item_top{
         display: flex;
-        margin: 38px;
+        @include pad{
+            justify-content: center;
+            margin-bottom: 30px;
+        } 
+        @include iphoneX{
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 0px;
+        }
         .c_item1{
             display: flex;
+            @include pad{
+             flex-direction: column;
             
+            }
            .c_item1_left{
             width: 200px;
             height: 300px;
             background-color:#FFC857;
-            
+            @include pad{
+            width: 300px;
+            height: 200px; 
+            }
                 p{
                     text-align:center;
                     font-size: 19px;
                     line-height: 300px;
+                    @include pad{
+                       line-height: 200px;
+                    }
                 }
            } 
            .c_item1_right{
@@ -94,7 +137,9 @@
         }
         .c_item2{
             display:flex;
-           
+            @include pad{
+                flex-direction: column;
+            }
             .c_item2_left{
                 img{
                     
@@ -104,19 +149,37 @@
                 width: 200px;
                 height: 300px;
                 background-color:#D3E0BE;
+                @include pad{
+                    width: 300px;
+                    height: 200px; 
+                }
                 p{
                     text-align:center;
                     font-size: 19px;
                     line-height: 300px;
+                    @include pad{
+                        line-height: 200px;
+                     }
                 }
             }
         }
     }
     .c_item_mid{
         display: flex;
-        margin: 38px;
+        @include pad{
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        @include iphoneX{
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 0px;
+        }
         .c_item3{
             display: flex;
+            @include pad{
+                flex-direction: column;
+            }
            .c_item3_left{
            
                 img{
@@ -129,23 +192,40 @@
                 width: 200px;
                 height: 300px;
                 background-color:#D3E0BE;
+                @include pad{
+                    width: 300px;
+                    height: 200px; 
+                }
                 p{
                     text-align:center;
                     font-size: 19px;
                     line-height: 300px;
+                    @include pad{
+                        line-height: 200px;
+                     }
                 }
                 
             }
         .c_item4{
             display:flex;
+            @include pad{
+                flex-direction: column; 
+            }
             .c_item4_left{
                 width: 200px;
                 height: 300px;
                 background-color:#FFC857;
+                @include pad{
+                    width: 300px;
+                    height: 200px; 
+                }
                 p{
                     text-align:center;
                     font-size: 19px;
                     line-height: 300px;
+                    @include pad{
+                        line-height: 200px;
+                     }
                 }
                 
             } 
@@ -159,30 +239,50 @@
     }
     .c_item_bottom{
         display: flex;
-        margin: 38px;
+        @include pad{
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        @include iphoneX{
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 0px;
+        }
         .c_item5{
             display: flex;
-            
+            @include pad{
+                flex-direction: column; 
+            }
            .c_item5_left{
             width: 200px;
             height: 300px;
             background-color:#FFC857;
+            @include pad{
+                width: 300px;
+                height: 200px; 
+            }
             
                 p{
                     text-align:center;
                     font-size: 19px;
                     line-height: 300px;
+                    @include pad{
+                        line-height: 200px;
+                     }
                 }
            } 
            .c_item5_right{
             
                 img{
-                   
+                
                 }
            }
         }
         .c_item6{
             display:flex;
+            @include pad{
+                flex-direction: column; 
+            }
             .c_item6_left{
                 img{
 
@@ -192,10 +292,17 @@
                 width: 200px;
                 height: 300px;
                 background-color:#D3E0BE;
+                @include pad{
+                    width: 300px;
+                    height: 200px; 
+                }
                 p{
                     text-align:center;
                     font-size: 19px;
                     line-height: 300px;
+                    @include pad{
+                        line-height: 200px;
+                     }
                 }
             }
         }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="i_background">
+        <div class="i_lightbox_bk">
+            <a href="#" class="i_closeButton">
+                <img src="../img/common/close.png" alt="">
+            </a>
+            <div class="i_lightbox_title">
+                <h2>元氣滿滿配方</h2>
+            </div>
+            <div>
+                <img src="../img/common/dogfreshfood.png" alt="" />
+            </div>
+            <div>
+                <p class="i_mealDataContent">豐富的牛肉肉塊，加上細碎的燉菜，還有蘋果以及枸杞，讓狗狗除了吃得開心，也達到養生的效果。讓狗狗建立好體質，遠離醫生。</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.js"></script>
+    <script>
+        Array.prototype.forEach.call(document.getElementsByClassName('i_lightbox_bk'), function(el) {
+    new SimpleBar(el);
+});
+    </script>
+</body>
+</html>
