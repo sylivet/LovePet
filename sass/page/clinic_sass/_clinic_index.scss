@@ -1,49 +1,40 @@
-
 .c_banner{
     font-size: 0;
-    img{
-        max-width:1920px;
-    }
 }
 .c_nav{
-    display: flex;
-    justify-content: center;
-    max-width:1920px;
-    height: 300px;
-    
-   
+    margin:0 auto;
+    max-width: 800px;
+    padding-top: 30px;
+    margin-bottom: 125px;
+   @include mobile{
+       margin-bottom: 30px;
+   }
     ul{
         display:flex;
-        max-width: 800px;
-        height: 175px;
-        margin-top: 0px;
-        justify-content:center;
+        justify-content:space-evenly;
         @include mobile{
-            margin-top:0px;
+            margin-left: 40px;
+            margin-right: 40px;
+            flex-wrap: wrap;
         }
-        
         @include iphoneX{
-        flex-wrap: wrap;
+            margin-left: 10px;
+            margin-right: 10px;
         }
     }
 
    li{
-      color: #fff;
       background-color: #FFC857; 
       width: 175px;
-      height: 175px;
       border-radius: 50%;
-      margin: 0px 10px;
         @include mobile{
             width: 125px;
-            height: 125px;
-        }
-        @include iphoneX{
-            margin: 5px 10px;  
+            margin: 5px 10px; 
         }
         
     }
     li > a{
+        color: #fff;
      display:block;
      font-size: 21px;
      text-align:center;
@@ -51,19 +42,17 @@
      text-decoration: none;
      @include mobile{
         line-height: 125px;
-    }
-     
+    } 
     }
 }
 .c_content{
     display: flex;
-    max-width:1920px;
+    justify-content: center;
     margin-bottom: 50px;
     @include mobile{
        display: block;
     }
     .c_left_content{
-
         img{
             display: block;
             width: 300px;
@@ -74,7 +63,6 @@
                 width: 200px;
                 height: 328px;
                 margin: 0 auto;
-                margin-top: -150px;
                 margin-bottom: 80px;
             }
             @include iphoneX{
