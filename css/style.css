@@ -2579,7 +2579,7 @@ main {
 
 .c_emergency_item .c_item_top {
   display: flex;
-  margin: 38px;
+  margin: 30px;
 }
 
 .c_emergency_item .c_item_top .c_item1 {
@@ -2616,7 +2616,7 @@ main {
 
 .c_emergency_item .c_item_mid {
   display: flex;
-  margin: 38px;
+  margin: 30px;
 }
 
 .c_emergency_item .c_item_mid .c_item3 {
@@ -2653,7 +2653,7 @@ main {
 
 .c_emergency_item .c_item_bottom {
   display: flex;
-  margin: 38px;
+  margin: 30px;
 }
 
 .c_emergency_item .c_item_bottom .c_item5 {
