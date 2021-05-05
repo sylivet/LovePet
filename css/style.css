@@ -3441,36 +3441,21 @@ main {
 }
 
 .m_wrapper aside {
-<<<<<<< HEAD
-  -ms-flex-preferred-size: 0;
-      flex-basis: 0;
-  -webkit-box-flex: 2.5;
-      -ms-flex-positive: 2.5;
-          flex-grow: 2.5;
-  display: -webkit-box;
-  display: -ms-flexbox;
-=======
   flex-basis: 0;
-  flex-grow: 3;
->>>>>>> dev
+  flex-grow: 2.5;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .m_wrapper aside > div {
-<<<<<<< HEAD
   padding: 10px 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .m_wrapper main {
-  -ms-flex-preferred-size: 0;
-      flex-basis: 0;
-  -webkit-box-flex: 7.5;
-      -ms-flex-positive: 7.5;
-          flex-grow: 7.5;
+  flex-basis: 0;
+  flex-grow: 7.5;
 }
 
 .m_wrapper aside h5 {
@@ -3487,8 +3472,7 @@ main {
 }
 
 .m_wrapper aside ul {
-  -ms-flex-preferred-size: 60%;
-      flex-basis: 60%;
+  flex-basis: 60%;
   width: 100%;
 }
 
@@ -3537,20 +3521,13 @@ main {
 }
 
 .m_wrapper aside ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .m_wrapper aside li {
   padding: 10px 0;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  flex-grow: 1;
 }
 
 .m_wrapper aside li img {
@@ -3574,9 +3551,7 @@ main {
 }
 
 .m_wrapper aside li.m_little_li {
-  -webkit-box-flex: 0.4;
-      -ms-flex-positive: 0.4;
-          flex-grow: 0.4;
+  flex-grow: 0.4;
 }
 
 .m_wrapper aside img {
@@ -3597,15 +3572,6 @@ main {
   color: white;
   background-color: #f0a100;
   cursor: pointer;
-=======
-  padding: 50px 0;
-  box-sizing: border-box;
-}
-
-.m_wrapper main {
-  flex-basis: 0;
-  flex-grow: 7;
->>>>>>> dev
 }
 
 .m_underline_2 {
@@ -3793,27 +3759,16 @@ div.m_wrapper main h5 {
 }
 
 .m_item_details li {
-<<<<<<< HEAD
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
+  flex-basis: 50%;
   padding: 15px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  justify-content: flex-start;
   border: 0.5px solid #d3e0be;
 }
 
 .m_item_details li p {
   color: #707070;
   font-size: 19px;
-=======
-  flex-basis: 50%;
-  display: flex;
-  justify-content: flex-start;
->>>>>>> dev
 }
 
 .m_item_details h6 {
@@ -3831,8 +3786,7 @@ div.m_wrapper main h5 {
 
 .m_buy_details td {
   display: inline-block;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   line-height: 70px;
   background-color: #d3e0be;
   border: 0.5px solid white;
@@ -3888,8 +3842,7 @@ div.m_wrapper main h5 {
 .m_msg_details ul {
   background-color: #eaf0e1;
   padding: 15px 0;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
 }
 
 .m_msg_details img {
@@ -3952,8 +3905,7 @@ div.m_wrapper main h5 {
   border: 0;
   background-color: #bad487;
   padding: 5px 30px;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   border-radius: 10px;
 }
 
