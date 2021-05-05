@@ -1,22 +1,16 @@
-@import url('reset.css');
-
 @media (min-width:768px)and(max-width:1024px) {
 
-  body {
-    box-sizing: border-box;
-    font-family: 'Noto Sans TC', sans-serif;
+  .shopping {
+    // box-sizing: border-box;
+    // font-family: 'Noto Sans TC', sans-serif;
 
     .s_wrapper {
       width: 100vw;
       margin: 0 auto;
 
-      header img {
-        display: block;
-        width: 100vw;
-      }
-
       main {
-        width: calc(100% - 100px);
+        // width: calc(100% - 100px);
+        width: 100%;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
@@ -41,11 +35,14 @@
 
           .s_small_ph {
             padding-bottom: 50px;
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 1fr;
 
             img {
-              margin-bottom: 15px;
               display: block;
-              width: 100%;
+              grid-row: 1/1;
             }
           }
         }
@@ -139,11 +136,6 @@
           }
         }
 
-      }
-
-      footer img {
-        display: block;
-        width: 100vw;
       }
     }
   }

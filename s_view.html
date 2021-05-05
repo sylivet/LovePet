@@ -4,20 +4,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/s_view.css">
-  <link rel="stylesheet" href="./css/s_view_pad.css">
-  <link rel="stylesheet" href="./css/s_view_mobile.css">
+  <link rel="stylesheet" href="css/style.css" />
   <script src="https://kit.fontawesome.com/87d7bdf6e1.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
   <title>view</title>
 </head>
-<body>
+<body class="shopping">
   <div class="s_wrapper">
-    <header>
-      <img src="img/mall/header@2x.png" alt="">
-    </header>
-    <main>
+    <div id="header"></div>
+
+    <div class = "shopping_main">
       <div class="s_ph">
         <div class="s_big_ph">
           <img src="img/mall/tent_1@2x.png" alt="">
@@ -40,7 +37,7 @@
         <p>此款帳篷適用於小型犬。簡單的條紋設計，選色清新可愛。<br>天然原木結構，綁帶輕鬆好穩固。內有厚實柔軟的睡墊，一面是冬天好暖不著涼，一面是夏日清爽好舒服。<br>睡墊上含有止滑顆粒，讓寵物安全跑跳不位移。布料使用天然的純棉帆布，不僅透氣而且排濕。入口處的布料，可依寵物高度捲起來固定。<br>睡墊有設計拉鍊，可分開墊子與睡墊套，清潔容易。拆裝容易，收納也很方便。
         </p>
       </div>
-    </main>
+    </div>
     <div class="s_Carousel">
       <h3>別人也買過......</h3>
       <div class="s_others">
@@ -51,10 +48,17 @@
         <img src="img/mall/R5@2x.png" alt="">
       </div>
     </div>
-    <footer>
-      <img src="img/mall/footer@2x.png">
-    </footer>
+    <div id="footer"></div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</script>
+  <script>
+    $(function () {
+      $("#header").load("layout/header.html");
+      $("#footer").load("layout/footer.html");
+    });    
+  </script>
   
 </body>
 </html>
