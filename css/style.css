@@ -3,16 +3,9 @@
 @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap");
-<<<<<<< HEAD
-<<<<<<< HEAD
 @import url("reset.css");
 @import url("reset.css");
 @import url("reset.css");
-=======
-@import url("../css/hamburgers.css");
->>>>>>> 81af30d724ef2e9abfa039b2d53cab38666bfc24
-=======
->>>>>>> a919c329f25f84746b7714ad045110f1fc752e40
 h1 {
   font-size: 30px;
 }
@@ -1499,8 +1492,7 @@ main {
 
 @media (min-width: 1025px) {
   body {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     font-family: 'Noto Sans TC', sans-serif;
   }
   body .s_wrapper {
@@ -1582,8 +1574,6 @@ main {
   }
   body .s_wrapper main .s_ATTN .s_add {
     padding-top: 30px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
   body .s_wrapper main .s_ATTN .s_add label {
@@ -1594,12 +1584,8 @@ main {
   body .s_wrapper main .s_ATTN .s_add .s_postoffice {
     width: 90.5%;
     margin-left: 68px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
   }
   body .s_wrapper main .s_ATTN .s_add .s_postoffice select {
     height: 55px;
@@ -1667,12 +1653,8 @@ main {
     padding-top: 30px;
   }
   body .s_wrapper main form .s_BTN {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
     margin-top: 30px;
   }
   body .s_wrapper main form .s_BTN a {
@@ -1713,8 +1695,7 @@ main {
 
 @media (min-width: 768px) and (max-width: 1024px) {
   body {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     font-family: 'Noto Sans TC', sans-serif;
   }
   body .s_wrapper {
@@ -1799,8 +1780,6 @@ main {
   }
   body .s_wrapper main .s_ATTN .s_add {
     padding-top: 30px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
   body .s_wrapper main .s_ATTN .s_add label {
@@ -1811,12 +1790,8 @@ main {
   body .s_wrapper main .s_ATTN .s_add .s_postoffice {
     width: 80.5%;
     margin-left: 68px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
   }
   body .s_wrapper main .s_ATTN .s_add .s_postoffice select {
     height: 55px;
@@ -1884,12 +1859,8 @@ main {
     padding-top: 30px;
   }
   body .s_wrapper main form .s_BTN {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
     margin-top: 30px;
   }
   body .s_wrapper main form .s_BTN a {
@@ -1930,8 +1901,7 @@ main {
 
 @media (min-width: 375px) and (max-width: 767px) {
   body {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     font-family: 'Noto Sans TC', sans-serif;
   }
   body .s_wrapper {
@@ -2098,12 +2068,8 @@ main {
     padding-top: 30px;
   }
   body .s_wrapper main form .s_BTN {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
     margin-top: 30px;
   }
   body .s_wrapper main form .s_BTN a {
@@ -2150,20 +2116,13 @@ main {
 .shopping .s_wrapper .shopping_main {
   width: calc(100% - 180px);
   margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 769px) {
   .shopping .s_wrapper .shopping_main {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
     width: calc(100% - 50px);
   }
 }
@@ -2173,14 +2132,14 @@ main {
   width: 68%;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   .shopping .s_wrapper .shopping_main .s_ph {
     padding-top: 180px;
     width: 55%;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 769px) {
   .shopping .s_wrapper .shopping_main .s_ph {
     padding-top: 120px;
     width: 100%;
@@ -2191,7 +2150,7 @@ main {
   padding-bottom: 30px;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 769px) {
   .shopping .s_wrapper .shopping_main .s_ph .s_big_ph {
     padding-bottom: 15px;
   }
@@ -2202,13 +2161,13 @@ main {
   width: 100%;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   .shopping .s_wrapper .shopping_main .s_ph .s_big_ph img {
     display: none;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 769px) {
   .shopping .s_wrapper .shopping_main .s_ph .s_big_ph img {
     display: none;
   }
@@ -2218,7 +2177,7 @@ main {
   display: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   .shopping .s_wrapper .shopping_main .s_ph .s_big_ph .img_pad {
     margin-bottom: 15px;
     display: block;
@@ -2226,7 +2185,7 @@ main {
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 769px) {
   .shopping .s_wrapper .shopping_main .s_ph .s_big_ph .img_pad {
     margin-bottom: 0px;
     display: block;
@@ -2236,31 +2195,22 @@ main {
 
 .shopping .s_wrapper .shopping_main .s_ph .s_small_ph {
   padding-bottom: 50px;
-  display: -ms-grid;
   display: grid;
   grid-gap: 10px;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
-  -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 769px) {
   .shopping .s_wrapper .shopping_main .s_ph .s_small_ph {
     padding-bottom: 15px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
   }
 }
 
 .shopping .s_wrapper .shopping_main .s_ph .s_small_ph img {
   display: block;
-  -ms-grid-row: 1;
   grid-row: 1/1;
 }
 
@@ -2269,14 +2219,14 @@ main {
   width: 30%;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   .shopping .s_wrapper .shopping_main .s_text {
     padding-top: 180px;
     width: 40%;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 769px) {
   .shopping .s_wrapper .shopping_main .s_text {
     padding-top: 15px;
     margin-bottom: 15px;
@@ -2291,7 +2241,7 @@ main {
   color: #707070;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 769px) {
   .shopping .s_wrapper .shopping_main .s_text h3 {
     font-size: 30px;
     line-height: 36px;
@@ -2305,7 +2255,7 @@ main {
   color: #707070;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 769px) {
   .shopping .s_wrapper .shopping_main .s_text span {
     font-size: 20px;
     line-height: 32px;
@@ -2319,13 +2269,13 @@ main {
   color: #707070;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   .shopping .s_wrapper .shopping_main .s_text p {
     padding-top: 30px;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 769px) {
   .shopping .s_wrapper .shopping_main .s_text p {
     font-size: 20px;
     line-height: 32px;
@@ -2334,8 +2284,6 @@ main {
 }
 
 .shopping .s_wrapper .shopping_main .s_text .s_button {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   padding: 20px 0;
 }
@@ -2373,13 +2321,13 @@ main {
   padding-bottom: 50px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   .shopping .s_wrapper .s_Carousel {
     padding-left: 50px;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 769px) {
   .shopping .s_wrapper .s_Carousel {
     padding-top: 15px;
     padding-left: 30px;
@@ -2395,7 +2343,7 @@ main {
   padding-bottom: 30px;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 769px) {
   .shopping .s_wrapper .s_Carousel h3 {
     font-size: 30px;
     line-height: 36px;
@@ -2404,20 +2352,17 @@ main {
 }
 
 .shopping .s_wrapper .s_Carousel .s_others {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   overflow: hidden;
 }
 
 .shopping .s_wrapper .s_Carousel .s_others img {
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  flex-wrap: nowrap;
   margin-right: 15px;
   max-width: 382px;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 769px) {
   .shopping .s_wrapper .s_Carousel .s_others img {
     width: 80%;
     margin-bottom: 15px;
