@@ -699,8 +699,10 @@ footer .i_copyright {
   display: none;
 }
 
-.kv {
-  margin-top: 87px;
+@media (max-width: 1024px) {
+  .kv {
+    margin-top: 87px;
+  }
 }
 
 .index #header {

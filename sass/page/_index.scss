@@ -1,5 +1,7 @@
 .kv{
-    margin-top: 87px;
+    @include pad{
+        margin-top: 87px;
+    }
 }
 .index #header{
     margin-top: 0;
