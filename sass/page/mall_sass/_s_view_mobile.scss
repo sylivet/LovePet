@@ -1,28 +1,23 @@
-@import url('reset.css');
+@media (min-width:377px)and(max-width:769px) {
 
-@media (min-width:375px)and(max-width:767px) {
-
-  body {
-    box-sizing: border-box;
-    font-family: 'Noto Sans TC', sans-serif;
+  .shopping {
+    // box-sizing: border-box;
+    // font-family: 'Noto Sans TC', sans-serif;
 
     .s_wrapper {
       width: 100vw;
       margin: 0 auto;
 
-      header img {
-        display: block;
-        width: 100vw;
-      }
 
-      main {
+
+      .shopping_main {
         width: calc(100% - 50px);
         margin: 0 auto;
 
         .s_ph {
           padding-top: 30px;
 
-          .s_big_ph {
+          s .s_big_ph {
 
             img {
               display: none;
@@ -131,11 +126,6 @@
           }
         }
 
-      }
-
-      footer img {
-        display: block;
-        width: 100vw;
       }
     }
   }
