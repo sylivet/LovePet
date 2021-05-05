@@ -52,6 +52,12 @@ body {
   box-sizing: border-box;
 }
 
+@media (max-width: 1024px) {
+  #header {
+    margin-top: 87px;
+  }
+}
+
 .i_mealData_BK, .i_reservation_BK, .i_shoppingList_BK {
   position: fixed;
   width: 100%;
@@ -691,6 +697,14 @@ footer .i_copyright {
 
 .-none {
   display: none;
+}
+
+.kv {
+  margin-top: 87px;
+}
+
+.index #header {
+  margin-top: 0;
 }
 
 #news h3 {
