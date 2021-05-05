@@ -52,7 +52,7 @@ body {
   box-sizing: border-box;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   #header {
     margin-top: 87px;
   }
@@ -88,7 +88,7 @@ header {
   overflow: hidden;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   header {
     justify-content: flex-end;
     width: 100%;
@@ -98,7 +98,7 @@ header {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   header .i_logo {
     display: none;
   }
@@ -113,7 +113,7 @@ header .i_navigation {
   display: flex;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   header .i_navigation {
     display: none;
   }
@@ -178,7 +178,7 @@ header nav {
   display: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   header nav {
     display: block;
   }
@@ -342,7 +342,7 @@ footer .i_footerWrapper .i_footerLeft {
   text-align: center;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   footer .i_footerWrapper .i_footerLeft {
     flex-direction: column;
   }
@@ -352,7 +352,7 @@ footer .i_footerWrapper .i_footerLeft .i_footerLeftColumn:not(:first-child) {
   margin-left: 75px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   footer .i_footerWrapper .i_footerLeft .i_footerLeftColumn:not(:first-child) {
     margin-left: 0;
     margin-top: 30px;
@@ -368,7 +368,7 @@ footer .i_footerWrapper .i_divider {
   margin: 36px 75px 0;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   footer .i_footerWrapper .i_divider {
     border-right: 0;
     margin: 50px 0 0 0;
@@ -385,13 +385,13 @@ footer .i_footerWrapper .i_footerRight li {
   display: flex;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   footer .i_footerWrapper .i_footerRight li {
     flex-direction: column;
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   footer .i_footerWrapper .i_footerRight li span:first-child {
     display: block;
     margin-bottom: 10px;
@@ -415,7 +415,7 @@ footer .i_copyright {
   display: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   .kv {
     margin-top: 87px;
   }
@@ -477,13 +477,13 @@ footer .i_copyright {
   height: 800px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   .hotelPanorama #panorama {
     height: 500px;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 376px) {
   .hotelPanorama #panorama {
     height: 80vh;
   }
@@ -526,7 +526,7 @@ footer .i_copyright {
   overflow: hidden;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   #location {
     background-image: url(../img/index/mapPad.png);
     background-size: 120%;
@@ -534,7 +534,7 @@ footer .i_copyright {
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 376px) {
   #location {
     background-image: url(../img/index/mapMobile.png);
     background-size: 120%;
@@ -563,7 +563,7 @@ footer .i_copyright {
   width: 100%;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   #location .locationContent {
     max-width: 800px;
     padding-left: 30px;
@@ -613,7 +613,7 @@ footer .i_copyright {
   margin-bottom: 36px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .h_room {
     margin: 0 10px;
   }
@@ -676,7 +676,7 @@ footer .i_copyright {
   border-radius: 60px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   .h_room .h_introduction .h_device {
     padding-left: 25px;
     padding-right: 25px;
@@ -725,7 +725,7 @@ footer .i_copyright {
   position: relative;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   .h_room .h_introduction .h_reserve {
     padding-left: 25px;
     padding-right: 25px;
@@ -773,7 +773,7 @@ footer .i_copyright {
   margin: 0 54px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .h_wrapper {
     margin: 0 10px;
   }
@@ -1419,17 +1419,17 @@ main {
   display: flex;
   max-width: 800px;
   height: 175px;
-  margin-top: 60px;
+  margin-top: 0px;
   justify-content: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .c_nav ul {
     margin-top: 0px;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 376px) {
   .c_nav ul {
     flex-wrap: wrap;
   }
@@ -1444,10 +1444,16 @@ main {
   margin: 0px 10px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .c_nav li {
     width: 125px;
     height: 125px;
+  }
+}
+
+@media (max-width: 376px) {
+  .c_nav li {
+    margin: 5px 10px;
   }
 }
 
@@ -1459,7 +1465,7 @@ main {
   text-decoration: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .c_nav li > a {
     line-height: 125px;
   }
@@ -1471,7 +1477,7 @@ main {
   margin-bottom: 50px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .c_content {
     display: block;
   }
@@ -1485,13 +1491,25 @@ main {
   margin-right: 57px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .c_content .c_left_content img {
     width: 200px;
     height: 328px;
     margin: 0 auto;
-    margin-top: -90px;
-    margin-bottom: 30px;
+    margin-top: -150px;
+    margin-bottom: 80px;
+  }
+}
+
+@media (max-width: 376px) {
+  .c_content .c_left_content img {
+    margin-top: 0px;
+  }
+}
+
+@media (max-width: 1025px) {
+  .c_content .c_right_content {
+    margin-top: -50px;
   }
 }
 
@@ -1499,14 +1517,14 @@ main {
   margin: 0 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .c_content .c_right_content_t1 {
     margin: 0 100px;
     margin-bottom: 30px;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 376px) {
   .c_content .c_right_content_t1 {
     margin: 0 50px;
   }
@@ -1541,13 +1559,13 @@ main {
   margin: 0 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .c_content .c_right_content_t2 {
     margin: 0 100px;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 376px) {
   .c_content .c_right_content_t2 {
     margin: 0 50px;
   }
@@ -2530,7 +2548,7 @@ main {
   margin: 0 50px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .clinic_wrapper {
     margin: 0 10px;
   }
@@ -2553,7 +2571,7 @@ main {
   position: relative;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .clinic_wrapper .c_faq1 .c_flip, .clinic_wrapper .c_faq2 .c_flip, .clinic_wrapper .c_faq3 .c_flip, .clinic_wrapper .c_faq4 .c_flip, .clinic_wrapper .c_faq5 .c_flip, .clinic_wrapper .c_faq6 .c_flip {
     line-height: 36px;
     padding-right: 43px;
