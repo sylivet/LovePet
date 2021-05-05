@@ -9,13 +9,13 @@
 
 .i_lightbox_bk {
     max-width: 720px;
-    max-height: 90vh;
+    // max-height: 90vh;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
     position: absolute;
-    background-color: #D3E0BE;
+    background-color: #d3e0be;
     border-radius: 60px;
 
     .i_closeButton {
@@ -30,11 +30,15 @@
         margin-top: 27px;
         margin-bottom: 20px;
     }
-    
+
+    .bar {
+        max-height: 75vh;
+        margin-bottom: 55px;
+    }
 }
 
-.i_button{
-    background-color: #FFC857;
+.i_button {
+    background-color: #ffc857;
     width: 180px;
     height: 55px;
     line-height: 55px;
@@ -43,10 +47,94 @@
     border: 0;
 }
 
-.box{
-width: 100px;
-// height: 100px;
+.i_mealMain {
+    display: flex;
+
+    @include pad {
+        flex-direction: column;
+    }
+
+    position: relative;
+
+    .i_meal {
+        @include pad {
+            order: 2;
+            margin: 30px 45px 35px 42px;
+        }
+
+        white-space: nowrap;
+        position: relative;
+        margin: 140px 45px 25px 42px;
+        color: #707070;
+
+        .i_orangeLine {
+            border-top: 5px solid #ffc857;
+            width: 40px;
+            position: absolute;
+            left: -20px;
+            bottom: -8px;
+        }
+    }
+
+    .i_mealDataContent {
+        @include pad {
+            order: 1;
+            margin-left: 85px;
+        }
+
+        @include mobile {
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        margin-top: 24px;
+        margin-right: 85px;
+        line-height: 1.7;
+    }
 }
+
+.i_addMenu {
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    border-top-left-radius: 999px;
+    border-bottom-left-radius: 999px;
+    display: block;
+    text-align: center;
+    width: 86px;
+    height: 36px;
+    line-height: 36px;
+    color: white;
+    background-color: #FF8C42;
+    z-index: 1;
+}
+
+
+.i_menu {
+    position: absolute;
+    @include pad{
+        top: 10px;
+    }
+    top:500px;
+    left: 55px;
+
+    p {
+        font-size: 14px;
+        color: #707070;
+        font-weight: bold;
+    }
+
+    .i_orangeLine {
+        border-top: 5px solid #FFC857;
+        width: 40px;
+        position: absolute;
+        left: 10px;
+        bottom: -8px;
+    }
+}
+
+
+
 
 // %lightBox {
 
@@ -170,7 +258,6 @@ width: 100px;
 //                 line-height: 1.7;
 //             }
 
-
 //         }
 //     }
 // }
@@ -256,11 +343,10 @@ width: 100px;
 //                     margin-top: 30px;
 //                     margin-bottom: 30px;
 //                 }
-//             }           
+//             }
 //         }
 //     }
 // }
-
 
 // .i_reservation_BK {
 //     @extend %lightBoxBK;
@@ -455,8 +541,6 @@ width: 100px;
 //         }
 
 //     }
-
-
 
 //     .button {
 //         background-color: #FFC857;

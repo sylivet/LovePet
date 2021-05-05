@@ -7,16 +7,6 @@ $font-size: (
     fontSize26: 16px
 );
 
-$color: (
-    headerColor: #FFC857,
-    headerfont: #734b23,
-    footerColor: #915727,
-    confirmButtonColor: #FFC857,
-    closeButtonColor: #FFC857,
-    addMenuColor: #F39800,
-    lightBoxColor: #D3E0BE,
-    lightBoxBackgroundColor: rgba(0, 0, 0, 0.8), );
-
 // common setting
 h1 {
     font-size: map-get($font-size, fontSize50);
@@ -47,11 +37,6 @@ p {
 
 a {
     text-decoration: none;
-}
-
-.i_button {
-    font-size: map-get($font-size, fontSize26);
-    font-weight: bold;
 }
 
 img {
