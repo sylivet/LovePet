@@ -1691,6 +1691,13 @@ main {
   justify-content: center;
 }
 
+@media (max-width: 375px) {
+  .c_nav ul {
+    flex-wrap: wrap;
+    margin-top: 0px;
+  }
+}
+
 .c_nav li {
   color: #fff;
   background-color: #FFC857;
@@ -1698,6 +1705,13 @@ main {
   height: 175px;
   border-radius: 50%;
   margin: 0px 10px;
+}
+
+@media (max-width: 768px) {
+  .c_nav li {
+    width: 125px;
+    height: 125px;
+  }
 }
 
 .c_nav li > a {
@@ -1708,13 +1722,25 @@ main {
   text-decoration: none;
 }
 
+@media (max-width: 768px) {
+  .c_nav li > a {
+    line-height: 125px;
+  }
+}
+
 .c_content {
   display: flex;
   max-width: 1920px;
   margin-bottom: 50px;
 }
 
-.c_content img {
+@media (max-width: 768px) {
+  .c_content {
+    display: block;
+  }
+}
+
+.c_content .c_left_content img {
   display: block;
   width: 300px;
   height: 492px;
@@ -1722,34 +1748,93 @@ main {
   margin-right: 57px;
 }
 
-.c_right_content_t1 {
+@media (max-width: 768px) {
+  .c_content .c_left_content img {
+    width: 200px;
+    height: 328px;
+    margin: 0 auto;
+    margin-top: -90px;
+    margin-bottom: 30px;
+  }
+}
+
+.c_content .c_right_content_t1 {
   margin: 0 20px;
 }
 
-.c_right_content_t1 h3 {
+@media (max-width: 768px) {
+  .c_content .c_right_content_t1 {
+    margin: 0 100px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .c_content .c_right_content_t1 {
+    margin: 0 50px;
+  }
+}
+
+.c_content .c_right_content_t1 h3 {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
+  position: relative;
 }
 
-.c_right_content_t1 p {
+.c_content .c_right_content_t1 h3::after {
+  content: '';
+  position: absolute;
+  background: linear-gradient(90deg, #333 50%, transparent 0) repeat-x;
+  background-size: 4px 1px;
+  width: 145px;
+  height: 2px;
+  left: 0;
+  top: 35px;
+}
+
+.c_content .c_right_content_t1 p {
   font-size: 19px;
   margin-bottom: 21px;
   max-width: 730px;
   line-height: 2;
 }
 
-.c_right_content_t2 {
+.c_content .c_right_content_t2 {
   margin: 0 20px;
 }
 
-.c_right_content_t2 h3 {
+@media (max-width: 768px) {
+  .c_content .c_right_content_t2 {
+    margin: 0 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .c_content .c_right_content_t2 {
+    margin: 0 50px;
+  }
+}
+
+.c_content .c_right_content_t2 h3 {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
+  position: relative;
 }
 
-.c_right_content_t2 p {
+.c_content .c_right_content_t2 h3::after {
+  content: '';
+  position: absolute;
+  background: linear-gradient(90deg, #333 50%, transparent 0) repeat-x;
+  background-size: 4px 1px;
+  width: 145px;
+  height: 2px;
+  left: 0;
+  top: 35px;
+}
+
+.c_content .c_right_content_t2 p {
   font-size: 19px;
   max-width: 730px;
   line-height: 2;
