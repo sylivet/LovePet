@@ -16,7 +16,7 @@
         display:flex;
         max-width: 800px;
         height: 175px;
-        margin-top: 60px;
+        margin-top: 0px;
         justify-content:center;
         @include mobile{
             margin-top:0px;
@@ -38,7 +38,9 @@
             width: 125px;
             height: 125px;
         }
-        
+        @include iphoneX{
+            margin: 5px 10px;  
+        }
         
     }
     li > a{
@@ -54,12 +56,11 @@
     }
 }
 .c_content{
-  
     display: flex;
     max-width:1920px;
     margin-bottom: 50px;
     @include mobile{
-        display: block;
+       display: block;
     }
     .c_left_content{
 
@@ -73,16 +74,25 @@
                 width: 200px;
                 height: 328px;
                 margin: 0 auto;
-                margin-top: -90px;
-                margin-bottom: 30px;
+                margin-top: -150px;
+                margin-bottom: 80px;
             }
+            @include iphoneX{
+                margin-top: 0px;
+            }
+
         }
     }
     .c_right_content{
-
+        @include pad{
+          margin-top: -50px;
+        }
     }
     .c_right_content_t1{
         margin: 0 20px;
+        @include pad{
+          
+        }
         @include mobile{
             margin: 0 100px;
             margin-bottom: 30px;
@@ -120,6 +130,7 @@
     }
     .c_right_content_t2{
         margin: 0 20px;
+        
         @include mobile{
             margin: 0 100px;
         }
