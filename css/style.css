@@ -1423,10 +1423,15 @@ main {
   justify-content: center;
 }
 
+@media (max-width: 768px) {
+  .c_nav ul {
+    margin-top: 0px;
+  }
+}
+
 @media (max-width: 375px) {
   .c_nav ul {
     flex-wrap: wrap;
-    margin-top: 0px;
   }
 }
 
@@ -1501,7 +1506,7 @@ main {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 375px) {
   .c_content .c_right_content_t1 {
     margin: 0 50px;
   }
@@ -1542,7 +1547,7 @@ main {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 375px) {
   .c_content .c_right_content_t2 {
     margin: 0 50px;
   }
