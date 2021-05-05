@@ -18,9 +18,12 @@
         height: 175px;
         margin-top: 60px;
         justify-content:center;
+        @include mobile{
+            margin-top:0px;
+        }
+        
         @include iphoneX{
         flex-wrap: wrap;
-        margin-top: 0px;
         }
     }
 
@@ -75,14 +78,16 @@
             }
         }
     }
-    .c_right_content{}
+    .c_right_content{
+
+    }
     .c_right_content_t1{
         margin: 0 20px;
         @include mobile{
             margin: 0 100px;
             margin-bottom: 30px;
         }
-        @include mobile{
+        @include iphoneX{
             margin: 0 50px;
         }
         h3{
@@ -118,7 +123,7 @@
         @include mobile{
             margin: 0 100px;
         }
-        @include mobile{
+        @include iphoneX{
             margin: 0 50px;
         }
         h3{
