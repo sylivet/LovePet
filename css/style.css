@@ -3,7 +3,6 @@
 @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap");
-@import url("../css/hamburgers.css");
 h1 {
   font-size: 30px;
 }
@@ -122,6 +121,7 @@ header {
     width: 100vw;
     position: fixed;
     top: 0;
+    left: 0;
     z-index: 10;
   }
 }
@@ -448,11 +448,6 @@ footer .i_copyright {
   margin-bottom: 27px;
   color: #915727;
   text-align: center;
-}
-
-#news ul {
-  display: flex;
-  justify-content: center;
 }
 
 #news ul li {
