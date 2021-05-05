@@ -10,7 +10,7 @@
   }
 }
 
-@mixin iphone5 {
+@mixin iphoneX {
   @media(max-width:375px) {
       @content;
   }

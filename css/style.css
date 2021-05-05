@@ -180,7 +180,7 @@ body {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .i_mealData_BK .i_mealData .i_mealMain .i_mealDataContent {
     margin-left: 50px;
     margin-right: 50px;
@@ -620,7 +620,7 @@ footer .i_footerWrapper .i_footerLeft {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   footer .i_footerWrapper .i_footerLeft {
     flex-direction: column;
   }
@@ -751,7 +751,7 @@ footer .i_copyright {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 375px) {
   .hotelPanorama #panorama {
     height: 80vh;
   }
@@ -802,7 +802,7 @@ footer .i_copyright {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 375px) {
   #location {
     background-image: url(../img/index/mapMobile.png);
     background-size: 120%;
@@ -881,7 +881,7 @@ footer .i_copyright {
   margin-bottom: 36px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .h_room {
     margin: 0 10px;
   }
@@ -1041,7 +1041,7 @@ footer .i_copyright {
   margin: 0 54px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .h_wrapper {
     margin: 0 10px;
   }
@@ -2708,7 +2708,7 @@ main {
   margin: 0 50px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .clinic_wrapper {
     margin: 0 10px;
   }
@@ -2731,7 +2731,7 @@ main {
   position: relative;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .clinic_wrapper .c_faq1 .c_flip, .clinic_wrapper .c_faq2 .c_flip, .clinic_wrapper .c_faq3 .c_flip, .clinic_wrapper .c_faq4 .c_flip, .clinic_wrapper .c_faq5 .c_flip, .clinic_wrapper .c_faq6 .c_flip {
     line-height: 36px;
     padding-right: 43px;

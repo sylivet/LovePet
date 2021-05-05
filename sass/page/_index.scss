@@ -59,7 +59,7 @@
         @include pad{
             height: 500px;
         }
-        @include iphone5{
+        @include iphoneX{
             height: 80vh;
         }
 
@@ -105,7 +105,7 @@
         background-size: 120%;
         background-position: top;
     }
-    @include iphone5{
+    @include iphoneX{
         background-image: url(../img/index/mapMobile.png);
         background-size: 120%;
         background-position: 65% 4%;
