@@ -4,12 +4,15 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap");
 <<<<<<< HEAD
+<<<<<<< HEAD
 @import url("reset.css");
 @import url("reset.css");
 @import url("reset.css");
 =======
 @import url("../css/hamburgers.css");
 >>>>>>> 81af30d724ef2e9abfa039b2d53cab38666bfc24
+=======
+>>>>>>> a919c329f25f84746b7714ad045110f1fc752e40
 h1 {
   font-size: 30px;
 }
@@ -128,6 +131,7 @@ header {
     width: 100vw;
     position: fixed;
     top: 0;
+    left: 0;
     z-index: 10;
   }
 }
@@ -454,11 +458,6 @@ footer .i_copyright {
   margin-bottom: 27px;
   color: #915727;
   text-align: center;
-}
-
-#news ul {
-  display: flex;
-  justify-content: center;
 }
 
 #news ul li {
