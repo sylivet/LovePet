@@ -1,4 +1,9 @@
 <header>
+  <button id="hamberger" class="hamburger hamburger--spin" type="button">
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button>
   <a href="index.html" class="i_logo"><img src="img/common/i_logo.png" alt="" /></a>
   <ul class="i_navigation">
     <li>
@@ -40,8 +45,8 @@
       </a>
     </li>
   </ul>
-  <nav>
-    <!-- hamburger -->
+  <!-- <nav>
+    
     <input type="checkbox" class="toggler">
     <div class="hamburger">
       <div></div>
@@ -67,5 +72,17 @@
         </div>
       </div>
     </div>
-  </nav>
+  </nav> -->
 </header>
+<script>
+  var hamburger = document.querySelector(".hamburger");
+hamburger.addEventListener("click", function () {
+  hamburger.classList.toggle("is-active");
+  // let nav = document.getElementsByClassName("rwd_nav")[0];
+  // if (nav.style.display === "none") {
+  //   nav.style.display = "block";
+  // } else if (nav.style.display === "block") {
+  //   nav.style.display = "none";
+  // }
+});
+</script>

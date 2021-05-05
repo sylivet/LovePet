@@ -1,4 +1,4 @@
-.i_background{
+.i_background {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -7,7 +7,7 @@
     left: 0;
 }
 
-.i_lightbox_bk{
+.i_lightbox_bk {
     max-width: 720px;
     max-height: 90vh;
     top: 50%;
@@ -17,6 +17,35 @@
     position: absolute;
     background-color: #D3E0BE;
     border-radius: 60px;
+
+    .i_closeButton {
+        top: 26px;
+        right: 30px;
+        width: 30px;
+        position: absolute;
+    }
+
+    .i_lightbox_title {
+        text-align: center;
+        margin-top: 27px;
+        margin-bottom: 20px;
+    }
+    
+}
+
+.i_button{
+    background-color: #FFC857;
+    width: 180px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    border-radius: 60px;
+    border: 0;
+}
+
+.box{
+width: 100px;
+// height: 100px;
 }
 
 // %lightBox {
@@ -184,14 +213,14 @@
 //                     margin-top: 20px;
 //                     display: flex;
 //                     background-color: #FFC857;
-    
+
 //                     div {
 //                         margin-left: 10px;
-    
+
 //                         &:last-child {
 //                             margin-left: 20px;
 //                         }
-    
+
 //                         select {
 //                             margin-left: 10px;
 //                             margin-right: 10px;
@@ -203,17 +232,17 @@
 //                     margin-top: 20px;
 //                     display: flex;
 //                     background-color: #FFC857;
-    
+
 //                     div {
 //                         margin-left: 10px;
-    
+
 //                         &:last-child {
 //                             margin-left: 20px;
 //                         }
-    
+
 //                         select {
 //                             margin-right: 10px;
-    
+
 //                             &:first-child {
 //                                 margin-left: 25px;
 //                             }
