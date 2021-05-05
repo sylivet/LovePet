@@ -1685,7 +1685,7 @@ main {
 
 .c_nav ul {
   display: flex;
-  width: 800px;
+  max-width: 800px;
   height: 175px;
   margin-top: 60px;
   justify-content: center;
