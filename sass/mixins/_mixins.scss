@@ -1,17 +1,17 @@
 @mixin pad {
-  @media(max-width:1024px) {
+  @media(max-width:1025px) {
       @content;
   }
 }
 
 @mixin mobile {
-  @media(max-width:768px) {
+  @media(max-width:769px) {
       @content;
   }
 }
 
 @mixin iphoneX {
-  @media(max-width:375px) {
+  @media(max-width:376px) {
       @content;
   }
 }
