@@ -1,26 +1,65 @@
-@import url('reset.css');
+// @import url('reset.css');
 
-@media (min-width:1025px) {
+// @media (min-width:1025px) {
 
-  body {
-    box-sizing: border-box;
-    font-family: 'Noto Sans TC', sans-serif;
+.bill {
+  box-sizing: border-box;
+  font-family: 'Noto Sans TC', sans-serif;
 
-    .s_wrapper {
-      width: 100vw;
-      margin: 0 auto;
+  .bill_wrapper {
+    width: 100%;
+    margin: 0 auto;
 
-      header img {
-        display: block;
-        width: 100vw;
+    .bill_main {
+      width: calc(100% - 180px);
+      margin: 100px auto;
+
+      @include pad {
+        width: calc(100% - 100px);
       }
 
-      main {
-        width: calc(100% - 180px);
+      @include mobile {
+        width: calc(100% - 50px);
         margin: 100px auto;
+      }
 
 
-        .s_order {
+      .s_order {
+        h4 {
+          font-size: 21px;
+          padding-left: 30px;
+          color: black;
+          background-color: rgba(0, 0, 0, 0.3);
+          height: 60px;
+          border-radius: 30px;
+          line-height: 60px;
+        }
+
+        .s_member {
+
+          li {
+            font-size: 21px;
+            margin-top: 30px;
+            padding-left: 30px;
+
+            @include mobile {
+              font-size: 21px;
+              line-height: 34px;
+              margin: 15px 0;
+            }
+
+          }
+        }
+      }
+
+      .s_ATTN {
+        padding-top: 50px;
+
+        @include mobile {
+          padding-top: 30px;
+        }
+
+        .s_radio {
           h4 {
             font-size: 21px;
             padding-left: 30px;
@@ -31,229 +70,349 @@
             line-height: 60px;
           }
 
-          .s_member {
+          label {
+            font-size: 21px;
+          }
+        }
 
-            li {
-              font-size: 21px;
-              margin-top: 30px;
-              list-style: none;
+        .s_name {
+          padding-top: 30px;
+
+          @include mobile {
+            padding-top: 15px;
+          }
+
+          label {
+            font-size: 21px;
+            margin-left: 30px;
+
+            @include mobile {
+              margin-left: 15px;
+            }
+          }
+
+          input {
+            height: 50px;
+            width: 90.5%;
+            margin-left: 60px;
+
+            @include pad {
+              width: 81%;
+            }
+
+            @include mobile {
+              width: 90%;
+              margin-left: 15px;
+              margin-top: 5px;
             }
           }
         }
 
-        .s_ATTN {
-          padding-top: 50px;
+        .s_mail {
+          padding-top: 30px;
 
-          .s_radio {
-            h4 {
-              font-size: 21px;
-              padding-left: 30px;
-              color: black;
-              background-color: rgba(0, 0, 0, 0.3);
-              height: 60px;
-              border-radius: 30px;
-              line-height: 60px;
-            }
+          @include mobile {
+            padding-top: 15px;
 
-            label {
-              font-size: 21px;
+          }
+
+          label {
+            font-size: 21px;
+            margin-left: 30px;
+
+            @include mobile {
+              margin-left: 15px;
+
             }
           }
 
-          .s_name {
-            padding-top: 30px;
+          input {
+            height: 50px;
+            width: 90.5%;
+            margin-left: 40px;
 
-            label {
-              font-size: 21px;
-              margin-left: 30px;
+            @include pad {
+              width: 81%;
             }
 
-            input {
-              height: 50px;
+            @include mobile {
               width: 90%;
-              margin-left: 60px;
+              margin-left: 15px;
+              margin-top: 5px;
+            }
+
+          }
+        }
+
+        .s_phone {
+          padding-top: 30px;
+
+          label {
+            font-size: 21px;
+            margin-left: 30px;
+
+            @include mobile {
+              margin-left: 15px;
             }
           }
 
-          .s_mail {
-            padding-top: 30px;
+          input {
+            height: 50px;
+            width: 90.5%;
+            margin-left: 20px;
 
-            label {
-              font-size: 21px;
-              margin-left: 30px;
+            @include pad {
+              width: 81%;
             }
 
-            input {
-              height: 50px;
+            @include mobile {
               width: 90%;
-              margin-left: 40px;
+              margin-left: 15px;
+              margin-top: 5px;
+            }
+          }
+        }
+
+        .s_add {
+          padding-top: 30px;
+          display: flex;
+
+          @include mobile {
+            flex-direction: column;
+            padding-top: 15px;
+          }
+
+          label {
+            font-size: 21px;
+            line-height: 55px;
+            margin-left: 30px;
+
+            @include mobile {
+              margin-left: 15px;
             }
           }
 
-          .s_phone {
-            padding-top: 30px;
-
-            label {
-              font-size: 21px;
-              margin-left: 30px;
-            }
-
-            input {
-              height: 50px;
-              width: 90%;
-              margin-left: 20px;
-            }
-          }
-
-          .s_add {
-            padding-top: 30px;
+          .s_postoffice {
+            width: 90.5%;
+            margin-left: 68px;
             display: flex;
+            justify-content: space-between;
 
-            label {
-              font-size: 21px;
-              line-height: 55px;
-              margin-left: 30px;
+            @include pad {
+              width: 80.5%;
             }
 
-            .s_postoffice {
-              width: 90.5%;
-              margin-left: 68px;
-              display: flex;
-              justify-content: space-between;
+            @include mobile {
+              width: 88%;
+              margin-left: 15px;
+              flex-direction: column;
+            }
 
-              select {
+            select {
+              height: 50px;
+              font-size: 21px;
+              text-align: center;
+              text-align-last: center;
+              width: 10%;
+
+              @include pad {
+                height: 50px;
+                font-size: 16px;
+              }
+
+              @include mobile {
                 height: 55px;
-                font-size: 21px;
-                text-align: center;
-                text-align-last: center;
-                // margin-left: 15px;
-                width: 10%;
+                font-size: 16px;
+                width: 100%;
+                margin-bottom: 15px;
+              }
 
-                option {
-                  font-size: 21px;
+              option {
+                font-size: 21px;
+
+                @include pad {
+                  font-size: 16px;
+                }
+
+                @include mobile {
+                  font-size: 16px;
                 }
               }
-
-              input {
-                height: 50px;
-                width: 78%;
-                // margin-left: 17px;
-              }
             }
 
-          }
-
-        }
-
-        .s_credit {
-          padding-top: 50px;
-
-          h4 {
-            font-size: 21px;
-            padding-left: 30px;
-            color: black;
-            background-color: rgba(0, 0, 0, 0.3);
-            height: 60px;
-            border-radius: 30px;
-            line-height: 60px;
-          }
-
-          .s_card {
             input {
               height: 50px;
-              width: 10%;
-              margin-left: 15px;
-              margin-top: 30px;
-            }
+              width: 77%;
 
-            label {
-              font-size: 21px;
-              margin-left: 30px;
+              @include mobile {
+                width: 100%;
+              }
             }
           }
         }
+      }
 
-        .s_invoice {
-          padding-top: 50px;
+      .s_credit {
+        padding-top: 50px;
 
-          h4 {
-            font-size: 21px;
-            padding-left: 30px;
-            color: black;
-            background-color: rgba(0, 0, 0, 0.3);
-            height: 60px;
-            border-radius: 30px;
-            line-height: 60px;
-            margin-bottom: 30px;
-          }
+        @include mobile {
+          padding-top: 30px;
+        }
 
-          select {
-            height: 55px;
-            font-size: 21px;
-            width: 98%;
+        h4 {
+          font-size: 21px;
+          padding-left: 30px;
+          color: black;
+          background-color: rgba(0, 0, 0, 0.3);
+          height: 60px;
+          border-radius: 30px;
+          line-height: 60px;
+        }
+
+        .s_card {
+
+          input {
+            height: 50px;
+            width: 10%;
             margin-left: 15px;
-
-            option {
-              font-size: 21px;
-            }
-          }
-        }
-
-        form {
-          h3 {
-            font-size: 26px;
-            font-weight: 700;
-            text-align: center;
-            color: #707070;
-            padding-top: 30px;
-          }
-
-          .s_BTN {
-            display: flex;
-            justify-content: center;
             margin-top: 30px;
 
-            a {
-              display: block;
-              width: 170px;
-              height: 55px;
+            @include mobile {
+              height: 30px;
+              width: 19%;
+              margin-left: 10px;
+              margin-top: 10px;
+
+              &:nth-of-type(4) {
+                margin-right: 10px;
+                //把授權碼擠到下一行
+              }
+
+              &:nth-of-type(5) {
+                width: 70%;
+                //授權碼
+              }
+            }
+          }
+
+          label {
+            font-size: 21px;
+            margin-left: 30px;
+
+            @include mobile {
               font-size: 16px;
-              color: black;
-              text-align: center;
-              line-height: 55px;
-              background-color: #ffc857;
-              border-radius: 50px;
-              text-decoration: none;
-            }
-
-            a:hover {
-              background-color: #F39800;
-            }
-
-            input {
-              width: 170px;
-              height: 55px;
-              font-size: 16px;
-              color: black;
-              text-align: center;
-              line-height: 55px;
-              background-color: #ffc857;
-              border-radius: 50px;
-              border: 0px;
-              margin-left: 15px;
-            }
-
-            input:hover {
-              background-color: #F39800;
+              margin-left: 10px;
+              margin-top: 5px;
             }
           }
         }
       }
 
-      footer img {
-        display: block;
-        width: 100vw;
+      .s_invoice {
+        padding-top: 50px;
+
+        @include mobile {
+          padding-top: 30px;
+        }
+
+        h4 {
+          font-size: 21px;
+          padding-left: 30px;
+          color: black;
+          background-color: rgba(0, 0, 0, 0.3);
+          height: 60px;
+          border-radius: 30px;
+          line-height: 60px;
+          margin-bottom: 30px;
+
+          @include mobile {
+            margin-bottom: 0px;
+          }
+        }
+
+        select {
+          height: 55px;
+          font-size: 21px;
+          width: 98%;
+          margin-left: 15px;
+
+          @include pad {
+            font-size: 16px;
+            width: 94%;
+          }
+
+          @include mobile {
+            font-size: 16px;
+            width: 88%;
+            margin-top: 15px;
+          }
+
+          option {
+            font-size: 21px;
+
+            @include pad {
+              font-size: 16px;
+            }
+
+            @include mobile {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+
+      form {
+        h3 {
+          font-size: 26px;
+          font-weight: 700;
+          text-align: center;
+          color: #707070;
+          padding-top: 30px;
+        }
+
+        .s_BTN {
+          display: flex;
+          justify-content: center;
+          margin-top: 30px;
+
+          a {
+            display: block;
+            width: 170px;
+            height: 55px;
+            font-size: 16px;
+            color: black;
+            text-align: center;
+            line-height: 55px;
+            background-color: #ffc857;
+            border-radius: 50px;
+            text-decoration: none;
+          }
+
+          &:hover {
+            background-color: #F39800;
+          }
+
+          input {
+            width: 170px;
+            height: 55px;
+            font-size: 16px;
+            color: black;
+            text-align: center;
+            line-height: 55px;
+            background-color: #ffc857;
+            border-radius: 50px;
+            border: 0px;
+            margin-left: 15px;
+          }
+
+          &:hover {
+            background-color: #F39800;
+          }
+        }
       }
     }
+
   }
 }
+
+// }
