@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="img/common/favicon.ico"/>
+        <link rel="stylesheet" href="css/style.css" />
+        <title>header</title>
+    </head>
+
+    <body>
+        <div id="header"></div>
+
+<!-- =================================================加入會員===================================================== -->
+
+        <div class="sign-up">
+            <h2>會員登入</h2>
+            <button type="button">X</button>
+
+            <article>
+            <form action="">
+                <section>
+                    <ul> 
+
+                        <li>
+                            <label for="mail"><img src="./img/member/Icon material-person.png" alt="" style="background-color: brown; width: 30px;"></label>
+                            <input type="email" id="mail" placeholder="請輸入您的電子信箱">
+                        </li>
+                        <li>
+                            <label for="new_pwd"><img src="./img/member/Icon ionic-ios-lock.png" alt="" style="background-color: brown; width: 30px;"></label>
+                            <input type="text" id="new_pwd" placeholder="請輸入您的正確密碼">
+                        </li>
+
+                    </ul>
+                </section>
+
+                <input type="submit" value="會員登入">
+                
+                <input type="checkbox" id="keep_sign_in">
+                <label for="keep_sign_in">保持登入</label>
+
+
+                <a href="">
+                    <img src="./img/member/Icon awesome-question-circle.png" alt="" style="width: 20px;">
+                    <span>忘記密碼</span>
+                </a>
+
+                <div class="m_underline_2"></div> 
+
+                <input type="submit" value="加入我們">
+
+            </form>
+
+
+            </article>
+            <article>
+                <p>備註:</p>
+                <p>備註事項一、這是備註事項一</p>
+                <p>備註事項二、這是備註事項二</p>
+            </article>
+        </div>
+        <div id="footer"></div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script>
+            $(function () {
+              $("#header").load("layout/header.html");
+              $("#footer").load("layout/footer.html");
+            });    
+          </script>
+    </body>
+</html> 

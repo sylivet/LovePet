@@ -1,0 +1,168 @@
+// *{
+//   outline: 1px solid red;
+// }
+
+
+
+
+//================================== 變數 ==================================//
+$m_title_fs:30px;
+$m_content_fs:24px;
+$m_btn_fs:19px;
+$m_title_color:rgb(255,169,144);
+$m_line_color:#ccc;
+$m_bg_color:#FFC857;
+
+
+
+//================================== 組件 ==================================//
+.m_underline_2{
+  width: 98%;
+  height: 1px;
+  background-color: $m_line_color;
+  margin: 30px 0;
+  display: inline-block;
+}
+
+
+//================================== 模型 ==================================//
+
+@mixin m_input_style($width) {
+  li{
+    padding: 5px 0;
+  }
+  input{
+    width: $width;
+    border: 0;
+    border-bottom: 1px solid $m_line_color;
+    margin: 0 15px;
+    
+    &:focus{
+      outline: 0;
+      background-color: $m_line_color;
+      color: white;
+    }
+  }
+}
+
+@mixin m_btn {
+  background-color: $m_bg_color;
+  width: 200px;
+  border: 0;
+  padding: 12px 0;
+  font-size: $m_btn_fs;
+  border-radius: 20px;
+
+  margin: 20px 0 20px;
+
+  &:hover{
+    color: white;
+    background-color: darken($m_bg_color, 20%);
+  }
+}
+
+@mixin m_img_hover {
+  img{
+  opacity: 0.2;
+  &:hover{
+    opacity: 0.6;
+  }
+}
+
+}
+
+//================================== 外層 ==================================//
+
+.m_wrapper main{
+  padding: 80px 50px;
+  text-align: center;
+
+  h5{
+    font-size: $m_title_fs;
+    color: $m_title_color;
+  
+    margin: 60px 0 20px;
+  }
+
+  section{
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+}
+
+
+//================================== 層 ==================================//
+
+// label,p{
+//   font-size: $m_content_fs;
+// }
+
+.m_person_pic{
+  opacity: 0.4;
+  &:hover{
+    opacity: 0.7;
+  }
+  width: 200px;
+
+  margin: 0 auto 15px;
+  border-radius: 50%;
+}
+
+
+
+
+
+
+ul.personal_info{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @include m_img_hover();
+
+  li{
+    //background-color: #ccc;
+    flex-basis: 40%;
+    flex-grow: 1;
+
+    display: flex;
+  }
+  @include m_input_style(60%);
+
+  .m_address{
+    width: 80%;
+  }
+
+
+}
+
+
+
+.m_pwd_setting{
+  @include m_input_style(85%);
+  
+  ul{
+    text-align: left;
+  }
+
+}
+
+.m_info_option{
+  
+  input{
+    margin: 20px 0 50px 20px;
+    
+  }
+  label{
+    margin-right: 20px;
+  }
+}
+
+
+section{
+  input.m_btn{
+    @include m_btn();
+  }
+}
+

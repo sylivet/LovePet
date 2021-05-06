@@ -61,9 +61,11 @@ img {
 
 body {
     font-family: "Noto Sans TC", sans-serif;
+    @include pad{
+        margin-top: 87px;
+    }
 }
 
 *{
     box-sizing: border-box;
 }
-

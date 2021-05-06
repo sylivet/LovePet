@@ -4,15 +4,15 @@ header {
     justify-content: space-between;
     @include pad{
         justify-content: flex-end;
-        width: 100%;
+        width: 100vw;
         position: fixed;
         top:0;
+        left: 0;
         z-index: 10;
     }
     background-color: map-get($color, headerColor);
     height: 87px;
     overflow: hidden;
-
 
     .i_logo {
         @include pad{
@@ -63,6 +63,10 @@ header {
             font-weight: bold;
             color: white;
         }
+
+        // body.index & {
+        //     body.index header .i_navigation
+        // }
 
         li.active img {
             opacity: 1;

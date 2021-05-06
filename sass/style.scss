@@ -5,10 +5,10 @@
 @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap");
-// common
-@import "base/common";
 // mixin
 @import "mixins/mixins";
+// common
+@import "base/common";
 // bootstrap
 // module
 @import "module/lightbox";

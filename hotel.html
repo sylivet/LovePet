@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <!-- 換成sass的-->
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>hotel</title>
 </head>
+
 <body>
     <!-- header -->
     <div id="header"></div>
+
     <!-- 旅館banner動畫 -->
     <div class="h_banner">
         <img src="img/hotel/h_banner.png" alt="">
@@ -62,7 +60,7 @@
                         <li>
                             <img src="img/hotel/h_icon4.png" alt="">
                             <h4>網路</h4>
-                            <p>Wi-Fi</p>
+                            <p class="h_offer">Wi-Fi</p>
                         </li>
                     </ul>
                 </div>
@@ -74,72 +72,88 @@
                     考慮到毛孩的活動範圍，房內的擺設皆留有寬敞的空間，並設有隔音牆，讓您可以安心陪伴牠們玩耍、休息。</h4>
                 <h1>NT$4,000</h1>
                 <button>房況預約查詢</button>
-                <img src="./img/hotel/h_footprint.png" alt="">
             </div>
         </div>
     </div>
 
     <!-- 旅館Q&A-->
-    <div class="h_faq1">
-        <div class="h_flip">
-            <span class="h_q1">入住時間</span>
+    <div class="h_wrapper">
+        <div class="h_faq1">
+            <div class="h_flip">
+                <span class="h_q1">
+                    <h3>入住時間</h3>
+                    <img src="./img/hotel/h_click.png" alt="">
+                </span>                                
+            </div>
+            <div class="h_panel1">
+                下午15：00過後，退房時間為隔日上午11：00以前。
+            </div>
         </div>
-        <div class="h_panel">下午15：00過後，退房時間為隔日上午11：00以前。</div>
+    
+        <div class="h_faq2">
+            <div class="h_flip">
+                <span class="h_q2">
+                    <h3>備註</h3>
+                    <img src="./img/hotel/h_click.png" alt="">
+                </span>            
+            </div>
+            <div class="h_panel2">
+                <ul>
+                    <li>一、加床費用：6歲(含)以下孩童，不收取加床費；身高大於130~150公分或7歲以上者，每位加收NT$800/位。</li>
+                    <li>二、於本旅館住宿者，可免費折抵停車費用。</li>
+                    <li>三、嚴禁吸毒毒品及進行任何非法行為，一經發現，則報警處理。</li>
+                    <li>四、室內全面禁菸，違者將罰鍰新台幣NT$10,000。</li>
+                    <li>五、早餐時間為上午07：00~10：00以前，茹素者請於事先告知。</li>
+                    <li class="h_notice">
+                        <img src="./img/hotel/h_note.png" alt="">
+                        以上內容如有變更，恕不另行通知，以樂寵公告為主。
+                    </li>
+                </ul>     
+            </div>
+        </div>
+    
+        <div class="h_faq3">
+            <div class="h_flip">
+                <span class="h_q3">
+                    <h3>毛孩小叮嚀</h3>
+                    <img src="./img/hotel/h_click.png" alt="">
+                </span>
+            </div>
+            <div class="h_panel3">
+                <ul>
+                    <li>一、寵物需年滿十二個月以上，且完成預防針注射，於入住時提供接種證明。</li>
+                    <li>二、為維護每位飼主的毛孩安全，恕不接受有傳染疾病或發情中的寵物入住。</li>
+                    <li>三、以衛生作為考量，避免讓毛孩接觸到房客的床或沙發上。</li>
+                    <li>四、不隨意讓寵物大小便，如不小心排泄，請先清潔乾淨，並告知旅館服務人員。</li>
+                    <li class="h_notice">
+                        <img src="./img/hotel/h_note.png" alt="">
+                        以上內容如有變更，恕不另行通知，以樂寵公告為主。
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-
-    <div class="h_faq2">
-        <div class="h_flip">
-            <span class="h_q2">備註</span>            
-        </div>
-        <div class="h_panel">
-            <ul>
-                <li>一、加床費用：6歲(含)以下孩童，不收取加床費；身高大於130~150公分或7歲以上者，每位加收NT$800/位。</li>
-                <li>二、於本旅館住宿者，可免費折抵停車費用。</li>
-                <li>三、嚴禁吸毒毒品及進行任何非法行為，一經發現，則報警處理。</li>
-                <li>四、室內全面禁菸，違者將罰鍰新台幣NT$10,000。</li>
-                <li>五、早餐時間為上午07：00~10：00以前，茹素者請於事先告知。</li>
-                <br>
-                <li class="h_notice">
-                    <img src="./img/hotel/h_note.png" alt="">
-                    以上內容如有變更，恕不另行通知，以樂寵公告為主。
-                </li>
-            </ul>     
-        </div>
-    </div>
-
-    <div class="h_faq3">
-        <div class="h_flip">
-            <span class="h_q3">毛孩小叮嚀</span>
-        </div>
-        <div class="h_panel">
-            <ul>
-                <li>一、寵物需年滿十二個月以上，且完成預防針注射，於入住時提供接種證明。</li>
-                <li>二、為維護每位飼主的毛孩安全，恕不接受有傳染疾病或發情中的寵物入住。</li>
-                <li>三、以衛生作為考量，避免讓毛孩接觸到房客的床或沙發上。</li>
-                <li>四、不隨意讓寵物大小便，如不小心排泄，請先清潔乾淨，並告知旅館服務人員。</li>
-                <br>
-                <li class="h_notice">
-                    <img src="./img/hotel/h_note.png" alt="">
-                    以上內容如有變更，恕不另行通知，以樂寵公告為主。
-                </li>
-            </ul>
-        </div>
-    </div>
+    
 
     <!-- 720度環景-->
 
     <!-- footer -->
-<div id="footer"></div>
+    <div id="footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
     <script>
         $(function(){
             $(".h_flip").click(function(){
                 $(this).next().slideToggle("slow");
             });
+            // 改成點擊三角形才打開
         });
-        $(function () {
-      $("#header").load("layout/header.html");
-      $("#footer").load("layout/footer.html");
-    });  
+
+        $(function(){
+            $("#header").load("layout/header.html");
+            $("#footer").load("layout/footer.html");
+        });  
     </script>
 </body>
 </html>
