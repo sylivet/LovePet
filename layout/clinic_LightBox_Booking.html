@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/tavo-calendar.css">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="i_background">
+        <div class="i_lightbox_bk">
+            <a href="#" class="i_closeButton">
+                <img src="../img/common/close.png" alt="">
+            </a>
+            <div class="i_lightbox_title">
+                <h2>預訂內容</h2>
+            </div>
+            <!-- <div class="bar">
+            </div> -->
+            <div class="i_clinic">
+            <div>
+                <div id="my-calendar" class="i_calendar"></div>
+                <div class="i_petsname">
+                    <span>請選擇寵物名字</span>
+                    <select>
+                        <option>來福</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                健檢項目
+                <table>
+                    <tr>
+                        <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+                        <td>快速健檢</td>
+                        <td>NT 1000元</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+                        <td>進階健檢</td>
+                        <td>NT 2000元</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+                        <td>加購項目</td>
+                        <td>NT 2000元</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+                        <td>加購項目</td>
+                        <td>NT 2000元</td>
+                    </tr>
+                </table>
+                <div class="i_total">
+                    <h3>總價 NT 3000元</h3>
+                </div>
+                <hr>
+                <button type="button" class="i_button">確認預約</button>
+            </div>
+
+        </div>
+        </div>
+    </div>
+    <script src="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.js"></script>
+    <script>
+        Array.prototype.forEach.call(document.getElementsByClassName('bar'), function (el) {
+            new SimpleBar(el);
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="../js/tavo-calendar.js"></script>
+    <script>
+        const myCalendar = new TavoCalendar('#my-calendar', {
+            date: new Date(),
+        })
+    </script>
+</body>
+</body>
+
+</html>

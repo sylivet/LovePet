@@ -1,3 +1,4 @@
+// 共同背景
 .i_background {
     position: fixed;
     width: 100%;
@@ -9,7 +10,7 @@
 
 .i_lightbox_bk {
     max-width: 720px;
-    // max-height: 90vh;
+    max-height: 90vh;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -37,6 +38,12 @@
     }
 }
 
+//總價
+.i_total{
+    color: #707070;
+}
+
+//按鈕
 .i_button {
     background-color: #ffc857;
     width: 180px;
@@ -47,6 +54,7 @@
     border: 0;
 }
 
+//寵物餐點
 .i_mealMain {
     display: flex;
 
@@ -93,6 +101,7 @@
     }
 }
 
+//加入菜單
 .i_addMenu {
     position: absolute;
     bottom: 50px;
@@ -109,12 +118,14 @@
     z-index: 1;
 }
 
-
+//人類餐點
 .i_menu {
     position: absolute;
-    @include pad{
+
+    @include pad {
         top: 10px;
     }
+
     top:500px;
     left: 55px;
 
@@ -133,423 +144,144 @@
     }
 }
 
-
-
-
-// %lightBox {
-
-// }
-
-// %closeButton {
-//     top: 26px;
-//     right: 30px;
-//     width: 30px;
-//     position: absolute;
-// }
-
-// %searchButton {
-//     width: 170px;
-//     height: 54px;
-//     border-radius: 60px;
-//     background-color: #FFC857;
-//     border: 0;
-// }
-
-// .i_mealData_BK {
-//     @extend %lightBoxBK;
-
-//     .i_mealData {
-//         @extend %lightBox;
-
-//         .i_menu {
-//             @include pad {
-//                 top: 10px;
-//             }
-
-//             position: relative;
-//             top:500px;
-//             left: 55px;
-
-//             p {
-//                 font-size: 14px;
-//                 color: #707070;
-//                 font-weight: bold;
-//             }
-
-//             .i_orangeLine {
-//                 border-top: 5px solid #FFC857;
-//                 width: 40px;
-//                 position: absolute;
-//                 left: 10px;
-//                 bottom: -8px;
-//             }
-//         }
-
-//         .i_closeButton {
-//             img {
-//                 @extend %closeButton;
-//             }
-//         }
-
-//         .i_addMenuButton {
-//             position: absolute;
-//             bottom: 50px;
-//             right: 0;
-//             border-top-left-radius: 999px;
-//             border-bottom-left-radius: 999px;
-//             display: block;
-//             text-align: center;
-//             width: 86px;
-//             height: 36px;
-//             line-height: 36px;
-//             color: white;
-//             background-color: map-get($color, addMenuColor);
-//         }
-
-//         .i_mealName {
-//             text-align: center;
-//             margin-top: 27px;
-//             margin-bottom: 20px;
-
-//         }
-
-//         .i_mealMain {
-//             display: flex;
-
-//             @include pad {
-//                 flex-direction: column;
-//             }
-
-//             position: relative;
-
-//             .i_meal {
-//                 @include pad {
-//                     order: 2;
-//                     margin: 30px 45px 65px 42px;
-//                 }
-
-//                 white-space: nowrap;
-//                 position: relative;
-//                 margin:100px 45px 65px 42px;
-//                 color: #707070;
-
-//                 .i_orangeLine {
-//                     border-top: 5px solid #FFC857;
-//                     width: 40px;
-//                     position: absolute;
-//                     left: -20px;
-//                     bottom: -8px;
-//                 }
-//             }
-
-//             .i_mealDataContent {
-//                 @include pad {
-//                     order: 1;
-//                     margin-left: 85px;
-//                 }
-
-//                 @include mobile {
-//                     margin-left: 50px;
-//                     margin-right: 50px;
-//                 }
-
-//                 margin-top: 24px;
-//                 margin-right: 85px;
-//                 line-height: 1.7;
-//             }
-
-//         }
-//     }
-// }
-
-// .i_reservation_BK {
-//     @extend %lightBoxBK;
-
-//     .i_reservationData {
-//         @extend %lightBox;
-
-//         .i_closeButton {
-//             img {
-//                 @extend %closeButton;
-//             }
-//         }
-
-//         .i_reservationTitle {
-//             text-align: center;
-//             margin-top: 27px;
-//             margin-bottom: 20px;
-
-//         }
-
-//         .i_reservationContent {
-//             display: flex;
-//             justify-content: center;
-
-//             .i_combine {
-//                 display: flex;
-//                 flex-direction: column;
-//                 align-items: center;
-
-//                 #my-calendar {
-//                     margin-top: 20px;
-//                     max-width: 267px;
-//                     width: 100%;
-//                 }
-//                 .i_people {
-//                     padding: 10px;
-//                     margin-top: 20px;
-//                     display: flex;
-//                     background-color: #FFC857;
-
-//                     div {
-//                         margin-left: 10px;
-
-//                         &:last-child {
-//                             margin-left: 20px;
-//                         }
-
-//                         select {
-//                             margin-left: 10px;
-//                             margin-right: 10px;
-//                         }
-//                     }
-//                 }
-//                 .i_pets {
-//                     padding: 10px;
-//                     margin-top: 20px;
-//                     display: flex;
-//                     background-color: #FFC857;
-
-//                     div {
-//                         margin-left: 10px;
-
-//                         &:last-child {
-//                             margin-left: 20px;
-//                         }
-
-//                         select {
-//                             margin-right: 10px;
-
-//                             &:first-child {
-//                                 margin-left: 25px;
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//             .bookingMenu{
-//                 .i_search {
-//                     @extend %searchButton;
-//                     margin-top: 30px;
-//                     margin-bottom: 30px;
-//                 }
-//             }
-//         }
-//     }
-// }
-
-// .i_reservation_BK {
-//     @extend %lightBoxBK;
-
-//     .i_reservationData {
-//         @extend %lightBox;
-
-//         .i_closeButton {
-//             img {
-//                 @extend %closeButton;
-//             }
-//         }
-
-//         .i_reservationTitle {
-//             text-align: center;
-//             margin-top: 27px;
-//             margin-bottom: 20px;
-
-//         }
-
-//         .i_reservationContent {
-//             display: flex;
-//             justify-content: center;
-
-//             .i_vacant {
-//                 display: flex;
-//                 flex-direction: column;
-//                 align-items: center;
-
-//                 #my-calendar {
-//                     margin-top: 20px;
-//                     max-width: 400px;
-//                     width: 100%;
-//                 }
-
-//                 .i_search {
-//                     @extend %searchButton;
-//                     margin-top: 30px;
-//                     margin-bottom: 30px;
-//                 }
-//             }
-
-//             .i_calendar {
-//                 width: 267px;
-//                 height: 267px;
-//                 background-color: white;
-//             }
-
-//             .i_people {
-//                 padding: 10px;
-//                 margin-top: 20px;
-//                 display: flex;
-//                 background-color: #FFC857;
-
-//                 div {
-//                     margin-left: 10px;
-
-//                     &:last-child {
-//                         margin-left: 20px;
-//                     }
-
-//                     select {
-//                         margin-left: 10px;
-//                         margin-right: 10px;
-//                     }
-//                 }
-//             }
-
-//             .i_pets {
-//                 padding: 10px;
-//                 margin-top: 20px;
-//                 display: flex;
-//                 background-color: #FFC857;
-
-//                 div {
-//                     margin-left: 10px;
-
-//                     &:last-child {
-//                         margin-left: 20px;
-//                     }
-
-//                     select {
-//                         margin-right: 10px;
-
-//                         &:first-child {
-//                             margin-left: 25px;
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
-
-// .i_shoppingList_BK {
-//     @extend %lightBoxBK;
-
-//     .i_shoppingList {
-//         @extend %lightBox;
-//         display: flex;
-//         flex-direction: column;
-//         align-items: center;
-
-//         .i_closeButton {
-//             img {
-//                 @extend %closeButton;
-//             }
-//         }
-
-//         .i_shoppingListContent {
-//             width: 80%;
-
-//             .i_shoppingListTitle {
-//                 text-align: center;
-//                 margin-top: 27px;
-//                 margin-bottom: 20px;
-//             }
-
-//             section {
-//                 table {
-//                     tr {
-//                         display: flex;
-//                         align-items: center;
-
-//                         &:not(:first-child) {
-//                             margin-top: 30px;
-//                         }
-
-//                         td {
-//                             &:nth-child(2) {
-//                                 margin-left: 30px;
-//                             }
-
-//                             &:nth-child(3) {
-//                                 margin-left: 30px;
-//                                 width: 100px;
-//                                 text-align: center;
-//                                 color: #707070;
-//                             }
-
-//                             &:nth-child(4) {
-//                                 margin-left: 30px;
-
-//                                 i {
-//                                     &:first-child {
-//                                         margin-right: 15px;
-//                                     }
-
-//                                     &:last-child {
-//                                         margin-left: 15px;
-//                                     }
-//                                 }
-//                             }
-
-//                             &:last-child {
-//                                 margin-left: 30px;
-//                                 color: #707070;
-//                             }
-
-//                             img {
-//                                 width: 168px;
-//                                 height: 108px;
-//                             }
-
-//                             input {
-//                                 color: #707070;
-//                                 outline: none;
-//                                 border: 0;
-//                                 width: 30px;
-//                                 text-align: center;
-//                                 cursor: default;
-//                                 font-size: 16px;
-//                                 background-color: transparent;
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-
-//             hr {
-//                 margin-top: 30px;
-//                 margin-bottom: 30px;
-//             }
-
-//             .i_total {
-//                 text-align: right;
-
-//                 h3 {
-//                     color: #707070;
-//                 }
-//             }
-//         }
-
-//     }
-
-//     .button {
-//         background-color: #FFC857;
-//         width: 171px;
-//         height: 53px;
-//         margin-top: 40px;
-//         margin-bottom: 40px;
-//         line-height: 53px;
-//         border-radius: 60px;
-//         text-align: center;
-//     }
-// }
+//購物車
+.i_shoppingCart {
+    width: 90%;
+    margin: 0 auto;
+
+    table {
+        display: flex;
+        justify-content: center;
+
+        tr {
+            display: flex;
+            align-items: center;
+
+            @include mobile {
+                flex-direction: column;
+                width: 300px;
+                padding-bottom: 15px;
+            }
+            &:not(:last-child){
+                @include mobile{border-bottom: 3px dashed #9e9a9a;}
+                
+            }
+
+            &:not(:first-child) {
+                margin-top: 30px;
+
+                @include mobile {
+                    margin-top: 0px;
+                    padding-top: 15px;
+                }
+            }
+
+            td {
+                &:nth-child(2) {
+                    margin-left: 30px;
+
+                    @include mobile {
+                        margin-left: 0px;
+                        margin-top: 15px;
+                    }
+                }
+
+                &:nth-child(3) {
+                    margin-left: 30px;
+                    width: 100px;
+                    text-align: center;
+                    color: #707070;
+
+                    @include mobile {
+                        margin-left: 0px;
+                        margin-top: 15px;
+                    }
+                }
+
+                &:nth-child(4) {
+                    margin-left: 30px;
+
+                    @include mobile {
+                        margin-left: 0px;
+                        margin-top: 15px;
+                    }
+
+                    i {
+                        &:first-child {
+                            margin-right: 15px;
+                        }
+
+                        &:last-child {
+                            margin-left: 15px;
+                        }
+                    }
+                }
+
+                &:last-child {
+                    margin-left: 30px;
+
+                    @include mobile {
+                        margin-left: 0px;
+                        margin-top: 15px;
+                    }
+
+                    color: #707070;
+                }
+
+                img {
+                    width: 168px;
+                    height: 108px;
+                }
+
+                input {
+                    color: #707070;
+                    outline: none;
+                    border: 0;
+                    width: 30px;
+                    text-align: center;
+                    cursor: default;
+                    font-size: 24px;
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+
+    hr {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .i_button {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+
+    .i_total {
+        text-align: right;
+
+        h3 {
+            margin-bottom: 15px;
+        }
+    }
+}
+
+
+//寵物名字
+.i_petsname{
+    background-color:#FFC857;
+    width: 267px;
+    height: 40px;
+    
+}
+
+//日曆
+.i_calendar{
+    width: 267px;
+}
+
+//診所
+.i_clinic{
+    display: flex;
+}
