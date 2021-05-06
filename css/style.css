@@ -335,18 +335,120 @@ body {
   margin-bottom: 15px;
 }
 
-.i_petsname {
+.i_petsname, .i_selece_left .i_select, .i_selece_right .i_select {
   background-color: #FFC857;
-  width: 267px;
+  width: 268px;
   height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.i_petsname select, .i_selece_left .i_select select, .i_selece_right .i_select select {
+  margin-left: 20px;
+  width: 100px;
+}
+
+.i_selece_left, .i_selece_right {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.i_selece_left .i_select, .i_selece_right .i_select {
+  margin-bottom: 0px;
+  width: 134px;
+}
+
+.i_selece_left .i_select select, .i_selece_right .i_select select {
+  width: 50px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .i_calendar {
+  margin-bottom: 30px;
   width: 267px;
 }
 
 .i_clinic {
   display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1025px) {
+  .i_clinic {
+    justify-content: space-around;
+  }
+}
+
+.i_clinic .i_clinic_left {
+  margin-left: 50px;
+}
+
+@media (max-width: 1025px) {
+  .i_clinic .i_clinic_left {
+    margin-left: 0px;
+  }
+}
+
+.i_clinic .i_clinic_right {
+  margin-left: 50px;
+}
+
+@media (max-width: 769px) {
+  .i_clinic .i_clinic_right {
+    margin-left: 0px;
+  }
+}
+
+.i_clinic .i_clinic_right p {
+  text-align: center;
+}
+
+.i_clinic table tr {
+  display: flex;
+  margin-top: 20px;
+}
+
+.i_clinic table tr:last-child {
+  margin-bottom: 15px;
+}
+
+.i_clinic table tr td {
+  font-size: 16px;
+  color: #707070;
+}
+
+.i_clinic table tr td:first-child {
+  width: 50px;
+}
+
+.i_clinic table tr td:nth-child(2) {
+  width: 150px;
+}
+
+.i_clinic table tr td:last-child {
+  width: 100px;
+}
+
+.i_clinic table tr td i {
+  color: black;
+}
+
+.i_clinic hr {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.i_clinic .i_total {
+  text-align: center;
+}
+
+.i_clinic .i_button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 header {
