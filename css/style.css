@@ -370,85 +370,158 @@ body {
   width: 267px;
 }
 
-.i_clinic {
+.i_clinic, .i_restaurant, .i_hotel {
   display: flex;
   flex-wrap: wrap;
 }
 
 @media (max-width: 1025px) {
-  .i_clinic {
+  .i_clinic, .i_restaurant, .i_hotel {
     justify-content: space-around;
   }
 }
 
-.i_clinic .i_clinic_left {
+.i_clinic .i_clinic_left, .i_restaurant .i_clinic_left, .i_hotel .i_clinic_left, .i_clinic .i_restaurant_left, .i_restaurant .i_restaurant_left, .i_hotel .i_restaurant_left, .i_clinic .i_hotel_left, .i_restaurant .i_hotel_left, .i_hotel .i_hotel_left {
   margin-left: 50px;
 }
 
 @media (max-width: 1025px) {
-  .i_clinic .i_clinic_left {
+  .i_clinic .i_clinic_left, .i_restaurant .i_clinic_left, .i_hotel .i_clinic_left, .i_clinic .i_restaurant_left, .i_restaurant .i_restaurant_left, .i_hotel .i_restaurant_left, .i_clinic .i_hotel_left, .i_restaurant .i_hotel_left, .i_hotel .i_hotel_left {
     margin-left: 0px;
   }
 }
 
-.i_clinic .i_clinic_right {
+.i_clinic .i_clinic_right, .i_restaurant .i_clinic_right, .i_hotel .i_clinic_right, .i_clinic .i_restaurant_right, .i_restaurant .i_restaurant_right, .i_hotel .i_restaurant_right, .i_clinic .i_hotel_right, .i_restaurant .i_hotel_right, .i_hotel .i_hotel_right {
   margin-left: 50px;
 }
 
 @media (max-width: 769px) {
-  .i_clinic .i_clinic_right {
+  .i_clinic .i_clinic_right, .i_restaurant .i_clinic_right, .i_hotel .i_clinic_right, .i_clinic .i_restaurant_right, .i_restaurant .i_restaurant_right, .i_hotel .i_restaurant_right, .i_clinic .i_hotel_right, .i_restaurant .i_hotel_right, .i_hotel .i_hotel_right {
     margin-left: 0px;
   }
 }
 
-.i_clinic .i_clinic_right p {
+.i_clinic .i_clinic_right p, .i_restaurant .i_clinic_right p, .i_hotel .i_clinic_right p, .i_clinic .i_restaurant_right p, .i_restaurant .i_restaurant_right p, .i_hotel .i_restaurant_right p, .i_clinic .i_hotel_right p, .i_restaurant .i_hotel_right p, .i_hotel .i_hotel_right p {
   text-align: center;
 }
 
-.i_clinic table tr {
+.i_clinic table tr, .i_restaurant table tr, .i_hotel table tr {
   display: flex;
   margin-top: 20px;
 }
 
-.i_clinic table tr:last-child {
+.i_clinic table tr:last-child, .i_restaurant table tr:last-child, .i_hotel table tr:last-child {
   margin-bottom: 15px;
 }
 
-.i_clinic table tr td {
+.i_clinic table tr td, .i_restaurant table tr td, .i_hotel table tr td {
   font-size: 16px;
   color: #707070;
 }
 
-.i_clinic table tr td:first-child {
+.i_clinic table tr td:first-child, .i_restaurant table tr td:first-child, .i_hotel table tr td:first-child {
   width: 50px;
 }
 
-.i_clinic table tr td:nth-child(2) {
+.i_clinic table tr td:nth-child(2), .i_restaurant table tr td:nth-child(2), .i_hotel table tr td:nth-child(2) {
   width: 150px;
 }
 
-.i_clinic table tr td:last-child {
+.i_clinic table tr td:last-child, .i_restaurant table tr td:last-child, .i_hotel table tr td:last-child {
   width: 100px;
 }
 
-.i_clinic table tr td i {
+.i_clinic table tr td i, .i_restaurant table tr td i, .i_hotel table tr td i {
   color: black;
 }
 
-.i_clinic hr {
+.i_clinic hr, .i_restaurant hr, .i_hotel hr {
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-.i_clinic .i_total {
+.i_clinic .i_total, .i_restaurant .i_total, .i_hotel .i_total {
   text-align: center;
 }
 
-.i_clinic .i_button {
+.i_clinic .i_button, .i_restaurant .i_button, .i_hotel .i_button {
   display: block;
   margin: 0 auto;
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+.i_restaurant .i_restaurant_right span {
+  color: #FF8C42;
+}
+
+.i_restaurant p {
+  color: #707070;
+}
+
+.i_restaurant table tr {
+  display: flex;
+  margin-top: 20px;
+}
+
+.i_restaurant table tr:last-child {
+  margin-bottom: 15px;
+}
+
+.i_restaurant table tr td {
+  font-size: 16px;
+  color: #707070;
+}
+
+.i_restaurant table tr td:first-child {
+  width: 120px;
+}
+
+.i_restaurant table tr td:nth-child(2) {
+  width: 80px;
+}
+
+.i_restaurant table tr td:last-child {
+  width: 100px;
+}
+
+.i_restaurant table tr td i {
+  color: black;
+}
+
+.i_restaurant input {
+  color: #707070;
+  outline: none;
+  border: 0;
+  width: 30px;
+  text-align: center;
+  cursor: default;
+  font-size: 16px;
+  background-color: transparent;
+}
+
+.i_hotel .i_hotel_bookingcontent > li:not(:first-child) {
+  margin-top: 10px;
+}
+
+.i_hotel .i_roomtype, .i_hotel .i_stayamount, .i_hotel .i_detail {
+  display: flex;
+}
+
+.i_hotel .i_checkin li:last-child, .i_hotel .i_checkout li:last-child {
+  margin-top: 10px;
+}
+
+.i_hotel .i_detail ul li:first-child span:last-child {
+  margin-left: 26px;
+}
+
+.i_hotel .i_detail ul li:last-child {
+  margin-top: 10px;
+}
+
+.i_hotel .i_detail ul li span:last-child {
+  margin-left: 10px;
 }
 
 header {
