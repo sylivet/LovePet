@@ -2707,6 +2707,7 @@ ol li:not(:first-child) {
   display: block;
 }
 
+<<<<<<< HEAD:css/style.css
 @media (max-width: 376px) {
   .h_wrapper .h_panel1 {
     padding-left: 24px;
@@ -2727,6 +2728,67 @@ main {
   padding: 0 90px;
 }
 
+=======
+/*手機版 是不是要調li斷句 不然好亂ＱＱ*/
+/* @media(max-width: 375px){
+    .h_banner{
+        margin-bottom: 10px;
+    }
+} */
+/* @media(max-width: 375px){
+    .h_room{
+        margin: 0;
+        要留邊嗎？
+    }
+} */
+/* @media(max-width: 375px){
+    .h_type{
+        margin-bottom: 0;
+        改兩層置中還是？
+    }
+
+    .h_type button{
+        margin-right: 10px;
+        margin-bottom: 10px;
+        padding: 5px 15px;
+        縮小這樣會怪怪的嗎 按鈕很大顆
+    }
+} */
+/* @media(max-width: 375px){
+    .h_bigimage{
+        margin-bottom: 10px;
+    }
+
+    .h_smallimage .h_left{
+        margin-right: 10px;
+        width: calc((100% - 10px) / 2);
+    }
+    
+    .h_smallimage .h_right{
+        width: calc((100% - 10px) / 2);
+    }
+縮小的間距
+} */
+/* @media(max-width: 375px){
+    .h_introduction{
+        display: block;
+        確認背景 調整間距
+    }
+} */
+/* @media(max-width: 375px){
+    .h_device{
+        width: 100%;
+    }
+} */
+/* .h_list li{
+    上下的間距自動有了O_O
+} */
+/* @media(max-width: 375px){
+    .h_reserve{
+        width: 100%;
+    }
+} */
+>>>>>>> YuWen:dev/css/style.css
 /* 選擇區塊 */
 .choose_button {
   width: 100%;
@@ -3084,19 +3146,6 @@ main {
   width: 45px;
 }
 
-.banner {
-  width: 100%;
-}
-
-.banner .banner img {
-  width: 100%;
-}
-
-main {
-  width: 100%;
-  margin: 0 auto;
-}
-
 /*試穿服飾區塊*/
 .clothes_block {
   margin-top: 29px;
@@ -3183,14 +3232,6 @@ main {
     font-size: 24px;
     line-height: 33px;
   }
-}
-
-.banner {
-  width: 100%;
-}
-
-.banner img {
-  width: 100%;
 }
 
 main {
