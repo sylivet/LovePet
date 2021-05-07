@@ -8,12 +8,18 @@
     margin: 0 54px;
     margin-bottom: 36px;
 
-    @include mobile{
+    @include mobile {
         margin: 0 10px;
+        margin-bottom: 36px;
     }
 
     .h_type {
         margin-bottom: 18px;
+
+        @include pad {
+            display: flex;
+            justify-content: space-around;
+        }
 
         button {
             background-color: rgba(255, 200, 87, .15);
@@ -31,6 +37,15 @@
                 transition: 0.8s;
                 /* 這裡動畫要弄什麼? */
             }
+
+            @include pad {
+                margin-right: 0;
+            }
+
+            @include iphoneX {
+                padding: 10px 8px 10px 8px;
+                // button圓圓的連在一起可以嗎? 不確定手機版樣式
+            }
         }
     }
 
@@ -45,19 +60,39 @@
         .h_smallimage {
             display: flex;
 
+            // @include iphoneX{
+            //     display: block;
+            //     要小圖兩張 還是改大圖?
+            // }
+
             .h_left {
                 margin-right: 18px;
                 width: calc((100% - 18px) / 2);
+
+                // @include iphoneX{
+                //     width: 100%;
+                //     margin-bottom: 18px;
+                //     圓角跟第一張不同
+                // }
             }
 
             .h_right {
                 width: calc((100% - 18px) / 2);
+
+                // @include iphoneX{
+                //     width: 100%;
+                //     圓角跟第一張不同
+                // }
             }
         }
     }
 
     .h_introduction {
         display: flex;
+
+        @include iphoneX {
+            display: block;
+        }
 
         .h_device {
             background-image: url(../img/hotel/h_device_bg.png);
@@ -67,21 +102,38 @@
             padding: 36px 48px 0 48px;
             border-radius: 60px;
 
-            @include pad{
+            @include pad {
                 padding-left: 25px;
                 padding-right: 25px;
+            }
+
+            @include iphoneX {
+                width: 100%;
             }
 
             h3 {
                 color: #707070;
                 margin-bottom: 36px;
+
+                @include mobile {
+                    margin-left: 9px;
+                }
             }
 
             .h_list {
                 li {
+                    @include mobile {
+                        margin-left: 20px;
+                    }
+
                     img {
                         width: 21px;
                         display: inline-block;
+
+                        @include mobile {
+                            margin-left: -10px;
+                            margin-right: 11px;
+                        }
                     }
 
                     h4 {
@@ -90,6 +142,10 @@
                         margin-bottom: 16px;
                         display: inline-block;
                         vertical-align: top;
+
+                        @include mobile {
+                            margin-left: -7px;
+                        }
                     }
 
                     p {
@@ -98,10 +154,15 @@
                         margin-left: 30px;
                         margin-bottom: 21px;
                         line-height: 23px;
+
+                        @include mobile {
+                            margin-left: 18px;
+                        }
                     }
 
                     .h_offer {
                         margin-bottom: 36px;
+                        padding-bottom: 36px;
                     }
                 }
             }
@@ -111,22 +172,48 @@
             background-color: rgba(255, 200, 87, .15);
             background-image: url(../img/hotel/h_reserve.png);
             background-repeat: no-repeat;
-            background-position: 35% 85%;
+            background-size: 180px;
+            background-position: 25% 96%;
             width: calc(((100% - 18px) / 10) * 6.5);
             padding: 36px 48px 0 48px;
             border-radius: 60px;
             text-align: center;
             position: relative;
 
-            @include pad{
+            @media(min-width: 1201px) and (max-width:1920px) {
+                background-position: 38% 80%;
+                // 中心電腦1280 應該怎麼橋這個圖片才好QQ
+            }
+
+            @include pad {
                 padding-left: 25px;
                 padding-right: 25px;
+            }
+
+            @include mobile {
+                background-size: 130px;
+                background-position: 23% 92%;
+            }
+
+            @include iphoneX {
+                width: 100%;
+                background-size: 90px;
+                background-position: 18% 96%;
+            }
+
+            @media (min-width: 320px) {
+                background-size: 80px;
+                background-position: 16% 97%;
             }
 
             h3 {
                 color: #707070;
                 text-align: left;
                 margin-bottom: 30px;
+
+                @include mobile {
+                    margin-left: 9px;
+                }
             }
 
             h4 {
@@ -134,6 +221,14 @@
                 line-height: 36px;
                 text-align: left;
                 margin-bottom: 48px;
+
+                @include mobile {
+                    margin-left: 9px;
+                }
+
+                @include iphoneX {
+                    margin-bottom: 36px;
+                }
             }
 
             h1 {
@@ -144,8 +239,8 @@
 
             button {
                 background-color: #F39800;
-                color: #ffffff;                
-                font-size: 16px;                
+                color: #ffffff;
+                font-size: 16px;
                 padding: 20px 16px;
                 border: none;
                 outline: none;
@@ -157,40 +252,45 @@
                     transition: 0.8s;
                     /* 這裡動畫要弄什麼? */
                 }
-            }            
+
+                @include iphoneX {
+                    margin-bottom: 48px;
+                }
+            }
         }
     }
 }
 
 /*----- 旅館Q&A-----*/
-.h_wrapper{
+.h_wrapper {
     margin: 0 54px;
 
-    @include mobile{
+    @include mobile {
         margin: 0 10px;
     }
 
-    .h_faq1, .h_faq2 {
+    .h_faq1,
+    .h_faq2 {
         margin-bottom: 18px;
     }
-    
+
     .h_faq3 {
         margin-bottom: 36px;
     }
-    
+
     .h_flip {
         background-color: #FFC857;
         color: #ffffff;
-        padding: 24px;    
+        padding: 24px;
         border-top-left-radius: 6px;
         border-top-right-radius: 6px;
         border-bottom-left-radius: 6px;
         border-bottom-right-radius: 6px;
-        /*張開的時候 內文的圓角破口*/    
+        /*張開的時候 內文的圓角破口*/
         text-align: left;
         position: relative;
 
-        img{
+        img {
             width: 24px;
             position: absolute;
             top: 50%;
@@ -199,119 +299,51 @@
             cursor: pointer;
         }
     }
-    
-    .h_panel1, .h_panel2, .h_panel3 {
+
+    .h_panel1,
+    .h_panel2,
+    .h_panel3 {
         background-color: #F2EFEF;
         color: #000000;
         font-size: 19px;
         line-height: 37px;
         padding: 14px 30px;
         border-bottom-left-radius: 6px;
-        border-bottom-right-radius: 6px;        
+        border-bottom-right-radius: 6px;
         display: none;
-    
+
+        @include pad {
+            padding-left: 61px;
+            padding-right: 12px;
+            text-indent: -37px;
+        }
+
         .h_notice {
             display: flex;
-    
+            margin-left: 3px;
+
+            @include pad {
+                margin-left: -34px;
+            }
+
             img {
                 width: 15px;
-    
+
                 height: 100%;
-                /* 高度變形了 有點沒對齊OAO */
-    
+                /* 高度變形了 */
+
                 margin-top: 12px;
                 margin-right: 19px;
             }
         }
     }
 
-    .h_panel1{
+    .h_panel1 {
         display: block;
+
+        @include iphoneX {
+            padding-left: 24px;
+            text-indent: 0px;
+        }
     }
 }
-
-/*手機版 是不是要調li斷句 不然好亂ＱＱ*/
-
-
-
-
-
-
-
-
-/* @media(max-width: 375px){
-    .h_banner{
-        margin-bottom: 10px;
-    }
-} */
-
-/* @media(max-width: 375px){
-    .h_room{
-        margin: 0;
-        要留邊嗎？
-    }
-} */
-
-// @media(max-width: 1024px){
-//     .h_type button{
-//         /* flex-grow: inherit; */
-//     }
-// }
-
-/* @media(max-width: 375px){
-    .h_type{
-        margin-bottom: 0;
-        改兩層置中還是？
-    }
-
-    .h_type button{
-        margin-right: 10px;
-        margin-bottom: 10px;
-        padding: 5px 15px;
-        縮小這樣會怪怪的嗎 按鈕很大顆
-    }
-} */
-
-/* @media(max-width: 375px){
-    .h_bigimage{
-        margin-bottom: 10px;
-    }
-
-    .h_smallimage .h_left{
-        margin-right: 10px;
-        width: calc((100% - 10px) / 2);
-    }
-    
-    .h_smallimage .h_right{
-        width: calc((100% - 10px) / 2);
-    }
-縮小的間距
-} */
-
-/* @media(max-width: 375px){
-    .h_introduction{
-        display: block;
-        確認背景 調整間距
-    }
-} */
-
-/* @media(max-width: 375px){
-    .h_device{
-        width: 100%;
-    }
-} */
-
-// .h_list ul {
-//     /* margin-bottom: 36px; */
-//     /* 下面有留了不知道的距離>< */
-// }
-
-/* .h_list li{
-    上下的間距自動有了O_O
-} */
-
-/* @media(max-width: 375px){
-    .h_reserve{
-        width: 100%;
-    }
-} */

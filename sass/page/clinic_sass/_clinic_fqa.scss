@@ -17,11 +17,20 @@
 .clinic_wrapper {
     margin: 0 50px;
 
-    @include mobile{
+    @include mobile {
         margin: 0 10px;
     }
 
-    .c_faq1, .c_faq2, .c_faq3, .c_faq4, .c_faq5 , .c_faq6{
+    @include iphoneX {
+        margin: 0 10px;
+    }
+
+    .c_faq1,
+    .c_faq2,
+    .c_faq3,
+    .c_faq4,
+    .c_faq5,
+    .c_faq6 {
         margin-bottom: 24px;
 
         .c_flip {
@@ -36,28 +45,32 @@
             text-align: left;
             position: relative;
 
-            @include mobile{
+            @include iphoneX {
                 line-height: 36px;
-                // padding-left: 8px;
-                padding-right: 43px;
-                // 斷句很怪在調整
+                padding: 10px 30px 10px 17px;
             }
 
-            img{
-                width: 24px;
+            img {
+                width: 20px;
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
                 right: 19px;
                 cursor: pointer;
 
-                @include mobile{
-                    // right: 8px;
+                @include iphoneX {
+                    transform: translateY(-40%);
+                    right: 8px;
                 }
             }
         }
 
-        .c_panel1, .c_panel2, .c_panel3, .c_panel4, .c_panel5, .c_panel6 {
+        .c_panel1,
+        .c_panel2,
+        .c_panel3,
+        .c_panel4,
+        .c_panel5,
+        .c_panel6 {
             background-color: #F2EFEF;
             color: #000000;
             font-size: 19px;
@@ -67,12 +80,18 @@
             border-bottom-right-radius: 6px;
             display: none;
 
-            @include mobile{
-                // 內文偏一邊
+            @include mobile {
+                padding: 10px 20px 10px 24px;
+                // 內文左右邊 有點不太一樣大QQ
+            }
+
+            @include iphoneX {
+                padding: 10px 6px 10px 16px;
+                // 內文左右邊 有點不太一樣大QQ
             }
         }
 
-        .c_panel1{
+        .c_panel1 {
             display: block;
         }
     }
@@ -81,5 +100,3 @@
         margin-bottom: 52px;
     }
 }
-
-/*手機版斷句跟圓角問題*/
