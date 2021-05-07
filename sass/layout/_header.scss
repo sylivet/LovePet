@@ -10,7 +10,7 @@ header {
         left: 0;
         z-index: 10;
     }
-    background-color: map-get($color, headerColor);
+    background-color: #FFC857;
     height: 87px;
     overflow: hidden;
 
@@ -48,7 +48,7 @@ header {
             }
 
             a {
-                color: map-get($color, headerfont);
+                color: #734b23;
                 display: flex;
                 align-items: center;
 
@@ -79,7 +79,7 @@ header {
 
         span {
             font-size: 30px;
-            color: map-get($color, headerfont);
+            color: #734b23;
 
             &:last-child {
                 margin-left: 20px;
@@ -169,11 +169,11 @@ header {
                     >ul {
                         margin-top: 1em;
                         >li {
-                            color: map-get($color, headerfont );
+                            color: #734b23;
                             padding: 0.5em;
         
                             >a {
-                                color: map-get($color, headerfont);
+                                color: #734b23;
                                 text-decoration: none;
                                 transition: color 0.4s ease;
         

@@ -6,6 +6,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @import url("reset.css");
 @import url("reset.css");
 @import url("reset.css");
@@ -16,6 +17,11 @@
 >>>>>>> a919c329f25f84746b7714ad045110f1fc752e40
 =======
 >>>>>>> 520824154e2e260361479e06ca7d70d2bb919206
+=======
+@import url("reset.css");
+@import url("reset.css");
+@import url("reset.css");
+>>>>>>> 64bd426bd48207752d5c74a43fde445c18204ab9
 h1 {
   font-size: 30px;
 }
@@ -45,11 +51,6 @@ p {
 
 a {
   text-decoration: none;
-}
-
-.i_button {
-  font-size: 16px;
-  font-weight: bold;
 }
 
 img {
@@ -90,7 +91,7 @@ body {
           transform: translate(-50%, -50%);
   width: 100%;
   position: absolute;
-  background-color: #D3E0BE;
+  background-color: #d3e0be;
   border-radius: 60px;
 }
 
@@ -107,8 +108,17 @@ body {
   margin-bottom: 20px;
 }
 
+.i_lightbox_bk .bar {
+  max-height: 75vh;
+  margin-bottom: 55px;
+}
+
+.i_total {
+  color: #707070;
+}
+
 .i_button {
-  background-color: #FFC857;
+  background-color: #ffc857;
   width: 180px;
   height: 55px;
   line-height: 55px;
@@ -117,8 +127,244 @@ body {
   border: 0;
 }
 
-.box {
+.i_mealMain {
+  display: flex;
+  position: relative;
+}
+
+@media (max-width: 1025px) {
+  .i_mealMain {
+    flex-direction: column;
+  }
+}
+
+.i_mealMain .i_meal {
+  white-space: nowrap;
+  position: relative;
+  margin: 140px 45px 25px 42px;
+  color: #707070;
+}
+
+@media (max-width: 1025px) {
+  .i_mealMain .i_meal {
+    order: 2;
+    margin: 30px 45px 35px 42px;
+  }
+}
+
+.i_mealMain .i_meal .i_orangeLine {
+  border-top: 5px solid #ffc857;
+  width: 40px;
+  position: absolute;
+  left: -20px;
+  bottom: -8px;
+}
+
+.i_mealMain .i_mealDataContent {
+  margin-top: 24px;
+  margin-right: 85px;
+  line-height: 1.7;
+}
+
+@media (max-width: 1025px) {
+  .i_mealMain .i_mealDataContent {
+    order: 1;
+    margin-left: 85px;
+  }
+}
+
+@media (max-width: 769px) {
+  .i_mealMain .i_mealDataContent {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+.i_addMenu {
+  position: absolute;
+  bottom: 50px;
+  right: 0;
+  border-top-left-radius: 999px;
+  border-bottom-left-radius: 999px;
+  display: block;
+  text-align: center;
+  width: 86px;
+  height: 36px;
+  line-height: 36px;
+  color: white;
+  background-color: #FF8C42;
+  z-index: 1;
+}
+
+.i_menu {
+  position: absolute;
+  top: 500px;
+  left: 55px;
+}
+
+@media (max-width: 1025px) {
+  .i_menu {
+    top: 10px;
+  }
+}
+
+.i_menu p {
+  font-size: 14px;
+  color: #707070;
+  font-weight: bold;
+}
+
+.i_menu .i_orangeLine {
+  border-top: 5px solid #FFC857;
+  width: 40px;
+  position: absolute;
+  left: 10px;
+  bottom: -8px;
+}
+
+.i_shoppingCart {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.i_shoppingCart table {
+  display: flex;
+  justify-content: center;
+}
+
+.i_shoppingCart table tr {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 769px) {
+  .i_shoppingCart table tr {
+    flex-direction: column;
+    width: 300px;
+    padding-bottom: 15px;
+  }
+}
+
+@media (max-width: 769px) {
+  .i_shoppingCart table tr:not(:last-child) {
+    border-bottom: 3px dashed #9e9a9a;
+  }
+}
+
+.i_shoppingCart table tr:not(:first-child) {
+  margin-top: 30px;
+}
+
+@media (max-width: 769px) {
+  .i_shoppingCart table tr:not(:first-child) {
+    margin-top: 0px;
+    padding-top: 15px;
+  }
+}
+
+.i_shoppingCart table tr td:nth-child(2) {
+  margin-left: 30px;
+}
+
+@media (max-width: 769px) {
+  .i_shoppingCart table tr td:nth-child(2) {
+    margin-left: 0px;
+    margin-top: 15px;
+  }
+}
+
+.i_shoppingCart table tr td:nth-child(3) {
+  margin-left: 30px;
   width: 100px;
+  text-align: center;
+  color: #707070;
+}
+
+@media (max-width: 769px) {
+  .i_shoppingCart table tr td:nth-child(3) {
+    margin-left: 0px;
+    margin-top: 15px;
+  }
+}
+
+.i_shoppingCart table tr td:nth-child(4) {
+  margin-left: 30px;
+}
+
+@media (max-width: 769px) {
+  .i_shoppingCart table tr td:nth-child(4) {
+    margin-left: 0px;
+    margin-top: 15px;
+  }
+}
+
+.i_shoppingCart table tr td:nth-child(4) i:first-child {
+  margin-right: 15px;
+}
+
+.i_shoppingCart table tr td:nth-child(4) i:last-child {
+  margin-left: 15px;
+}
+
+.i_shoppingCart table tr td:last-child {
+  margin-left: 30px;
+  color: #707070;
+}
+
+@media (max-width: 769px) {
+  .i_shoppingCart table tr td:last-child {
+    margin-left: 0px;
+    margin-top: 15px;
+  }
+}
+
+.i_shoppingCart table tr td img {
+  width: 168px;
+  height: 108px;
+}
+
+.i_shoppingCart table tr td input {
+  color: #707070;
+  outline: none;
+  border: 0;
+  width: 30px;
+  text-align: center;
+  cursor: default;
+  font-size: 24px;
+  background-color: transparent;
+}
+
+.i_shoppingCart hr {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.i_shoppingCart .i_button {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.i_shoppingCart .i_total {
+  text-align: right;
+}
+
+.i_shoppingCart .i_total h3 {
+  margin-bottom: 15px;
+}
+
+.i_petsname {
+  background-color: #FFC857;
+  width: 267px;
+  height: 40px;
+}
+
+.i_calendar {
+  width: 267px;
+}
+
+.i_clinic {
+  display: flex;
 }
 
 header {
@@ -1553,6 +1799,7 @@ main {
   line-height: 55px;
 }
 
+<<<<<<< HEAD
 .bill {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1572,6 +1819,20 @@ main {
 @media (max-width: 1025px) {
   .bill .bill_wrapper .bill_main {
     width: calc(100% - 100px);
+=======
+@media (min-width: 1025px) {
+  body {
+    box-sizing: border-box;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  body .s_wrapper {
+    width: 100vw;
+    margin: 0 auto;
+  }
+  body .s_wrapper header img {
+    display: block;
+    width: 100vw;
+>>>>>>> 64bd426bd48207752d5c74a43fde445c18204ab9
   }
 }
 
@@ -1742,8 +2003,16 @@ main {
 @media (max-width: 769px) {
   .bill .bill_wrapper .bill_main .s_ATTN .s_phone input {
     width: 90%;
+<<<<<<< HEAD
     margin-left: 15px;
     margin-top: 5px;
+=======
+    margin-left: 20px;
+  }
+  body .s_wrapper main .s_ATTN .s_add {
+    padding-top: 30px;
+    display: flex;
+>>>>>>> 64bd426bd48207752d5c74a43fde445c18204ab9
   }
 }
 
@@ -1762,6 +2031,7 @@ main {
             flex-direction: column;
     padding-top: 15px;
   }
+<<<<<<< HEAD
 }
 
 .bill .bill_wrapper .bill_main .s_ATTN .s_add label {
@@ -1790,6 +2060,98 @@ main {
 @media (max-width: 1025px) {
   .bill .bill_wrapper .bill_main .s_ATTN .s_add .s_postoffice {
     width: 80.5%;
+=======
+  body .s_wrapper main .s_ATTN .s_add .s_postoffice {
+    width: 90.5%;
+    margin-left: 68px;
+    display: flex;
+    justify-content: space-between;
+  }
+  body .s_wrapper main .s_ATTN .s_add .s_postoffice select {
+    height: 55px;
+    font-size: 21px;
+    text-align: center;
+    text-align-last: center;
+    width: 10%;
+  }
+  body .s_wrapper main .s_ATTN .s_add .s_postoffice select option {
+    font-size: 21px;
+  }
+  body .s_wrapper main .s_ATTN .s_add .s_postoffice input {
+    height: 50px;
+    width: 78%;
+  }
+  body .s_wrapper main .s_credit {
+    padding-top: 50px;
+  }
+  body .s_wrapper main .s_credit h4 {
+    font-size: 21px;
+    padding-left: 30px;
+    color: black;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 60px;
+    border-radius: 30px;
+    line-height: 60px;
+  }
+  body .s_wrapper main .s_credit .s_card input {
+    height: 50px;
+    width: 10%;
+    margin-left: 15px;
+    margin-top: 30px;
+  }
+  body .s_wrapper main .s_credit .s_card label {
+    font-size: 21px;
+    margin-left: 30px;
+  }
+  body .s_wrapper main .s_invoice {
+    padding-top: 50px;
+  }
+  body .s_wrapper main .s_invoice h4 {
+    font-size: 21px;
+    padding-left: 30px;
+    color: black;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 60px;
+    border-radius: 30px;
+    line-height: 60px;
+    margin-bottom: 30px;
+  }
+  body .s_wrapper main .s_invoice select {
+    height: 55px;
+    font-size: 21px;
+    width: 98%;
+    margin-left: 15px;
+  }
+  body .s_wrapper main .s_invoice select option {
+    font-size: 21px;
+  }
+  body .s_wrapper main form h3 {
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    color: #707070;
+    padding-top: 30px;
+  }
+  body .s_wrapper main form .s_BTN {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  body .s_wrapper main form .s_BTN a {
+    display: block;
+    width: 170px;
+    height: 55px;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    line-height: 55px;
+    background-color: #ffc857;
+    border-radius: 50px;
+    text-decoration: none;
+  }
+  body .s_wrapper main form .s_BTN a:hover {
+    background-color: #F39800;
+>>>>>>> 64bd426bd48207752d5c74a43fde445c18204ab9
   }
 }
 
@@ -1804,6 +2166,7 @@ main {
   }
 }
 
+<<<<<<< HEAD
 .bill .bill_wrapper .bill_main .s_ATTN .s_add .s_postoffice select {
   height: 50px;
   font-size: 21px;
@@ -1815,6 +2178,116 @@ main {
 @media (max-width: 1025px) {
   .bill .bill_wrapper .bill_main .s_ATTN .s_add .s_postoffice select {
     height: 50px;
+=======
+@media (min-width: 768px) and (max-width: 1024px) {
+  body {
+    box-sizing: border-box;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  body .s_wrapper {
+    width: 100vw;
+    margin: 0 auto;
+  }
+  body .s_wrapper header img {
+    display: block;
+    width: 100vw;
+  }
+  body .s_wrapper main {
+    width: calc(100% - 100px);
+    margin: 100px auto;
+  }
+  body .s_wrapper main .s_order h4 {
+    font-size: 21px;
+    padding-left: 30px;
+    color: black;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 60px;
+    border-radius: 30px;
+    line-height: 60px;
+  }
+  body .s_wrapper main .s_order .s_member {
+    margin-left: 30px;
+  }
+  body .s_wrapper main .s_order .s_member li {
+    font-size: 21px;
+    margin-top: 30px;
+    list-style: none;
+  }
+  body .s_wrapper main .s_ATTN {
+    padding-top: 50px;
+  }
+  body .s_wrapper main .s_ATTN .s_radio h4 {
+    font-size: 21px;
+    padding-left: 30px;
+    color: black;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 60px;
+    border-radius: 30px;
+    line-height: 60px;
+  }
+  body .s_wrapper main .s_ATTN .s_radio label {
+    font-size: 21px;
+  }
+  body .s_wrapper main .s_ATTN .s_name {
+    padding-top: 30px;
+  }
+  body .s_wrapper main .s_ATTN .s_name label {
+    font-size: 21px;
+    margin-left: 30px;
+  }
+  body .s_wrapper main .s_ATTN .s_name input {
+    height: 50px;
+    width: 80%;
+    margin-left: 60px;
+  }
+  body .s_wrapper main .s_ATTN .s_mail {
+    padding-top: 30px;
+  }
+  body .s_wrapper main .s_ATTN .s_mail label {
+    font-size: 21px;
+    margin-left: 30px;
+  }
+  body .s_wrapper main .s_ATTN .s_mail input {
+    height: 50px;
+    width: 80%;
+    margin-left: 40px;
+  }
+  body .s_wrapper main .s_ATTN .s_phone {
+    padding-top: 30px;
+  }
+  body .s_wrapper main .s_ATTN .s_phone label {
+    font-size: 21px;
+    margin-left: 30px;
+  }
+  body .s_wrapper main .s_ATTN .s_phone input {
+    height: 50px;
+    width: 80%;
+    margin-left: 20px;
+  }
+  body .s_wrapper main .s_ATTN .s_add {
+    padding-top: 30px;
+    display: flex;
+  }
+  body .s_wrapper main .s_ATTN .s_add label {
+    font-size: 21px;
+    line-height: 55px;
+    margin-left: 30px;
+  }
+  body .s_wrapper main .s_ATTN .s_add .s_postoffice {
+    width: 80.5%;
+    margin-left: 68px;
+    display: flex;
+    justify-content: space-between;
+  }
+  body .s_wrapper main .s_ATTN .s_add .s_postoffice select {
+    height: 55px;
+    font-size: 16px;
+    text-align: center;
+    text-align-last: center;
+    width: 10%;
+  }
+  body .s_wrapper main .s_ATTN .s_add .s_postoffice select option {
+>>>>>>> 64bd426bd48207752d5c74a43fde445c18204ab9
     font-size: 16px;
   }
 }
@@ -1823,8 +2296,28 @@ main {
   .bill .bill_wrapper .bill_main .s_ATTN .s_add .s_postoffice select {
     height: 55px;
     font-size: 16px;
+<<<<<<< HEAD
     width: 100%;
     margin-bottom: 15px;
+=======
+    width: 94%;
+    margin-left: 15px;
+  }
+  body .s_wrapper main .s_invoice select option {
+    font-size: 16px;
+  }
+  body .s_wrapper main form h3 {
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    color: #707070;
+    padding-top: 30px;
+  }
+  body .s_wrapper main form .s_BTN {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+>>>>>>> 64bd426bd48207752d5c74a43fde445c18204ab9
   }
 }
 
@@ -1844,6 +2337,7 @@ main {
   }
 }
 
+<<<<<<< HEAD
 .bill .bill_wrapper .bill_main .s_ATTN .s_add .s_postoffice input {
   height: 50px;
   width: 77%;
@@ -1851,6 +2345,107 @@ main {
 
 @media (max-width: 769px) {
   .bill .bill_wrapper .bill_main .s_ATTN .s_add .s_postoffice input {
+=======
+@media (min-width: 375px) and (max-width: 767px) {
+  body {
+    box-sizing: border-box;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  body .s_wrapper {
+    width: 100vw;
+    margin: 0 auto;
+  }
+  body .s_wrapper header img {
+    display: block;
+    width: 100vw;
+  }
+  body .s_wrapper main {
+    width: calc(100% - 50px);
+    margin: 50px auto;
+  }
+  body .s_wrapper main .s_order h4 {
+    font-size: 21px;
+    padding-left: 30px;
+    color: black;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 60px;
+    border-radius: 30px;
+    line-height: 60px;
+  }
+  body .s_wrapper main .s_order .s_member li {
+    font-size: 21px;
+    line-height: 34px;
+    margin: 15px 15px;
+  }
+  body .s_wrapper main .s_ATTN {
+    padding-top: 30px;
+  }
+  body .s_wrapper main .s_ATTN .s_radio h4 {
+    font-size: 21px;
+    padding-left: 30px;
+    color: black;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 60px;
+    border-radius: 30px;
+    line-height: 60px;
+  }
+  body .s_wrapper main .s_ATTN .s_radio label {
+    font-size: 21px;
+  }
+  body .s_wrapper main .s_ATTN .s_name {
+    padding-top: 15px;
+  }
+  body .s_wrapper main .s_ATTN .s_name label {
+    font-size: 21px;
+    margin-left: 15px;
+  }
+  body .s_wrapper main .s_ATTN .s_name input {
+    height: 50px;
+    width: 85%;
+    margin-left: 15px;
+    margin-top: 5px;
+  }
+  body .s_wrapper main .s_ATTN .s_mail {
+    padding-top: 15px;
+  }
+  body .s_wrapper main .s_ATTN .s_mail label {
+    font-size: 21px;
+    margin-left: 15px;
+  }
+  body .s_wrapper main .s_ATTN .s_mail input {
+    height: 50px;
+    width: 85%;
+    margin-left: 15px;
+    margin-top: 5px;
+  }
+  body .s_wrapper main .s_ATTN .s_phone {
+    padding-top: 15px;
+  }
+  body .s_wrapper main .s_ATTN .s_phone label {
+    font-size: 21px;
+    margin-left: 15px;
+  }
+  body .s_wrapper main .s_ATTN .s_phone input {
+    height: 50px;
+    width: 85%;
+    margin-left: 15px;
+    margin-top: 5px;
+  }
+  body .s_wrapper main .s_ATTN .s_add label {
+    font-size: 21px;
+    line-height: 55px;
+    margin-left: 15px;
+  }
+  body .s_wrapper main .s_ATTN .s_add .s_postoffice {
+    width: 88%;
+    margin-left: 15px;
+  }
+  body .s_wrapper main .s_ATTN .s_add .s_postoffice select {
+    height: 55px;
+    font-size: 16px;
+    text-align: center;
+    text-align-last: center;
+>>>>>>> 64bd426bd48207752d5c74a43fde445c18204ab9
     width: 100%;
   }
 }
@@ -1967,10 +2562,29 @@ main {
   .bill .bill_wrapper .bill_main .s_invoice select option {
     font-size: 16px;
   }
+<<<<<<< HEAD
 }
 
 @media (max-width: 769px) {
   .bill .bill_wrapper .bill_main .s_invoice select option {
+=======
+  body .s_wrapper main form h3 {
+    font-size: 27px;
+    font-weight: 700;
+    text-align: center;
+    color: #707070;
+    padding-top: 30px;
+  }
+  body .s_wrapper main form .s_BTN {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  body .s_wrapper main form .s_BTN a {
+    display: block;
+    width: 170px;
+    height: 55px;
+>>>>>>> 64bd426bd48207752d5c74a43fde445c18204ab9
     font-size: 16px;
   }
 }
@@ -2035,20 +2649,13 @@ main {
 .shopping .s_wrapper .shopping_main {
   width: calc(100% - 180px);
   margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 @media (max-width: 769px) {
   .shopping .s_wrapper .shopping_main {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
     width: calc(100% - 50px);
   }
 }
@@ -2121,31 +2728,22 @@ main {
 
 .shopping .s_wrapper .shopping_main .s_ph .s_small_ph {
   padding-bottom: 50px;
-  display: -ms-grid;
   display: grid;
   grid-gap: 10px;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
-  -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
 }
 
 @media (max-width: 769px) {
   .shopping .s_wrapper .shopping_main .s_ph .s_small_ph {
     padding-bottom: 15px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
   }
 }
 
 .shopping .s_wrapper .shopping_main .s_ph .s_small_ph img {
   display: block;
-  -ms-grid-row: 1;
   grid-row: 1/1;
 }
 
@@ -2219,8 +2817,6 @@ main {
 }
 
 .shopping .s_wrapper .shopping_main .s_text .s_button {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   padding: 20px 0;
 }
@@ -2289,15 +2885,12 @@ main {
 }
 
 .shopping .s_wrapper .s_Carousel .s_others {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   overflow: hidden;
 }
 
 .shopping .s_wrapper .s_Carousel .s_others img {
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  flex-wrap: nowrap;
   margin-right: 15px;
   max-width: 382px;
 }
@@ -2313,10 +2906,14 @@ main {
   font-size: 0;
 }
 
-.c_banner img {
-  max-width: 1920px;
+.c_nav {
+  margin: 0 auto;
+  max-width: 800px;
+  padding-top: 30px;
+  margin-bottom: 125px;
 }
 
+<<<<<<< HEAD
 .c_nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2326,56 +2923,65 @@ main {
           justify-content: center;
   max-width: 1920px;
   height: 300px;
+=======
+@media (max-width: 769px) {
+  .c_nav {
+    margin-bottom: 30px;
+  }
+>>>>>>> 64bd426bd48207752d5c74a43fde445c18204ab9
 }
 
 .c_nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+<<<<<<< HEAD
   max-width: 800px;
   height: 175px;
   margin-top: 0px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+=======
+  justify-content: space-evenly;
+>>>>>>> 64bd426bd48207752d5c74a43fde445c18204ab9
 }
 
 @media (max-width: 769px) {
   .c_nav ul {
-    margin-top: 0px;
+    margin-left: 40px;
+    margin-right: 40px;
+    flex-wrap: wrap;
   }
 }
 
 @media (max-width: 376px) {
   .c_nav ul {
+<<<<<<< HEAD
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+=======
+    margin-left: 10px;
+    margin-right: 10px;
+>>>>>>> 64bd426bd48207752d5c74a43fde445c18204ab9
   }
 }
 
 .c_nav li {
-  color: #fff;
   background-color: #FFC857;
   width: 175px;
-  height: 175px;
   border-radius: 50%;
-  margin: 0px 10px;
 }
 
 @media (max-width: 769px) {
   .c_nav li {
     width: 125px;
-    height: 125px;
-  }
-}
-
-@media (max-width: 376px) {
-  .c_nav li {
     margin: 5px 10px;
   }
 }
 
 .c_nav li > a {
+  color: #fff;
   display: block;
   font-size: 21px;
   text-align: center;
@@ -2393,7 +2999,7 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-width: 1920px;
+  justify-content: center;
   margin-bottom: 50px;
 }
 
@@ -2416,7 +3022,6 @@ main {
     width: 200px;
     height: 328px;
     margin: 0 auto;
-    margin-top: -150px;
     margin-bottom: 80px;
   }
 }
