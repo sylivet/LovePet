@@ -1,10 +1,3 @@
-@mixin notebook {
-  @media (min-width:1024px) and (max-width:1280px){
-    @content
-  }
-}
-
-
 .banner {
   width: 100%;
   .banner img {
@@ -29,6 +22,9 @@ main {
   width: 840px;
   margin-bottom: 55px;
   position: relative;
+  border-radius: 100px;
+  overflow: hidden;
+  border: 1px solid #707070;
   @include notebook{
     max-width: 530px;
     width: 100%;
