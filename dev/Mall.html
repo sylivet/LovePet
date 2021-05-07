@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mall</title>
-  <link rel="stylesheet" href="css/style.css">
+  @@include('layout/style.html')
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
-  <div id="header"></div>
+  @@include('layout/header.html')
   <div class="banner">
     <img src="img/mall/rough_cart-01@2x.png" alt="">
   </div>
@@ -35,7 +35,7 @@
 
     <div class="another"></div>
   </main>
-  <div id="footer"></div>
+  @@include('layout/footer.html')
   <script>
 
     $('.another').load('./Supplies.html');//在首頁先預設是物品頁面
@@ -48,11 +48,6 @@
         $('.another div').css('display', 'none');//若等於空字串，another底下的div全部隱藏
       }
     })
-
-    $(function () {
-      $("#header").load("layout/header.html");
-      $("#footer").load("layout/footer.html");
-    });
   </script>
 </body>
 

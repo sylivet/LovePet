@@ -5,48 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
-        <link rel="stylesheet" href="css/owl.carousel.min.css">
-        <link rel="stylesheet" href="css/owl.theme.default.min.css">
-        <link rel="stylesheet" href="css/style.css"/>
+        @@include('layout/style.html')
         <title>Love Pet</title>
     </head>
     <body class="index">
         <div class="kv"><img src="img/index/kv.png" alt=""/></div>
-        <div id="header"></div>
+        @@include('layout/header.html')
         <section id="news">
             <h3>最新消息</h3>
-            <ul class="owl-carousel">
-                <li>
-                    <img src="img/index/news1.jpg" alt=""/>
-                    <div>
-                        你有多久沒帶家裡的毛孩出門遊玩了呢？寵物渡假村首選「樂寵」，量身打造適合孩子們跑跳的環境，也能讓你一同休憩。
-                    </div>
-                </li>
-                <li>
-                    <img src="img/index/news2.jpg" alt=""/>
-                    <div>
-                        你有多久沒帶家裡的毛孩出門遊玩了呢？寵物渡假村首選「樂寵」，量身打造適合孩子們跑跳的環境，也能讓你一同休憩。
-                    </div>
-                </li>
-                <li>
-                    <img src="img/index/news3.jpg" alt=""/>
-                    <div>
-                        寵物的健康不能等！樂寵擁有最專業的獸醫駐足在渡假村內，帶毛孩來檢查一番，還能自由地奔跑在園區內，增進抵抗力。
-                    </div>
-                </li>
-                <li>
-                    <img src="img/index/news4.jpg" alt=""/>
-                    <div>
-                        寵物的健康不能等！樂寵擁有最專業的獸醫駐足在渡假村內，帶毛孩來檢查一番，還能自由地奔跑在園區內，增進抵抗力。
-                    </div>
-                </li>
-                <li>
-                    <img src="img/index/news5.png" alt=""/>
-                    <div>
-                        夏季限定「雞肉沙拉」新上市！炎炎夏日，你還在餵家裡的毛孩寵物飼料嗎？趕快預訂樂寵的鮮食，讓牠清涼一下。
-                    </div>
-                </li>
-            </ul>
         </section>
         <section class="hotelPanorama">
             <h3>飯店環景介紹</h3>
@@ -112,10 +78,9 @@
                 </li>
             </ul>
         </section>
-        <div id="footer"></div>
+        @@include('layout/footer.html')
         <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="vendors/owl.carousel.min.js"></script>
         <script>
             viewer = pannellum.viewer("panorama", {
                 type: "equirectangular",
@@ -148,33 +113,5 @@
 
         
         </script>
-            <script>  
-                $(function(){ 
-                  $("#header").load("layout/header.html");  
-                  $("#footer").load("layout/footer.html"); 
-                  $(".owl-carousel").owlCarousel({
-                    stagePadding: 50,
-    loop:true,
-    responsive:{
-        0:{
-            items:1,
-        },
-        568:{
-            items:2,
-        },
-        1024:{
-            items:3
-        },
-        1280:{
-            items:4
-        },
-        1440:{
-            items:5
-        }
-    }
-                }); 
-                }); 
-               
-            </script> 
             </body>
         </html>
