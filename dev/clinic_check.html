@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css" />
+  @@include('layout/style.html')
 </head>
 <body class = "check">
   
   <div class="c_wrapper">
-    <div id="header"></div>
+    @@include('layout/header.html')
 
      <section class="c_top">
       <img src="./img/clinic/check@2x.png" alt="">
@@ -142,16 +142,10 @@
       </div>
       
     </div>
-    <div id="footer"></div>
+    @@include('layout/footer.html')
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </script>
-  <script>
-    $(function () {
-      $("#header").load("layout/header.html");
-      $("#footer").load("layout/footer.html");
-    });    
-  </script>
 </body>
 </html>
