@@ -99,19 +99,16 @@
 }
 .c_report_content{
     display: flex;
+    justify-content: space-between;
     margin: 0 auto;
-    max-width: 1000px;
     height: 450px;
     margin-top:72px;
-    overflow-x: auto;
+    margin-left: 70px;
+    margin-right: 70px;
    
-    ul{
-      // width: 1000px;
-       flex-grow: 1;
-       @include mobile{
-      // flex-grow: 0;
-
-      
+   ul{
+      &:not(:first-child){
+         margin-left: 10px;
       }
    }
    
@@ -119,10 +116,6 @@
        width: 111px;
        height:22px;
        border-radius:20px;
-       @include pad{
-         width: 90px;
-         margin: 3px;
-       }
    }
     p{
        font-size: 19px;

@@ -8,6 +8,15 @@
 main{
   width: 100%;
   padding: 0 90px;
+  @include pad{
+    padding: 50px;
+  }
+  @include mobile{
+    padding: 20px;
+  }
+  @include iphoneX{
+    padding: 10px;
+  }
 }
 
 /*商品區塊*/
@@ -18,12 +27,22 @@ main{
   flex-wrap: wrap;
   justify-content: space-between;
   .items{
-    border-radius: 105px;
+    width: 24%;
+    border-radius: 25%;
+    // margin-right: 10px;
+    overflow: hidden;
+    border: 1px solid #707070;
     margin-bottom: 55px;
     position: relative;
-    background-color: #000000;
+    background-color: #000000;/*放大有黑邊，待解決*/
+    @include pad{
+      width: 30%;
+    }
+    @include mobile{
+      width: 45%;
+    }
     img{
-      width: 520px;
+      width: 100%;
     }
     .info_block{
       position: absolute;
@@ -35,12 +54,24 @@ main{
       display: none;
     }
     .view_btn{
-      width: 150px;
-      height: 55px;
+      width: 130px;
+      height: 47px;
       background-color: #FFC857;
       border-radius: 100px;
       cursor: pointer;
       margin: 0 auto;
+      @include notebook{
+        width: 100px;
+        height: 36px;
+      }
+      @include pad{
+        width: 80px;
+        height: 30px;
+      }
+      @include mobile{
+        width: 60px;
+        height: 22px;
+      }
     }
   }
 
@@ -53,11 +84,35 @@ main{
   }
 
   h4{
-    font-size: 36px;
-    line-height: 60px;
+    font-size: 28px;
+    line-height: 50px;
+    @include notebook{
+      font-size: 20px;
+      line-height: 35px;
+    }
+    @include pad{
+      font-size: 16px;
+      line-height: 35px;
+    }
+    @include mobile{
+      font-size: 14px;
+      line-height: 30px;
+    }
   }
   h3{
-    font-size: 40px;
-    line-height: 55px;
+    font-size: 32px;
+    line-height: 47px;
+    @include notebook{
+      font-size: 16px;
+      line-height: 36px;
+    }
+    @include pad{
+      font-size: 20px;
+      line-height: 30px;
+    }
+    @include mobile{
+      font-size: 16px;
+      line-height: 22px;
+    }
   }
 }
