@@ -5,7 +5,7 @@
   // font-family: 'Noto Sans TC', sans-serif;
 
   .s_wrapper {
-    width: 100vw;
+    width: 100%;
     margin: 0 auto;
 
     .shopping_main {
@@ -29,7 +29,7 @@
         }
 
         @include mobile {
-          padding-top: 120px;
+          padding-top: 50px;
           width: 100%;
         }
 
