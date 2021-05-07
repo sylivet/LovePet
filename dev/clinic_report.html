@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
-    <link rel="stylesheet" href="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.css" />
     <link rel="stylesheet" href="css/style.css">
     <title>clinic_report</title>
 </head>
 
 <body>
-    <div id="header"></div>
+    @@include('layout/header.html')
 
     <div class='c_illustration1'>
         <img src="./img/clinic/Group 1503@2x.png">
@@ -45,7 +43,7 @@
             </li>
         </ul>
     </div>
-    <div class="scroll">
+    <!-- <div class="scroll"> -->
     <div class="c_report_content">
         <ul class='bar1'>
             <li></li>
@@ -168,7 +166,7 @@
             </li>
         </ul>
     </div>
-    </div>
+    <!-- </div> -->
     <div class="c_illustration2">
         <img src="./img/clinic/Group 1504@2x.png">
     </div>
@@ -176,14 +174,8 @@
 
     </div>
 
-
-    <div id="footer"></div>
-    <script>  
-        $(function(){ 
-          $("#header").load("layout/header.html");  
-          $("#footer").load("layout/footer.html");  
-        }); 
-    </script> 
+    @@include('layout/footer.html')
+    
         <script src="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.js"></script>
         <script>
             Array.prototype.forEach.call(document.getElementsByClassName('scroll'), function (el) {
