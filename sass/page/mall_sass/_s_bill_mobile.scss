@@ -2,20 +2,16 @@
 
 @media (min-width:375px)and(max-width:767px) {
 
-  body {
+  .bill {
     box-sizing: border-box;
     font-family: 'Noto Sans TC', sans-serif;
 
-    .s_wrapper {
+    .bill_wrapper {
       width: 100vw;
       margin: 0 auto;
 
-      header img {
-        display: block;
-        width: 100vw;
-      }
 
-      main {
+      .bill_main {
         width: calc(100% - 50px);
         margin: 50px auto;
 
@@ -139,9 +135,7 @@
                 width: 98%;
               }
             }
-
           }
-
         }
 
         .s_credit {
@@ -236,7 +230,7 @@
               text-decoration: none;
             }
 
-            a:hover {
+            &:hover {
               background-color: #F39800;
             }
 
@@ -253,16 +247,11 @@
               margin-left: 15px;
             }
 
-            input:hover {
+            &:hover {
               background-color: #F39800;
             }
           }
         }
-      }
-
-      footer img {
-        display: block;
-        width: 100vw;
       }
     }
   }

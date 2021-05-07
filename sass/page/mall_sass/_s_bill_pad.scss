@@ -2,20 +2,16 @@
 
 @media (min-width:768px)and(max-width:1024px) {
 
-  body {
+  .bill {
     box-sizing: border-box;
     font-family: 'Noto Sans TC', sans-serif;
 
-    .s_wrapper {
+    .bill_wrapper {
       width: 100vw;
       margin: 0 auto;
 
-      header img {
-        display: block;
-        width: 100vw;
-      }
 
-      main {
+      .bill_main {
         width: calc(100% - 100px);
         margin: 100px auto;
 
@@ -37,7 +33,6 @@
             li {
               font-size: 21px;
               margin-top: 30px;
-              list-style: none;
             }
           }
         }
@@ -127,7 +122,6 @@
                 font-size: 16px;
                 text-align: center;
                 text-align-last: center;
-                // margin-left: 15px;
                 width: 10%;
 
                 option {
@@ -140,9 +134,7 @@
                 width: 78%;
               }
             }
-
           }
-
         }
 
         .s_credit {
@@ -226,7 +218,7 @@
               text-decoration: none;
             }
 
-            a:hover {
+            &:hover {
               background-color: #F39800;
             }
 
@@ -243,17 +235,11 @@
               margin-left: 15px;
             }
 
-            input:hover {
+            &:hover {
               background-color: #F39800;
             }
           }
         }
       }
-
-      footer img {
-        display: block;
-        width: 100vw;
-      }
     }
   }
-}
