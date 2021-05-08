@@ -54,35 +54,40 @@
 
         .h_bigimage {
             margin-bottom: 18px;
-            /* 圖片失真 */
+            
+            img{
+                border-radius: 60px;
+                /* 圖片失真 */
+            }            
         }
 
         .h_smallimage {
             display: flex;
 
-            // @include iphoneX{
-            //     display: block;
-            //     要小圖兩張 還是改大圖?
-            // }
+            @include iphoneX{
+                display: block;
+            }
 
             .h_left {
                 margin-right: 18px;
                 width: calc((100% - 18px) / 2);
+                border-radius: 60px;
 
-                // @include iphoneX{
-                //     width: 100%;
-                //     margin-bottom: 18px;
-                //     圓角跟第一張不同
-                // }
+                @include iphoneX{
+                    width: 100%;
+                    margin-bottom: 18px;
+                    // 圓角跟第一張不同
+                }
             }
 
             .h_right {
                 width: calc((100% - 18px) / 2);
+                border-radius: 60px;
 
-                // @include iphoneX{
-                //     width: 100%;
-                //     圓角跟第一張不同
-                // }
+                @include iphoneX{
+                    width: 100%;
+                    // 圓角跟第一張不同
+                }
             }
         }
     }

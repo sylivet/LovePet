@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    @@include('layout/style.html')
     <title>hotel</title>
 </head>
 
 <body>
     @@include('layout/header.html')
     <!-- header -->
-    <div id="header"></div>
+    @@include('layout/header.html')
 
     <!-- 旅館banner動畫 -->
     <div class="h_banner">
@@ -30,7 +30,7 @@
 
         <div class="h_photo">
             <div class="h_bigimage">
-                <img src="img/hotel/h_room1.png" alt="">
+                <img src="img/hotel/h_room1.png">
             </div>
             <div class="h_smallimage">
                 <img src="img/hotel/h_room2.png" alt="" class="h_left">
@@ -150,11 +150,6 @@
             });
             // 改成點擊三角形才打開
         });
-
-        $(function(){
-            $("#header").load("layout/header.html");
-            $("#footer").load("layout/footer.html");
-        });  
     </script>
 </body>
 </html>
