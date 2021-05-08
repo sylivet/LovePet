@@ -5,14 +5,13 @@
         <meta charset="UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="icon" type="image/x-icon" href="img/common/favicon.ico"/>
-        <link rel="stylesheet" href="css/style.css" />
+        
+        @@include('layout/style.html')
         <title>header</title>
     </head>
 
     <body>
-       <div id="header"></div>
+        @@include('layout/header.html')
 
 <!-- =================================================加入會員===================================================== -->
 
@@ -90,15 +89,9 @@
             </form>
             </article>
         </div>
-        <div id="footer"></div>
+        @@include('layout/footer.html')
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script>
-            $(function () {
-              $("#header").load("layout/header.html");
-              $("#footer").load("layout/footer.html");
-            });    
-          </script>
     </body>
 
 </html>

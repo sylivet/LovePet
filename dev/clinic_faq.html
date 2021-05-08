@@ -4,22 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="css/style.css">
-=======
     @@include('layout/style.html')
->>>>>>> YuWen
     <title>clinic</title>
 </head>
 
 <body>
     <!-- header -->
-<<<<<<< HEAD
-    <div id="header"></div>
-=======
     @@include('layout/header.html')
->>>>>>> YuWen
-
     <!-- 毛孩FAQ -->
     <div class="c_banner">        
         <img src="./img/clinic/c_faq_bg.png" alt="">
@@ -102,9 +93,7 @@
     </div>
 
     <!-- footer -->
-<<<<<<< HEAD
-    <div id="footer"></div>
-
+    @@include('layout/footer.html')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <script>
@@ -113,15 +102,7 @@
                 $(this).next().slideToggle("slow");
             });
         });
-        // 改成點擊三角形才打開
-
-        $(function(){
-            $("#header").load("layout/header.html");
-            $("#footer").load("layout/footer.html");
-        });  
+        // 改成點擊三角形才打開  
     </script>
-=======
-    @@include('layout/footer.html')
->>>>>>> YuWen
 </body>
 </html>

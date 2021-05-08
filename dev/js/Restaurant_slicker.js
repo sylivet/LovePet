@@ -5,7 +5,7 @@ $(document).ready(function(){
     fade: true,
     cssEase: 'linear',
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 4000,
     prevArrow: false,
     nextArrow: false,
     pauseOnFocus: false, 
