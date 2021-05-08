@@ -54,35 +54,40 @@
 
         .h_bigimage {
             margin-bottom: 18px;
-            /* 圖片失真 */
+            
+            img{
+                border-radius: 60px;
+                /* 圖片失真 */
+            }            
         }
 
         .h_smallimage {
             display: flex;
 
-            // @include iphoneX{
-            //     display: block;
-            //     要小圖兩張 還是改大圖?
-            // }
+            @include iphoneX{
+                display: block;
+            }
 
             .h_left {
                 margin-right: 18px;
                 width: calc((100% - 18px) / 2);
+                border-radius: 60px;
 
-                // @include iphoneX{
-                //     width: 100%;
-                //     margin-bottom: 18px;
-                //     圓角跟第一張不同
-                // }
+                @include iphoneX{
+                    width: 100%;
+                    margin-bottom: 18px;
+                    // 圓角跟第一張不同
+                }
             }
 
             .h_right {
                 width: calc((100% - 18px) / 2);
+                border-radius: 60px;
 
-                // @include iphoneX{
-                //     width: 100%;
-                //     圓角跟第一張不同
-                // }
+                @include iphoneX{
+                    width: 100%;
+                    // 圓角跟第一張不同
+                }
             }
         }
     }
@@ -170,40 +175,19 @@
 
         .h_reserve {
             background-color: rgba(255, 200, 87, .15);
-            background-image: url(../img/hotel/h_reserve.png);
-            background-repeat: no-repeat;
-            background-size: 180px;
-            background-position: 25% 96%;
             width: calc(((100% - 18px) / 10) * 6.5);
             padding: 36px 48px 0 48px;
             border-radius: 60px;
             text-align: center;
             position: relative;
 
-            @media(min-width: 1201px) and (max-width:1920px) {
-                background-position: 38% 80%;
-                // 中心電腦1280 應該怎麼橋這個圖片才好QQ
-            }
-
             @include pad {
                 padding-left: 25px;
                 padding-right: 25px;
             }
 
-            @include mobile {
-                background-size: 130px;
-                background-position: 23% 92%;
-            }
-
             @include iphoneX {
                 width: 100%;
-                background-size: 90px;
-                background-position: 18% 96%;
-            }
-
-            @media (min-width: 320px) {
-                background-size: 80px;
-                background-position: 16% 97%;
             }
 
             h3 {
