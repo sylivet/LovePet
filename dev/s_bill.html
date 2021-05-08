@@ -4,14 +4,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+  @@include('layout/style.html')
 </head>
 <body class="bill">
 
   <div class="bill_wrapper">
-    <div id="header"></div>
+    @@include('layout/header.html')
 
       <div class="bill_main">
         <div class="s_order">
@@ -98,26 +96,20 @@
           </select>
         </div>
 
-        <form>
+        <form class=bill_form>
           <h3>訂單金額NT<span>3000</span>元</h3>
           <div class="s_BTN">
-            <a href="mall.html">回商品頁</a>
+            <a href="Mall.html">回商品頁</a>
             <input type="submit" value="確認結帳">
           </div>
         </form>
       </div>
-      <div id="footer"></div>
+      @@include('layout/footer.html')
   </div>  
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </script>
-  <script>
-    $(function () {
-      $("#header").load("layout/header.html");
-      $("#footer").load("layout/footer.html");
-    });    
-  </script>
 
 </body>
 </html>
