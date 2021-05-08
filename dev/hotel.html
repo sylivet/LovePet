@@ -8,9 +8,9 @@
     <title>hotel</title>
 </head>
 
-<body>
-    @@include('layout/header.html')
+<body>    
     <!-- header -->
+    @@include('layout/header.html')
 
     <!-- 旅館banner動畫 -->
     <div class="h_banner">
@@ -25,11 +25,22 @@
             <button class="hotel_btn">天羅地汪</button>
             <button class="hotel_btn">青喵淡寫</button>
             <button class="hotel_btn">舒毛一夏</button>
+
+            <div class="h_dropdown">
+                <select>
+                    <option value="0" disabled selected>請選擇房型</option>
+                    <option value="1">時毛玩意</option>
+                    <option value="2">一汪無際</option>
+                    <option value="3">天羅地汪</option>
+                    <option value="4">青喵淡寫</option>
+                    <option value="5">舒毛一夏</option>
+                </select>
+            </div>
         </div>
 
         <div class="h_photo">
             <div class="h_bigimage">
-                <img src="img/hotel/h_room1.png">
+                <img src="img/hotel/h_room1.png" alt="">
             </div>
             <div class="h_smallimage">
                 <img src="img/hotel/h_room2.png" alt="" class="h_left">
@@ -70,8 +81,9 @@
                 <h3>房型介紹(4人房)</h3>
                 <h4>簡雅的線條設計，配上舒適的大地色，窗外撒落的陽光與綠意，讓身處在都市喧囂的我們，獲得寧靜片刻...<br>
                     考慮到毛孩的活動範圍，房內的擺設皆留有寬敞的空間，並設有隔音牆，讓您可以安心陪伴牠們玩耍、休息。</h4>
+                    <!-- 換完照片 新增多一點文字敘述 -->
                 <h1>NT$4,000</h1>
-                <button>房況預約查詢</button>
+                <button class="hotel_inquire">房況預約查詢</button>
             </div>
         </div>
     </div>
@@ -132,8 +144,7 @@
                 </ul>
             </div>
         </div>
-    </div>
-    
+    </div>    
 
     <!-- 720度環景-->
 
@@ -141,14 +152,6 @@
     @@include('layout/footer.html')
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-    <script>
-        $(function(){
-            $(".h_flip").click(function(){
-                $(this).next().slideToggle("slow");
-            });
-            // 改成點擊三角形才打開
-        });
-    </script>
+    <script src="./js/hotel.js"></script>
 </body>
 </html>

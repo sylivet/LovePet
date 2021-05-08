@@ -3,6 +3,10 @@
     margin-bottom: 36px;
     position: relative;
 
+    img{
+        width: 100%;
+    }
+
     h1 {
         color: #707070;
         font-weight: bold;
@@ -82,12 +86,10 @@
 
             @include mobile {
                 padding: 10px 20px 10px 24px;
-                // 內文左右邊 有點不太一樣大QQ
             }
 
             @include iphoneX {
                 padding: 10px 6px 10px 16px;
-                // 內文左右邊 有點不太一樣大QQ
             }
         }
 
