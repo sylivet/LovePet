@@ -89,6 +89,11 @@ $m_bg_color:#FFC857;
     padding: 20px;
   }
 
+  input::placeholder{
+    text-align: center;
+    font-size: $m_btn_fs;
+    color: lighten($m_line_color, 5%);
+  }
 }
 
 
@@ -164,5 +169,6 @@ section{
   input.m_btn{
     @include m_btn();
   }
+ 
 }
 
