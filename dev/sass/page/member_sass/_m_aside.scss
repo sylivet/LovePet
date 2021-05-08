@@ -158,3 +158,12 @@ $m_title_fs: 24px;
     }
   }
 }
+
+@include pad {
+  @media(max-width:1025px) {
+    .m_wrapper aside{
+      display: none;
+    }
+  }
+}
+

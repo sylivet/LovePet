@@ -3,21 +3,6 @@ $colorOrange:#FF8562;
 $colorGreen:#D3E0BE;
 $colorGrey:#707070;
 
-button{
-  font-size: 16px;
-  width: 100px;
-  height: 30px;
-  border: none;
-  outline: none;
-  border-radius: 30px;
-  margin-bottom: 20px;
-  transition: .5s;
-  &:hover{
-    background-color: $colorOrange;
-    color: white;
-  }
-}
-
 h1 span, h3 span{
   color:$colorOrange
 }
@@ -178,11 +163,9 @@ h1 span, h3 span{
       }
     }
     .envPictures{
-      outline: 1px solid black;
       .envWord{
         width: 70%;
         transform: translate(15vw, 0px);
-        outline: 1px solid black;
         h2{
           color:#707070;
           font-weight: bold;
@@ -401,6 +384,20 @@ h1 span, h3 span{
       background-image: url(../img/restaurant/egg2.png);
     }
   }
+  button{
+    font-size: 16px;
+    width: 100px;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    transition: .5s;
+    &:hover{
+      background-color: $colorOrange;
+      color: white;
+    }
+  }
 }
 
 .foodinfo{
@@ -613,6 +610,20 @@ h1 span, h3 span{
           font-size: 16px;
         }
       }
+    }
+  }
+  button{
+    font-size: 16px;
+    width: 100px;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    transition: .5s;
+    &:hover{
+      background-color: $colorOrange;
+      color: white;
     }
   }
 }
@@ -928,6 +939,20 @@ h1 span, h3 span{
       &:hover{
         color:#4DAA57
       }
+    }
+  }
+  button{
+    font-size: 16px;
+    width: 100px;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    transition: .5s;
+    &:hover{
+      background-color: $colorOrange;
+      color: white;
     }
   }
 }

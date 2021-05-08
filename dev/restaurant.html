@@ -12,11 +12,12 @@
   <!-- slicker -->
   <link rel="stylesheet" type="text/css" href="./vendors/slick/css/slick.css"/>
   <link rel="stylesheet" href="./css/style.css">
+  @@include('layout/style.html')
 </head>
 <body>
   <div class="wrapper">
   <!-- 第一區 header -->
-    <div class="container-fluid header"></div>
+    @@include('layout/header.html')
 
     <!-- 第二區 大圖 -->
     <div class="container-fluid mainPic">
@@ -429,6 +430,7 @@
       </div>
     </div>
   </div>
+  @@include('layout/footer.html')
 
 
 
@@ -457,6 +459,6 @@
   <script src="./vendors/bootstrap/JS/bootstrap.min.js"></script>
   <!-- slicker -->
   <script type="text/javascript" src="./vendors/slick/js/slick.min.js"></script>
-  <script src="./js/slicker.js"></script>
+  <script src="./js/Restaurant_slicker.js"></script>
 </body>
 </html>
