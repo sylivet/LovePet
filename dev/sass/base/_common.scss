@@ -10,6 +10,7 @@ $font-size: (
 // common setting
 h1 {
     font-size: map-get($font-size, fontSize50);
+    font-weight: bold;
 }
 
 h2 {

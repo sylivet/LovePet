@@ -7,7 +7,6 @@
     background-color: #d3e0be;
     height: 150px;
     position: relative;
-
     .i_banner_left {
         top: -20px;
         left: 50px;
@@ -44,7 +43,17 @@
         align-items: center;
         z-index: 3;
 
-        //餐廳一個圖
+        h1{
+            color: #707070;
+            margin-top: 40px;
+            margin-left: 10px;
+            margin-right: 10px;
+            @include pad{
+                margin-top: 10px;
+            }
+        }
+
+        //餐廳
         .i_restaurant_center {
             max-width: 120px;
 
@@ -53,68 +62,168 @@
             }
         }
 
-        //餐廳兩個圖
-        .i_restaurant_center_left {
-            max-width: 120px;
-
-            @include iphoneX {
-                max-width: 80px;
-            }
-        }
-
-        .i_restaurant_center_right {
-            max-width: 70px;
-
-            @include iphoneX {
-                display: none;
-            }
-
-        }
-
-        //診所兩個圖
+        //診所
         .i_clinic_center_left {
             max-width: 80px;
-
+            @include pad{
+                margin-bottom: 20px;
+            }
             @include iphoneX {
                 max-width: 70px;
+            }
+        }
+        .i_clinic_center_left2{
+            @extend .i_clinic_center_left;
+            margin-top: 30px;
+            @include pad{
+                margin-top: 0;
+                margin-bottom: 0;
             }
         }
 
         .i_clinic_center_right {
             max-width: 70px;
-
+            margin-top: 10px;
+            @include pad{
+                margin-top: 0;
+                margin-bottom: 20px;
+            }
             @include iphoneX {
                 display: none;
             }
 
         }
     }
+    .i_banner_right {
+        position: absolute;
+        top: -10px;
+        right: 50px;
+    
+        @include pad {
+            right: 30px;
+            top: 80px;
+        }
+    
+        @include mobile {
+            right: 10px;
+            top: 100px;
+        }
+    
+        img {
+            max-width: 300px;
+    
+            @include pad {
+                max-width: 150px;
+            }
+    
+            @include mobile {
+                max-width: 100px;
+            }
+        }
+    }
 }
 
-.i_banner_right {
-    position: absolute;
-    top: -10px;
-    right: 50px;
-
-    @include pad {
-        right: 30px;
-        top: 80px;
+//推薦主人美食
+.i_restaurant_banner{
+    @extend .i_banner;
+    .i_banner_top{
+        max-width:1400px;
+        width: 100%;
+        overflow: hidden;
+        top: 0;
+        position: absolute;
+        z-index: 4;
+        img{
+            width: 1400px;
+        }
     }
-
-    @include mobile {
-        right: 10px;
-        top: 100px;
-    }
-
-    img {
-        max-width: 300px;
+    .i_banner_left {
+        top: 0px;
+        left: 50px;
+        position: absolute;
 
         @include pad {
-            max-width: 150px;
+            left: 30px;
         }
 
         @include mobile {
-            max-width: 100px;
+            left: 20px;
+        }
+
+        @include iphoneX {
+            left: 10px;
+        }
+
+        img {
+            max-width: 300px;
+
+            @include pad {
+                max-width: 200px;
+            }
+
+            @include mobile {
+                max-width: 150px;
+            }
+
         }
     }
+
+    .i_banner_center {
+        display: flex;
+        align-items: center;
+        z-index: 3;
+
+        .i_restaurant_center_left {
+            max-width: 100px;
+            margin-top: 45px;
+            @include iphoneX {
+                max-width: 80px;
+            }
+        }
+        h1{
+            color: #707070;
+            margin-top: 40px;
+            margin-left: 10px;
+            margin-right: 10px;
+            @include mobile{
+                margin-top: 10px;
+            }
+        }
+        .i_restaurant_center_right {
+            max-width: 70px;
+            margin-top: 35px;
+            @include mobile{
+                display: none;
+            }
+        }
+
+    }
+    .i_banner_right {
+        position: absolute;
+        top: 0;
+        right: 50px;
+    
+        @include pad {
+            right: 30px;
+            top: 80px;
+        }
+    
+        @include mobile {
+            right: 10px;
+            top: 100px;
+        }
+    
+        img {
+            max-width: 300px;
+    
+            @include pad {
+                max-width: 150px;
+            }
+    
+            @include mobile {
+                max-width: 100px;
+            }
+        }
+    }
+
 }
