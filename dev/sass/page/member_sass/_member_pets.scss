@@ -1,7 +1,23 @@
 // *{
 //   outline: 1px solid red;
 // }
+@mixin pad {
+  @media(max-width:1025px) {
+      @content;
+  }
+}
 
+@mixin mobile {
+  @media(max-width:769px) {
+      @content;
+  }
+}
+
+@mixin iphoneX {
+  @media(max-width:376px) {
+      @content;
+  }
+}
 
 //================================== 變數 ==================================//
 $m_title_fs:30px;
@@ -17,6 +33,13 @@ $m_item_title_color2:rgb(112,112,112);
 $m_item_title_color3:rgb(211,224,190);
 $m_bg_color2: rgba(71, 71, 71, 0.1); //from _m_order_management
 
+$m_line_height: 2.5;
+
+@include iphoneX(){
+  $m_title_fs:24px;
+  $m_content_fs:19px;
+  $m_btn_fs:16px;
+}
 
 //================================== 組件 ==================================//
 .m_underline_2{
@@ -66,6 +89,13 @@ $m_bg_color2: rgba(71, 71, 71, 0.1); //from _m_order_management
 
 //================================== 外層 ==================================//
 
+@include iphoneX(){
+  .m_wrapper main{
+  padding: 50px 5px;
+  //color: red;
+  }
+
+}
 
 .m_wrapper main{
   padding: 80px 50px;
@@ -86,8 +116,11 @@ $m_bg_color2: rgba(71, 71, 71, 0.1); //from _m_order_management
   &:hover{
     opacity: 0.6;
   }
-}
+  }
   
+  input{
+    line-height: $m_line_height;
+  }
 }
   
 .m_wrapper .m_pets{ 
@@ -184,14 +217,18 @@ $m_bg_color2: rgba(71, 71, 71, 0.1); //from _m_order_management
   ul{
     width: 98%;
     margin: 0 auto;
+    margin-bottom: 15px;
   }
   li{
     display: flex;
     justify-content: space-between;
+    align-items: stretch;
     
     h6{
       flex-basis: 30%;
       padding: 10px 0;
+      font-size: $m_content_fs;
+      border: 0.5px solid $m_line_color;
     }
 
     &:first-child{
@@ -204,8 +241,11 @@ $m_bg_color2: rgba(71, 71, 71, 0.1); //from _m_order_management
       padding: 3% 0;
     }
     p{
-      padding: 10px 0;
+      padding: 15px ;
       flex-basis: 70%;
+      font-size: $m_btn_fs;
+      color: $m_item_title_color2;
+      border: 0.5px solid $m_line_color;
     }
   }
   
@@ -240,3 +280,19 @@ $m_bg_color2: rgba(71, 71, 71, 0.1); //from _m_order_management
 //     color: red;
 //   }
 // }
+
+.m_member_index .personal_info input{
+  
+    width: 200px;
+    border: 0;
+    border-bottom: 1px solid $m_line_color;
+    margin: 0 15px;
+    background-color: rgb(236, 236, 236);
+    line-height: $m_line_height;
+
+    &:focus{
+      outline: 0;
+      background-color: $m_line_color;
+      color: white;
+    }
+}

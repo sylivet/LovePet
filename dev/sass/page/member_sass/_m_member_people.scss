@@ -13,7 +13,11 @@ $m_title_color:rgb(255,169,144);
 $m_line_color:#ccc;
 $m_bg_color:#FFC857;
 
-
+@include iphoneX(){
+  $m_title_fs:24px;
+  $m_content_fs:19px;
+  $m_btn_fs:16px;
+}
 
 //================================== 組件 ==================================//
 .m_underline_2{
@@ -96,7 +100,13 @@ $m_bg_color:#FFC857;
   }
 }
 
+// @include iphoneX(){
+//   div.m_wrapper main{
+//   padding: 50px 5px;
+  
+//   }
 
+// }
 //================================== 層 ==================================//
 
 // label,p{
@@ -165,10 +175,15 @@ ul.personal_info{
 }
 
 
-section{
+.m_wrapper section{
   input.m_btn{
     @include m_btn();
   }
  
 }
 
+@include iphoneX(){
+  .m_wrapper section{
+    //padding: 30px 5px;
+  }
+}
