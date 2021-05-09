@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @@include('layout/style.html')
 </head>
-<body class = "check">
-  
+
+<body class="check">
+
   <div class="c_wrapper">
     @@include('layout/header.html')
 
-     <section class="c_top">
-      <img src="./img/clinic/check@2x.png" alt="">
-      <h1><span>毛孩</span>健檢</h1>
-    </section>
+    <!-- 毛孩健檢 -->
+    <div class="i_banner">
+      <div class="i_banner_left"><img src="img/clinic/headerTree2.png" alt=""></div>
+      <div class="i_banner_center">
+        <img class="i_clinic_center_left" src="img/clinic/header_C_left.png" alt="">
+        <h1><span>毛孩</span>健檢</h1>
+        <img class="i_clinic_center_right" src="img/clinic/header_C_right.png" alt="">
+      </div>
+      <div class="i_banner_right"><img src="img/clinic/headerTree1.png" alt=""></div>
+    </div>
 
     <div class="check_main">
       <div class="c_left_box">
@@ -25,13 +33,13 @@
           <option>狗</option>
           <option>貓</option>
         </select>
-  
-         <!-- 套餐 -->
-        <div class="c_check">        
+
+        <!-- 套餐 -->
+        <div class="c_check">
           <div class="c_set">
             <div class="c_set_title">
               <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-              <h3>快速篩檢<br>特價3000元</h3> 
+              <h3>快速篩檢<br>特價3000元</h3>
             </div>
             <img src="./img/clinic/check1@2x.png">
             <div>
@@ -39,11 +47,11 @@
               <input type="hidden" value="快速篩檢|check1@2x.png|3000">
             </div>
           </div>
-  
+
           <div class="c_set">
             <div class="c_set_title">
               <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-              <h3>進階健檢&nbsp;<span>(包含01~08項)</span><br>特價4500元</h3>     
+              <h3>進階健檢&nbsp;<span>(包含01~08項)</span><br>特價4500元</h3>
             </div>
             <img src="./img/clinic/check2@2x.png">
             <div>
@@ -51,11 +59,11 @@
               <input type="hidden" value="進階健檢|check2@2x.png|4500">
             </div>
           </div>
-  
+
           <div class="c_set">
             <div class="c_set_title">
               <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-              <h3>熟齡健檢&nbsp;<span>(包含01~16項)</span><br>特價7500元</h3>     
+              <h3>熟齡健檢&nbsp;<span>(包含01~16項)</span><br>特價7500元</h3>
             </div>
             <img src="./img/clinic/check3@2x.png">
             <div>
@@ -71,61 +79,61 @@
             </div>
             <p>下列項目任選2項可享9折加價購</p>
             <ul>
-             <li>
-               <img src="./img/clinic/checkA@2x.png">
-               <p>2000元</p>
-               <img src="./img/clinic/plus@2x.png" class="plus_button">
+              <li>
+                <img src="./img/clinic/checkA@2x.png">
+                <p>2000元</p>
+                <img src="./img/clinic/plus@2x.png" class="plus_button">
               </li>
               <li>
                 <img src="./img/clinic/checkB@2x.png">
                 <p>500元</p>
                 <img src="./img/clinic/plus@2x.png" class="plus_button">
-               </li>
-               <li>
+              </li>
+              <li>
                 <img src="./img/clinic/checkC@2x.png">
                 <p>1000元</p>
                 <img src="./img/clinic/plus@2x.png" class="plus_button">
-               </li>
-               <li>
+              </li>
+              <li>
                 <img src="./img/clinic/checkD@2x.png">
                 <p>200元</p>
                 <img src="./img/clinic/plus@2x.png" class="plus_button">
-               </li>
-               <li>
+              </li>
+              <li>
                 <img src="./img/clinic/checkE@2x.png">
                 <p>2500元</p>
                 <img src="./img/clinic/plus@2x.png" class="plus_button">
-               </li>
-               <li>
+              </li>
+              <li>
                 <img src="./img/clinic/checkF@2x.png">
                 <p>3600元</p>
                 <img src="./img/clinic/plus@2x.png" class="plus_button">
-               </li>
-               <li>
+              </li>
+              <li>
                 <img src="./img/clinic/checkG@2x.png">
                 <p>1200元</p>
                 <img src="./img/clinic/plus@2x.png" class="plus_button">
-               </li>
-               <li>
+              </li>
+              <li>
                 <img src="./img/clinic/checkH@2x.png">
                 <p>800元</p>
                 <img src="./img/clinic/plus@2x.png" class="plus_button">
-               </li>       
+              </li>
             </ul>
           </div>
         </div>
       </div>
-  
+
       <div class="c_right_box">
         <h1>健檢項目</h1>
         <div class="c_set">
           <div class="c_set_title">
             <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-            <h3>進階健檢&nbsp;<span>(包含01~08項)</span><br>特價4500元</h3> 
+            <h3>進階健檢&nbsp;<span>(包含01~08項)</span><br>特價4500元</h3>
           </div>
           <img src="./img/clinic/check2@2x.png">
         </div>
-  
+
         <h3>加價購</h3>
         <div class="c_plus_item">
           <div class=c_plus_1>
@@ -140,12 +148,13 @@
         <h3 class="c_price">總價NT<span>5130</span>元</h3>
         <button>預約健檢</button>
       </div>
-      
+
     </div>
     @@include('layout/footer.html')
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-</script>
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  </script>
 </body>
+
 </html>
