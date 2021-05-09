@@ -1,13 +1,13 @@
 // 順序
 // reset
-@import url(../css/reset.css);
+@import url(../css//reset.css);
 // mixin
 @import "mixins/mixins";
 // common
 @import "base/common";
-// bootstrap
 // module
 @import "module/lightbox";
+@import "module/banner";
 // layout
 @import "layout/header";
 @import "layout/footer";
@@ -17,5 +17,5 @@
 @import "page/hotel";
 @import "page/mall";
 @import "page/clinic";
-// @import "page/member";
+@import "page/member";
 @import "page/backend";
