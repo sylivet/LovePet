@@ -11,6 +11,7 @@
 <body>
     <!-- header -->
     @@include('layout/header.html')
+
     <!-- 毛孩FAQ -->
     <div class="c_banner">        
         <img src="./img/clinic/c_faq_bg.png" alt="">
@@ -94,15 +95,8 @@
 
     <!-- footer -->
     @@include('layout/footer.html')
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-    <script>
-        $(function(){
-            $(".c_flip").click(function(){
-                $(this).next().slideToggle("slow");
-            });
-        });
-        // 改成點擊三角形才打開  
-    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./js/clinic_faq.js"></script>
 </body>
 </html>
