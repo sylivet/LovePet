@@ -52,14 +52,14 @@
         }
 
         .h_dropdown{
-            width: 80%;
-            // 給他多寬好?
+            width: 100%;
             display: none;
 
             select{
                 width: 100%;
                 background-color: rgba(0, 0, 0, .3);
                 color: #ffffff;
+                font-family: "Noto Sans TC", sans-serif;
                 font-size: 16px;
                 font-weight: bold;
                 padding: 12px 16px;
@@ -68,13 +68,7 @@
                 text-align: center;
                 text-align-last: center;
                 border-radius: 6px;
-                appearance: none;
                 // 沒吃到字型
-                background-image: url(../../img/hotel/h_dropdown.png);
-                background-repeat: no-repeat;
-                background-size: 16px;
-                background-position: 95% center;
-                // 大小跟位置可以嗎
 
                 option{                    
                     // 找不到置中跟換色#558B6E
