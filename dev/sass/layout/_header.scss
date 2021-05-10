@@ -4,7 +4,7 @@ header {
     justify-content: space-between;
     @include pad{
         justify-content: flex-end;
-        width: 100vw;
+        width: 100%;
         position: fixed;
         top:0;
         left: 0;
