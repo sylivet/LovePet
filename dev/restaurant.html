@@ -125,81 +125,33 @@
         <!-- 第六區 客製寵美食 -->
         <!-- 菜單內容 -->
         <div class="container-fluid customPet">
-          <div class="row align-items-center">
-            <div class="col-md-6 col-12 left">
+          <div class="row align-items-start">
+            <div class="col-md-6 col-12 left customPetMenu">
               <div class="row">
                 <div class="col-12">
-                  <select class="foodchosen" name="food" id="">
-                    <option disabled selected value="0">請選擇您的寵物菜單</option>
-                    <option value="1">主食</option>
-                    <option value="2">副食</option>
-                    <option value="3">甜點</option>
+                  <select class="foodchosen" name="food" v-model="petCustomFoodSelect">
+                    <option v-for="food in petCustomFoodType" :value="food">{{food}}</option>
                   </select>
                 </div>
               </div>
-              <div class="row">
-                <div class="col foodback">
-                  <div class="foodpic1"></div>
-                  <div class="foodinfo">
-                    <p>紅蘿蔔</p>
-                    <p>NT100元</p>
-                    <p>卡路里100 cal</p>
-                    <button>加入</button>
+              <div class="row justify-content-around">
+                <div class="col-5 foodback" v-for="(food, fid) in petCustomFoodMenu" :key="fid" v-if="petCustomFoodSelect === food.type">
+                  <div class="foodpic">
+                    <img :src="food.imgURL">
                   </div>
-                </div>
-                <div class="col foodback">
-                  <div class="foodpic2"></div>
                   <div class="foodinfo">
-                    <p>白米飯</p>
-                    <p>NT100元</p>
-                    <p>卡路里100 cal</p>
-                    <button>加入</button>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col foodback">
-                  <div class="foodpic3"></div>
-                  <div class="foodinfo">
-                    <p>青菜</p>
-                    <p>NT100元</p>
-                    <p>卡路里100 cal</p>
-                    <button>加入</button>
-                  </div>
-                </div>
-                <div class="col foodback">
-                  <div class="foodpic4"></div>
-                  <div class="foodinfo">
-                    <p>花椰菜</p>
-                    <p>NT100元</p>
-                    <p>卡路里100 cal</p>
-                    <button>加入</button>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col foodback">
-                  <div class="foodpic5"></div>
-                  <div class="foodinfo">
-                    <p>水煮蛋</p>
-                    <p>NT100元</p>
-                    <p>卡路里100 cal</p>
-                    <button>加入</button>
-                  </div>
-                </div>
-                <div class="col foodback">
-                  <div class="foodpic6"></div>
-                  <div class="foodinfo">
-                    <p>酪梨</p>
-                    <p>NT100元</p>
-                    <p>卡路里100 cal</p>
-                    <button>加入</button>
+                    <p>{{food.name}}</p>
+                    <p>NT {{food.price}} 元</p>
+                    <p>{{food.cal}}</p>
+                    <button @click="choosePetCustomFood(food.eng)">加入</button>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-md-6 col-12 right">
-              <div class="foodpic7"></div>
+              <div class="foodpic7">
+                <div v-for="food in petCustomFoodChosen" :class="food"></div>
+              </div>
               <div class="foodmenu line">
                 <h3>您的<span>寵物</span>菜單</h3>
                 <ul>

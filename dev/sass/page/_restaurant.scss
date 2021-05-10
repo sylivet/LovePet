@@ -340,11 +340,17 @@ h1 span, h3 span{
   }
 }
 
+
 // 第六區 客製毛孩美食
 .customPet{
   margin-top: 30px;
   margin-bottom: 100px;
   max-width: 1400px;
+  .customPetMenu{
+    // border: 1px solid #000;
+    height: 500px;
+    overflow-x: auto;
+  }
   // 下拉式選單
   .foodchosen{
     width: 100%;
@@ -366,35 +372,12 @@ h1 span, h3 span{
     box-shadow: 0px 0px 10px rgba(black, .3);
     border: 1px solid #eee;
     text-align: center;
-    .foodinfo{
-      display: inline-block;
-    }
-    .foodpic1,.foodpic2,.foodpic3,.foodpic4,.foodpic5,.foodpic6{
-      width: 100px;
-      height: 100px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center center;
+    .foodpic{
+      display: flex;
+      align-items: flex-end;
+      width: 120px;
+      height: 150px;
       margin: 0 auto;
-      margin-top: 5px;
-    }
-    .foodpic1{
-      background-image: url(../img/restaurant/carrot.png);
-    }
-    .foodpic2{
-      background-image: url(../img/restaurant/rice.png);
-    }
-    .foodpic3{
-      background-image: url(../img/restaurant/veg1.png);
-    }
-    .foodpic4{
-      background-image: url(../img/restaurant/veg2.png);
-    }
-    .foodpic5{
-      background-image: url(../img/restaurant/egg1.png);
-    }
-    .foodpic6{
-      background-image: url(../img/restaurant/egg2.png);
     }
   }
   button{
@@ -435,6 +418,57 @@ h1 span, h3 span{
       background-repeat: no-repeat;
       width: 100%;
       height: 430px;
+      position: relative;
+      div{
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+      }
+      .rice{
+        background-image: url(../img/restaurant/rice.png);
+        width: 180px;
+        height: 180px;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+      }
+      .sliceAvocado{
+        background-image: url(../img/restaurant/sliceAvocado.svg);
+        width: 180px;
+        height: 180px;
+        top: 52%;
+        left: 42%;
+      }
+      .sliceCarrot{
+        background-image: url(../img/restaurant/sliceCarrot.svg);
+        width: 140px;
+        height: 140px;
+        top: 45%;
+        left: 25%;
+      }
+      .sliceEgg{
+        background-image: url(../img/restaurant/sliceEgg.svg);
+        width: 140px;
+        height: 140px;
+        top: 20%;
+        left: 25%;
+      }
+      .slicePotatoLeave{
+        background-image: url(../img/restaurant/slicePotatoLeave.svg);
+        width: 150px;
+        height: 150px;
+        top: 10%;
+        left: 40%;
+      }
+      .sliceRedcabbage{
+        background-image: url(../img/restaurant/sliceRedcabbage.svg);
+        width: 150px;
+        height: 150px;
+        top: 25%;
+        left: 55%;
+      }
     }
   }
   .foodmenu{

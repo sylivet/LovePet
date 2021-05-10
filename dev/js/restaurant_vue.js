@@ -1,6 +1,60 @@
 let vm = new Vue({
   el:"#app",
   data:{
+    petCustomFoodSelect:"米飯",
+    petCustomFoodType:["米飯","配菜"],
+    petCustomFoodChosen:[],
+    petCustomFoodMenu:[
+      {
+        type:"米飯",
+        name:"白米飯",
+        eng:"rice",
+        price:20,
+        cal:"30cal",
+        imgURL:"../img/restaurant/rice.png"
+      },
+      {
+        type:"米飯",
+        name:"水煮蛋",
+        eng:"sliceEgg",
+        price:30,
+        cal:"36cal",
+        imgURL:"../img/restaurant/egg1.png"
+      },
+      {
+        type:"配菜",
+        name:"紅蘿蔔",
+        eng:"sliceCarrot",
+        price:20,
+        cal:"36cal",
+        imgURL:"../img/restaurant/carrot.png"
+      },
+      {
+        type:"配菜",
+        name:"青菜",
+        eng:"sliceRedcabbage",
+        price:20,
+        cal:"31cal",
+        imgURL:"../img/restaurant/veg1.png"
+      },
+      {
+        type:"配菜",
+        name:"地瓜葉",
+        eng:"slicePotatoLeave",
+        price:20,
+        cal:"33cal",
+        imgURL:"../img/restaurant/slicePotatoLeave.svg"
+      },
+      {
+        type:"配菜",
+        name:"酪梨",
+        eng:"sliceAvocado",
+        price:20,
+        cal:"62cal",
+        imgURL:"../img/restaurant/egg2.png"
+      },
+    ],
+
     humanFoodSelect:"美式",
     petFoodSelect:"沙拉",
     humanFoodType:["美式","義式"],
@@ -111,6 +165,13 @@ let vm = new Vue({
         cal:"280cal",
       },
     ]
+  },
+  methods: {
+    choosePetCustomFood(name){
+      if(this.petCustomFoodChosen.indexOf(name) ==-1){
+        this.petCustomFoodChosen.push(name);
+      }
+    }
   },
   computed: {
     humanFoodSelected(){
