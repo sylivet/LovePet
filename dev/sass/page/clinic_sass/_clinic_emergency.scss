@@ -6,7 +6,14 @@
     }
 }
 .c_emergency_info{
-    margin: 0 100px;
+    margin: 0 auto;
+    max-width: 1000px;
+    @include pad{
+        margin:0 100px;
+    }
+    @include mobile{
+        margin: 0 50px;
+    }
     @include iphoneX{
         margin: 0 20px;
     }
@@ -32,62 +39,80 @@
     margin-top: 80px;
     margin-bottom: 80px;
     justify-content: space-around;
-    @include iphoneX{
+    @include mobile{
         flex-direction: column;
     }
-}
-.c_doctor_introduce_left{
-    @include iphoneX{
-        margin-bottom: 20px;
+    .c_doctor_introduce_left{
+        @include iphoneX{
+            margin-bottom: 20px;
+        }
+        img{
+            width: 270px;
+            height: 330px;
+            @include mobile{
+                display: block;
+                margin: 0 auto;
+                margin-bottom: 50px;
+            }
+            @include iphoneX{
+                display: block;
+                margin: 0 auto;
+            }
+        }
     }
-    img{
-        width: 270px;
-        height: 330px;
+    .c_doctor_introduce_right{
+        background-color: #f2f2f2;
+        border-radius: 20px;
+        max-width: 350px;
+        @include mobile{
+            margin: 0 50px;
+            margin: 0 auto;
+        }
         @include iphoneX{
             display: block;
             margin: 0 auto;
         }
+        
     }
-}
-.c_doctor_introduce_right{
-    background-color: #F2F2F2;
-    border-radius: 20px;
-    @include iphoneX{
-        display: block;
-        margin: 0 auto;
-    }
-    
-}
-.c_doctor_introduce_right_inner{
-    margin-top: 50px;
-    margin-bottom: 50px;
-    h3{
-        font-size: 24px;
-        text-align: center;
-        color:#FFC857;
-        line-height: 1.8;
-    }
-    p{
-        font-size:19px;
-        text-align: center;
-        line-height: 2;
-        padding: 0 15PX;
+    .c_doctor_introduce_right_inner{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        
+        h3{
+            font-size: 24px;
+            text-align: center;
+            color:#FFC857;
+            line-height: 1.8;
+        }
+        p{
+            font-size:19px;
+            text-align: center;
+            line-height: 2;
+            padding: 0 15PX;
+        }
     }
 }
 .c_emergency_item{
     // outline: 1px solid red;
-    display: block;
     max-width: 1000px;
     margin: 0 auto;
     margin-bottom: 50px;
+    @include pad{
+        margin:0 100px;
+    }
+    @include mobile{
+        margin: 0 50px;
+    }
+    @include iphoneX{
+        margin: 0 20px;
+    }
     h3{
         font-size: 30px;
         color: red;
         margin-top: 50px;
         margin-bottom: 30px;
-        @include iphoneX{
-            display: block;
-            text-align:center;
+        @include mobile{
+            text-align: center;
         }
     }
     img{
@@ -99,6 +124,10 @@
         @include pad{
             justify-content: center;
             margin-bottom: 30px;
+        }
+        @include mobile{
+            flex-direction: column;
+            align-items: center;
         } 
         @include iphoneX{
             flex-direction: column;
@@ -170,6 +199,10 @@
             justify-content: center;
             margin-bottom: 30px;
         }
+        @include mobile{
+            flex-direction: column;
+            align-items: center;
+        } 
         @include iphoneX{
             flex-direction: column;
             align-items: center;
@@ -243,10 +276,14 @@
             justify-content: center;
             margin-bottom: 30px;
         }
+        @include mobile{
+            flex-direction: column;
+            align-items: center;
+        } 
         @include iphoneX{
             flex-direction: column;
             align-items: center;
-            margin-bottom: 0px;
+            margin-bottom: 50px;
         }
         .c_item5{
             display: flex;
@@ -308,3 +345,27 @@
         }
     }
 }
+.c_toHomepage{
+    margin-bottom: 50px;
+    a{
+ 
+    }
+    button{
+       cursor: pointer;
+       display: block;
+       margin: 0 auto;
+       font-size: 16px;
+       width: 120px;
+       height: 30px;
+       border: none;
+       outline: none;
+       border-radius: 30px;
+       margin-bottom: 20px;
+       transition: .5s;
+       text-align:center;
+       &:hover{
+         background-color: $colorOrange;
+         color: white;
+       }
+    }
+ }
