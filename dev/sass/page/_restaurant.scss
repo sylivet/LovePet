@@ -411,6 +411,10 @@ h1 span, h3 span{
       background-color: $colorOrange;
       color: white;
     }
+    &:active{
+      background-color: #EFEFEF;
+      color:black;
+    }
   }
 }
 
@@ -454,6 +458,10 @@ h1 span, h3 span{
           cursor: pointer;
           &:hover{
             background-color: $colorOrange;
+          }
+          &:active{
+            background-color: #FFFFFF;
+            color:black;
           }
         }
       }
@@ -532,6 +540,10 @@ h1 span, h3 span{
     cursor: pointer;
     &:hover{
       background-color: $colorOrange;
+    }
+    &:active{
+      background-color: #FFFFFF;
+      color:black;
     }
   }
 }
@@ -646,6 +658,10 @@ h1 span, h3 span{
     &:hover{
       background-color: $colorOrange;
       color: white;
+    }
+    &:active{
+      background-color: #FFFFFF;
+      color:black;
     }
   }
 }
@@ -803,6 +819,10 @@ h1 span, h3 span{
           cursor: pointer;
           &:hover{
             background-color: $colorOrange;
+          }
+          &:active{
+            background-color: #FFFFFF;
+            color:black;
           }
         }
       }
@@ -983,6 +1003,10 @@ h1 span, h3 span{
       background-color: $colorOrange;
       color: white;
     }
+    &:active{
+      background-color: #FFFFFF;
+      color:black;
+    }
   }
 }
 
@@ -1010,6 +1034,10 @@ h1 span, h3 span{
           background-color: #fff;
           &:hover{
             background-color: $colorOrange;
+          }
+          &:active{
+            background-color: #FFFFFF;
+            color:black;
           }
         }
       }
@@ -1083,14 +1111,11 @@ ol li:not(:first-child){
   button{
     display: inline-block;
     width: 30px;
-    height: 5px;
+    height: 3px;
     opacity: 0.8;
-    border-radius: 3px;
+    border-radius: 2px;
     margin: 0 6px;
     font-size: 0;
-    &:hover{
-      background-color: $colorYellow;
-    }
   }
   & .slick-active button{
     background-color: $colorYellow;
