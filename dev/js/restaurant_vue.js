@@ -1,7 +1,79 @@
 let vm = new Vue({
   el:"#app",
   data:{
+    // humanFoodSelect:"美式",
+    petFoodSelect:"沙拉",
+    humanFoodType:["義式","美式"],
     humanFoodSelect:"美式",
-    petFoodSelect:"沙拉"
-  }
+    petFoodMenu:["沙拉","主食","鮮食","甜點"],
+    humanFoodMenu:[
+      {
+        type:"美式",
+        name:"安格斯牛肉漢堡",
+        price:100,
+        cal:"120cal",
+      },
+      {
+        type:"美式",
+        name:"費城牛肉三明治",
+        price:120,
+        cal:"300cal",
+      },
+      {
+        type:"美式",
+        name:"炸物拼盤",
+        price:500,
+        cal:"500cal",
+      },
+      {
+        type:"美式",
+        name:"凱薩沙拉",
+        price:80,
+        cal:"90cal",
+      },
+      {
+        type:"美式",
+        name:"碳烤豬肋排",
+        price:500,
+        cal:"260cal",
+      },
+      {
+        type:"義式",
+        name:"番茄義大利麵",
+        price:200,
+        cal:"220cal",
+      },
+      {
+        type:"義式",
+        name:"羅勒青醬義大利麵",
+        price:320,
+        cal:"200cal",
+      },
+      {
+        type:"義式",
+        name:"蛤蠣奶油義大利麵",
+        price:200,
+        cal:"500cal",
+      },
+      {
+        type:"義式",
+        name:"雙層美式臘腸披薩",
+        price:300,
+        cal:"400cal",
+      },
+      {
+        type:"義式",
+        name:"彩蔬鮮菇披薩",
+        price:390,
+        cal:"290cal",
+      },
+    ]
+  },
+  computed: {
+    humanFoodSelected(){
+      return this.humanFoodMenu.filter((item)=>{
+        return item.type === this.humanFoodSelect
+      })
+    }
+  },
 })

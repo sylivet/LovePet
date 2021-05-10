@@ -257,12 +257,9 @@
             <div class="col-md-6 col-12 left">
               <div class="row">
                 <div class="col-12">
-                  <select class="foodchosen" name="food" id="" v-model="petFoodSelect">
-                    <option disabled selected value="0">請選擇您的寵物</option>
-                    <option value="沙拉">沙拉</option>
-                    <option value="主食" disabled>主食</option>
-                    <option value="鮮食">鮮食</option>
-                    <option value="甜點" disabled>甜點</option>
+                  <select class="foodchosen" name="food" v-model="petFoodSelect">
+                    <option disabled selected value="0">請選擇寵物餐點</option>
+                    <option v-for="food in petFoodMenu" :value="food">{{food}}</option>
                   </select>
                 </div>
               </div>
@@ -360,9 +357,8 @@
               <div class="row">
                 <div class="col-12">
                   <select class="foodchosen" name="food" id="" v-model="humanFoodSelect">
-                    <option disabled selected value="0">請選擇您的菜單</option>
-                    <option value="義式">義式</option>
-                    <option value="美式">美式</option>
+                    <option disabled selected value="0">請選擇您的餐點</option>
+                    <option v-for="food in humanFoodType" :value="food">{{food}}</option>
                   </select>
                 </div>
               </div>
@@ -372,11 +368,10 @@
                   <div class="row">
                     <div class="col-12 human-up">
                       <ol>
-                        <li><h4>1.番茄義大利麵<br></h4><p><span>120Cal</span>NT 100元</p></li>
-                        <li><h4>2.羅勒青醬義大利麵<br></h4><p><span>120Cal</span>NT 100元</p></li>
-                        <li><h4>3.蛤蠣奶油義大利麵<br></h4><p><span>120Cal</span>NT 100元</p></li>
-                        <li><h4>4.雙層美式臘腸披薩<br></h4><p><span>120Cal</span>NT 100元</p></li>
-                        <li><h4>5.彩蔬鮮菇披薩<br></h4><p><span>120Cal</span>NT 100元</p></li>
+                        <li v-for="(food, fid) in humanFoodSelected">
+                          <h4>{{fid+1}}.{{food.name}}<br></h4>
+                          <p><span>{{food.cal}}</span>NT{{food.price}}元</p>
+                        </li>
                       </ol>      
                     </div>
                   </div>
@@ -393,11 +388,10 @@
                   <div class="row">
                     <div class="col-12 human-up">
                       <ol>
-                        <li><h4>1.安格斯牛肉漢堡<br></h4><p><span>120Cal</span>NT 100元</p></li>
-                        <li><h4>2.費城牛肉三明治<br></h4><p><span>120Cal</span>NT 100元</p></li>
-                        <li><h4>3.炸物拼盤<br></h4><p><span>120Cal</span>NT 100元</p></li>
-                        <li><h4>4.凱薩沙拉<br></h4><p><span>120Cal</span>NT 100元</p></li>
-                        <li><h4>5.碳烤豬肋排<br></h4><p><span>120Cal</span>NT 100元</p></li>
+                        <li v-for="(food, fid) in humanFoodSelected">
+                          <h4>{{fid+1}}.{{food.name}}<br></h4>
+                          <p><span>{{food.cal}}</span>NT{{food.price}}元</p>
+                        </li>
                       </ol>   
                     </div>
                   </div>
