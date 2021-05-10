@@ -659,6 +659,8 @@ h1 span, h3 span{
     margin-bottom: 20px;
     transition: .5s;
     cursor: pointer;
+    margin-top: 20px;
+    background-color: #fff;
     &:hover{
       background-color: $colorOrange;
       color: white;
@@ -821,18 +823,6 @@ h1 span, h3 span{
       li{
         flex-basis: 1px;
         flex-grow: 1;
-        button{
-          margin-top: 20px;
-          background-color: #fff;
-          cursor: pointer;
-          &:hover{
-            background-color: $colorOrange;
-          }
-          &:active{
-            background-color: #FFFFFF;
-            color:black;
-          }
-        }
       }
     }
   }
@@ -961,6 +951,10 @@ h1 span, h3 span{
     text-align: center;
     position: relative;
     overflow: hidden;
+    background-image: url(../img/restaurant/humanfood.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
     ol{
       width: 100%;
       li{
@@ -1050,9 +1044,9 @@ h1 span, h3 span{
   .human-up{
     margin-top: 100px;
     margin-bottom: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    // background-color: rgba(255,255,255,.3);
+    border-radius: 30px;
+    padding: 20px;
     h4{
       cursor: pointer;
       padding-left: 30px;
