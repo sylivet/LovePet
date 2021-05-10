@@ -8,7 +8,7 @@ h1 span, h3 span{
 }
 
 .wrapper{
-  max-width: 1400px;
+  // max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -59,22 +59,23 @@ h1 span, h3 span{
 
 // 第三區 三顆圓形
 .second{
-  margin-top: 100px;
+  max-width: 1400px;
+  margin: 50px auto 0;
   overflow: hidden;
   padding-top: 10px;
   box-sizing: border-box;
   .circle{
-    width: 195px;
-    height: 195px;
-    background-color: $colorYellow;
-    box-shadow: 0px 0px 10px rgba(#000, .2);
-    border-radius: 50%;
+    width: 200px;
+    height: 280px;
     margin: 0 auto;
-    h3{
-      line-height: 195px;
-      text-align: center;
-      color: white;
-    }
+    display: flex;
+    align-items: flex-end;
+  }
+  h3{
+    text-align: center;
+    color:#707070;
+    margin-top: 40px;
+
   }
   p{
     width: 250px;
@@ -98,6 +99,7 @@ h1 span, h3 span{
 // 第四區 環境介紹
 
 .envIntro{
+  max-width: 1400px;
   margin-top: 100px;
   margin-bottom: -150px;
   overflow: hidden;
@@ -138,6 +140,11 @@ h1 span, h3 span{
         margin-top: 30px;
       }
     }
+  }
+  button{
+    outline: none;
+    border:0px;
+    cursor: pointer;
   }
 }
 
@@ -200,6 +207,7 @@ h1 span, h3 span{
 // 第五區 廚師介紹
 
 .chifIntro{
+  max-width: 1400px;
   margin-top: 60px;
   margin-bottom: 50px;
   padding: 30px;
@@ -332,56 +340,44 @@ h1 span, h3 span{
   }
 }
 
-// 第六區 客製寵美食
+
+// 第六區 客製毛孩美食
 .customPet{
   margin-top: 30px;
   margin-bottom: 100px;
+  max-width: 1400px;
+  .customPetMenu{
+    // border: 1px solid #000;
+    height: 500px;
+    overflow-x: auto;
+  }
   // 下拉式選單
   .foodchosen{
     width: 100%;
-    background-color: #9F9F9F;
-    color:white;
-    outline: none;
-    border: none;
-    padding-left: 10px;
+    height: 36px;
+    background-color: #558b6e;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    outline: 0;
+    text-align: center;
+    text-align-last: center;
   }
   .foodback{
     background-color: #F7D081;
     border-radius: 30px;
     margin: 10px;
     padding: 20px 0;
-    box-shadow: 0px 0px 10px rgba(black, .5);
-    border: 1px solid #000;
+    box-shadow: 0px 0px 10px rgba(black, .3);
+    border: 1px solid #eee;
     text-align: center;
-    .foodinfo{
-      display: inline-block;
-    }
-    .foodpic1,.foodpic2,.foodpic3,.foodpic4,.foodpic5,.foodpic6{
-      width: 100px;
-      height: 100px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center center;
+    .foodpic{
+      display: flex;
+      align-items: flex-end;
+      width: 120px;
+      height: 150px;
       margin: 0 auto;
-      margin-top: 5px;
-    }
-    .foodpic1{
-      background-image: url(../img/restaurant/carrot.png);
-    }
-    .foodpic2{
-      background-image: url(../img/restaurant/rice.png);
-    }
-    .foodpic3{
-      background-image: url(../img/restaurant/veg1.png);
-    }
-    .foodpic4{
-      background-image: url(../img/restaurant/veg2.png);
-    }
-    .foodpic5{
-      background-image: url(../img/restaurant/egg1.png);
-    }
-    .foodpic6{
-      background-image: url(../img/restaurant/egg2.png);
     }
   }
   button{
@@ -393,9 +389,14 @@ h1 span, h3 span{
     border-radius: 30px;
     margin-bottom: 20px;
     transition: .5s;
+    cursor: pointer;
     &:hover{
       background-color: $colorOrange;
       color: white;
+    }
+    &:active{
+      background-color: #EFEFEF;
+      color:black;
     }
   }
 }
@@ -417,6 +418,57 @@ h1 span, h3 span{
       background-repeat: no-repeat;
       width: 100%;
       height: 430px;
+      position: relative;
+      div{
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+      }
+      .rice{
+        background-image: url(../img/restaurant/rice.png);
+        width: 180px;
+        height: 180px;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+      }
+      .sliceAvocado{
+        background-image: url(../img/restaurant/sliceAvocado.svg);
+        width: 180px;
+        height: 180px;
+        top: 52%;
+        left: 42%;
+      }
+      .sliceCarrot{
+        background-image: url(../img/restaurant/sliceCarrot.svg);
+        width: 140px;
+        height: 140px;
+        top: 45%;
+        left: 25%;
+      }
+      .sliceEgg{
+        background-image: url(../img/restaurant/sliceEgg.svg);
+        width: 140px;
+        height: 140px;
+        top: 20%;
+        left: 25%;
+      }
+      .slicePotatoLeave{
+        background-image: url(../img/restaurant/slicePotatoLeave.svg);
+        width: 150px;
+        height: 150px;
+        top: 10%;
+        left: 40%;
+      }
+      .sliceRedcabbage{
+        background-image: url(../img/restaurant/sliceRedcabbage.svg);
+        width: 150px;
+        height: 150px;
+        top: 25%;
+        left: 55%;
+      }
     }
   }
   .foodmenu{
@@ -437,8 +489,13 @@ h1 span, h3 span{
         button{
           margin-top: 20px;
           background-color: #fff;
+          cursor: pointer;
           &:hover{
             background-color: $colorOrange;
+          }
+          &:active{
+            background-color: #FFFFFF;
+            color:black;
           }
         }
       }
@@ -514,24 +571,34 @@ h1 span, h3 span{
   margin-top: 30px;
   button{
     background-color: #fff;
+    cursor: pointer;
     &:hover{
       background-color: $colorOrange;
+    }
+    &:active{
+      background-color: #FFFFFF;
+      color:black;
     }
   }
 }
 
-// 第七區 現有寵美食
+// 第七區 推薦毛孩美食
 .Pet{
+  max-width: 1400px;
   margin-top: 100px;
   margin-bottom: 100px;
   // 下拉式選單
   .foodchosen{
     width: 100%;
-    background-color: #9F9F9F;
-    color:white;
-    outline: none;
-    border: none;
-    padding-left: 10px;
+    height: 36px;
+    background-color: #558b6e;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    outline: 0;
+    text-align: center;
+    text-align-last: center;
   }
   // 左邊沙拉類
   .foodback{
@@ -540,8 +607,8 @@ h1 span, h3 span{
     margin: 10px;
     text-align: center;
     position: relative;
-    border: 1px solid #000;
-    box-shadow: 0px 0px 10px rgba(black, .5);
+    box-shadow: 0px 0px 10px rgba(black, .3);
+    border: 1px solid #eee;
     overflow: hidden;
     &:before{
       content: "沙拉";
@@ -597,6 +664,9 @@ h1 span, h3 span{
           color:#4DAA57;
           background-color: rgba(255,255,255,.6);
           border-radius: 6px;
+          span{
+            color:black;
+          }
         }
         span{
           position: absolute;
@@ -604,6 +674,7 @@ h1 span, h3 span{
           bottom: -15px;
           font-size: 10px;
           font-weight: normal;
+          color:black;
           opacity: .5;
         }
         p{
@@ -621,9 +692,16 @@ h1 span, h3 span{
     border-radius: 30px;
     margin-bottom: 20px;
     transition: .5s;
+    cursor: pointer;
+    margin-top: 20px;
+    background-color: #fff;
     &:hover{
       background-color: $colorOrange;
       color: white;
+    }
+    &:active{
+      background-color: #FFFFFF;
+      color:black;
     }
   }
 }
@@ -660,8 +738,8 @@ h1 span, h3 span{
   margin: 10px;
   text-align: center;
   position: relative;
-  border: 1px solid #000;
-  box-shadow: 0px 0px 10px rgba(black, .5);
+  box-shadow: 0px 0px 10px rgba(black, .3);
+  border: 1px solid #eee;
   overflow: hidden;
   &:before{
     content: "鮮食類";
@@ -717,6 +795,9 @@ h1 span, h3 span{
         color:#4DAA57;
         background-color: rgba(255,255,255,.6);
         border-radius: 6px;
+        span{
+          color:black;
+        }
       }
       span{
         position: absolute;
@@ -724,6 +805,7 @@ h1 span, h3 span{
         bottom: -15px;
         font-size: 10px;
         font-weight: normal;
+        color:black;
         opacity: .5;
       }
       p{
@@ -775,13 +857,6 @@ h1 span, h3 span{
       li{
         flex-basis: 1px;
         flex-grow: 1;
-        button{
-          margin-top: 20px;
-          background-color: #fff;
-          &:hover{
-            background-color: $colorOrange;
-          }
-        }
       }
     }
   }
@@ -827,25 +902,63 @@ h1 span, h3 span{
 .human{
   margin-top: 100px;
   margin-bottom: 100px;
+  max-width: 1400px;
   // 下拉式選單
   .foodchosen{
     width: 100%;
-    background-color: #9F9F9F;
-    color:white;
-    outline: none;
-    border: none;
-    padding-left: 10px;
+    height: 36px;
+    background-color: #558b6e;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    outline: 0;
+    text-align: center;
+    text-align-last: center;
   }
   // 左邊義式菜單
   .foodback{
     background-color: #F7D081;
     border-radius: 30px;
     margin: 10px;
-    border: 1px solid #000;
-    box-shadow: 0px 0px 10px rgba(black, .5);
+    box-shadow: 0px 0px 10px rgba(black, .3);
+    border: 1px solid #eee;
     text-align: center;
     position: relative;
     overflow: hidden;
+    ol{
+      width: 100%;
+      li{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-right: 5px;
+        padding: 10px;
+        cursor: pointer;
+        transition: .2s;
+        position: relative;
+        &:hover{
+          color:#4DAA57;
+          background-color: rgba(255,255,255,.6);
+          border-radius: 6px;
+          span{
+            color:black;
+          }
+        }
+        span{
+          position: absolute;
+          right: 10px;
+          bottom: -15px;
+          font-size: 10px;
+          font-weight: normal;
+          color:black;
+          opacity: .5;
+        }
+        p{
+          font-size: 16px;
+        }
+      }
+    }
     &:before{
       content: "義式";
       display: block;
@@ -867,11 +980,48 @@ h1 span, h3 span{
     background-color: #F7D081;
     border-radius: 30px;
     margin: 10px;
-    border: 1px solid #000;
-    box-shadow: 0px 0px 10px rgba(black, .5);
+    box-shadow: 0px 0px 10px rgba(black, .3);
+    border: 1px solid #eee;
     text-align: center;
     position: relative;
     overflow: hidden;
+    background-image: url(../img/restaurant/humanfood.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
+    ol{
+      width: 100%;
+      li{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-right: 5px;
+        padding: 10px;
+        cursor: pointer;
+        transition: .2s;
+        position: relative;
+        &:hover{
+          color:#4DAA57;
+          background-color: rgba(255,255,255,.6);
+          border-radius: 6px;
+          span{
+            color:black;
+          }
+        }
+        span{
+          position: absolute;
+          right: 10px;
+          bottom: -15px;
+          font-size: 10px;
+          font-weight: normal;
+          color:black;
+          opacity: .5;
+        }
+        p{
+          font-size: 16px;
+        }
+      }
+    }
     &:before{
       content: "美式";
       display: block;
@@ -928,9 +1078,9 @@ h1 span, h3 span{
   .human-up{
     margin-top: 100px;
     margin-bottom: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    // background-color: rgba(255,255,255,.3);
+    border-radius: 30px;
+    padding: 20px;
     h4{
       cursor: pointer;
       padding-left: 30px;
@@ -950,9 +1100,16 @@ h1 span, h3 span{
     border-radius: 30px;
     margin-bottom: 20px;
     transition: .5s;
+    cursor: pointer;
+    margin-top: 20px;
+    background-color: #fff;
     &:hover{
       background-color: $colorOrange;
       color: white;
+    }
+    &:active{
+      background-color: #FFFFFF;
+      color:black;
     }
   }
 }
@@ -976,13 +1133,6 @@ h1 span, h3 span{
       li{
         flex-basis: 1px;
         flex-grow: 1;
-        button{
-          margin-top: 20px;
-          background-color: #fff;
-          &:hover{
-            background-color: $colorOrange;
-          }
-        }
       }
     }
   }
@@ -1054,14 +1204,11 @@ ol li:not(:first-child){
   button{
     display: inline-block;
     width: 30px;
-    height: 5px;
+    height: 3px;
     opacity: 0.8;
-    border-radius: 3px;
+    border-radius: 2px;
     margin: 0 6px;
     font-size: 0;
-    &:hover{
-      background-color: $colorYellow;
-    }
   }
   & .slick-active button{
     background-color: $colorYellow;

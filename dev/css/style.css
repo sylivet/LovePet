@@ -2707,28 +2707,6 @@ ol li:not(:first-child) {
   display: block;
 }
 
-<<<<<<< HEAD:css/style.css
-@media (max-width: 376px) {
-  .h_wrapper .h_panel1 {
-    padding-left: 24px;
-    text-indent: 0px;
-  }
-}
-
-.banner {
-  width: 100%;
-}
-
-.banner .banner img {
-  width: 100%;
-}
-
-main {
-  width: 100%;
-  padding: 0 90px;
-}
-
-=======
 /*手機版 是不是要調li斷句 不然好亂ＱＱ*/
 /* @media(max-width: 375px){
     .h_banner{
@@ -2788,7 +2766,6 @@ main {
         width: 100%;
     }
 } */
->>>>>>> YuWen:dev/css/style.css
 /* 選擇區塊 */
 .choose_button {
   width: 100%;

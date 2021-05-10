@@ -10,8 +10,15 @@
 </head>
 <body>
     @@include('layout/header.html')
-    <div class="c_illustration">
-        <img src="./img/clinic/Group 1512@2x.png" >
+    <!-- 緊急處理 -->
+    <div class="i_banner">
+        <div class="i_banner_left"><img src="img/clinic/headerTree2.png" alt=""></div>
+        <div class="i_banner_center">
+            <img class="i_clinic_center_left" src="img/clinic/header_C_left.png" alt="">
+            <h1><span>緊急</span>處理</h1>
+            <img class="i_clinic_center_right" src="img/clinic/header_C_right.png" alt="">
+        </div>
+        <div class="i_banner_right"><img src="img/clinic/headerTree1.png" alt=""></div>
     </div>
     <div class="c_emergency_info">
         <h3>寵物緊急急救方法</h3>
@@ -97,6 +104,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="c_toHomepage">
+        <a href="./clinic_index.html"><button>回到健檢首頁</button></a>
     </div>
     @@include('layout/footer.html')
    
