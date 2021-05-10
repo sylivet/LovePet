@@ -258,8 +258,8 @@
               <div class="row">
                 <div class="col-12">
                   <select class="foodchosen" name="food" v-model="petFoodSelect">
-                    <option disabled selected value="0">請選擇寵物餐點</option>
-                    <option v-for="food in petFoodMenu" :value="food">{{food}}</option>
+                    <option selected value="沙拉">請選擇寵物餐點</option>
+                    <option v-for="food in petFoodType" :value="food">{{food}}</option>
                   </select>
                 </div>
               </div>
@@ -272,9 +272,10 @@
                     </div>
                     <div class="col-md-6 col-12 petmenu-right">
                       <ol>
-                        <li><h4>1.雞肉沙拉</h4><p><span>120Cal</span>NT 100元</p></li>
-                        <li><h4>2.牛肉沙拉</h4><p><span>120Cal</span>NT 100元</p></li>
-                        <li><h4>3.嫩煎鮭魚沙拉</h4><p><span>120Cal</span>NT 100元</p></li>
+                        <li v-for="(food, fid) in petFoodSelected">
+                          <h4>{{fid+1}}.{{food.name}}<br></h4>
+                          <p><span>{{food.cal}}</span>NT{{food.price}}元</p>
+                        </li>
                       </ol>  
                     </div>
                   </div>
@@ -290,11 +291,11 @@
                     </div>
                     <div class="col-md-6 col-12 petmenu2-right">
                       <ol>
-                        <li><h4>1.低敏結實配方<br></h4><p><span>120Cal</span>NT 100元</p></li>
-                        <li><h4>2.關節保養配方</h4><p><span>120Cal</span>NT 100元</p></li>
-                        <li><h4>3.毛髮亮麗配方</h4><p><span>120Cal</span>NT 100元</p></li>
-                        <li><h4>4.元氣滿滿­­配方</h4><p><span>120Cal</span>NT 100元</p></li>
-                      </ol>       
+                        <li v-for="(food, fid) in petFoodSelected">
+                          <h4>{{fid+1}}.{{food.name}}<br></h4>
+                          <p><span>{{food.cal}}</span>NT{{food.price}}元</p>
+                        </li>
+                      </ol>        
                     </div>
                   </div>
                 </div>
@@ -357,7 +358,7 @@
               <div class="row">
                 <div class="col-12">
                   <select class="foodchosen" name="food" id="" v-model="humanFoodSelect">
-                    <option disabled selected value="0">請選擇您的餐點</option>
+                    <option selected value="美式">請選擇您的餐點</option>
                     <option v-for="food in humanFoodType" :value="food">{{food}}</option>
                   </select>
                 </div>
