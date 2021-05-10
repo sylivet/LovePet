@@ -6,11 +6,6 @@ const {
     watch,
 } = require('gulp');
 
- 
-
-// gulp.task('moveVendors', function () {
-  
-// })
 
 function moveVendors(){
     return src('dev/vendors/**/*.*') //來源
@@ -61,7 +56,6 @@ function imgs_prod() {
         .pipe(imagemin())  // 壓圖
         .pipe(dest('dist/images'))
 }
-
 
 
 const clean = require('gulp-clean');
