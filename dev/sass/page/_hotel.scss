@@ -18,65 +18,29 @@
     }
 
     .h_type {
-        margin-bottom: 18px;
+        width: 20%;
+        margin: 0 0 18px auto;
 
-        @include pad {
-            display: flex;
-            justify-content: space-around;
+        @include iphoneX{
+            width: 100%;
         }
 
-        .hotel_btn {
-            background-color: rgba(255, 200, 87, .15);
-            color: #707070;
-            font-size: 19px;
+        select{
+            width: 100%;
+            background-color: rgba(0, 0, 0, .3);
+            color: #ffffff;
+            font-family: "Noto Sans TC", sans-serif;
+            font-size: 16px;
             font-weight: bold;
-            margin-right: 48px;
-            padding: 18px 27px;
+            padding: 12px 16px;
             border: none;
             outline: none;
-            border-radius: 30px;
+            text-align: center;
+            text-align-last: center;
+            border-radius: 6px;
 
-            &:hover {
-                background-color: rgba(255, 200, 87, 1);
-                transition: 0.8s;
-                /* 這裡動畫要弄什麼? */
-            }
-
-            @include pad {
-                margin-right: 0;
-            }
-
-            @include iphoneX {
-                display: none;
-            }
-        }
-
-        .h_dropdown{
-            width: 100%;
-            display: none;
-
-            select{
-                width: 100%;
-                background-color: rgba(0, 0, 0, .3);
-                color: #ffffff;
-                font-family: "Noto Sans TC", sans-serif;
-                font-size: 16px;
-                font-weight: bold;
-                padding: 12px 16px;
-                border: none;
-                outline: none;
-                text-align: center;
-                text-align-last: center;
-                border-radius: 6px;
-                // 沒吃到字型
-
-                option{                    
-                    // 找不到置中跟換色#558B6E
-                }
-            }
-
-            @include iphoneX {
-                display: block;
+            option{                    
+                // 找不到置中跟換色#558B6E
             }
         }
     }
@@ -264,11 +228,18 @@
                 border-radius: 30px;
 
                 &:hover {
-                    background-color: rgb(221, 131, 131);
-                    color: #000000;
+                    background-color: #915727;
+                    color: #ffffff;
                     transition: 0.8s;
                     /* 這裡動畫要弄什麼? */
+
+                    &:active{
+                        background-color: #915727;
+                        color: #ffffff;
+                        // 沒有固定住
+                    }
                 }
+
 
                 @include iphoneX {
                     margin-bottom: 36px;
