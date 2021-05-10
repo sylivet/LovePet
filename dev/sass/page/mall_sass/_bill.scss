@@ -357,8 +357,10 @@
         }
       }
 
-      form {
-        h3 {
+      .bill_form {
+
+        h3,
+        span {
           font-size: 26px;
           font-weight: 700;
           text-align: center;
@@ -382,10 +384,10 @@
             background-color: #ffc857;
             border-radius: 50px;
             text-decoration: none;
-          }
 
-          &:hover {
-            background-color: #F39800;
+            &:hover {
+              background-color: #F39800;
+            }
           }
 
           input {
@@ -399,10 +401,10 @@
             border-radius: 50px;
             border: 0px;
             margin-left: 15px;
-          }
 
-          &:hover {
-            background-color: #F39800;
+            &:hover {
+              background-color: #F39800;
+            }
           }
         }
       }
