@@ -628,8 +628,6 @@
     margin: 0 auto;
     margin-top: 50px;
     margin-bottom: 50px;
-    
-    outline: 1px red solid;
     @include mobile{
       max-width: 700px;
       height: 370px;
