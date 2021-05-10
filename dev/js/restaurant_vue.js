@@ -1,11 +1,10 @@
 let vm = new Vue({
   el:"#app",
   data:{
-    // humanFoodSelect:"美式",
-    petFoodSelect:"沙拉",
-    humanFoodType:["義式","美式"],
     humanFoodSelect:"美式",
-    petFoodMenu:["沙拉","主食","鮮食","甜點"],
+    petFoodSelect:"沙拉",
+    humanFoodType:["美式","義式"],
+    petFoodType:["沙拉","主食","鮮食","甜點"],
     humanFoodMenu:[
       {
         type:"美式",
@@ -67,12 +66,61 @@ let vm = new Vue({
         price:390,
         cal:"290cal",
       },
+    ],
+    petFoodMenu:[
+      {
+        type:"沙拉",
+        name:"雞肉沙拉",
+        price:200,
+        cal:"200cal",
+      },
+      {
+        type:"沙拉",
+        name:"牛肉沙拉",
+        price:299,
+        cal:"230cal",
+      },
+      {
+        type:"沙拉",
+        name:"嫩煎鮭魚沙拉",
+        price:270,
+        cal:"220cal",
+      },
+      {
+        type:"鮮食",
+        name:"低敏結實配方",
+        price:370,
+        cal:"250cal",
+      },
+      {
+        type:"鮮食",
+        name:"關節保養配方",
+        price:570,
+        cal:"230cal",
+      },
+      {
+        type:"鮮食",
+        name:"毛髮亮麗配方",
+        price:170,
+        cal:"320cal",
+      },
+      {
+        type:"鮮食",
+        name:"元氣滿滿­­配方",
+        price:470,
+        cal:"280cal",
+      },
     ]
   },
   computed: {
     humanFoodSelected(){
       return this.humanFoodMenu.filter((item)=>{
         return item.type === this.humanFoodSelect
+      })
+    },
+    petFoodSelected(){
+      return this.petFoodMenu.filter((item)=>{
+        return item.type === this.petFoodSelect
       })
     }
   },
