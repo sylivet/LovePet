@@ -340,7 +340,7 @@ h1 span, h3 span{
   }
 }
 
-// 第六區 客製寵美食
+// 第六區 客製毛孩美食
 .customPet{
   margin-top: 30px;
   margin-bottom: 100px;
@@ -548,7 +548,7 @@ h1 span, h3 span{
   }
 }
 
-// 第七區 現有寵美食
+// 第七區 推薦毛孩美食
 .Pet{
   max-width: 1400px;
   margin-top: 100px;
@@ -630,6 +630,9 @@ h1 span, h3 span{
           color:#4DAA57;
           background-color: rgba(255,255,255,.6);
           border-radius: 6px;
+          span{
+            color:black;
+          }
         }
         span{
           position: absolute;
@@ -637,6 +640,7 @@ h1 span, h3 span{
           bottom: -15px;
           font-size: 10px;
           font-weight: normal;
+          color:black;
           opacity: .5;
         }
         p{
@@ -755,6 +759,9 @@ h1 span, h3 span{
         color:#4DAA57;
         background-color: rgba(255,255,255,.6);
         border-radius: 6px;
+        span{
+          color:black;
+        }
       }
       span{
         position: absolute;
@@ -762,6 +769,7 @@ h1 span, h3 span{
         bottom: -15px;
         font-size: 10px;
         font-weight: normal;
+        color:black;
         opacity: .5;
       }
       p{
@@ -894,6 +902,39 @@ h1 span, h3 span{
     text-align: center;
     position: relative;
     overflow: hidden;
+    ol{
+      width: 100%;
+      li{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-right: 5px;
+        padding: 10px;
+        cursor: pointer;
+        transition: .2s;
+        position: relative;
+        &:hover{
+          color:#4DAA57;
+          background-color: rgba(255,255,255,.6);
+          border-radius: 6px;
+          span{
+            color:black;
+          }
+        }
+        span{
+          position: absolute;
+          right: 10px;
+          bottom: -15px;
+          font-size: 10px;
+          font-weight: normal;
+          color:black;
+          opacity: .5;
+        }
+        p{
+          font-size: 16px;
+        }
+      }
+    }
     &:before{
       content: "義式";
       display: block;
@@ -920,6 +961,39 @@ h1 span, h3 span{
     text-align: center;
     position: relative;
     overflow: hidden;
+    ol{
+      width: 100%;
+      li{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-right: 5px;
+        padding: 10px;
+        cursor: pointer;
+        transition: .2s;
+        position: relative;
+        &:hover{
+          color:#4DAA57;
+          background-color: rgba(255,255,255,.6);
+          border-radius: 6px;
+          span{
+            color:black;
+          }
+        }
+        span{
+          position: absolute;
+          right: 10px;
+          bottom: -15px;
+          font-size: 10px;
+          font-weight: normal;
+          color:black;
+          opacity: .5;
+        }
+        p{
+          font-size: 16px;
+        }
+      }
+    }
     &:before{
       content: "美式";
       display: block;
@@ -999,6 +1073,8 @@ h1 span, h3 span{
     margin-bottom: 20px;
     transition: .5s;
     cursor: pointer;
+    margin-top: 20px;
+    background-color: #fff;
     &:hover{
       background-color: $colorOrange;
       color: white;
@@ -1029,17 +1105,6 @@ h1 span, h3 span{
       li{
         flex-basis: 1px;
         flex-grow: 1;
-        button{
-          margin-top: 20px;
-          background-color: #fff;
-          &:hover{
-            background-color: $colorOrange;
-          }
-          &:active{
-            background-color: #FFFFFF;
-            color:black;
-          }
-        }
       }
     }
   }
