@@ -6,43 +6,42 @@
     max-width: 800px;
     padding-top: 30px;
     margin-bottom: 125px;
+    // outline: 1px solid red;
    @include mobile{
        margin-bottom: 30px;
+         
    }
     ul{
         display:flex;
-        justify-content:space-evenly;
+        flex-wrap: wrap;
+        justify-content:space-around;
+        // outline: 1px solid red;
         @include mobile{
-            margin-left: 40px;
-            margin-right: 40px;
-            flex-wrap: wrap;
+            max-width: 500px;
+            margin: 0 auto;
+            
+            
         }
-        @include iphoneX{
-            margin-left: 10px;
-            margin-right: 10px;
-        }
+       
     }
 
    li{
       background-color: #FFC857; 
       width: 175px;
       border-radius: 50%;
-        @include mobile{
-            width: 125px;
-            margin: 5px 10px; 
-        }
+      @include mobile{
+          margin: 5px 10px ;
+      } 
         
     }
     li > a{
-        color: #fff;
+     color: #fff;
      display:block;
      font-size: 21px;
      text-align:center;
      line-height: 175px;
      text-decoration: none;
-     @include mobile{
-        line-height: 125px;
-    } 
+     
     }
 }
 .c_content{
