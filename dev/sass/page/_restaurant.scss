@@ -872,6 +872,8 @@ h1 span, h3 span{
     padding: 30px;
     border: 2px solid #eee;
     box-sizing: border-box;
+    height: 560px;
+    overflow-y: auto;
     ul{
       margin-top: 20px;
       display: flex;
@@ -881,19 +883,6 @@ h1 span, h3 span{
         flex-basis: 1px;
         flex-grow: 1;
       }
-    }
-  }
-  .line2{
-    position: relative;
-    &:before{
-      content: "";
-      display: block;
-      width: 80%;
-      position: absolute;
-      left: 50%;
-      top: 350px;
-      transform: translateX(-50%);
-      border-bottom: 2px dashed #999;
     }
   }
 }
@@ -1148,6 +1137,8 @@ h1 span, h3 span{
     padding: 30px;
     border: 2px solid #eee;
     box-sizing: border-box;
+    height: 690px;
+    overflow-y: auto;
     ul{
       margin-top: 20px;
       display: flex;
@@ -1157,19 +1148,6 @@ h1 span, h3 span{
         flex-basis: 1px;
         flex-grow: 1;
       }
-    }
-  }
-  .line2{
-    position: relative;
-    &:before{
-      content: "";
-      display: block;
-      width: 80%;
-      position: absolute;
-      left: 50%;
-      top: 350px;
-      transform: translateX(-50%);
-      border-bottom: 2px dashed #999;
     }
   }
 }

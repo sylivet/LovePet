@@ -1,105 +1,138 @@
+
+Vue.component("lightbox",{
+  props:[''],
+  template:"#lightBox",
+})
+
+
+
 let vm = new Vue({
   el:"#app",
   data:{
     petCustomFoodSelect:"乾糧",
     petCustomFoodType:["乾糧","主食","配菜"],
     petCustomFoodChosen:[],
+    petFoodSelection:[],
     petCustomFoodMenu:[
       {
+        cata:"pets",
         type:"乾糧",
         name:"基本款餅乾",
         eng:"mainfood",
         price:100,
         cal:"30cal",
-        imgURL:"../img/restaurant/mainFood.svg"
+        imgURL:"../img/restaurant/mainFood.svg",
+        count:1
       },
       {
+        cata:"pets",
         type:"乾糧",
         name:"小魚造型餅乾",
         eng:"mainfood2",
         price:210,
         cal:"36cal",
-        imgURL:"../img/restaurant/mainFood2.svg"
+        imgURL:"../img/restaurant/mainFood2.svg",
+        count:1
       },
       {
+        cata:"pets",
         type:"乾糧",
         name:"骨頭造型餅乾",
         eng:"mainfood3",
         price:210,
         cal:"40cal",
-        imgURL:"../img/restaurant/mainFood3.svg"
+        imgURL:"../img/restaurant/mainFood3.svg",
+        count:1
       },
       {
+        cata:"pets",
         type:"乾糧",
         name:"圈圈造型餅乾",
         eng:"mainfood4",
         price:160,
         cal:"42cal",
-        imgURL:"../img/restaurant/mainFood4.svg"
+        imgURL:"../img/restaurant/mainFood4.svg",
+        count:1
       },
       {
+        cata:"pets",
         type:"主食",
         name:"牛肉",
         eng:"meat",
         price:300,
         cal:"210cal",
-        imgURL:"../img/restaurant/meat.svg"
+        imgURL:"../img/restaurant/meat.svg",
+        count:1
       },
       {
+        cata:"pets",
         type:"主食",
         name:"魚肉",
         eng:"meat2",
         price:280,
         cal:"185cal",
-        imgURL:"../img/restaurant/meat2.svg"
+        imgURL:"../img/restaurant/meat2.svg",
+        count:1
       },
       {
+        cata:"pets",
         type:"主食",
         name:"大明蝦",
         eng:"meat3",
         price:290,
         cal:"190cal",
-        imgURL:"../img/restaurant/meat3.svg"
+        imgURL:"../img/restaurant/meat3.svg",
+        count:1
       },
       {
+        cata:"pets",
         type:"主食",
         name:"大雞腿",
         eng:"meat4",
         price:200,
         cal:"160cal",
-        imgURL:"../img/restaurant/meat4.svg"
+        imgURL:"../img/restaurant/meat4.svg",
+        count:1
       },
       {
+        cata:"pets",
         type:"配菜",
         name:"紅蘿蔔",
         eng:"sidefood1",
         price:20,
         cal:"36cal",
-        imgURL:"../img/restaurant/carrot.png"
+        imgURL:"../img/restaurant/carrot.png",
+        count:1
       },
       {
+        cata:"pets",
         type:"配菜",
         name:"青菜",
         eng:"sidefood2",
         price:20,
         cal:"31cal",
-        imgURL:"../img/restaurant/veg1.png"
+        imgURL:"../img/restaurant/veg1.png",
+        count:1
       },
       {
+        cata:"pets",
         type:"配菜",
         name:"放山雞的蛋",
         eng:"sidefood3",
         price:20,
         cal:"33cal",
-        imgURL:"../img/restaurant/sliceEgg.svg"
+        imgURL:"../img/restaurant/sliceEgg.svg",
+        count:1
       },
       {
+        cata:"pets",
         type:"配菜",
         name:"酪梨",
         eng:"sidefood4",
         price:20,
         cal:"62cal",
-        imgURL:"../img/restaurant/egg2.png"
+        imgURL:"../img/restaurant/egg2.png",
+        count:1
       },
     ],
 
@@ -107,110 +140,145 @@ let vm = new Vue({
     petFoodSelect:"沙拉",
     humanFoodType:["美式","義式"],
     petFoodType:["沙拉","主食","鮮食"],
+    humanFoodSelection:[],
     humanFoodMenu:[
       {
+        cata:"human",
         type:"美式",
         name:"安格斯牛肉漢堡",
         price:100,
         cal:"120cal",
+        count:1
       },
       {
+        cata:"human",
         type:"美式",
         name:"費城牛肉三明治",
         price:120,
         cal:"300cal",
+        count:1
       },
       {
+        cata:"human",
         type:"美式",
         name:"炸物拼盤",
         price:500,
         cal:"500cal",
+        count:1
       },
       {
+        cata:"human",
         type:"美式",
         name:"凱薩沙拉",
         price:80,
         cal:"90cal",
+        count:1
       },
       {
+        cata:"human",
         type:"美式",
         name:"碳烤豬肋排",
         price:500,
         cal:"260cal",
+        count:1
       },
       {
+        cata:"human",
         type:"義式",
         name:"番茄義大利麵",
         price:200,
         cal:"220cal",
+        count:1
       },
       {
+        cata:"human",
         type:"義式",
         name:"羅勒青醬義大利麵",
         price:320,
         cal:"200cal",
+        count:1
       },
       {
+        cata:"human",
         type:"義式",
         name:"蛤蠣奶油義大利麵",
         price:200,
         cal:"500cal",
+        count:1
       },
       {
+        cata:"human",
         type:"義式",
         name:"雙層美式臘腸披薩",
         price:300,
         cal:"400cal",
+        count:1
       },
       {
+        cata:"human",
         type:"義式",
         name:"彩蔬鮮菇披薩",
         price:390,
         cal:"290cal",
+        count:1
       },
     ],
     petFoodMenu:[
       {
+        cata:"pets",
         type:"沙拉",
         name:"雞肉沙拉",
         price:200,
         cal:"200cal",
+        count:1
       },
       {
+        cata:"pets",
         type:"沙拉",
         name:"牛肉沙拉",
         price:299,
         cal:"230cal",
+        count:1
       },
       {
+        cata:"pets",
         type:"沙拉",
         name:"嫩煎鮭魚沙拉",
         price:270,
         cal:"220cal",
+        count:1
       },
       {
+        cata:"pets",
         type:"鮮食",
         name:"低敏結實配方",
         price:370,
         cal:"250cal",
+        count:1
       },
       {
+        cata:"pets",
         type:"鮮食",
         name:"關節保養配方",
         price:570,
         cal:"230cal",
+        count:1
       },
       {
+        cata:"pets",
         type:"鮮食",
         name:"毛髮亮麗配方",
         price:170,
         cal:"320cal",
+        count:1
       },
       {
+        cata:"pets",
         type:"鮮食",
         name:"元氣滿滿­­配方",
         price:470,
         cal:"280cal",
+        count:1
       },
     ]
   },
@@ -219,7 +287,39 @@ let vm = new Vue({
       if(this.petCustomFoodChosen.indexOf(name) ==-1){
         this.petCustomFoodChosen.push(name);
       }
+    },
+    chooseHumanFood(food){
+      if(this.humanFoodSelection.indexOf(food) ==-1){
+        this.humanFoodSelection.push(food)
+      }
+    },
+    choosePetsFood(food){
+      if(this.petFoodSelection.indexOf(food) ==-1){
+        this.petFoodSelection.push(food)
+      }
+    },
+    // 移除人類菜單
+    remove(food, fid){
+      if(food.count > 1){
+        food.count-=1
+      }else{
+        let yes = confirm("確定移除?")
+        if(yes){
+          this.humanFoodSelection.splice(fid, 1)
+        }
+      }
+    },
+    remove1(food, fid){
+      if(food.count > 1){
+        food.count-=1
+      }else{
+        let yes = confirm("確定移除?")
+        if(yes){
+          this.petFoodSelection.splice(fid, 1)
+        }
+      }
     }
+
   },
   computed: {
     humanFoodSelected(){
@@ -231,6 +331,18 @@ let vm = new Vue({
       return this.petFoodMenu.filter((item)=>{
         return item.type === this.petFoodSelect
       })
-    }
+    },
+    totalPrice(){
+      var result = this.humanFoodSelection.reduce(function(a,b){
+        return a + b.price*b.count;
+      }, 0)
+      return result;
+    },
+    totalPrice1(){
+      var result = this.petFoodSelection.reduce(function(a,b){
+        return a + b.price*b.count;
+      }, 0)
+      return result;
+    },
   },
 })
