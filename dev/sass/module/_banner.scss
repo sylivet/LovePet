@@ -127,6 +127,9 @@
 .i_restaurant_banner{
     @extend .i_banner;
     .i_banner_top{
+        @media(min-width:1400px){
+            display: none;
+        }
         max-width:1400px;
         width: 100%;
         overflow: hidden;
