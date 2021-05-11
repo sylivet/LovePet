@@ -349,7 +349,7 @@ h1 span, h3 span{
   max-width: 1400px;
   .customPetMenu{
     // border: 1px solid #000;
-    height: 500px;
+    height: 470px;
     overflow-x: auto;
   }
   // 下拉式選單
@@ -412,7 +412,7 @@ h1 span, h3 span{
 // 右邊結帳區
 .customPet{
   .right{
-    .foodpic7{
+    .foodpic1{
       background-image: url(../img/restaurant/plate.png);
       background-size: cover;
       background-position: center center;
@@ -428,47 +428,69 @@ h1 span, h3 span{
         top: 50%;
         left: 50%;
       }
-      .rice{
-        background-image: url(../img/restaurant/rice.png);
-        width: 180px;
-        height: 180px;
+      .mainfood{
+        background-image: url(../img/restaurant/mainFood.svg);
+        width: 200px;
+        height: 200px;
         transform: translate(-50%, -50%);
         z-index: 100;
       }
-      .sliceAvocado{
-        background-image: url(../img/restaurant/sliceAvocado.svg);
-        width: 180px;
-        height: 180px;
-        top: 52%;
-        left: 42%;
+      .mainfood2{
+        background-image: url(../img/restaurant/mainFood2.svg);
+        width: 210px;
+        height: 210px;
+        transform: translate(-50%, -50%);
+        z-index: 100;
       }
-      .sliceCarrot{
+      .mainfood3{
+        background-image: url(../img/restaurant/mainFood3.svg);
+        width: 210px;
+        height: 210px;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+      }
+      .mainfood4{
+        background-image: url(../img/restaurant/mainFood4.svg);
+        width: 210px;
+        height: 210px;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+      }
+      .sidefood1{
         background-image: url(../img/restaurant/sliceCarrot.svg);
         width: 140px;
         height: 140px;
         top: 45%;
         left: 25%;
       }
-      .sliceEgg{
-        background-image: url(../img/restaurant/sliceEgg.svg);
-        width: 140px;
-        height: 140px;
-        top: 20%;
-        left: 25%;
+      .sidefood4{
+        background-image: url(../img/restaurant/sliceAvocado.svg);
+        width: 180px;
+        height: 180px;
+        top: 19%;
+        left: 24%;
       }
-      .slicePotatoLeave{
-        background-image: url(../img/restaurant/slicePotatoLeave.svg);
-        width: 150px;
-        height: 150px;
-        top: 10%;
-        left: 40%;
-      }
-      .sliceRedcabbage{
+      .sidefood2{
         background-image: url(../img/restaurant/sliceRedcabbage.svg);
         width: 150px;
         height: 150px;
         top: 25%;
         left: 55%;
+      }
+      .sidefood3{
+        background-image: url(../img/restaurant/sliceEgg.svg);
+        width: 150px;
+        height: 150px;
+        top: 10%;
+        left: 40%;
+      }
+      .meat{
+        background-image: url(../img/restaurant/meat.svg);
+        width: 180px;
+        height: 140px;
+        top: 61%;
+        left: 42%;
+        z-index: 101;
       }
     }
   }

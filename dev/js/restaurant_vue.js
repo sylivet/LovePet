@@ -1,30 +1,78 @@
 let vm = new Vue({
   el:"#app",
   data:{
-    petCustomFoodSelect:"米飯",
-    petCustomFoodType:["米飯","配菜"],
+    petCustomFoodSelect:"乾糧",
+    petCustomFoodType:["乾糧","主食","配菜"],
     petCustomFoodChosen:[],
     petCustomFoodMenu:[
       {
-        type:"米飯",
-        name:"白米飯",
-        eng:"rice",
-        price:20,
+        type:"乾糧",
+        name:"基本款餅乾",
+        eng:"mainfood",
+        price:100,
         cal:"30cal",
-        imgURL:"../img/restaurant/rice.png"
+        imgURL:"../img/restaurant/mainFood.svg"
       },
       {
-        type:"米飯",
-        name:"水煮蛋",
-        eng:"sliceEgg",
-        price:30,
+        type:"乾糧",
+        name:"小魚造型餅乾",
+        eng:"mainfood2",
+        price:210,
         cal:"36cal",
-        imgURL:"../img/restaurant/egg1.png"
+        imgURL:"../img/restaurant/mainFood2.svg"
+      },
+      {
+        type:"乾糧",
+        name:"骨頭造型餅乾",
+        eng:"mainfood3",
+        price:210,
+        cal:"40cal",
+        imgURL:"../img/restaurant/mainFood3.svg"
+      },
+      {
+        type:"乾糧",
+        name:"圈圈造型餅乾",
+        eng:"mainfood4",
+        price:160,
+        cal:"42cal",
+        imgURL:"../img/restaurant/mainFood4.svg"
+      },
+      {
+        type:"主食",
+        name:"牛肉",
+        eng:"meat",
+        price:300,
+        cal:"210cal",
+        imgURL:"../img/restaurant/meat.svg"
+      },
+      {
+        type:"主食",
+        name:"魚肉",
+        eng:"meat2",
+        price:280,
+        cal:"185cal",
+        imgURL:"../img/restaurant/meat2.svg"
+      },
+      {
+        type:"主食",
+        name:"大明蝦",
+        eng:"meat3",
+        price:290,
+        cal:"190cal",
+        imgURL:"../img/restaurant/meat3.svg"
+      },
+      {
+        type:"主食",
+        name:"大雞腿",
+        eng:"meat4",
+        price:200,
+        cal:"160cal",
+        imgURL:"../img/restaurant/meat4.svg"
       },
       {
         type:"配菜",
         name:"紅蘿蔔",
-        eng:"sliceCarrot",
+        eng:"sidefood1",
         price:20,
         cal:"36cal",
         imgURL:"../img/restaurant/carrot.png"
@@ -32,23 +80,23 @@ let vm = new Vue({
       {
         type:"配菜",
         name:"青菜",
-        eng:"sliceRedcabbage",
+        eng:"sidefood2",
         price:20,
         cal:"31cal",
         imgURL:"../img/restaurant/veg1.png"
       },
       {
         type:"配菜",
-        name:"地瓜葉",
-        eng:"slicePotatoLeave",
+        name:"放山雞的蛋",
+        eng:"sidefood3",
         price:20,
         cal:"33cal",
-        imgURL:"../img/restaurant/slicePotatoLeave.svg"
+        imgURL:"../img/restaurant/sliceEgg.svg"
       },
       {
         type:"配菜",
         name:"酪梨",
-        eng:"sliceAvocado",
+        eng:"sidefood4",
         price:20,
         cal:"62cal",
         imgURL:"../img/restaurant/egg2.png"
@@ -58,7 +106,7 @@ let vm = new Vue({
     humanFoodSelect:"美式",
     petFoodSelect:"沙拉",
     humanFoodType:["美式","義式"],
-    petFoodType:["沙拉","主食","鮮食","甜點"],
+    petFoodType:["沙拉","主食","鮮食"],
     humanFoodMenu:[
       {
         type:"美式",
