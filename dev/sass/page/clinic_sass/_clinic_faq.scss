@@ -1,25 +1,6 @@
-/* ----- 毛孩FAQ -----*/
-.c_banner {
-    margin-bottom: 36px;
-    position: relative;
-
-    img{
-        width: 100%;
-    }
-
-    h1 {
-        color: #707070;
-        font-weight: bold;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 18px;
-    }
-}
-
 /*----- 健檢中心Q&A-----*/
 .clinic_wrapper {
-    margin: 0 50px;
+    margin: 40px 50px 0 50px;
 
     @include mobile {
         margin: 0 10px;
@@ -45,6 +26,7 @@
             border-top-right-radius: 6px;
             border-bottom-left-radius: 6px;
             border-bottom-right-radius: 6px;
+            cursor: pointer;
             /*張開的時候 內文的圓角破口*/
             text-align: left;
             position: relative;
@@ -59,8 +41,7 @@
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
-                right: 19px;
-                cursor: pointer;
+                right: 19px;                
 
                 @include iphoneX {
                     transform: translateY(-40%);

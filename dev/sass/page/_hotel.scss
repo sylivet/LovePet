@@ -21,6 +21,10 @@
         width: 20%;
         margin: 0 0 18px auto;
 
+        @include pad{
+            width: 100%;
+        }
+
         @include iphoneX{
             width: 100%;
         }
@@ -39,7 +43,11 @@
             text-align-last: center;
             border-radius: 6px;
 
-            option{                    
+            option::after{        
+                
+                &:hover{
+                    background-color: blueviolet;
+                }
                 // 找不到置中跟換色#558B6E
             }
         }
@@ -53,7 +61,6 @@
             
             img{
                 border-radius: 60px;
-                /* 圖片失真 */
             }            
         }
 
@@ -67,7 +74,8 @@
             .h_left {
                 margin-right: 18px;
                 width: calc((100% - 18px) / 2);
-                border-radius: 60px;
+                border-radius: 17%;
+                // 沒有60px好
 
                 @include iphoneX{
                     width: 100%;
@@ -231,15 +239,14 @@
                     background-color: #915727;
                     color: #ffffff;
                     transition: 0.8s;
-                    /* 這裡動畫要弄什麼? */
-
-                    &:active{
-                        background-color: #915727;
-                        color: #ffffff;
-                        // 沒有固定住
-                    }
+                    /* 這裡動畫要弄什麼? */                   
                 }
 
+                &:active{
+                    background-color: #915727;
+                    color: #ffffff;
+                    // 沒有固定住
+                }
 
                 @include iphoneX {
                     margin-bottom: 36px;
@@ -274,17 +281,18 @@
         border-top-right-radius: 6px;
         border-bottom-left-radius: 6px;
         border-bottom-right-radius: 6px;
+        cursor: pointer;
         /*張開的時候 內文的圓角破口*/
         text-align: left;
         position: relative;
 
         img {
             width: 24px;
+            // 會太大嗎
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            right: 19px;
-            cursor: pointer;
+            right: 19px;            
         }
     }
 
