@@ -552,7 +552,7 @@ h1 span, h3 span{
 @media (max-width: 768px){
   .customPet{
     .right{
-      .foodpic7{
+      .foodpic1{
         margin-bottom: 10px;
         background-size: contain;
         background-repeat: no-repeat;
@@ -674,6 +674,61 @@ h1 span, h3 span{
     justify-content: space-around;
     ol{
       width: 100%;
+      position: relative;
+      .addmenu{
+        position: absolute;
+        left: 30px;
+        cursor: pointer;
+        &:hover{
+          color:#4DAA57;
+          transition: .3s;
+        }
+        &:after{
+          content: "加入菜單";
+          display: none;
+          visibility: visible;
+          width: 60px;
+          background-color: #999;
+          border-radius: 3px;
+          font-size: 14px;
+          position: absolute;
+          left: -175%;
+          bottom: -25px;
+          padding: 2px;
+          color:white;
+          font-family: 'Noto Sans TC';
+        }
+        &:hover:after{
+          display: block;
+        }
+      }
+      .info{
+        position: absolute;
+        left: 50px;
+        cursor: pointer;
+        &:hover{
+          color:#4DAA57;
+          transition: .3s;
+        }
+        &:after{
+          content: "更多資訊";
+          display: none;
+          visibility: visible;
+          width: 60px;
+          background-color: #999;
+          border-radius: 3px;
+          font-size: 14px;
+          position: absolute;
+          left: -175%;
+          bottom: -25px;
+          padding: 2px;
+          color:white;
+          font-family: 'Noto Sans TC';
+        }
+        &:hover:after{
+          display: block;
+        }
+      }
       li{
         display: flex;
         align-items: center;
@@ -805,6 +860,60 @@ h1 span, h3 span{
   justify-content: space-around;
   ol{
     width: 100%;
+    .addmenu{
+      position: absolute;
+      left: 30px;
+      cursor: pointer;
+      &:hover{
+        color:#4DAA57;
+        transition: .3s;
+      }
+      &:after{
+        content: "加入菜單";
+        display: none;
+        visibility: visible;
+        width: 60px;
+        background-color: #999;
+        border-radius: 3px;
+        font-size: 14px;
+        position: absolute;
+        left: -175%;
+        bottom: -25px;
+        padding: 2px;
+        color:white;
+        font-family: 'Noto Sans TC';
+      }
+      &:hover:after{
+        display: block;
+      }
+    }
+    .info{
+      position: absolute;
+      left: 50px;
+      cursor: pointer;
+      &:hover{
+        color:#4DAA57;
+        transition: .3s;
+      }
+      &:after{
+        content: "更多資訊";
+        display: none;
+        visibility: visible;
+        width: 60px;
+        background-color: #999;
+        border-radius: 3px;
+        font-size: 14px;
+        position: absolute;
+        left: -175%;
+        bottom: -25px;
+        padding: 2px;
+        color:white;
+        font-family: 'Noto Sans TC';
+      }
+      &:hover:after{
+        display: block;
+      }
+    }
     li{
       display: flex;
       align-items: center;
@@ -938,8 +1047,66 @@ h1 span, h3 span{
     text-align: center;
     position: relative;
     overflow: hidden;
+    background-image: url(../img/restaurant/humanfood.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
     ol{
       width: 100%;
+      .addmenu{
+        position: absolute;
+        left: 80px;
+        cursor: pointer;
+        &:hover{
+          color:#4DAA57;
+          transition: .3s;
+        }
+        &:after{
+          content: "加入菜單";
+          display: none;
+          visibility: visible;
+          width: 60px;
+          background-color: #999;
+          border-radius: 3px;
+          font-size: 14px;
+          position: absolute;
+          left: -175%;
+          bottom: -25px;
+          padding: 2px;
+          color:white;
+          font-family: 'Noto Sans TC';
+        }
+        &:hover:after{
+          display: block;
+        }
+      }
+      .info{
+        position: absolute;
+        left: 100px;
+        cursor: pointer;
+        &:hover{
+          color:#4DAA57;
+          transition: .3s;
+        }
+        &:after{
+          content: "更多資訊";
+          display: none;
+          visibility: visible;
+          width: 60px;
+          background-color: #999;
+          border-radius: 3px;
+          font-size: 14px;
+          position: absolute;
+          left: -175%;
+          bottom: -25px;
+          padding: 2px;
+          color:white;
+          font-family: 'Noto Sans TC';
+        }
+        &:hover:after{
+          display: block;
+        }
+      }
       li{
         display: flex;
         align-items: center;
@@ -997,12 +1164,66 @@ h1 span, h3 span{
     text-align: center;
     position: relative;
     overflow: hidden;
-    background-image: url(../img/restaurant/humanfood.png);
+    background-image: url(../img/restaurant/humanfood2.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 80%;
     ol{
       width: 100%;
+      .addmenu{
+        position: absolute;
+        left: 80px;
+        cursor: pointer;
+        &:hover{
+          color:#4DAA57;
+          transition: .3s;
+        }
+        &:after{
+          content: "加入菜單";
+          display: none;
+          visibility: visible;
+          width: 60px;
+          background-color: #999;
+          border-radius: 3px;
+          font-size: 14px;
+          position: absolute;
+          left: -175%;
+          bottom: -25px;
+          padding: 2px;
+          color:white;
+          font-family: 'Noto Sans TC';
+        }
+        &:hover:after{
+          display: block;
+        }
+      }
+      .info{
+        position: absolute;
+        left: 100px;
+        cursor: pointer;
+        &:hover{
+          color:#4DAA57;
+          transition: .3s;
+        }
+        &:after{
+          content: "更多資訊";
+          display: none;
+          visibility: visible;
+          width: 60px;
+          background-color: #999;
+          border-radius: 3px;
+          font-size: 14px;
+          position: absolute;
+          left: -175%;
+          bottom: -25px;
+          padding: 2px;
+          color:white;
+          font-family: 'Noto Sans TC';
+        }
+        &:hover:after{
+          display: block;
+        }
+      }
       li{
         display: flex;
         align-items: center;
