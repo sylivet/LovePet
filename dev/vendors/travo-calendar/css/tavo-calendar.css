@@ -87,12 +87,12 @@
     line-height: 26px;
     font-size: 12px; }
     .tavo-calendar__day span:hover {
-      background-color: #FFC857; }
-  .tavo-calendar__day_highlight {
-    color: red !important; }
-  .tavo-calendar__day_abs-today {
+      background-color: #F39800; }
+  /* .tavo-calendar__day_highlight {
+    color: red !important; } */
+  /* .tavo-calendar__day_abs-today {
     background-color: #F39800;
-    border-radius: unset; }
+    border-radius: unset; } */
   .tavo-calendar__day_today:hover span {
     border-radius: 50%; }
   .tavo-calendar__day_off, .tavo-calendar__day_exp, .tavo-calendar__day_different-month, .tavo-calendar__day_lock {
