@@ -1,6 +1,6 @@
 pannellum.viewer = pannellum.viewer("panorama", {
     type: "equirectangular",
-    panorama: "img/index/panorama.jpeg",
+    panorama: "img/index/panorama.jpg",
     compass: true,
     autoLoad: true,
     showControls: false,

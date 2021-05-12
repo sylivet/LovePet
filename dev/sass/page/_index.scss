@@ -1,5 +1,4 @@
 #news {
-    overflow: hidden;
     h3 {
         margin-top: 42px;
         margin-bottom: 27px;
@@ -8,49 +7,61 @@
     }
 
     .news {
-        display: flex;
-        justify-content: center;
-
         li {
-            width: 300px;
-            height: 300px;
             position: relative;
+          
+            &::before{
+                content:"";
+                padding-bottom: 400 * 100% / 600;
+                display: block;
+                width: 100%;
+            }
             img {
-                width: 300px;
-                height: 300px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
                 object-fit: cover;
             }
-            .news-bg{
+            .news-bg {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 290px;
-                height: 290px;
-                background-color: rgba(0, 0, 0, 0.2);
+                top:2.5%;
+                left: 2.5%;
+                width: 95%;
+                height: 95%;
+                background-color: rgba(0, 0, 0, 0.3);
                 h4 {
                     display: block;
                     color: white;
                     padding: 20px;
 
                 }
-                p{
+                .news-content {
                     color: white;
                     display: none;
                     padding: 20px;
+                    font-size: 16px;
+                    line-height: 1.6;
                 }
             }
-            &:hover .news-bg h4{
+            &:hover .news-bg h4 {
                 display: none;
             }
-            &:hover .news-bg p{
+            &:hover .news-bg .news-content {
                 display: block;
+
             }
         }
     }
+}
+
+.swiper-container {
+    width: 100%;
+    height: auto;
 }
 
 .hotelPanorama {
@@ -92,7 +103,7 @@
 }
 
 #location {
-    background-image: url(../img/index/mapPc.png);
+    background-image: url('../img/index/mapPc.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -105,13 +116,13 @@
     overflow: hidden;
 
     @include pad {
-        background-image: url(../img/index/mapPad.png);
+        background-image: url('../img/index/mapPad.png');
         background-size: 120%;
         background-position: top;
     }
 
     @include iphoneX {
-        background-image: url(../img/index/mapMobile.png);
+        background-image: url('../img/index/mapMobile.png');
         background-size: 120%;
         background-position: 65% 4%;
     }
