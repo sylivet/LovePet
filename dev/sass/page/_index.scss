@@ -1,5 +1,4 @@
 #news {
-    overflow: hidden;
     h3 {
         margin-top: 42px;
         margin-bottom: 27px;
@@ -10,7 +9,6 @@
     .news {
         display: flex;
         justify-content: center;
-
         li {
             width: 300px;
             height: 300px;
@@ -30,28 +28,35 @@
                 transform: translate(-50%, -50%);
                 width: 290px;
                 height: 290px;
-                background-color: rgba(0, 0, 0, 0.2);
+                background-color: rgba(0, 0, 0, 0.3);
                 h4 {
                     display: block;
                     color: white;
                     padding: 20px;
 
                 }
-                p{
+                .news-content{
                     color: white;
                     display: none;
                     padding: 20px;
+                    font-size: 16px;
+                    line-height: 1.6;
                 }
             }
             &:hover .news-bg h4{
                 display: none;
             }
-            &:hover .news-bg p{
+            &:hover .news-bg .news-content{
                 display: block;
             }
         }
     }
 }
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+  }
 
 .hotelPanorama {
     h3 {
@@ -178,3 +183,4 @@
         }
     }
 }
+
