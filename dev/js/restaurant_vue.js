@@ -1,10 +1,18 @@
 // 預約餐廳元件
 Vue.component("booking",{
-  props:[''],
+  props:['foods'],
   template:"#bookingbox",
   methods:{
     closeBox(){
       this.$emit('closelightbox')
+    }
+  },
+  computed:{
+    totalPrice(){
+      var result = this.foods.reduce(function(a,b){
+        return a + b.price*b.count;
+      }, 0)
+      return result;
     }
   }
 })
@@ -398,6 +406,7 @@ let vm = new Vue({
 Array.prototype.forEach.call(document.getElementsByClassName('bar'), function (el) {
   new SimpleBar(el);
 });
+
 
 // 月曆
 const myCalendar = new TavoCalendar('#my-calendar', {

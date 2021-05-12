@@ -264,10 +264,11 @@
               <div class="foodmenu">
                 <h3>您的<span>寵物</span>菜單</h3>
                 <!-- 加入菜單元件 -->
-                <add-to-pets-menu v-for="(food, fid) in petFoodSelection" :menu="food, fid" @removefood="remove" :key="fid"></add-to-pets-menu>
+                <add-to-pets-menu v-for="(food, fid) in petFoodSelection" :menu="food, fid" @removefood="remove" :key="fid">
+                </add-to-pets-menu>
                 <div class="totalPrice">
                   <h3 v-if="petFoodSelection.length>0">總價：NT {{ totalPrice1 | currency }} 元</h3>
-                  <h3 v-else>您還沒有點菜唷:(</h3>
+                  <h3 v-else>您還沒有點菜唷<i class="fa fa-frown-o" aria-hidden="true"></i></h3>
                 </div>
                 <div class="addToMenu">
                   <button @click="isBookingBoxOpen = true">預約餐廳</button>
@@ -277,6 +278,8 @@
           </div>
         </div>
         
+        <booking v-if="isBookingBoxOpen" @closelightbox="isBookingBoxOpen = false" :foods="humanFoodSelection">
+        </booking>
         
         
         <!-- 第八區 banner -->
@@ -355,7 +358,7 @@
                 <add-to-human-menu v-for="(food, fid) in humanFoodSelection" :menu="food, fid" @removefood="remove1" :key="fid"></add-to-human-menu>
                 <div class="totalPrice">
                   <h3 v-if="humanFoodSelection.length>0">總價：NT {{totalPrice | currency}}元</h3>
-                  <h3 v-else>您還沒有點菜唷:(</h3>
+                  <h3 v-else>您還沒有點菜唷<i class="fa fa-frown-o" aria-hidden="true"></i></h3>
                 </div>
                 <div class="addToMenu">
                   <button @click="isBookingBoxOpen = true">預約餐廳</button>
@@ -365,8 +368,6 @@
           </div>
         </div>
       </div>
-      <booking v-if="isBookingBoxOpen" @closelightbox="isBookingBoxOpen = false"></booking>
-
     </div>
   </div>
   <!-- @@include('layout/restaurant_LightBox_HumansMenu.html') -->
@@ -396,7 +397,6 @@
                   <h2>預訂內容</h2>
               </div>
               <div class="bar">
-              
               <div class="i_restaurant">
               <div class="i_restaurant_left">
                   <div id="my-calendar" class="i_calendar"></div>
@@ -434,31 +434,28 @@
                 </div>
               </div>
               <div class="i_restaurant_right">
-                  <p>您的<span>寵物</span>菜單</p>
-                  <table>
-                      <tr>
-                          <td>雞肉沙拉</td>
-                          <td><i class="fa fa-minus-circle" aria-hidden="true"></i>
-                              <input type="text" id="number" value="1" readonly="readonly">
-                              <i class="fa fa-plus-circle" aria-hidden="true"></i></td>
-                          <td>NT 100元</td>
-                      </tr>
-                  </table>
+                <p>您的寵物菜單</p>
+                    <table>
+                        <tr>
+                            <td>雞肉沙拉</td>
+                              x <input type="text" id="number" value="1" readonly="readonly">
+                            <td>NT 100元</td>
+                        </tr>
+                    </table>   
                   <p>您的菜單</p>
                   <table>
-                      <tr>
-                          <td>雞肉沙拉</td>
-                          <td><i class="fa fa-minus-circle" aria-hidden="true"></i>
-                              <input type="text" id="number" value="1" readonly="readonly">
-                              <i class="fa fa-plus-circle" aria-hidden="true"></i></td>
-                          <td>NT 100元</td>
+                      <tr v-for="food in foods">
+                          <td>{{food.name}}</td>
+                            x <input type="number" id="number" :value="food.count" readonly="readonly">
+                          <td>NT {{food.count*food.price | currency}} 元</td>
                       </tr>
                     </table>
                     <hr>
                   <div class="i_total">
-                      <h3>總價 NT 300元</h3>
+                      <h3 v-if="foods.length>0">總價 NT {{totalPrice | currency}}元</h3>
+                      <h3 v-else>尚未點菜，直接預約餐廳嗎?</h3>
                   </div>
-                  <button type="button" class="i_button">確認預約</button>
+                  <button type="button" class="i_button">預約</button>
               </div>
           </div>
         </div>
