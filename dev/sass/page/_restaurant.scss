@@ -7,10 +7,25 @@ h1 span, h3 span{
   color:$colorOrange
 }
 
-.wrapper{
-  // max-width: 1400px;
+.r_wrapper{
   margin: 0 auto;
+
 }
+
+.fade-enter {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 1s;
+}
+.fade-leave-to {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+
 
 //第一區 header
 .iHeader{

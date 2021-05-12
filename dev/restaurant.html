@@ -23,7 +23,7 @@
 <body>
   @@include('layout/header.html')
   <div id="app">
-    <div class="wrapper">
+    <div class="r_wrapper">
       <!-- 第一區 header -->
       <!-- 第二區 大圖 -->
       <div class="container-fluid mainPic">
@@ -148,6 +148,7 @@
               </div>
             </div>
             <div class="row justify-content-around">
+              
               <div class="col-5 foodback" v-for="(food, fid) in petCustomFoodMenu" :key="fid"
                 v-if="petCustomFoodSelect === food.type">
                 <div class="foodpic">
@@ -216,7 +217,7 @@
                 </select>
               </div>
             </div>
-            <!-- 左邊沙拉類 -->
+            <!-- 左邊沙拉類&鮮食 -->
             <div class="row justify-content-center">
               <div class="col foodback" v-if="petFoodSelect === '沙拉'">
                 <div class="row">
@@ -234,16 +235,11 @@
                         <i class="fa fa-info-circle info" aria-hidden="true" @click="isLightBoxOpen = true"></i>
                       </template>
                     </ol>
-
                     <box v-show="isLightBoxOpen" @closelightbox="isLightBoxOpen = false"></box>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <!-- 左邊鮮食類 -->
-            <div class="row justify-content-center">
-              <div class="col foodback2" v-if="petFoodSelect === '鮮食'">
+              <div class="col foodback2" v-else="petFoodSelect === '鮮食'">
                 <div class="row">
                   <div class="col-md-6 col-12 petmenu2-left">
                     <div class="petfood1"></div>
@@ -267,7 +263,7 @@
           </div>
           <div class="col-md-6 col-12 right">
             <div class="foodmenu">
-              <h3>您的<span>寵物</span>菜單</h3>
+              <h3><span>寵物</span>的菜單</h3>
               <!-- 加入菜單元件 -->
               <add-to-pets-menu v-for="(food, fid) in petFoodSelection" :menu="food, fid" @removefood="remove"
                 :key="fid">
@@ -303,7 +299,7 @@
       <div class="container-fluid human">
         <div class="row">
           <div class="col-md-6 col-12 left">
-            <div class="row">
+            <div class="row"> 
               <div class="col-12">
                 <select class="foodchosen" name="food" id="" v-model="humanFoodSelect">
                   <option selected value="美式">請選擇您的餐點</option>
@@ -311,7 +307,7 @@
                 </select>
               </div>
             </div>
-            <!-- 左邊義式類 -->
+            <!-- 左邊義式類&美式類 -->
             <div class="row justify-content-center">
               <div class="col foodback" v-if="humanFoodSelect === '義式'">
                 <div class="row">
@@ -330,10 +326,7 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- 左邊美式類 -->
-            <div class="row justify-content-center">
-              <div class="col foodback2" v-if="humanFoodSelect === '美式'">
+              <div class="col foodback2" v-else="humanFoodSelect === '美式'">
                 <div class="row">
                   <div class="col-12 human-up">
                     <ol>
