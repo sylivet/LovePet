@@ -1,3 +1,15 @@
+/* ----- 旅館banner動畫 -----*/
+
+
+
+
+/* ----- 房型選擇跟介紹-----*/
+$(function(){
+  $('.h_dropdown').click(function(){
+      $(this).parent().toggleClass('-open');
+  });  
+});
+
 /*----- 旅館Q&A-----*/
 $(function(){
   $('.h_show').click(function(){
