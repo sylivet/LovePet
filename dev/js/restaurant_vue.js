@@ -13,7 +13,17 @@ Vue.component("booking",{
         return a + b.price*b.count;
       }, 0)
       return result;
-    }
+    },
+    filterCataToPets(){
+      return this.foods.filter((food)=>{
+        return food.cata === "petsFood"
+      })
+    },
+    filterCataToHuman(){
+      return this.foods.filter((food)=>{
+        return food.cata === "humanFood"
+      })
+    },
   }
 })
 
@@ -68,6 +78,7 @@ let vm = new Vue({
     petCustomFoodSelection:[], // 被加入的客製寵食
     petFoodSelection:[],  // 被加入的現有寵食
     humanFoodSelection:[],  // 被加入的人類食物
+    allFoodSelection:[],  // 所有被加入的食物
     isLightBoxOpen:false, // 食物燈箱啟閉
     isBookingBoxOpen:false, // 預約燈箱啟閉
     // 客製寵食總菜單
@@ -341,15 +352,24 @@ let vm = new Vue({
       if(this.petCustomFoodSelection.indexOf(food) ==-1){
         this.petCustomFoodSelection.push(food);
       }
+      if(this.allFoodSelection.indexOf(food) ==-1){
+        this.allFoodSelection.push(food);
+      }
     },
     chooseHumanFood(food){
       if(this.humanFoodSelection.indexOf(food) ==-1){
         this.humanFoodSelection.push(food);
       }
+      if(this.allFoodSelection.indexOf(food) ==-1){
+        this.allFoodSelection.push(food);
+      }
     },
     choosePetsFood(food){
       if(this.petFoodSelection.indexOf(food) ==-1){
         this.petFoodSelection.push(food);
+      }
+      if(this.allFoodSelection.indexOf(food) ==-1){
+        this.allFoodSelection.push(food);
       }
     },
     // 移除寵物菜單
@@ -360,6 +380,7 @@ let vm = new Vue({
         let yes = confirm("確定移除?")
         if(yes){
           this.petFoodSelection.splice(fid, 1);
+          this.allFoodSelection.splice(fid, 1);
         }
       }
     },
@@ -371,6 +392,7 @@ let vm = new Vue({
         let yes = confirm("確定移除?");
         if(yes){
           this.humanFoodSelection.splice(fid, 1);
+          this.allFoodSelection.splice(fid, 1);
         }
       }
     }
