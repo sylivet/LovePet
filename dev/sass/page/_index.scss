@@ -8,20 +8,24 @@
 
     .news {
         li {
+            width: 100%;
             position: relative;
             img {
-                width: 300px;
+                // width: 300px;
                 height: 300px;
                 object-fit: cover;
             }
-            .news-bg{
+            .news-bg {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 position: absolute;
                 top:5px;
-                left:5px;
-                width: 290px;
+                left: 5px;
+                // top: 50%;
+                // left: 50%;
+                // transform: translate(-50%, -50%);
+                width: 100%;
                 height: 290px;
                 background-color: rgba(0, 0, 0, 0.3);
                 h4 {
@@ -30,7 +34,7 @@
                     padding: 20px;
 
                 }
-                .news-content{
+                .news-content {
                     color: white;
                     display: none;
                     padding: 20px;
@@ -38,12 +42,12 @@
                     line-height: 1.6;
                 }
             }
-            &:hover .news-bg h4{
+            &:hover .news-bg h4 {
                 display: none;
             }
-            &:hover .news-bg .news-content{
+            &:hover .news-bg .news-content {
                 display: block;
-                
+
             }
         }
     }
@@ -52,7 +56,7 @@
 .swiper-container {
     width: 100%;
     height: 350px;
-  }
+}
 
 .hotelPanorama {
     h3 {
@@ -93,7 +97,7 @@
 }
 
 #location {
-    background-image: url(../img/index/mapPc.png);
+    background-image: url('../img/index/mapPc.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -106,13 +110,13 @@
     overflow: hidden;
 
     @include pad {
-        background-image: url(../img/index/mapPad.png);
+        background-image: url('../img/index/mapPad.png');
         background-size: 120%;
         background-position: top;
     }
 
     @include iphoneX {
-        background-image: url(../img/index/mapMobile.png);
+        background-image: url('../img/index/mapMobile.png');
         background-size: 120%;
         background-position: 65% 4%;
     }
@@ -179,4 +183,3 @@
         }
     }
 }
-
