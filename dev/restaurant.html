@@ -139,17 +139,14 @@
       <!-- 菜單內容 -->
       <div class="container-fluid customPet">
         <div class="row align-items-start">
-          <div class="col-md-6 col-12 left customPetMenu">
-            <div class="row">
-              <div class="col-12">
-                <select class="foodchosen" name="food" v-model="petCustomFoodSelect">
-                  <option v-for="food in petCustomFoodType" :value="food">{{food}}</option>
-                </select>
-              </div>
-            </div>
+          <div class="col-12 leftTitle"> 
+            <h1 v-if="petCustomFoodSelect === '乾糧'">請選擇乾糧<span>(擇1)</span></h1>
+            <h1 v-else-if="petCustomFoodSelect === '主食'">請選擇主食<span>(擇1)</span></h1>
+            <h1 v-else="petCustomFoodSelect === '配菜'">請選擇配菜<span>(擇4)</span></h1>
+          </div>
+          <div class="col-md-6 col-12 left customPetMenu mt-5">
             <div class="row justify-content-around">
-              
-              <div class="col-5 foodback" v-for="(food, fid) in petCustomFoodMenu" :key="fid"
+              <div class="col-5 foodback" v-for="(food, fid) in filterCataToPetsCustom" :key="fid"
                 v-if="petCustomFoodSelect === food.type">
                 <div class="foodpic">
                   <img :src="food.imgURL">
@@ -226,16 +223,15 @@
                   </div>
                   <div class="col-md-6 col-12 petmenu-right">
                     <ol>
-                      <template v-for="(food, fid) in petFoodSelected">
-                        <li @click="choosePetsFood(food)">
+                      <template v-for="(food, fid) in filterTypeToSalad">
+                        <li @click="chooseFood(food)">
                           <h4>{{fid+1}}.{{food.name}}</h4>
                           <p><span>{{food.cal}}</span>NT{{food.price}}元</p>
                         </li>
-                        <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="choosePetsFood(food)"></i>
-                        <i class="fa fa-info-circle info" aria-hidden="true" @click="isLightBoxOpen = true"></i>
+                        <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="chooseFood(food)"></i>
+                        <i class="fa fa-info-circle info" aria-hidden="true" @click="getLightBoxOpen(food)"></i>
                       </template>
                     </ol>
-                    <box v-show="isLightBoxOpen" @closelightbox="isLightBoxOpen = false"></box>
                   </div>
                 </div>
               </div>
@@ -246,16 +242,15 @@
                   </div>
                   <div class="col-md-6 col-12 petmenu2-right">
                     <ol>
-                      <template v-for="(food, fid) in petFoodSelected">
-                        <li @click="choosePetsFood(food)">
+                      <template v-for="(food, fid) in filterTypeToFresh">
+                        <li @click="chooseFood(food)">
                           <h4>{{fid+1}}.{{food.name}}<br></h4>
                           <p><span>{{food.cal}}</span>NT{{food.price}}元</p>
                         </li>
-                        <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="choosePetsFood(food)"></i>
-                        <i class="fa fa-info-circle info" aria-hidden="true" @click="isLightBoxOpen = true"></i>
+                        <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="chooseFood(food)"></i>
+                        <i class="fa fa-info-circle info" aria-hidden="true" @click="getLightBoxOpen(food)"></i>
                       </template>
                     </ol>
-                    <box v-show="isLightBoxOpen" @closelightbox="isLightBoxOpen = false"></box>
                   </div>
                 </div>
               </div>
@@ -265,11 +260,12 @@
             <div class="foodmenu">
               <h3><span>寵物</span>的菜單</h3>
               <!-- 加入菜單元件 -->
-              <add-to-pets-menu v-for="(food, fid) in petFoodSelection" :menu="food, fid" @removefood="remove"
-                :key="fid">
-              </add-to-pets-menu>
+              <add-to-pets-menu v-for="(food, fid) in filterMenuToPets" :menu="food, fid" @removefood="remove"
+                :key="fid"></add-to-pets-menu>
+              <add-to-human-menu v-for="(food, fid) in filterMenuToHuman" :menu="food, fid" @removefood="remove"
+              :key="fid"></add-to-human-menu>
               <div class="totalPrice">
-                <h3 v-if="petFoodSelection.length>0">總價：NT {{ totalPrice1 | currency }} 元</h3>
+                <h3 v-if="allFoodSelection.length>0">總價：NT {{ totalPrice | currency }} 元</h3>
                 <h3 v-else>您還沒有點菜唷<i class="fa fa-frown-o" aria-hidden="true"></i></h3>
               </div>
               <div class="addToMenu">
@@ -313,16 +309,15 @@
                 <div class="row">
                   <div class="col-12 human-up">
                     <ol>
-                      <template v-for="(food, fid) in humanFoodSelected">
-                        <li @click="chooseHumanFood(food)">
+                      <template v-for="(food, fid) in filterTypeToItaly">
+                        <li @click="chooseFood(food)">
                           <h4>{{fid+1}}.{{food.name}}<br></h4>
                           <p><span>{{food.cal}}</span>NT{{food.price}} 元</p>
                         </li>
-                        <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="chooseHumanFood(food)"></i>
-                        <i class="fa fa-info-circle info" aria-hidden="true" @click="isLightBoxOpen = true"></i>
+                        <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="chooseFood(food)"></i>
+                        <i class="fa fa-info-circle info" aria-hidden="true" @click="getLightBoxOpen(food)"></i>
                       </template>
                     </ol>
-                    <box v-show="isLightBoxOpen" @closelightbox="isLightBoxOpen = false"></box>
                   </div>
                 </div>
               </div>
@@ -330,16 +325,15 @@
                 <div class="row">
                   <div class="col-12 human-up">
                     <ol>
-                      <template v-for="(food, fid) in humanFoodSelected">
-                        <li @click="chooseHumanFood(food)">
+                      <template v-for="(food, fid) in filterTypeToUS">
+                        <li @click="chooseFood(food)">
                           <h4>{{fid+1}}.{{food.name}}<br></h4>
                           <p><span>{{food.cal}}</span>NT{{food.price}}元</p>
                         </li>
-                        <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="chooseHumanFood(food)"></i>
-                        <i class="fa fa-info-circle info" aria-hidden="true" @click="isLightBoxOpen = true"></i>
+                        <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="chooseFood(food)"></i>
+                        <i class="fa fa-info-circle info" aria-hidden="true" @click="getLightBoxOpen(food)"></i>
                       </template>
                     </ol>
-                    <box v-show="isLightBoxOpen" @closelightbox="isLightBoxOpen = false"></box>
                   </div>
                 </div>
                 <div class="row">
@@ -351,10 +345,12 @@
             <div class="foodmenu">
               <h3>您的菜單</h3>
               <!-- 加入菜單元件 -->
-              <add-to-human-menu v-for="(food, fid) in humanFoodSelection" :menu="food, fid" @removefood="remove1"
+              <add-to-human-menu v-for="(food, fid) in filterMenuToHuman" :menu="food, fid" @removefood="remove"
                 :key="fid"></add-to-human-menu>
+              <add-to-pets-menu v-for="(food, fid) in filterMenuToPets" :menu="food, fid" @removefood="remove"
+              :key="fid"></add-to-pets-menu>
               <div class="totalPrice">
-                <h3 v-if="humanFoodSelection.length>0">總價：NT {{totalPrice | currency}}元</h3>
+                <h3 v-if="allFoodSelection.length>0">總價：NT {{totalPrice | currency}}元</h3>
                 <h3 v-else>您還沒有點菜唷<i class="fa fa-frown-o" aria-hidden="true"></i></h3>
               </div>
               <div class="addToMenu">
@@ -365,24 +361,22 @@
         </div>
       </div>
     </div>
-
+    <!-- 食物資訊燈箱 -->
+    <transition name="fade">
+      <box v-show="isLightBoxOpen" @closelightbox="isLightBoxOpen = false" :food="forLightBoxInfo" @getfood="chooseFood"></box>
+    </transition>
     <!-- 預約燈箱 -->
-    <booking v-show="isBookingBoxOpen" @closelightbox="isBookingBoxOpen = false" :foods="allFoodSelection">
-    </booking>
+    <transition name="fade">
+      <booking v-show="isBookingBoxOpen" @closelightbox="isBookingBoxOpen = false" :foods="allFoodSelection">
+      </booking>
+    </transition>
+
   </div>
   </div>
-  <!-- @@include('layout/restaurant_LightBox_HumansMenu.html') -->
 
 
 
   @@include('layout/footer.html')
-
-
-
-
-
-
-
 
 
 
@@ -466,7 +460,7 @@
 
 
 
-  <!-- vue 燈箱元件 -->
+  <!-- vue 食物資訊燈箱元件 -->
   <script type="text/x-template" id="lightBox">
     <div class="i_background">
       <div class="i_lightbox_bk">
@@ -478,23 +472,23 @@
               <img src="../img/common/close.png" >
           </a>
           <div class="i_lightbox_title">
-              <h2>安格斯牛肉漢堡</h2>
+              <h2>{{food.name}}</h2>
           </div>
           <div class="bar">
               <div>
-                  <img src="../img/common/hamburger.png" alt="" />
+                  <img :src="food.imgURL" alt="" />
               </div>
               <div class="i_mealMain">
                   <div class="i_meal">
-                      <p>美式餐點</p>
+                      <p>{{food.type}}餐點</p>
                       <div class="i_orangeLine"></div>
                   </div>
                   <div class="i_mealDataContent">
-                      <p>選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。</p>
+                      <p>{{food.msg}}</p>
                   </div>
               </div>
           </div>
-          <a href="#" class="i_addMenu">加入菜單</a>
+          <a href="#" class="i_addMenu" @click.prevent="getFood(food)">加入菜單</a>
       </div>
     </div>
   </script>

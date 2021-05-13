@@ -362,8 +362,13 @@ h1 span, h3 span{
   margin-top: 30px;
   margin-bottom: 100px;
   max-width: 1400px;
+  .leftTitle{
+    text-align: center;
+    span{
+      font-size: 16px;
+    }
+  }
   .customPetMenu{
-    // border: 1px solid #000;
     height: 470px;
     overflow-x: auto;
   }
@@ -1481,4 +1486,9 @@ ol li:not(:first-child){
     margin: 0 auto;
 } 
 }
+
+
+
+
+
 
