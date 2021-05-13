@@ -3,11 +3,11 @@
     margin: 40px 50px 0 50px;
 
     @include mobile {
-        margin: 0 10px;
+        margin: 40px 10px 0 10px;
     }
 
     @include iphoneX {
-        margin: 0 10px;
+        margin: 40px 10px 0 10px;
     }
 
     .c_faq1,

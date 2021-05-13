@@ -3,6 +3,10 @@
 .h_banner {
     margin-bottom: 60px;
 
+    @media(min-width: 377px) and (max-width: 768px){
+        margin-bottom: 18px;
+    }
+
     @include iphoneX {
         margin-bottom: 18px;
     }
@@ -93,6 +97,7 @@
 .h_room {
     margin: 0 54px;
     margin-bottom: 36px;
+    position: relative;
 
     @include mobile {
         margin: 0 10px;
@@ -104,6 +109,10 @@
         margin: 0 0 18px auto;
 
         @include pad{
+            width: 100%;
+        }
+
+        @media(min-width: 377px) and (max-width: 768px){
             width: 100%;
         }
 
@@ -135,13 +144,19 @@
         }
     }
 
-
-
-
-    dropdown{
+    .dropdown{
         display: inline-block;
+        position: absolute;
+        top: 40px;
+        right: 0;
+        // float: right;
+        // 改成用什麼寫好QQ
+        z-index: 2;
+        // 透明度問題 這裡需要壓住背景 但關掉好像不影響
+        border: 2px solid firebrick;
+        // 測試要刪掉
 
-        &.-open{
+        &.h_openmenu{
             label{
                 border-radius: 6px 6px 0 0; 
             }
@@ -164,23 +179,23 @@
             // 吃不到置中 padding推的
             line-height: 36px;
             padding: 0 70px;
-            // 選單禁止選取標題
             border-radius: 6px; 
-            /* 縮合的時候要四邊圓角 */
             cursor: pointer;
             position: relative;
 
             .fa-chevron-down{
-                width: 20px;
                 position: absolute;
                 top: 30%;
                 right: 15px;
                 transform: rotate(0deg);
                 transition: 0.5s;
+            }
+        }
 
-                // &.h_dropdown_rotate{
-                //     transform: rotate(0deg);
-                // }
+        ul{
+            &.h_closed{
+                background-color: firebrick;
+                // 測試要刪掉
             }
         }
 
@@ -220,10 +235,6 @@
         }
     }
 
-    
-
-
-
     .h_photo {
         margin-bottom: 18px;
 
@@ -237,6 +248,11 @@
 
         .h_smallimage {
             display: flex;
+            align-items: center;
+
+            @media(min-width: 377px) and (max-width: 768px){
+                display: block;
+            }
 
             @include iphoneX{
                 display: block;
@@ -246,6 +262,11 @@
                 margin-right: 18px;
                 width: calc((100% - 18px) / 2);
                 border-radius: 60px;
+
+                @media(min-width: 377px) and (max-width: 768px){
+                    width: 100%;
+                    margin-bottom: 18px;
+                }
 
                 @include iphoneX{
                     width: 100%;
@@ -257,6 +278,10 @@
                 width: calc((100% - 18px) / 2);
                 border-radius: 60px;
 
+                @media(min-width: 377px) and (max-width: 768px){
+                    width: 100%;
+                }
+
                 @include iphoneX{
                     width: 100%;
                 }
@@ -266,6 +291,10 @@
 
     .h_introduction {
         display: flex;
+
+        @media(min-width: 377px) and (max-width: 768px){
+            display: block;
+        }
 
         @include iphoneX {
             display: block;
@@ -282,6 +311,10 @@
             @include pad {
                 padding-left: 25px;
                 padding-right: 25px;
+            }
+
+            @media(min-width: 377px) and (max-width: 768px){
+                width: 100%;
             }
 
             @include iphoneX {
@@ -340,6 +373,10 @@
                     .h_offer {
                         padding-bottom:15px;
 
+                        @media(min-width: 377px) and (max-width: 768px){
+                            padding-bottom: 36px;
+                        }
+
                         @include iphoneX{
                             padding-bottom: 36px;
                         }
@@ -359,6 +396,10 @@
             @include pad {
                 padding-left: 25px;
                 padding-right: 25px;
+            }
+
+            @media(min-width: 377px) and (max-width: 768px){
+                width: 100%;
             }
 
             @include iphoneX {
@@ -383,6 +424,10 @@
 
                 @include mobile {
                     margin-left: 9px;
+                }
+
+                @media(min-width: 377px) and (max-width: 768px){
+                    margin-bottom: 36px;
                 }
 
                 @include iphoneX {
@@ -416,6 +461,10 @@
                     color: #ffffff;
                 }
 
+                @media(min-width: 377px) and (max-width: 768px){
+                    margin-bottom: 36px;
+                }
+
                 @include iphoneX {
                     margin-bottom: 36px;
                 }
@@ -432,40 +481,63 @@
         margin: 0 10px;
     }
 
-    .h_faq1,
+    .h_faq1 {
+        margin-bottom: 18px;
+
+        &.h_faqopen{
+            .h_show{
+                border-radius: 6px;
+            }
+
+            .fa-chevron-down{
+                transform: rotate(0deg);
+            }            
+        }        
+    }
+
     .h_faq2 {
         margin-bottom: 18px;
+
+        &.h_faqopen0{
+            .h_flip{
+                border-radius: 6px 6px 0 0;
+            }
+
+            .fa-chevron-down{
+                transform: rotate(180deg);
+            }            
+        }   
     }
 
     .h_faq3 {
         margin-bottom: 36px;
+
+        &.h_faqopen0{
+            .h_flip{
+                border-radius: 6px 6px 0 0;
+            }
+
+            .fa-chevron-down{
+                transform: rotate(180deg);
+            }            
+        }   
     }
 
     .h_show {
         background-color: #FFC857;
         color: #ffffff;
         padding: 24px;
-        border-top-left-radius: 6px;
-        border-top-right-radius: 6px;
-        border-bottom-left-radius: 6px;
-        border-bottom-right-radius: 6px;
+        border-radius: 6px 6px 0 0;
         cursor: pointer;
-        /*張開的時候 內文的圓角破口*/
         text-align: left;
         position: relative;
 
-        img {
-            width: 24px;
-            // 會太大嗎
+        .fa-chevron-down {
             position: absolute;
             top: 40%;
             right: 19px;
-            transform: rotate(0deg);
+            transform: rotate(180deg);
             transition: 0.5s;
-
-            &.h_rotate1{
-                transform: rotate(180deg);
-            }
         }
     }
 
@@ -473,27 +545,17 @@
         background-color: #FFC857;
         color: #ffffff;
         padding: 24px;
-        border-top-left-radius: 6px;
-        border-top-right-radius: 6px;
-        border-bottom-left-radius: 6px;
-        border-bottom-right-radius: 6px;
+        border-radius: 6px;
         cursor: pointer;
-        /*張開的時候 內文的圓角破口*/
         text-align: left;
         position: relative;
 
-        img {
-            width: 24px;
-            // 會太大嗎
+        .fa-chevron-down {
             position: absolute;
             top: 40%;
             right: 19px;
-            transform: rotate(180deg);
+            transform: rotate(0deg);
             transition: 0.5s;
-
-            &.h_rotate{
-                transform: rotate(0deg);
-            }
         }
     }
 
@@ -513,6 +575,11 @@
             text-indent: -37px;
         }
 
+        @media(min-width: 377px) and (max-width: 768px){
+            padding-left: 24px;
+            text-indent: 0px;
+        }
+
         @include iphoneX {
             padding-left: 24px;
             text-indent: 0px;
@@ -521,6 +588,7 @@
 
     .h_panel2,
     .h_panel3 {
+        width: 100%;
         background-color: #F2EFEF;
         color: #000000;
         font-size: 19px;
@@ -536,7 +604,12 @@
             text-indent: -37px;
         }
 
+        li{
+            width: 100%;
+        }
+
         .h_notice {
+            width: 95%;
             display: flex;
             margin-left: 3px;
 
