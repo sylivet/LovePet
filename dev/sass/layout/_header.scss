@@ -9,6 +9,7 @@ header {
         top:0;
         left: 0;
         z-index: 10;
+        overflow: visible;
     }
     background-color: #FFC857;
     height: 87px;
@@ -147,6 +148,7 @@ header {
             >div {
                 background: #ffc857;
                 border-radius: 50%;
+                z-index: 15;
                 width: 250vw;
                 height: 250vw;
                 display: flex;
