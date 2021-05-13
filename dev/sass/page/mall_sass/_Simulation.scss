@@ -12,14 +12,21 @@
   position: relative;
   border-radius: 15% / 25%;
   overflow: hidden;
-  border: 1px solid #707070;
+  // border: 1px solid #707070;
+  box-shadow: 0px 0px 10px -3px rgba(#000000, .5);
   @include notebook{
-    max-width: 530px;
-    width: 100%;
+    width: 30%;
     img{
       width: 100%;
     }
   }
+  @include pad{
+    width: 30%;
+  }
+  @include mobile{
+    width: 45%;
+  }
+  
   .icon{
     width: 105px;
     height: 53px;
@@ -34,12 +41,21 @@
     transform: translateX(-50%);
     cursor: pointer;
     @include notebook{
-      max-width: 105px;
-      max-height: 53px;
+      width: 75px;
+      height: 38px;
       background-size: 70%;
       background-position: 50% 70%;
     }
+    @include pad{
+      width: 70px;
+      height: 35px;
+    }
+    @include mobile{
+      width: 40px;
+      height: 20px;
+    }
   }
+
   .view_btn{
     width: 110px;
     height: 40px;
@@ -58,11 +74,26 @@
       text-align: center;
     }
     @include notebook{
-      width: 90px;
-      height: 33px;
+      width: 75px;
+      height: 27px;
       h3{
         font-size: 24px;
-        line-height: 33px;
+        line-height: 27px;
+      }
+    }
+    @include pad{
+      width: 60px;
+      height: 22px;
+      h3{
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+    @include mobile{
+      width: 50px;
+      height: 18px;
+      h3{
+        line-height: 18px;
       }
     }
   }
