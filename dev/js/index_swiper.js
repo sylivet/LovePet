@@ -19,7 +19,7 @@ var swiper = new Swiper(".newsSwiper", {
       1024: {
         slidesPerView: 4,
       },
-      1280: {
+      1300: {
         slidesPerView: 5,
       },
     },
