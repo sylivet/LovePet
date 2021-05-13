@@ -93,7 +93,7 @@ header {
         position: fixed;
         top: 0;
         left: 5px;
-        z-index: 2;
+        z-index: 20;
         display: none;
         @include pad{
             display: block;
@@ -102,7 +102,7 @@ header {
             position: absolute;
             top: 10px;
             left: 5px;
-            z-index: 3;
+            z-index: 30;
             cursor: pointer;
             width: 50px;
             height: 50px;
@@ -192,7 +192,7 @@ header {
             position: absolute;
             top: 10px;
             left: 5px;
-            z-index: 2;
+            z-index: 20;
             width: 60px;
             height: 60px;
             padding: 1rem;
@@ -215,7 +215,7 @@ header {
                 &::after {
                     content: "";
                     position: absolute;
-                    z-index: 2;
+                    z-index: 20;
                     top: -10px;
                     width: 100%;
                     height: 2px;
@@ -235,11 +235,21 @@ header {
     right: 0;
     //transition: 1s;
     top: 88px;
-    z-index: 800;
+    z-index: 10;
 
     background-color:darken( rgba(186,212,135,.8) , 30%) ;
     width: 30vw;
-    //height: 600px;
+    
+    @include pad(){
+        width: 60vw;   
+    }
+
+    @include mobile(){
+        width: 70vw;
+    }
+    @include iphoneX(){
+        width: 100vw;
+    }
 
     padding: 30px 15px;
     text-align: center;
@@ -353,5 +363,17 @@ header {
     overflow: hidden;
 
     display: none; //有點bug，先醬
-    
+
+    @include pad(){
+        right: -80vw;
+    }
+
+    @include mobile(){
+        right: -80vw;
+    }
+
+    @include iphoneX(){
+        right: -110vw;
+
+    }
 }
