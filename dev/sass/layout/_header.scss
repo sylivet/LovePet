@@ -1,4 +1,9 @@
+// *{
+//     outline: 1px solid orange;
+// }
+
 header {
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -223,4 +228,130 @@ header {
             }
         }
     }
+}
+
+.m_header{
+    position: absolute;
+    right: 0;
+    //transition: 1s;
+    top: 88px;
+    z-index: 800;
+
+    background-color:darken( rgba(186,212,135,.8) , 30%) ;
+    width: 30vw;
+    //height: 600px;
+
+    padding: 30px 15px;
+    text-align: center;
+    
+    h5{
+        padding: 4% 0;
+        font-size: 24px;
+        img{
+            width: 20px;
+            display: inline;
+            margin: 0 15px ;
+            opacity: 0;
+            
+        }
+        &:hover{
+           background-color: #FFC857; 
+           img{
+            opacity: 1;
+           } 
+        }
+    }
+
+    div{
+        margin: 0 0 15px ;
+
+        //text-align: left;
+        
+        
+        span{
+            line-height: 80px;
+            font-size: 24px;
+            color: lighten( #FFC857, 10%);
+        }
+        img{
+            display: inline;
+            width: 80px;
+            margin: 0 10px ;
+            vertical-align: middle ;
+            opacity: 1;
+            :hover{
+            opacity: 0.6;
+            }
+        }
+        
+    }
+    .m_pets{
+        display: flex;
+        justify-content: center;
+        //overflow-x: scroll;
+    }
+
+    .m_underline_1{
+        margin-top: 10px;
+        width: 80%;
+        height: 1px;
+        background-color: white;
+        display: inline-block;
+    }
+
+    li{
+        //text-align: left; 
+        margin-bottom: 2px;
+        padding: 4% 0;
+        font-size: 24px;
+
+        img{
+            width: 20px;
+            display: inline;
+            margin: 0 15px ;
+            opacity: 0;
+        }
+        &:hover{
+           background-color: #FFC857; 
+           img{
+            opacity: 1;
+           } 
+        }
+    }
+
+    
+    a{
+        color: white;
+    }
+
+    input[type="button"]{
+        font-size: 19px;
+
+        margin-top: 30px;
+        color: black;
+
+        padding: 10px 30px;
+        border-radius: 20px;
+
+        border: 0;
+        background-color: #FFC857;
+
+        &:hover{
+        color: white;
+        background-color: darken(#FFC857, 20%);
+        cursor: pointer;
+        }
+    }
+}
+
+.m_toggle{
+    right: -40vw;
+    //transition: .5s;
+    z-index: -1;
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+
+    display: none; //有點bug，先醬
+    
 }
