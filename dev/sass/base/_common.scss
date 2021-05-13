@@ -47,8 +47,10 @@ img {
 
 body {
     font-family: "Noto Sans TC", sans-serif;
+    cursor: none;
     @include pad{
         margin-top: 87px;
+        cursor: auto;
     }
 }
 
