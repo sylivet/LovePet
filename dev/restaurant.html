@@ -142,10 +142,11 @@
           <div class="col-12 leftTitle"> 
             <h1 v-if="petCustomFoodSelect === '乾糧'">請選擇乾糧<span>(擇1)</span></h1>
             <h1 v-else-if="petCustomFoodSelect === '主食'">請選擇主食<span>(擇1)</span></h1>
-            <h1 v-else="petCustomFoodSelect === '配菜'">請選擇配菜<span>(擇4)</span></h1>
+            <h1 v-else-if="petCustomFoodSelect === '配菜'">請選擇配菜<span>(擇4)</span></h1>
+            <h1 v-else="petCustomFoodSelect === '請確認菜單'">請確認菜單</h1>
           </div>
           <div class="col-md-6 col-12 left customPetMenu mt-5">
-            <div class="row justify-content-around">
+            <div class="row justify-content-around" v-if="petCustomFoodSelection.length !== 6">
               <div class="col-5 foodback" v-for="(food, fid) in filterCataToPetsCustom" :key="fid"
                 v-if="petCustomFoodSelect === food.type">
                 <div class="foodpic">
@@ -159,35 +160,24 @@
                 </div>
               </div>
             </div>
+            <!-- 客製寵食菜單 -->
+            <div class="foodmenu" v-else-if="petCustomFoodSelect === '請確認菜單'">
+              <h3 class="mb-4">您客製的<span>寵物</span>食品</h3>
+              <custom-pets-food v-for="(food, fid) in petCustomFoodSelection" :menu="food, fid" @removefood="remove"
+              :key="fid">
+              <template #delete>X1</template>
+            </custom-pets-food>
+            <h4 class="mt-4">小結:NT {{customTotalPrice | currency}} 元</h4>
+            <button @click="isDogOut = true">確認</button>
+            </div>
           </div>
           <div class="col-md-6 col-12 right">
+            <transition name="fade">
+              <dog v-if="isDogOut"></dog>
+            </transition>
             <div class="foodpic1">
               <div v-for="food in petCustomFoodSelection" :class="food.eng"></div>
             </div>
-            <!-- <div class="foodmenu line">
-                <h3>您的<span>寵物</span>菜單</h3>
-                <ul>
-                  <li><span>1.主食</span></li>
-                  <li><button><i class="fa fa-minus-circle" aria-hidden="true"></i></button></li>
-                  <li><span>1</span></li>
-                  <li><button><i class="fa fa-plus-circle" aria-hidden="true"></i></button></li>
-                  <li><span>NT 100元</span></li>
-                </ul>
-                <ul>
-                  <li><span>份數</span></li>
-                  <li><button><i class="fa fa-minus-circle" aria-hidden="true"></i></button></li>
-                  <li><span>1</span></li>
-                  <li><button><i class="fa fa-plus-circle" aria-hidden="true"></i></button></li>
-                  <li><span></span></li>
-                </ul>
-                  <div class="totalPrice">
-                    <h3>總價：NT 300元</h3>
-                  </div>
-                  <div class="addToMenu">
-                    <button>加入菜單</button>
-                  </div>
-              </div> -->
-          </div>
         </div>
       </div>
 
@@ -498,11 +488,51 @@
     <div>
       <ul>
         <li><span>{{$attrs.fid + 1}}.{{menu.name}}</span></li>
+        <slot name="delete">
         <li><button @click="removeItem($attrs.fid,menu)"><i class="fa fa-minus-circle" aria-hidden="true"></i></button></li>
         <li><span>X {{menu.count}}</span></li>
         <li><button  @click="menu.count+=1"><i class="fa fa-plus-circle" aria-hidden="true"></i></button></li>
+        </slot>
         <li><span>NT {{menu.price*menu.count | currency}}元</span></li>
       </ul>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="letdogout">
+    <div class="dogContainer">
+      <div class="dog">
+        <div class="dog-body">
+          <div class="dog-tail">
+            <div class="dog-tail">
+              <div class="dog-tail">
+                <div class="dog-tail">
+                  <div class="dog-tail">
+                    <div class="dog-tail">
+                      <div class="dog-tail">
+                        <div class="dog-tail"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dog-torso"></div>
+        <div class="dog-head">
+          <div class="dog-ears">
+            <div class="dog-ear"></div>
+            <div class="dog-ear"></div>
+          </div>
+          <div class="dog-eyes">
+            <div class="dog-eye"></div>
+            <div class="dog-eye"></div>
+          </div>
+          <div class="dog-muzzle">
+            <div class="dog-tongue"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </script>
 

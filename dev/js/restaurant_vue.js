@@ -41,6 +41,17 @@ Vue.component("box", {
   }
 })
 
+// 客製寵食菜單元件
+Vue.component("customPetsFood", {
+  props: ['menu'],
+  template: "#addToMenu",
+  methods: {
+    removeItem(fid, menu) {
+      this.$emit('removefood', fid, menu)
+    }
+  },
+})
+
 // 加入寵物菜單元件
 Vue.component("addToHumanMenu", {
   props: ['menu'],
@@ -62,6 +73,12 @@ Vue.component("addToPetsMenu", {
   },
 })
 
+// 狗動畫元件
+Vue.component("dog", {
+  props: [''],
+  template: "#letdogout",
+})
+
 
 // 金錢轉千分符
 Vue.filter('currency', function (price) {
@@ -80,8 +97,9 @@ let vm = new Vue({
     petCustomFoodSelection: [], // 被加入的客製寵食
     allFoodSelection: [],  // 所有被加入的食物
     isLightBoxOpen: false, // 食物燈箱啟閉
-    forLightBoxInfo:[],
     isBookingBoxOpen: false, // 預約燈箱啟閉
+    isDogOut:false,
+    forLightBoxInfo:[],
     allFoodMenu:[
       {
         cata: "petsCustom",
@@ -377,7 +395,6 @@ let vm = new Vue({
   },
   methods: {
     choosePetCustomFood(food) {
-      console.log(food.type);
       if (this.petCustomFoodSelection.indexOf(food) == -1) {
         this.petCustomFoodSelection.push(food);
         switch(food.type){
@@ -386,10 +403,10 @@ let vm = new Vue({
           case "主食":
             return this.petCustomFoodSelect = "配菜";
         }
+        if(this.petCustomFoodSelection.length === 6){
+          this.petCustomFoodSelect = "請確認菜單"
+        }
       }
-      // if (this.allFoodSelection.indexOf(food) == -1) {
-      //   this.allFoodSelection.push(food);
-      // }
     },
 
     // 加入菜單
@@ -421,6 +438,12 @@ let vm = new Vue({
     //菜單總價
     totalPrice() {
       var result = this.allFoodSelection.reduce(function (a, b) {
+        return a + b.price * b.count;
+      }, 0)
+      return result;
+    },
+    customTotalPrice() {
+      var result = this.petCustomFoodSelection.reduce(function (a, b) {
         return a + b.price * b.count;
       }, 0)
       return result;
