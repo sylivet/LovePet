@@ -23,6 +23,7 @@
 $m_title_fs:30px;
 $m_content_fs:24px;
 $m_btn_fs:19px;
+$m_pho_fs:16px;
 
 $m_title_color:rgb(255,169,144);
 $m_line_color:#ccc;
@@ -35,11 +36,7 @@ $m_bg_color2: rgba(71, 71, 71, 0.1); //from _m_order_management
 
 $m_line_height: 2.5;
 
-@include iphoneX(){
-  $m_title_fs:24px;
-  $m_content_fs:19px;
-  $m_btn_fs:16px;
-}
+
 
 //================================== 組件 ==================================//
 .m_underline_2{
@@ -91,14 +88,22 @@ $m_line_height: 2.5;
 
 @include iphoneX(){
   .m_wrapper main{
-  padding: 50px 5px;
+  padding: 50px 3px;
   //color: red;
   }
 
 }
 
+@include mobile {
+  .m_wrapper main{
+    padding: 50px 3.5%;
+    //color: red;
+    //background-color: orange;
+    }
+}
+
 .m_wrapper main{
-  padding: 80px 50px;
+  // padding: 80px 50px;
   text-align: center;
 
   h5{
@@ -106,6 +111,9 @@ $m_line_height: 2.5;
     color: $m_title_color;
   
     margin-top: 60px;
+    @include iphoneX(){
+      font-size: $m_content_fs;
+      }
   }
   img{
     display: inline;
@@ -124,20 +132,18 @@ $m_line_height: 2.5;
 }
   
 .m_wrapper .m_pets{ 
-  margin-bottom: 2px;
+  //margin-bottom: 2px;
   background-color: white;
 }
 
 //================================== 層 ==================================//
 
-// input,label,p,h6{
-//   font-size: $m_content_fs;
-// }
 
 .m_pets_pics{
   display: flex;
   justify-content: space-around;
   padding: 0 150px;
+  overflow-x: scroll;
 
   @include m_input_style(60%);
   input{
@@ -153,7 +159,7 @@ $m_line_height: 2.5;
 
 .m_pet_pic{
   width: 200px;
-  margin-bottom: 20px;
+  margin: 20px 10px;
 
 
   opacity: 0.6;
@@ -161,7 +167,10 @@ $m_line_height: 2.5;
     opacity: 1;
     
   }
+  @include iphoneX(){
+    width: 150px;
 
+  }
 }
 
 .m_pet_info{
@@ -170,7 +179,12 @@ $m_line_height: 2.5;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    @include  m_input_style(70%);
+    @include  m_input_style(67%);
+    @include pad(){  
+      input{
+        width: 60%;
+      }
+    }
   }
   
   li{
@@ -178,13 +192,24 @@ $m_line_height: 2.5;
     flex-grow: 1;
     margin-left: 10px;
     text-align: left;
-    
+    @include iphoneX(){
+      flex-basis: 100%;
+    }
   }
   .m_pet_chip_num{
     flex-basis: 100%;
     input{
-      width: 80.5%;
+      width: 77%;
+
+      @include pad(){  
+          width: 70%;
+      }
+
+      @include iphoneX(){
+         width: 80%;
+      }
     }
+
   }
 
   .m_pet_radio{
@@ -198,8 +223,17 @@ $m_line_height: 2.5;
     input[type="radio"]{
       width: 30px;
     }
+
     label{
       margin-right: 30px;
+    }
+
+
+    @include pad(){
+
+      label{
+        margin-right: 5px;
+      }
     }
   }
 }
@@ -229,6 +263,11 @@ $m_line_height: 2.5;
       padding: 10px 0;
       font-size: $m_content_fs;
       border: 0.5px solid $m_line_color;
+      
+      @include iphoneX(){
+        flex-basis: 25%;
+        font-size: $m_btn_fs;
+        }
     }
 
     &:first-child{
@@ -246,6 +285,12 @@ $m_line_height: 2.5;
       font-size: $m_btn_fs;
       color: $m_item_title_color2;
       border: 0.5px solid $m_line_color;
+
+      @include iphoneX(){
+        flex-basis: 75%;
+        font-size: $m_pho_fs;
+        line-height: 1.2;
+      }
     }
   }
   
@@ -263,6 +308,14 @@ $m_line_height: 2.5;
     &:hover{
       color: $m_bg_color;
     }
+  
+  }
+
+  @include iphoneX(){
+    padding: 0 ;
+    a{
+      font-size: $m_pho_fs;
+    }   
   }
 }
 
@@ -272,14 +325,6 @@ $m_line_height: 2.5;
   }
 }
 
-// .m_wrapper .m_member_index{
-//   input[type="text"]{
-//     background-color: black;
-//     //padding: 2px 0;
-//     height: 20px;
-//     color: red;
-//   }
-// }
 
 .m_member_index .personal_info input{
   

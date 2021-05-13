@@ -1,6 +1,5 @@
 // *{
 //   outline: 1px solid red;
-//   font-style: Verdana;
 // }
 
 
@@ -9,6 +8,7 @@
 $m_title_fs:30px;
 $m_content_fs:24px;
 $m_btn_fs:19px;
+$m_pho_fs:16px;
 
 $m_title_color:rgb(255,169,144);
 $m_line_color:#ccc;
@@ -18,6 +18,7 @@ $m_item_title_color:rgb(186,212,135);
 $m_item_title_color2:rgb(112,112,112);
 $m_item_title_color3:rgb(211,224,190);
 $m_bg_color2: rgba(71, 71, 71, 0.1); //from _m_order_management
+
 
 
 //================================== 組件 ==================================//
@@ -82,7 +83,24 @@ div.m_underline_2{
 
 //================================== 外層 ==================================//
 
-div.m_wrapper main{
+@include iphoneX(){
+  .m_wrapper main{
+  padding: 50px 3px;
+  //color: red;
+  }
+
+}
+
+@include mobile {
+  .m_wrapper main{
+    padding: 50px 3.5%;
+    //color: red;
+    //background-color: orange;
+    }
+}
+
+
+.m_wrapper main{
   padding: 40px 50px 80px;
   text-align: center;
   background-color: $m_bg_color2;
@@ -92,11 +110,19 @@ div.m_wrapper main{
     color: $m_title_color;
   
     margin-top: 30px;
+
+    @include iphoneX(){
+      font-size: $m_content_fs;
+      }
   }
+  
 }
 
 .m_wrapper main li,.m_wrapper main p,.m_wrapper main td{
   font-size: $m_content_fs;
+  @include iphoneX(){
+    font-size: $m_btn_fs;
+    }
 }
 
 .m_wrapper section{
@@ -134,6 +160,33 @@ div.m_wrapper main{
     span{
       color: white;
     }
+
+
+    @include mobile(){
+      flex-wrap: wrap;
+      padding-bottom: 5px;
+      p{
+        text-align: left;
+        margin-bottom: 10px;
+      }
+    }
+
+    @include iphoneX(){
+      flex-wrap: wrap;
+
+      padding: 5px;
+      border-radius: 15px 15px 0 0;
+
+      
+      p{
+        width: 100%;
+        text-align: left;
+      }
+
+      p:nth-child(2){
+       margin: 10px 0;
+      }
+    }
   }
 
   li{
@@ -148,21 +201,32 @@ div.m_wrapper main{
       color: $m_item_title_color2;
       font-size: $m_btn_fs;
     }
+
+    h6{ 
+      margin: 0 15px;
+      font-size: $m_btn_fs;
+    }
     
-  }
-  h6{ 
-    margin: 0 15px;
-    font-size: $m_btn_fs;
+    @include mobile(){
+      flex-basis: 500px;
+      flex-grow: 1;
+    }
+
   }
 }
 
-.m_buy_details{
+section .m_buy_details{
+  overflow-x: scroll;
 
   table{
     width: 100%;
+    @include iphoneX(){
+      width: 150%;
   }
+}
   tr{
     vertical-align: center;
+    display: flex;
   }
   td{
     display: inline-block;
@@ -175,6 +239,9 @@ div.m_wrapper main{
 
     color: $m_item_title_color2;
     font-size: $m_btn_fs;
+    @include iphoneX(){
+      font-size: $m_pho_fs;
+    }
   }
 
   .m_item_title{
@@ -188,10 +255,10 @@ div.m_wrapper main{
     background-color: white;
   }
   .m_item_id{
-    width: 30%;
+    width: 29%;
   }
   .m_item_type{
-    width: 30%;
+    width: 29%;
   }
   .m_item_amount{
     width: 15%;
@@ -232,7 +299,30 @@ div.m_wrapper main{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    @include iphoneX(){
+     flex-wrap: wrap;
+     img{
+       width: 50px;
+     }
+     article{
+       width: 90%;
+       
+     }
+    }
+
+    @include  mobile(){
+      flex-wrap: wrap;
+      img{
+        width: 80px;
+      }
+      article{
+        width: 80%;
+      }
+     }  
   }
+
+  
 
   .m_client_ask{
     flex-direction: row;
@@ -252,6 +342,9 @@ div.m_wrapper main{
   article{
     width: 70%;
     margin: 15px;
+    @include mobile(){
+      margin: 5px 15px ;
+    }
 
     p:first-child{
       height: 60px;
@@ -266,6 +359,10 @@ div.m_wrapper main{
       text-align: left;
       font-size: $m_btn_fs;
       background-color:$m_item_title_color;
+      @include iphoneX(){
+      font-size: $m_pho_fs;
+         
+      }
     }
 
     p+p{
@@ -293,6 +390,10 @@ div.m_wrapper main{
       color: white;
       background-color: darken($m_item_title_color, 20%);
     }
+  }
+
+  @include iphoneX(){
+    border-radius: 0 0 15px 15px;
   }
 }
 

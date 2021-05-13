@@ -9,15 +9,13 @@
 $m_title_fs:30px;
 $m_content_fs:24px;
 $m_btn_fs:19px;
+$m_pho_fs:16px;
+
 $m_title_color:rgb(255,169,144);
 $m_line_color:#ccc;
 $m_bg_color:#FFC857;
 
-@include iphoneX(){
-  $m_title_fs:24px;
-  $m_content_fs:19px;
-  $m_btn_fs:16px;
-}
+
 
 //================================== 組件 ==================================//
 .m_underline_2{
@@ -47,7 +45,9 @@ $m_bg_color:#FFC857;
       color: white;
     }
   }
+ 
 }
+
 
 @mixin m_btn {
   background-color: $m_bg_color;
@@ -63,6 +63,10 @@ $m_bg_color:#FFC857;
     color: white;
     background-color: darken($m_bg_color, 20%);
   }
+  @include iphoneX(){
+    width: 100px;
+    border-radius: 30px;
+  }
 }
 
 @mixin m_img_hover {
@@ -77,8 +81,25 @@ $m_bg_color:#FFC857;
 
 //================================== 外層 ==================================//
 
+@include iphoneX(){
+  .m_wrapper main{
+  padding: 50px 3px;
+  
+  }
+
+}
+
+@include mobile {
+  .m_wrapper main{
+    padding: 50px 3.5%;
+    //color: red;
+    //background-color: orange;
+    }
+  
+}
+
+
 .m_wrapper main{
-  padding: 80px 50px;
   text-align: center;
 
   h5{
@@ -86,6 +107,10 @@ $m_bg_color:#FFC857;
     color: $m_title_color;
   
     margin: 60px 0 20px;
+
+    @include iphoneX(){
+    font-size: $m_content_fs;
+    }
   }
 
   section{
@@ -93,25 +118,25 @@ $m_bg_color:#FFC857;
     padding: 20px;
   }
 
+
   input::placeholder{
     text-align: center;
     font-size: $m_btn_fs;
     color: lighten($m_line_color, 5%);
   }
+
+  @include iphoneX(){
+  section{
+    padding: 5px; //邊框rwd
+  }
 }
 
-// @include iphoneX(){
-//   div.m_wrapper main{
-//   padding: 50px 5px;
-  
-//   }
+}
 
-// }
+
 //================================== 層 ==================================//
 
-// label,p{
-//   font-size: $m_content_fs;
-// }
+
 
 .m_person_pic{
   opacity: 0.4;
@@ -122,37 +147,96 @@ $m_bg_color:#FFC857;
 
   margin: 0 auto 15px;
   border-radius: 50%;
+  
+}
+
+@include iphoneX(){
+  .m_person_pic{
+    
+    width: 135px;
+  
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    
+  }
+
 }
 
 
 
 
+//// ---  個人資料區塊
 
 
 ul.personal_info{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
   @include m_img_hover();
 
   li{
-    //background-color: #ccc;
     flex-basis: 40%;
     flex-grow: 1;
 
     display: flex;
+    flex-wrap: wrap;
+    @include iphoneX { 
+      flex-basis: 100%;
+    }
   }
+
   @include m_input_style(60%);
 
-  .m_address{
-    width: 80%;
+  label:first-child{
+    min-width: 120px;
+    flex-basis: 0;
+    flex-grow: 3;
+    text-align: left;
+  }
+  input{
+    flex-basis: 0;
+    flex-grow: 6.5;
+  }
+  label:last-child{
+    flex-basis: 0;
+    flex-grow: 0.5;
   }
 
+  .m_address{
+    flex-grow: 9.5;
+    min-width: 550px;
+  }
 
+  //----- rwd -----//
+  @include mobile {  //769 - 376
+    label:first-child{
+      display: block;
+      text-align: left;
+      flex-basis: 25%;
+      margin-bottom: 10px;
+    }
+    input{
+      flex-basis: 70%;
+      flex-grow: 3;
+      
+    }
+    .m_address{
+      flex-grow: 9.5;
+      min-width: 60%;
+    }
+
+    label:last-child{
+      flex-basis: 0;
+      flex-grow: 0.5;
+    }
+    
+  }
+
+  
 }
 
 
+//// ---  密碼設定區塊
 
 .m_pwd_setting{
   @include m_input_style(85%);
@@ -160,8 +244,16 @@ ul.personal_info{
   ul{
     text-align: left;
   }
-
+  input{
+    margin-bottom: 15px;
+  }
 }
+
+
+
+
+
+
 
 .m_info_option{
   
