@@ -159,6 +159,7 @@
 .i_shoppingCart {
     width: 90%;
     margin: 0 auto;
+    overflow-y: scroll;
 
     table {
         display: flex;
@@ -267,6 +268,7 @@
         display: block;
         margin: 0 auto;
         margin-bottom: 30px;
+        color: black;
     }
 
     .i_total {
