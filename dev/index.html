@@ -153,7 +153,16 @@
     <script src="vendors/swiper/js/swiper-bundle.min.js"></script>
     <script src="js/index_pannellum.js"></script>
     <script src="js/index_swiper.js"></script>
-    <script src="vendors/bodymovin/lottie.js"></script>
-    <script src="js/index_ae.js"></script>
+    <script src="vendors/bodymovin/bodymovin.js"></script>
+    <script>
+var svgContainer = document.getElementById('svgContainer');
+var animItem = bodymovin.loadAnimation({
+wrapper: svgContainer,
+animType: 'svg',
+loop: true,
+path: 'data.json'
+});
+    </script>
 </body>
+
 </html>
