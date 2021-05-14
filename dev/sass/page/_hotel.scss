@@ -133,18 +133,10 @@
             text-align: center;
             text-align-last: center;
             border-radius: 6px;
-
-            option{      
-                
-                // &:hover{
-                //     background-color: blueviolet;
-                // }
-                // 找不到置中跟換色#558B6E
-            }
         }
     }
 
-    .dropdown{
+    .dropdown{        
         display: inline-block;
         position: absolute;
         top: 40px;
@@ -152,6 +144,7 @@
         // float: right;
         // 改成用什麼寫好QQ
         z-index: 2;
+        // background-color: #ffffff;
         // 透明度問題 這裡需要壓住背景 但關掉好像不影響
         border: 2px solid firebrick;
         // 測試要刪掉
