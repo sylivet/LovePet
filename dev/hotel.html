@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @@include('layout/style.html')
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>    
     <title>hotel</title>
 </head>
 
@@ -13,20 +14,30 @@
     @@include('layout/header.html')
 
     <!-- 旅館banner動畫 -->
+    <!-- 假圖 -->
     <div class="h_banner">
         <img src="img/hotel/h_banner.png" alt="">
     </div>
 
+    <!-- <div class="h_banner">
+        <div class="h_hotel">
+            <img src="./img/hotel/h_hotel_bg.png" alt="" class="h_hotel_bg">
+            <div class="h_cartoon">
+                <img src="./img/hotel/h_moon.png" alt="" class="h_moon">
+                <img src="./img/hotel/h_cat.png" alt="" class="h_cat">
+                <img src="./img/hotel/h_anemoscope.png" alt="" class="h_anemoscope">
+                <img src="./img/hotel/h_bicycle.png" alt="" class="h_bicycle">
+                <img src="./img/hotel/h_wheel.png" alt="" class="h_wheel1">
+                <img src="./img/hotel/h_wheel.png" alt="" class="h_wheel2">
+            </div>            
+        </div>
+    </div>     -->
+
+    <!-- <div class="h"><img src="./img/hotel/h_hotel-01.svg" alt=""></div> -->
+
     <!-- 房型選擇跟介紹-->
     <div class="h_room">
-        <div class="h_type">
-            <button class="hotel_btn">時毛玩意</button>
-            <button class="hotel_btn">一汪無際</button>
-            <button class="hotel_btn">天羅地汪</button>
-            <button class="hotel_btn">青喵淡寫</button>
-            <button class="hotel_btn">舒毛一夏</button>
-
-            <div class="h_dropdown">
+        <div class="h_type">            
                 <select>
                     <option value="0" disabled selected>請選擇房型</option>
                     <option value="1">時毛玩意</option>
@@ -34,10 +45,21 @@
                     <option value="3">天羅地汪</option>
                     <option value="4">青喵淡寫</option>
                     <option value="5">舒毛一夏</option>
-                </select>
-            </div>
+                </select>            
         </div>
-
+           
+        <div class="dropdown">
+            <input id="h_toggle" type="checkbox">
+            <label for="h_toggle" class="h_dropdown">請選擇房型<i class="far fa-chevron-down h_point"></i></label>
+            <ul class="h_dropdown_menu">
+                <li class="h_content" value="1">時毛玩意</li>
+                <li class="h_content" value="2">一汪無際</li>
+                <li class="h_content" value="3">天羅地汪</li>
+                <li class="h_content" value="4">青喵淡寫</li>
+                <li class="h_content" value="5">舒毛一夏</li>
+            </ul>
+        </div>
+        
         <div class="h_photo">
             <div class="h_bigimage">
                 <img src="img/hotel/h_room1.png" alt="">
@@ -66,7 +88,7 @@
                         <li>
                             <img src="img/hotel/h_icon3.png" alt="">
                             <h4>寵物設施</h4>
-                            <p>砂盆 / 飲水器 / 可調式碗架</p>
+                            <p>砂盆 / 飲水器 / 可調式碗架 / 貓抓柱 / 寵物窩墊</p>
                         </li>
                         <li>
                             <img src="img/hotel/h_icon4.png" alt="">
@@ -91,10 +113,10 @@
     <!-- 旅館Q&A-->
     <div class="h_wrapper">
         <div class="h_faq1">
-            <div class="h_flip">
+            <div class="h_show">
                 <span class="h_q1">
                     <h3>入住時間</h3>
-                    <img src="./img/hotel/h_click.png" alt="">
+                    <i class="far fa-chevron-down h_point" style="font-size: 24px; color: #000000;"></i>
                 </span>                                
             </div>
             <div class="h_panel1">
@@ -106,7 +128,7 @@
             <div class="h_flip">
                 <span class="h_q2">
                     <h3>備註</h3>
-                    <img src="./img/hotel/h_click.png" alt="">
+                    <i class="far fa-chevron-down h_point0" style="font-size: 24px; color: #000000;"></i>
                 </span>            
             </div>
             <div class="h_panel2">
@@ -128,7 +150,7 @@
             <div class="h_flip">
                 <span class="h_q3">
                     <h3>毛孩小叮嚀</h3>
-                    <img src="./img/hotel/h_click.png" alt="">
+                    <i class="far fa-chevron-down h_point0" style="font-size: 24px; color: #000000;"></i>
                 </span>
             </div>
             <div class="h_panel3">

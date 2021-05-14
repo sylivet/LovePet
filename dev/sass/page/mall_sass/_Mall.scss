@@ -1,3 +1,7 @@
+body.mall{
+  background-image: url(../../../img/mall/dog_foot_big@2x.png);
+}
+
 .banner {
   width: 100%;
   img{
@@ -30,6 +34,9 @@ main{
     outline: none;/*取消預設框線*/
     text-align: center;/*除了Chrome跟Edge以外都支援*/
     text-align-last: center;/*支援Chrome跟Edge瀏覽器*/
+    @include mobile{
+      width: 40%;
+    }
   }
 }
 

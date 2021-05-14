@@ -58,7 +58,7 @@ $m_title_fs: 24px;
   display: flex;
   aside{
     flex-basis: 0;
-    flex-grow: 2.5;
+    flex-grow: 3;
 
     display: flex;
     flex-direction: column;
@@ -72,7 +72,7 @@ $m_title_fs: 24px;
 
   main{
     flex-basis: 0;
-    flex-grow: 7.5;
+    flex-grow: 7;
   }
 }
 
