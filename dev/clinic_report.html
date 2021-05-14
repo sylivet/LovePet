@@ -54,7 +54,10 @@
         </ul>
     </div>
     <div class="scroll">
-        <div class="c_report_content">
+        <div>
+            <canvas id="c_myChart"></canvas>
+        </div>
+        <!-- <div class="c_report_content">
             <ul class='bar1'>
                 <li></li>
                 <li></li>
@@ -175,7 +178,7 @@
                     <p>影像學檢查</p>
                 </li>
             </ul>
-        </div>
+        </div> -->
     </div>
     <div class="c_illustration2">
         <img src="./img/clinic/Group 1504@2x.png">
@@ -196,6 +199,54 @@
             new SimpleBar(el);
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        
+        const labels = ["犬CRP", "甲狀腺功能", "進階肝膽指數", "鈣磷檢測", "血脂功能","電解質檢測","胰臟指數","影像學檢查"];
+        const data = {
+        labels: labels,
+        datasets: [{
+            label: '寵物健檢報告書',
+            data: [65, 59, 80, 81, 56, 55, 40,60],
+            backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(201, 203, 207, 0.2)'
+            ],
+            borderColor: [
+            'rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+            'rgb(75, 192, 192)',
+            'rgb(54, 162, 235)',
+            'rgb(153, 102, 255)',
+            'rgb(201, 203, 207)'
+            ],
+            borderWidth: 1
+        }]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                y: {
+                    beginAtZero: true
+                }
+                }
+            },
+        };
+        
+        var myChart = new Chart(
+        document.getElementById('c_myChart'),
+        config
+        );
+        </script>
 </body>
 
 </html>
