@@ -34,5 +34,8 @@
     "gulp-sass": "^4.1.0",
     "gulp-uglify": "^3.0.2",
     "node-sass": "^5.0.0"
+  },
+  "dependencies": {
+    "chart.js": "^3.2.1"
   }
 }
