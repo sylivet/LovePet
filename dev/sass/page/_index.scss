@@ -13,7 +13,6 @@
     .news {
         li {
             position: relative;
-          
             &::before{
                 content:"";
                 padding-bottom: 400 * 100% / 600;
@@ -42,7 +41,8 @@
                     display: block;
                     color: white;
                     padding: 20px;
-
+                    transition-duration: 4s;
+  transition-delay: 2s;
                 }
                 .news-content {
                     color: white;
@@ -50,14 +50,19 @@
                     padding: 20px;
                     font-size: 16px;
                     line-height: 1.6;
+                    transition-duration: 4s;
+  transition-delay: 2s;
                 }
             }
             &:hover .news-bg h4 {
                 display: none;
+                transition-delay: 2s;
+                transition-duration: 4s;
             }
             &:hover .news-bg .news-content {
                 display: block;
-
+                transition-delay: 2s;
+                transition-duration: 4s;
             }
         }
     }
