@@ -48,9 +48,11 @@ img {
 body {
     font-family: "Noto Sans TC", sans-serif;
     cursor: none;
+    overflow-x:hidden;
     @include pad{
         margin-top: 87px;
         cursor: auto;
+        overflow-x:visible;
     }
 }
 

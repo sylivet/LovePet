@@ -1,6 +1,4 @@
 .bill {
-  box-sizing: border-box;
-  font-family: 'Noto Sans TC', sans-serif;
 
   .bill_wrapper {
     width: 100%;
@@ -18,7 +16,6 @@
         width: calc(100% - 50px);
         margin: 100px auto;
       }
-
 
       .s_order {
         h4 {
@@ -101,6 +98,11 @@
               margin-left: 15px;
               margin-top: 5px;
             }
+
+            @media screen and (min-width: 1025px) and (max-width: 1600px) {
+              width: 85%;
+              margin-left: 50px;
+            }
           }
         }
 
@@ -137,6 +139,10 @@
               margin-top: 5px;
             }
 
+            @media screen and (min-width: 1025px) and (max-width: 1600px) {
+              width: 85%;
+              margin-left: 30px;
+            }
           }
         }
 
@@ -166,6 +172,11 @@
               margin-left: 15px;
               margin-top: 5px;
             }
+
+            @media screen and (min-width: 1025px) and (max-width: 1600px) {
+              width: 85%;
+              margin-left: 8px;
+            }
           }
         }
 
@@ -182,15 +193,21 @@
             font-size: 21px;
             line-height: 55px;
             margin-left: 30px;
+            margin-right: 30px;
 
             @include mobile {
               margin-left: 15px;
+            }
+
+            @media screen and (min-width: 1025px) and (max-width: 1600px) {
+              margin-left: 30px;
+              margin-right: 0px;
             }
           }
 
           .s_postoffice {
             width: 90.5%;
-            margin-left: 68px;
+            margin-left: 35px;
             display: flex;
             justify-content: space-between;
 
@@ -202,6 +219,11 @@
               width: 88%;
               margin-left: 15px;
               flex-direction: column;
+            }
+
+            @media screen and (min-width: 1025px) and (max-width: 1600px) {
+              margin-right: 0px;
+              padding-left: 35px;
             }
 
             select {
@@ -223,6 +245,10 @@
                 margin-bottom: 15px;
               }
 
+              @media screen and (min-width: 1025px) and (max-width: 1600px) {
+                margin-left: 22px;
+              }
+
               option {
                 font-size: 21px;
 
@@ -242,6 +268,11 @@
 
               @include mobile {
                 width: 100%;
+              }
+
+              @media screen and (min-width: 1025px) and (max-width: 1600px) {
+                width: 70%;
+                margin-right: 45px;
               }
             }
           }

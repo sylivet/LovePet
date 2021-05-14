@@ -11,26 +11,7 @@
     <title>Love Pet</title>
 </head>
 <body class="index">
-    <!-- GSAP SCROLL TRIGGER -->
-    <section id="svgContainer">
-
-    </section>
-    
-    <!-- <section class="kv">
-        
-    </section>
-    <section class="kv">
-        
-    </section>
-    <section class="kv">
-        
-    </section>
-    <section class="kv">
-        
-    </section>
-    <section class="kv">
-        
-    </section> -->
+    <section id="svgContainer"></section>
     @@include('layout/header.html')
     <section id="news">
         <h3>最新消息</h3>
@@ -153,16 +134,7 @@
     <script src="vendors/swiper/js/swiper-bundle.min.js"></script>
     <script src="js/index_pannellum.js"></script>
     <script src="js/index_swiper.js"></script>
-    <script src="vendors/bodymovin/bodymovin.js"></script>
-    <script>
-var svgContainer = document.getElementById('svgContainer');
-var animItem = bodymovin.loadAnimation({
-wrapper: svgContainer,
-animType: 'svg',
-loop: true,
-path: 'data.json'
-});
-    </script>
+    <script src="vendors/bodymovin/lottie.js"></script>
+    <script src="js/index_bodymovin.js"></script>
 </body>
-
 </html>

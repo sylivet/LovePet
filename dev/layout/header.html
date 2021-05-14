@@ -1,22 +1,79 @@
 <header>
-
+  <!-- 購物車 -->
+  <div id="i_shoppingCart_bk" class="i_background" style="display:none">
+    <div class="i_lightbox_bk">
+      <a class="i_closeButton" >
+        <img src="../img/common/close.png" alt="">
+      </a>
+      <div class="i_lightbox_title">
+        <h2>購物車清單</h2>
+      </div>
+      <div class="i_shoppingCart bar" id="bar">
+        <table>
+          <tr>
+            <td><img src="#" alt=""></td>
+            <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+            <td>商品商品</td>
+            <td>
+              <i class="fa fa-minus-circle" aria-hidden="true"></i>
+              <input type="text" id="number" value="1" readonly="readonly">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </td>
+            <td>NT 100元</td>
+          </tr>
+          <tr>
+            <td><img src="#" alt=""></td>
+            <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+            <td>商品商品</td>
+            <td>
+              <i class="fa fa-minus-circle" aria-hidden="true"></i>
+              <input type="text" id="number" value="1" readonly="readonly">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </td>
+            <td>NT 100元</td>
+          </tr>
+          <tr>
+            <td><img src="#" alt=""></td>
+            <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+            <td>商品商品</td>
+            <td>
+              <i class="fa fa-minus-circle" aria-hidden="true"></i>
+              <input type="text" id="number" value="1" readonly="readonly">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </td>
+            <td>NT 100元</td>
+          </tr>
+        </table>
+        <hr>
+        <div class="i_total">
+          <h3>總價 NT 300元</h3>
+        </div>
+        <a href="s_bill.html" class="i_button">結帳</a>
+      </div>
+    </div>
+  </div>
   <!-------------- m_header ----------------->
   <div class="m_header m_toggle">
-    <h5><a href="../member_index.html"><img src="./img/member/catlogo-8.png" alt=""><span>會員專區</span><img src="./img/member/catlogo-8.png" alt="" style="opacity: 0;"></a></h5>
-    
-    <div><a href="../member_people.html"><img src="./img/member/Profile-Male-PNG.jpg" alt="profile"  class="m_person_pic"><span>吳愛寵 </span><span>&emsp; 您好</span></a></div>
+    <h5><a href="../member_index.html"><img src="./img/member/catlogo-8.png" alt=""><span>會員專區</span><img
+          src="./img/member/catlogo-8.png" alt="" style="opacity: 0;"></a></h5>
+
+    <div><a href="../member_people.html"><img src="./img/member/Profile-Male-PNG.jpg" alt="profile"
+          class="m_person_pic"><span>吳愛寵 </span><span>&emsp; 您好</span></a></div>
     <div class="m_pets">
-      <a href="../member_pets.html"><img src="./img/member/Group 2151.png" alt="profile"  class="m_pet_pic"></a>
-      <a href="../member_pets.html"><img src="./img/member/Group 2151.png" alt="profile"  class="m_pet_pic"></a>
-      <a href="../member_pets.html"><img src="./img/member/Group 2151.png" alt="profile"  class="m_pet_pic"></a>
+      <a href="../member_pets.html"><img src="./img/member/Group 2151.png" alt="profile" class="m_pet_pic"></a>
+      <a href="../member_pets.html"><img src="./img/member/Group 2151.png" alt="profile" class="m_pet_pic"></a>
+      <a href="../member_pets.html"><img src="./img/member/Group 2151.png" alt="profile" class="m_pet_pic"></a>
     </div>
-    
+
     <div class="m_underline_1"></div>
     <ul>
-        <li><a href="../member_people.html"><img src="./img/member/catlogo-8.png" alt=""><span>我的帳號</span><img src="./img/member/catlogo-8.png" alt="" style="opacity: 0;"></a></li>
-        <li><a href="../member_pets.html"><img src="./img/member/catlogo-8.png" alt=""><span>我的寵物</span><img src="./img/member/catlogo-8.png" alt="" style="opacity: 0;"></a></li>
-        <li><a href="../member_order_management.html"><img src="./img/member/catlogo-8.png" alt=""><span>訂單管理</span><img src="./img/member/catlogo-8.png" alt="" style="opacity: 0;"></a></li>
-        
+      <li><a href="../member_people.html"><img src="./img/member/catlogo-8.png" alt=""><span>我的帳號</span><img
+            src="./img/member/catlogo-8.png" alt="" style="opacity: 0;"></a></li>
+      <li><a href="../member_pets.html"><img src="./img/member/catlogo-8.png" alt=""><span>我的寵物</span><img
+            src="./img/member/catlogo-8.png" alt="" style="opacity: 0;"></a></li>
+      <li><a href="../member_order_management.html"><img src="./img/member/catlogo-8.png" alt=""><span>訂單管理</span><img
+            src="./img/member/catlogo-8.png" alt="" style="opacity: 0;"></a></li>
+
     </ul>
     <input type="button" value="登&emsp;&emsp;出">
   </div>
@@ -51,12 +108,12 @@
   </ul>
   <ul class="i_accountShopping">
     <li>
-      <a href="#">
+      <a>
         <span class="material-icons" id="m_header_control">person</span>
       </a>
     </li>
     <li>
-      <a href="#">
+      <a id="i_shoppingCart">
         <span class="material-icons">shopping_cart</span>
       </a>
     </li>
@@ -90,3 +147,5 @@
     </div>
   </nav>
 </header>
+<script src="js/shopping_cart.js"></script>
+</script>

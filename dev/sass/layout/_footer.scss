@@ -5,7 +5,7 @@
         height: 20px;
         background: rgba(#558B6E, 0.7);
         border-radius: 50%;
-        z-index: 1001;
+        z-index: 10000;
         pointer-events: none;
 
         &::after {
@@ -39,16 +39,6 @@
         height: 40px;
     }
 }
-
-.cursor-center {
-    top: 50% !important;
-    left: 50% !important;
-
-    transform: translate(-50%, -50%) !important;
-
-    transition: 0.2s;
-}
-
 
 footer {
     color: white;
