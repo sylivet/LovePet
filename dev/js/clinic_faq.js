@@ -2,13 +2,13 @@
 $(function(){
   $('.c_show').click(function(){
       $(this).next().slideToggle('slow'); 
-      $(this).find('.c_click1').toggleClass('c_rotate1');
+      $(this).parent().toggleClass('c_faqopen');
   });  
 });
 
 $(function(){
   $('.c_flip').click(function(){
       $(this).next().slideToggle('slow');
-      $(this).find('.c_click').toggleClass('c_rotate');
+      $(this).parent().toggleClass('c_faqopen0');
   });  
 });
