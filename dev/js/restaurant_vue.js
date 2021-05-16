@@ -344,9 +344,9 @@ let vm = new Vue({
         name: "雞肉沙拉",
         price: 200,
         cal: "200cal",
-        imgURL:"../img/common/hamburger.png",
+        imgURL:"../img/restaurant/chickenSalad.jpg",
         count: 1,
-        msg:"這裡要想文案"
+        msg:"選用紐西蘭雞胸肉，含脂肪量少、低熱量、是優質蛋白質來源，美味的雞胸肉料理是貓貓狗狗的美食首選。"
       },
       {
         cata: "petsFood",
@@ -354,9 +354,9 @@ let vm = new Vue({
         name: "牛肉沙拉",
         price: 299,
         cal: "230cal",
-        imgURL:"../img/common/hamburger.png",
+        imgURL:"../img/restaurant/beefSalad.jpg",
         count: 1,
-        msg:"這裡要想文案"
+        msg:"文案比程式還難寫"
       },
       {
         cata: "petsFood",
@@ -364,7 +364,7 @@ let vm = new Vue({
         name: "嫩煎鮭魚沙拉",
         price: 270,
         cal: "220cal",
-        imgURL:"../img/common/hamburger.png",
+        imgURL:"../img/restaurant/fishSalad.jpg",
         count: 1,
         msg:"這裡要想文案"
       },
