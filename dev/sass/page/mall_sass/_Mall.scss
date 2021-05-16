@@ -12,6 +12,15 @@ body.mall{
 main{
   width: 100%;
   padding: 0 90px;
+  @include pad{
+    padding: 50px;
+  }
+  @include mobile{
+    padding: 20px;
+  }
+  @include iphoneX{
+    padding: 10px;
+  }
 }
 
 /* 選擇區塊 */
