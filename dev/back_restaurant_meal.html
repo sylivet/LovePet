@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+     @@include('layout/style.html')
+     <title>樂寵後台管理</title>
+</head>
+
+<body class="backend">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+         <div class="back_logo">
+             <img src="img/common/i_logo.png" alt="">
+             <p class="navbar-brand">樂寵後台管理</p>
+         </div> 
+         <div class="back_btn"><a href="#">登出</a></div>
+        </div>
+      </nav>
+    <div class="i_backend">
+        <ul>
+            <li>
+                <a href="back_member.html" class="btn btn-warning">會員管理</a>
+            </li>
+            <li>
+                <a href="back_news.html" class="btn btn-warning">消息管理</a>
+            </li>
+            <li>
+                <a class="btn btn-warning" data-bs-toggle="collapse" href="#order-list" role="button" aria-expanded="false" aria-controls="order-list">訂單管理</a>
+                <ul class="collapse" id="order-list">
+                    <li>
+                        <a href="back_restaurant_order.html" class="btn btn-secondary btn-sm">餐廳訂單</a>
+                    </li>
+                    <li>
+                        <a href="back_hotel_order.html" class="btn btn-secondary btn-sm">旅館訂單</a>
+                    </li>
+                    <li>
+                        <a href="back_hospital_order.html" class="btn btn-secondary btn-sm">健檢訂單</a>
+                    </li>
+                    <li>
+                        <a href="back_shopping_order.html" class="btn btn-secondary btn-sm">商城訂單</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="btn btn-warning" data-bs-toggle="collapse" href="#product-list" role="button" aria-expanded="false" aria-controls="product-list">商品管理</a>
+                <ul class="collapse" id="product-list">
+                    <li>
+                        <a href="back_restaurant_meal.html" class="btn btn-secondary btn-sm">餐廳餐點</a>
+                    </li>
+                    <li>
+                        <a href="back_room_type.html" class="btn btn-secondary btn-sm">旅館房型</a>
+                    </li>
+                    <li>
+                        <a href="back_health_check.html" class="btn btn-secondary btn-sm">健檢項目</a>
+                    </li>
+                    <li>
+                        <a href="back_shopping_product.html" class="btn btn-secondary btn-sm">商城商品</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="back_message_list.html" class="btn btn-warning">商城留言</a>
+            </li>
+        </ul>
+        <div class="back_table">
+            <h2>餐廳餐點管理</h2>
+            <button type="button" class="btn btn-danger btn-sm ">新增</button>
+            <div class="back_choose">
+                <div >
+                    <input type="checkbox" id="all">
+                    <label for="all">全選</label>
+                    <button type="button" class="btn btn-outline-warning btn-sm ">上架</button>
+                    <button type="button" class="btn btn-outline-warning btn-sm ">下架</button>
+                </div>
+                <select>
+                    <option value="1">上架中</option>
+                    <option value="0">下架中</option>
+                
+                </select>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr class="table-warning">
+                    <th></th>
+                    <th>餐點編號</th>
+                    <th>餐點名稱</th>
+                    <th>餐點簡介</th>
+                    <th>餐點圖片(內)</th>
+                    <th>餐點圖片(外)</th>
+                    <th>餐點狀態</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><a href="###">編輯</a></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><a href="###">編輯</a></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><a href="###">編輯</a></td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script> 
+</body>
+
+</html>
