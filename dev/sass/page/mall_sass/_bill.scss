@@ -415,9 +415,15 @@
             background-color: #ffc857;
             border-radius: 50px;
             text-decoration: none;
+            transition: .5s;
 
             &:hover {
               background-color: #F39800;
+            }
+
+            &:active {
+              background-color: lightgray;
+              color: white;
             }
           }
 
@@ -432,9 +438,15 @@
             border-radius: 50px;
             border: 0px;
             margin-left: 15px;
+            transition: .5s;
 
             &:hover {
               background-color: #F39800;
+            }
+
+            &:active {
+              background-color: lightgray;
+              color: white;
             }
           }
         }
