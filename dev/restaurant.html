@@ -36,21 +36,21 @@
         <div class="row">
           <div class="col-xl-4 col-md-4 col-sm-12">
             <div class="circle">
-              <img src="./img/restaurant/self_farming.svg" alt="">
+              <img class="circlePic" src="./img/restaurant/self_farming.svg" alt="">
             </div>
             <h3>在地生產</h3>
             <p>園區內的食用蔬菜，皆是我們在度假村內自己種植耕作的、肉食品也是採用自己飼養的動物，讓您吃得安心。</p>
           </div>
           <div class="col-xl-4 col-md-4 col-sm-12">
             <div class="circle">
-              <img src="./img/restaurant/eco.svg" alt="">
+              <img class="circlePic" src="./img/restaurant/eco.svg" alt="">
             </div>
             <h3>環保概念</h3>
             <p>因為自產自銷，所以減少食材運輸往來CO2排放，並且大量使用FSC紙張，讓商品更加環保，與大自然更親近。</p>
           </div>
           <div class="col-xl-4 col-md-4 col-sm-12">
             <div class="circle">
-              <img src="./img/restaurant/naturalFood.svg" alt="">
+              <img class="circlePic" src="./img/restaurant/naturalFood.svg" alt="">
             </div>
             <h3>天然食材</h3>
             <p>園區內所使用的食物堅持不含防腐劑及化學添加，讓您與毛孩吃得到真食物，並獲得飽足感與健康。</p>
@@ -141,13 +141,13 @@
         <div class="row align-items-start">
           <div class="col-12 leftTitle"> 
             <h1 v-if="petCustomFoodSelect === '乾糧'">請選擇乾糧<span>(擇1)</span></h1>
-            <h1 v-else-if="petCustomFoodSelect === '主食'">請選擇主食<span>(擇1)</span></h1>
-            <h1 v-else-if="petCustomFoodSelect === '配菜'">請選擇配菜<span>(擇4)</span></h1>
-            <h1 v-else="petCustomFoodSelect === '請確認菜單'">請確認菜單</h1>
+            <h1 v-else-if="petCustomFoodSelect === '主食'"><i class="fa fa-chevron-left" aria-hidden="true" @click="undo"></i>請選擇主食<span>(擇1)</span></h1>
+            <h1 v-else-if="petCustomFoodSelect === '配菜'"><i class="fa fa-chevron-left" aria-hidden="true" @click="undo"></i>請選擇配菜<span>(擇4)</span></h1>
+            <h1 v-else="petCustomFoodSelect === '請確認菜單'"><i class="fa fa-chevron-left" aria-hidden="true" @click="undo"></i>請確認菜單</h1>
           </div>
           <div class="col-md-6 col-12 left customPetMenu mt-5">
             <div class="row justify-content-around" v-if="petCustomFoodSelection.length !== 6">
-              <div class="col-5 foodback" v-for="(food, fid) in filterCataToPetsCustom" :key="fid"
+              <div class="col-5 foodback" v-for="(food, fid) in filterCataToPetsCustom" :key="food.name"
                 v-if="petCustomFoodSelect === food.type">
                 <div class="foodpic">
                   <img :src="food.imgURL">
@@ -164,11 +164,12 @@
             <div class="foodmenu" v-else-if="petCustomFoodSelect === '請確認菜單'">
               <h3 class="mb-4">您客製的<span>寵物</span>食品</h3>
               <custom-pets-food v-for="(food, fid) in petCustomFoodSelection" :menu="food, fid" @removefood="remove"
-              :key="fid">
+              :key="food.name">
               <template #delete>X1</template>
-            </custom-pets-food>
-            <h4 class="mt-4">小結:NT {{customTotalPrice | currency}} 元</h4>
-            <button @click="isDogOut = true">確認</button>
+              </custom-pets-food>
+              <h4 class="mt-4">小結:NT {{customTotalPrice | currency}} 元</h4>
+              <button @click="cancelCustomFood">全部取消</button>
+              <button @click="confirmCustomFood">加入菜單</button>
             </div>
           </div>
           <div class="col-md-6 col-12 right">
@@ -178,6 +179,7 @@
             <div class="foodpic1">
               <div v-for="food in petCustomFoodSelection" :class="food.eng"></div>
             </div>
+          </div>
         </div>
       </div>
 
@@ -208,10 +210,7 @@
             <div class="row justify-content-center">
               <div class="col foodback" v-if="petFoodSelect === '沙拉'">
                 <div class="row">
-                  <div class="col-md-6 col-12 petmenu-left">
-                    <div class="petfood1"></div>
-                  </div>
-                  <div class="col-md-6 col-12 petmenu-right">
+                  <div class="col-md-6 offset-md-6 col-12 petmenu-right">
                     <ol>
                       <template v-for="(food, fid) in filterTypeToSalad">
                         <li @click="chooseFood(food)">
@@ -227,10 +226,7 @@
               </div>
               <div class="col foodback2" v-else="petFoodSelect === '鮮食'">
                 <div class="row">
-                  <div class="col-md-6 col-12 petmenu2-left">
-                    <div class="petfood1"></div>
-                  </div>
-                  <div class="col-md-6 col-12 petmenu2-right">
+                  <div class="col-md-6 offset-md-6 col-12 petmenu2-right">
                     <ol>
                       <template v-for="(food, fid) in filterTypeToFresh">
                         <li @click="chooseFood(food)">
@@ -248,12 +244,13 @@
           </div>
           <div class="col-md-6 col-12 right">
             <div class="foodmenu">
-              <h3><span>寵物</span>的菜單</h3>
+              <h3 v-if="filterMenuToPets.length>0"><span>寵物</span>的菜單</h3>
               <!-- 加入菜單元件 -->
               <add-to-pets-menu v-for="(food, fid) in filterMenuToPets" :menu="food, fid" @removefood="remove"
-                :key="fid"></add-to-pets-menu>
+                :key="food.name"></add-to-pets-menu>
+              <h3 v-if="filterMenuToHuman.length>0">您的菜單</h3>
               <add-to-human-menu v-for="(food, fid) in filterMenuToHuman" :menu="food, fid" @removefood="remove"
-              :key="fid"></add-to-human-menu>
+              :key="food.name"></add-to-human-menu>
               <div class="totalPrice">
                 <h3 v-if="allFoodSelection.length>0">總價：NT {{ totalPrice | currency }} 元</h3>
                 <h3 v-else>您還沒有點菜唷<i class="fa fa-frown-o" aria-hidden="true"></i></h3>
@@ -297,7 +294,7 @@
             <div class="row justify-content-center">
               <div class="col foodback" v-if="humanFoodSelect === '義式'">
                 <div class="row">
-                  <div class="col-12 human-up">
+                  <div class="col-md-8 offset-md-4 col-12  human-right">
                     <ol>
                       <template v-for="(food, fid) in filterTypeToItaly">
                         <li @click="chooseFood(food)">
@@ -313,7 +310,7 @@
               </div>
               <div class="col foodback2" v-else="humanFoodSelect === '美式'">
                 <div class="row">
-                  <div class="col-12 human-up">
+                  <div class="col-md-8 offset-md-4 human-right">
                     <ol>
                       <template v-for="(food, fid) in filterTypeToUS">
                         <li @click="chooseFood(food)">
@@ -326,19 +323,18 @@
                     </ol>
                   </div>
                 </div>
-                <div class="row">
-                </div>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-12 right">
             <div class="foodmenu">
-              <h3>您的菜單</h3>
+              <h3 v-if="filterMenuToHuman.length>0">您的菜單</h3>
               <!-- 加入菜單元件 -->
               <add-to-human-menu v-for="(food, fid) in filterMenuToHuman" :menu="food, fid" @removefood="remove"
-                :key="fid"></add-to-human-menu>
+                :key="food.name"></add-to-human-menu>
+              <h3 v-if="filterMenuToPets.length>0"><span>寵物</span>的菜單</h3>
               <add-to-pets-menu v-for="(food, fid) in filterMenuToPets" :menu="food, fid" @removefood="remove"
-              :key="fid"></add-to-pets-menu>
+              :key="food.name"></add-to-pets-menu>
               <div class="totalPrice">
                 <h3 v-if="allFoodSelection.length>0">總價：NT {{totalPrice | currency}}元</h3>
                 <h3 v-else>您還沒有點菜唷<i class="fa fa-frown-o" aria-hidden="true"></i></h3>
@@ -423,7 +419,7 @@
                     <table>
                         <tr v-for="food in filterCataToPets">
                             <td>{{food.name}}</td>
-                              x <input type="number" id="number" :value="food.count" readonly="readonly">
+                              x <input type="number" :value="food.count" readonly="readonly">
                             <td>NT {{food.count*food.price | currency}}元</td>
                         </tr>
                     </table>   
@@ -431,7 +427,7 @@
                   <table>
                       <tr v-for="food in filterCataToHuman">
                           <td>{{food.name}}</td>
-                            x <input type="number" id="number" :value="food.count" readonly="readonly">
+                            x <input type="number" :value="food.count" readonly="readonly">
                           <td>NT {{food.count*food.price | currency}} 元</td>
                       </tr>
                     </table>
@@ -466,7 +462,7 @@
           </div>
           <div class="bar">
               <div>
-                  <img src="./img/common/hamburger.png" alt="" />
+                  <img :src="food.imgURL" alt="">
               </div>
               <div class="i_mealMain">
                   <div class="i_meal">
@@ -487,7 +483,7 @@
   <script type="text/x-template" id="addToMenu">
     <div>
       <ul>
-        <li><span>{{$attrs.fid + 1}}.{{menu.name}}</span></li>
+        <li id="petsMenu"><span>{{$attrs.fid + 1}}.{{menu.name}}</span><span v-if="menu.eachItem" id="showItem">{{menu.eachItem}}</span></li>
         <slot name="delete">
         <li><button @click="removeItem($attrs.fid,menu)"><i class="fa fa-minus-circle" aria-hidden="true"></i></button></li>
         <li><span>X {{menu.count}}</span></li>
@@ -497,7 +493,8 @@
       </ul>
     </div>
   </script>
-
+  
+  <!-- 狗動畫元件 -->
   <script type="text/x-template" id="letdogout">
     <div class="dogContainer">
       <div class="dog">
@@ -546,6 +543,8 @@
   <!-- slicker -->
   <script type="text/javascript" src="./vendors/slick/js/slick.min.js"></script>
   <script src="./js/Restaurant_slicker.js"></script>
+  <!-- GSAP -->
+  <script src="./vendors/GSAP/gsap.min.js"></script>
   <!-- 捲軸 -->
   <script src="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.js"></script>
 
@@ -559,6 +558,10 @@
 
 
 
-</body>
 
+
+
+
+
+</body>
 </html>
