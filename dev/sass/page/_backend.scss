@@ -1,57 +1,73 @@
-.backend{
+@import "backend_sass/back_index";
+
+.backend {
     margin-top: 0;
     cursor: auto;
     background-color: rgb(245, 245, 245);
-    .back_logo{
+
+    .back_logo {
         margin-left: 45px;
         display: flex;
         align-items: center;
-        p{
+
+        p {
             margin-left: 10px;
         }
-        img{
+
+        img {
             max-width: 50px;
         }
     }
-    .back_btn{
+
+    .back_btn {
         margin-right: 45px;
-        a{
+
+        a {
             color: #F39800;
-            &:hover{
-                color:#FFC857;
+
+            &:hover {
+                color: #FFC857;
             }
         }
     }
 }
-.back_choose{
+
+.back_choose {
     display: flex;
     justify-content: space-between;
 }
-.back_table{
+
+.back_table {
     // width: 1000px;
     margin-left: 45px;
-    h2{
+
+    h2 {
         margin-bottom: 10px;
     }
-    table{
+
+    table {
         margin-top: 10px;
     }
 }
 
-.i_backend{
+.i_backend {
     display: flex;
     margin-top: 50px;
-    ul{
-        &:first-child{margin-left: 45px;}
-        &:not(:first-child){
-            li{
+
+    ul {
+        &:first-child {
+            margin-left: 45px;
+        }
+
+        &:not(:first-child) {
+            li {
                 width: 90%;
-                margin:10px auto;
+                margin: 10px auto;
             }
         }
     }
-    li{
+
+    li {
         margin-top: 10px;
     }
 }
-

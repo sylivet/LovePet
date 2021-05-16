@@ -1,0 +1,93 @@
+.back_index {
+
+  .back_wrapper {
+    width: 100%;
+    // margin: 0 auto;
+    margin-top: 0px;
+    // background-color: bisque;
+    position: relative;
+
+    .BK_img {
+      width: 100%;
+
+      @include mobile {
+        height: 100vh;
+        object-fit: cover;
+      }
+
+    }
+
+    .link {
+      width: 60%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      position: absolute;
+      top: 30%;
+      left: 20%;
+
+      @include mobile {
+        flex-direction: column;
+        top: 5%;
+        left: 20%;
+      }
+
+      a {
+        display: block;
+        color: #734b23;
+        padding-top: 5px;
+        text-align: center;
+      }
+
+      .front {
+        img {
+          max-width: 273px;
+
+          @include mobile {
+            width: 100%;
+          }
+        }
+
+        h1 {
+          font-size: 30px;
+          padding-top: 5px;
+
+          @include pad {
+            font-size: 26px;
+          }
+        }
+      }
+
+      .logo {
+        img {
+          max-width: 274px;
+
+          @include mobile {
+            width: 50%;
+            margin: 50px 80px;
+          }
+        }
+      }
+
+      .back {
+        img {
+          max-width: 273px;
+
+          @include mobile {
+            width: 100%;
+          }
+        }
+
+        h1 {
+          font-size: 30px;
+          padding-top: 5px;
+
+          @include pad {
+            font-size: 26px;
+          }
+
+        }
+      }
+    }
+  }
+}
