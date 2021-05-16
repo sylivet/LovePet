@@ -16,20 +16,43 @@ $(function(){
   });  
 });
 
+/*----- 旅館Q&A -----*/
+$(function(){
+  $('.h_show').click(function(){
+      $(this).next().slideToggle('slow'); 
+      $(this).parent().toggleClass('h_faqopen');
+  });  
+});
+
+$(function(){
+  $('.h_flip').click(function(){
+      $(this).next().slideToggle('slow');
+      $(this).parent().toggleClass('h_faqopen0');
+  });  
+});
+
+
 
 
 /*----- 720度環景 -----*/
-pannellum.viewer = pannellum.viewer("panorama", {
+pannellum.viewer = pannellum.viewer("h_panorama", {
   type: "equirectangular",
   panorama: "img/hotel/h_panorama.jpg",
+  // 調整初始畫面位置
   "pitch": -10,
   "hfov": 180,
+  
+  // 自動旋轉
+  "autoRotate": -2,
+  // 要加這個自動旋轉屬性嗎XD
+
+  // 指南針
   compass: true,
+  // 自動加載
   autoLoad: true,
-  showControls: false,
-  mouseZoom: false,
-  draggable: false,
-  // "hotSpotDebug": true,
+  // 按鈕調整畫面
+  showControls: false, 
+  // 寵物用品位置熱點
   "hotSpots": [
       {
           "pitch": -8.5,
@@ -45,43 +68,23 @@ pannellum.viewer = pannellum.viewer("panorama", {
       }
   ]
 });
-// Make buttons work
-document.getElementById("pan-up").addEventListener("click", function (e) {
+
+// Make buttons work (按鈕調整移動畫面)
+document.getElementById("h_arrow_up").addEventListener("click", function (e) {
   pannellum.viewer.setPitch(pannellum.viewer.getPitch() + 15);
 });
-document.getElementById("pan-down").addEventListener("click", function (e) {
+document.getElementById("h_arrow_down").addEventListener("click", function (e) {
   pannellum.viewer.setPitch(pannellum.viewer.getPitch() - 15);
 });
-document.getElementById("pan-left").addEventListener("click", function (e) {
+document.getElementById("h_arrow_left").addEventListener("click", function (e) {
   pannellum.viewer.setYaw(pannellum.viewer.getYaw() - 15);
 });
-document.getElementById("pan-right").addEventListener("click", function (e) {
+document.getElementById("h_arrow_right").addEventListener("click", function (e) {
   pannellum.viewer.setYaw(pannellum.viewer.getYaw() + 15);
 });
-document.getElementById("zoom-in").addEventListener("click", function (e) {
+document.getElementById("h_enlarge").addEventListener("click", function (e) {
   pannellum.viewer.setHfov(pannellum.viewer.getHfov() - 15);
 });
-document.getElementById("zoom-out").addEventListener("click", function (e) {
+document.getElementById("h_narrow").addEventListener("click", function (e) {
   pannellum.viewer.setHfov(pannellum.viewer.getHfov() + 15);
-});
-
-
-
-
-
-
-
-/*----- 旅館Q&A -----*/
-$(function(){
-  $('.h_show').click(function(){
-      $(this).next().slideToggle('slow'); 
-      $(this).parent().toggleClass('h_faqopen');
-  });  
-});
-
-$(function(){
-  $('.h_flip').click(function(){
-      $(this).next().slideToggle('slow');
-      $(this).parent().toggleClass('h_faqopen0');
-  });  
 });
