@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    @@include('layout/style.html')
-    <title>樂寵後台管理</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+     @@include('layout/style.html')
+     <title>樂寵後台管理</title>
 </head>
 
 <body class="backend">
@@ -45,69 +44,43 @@
                 class="list-group-item list-group-item-action list-group-item-success">商城留言</a>
         </div>
         <div>
-            <div class="d-flex ">
-                <h2 class="mb-3">消息管理</h2>
-                <a href="back_news_create.html" class="btn btn-success btn-sm mb-3 ms-3">新增消息</a>
-            </div>
-            
-            <div class="d-flex justify-content-between mb-3">
-                <div>
-                    <input type="checkbox" id="all">
-                    <label for="all">全選</label>
-                    <button type="button" class="btn btn-outline-success btn-sm ms-1">上架</button>
-                    <button type="button" class="btn btn-outline-success btn-sm ms-1">下架</button>
-                </div>
-                <select>
-                    <option value="1">上架中</option>
-                    <option value="0">下架中</option>
-                </select>
-            </div>
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr class="table-warning">
-                        <th></th>
-                        <th>消息編號</th>
-                        <th>消息標題</th>
-                        <th>消息圖片</th>
-                        <th>消息內容</th>
-                        <th>消息狀態</th>
-                        <th></th>
-                    </tr>
-                </thead>
+            <h2 class="mb-3">餐點新增</h2>
+            <table class="table table-striped">
                 <tbody>
                     <tr>
-                        <td><input type="checkbox"></td>
-                        <td>1</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><a href="###">編輯</a></td>
+                        <td>餐點名稱</td>
+                        <td><input type="text"></td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox"></td>
-                        <td>2</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><a href="###">編輯</a></td>
+                        <td>餐點簡介</td>
+                        <td><textarea name="" id="" cols="30" rows="10"></textarea></td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox"></td>
-                        <td>3</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><a href="###">編輯</a></td>
+                        <td>餐點圖片(內)</td>
+                        <td><input type="file"></td>
+                    </tr>
+                    <tr>
+                        <td>餐點圖片(外)</td>
+                        <td><input type="file"></td>
+                    </tr>
+                    <tr>
+                        <td>餐點狀態</td>
+                        <td>
+                            <input type="radio" name="news" id="online" value="1" checked>
+                            <label for="online">上架中</label>
+                            <input type="radio" name="news" id="notonline" value="0">
+                            <label for="notonline">下架中</label>
+                        </td>
                     </tr>
                 </tbody>
             </table>
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-outline-success">取消</button>
+                <button type="button" class="btn btn-success ms-3">新增</button>
+            </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-            crossorigin="anonymous"></script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script> 
 </body>
 
 </html>
