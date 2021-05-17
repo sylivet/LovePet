@@ -31,27 +31,24 @@ $(function(){
   });  
 });
 
-
-
-
 /*----- 720度環景 -----*/
 pannellum.viewer = pannellum.viewer("h_panorama", {
   type: "equirectangular",
-  panorama: "img/hotel/h_panorama.jpg",
+  panorama: "img/index/panorama.jpg",
   // 調整初始畫面位置
   "pitch": -10,
-  "hfov": 180,
-  
+  "hfov": 180,  
   // 自動旋轉
   "autoRotate": -2,
-  // 要加這個自動旋轉屬性嗎XD
-
   // 指南針
   compass: true,
   // 自動加載
   autoLoad: true,
   // 按鈕調整畫面
   showControls: false, 
+  // 預防無限環景設定
+  mouseZoom: false,
+  draggable: false,
   // 寵物用品位置熱點
   "hotSpots": [
       {
