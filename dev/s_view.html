@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="./vendors/slick/css/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="./vendors/slick/css/slick-theme.css"/>
+  <link rel="stylesheet" type="text/css" href="./vendors/slick/css/slick.css" />
+  <link rel="stylesheet" type="text/css" href="./vendors/slick/css/slick-theme.css" />
   <link rel="stylesheet" href="./css/style.css">
   <title>view</title>
   @@include('layout/style.html')
 </head>
+
 <body class="shopping">
   <div class="s_wrapper">
     @@include('layout/header.html')
 
-    <div class = "shopping_main">
+    <div class="shopping_main">
       <div class="s_ph">
         <div class="s_big_ph">
           <img src="img/mall/tent_1@2x.png" alt="">
@@ -29,35 +31,37 @@
 
       <div class="s_text">
         <h3>寵物休閒小帳棚<br>2500元<br><span>已售出:100個</span></h3>
-        
+
         <div class="s_button">
-          <button class="s_buy">  <span class="material-icons">shopping_cart</span></button>
-          <button class="s_back">回商品頁</button>
+          <button class="s_buy"> <span class="material-icons">shopping_cart</span></button>
+          <!-- <button class="s_back">回商品頁</button> -->
+          <a href="./Mall.html">回商品頁</a>
         </div>
-        <p>此款帳篷適用於小型犬。簡單的條紋設計，選色清新可愛。<br>天然原木結構，綁帶輕鬆好穩固。內有厚實柔軟的睡墊，一面是冬天好暖不著涼，一面是夏日清爽好舒服。<br>睡墊上含有止滑顆粒，讓寵物安全跑跳不位移。布料使用天然的純棉帆布，不僅透氣而且排濕。入口處的布料，可依寵物高度捲起來固定。<br>睡墊有設計拉鍊，可分開墊子與睡墊套，清潔容易。拆裝容易，收納也很方便。
+        <p>
+          此款帳篷適用於小型犬。簡單的條紋設計，選色清新可愛。<br>天然原木結構，綁帶輕鬆好穩固。內有厚實柔軟的睡墊，一面是冬天好暖不著涼，一面是夏日清爽好舒服。<br>睡墊上含有止滑顆粒，讓寵物安全跑跳不位移。布料使用天然的純棉帆布，不僅透氣而且排濕。入口處的布料，可依寵物高度捲起來固定。<br>睡墊有設計拉鍊，可分開墊子與睡墊套，清潔容易。拆裝容易，收納也很方便。
         </p>
       </div>
     </div>
     <div class="s_Carousel">
       <h3>別人也買過......</h3>
       <section class="s_others">
-         <div class="slide_image"><img src="img/mall/R1@2x.png" ></div>
-         <div class="slide_image"><img src="img/mall/R2@2x.png"></div> 
-         <div class="slide_image"><img src="img/mall/R3@2x.png"> </div>
-         <div class="slide_image"><img src="img/mall/R4@2x.png"> </div> 
-         <div class="slide_image"><img src="img/mall/R5@2x.png"> </div>
-         <div class="slide_image"><img src="img/mall/R1@2x.png" ></div>
-         <div class="slide_image"><img src="img/mall/R2@2x.png"></div> 
-         <div class="slide_image"><img src="img/mall/R3@2x.png"> </div>
-         <div class="slide_image"><img src="img/mall/R4@2x.png"> </div> 
-         <div class="slide_image"><img src="img/mall/R5@2x.png"> </div> 
+        <div class="slide_image"><img src="img/mall/R1@2x.png"></div>
+        <div class="slide_image"><img src="img/mall/R2@2x.png"></div>
+        <div class="slide_image"><img src="img/mall/R3@2x.png"> </div>
+        <div class="slide_image"><img src="img/mall/R4@2x.png"> </div>
+        <div class="slide_image"><img src="img/mall/R5@2x.png"> </div>
+        <div class="slide_image"><img src="img/mall/R1@2x.png"></div>
+        <div class="slide_image"><img src="img/mall/R2@2x.png"></div>
+        <div class="slide_image"><img src="img/mall/R3@2x.png"> </div>
+        <div class="slide_image"><img src="img/mall/R4@2x.png"> </div>
+        <div class="slide_image"><img src="img/mall/R5@2x.png"> </div>
       </section>
     </div>
     <!-- 燈箱 -->
     <!-- @@include('layout/shoppingCart_LightBox.html') -->
     <div id="i_shoppingCart_bk" class="i_background" style="display:none">
       <div class="i_lightbox_bk">
-        <a class="i_closeButton" >
+        <a class="i_closeButton">
           <img src="../img/common/close.png" alt="">
         </a>
         <div class="i_lightbox_title">
@@ -110,13 +114,13 @@
     @@include('layout/footer.html')
   </div>
   <scrip src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></scrip>
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></scrip>
   <script type="text/javascript" src="./vendors/slick/js/slick.min.js"></script>
 
   <script>
-  //輪播圖
-  $(document).ready(function(){
-    $('.s_others').slick({
+    //輪播圖
+    $(document).ready(function () {
+      $('.s_others').slick({
         slidesToShow: 5,
         slidesToScroll: 1,
         autoplay: true,
@@ -125,31 +129,32 @@
         dots: false,
         pauseOnHover: true,
         responsive: [{
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 3,
-            }
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 3,
+          }
         }, {
-            breakpoint: 520,
-            settings: {
-                slidesToShow: 2,
-            }
+          breakpoint: 520,
+          settings: {
+            slidesToShow: 2,
+          }
         }]
+      });
     });
-  });
 
-//popup
+    //popup
 
-  var shoppingcartbk=document.getElementById("i_shoppingCart_bk");
-  $('.s_buy').click(function(){
-    shoppingcartbk.style.display = "block";	
-  });
+    var shoppingcartbk = document.getElementById("i_shoppingCart_bk");
+    $('.s_buy').click(function () {
+      shoppingcartbk.style.display = "block";
+    });
 
-  $('.i_closeButton').click(function(){
-    shoppingcartbk.style.display = "none";	
-  });
+    $('.i_closeButton').click(function () {
+      shoppingcartbk.style.display = "none";
+    });
 
   </script>
-  
+
 </body>
+
 </html>
