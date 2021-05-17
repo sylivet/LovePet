@@ -567,6 +567,19 @@ let vm = new Vue({
       return this.allFoodSelection.filter(food => food.cata === "humanFood")
     },
   },
+  watch:{
+    totalPrice(){
+      console.log("object");
+      $(".Price").css({
+        opacity:1
+      })
+      gsap.from(".Price", {
+        duration:2, 
+        opacity:0,
+        ease:"ease"
+      })
+    }
+  },
   mounted() {
     // 卷軸
     Array.prototype.forEach.call(document.getElementsByClassName('bar'), function (el) {
