@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./vendors/slick/css/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="./vendors/slick/css/slick-theme.css"/>
+  <link rel="stylesheet" href="./css/style.css">
   <title>view</title>
   @@include('layout/style.html')
 </head>
@@ -12,6 +15,7 @@
     @@include('layout/header.html')
 
     <div class = "shopping_main">
+      <!-- @@include('./layout/shoppingCart_LightBox.html') -->
       <div class="s_ph">
         <div class="s_big_ph">
           <img src="img/mall/tent_1@2x.png" alt="">
@@ -37,19 +41,116 @@
     </div>
     <div class="s_Carousel">
       <h3>別人也買過......</h3>
-      <div class="s_others">
-        <img src="img/mall/R1@2x.png" alt="">
-        <img src="img/mall/R2@2x.png" alt="">
-        <img src="img/mall/R3@2x.png" alt="">
-        <img src="img/mall/R4@2x.png" alt="">
-        <img src="img/mall/R5@2x.png" alt="">
-      </div>
+      <section class="s_others">
+         <div class="slide_image"><img src="img/mall/R1@2x.png" ></div>
+         <div class="slide_image"><img src="img/mall/R2@2x.png"></div> 
+         <div class="slide_image"><img src="img/mall/R3@2x.png"> </div>
+         <div class="slide_image"><img src="img/mall/R4@2x.png"> </div> 
+         <div class="slide_image"><img src="img/mall/R5@2x.png"> </div>
+         <div class="slide_image"><img src="img/mall/R1@2x.png" ></div>
+         <div class="slide_image"><img src="img/mall/R2@2x.png"></div> 
+         <div class="slide_image"><img src="img/mall/R3@2x.png"> </div>
+         <div class="slide_image"><img src="img/mall/R4@2x.png"> </div> 
+         <div class="slide_image"><img src="img/mall/R5@2x.png"> </div> 
+      </section>
     </div>
+    <!-- 燈箱 -->
+    @@include('layout/shoppingCart_LightBox.html')
+    <!-- <div id="i_shoppingCart_bk" class="i_background" style="display:none">
+      <div class="i_lightbox_bk">
+        <a class="i_closeButton" >
+          <img src="../img/common/close.png" alt="">
+        </a>
+        <div class="i_lightbox_title">
+          <h2>購物車清單</h2>
+        </div>
+        <div class="i_shoppingCart bar" id="bar">
+          <table>
+            <tr>
+              <td><img src="#" alt=""></td>
+              <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+              <td>商品商品</td>
+              <td>
+                <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                <input type="text" id="number" value="1" readonly="readonly">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              </td>
+              <td>NT 100元</td>
+            </tr>
+            <tr>
+              <td><img src="#" alt=""></td>
+              <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+              <td>商品商品</td>
+              <td>
+                <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                <input type="text" id="number" value="1" readonly="readonly">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              </td>
+              <td>NT 100元</td>
+            </tr>
+            <tr>
+              <td><img src="#" alt=""></td>
+              <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+              <td>商品商品</td>
+              <td>
+                <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                <input type="text" id="number" value="1" readonly="readonly">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              </td>
+              <td>NT 100元</td>
+            </tr>
+          </table>
+          <hr>
+          <div class="i_total">
+            <h3>總價 NT 300元</h3>
+          </div>
+          <a href="s_bill.html" class="i_button">結帳</a>
+        </div>
+      </div>
+    </div> -->
     @@include('layout/footer.html')
   </div>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-</script>
+  <scrip src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></scrip>
+  <script type="text/javascript" src="./vendors/slick/js/slick.min.js"></script>
+
+  <script>
+  //輪播圖
+  $(document).ready(function(){
+    $('.s_others').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1500,
+        arrows: false,
+        dots: false,
+        pauseOnHover: true,
+        responsive: [{
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 3,
+            }
+        }, {
+            breakpoint: 520,
+            settings: {
+                slidesToShow: 2,
+            }
+        }]
+    });
+  });
+
+//popup
+
+  var shoppingcartbk=document.getElementById("i_shoppingCart_bk");
+  $('.s_buy').click(function(){
+    shoppingcartbk.style.display = "block";	
+  });
+
+  $('.i_closeButton').click(function(){
+    shoppingcartbk.style.display = "none";	
+  });
+
+  </script>
   
 </body>
 </html>

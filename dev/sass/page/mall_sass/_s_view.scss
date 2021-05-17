@@ -168,9 +168,15 @@
             border-radius: 50px;
             border: 0px;
             margin-right: 10px;
+            transition: .5s;
 
             &:hover {
               background-color: #f39800;
+            }
+
+            &:active {
+              background-color: lightgray;
+              color: white;
             }
 
 
@@ -183,20 +189,24 @@
             height: 55px;
             border-radius: 50px;
             border: 0px;
+            transition: .5s;
 
             &:hover {
               background-color: #f39800;
             }
+
+            &:active {
+              background-color: lightgray;
+              color: white;
+            }
           }
-
-
         }
 
       }
-
     }
 
     .s_Carousel {
+      width: 100%;
       background-color: #d3e0be;
       padding-top: 50px;
       padding-left: 90px;
@@ -213,7 +223,7 @@
       }
 
       h3 {
-        font-size: 40px;
+        font-size: 30px;
         font-weight: 700;
         color: #707070;
         padding-left: 10px;
@@ -224,17 +234,34 @@
           line-height: 36px;
           padding-bottom: 15px;
         }
-
       }
 
       .s_others {
-        display: flex;
-        overflow: hidden;
+        // width: 80%;
+        // margin: 0 auto;
+        // display: flex;
+        // overflow: hidden;
 
-        img {
-          flex-wrap: nowrap;
+        .slide_image {
           margin-right: 15px;
+
+          @include mobile {
+            margin-right: 0px;
+          }
+
+          @include iphoneX {
+            margin-right: 0px;
+          }
+
+          &:hover {
+            opacity: 0.5;
+            transition: 0.5s;
+          }
+        }
+
+        .slide_image img {
           max-width: 382px;
+          cursor: pointer;
 
           @include mobile {
             width: 80%;
@@ -245,5 +272,3 @@
     }
   }
 }
-
-//  }
