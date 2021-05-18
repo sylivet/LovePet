@@ -20,17 +20,17 @@ $(function(){
 });
 
 /* ----- 預約燈箱 -----*/
-Array.prototype.forEach.call(document.getElementsByClassName('bar'), function (el) {
-  new SimpleBar(el);
-});
+// Array.prototype.forEach.call(document.getElementsByClassName('bar'), function (el) {
+//   new SimpleBar(el);
+// });
 
-const myCalendar = new TavoCalendar('#my-calendar', {
-  date: new Date(),
-  blacklist: [
-      '2021-05-10', '2021-05-23'
-  ],
-  range_select: true
-});
+// const myCalendar = new TavoCalendar('#my-calendar', {
+//   date: new Date(),
+//   blacklist: [
+//       '2021-05-10', '2021-05-23'
+//   ],
+//   range_select: true
+// });
 
 /*----- 旅館Q&A -----*/
 $(function(){
