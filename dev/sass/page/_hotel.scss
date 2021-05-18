@@ -198,18 +198,6 @@
             transition: 0.5s;
             display: none;
 
-            .h_headline{
-                background-color: rgba(0, 0, 0, .3);
-                color: #ffffff;
-                font-family: "Noto Sans TC", sans-serif;
-                font-size: 16px;
-                font-weight: bold;
-                text-align: center;
-                text-align-last: center;
-                line-height: 36px;
-                display: none;
-            }
-
             .h_content{
                 background-color: rgba(0, 0, 0, .3);
                 color: #ffffff;
@@ -437,21 +425,23 @@
                 color: #F39800;
                 font-weight: bold;
                 margin-bottom: 20px;
-            }
+            }        
 
             .hotel_inquire {
+                width: 120px;
+                height: 30px;
                 background-color: #F39800;
                 color: #ffffff;
                 font-size: 16px;
-                padding: 20px 16px;
                 border: none;
                 outline: none;
                 border-radius: 30px;
+                transition: 0.5s; 
+                cursor: pointer; 
 
                 &:hover {
                     background-color: #915727;
-                    color: #ffffff;
-                    transition: 0.5s;             
+                    color: #ffffff;                                
                 }
 
                 &:active{

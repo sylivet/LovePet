@@ -7,6 +7,9 @@
 $(function(){
   $('.h_navbar').click(function(){
       $(this).parent().toggleClass('h_openmenu');
+      if($('.h_title').text()!=="請選擇房型"){
+        $('.h_title').text("請選擇房型")
+    }
   });  
 });
 
@@ -14,6 +17,19 @@ $(function(){
   $('.h_content').click(function(){
       $(this).parent().parent().toggleClass('h_openmenu').find('.h_title').text($(this).text());
   });  
+});
+
+/* ----- 預約燈箱 -----*/
+Array.prototype.forEach.call(document.getElementsByClassName('bar'), function (el) {
+  new SimpleBar(el);
+});
+
+const myCalendar = new TavoCalendar('#my-calendar', {
+  date: new Date(),
+  blacklist: [
+      '2021-05-10', '2021-05-23'
+  ],
+  range_select: true
 });
 
 /*----- 旅館Q&A -----*/
