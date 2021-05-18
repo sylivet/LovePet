@@ -569,7 +569,6 @@ let vm = new Vue({
   },
   watch:{
     totalPrice(){
-      console.log("object");
       $(".Price").css({
         opacity:1
       })
@@ -592,6 +591,28 @@ let vm = new Vue({
 
   }
 })
+
+
+// 下拉選單
+$(function () {
+  $(".mainmenu").click(function () {
+    $(".submenu").toggle();
+    $(".fa-angle-up").toggleClass("rotate");
+  });
+
+  $(".submenu").click(function () {
+    $(this).parent().prev(".mainmenu").val($(this).val());
+    $(".submenu").hide();
+    $(".fa-angle-up").removeClass("rotate");
+  });
+
+  $(".mainmenu").blur(function () {
+    $(".fa-angle-up").removeClass("rotate");
+    setTimeout(function () {
+      $(".submenu").hide();
+    }, 100);
+  });
+});
 
 
 
