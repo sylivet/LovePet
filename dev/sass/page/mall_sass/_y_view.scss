@@ -1,0 +1,77 @@
+.y_wrapper{
+  margin-top: 65px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.simu{
+  width: 42%;
+  .select_block{
+    display: flex;
+    justify-content: space-around;
+  }
+  .real{
+    margin-top: 35px;
+    width: 100%;
+    background-color: #DDDDDD;    
+    border-radius: 10%;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px -3px rgba(#000000, .5);
+    img{
+      width: 100%;
+    }
+  }
+  .fake{
+    margin-top: 35px;
+    padding: 50% 15%;
+    background-color: #DDDDDD;
+    border-radius: 10%;
+    box-shadow: 0px 0px 10px -3px rgba(#000000, .5);
+    position: relative;
+    img{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      width: 50%;
+    }
+  }
+  select {
+    width: 24%;
+    height: 36px;
+    background-color: #558B6E;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;/*取消預設框線*/
+    text-align: center;/*除了Chrome跟Edge以外都支援*/
+    text-align-last: center;/*支援Chrome跟Edge瀏覽器*/
+  }
+  .btn_icon{
+    width: 125px;
+    height: 60px;
+    margin: 35px auto;
+    border-radius: 15px;
+    background-color: #DDDDDD;
+    position: relative;
+    box-shadow: 0px 0px 10px -3px rgba(#000000, .5);
+    img{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      width: 30%;//設最大寬度，避免吃到共用檔的img100%
+    }
+  }
+}
+
+
+
+ 
+

@@ -46,6 +46,25 @@ $m_title_fs: 24px;
   }
 }
 
+@mixin m_btn_style($c,$cc,$fc) {
+    font-size: 16px;
+    width: 100px;
+    height: 0px;
+    padding: 6px 0 24px;
+    box-sizing: content-box;
+    border: none;
+    outline: 0;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    transition: .5s;
+    cursor: pointer;
+    margin-top: 20px;
+    background-color: $c;
+    &:hover{
+      background-color: $cc;
+      color: $fc;
+    }
+}
 
 
 
@@ -81,6 +100,7 @@ $m_title_fs: 24px;
     h5{
       width: 100%;
       padding: 40px 0;
+      line-height: 50px;
     }
     .m_underline_1{
       @include underline($m_line_color);
@@ -130,6 +150,7 @@ $m_title_fs: 24px;
   li{
     padding: 10px 0;
     flex-grow: 1;
+    line-height: 50px;
     @include m_aside_link()
 
   }
@@ -143,19 +164,13 @@ $m_title_fs: 24px;
     margin: 0 15px;
     font-size: 0;
     width: 50px;
+    vertical-align: top;
   }
 
   input[type="button"]{
+    
+    @include m_btn_style($m_aside_hover_color,#f39800,white);
     margin-top: 30px;
-    color: $m_font-color;
-
-    border: 0;
-    background-color: $m_aside_hover_color;
-    &:hover{
-      color: white;
-      background-color: darken($m_aside_hover_color, 20%);
-      cursor: pointer;
-    }
   }
 }
 

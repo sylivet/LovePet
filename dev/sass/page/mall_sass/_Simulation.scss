@@ -14,6 +14,7 @@
   overflow: hidden;
   // border: 1px solid #707070;
   box-shadow: 0px 0px 10px -3px rgba(#000000, .5);
+  background-color: #F7F7F7;/*暫時修補圖片白邊，圖片待解決*/
   @include notebook{
     width: 30%;
     img{
