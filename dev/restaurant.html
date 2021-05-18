@@ -199,11 +199,12 @@
         <div class="row">
           <div class="col-md-6 col-12 left">
             <div class="row">
-              <div class="col-12">
-                <select class="foodchosen" name="food" v-model="petFoodSelect">
-                  <option selected value="沙拉">請選擇寵物餐點</option>
-                  <option v-for="food in petFoodType" :value="food">{{food}}</option>
-                </select>
+              <div class="selectMenu col-12">
+                <i class="fa fa-angle-up rotate" aria-hidden="true"></i>
+                <input class="mainmenu" type="text" value="請選擇種類" readonly />
+                <div class="sub col-12">
+                  <input class="submenu" type="text" v-for="food in petFoodType" :value="food" @click="petFoodSelect = food " readonly />
+                </div>
               </div>
             </div>
             <!-- 左邊沙拉類&鮮食 -->
@@ -283,12 +284,13 @@
         <div class="row">
           <div class="col-md-6 col-12 left">
             <div class="row"> 
-              <div class="col-12">
-                <select class="foodchosen" name="food" id="" v-model="humanFoodSelect">
-                  <option selected value="美式">請選擇您的餐點</option>
-                  <option v-for="food in humanFoodType" :value="food">{{food}}</option>
-                </select>
-              </div>
+                <div class="selectMenu col-12">
+                  <i class="fa fa-angle-up rotate" aria-hidden="true"></i>
+                  <input class="mainmenu" type="text" value="請選擇種類" readonly />
+                  <div class="sub col-12">
+                    <input class="submenu" type="text" v-for="food in humanFoodType" :value="food" @click="humanFoodSelect = food " readonly />
+                  </div>
+                </div>
             </div>
             <!-- 左邊義式類&美式類 -->
             <div class="row justify-content-center">
