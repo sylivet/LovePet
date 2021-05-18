@@ -269,7 +269,8 @@ ul.personal_info{
 
 .m_wrapper section{
   input.m_btn{
-    @include m_btn();
+    @include m_btn_style($m_aside_hover_color,#f39800,white);
+    line-height: 1.4;
   }
  
 }
