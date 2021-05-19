@@ -1,7 +1,10 @@
-const root = document.querySelector('html')
+const root = document.querySelector('body')
+
+// Real cursor element
 const cursor = document.createElement('div')
 cursor.classList.add('cursor')
 root.appendChild(cursor)
+
 root.addEventListener('mousemove', (e) => {
   setPosition(cursor, e)
 })
