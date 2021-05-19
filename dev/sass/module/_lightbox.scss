@@ -305,18 +305,24 @@
 .i_selece_left,.i_selece_right{
     display: flex;
     margin-bottom: 20px;
+
     .i_select{
         @extend .i_petsname;
+        padding-left: 10px;
+        padding-right: 10px;
         margin-bottom: 0px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         width: 134px;
+
         select{
-            width: 50px;
-            margin-right: 10px;
+            width: 40px;
             margin-left: 10px;
+            margin-right: 10px;
         }
     }
 }
-
 
 //日曆
 .i_calendar{
