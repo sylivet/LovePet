@@ -1,11 +1,11 @@
-$(document).ready(function() {
-	var cursor = $(".cursor-follow");
-	$("body")
-		.mousemove(function(e) {
-			cursor
-				.css({
-					top: e.pageY - cursor.height() / 2,
-					left: e.pageX - cursor.width() / 2
-				})
-		})
-});
+const root = document.querySelector('html')
+const cursor = document.createElement('div')
+cursor.classList.add('cursor')
+root.appendChild(cursor)
+root.addEventListener('mousemove', (e) => {
+  setPosition(cursor, e)
+})
+
+function setPosition(element, e) {
+  element.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`
+}
