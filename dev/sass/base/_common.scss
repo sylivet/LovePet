@@ -45,10 +45,10 @@ img {
     display: block;
 }
 body {
-    font-family: "myFont","Noto Sans TC", sans-serif;
+    font-family: "setofont","Noto Sans TC", sans-serif;
     cursor: none;
+    margin-top: 87px;
     @include pad{
-        margin-top: 87px;
         overflow-x:visible;
         cursor: auto;
     }
