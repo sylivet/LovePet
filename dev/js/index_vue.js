@@ -35,15 +35,15 @@ let vm = new Vue({
       },
     ],
   },
-  mounted() {
+ mounted() {
     // 首頁動畫
-    var svgContainer = document.getElementById("svgContainer");
-    var animItem = bodymovin.loadAnimation({
-      wrapper: svgContainer,
-      animType: "svg",
-      loop: false,
-      path: "img/data.json",
-    });
+    // var svgContainer = document.getElementById("svgContainer");
+    // var animItem = bodymovin.loadAnimation({
+    //   wrapper: svgContainer,
+    //   animType: "svg",
+    //   loop: false,
+    //   path: "img/data.json",
+    // });
     
     // 首頁輪播圖
     var swiper = new Swiper(".newsSwiper", {
