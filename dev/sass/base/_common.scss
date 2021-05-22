@@ -48,6 +48,7 @@ body {
     font-family: "setofont","Noto Sans TC", sans-serif;
     cursor: none;
     padding-top: 87px;
+    overflow-x:hidden;
     @include pad{
         overflow-x:visible;
         cursor: auto;
