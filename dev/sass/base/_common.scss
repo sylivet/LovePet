@@ -47,7 +47,7 @@ img {
 body {
     font-family: "setofont","Noto Sans TC", sans-serif;
     cursor: none;
-    margin-top: 87px;
+    padding-top: 87px;
     @include pad{
         overflow-x:visible;
         cursor: auto;
