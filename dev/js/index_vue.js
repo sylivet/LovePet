@@ -46,7 +46,7 @@ let vm = new Vue({
         start: 'top top',
         end: 'bottom+=1000 top',
         pin: true,
-        scrub: 0.5,
+        scrub: 1,
         // markers: true
       },
       defaults: {
@@ -70,6 +70,7 @@ let vm = new Vue({
       }).to(".a8", {
         opacity: 1,
       })
+
     // 首頁輪播圖
     var swiper = new Swiper(".newsSwiper", {
       slidesPerView: 1,

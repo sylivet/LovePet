@@ -1,15 +1,31 @@
 .index{
     padding-top: 0;
+    @include mobile{
+        padding-top: 87px;
+    }
+}
+.mobile{
+    @include mobile{
+        padding-top: 54.5%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url("../img/index/0-00.png");
+        background-color: #D3E1BE;
+    }
 }
 .green{
  padding-top: 87px;
  background-color: #D3E1BE;
+ @include mobile{
+    display: none;
+}
 }
 .animate {
     padding-top: 54.5%;
     background-color: #D3E1BE;
     position: relative;
     overflow: hidden;
+
     img{
         position: absolute;
         left: 0;
