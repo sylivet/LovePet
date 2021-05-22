@@ -44,9 +44,9 @@ let vm = new Vue({
       scrollTrigger: {
         trigger: '.green',
         start: 'top top',
-        end: 'bottom+=1000 top',
+        end: 'bottom+=1500 top',
         pin: true,
-        scrub: 0.5,
+        scrub: 1,
         // markers: true
       },
       defaults: {
@@ -69,7 +69,26 @@ let vm = new Vue({
         opacity: 1,
       }).to(".a8", {
         opacity: 1,
+      }).to(".content1", {
+        opacity: 1,
+        width:"240px",
+        height: "175px",
+      }).to(".content1-1", {
+        opacity: 1,
+      }).to(".content2", {
+        opacity: 1,
+        width:"240px",
+        height: "175px",
+      }).to(".content2-1", {
+        opacity: 1,
+      }).to(".content3", {
+        opacity: 1,
+        width:"240px",
+        height: "155px",
+      }).to(".content3-1", {
+        opacity: 1,
       })
+
     // 首頁輪播圖
     var swiper = new Swiper(".newsSwiper", {
       slidesPerView: 1,
