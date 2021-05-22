@@ -1,24 +1,19 @@
-// *{
-//     outline: 1px solid orange;
-// }
-
 header {
-    
+    position: relative;
     display: flex;
     align-items: center;
+    width: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 1999;
     justify-content: space-between;
     @include pad{
         justify-content: flex-end;
-        width: 100%;
-        position: fixed;
-        top:0;
-        left: 0;
-        z-index: 1000;
-        overflow: visible;
     }
     background-color: #FFC857;
     height: 87px;
-    overflow: hidden;
+
 
     .i_logo {
         @include pad{
@@ -32,6 +27,8 @@ header {
 
     .i_navigation {
         display: flex;
+        height: 87px;
+        overflow: hidden;
         @include pad{
             display: none;
         }
@@ -233,7 +230,7 @@ header {
 .m_header{
     position: absolute;
     right: 0;
-    //transition: 1s;
+    transition: 1s;
     top: 88px;
     z-index: 10;
 
@@ -257,11 +254,14 @@ header {
     h5{
         padding: 4% 0;
         font-size: 24px;
+        
+        
         img{
             width: 20px;
             display: inline;
             margin: 0 15px ;
             opacity: 0;
+            
             
         }
         &:hover{
@@ -335,34 +335,35 @@ header {
     }
 
     input[type="button"]{
-        font-size: 19px;
-
-        margin-top: 30px;
-        color: black;
-
-        padding: 10px 30px;
-        border-radius: 20px;
-
-        border: 0;
-        background-color: #FFC857;
-
-        &:hover{
-        color: white;
-        background-color: darken(#FFC857, 20%);
+        font-size: 16px;
+        width: 100px;
+        height: 0px;
+        padding: 6px 0 24px;
+        box-sizing: content-box;
+        border: none;
+        outline: 0;
+        border-radius: 30px;
+        margin-bottom: 20px;
+        transition: .5s;
         cursor: pointer;
+        margin-top: 20px;
+        background-color: #FFC857;
+        &:hover{
+          background-color: #f39800;
+          color: white;
         }
     }
 }
 
 .m_toggle{
     right: -40vw;
-    //transition: .5s;
+    transition: .5s;
     z-index: -1;
     width: 0;
     opacity: 0;
     overflow: hidden;
 
-    display: none; //有點bug，先醬
+    //display: none; //有點bug，先醬
 
     @include pad(){
         right: -80vw;
@@ -373,7 +374,7 @@ header {
     }
 
     @include iphoneX(){
-        right: -110vw;
+        right: -100vw;
 
     }
 }

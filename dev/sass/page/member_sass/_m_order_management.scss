@@ -374,27 +374,19 @@ section .m_buy_details{
 }
 
 .m_dt_streth_btn{
-  padding: 15px;
+  padding: 0 15px;
   text-align: right;
   @include  outline_style();
-
-  input[type="button"]{
-    border: 0;
-    background-color: $m_item_title_color;
-
-    padding: 5px 30px;
-    box-sizing: content-box;
-
-    border-radius: 10px;
-    &:hover{
-      color: white;
-      background-color: darken($m_item_title_color, 20%);
-    }
-  }
 
   @include iphoneX(){
     border-radius: 0 0 15px 15px;
   }
+
+  input[type="button"]{
+    @include m_btn_style($m_item_title_color,darken($m_item_title_color,20%),white);
+    line-height: 1.2;
+  }
+
 }
 
 .m_appear{

@@ -285,12 +285,20 @@ $m_line_height: 2.5;
       font-size: $m_btn_fs;
       color: $m_item_title_color2;
       border: 0.5px solid $m_line_color;
+     
 
       @include iphoneX(){
         flex-basis: 75%;
         font-size: $m_pho_fs;
         line-height: 1.2;
       }
+    }
+  }
+
+  .m_discript{
+    p{
+      text-align: left;
+      line-height: 1.3;
     }
   }
   

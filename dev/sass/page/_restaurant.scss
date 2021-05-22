@@ -1456,9 +1456,62 @@ ol li:not(:first-child){
 } 
 }
 
+// 共用下拉選單
+.selectMenu {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  position: relative;
+  z-index: 3;
+}
 
+.sub{
+  position: absolute;
+  top: 34px;
+  left: 0;
+}
 
+.mainmenu{
+  border-radius: 5px;
+}
 
+.submenu{
+  display: none;
+}
+
+.mainmenu,.submenu {
+  text-align: center;
+  font-family: "setofont","Noto Sans TC", sans-serif;
+  width: 100%;
+  padding: 7px;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #b2b2b2;
+  color: white;
+  outline: 1px solid;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.submenu:hover {
+  background-color: #558b6e;
+}
+
+.fa-angle-up{
+  color:white;
+  position: absolute;
+  top: 5px;
+  right: 30px;
+  font-size: 20px;
+  transform: rotateZ(-180deg);
+  transform-origin: 50% 60%;
+  transition: .5s;
+}
+
+.fa-angle-up.rotate{
+  transform: rotateZ(0deg);
+}
 
 
 

@@ -105,7 +105,7 @@ let vm = new Vue({
         eng: "mainfood",
         price: 100,
         cal: "30cal",
-        imgURL: "../img/restaurant/mainFood.svg",
+        imgURL: "./img/restaurant/mainFood.svg",
         count: 1
       },
       {
@@ -115,7 +115,7 @@ let vm = new Vue({
         eng: "mainfood2",
         price: 210,
         cal: "36cal",
-        imgURL: "../img/restaurant/mainFood2.svg",
+        imgURL: "./img/restaurant/mainFood2.svg",
         count: 1
       },
       {
@@ -125,7 +125,7 @@ let vm = new Vue({
         eng: "mainfood3",
         price: 210,
         cal: "40cal",
-        imgURL: "../img/restaurant/mainFood3.svg",
+        imgURL: "./img/restaurant/mainFood3.svg",
         count: 1
       },
       {
@@ -135,7 +135,7 @@ let vm = new Vue({
         eng: "mainfood4",
         price: 160,
         cal: "42cal",
-        imgURL: "../img/restaurant/mainFood4.svg",
+        imgURL: "./img/restaurant/mainFood4.svg",
         count: 1
       },
       {
@@ -145,7 +145,7 @@ let vm = new Vue({
         eng: "meat_beef",
         price: 300,
         cal: "210cal",
-        imgURL: "../img/restaurant/meat.svg",
+        imgURL: "./img/restaurant/meat.svg",
         count: 1
       },
       {
@@ -155,7 +155,7 @@ let vm = new Vue({
         eng: "meat_pork",
         price: 200,
         cal: "160cal",
-        imgURL: "../img/restaurant/meat_pork.svg",
+        imgURL: "./img/restaurant/meat_pork.svg",
         count: 1
       },
       {
@@ -165,7 +165,7 @@ let vm = new Vue({
         eng: "meat_fish",
         price: 280,
         cal: "185cal",
-        imgURL: "../img/restaurant/fish.svg",
+        imgURL: "./img/restaurant/fish.svg",
         count: 1
       },
       {
@@ -175,7 +175,7 @@ let vm = new Vue({
         eng: "meat_shrimp",
         price: 290,
         cal: "190cal",
-        imgURL: "../img/restaurant/meat_shrimp.svg",
+        imgURL: "./img/restaurant/meat_shrimp.svg",
         count: 1
       },
       {
@@ -185,7 +185,7 @@ let vm = new Vue({
         eng: "meat_chicken",
         price: 200,
         cal: "160cal",
-        imgURL: "../img/restaurant/meat_chicken.svg",
+        imgURL: "./img/restaurant/meat_chicken.svg",
         count: 1
       },
       {
@@ -195,7 +195,7 @@ let vm = new Vue({
         eng: "meat_lamp",
         price: 200,
         cal: "160cal",
-        imgURL: "../img/restaurant/meat_lamp.svg",
+        imgURL: "./img/restaurant/meat_lamp.svg",
         count: 1
       },
       {
@@ -205,7 +205,7 @@ let vm = new Vue({
         eng: "sidefood1",
         price: 20,
         cal: "36cal",
-        imgURL: "../img/restaurant/carrot.png",
+        imgURL: "./img/restaurant/carrot.png",
         count: 1
       },
       {
@@ -215,7 +215,7 @@ let vm = new Vue({
         eng: "sidefood2",
         price: 20,
         cal: "31cal",
-        imgURL: "../img/restaurant/veg1.png",
+        imgURL: "./img/restaurant/veg1.png",
         count: 1
       },
       {
@@ -225,7 +225,7 @@ let vm = new Vue({
         eng: "sidefood3",
         price: 20,
         cal: "33cal",
-        imgURL: "../img/restaurant/sliceEgg.svg",
+        imgURL: "./img/restaurant/sliceEgg.svg",
         count: 1
       },
       {
@@ -235,7 +235,7 @@ let vm = new Vue({
         eng: "sidefood4",
         price: 20,
         cal: "62cal",
-        imgURL: "../img/restaurant/egg2.png",
+        imgURL: "./img/restaurant/egg2.png",
         count: 1
       },
       {
@@ -244,7 +244,7 @@ let vm = new Vue({
         name: "安格斯牛肉漢堡",
         price: 100,
         cal: "120cal",
-        imgURL:"../img/common/hamburger.png",
+        imgURL:"./img/restaurant/hamburger.png",
         count: 1,
         msg:"選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。"
       },
@@ -254,7 +254,7 @@ let vm = new Vue({
         name: "費城牛肉三明治",
         price: 120,
         cal: "300cal",
-        imgURL:"../img/restaurant/KxytjSo.jpg",
+        imgURL:"./img/restaurant/KxytjSo.jpg",
         count: 1,
         msg:"選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。"
       },
@@ -264,7 +264,7 @@ let vm = new Vue({
         name: "炸物拼盤",
         price: 500,
         cal: "500cal",
-        imgURL:"../img/restaurant/friedFood.jpg",
+        imgURL:"./img/restaurant/friedFood.jpg",
         count: 1,
         msg:"選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。"
       },
@@ -274,7 +274,7 @@ let vm = new Vue({
         name: "凱薩沙拉",
         price: 80,
         cal: "90cal",
-        imgURL:"../img/restaurant/CaesarSalad.jpg",
+        imgURL:"./img/restaurant/CaesarSalad.jpg",
         count: 1,
         msg:"【人氣沙拉】雞胸肉與酥脆沙拉，佐上酥脆麵包丁、培根與起司粉，淋上特製凱薩醬，經典再現。"
       },
@@ -284,7 +284,7 @@ let vm = new Vue({
         name: "碳烤豬肋排",
         price: 500,
         cal: "260cal",
-      imgURL:"../img/restaurant/porkrib.jpg",
+      imgURL:"./img/restaurant/porkrib.jpg",
         count: 1,
         msg:"選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。"
       },
@@ -294,7 +294,7 @@ let vm = new Vue({
         name: "番茄義大利麵",
         price: 200,
         cal: "220cal",
-      imgURL:"../img/common/hamburger.png",
+      imgURL:"./img/restaurant/hamburger.png",
         count: 1,
         msg:"美味的番茄肉醬義大利麵，關鍵來自於肉的選擇。選用香味十足的牛肉，再加上義式香腸做食物的基底，搭配新鮮的小番茄及濃縮的醬料，最後撒上滿滿的起士粉，讓舌尖上的味蕾，更上一層樓。"
       },
@@ -304,7 +304,7 @@ let vm = new Vue({
         name: "羅勒青醬義大利麵",
         price: 320,
         cal: "200cal",
-      imgURL:"../img/common/hamburger.png",
+      imgURL:"./img/restaurant/hamburger.png",
         count: 1,
         msg:"選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。"
       },
@@ -314,7 +314,7 @@ let vm = new Vue({
         name: "蛤蠣奶油義大利麵",
         price: 200,
         cal: "500cal",
-      imgURL:"../img/common/hamburger.png",
+      imgURL:"./img/restaurant/hamburger.png",
         count: 1,
         msg:"選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。"
       },
@@ -324,7 +324,7 @@ let vm = new Vue({
         name: "雙層美式臘腸披薩",
         price: 300,
         cal: "400cal",
-        imgURL:"../img/common/hamburger.png",
+        imgURL:"./img/restaurant/hamburger.png",
         count: 1,
         msg:"選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。"
       },
@@ -334,7 +334,7 @@ let vm = new Vue({
         name: "彩蔬鮮菇披薩",
         price: 390,
         cal: "290cal",
-        imgURL:"../img/common/hamburger.png",
+        imgURL:"./img/restaurant/hamburger.png",
         count: 1,
         msg:"選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。"
       },
@@ -344,7 +344,7 @@ let vm = new Vue({
         name: "雞肉沙拉",
         price: 200,
         cal: "200cal",
-        imgURL:"../img/restaurant/chickenSalad.jpg",
+        imgURL:"./img/restaurant/chickenSalad.jpg",
         count: 1,
         msg:"炎炎夏日，來道清爽的雞肉沙拉，讓狗狗攝取一天運動的養分，添加芹菜及番茄等涼性蔬菜，有助於清熱解暑，再加上適量的油脂，提高身體的吸收度，最後淋上特製的沙拉醬，保證毛孩們食慾大開。"
       },
@@ -354,7 +354,7 @@ let vm = new Vue({
         name: "牛肉沙拉",
         price: 299,
         cal: "230cal",
-        imgURL:"../img/restaurant/beefSalad.jpg",
+        imgURL:"./img/restaurant/beefSalad.jpg",
         count: 1,
         msg:"文案比程式還難寫"
       },
@@ -364,7 +364,7 @@ let vm = new Vue({
         name: "嫩煎鮭魚沙拉",
         price: 270,
         cal: "220cal",
-        imgURL:"../img/restaurant/fishSalad.jpg",
+        imgURL:"./img/restaurant/fishSalad.jpg",
         count: 1,
         msg:"這裡要想文案"
       },
@@ -374,7 +374,7 @@ let vm = new Vue({
         name: "低敏結實配方",
         price: 370,
         cal: "250cal",
-        imgURL:"../img/common/hamburger.png",
+        imgURL:"./img/restaurant/hamburger.png",
         count: 1,
         msg:"這裡要想文案"
       },
@@ -384,7 +384,7 @@ let vm = new Vue({
         name: "關節保養配方",
         price: 570,
         cal: "230cal",
-        imgURL:"../img/common/hamburger.png",
+        imgURL:"./img/restaurant/hamburger.png",
         count: 1,
         msg:"這裡要想文案"
       },
@@ -394,7 +394,7 @@ let vm = new Vue({
         name: "毛髮亮麗配方",
         price: 170,
         cal: "320cal",
-        imgURL:"../img/common/hamburger.png",
+        imgURL:"./img/restaurant/hamburger.png",
         count: 1,
         msg:"這裡要想文案"
       },
@@ -404,7 +404,7 @@ let vm = new Vue({
         name: "元氣滿滿­­配方",
         price: 470,
         cal: "280cal",
-        imgURL:"../img/common/hamburger.png",
+        imgURL:"./img/restaurant/hamburger.png",
         count: 1,
         msg:"豐富的牛肉肉塊，加上細碎的燉菜，還有蘋果以及枸杞，讓狗狗除了吃得開心，也達到養生的效果。讓狗狗建立好體質，遠離醫生。"
       },
@@ -569,7 +569,6 @@ let vm = new Vue({
   },
   watch:{
     totalPrice(){
-      console.log("object");
       $(".Price").css({
         opacity:1
       })
@@ -592,6 +591,28 @@ let vm = new Vue({
 
   }
 })
+
+
+// 下拉選單
+$(function () {
+  $(".mainmenu").click(function () {
+    $(".submenu").toggle();
+    $(".fa-angle-up").toggleClass("rotate");
+  });
+
+  $(".submenu").click(function () {
+    $(this).parent().prev(".mainmenu").val($(this).val());
+    $(".submenu").hide();
+    $(".fa-angle-up").removeClass("rotate");
+  });
+
+  $(".mainmenu").blur(function () {
+    $(".fa-angle-up").removeClass("rotate");
+    setTimeout(function () {
+      $(".submenu").hide();
+    }, 100);
+  });
+});
 
 
 

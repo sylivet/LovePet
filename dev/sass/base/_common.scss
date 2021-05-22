@@ -44,18 +44,21 @@ img {
     width: 100%;
     display: block;
 }
-
 body {
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: "setofont","Noto Sans TC", sans-serif;
     cursor: none;
+    padding-top: 87px;
     overflow-x:hidden;
     @include pad{
-        margin-top: 87px;
-        cursor: auto;
         overflow-x:visible;
+        cursor: auto;
     }
 }
 
 *{
     box-sizing: border-box;
+}
+
+#justfont-badge{
+    display: none!important;
 }
