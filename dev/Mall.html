@@ -61,7 +61,7 @@
 
     $('select').on('change', function () {
       if (this.value !== "") {
-        console.log(this.value);
+        // console.log(this.value);
         $('.test').css("display", "none")//change事件發生時，所有class為test的div隱藏
         $('.test').eq(this.value).css("display", "block")//test的第this.value個變為顯示(eq(索引值))
       }
