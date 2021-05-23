@@ -12,115 +12,72 @@
 
 <body>
     @@include('layout/header.html')
-    <!-- 健診報告書 -->
-    <div class="i_banner">
-        <div class="i_banner_left"><img src="img/clinic/headerTree2.png" alt=""></div>
-        <div class="i_banner_center">
-            <img class="i_clinic_center_left" src="img/clinic/header_C_left.png" alt="">
-            <h1><span>健診</span>報告書</h1>
-            <img class="i_clinic_center_right" src="img/clinic/header_C_right.png" alt="">
+    <div id="app">
+        <!-- 健診報告書 -->
+        <div class="i_banner">
+            <div class="i_banner_left"><img src="img/clinic/headerTree2.png" alt=""></div>
+            <div class="i_banner_center">
+                <img class="i_clinic_center_left" src="img/clinic/header_C_left.png" alt="">
+                <h1><span>健診</span>報告書</h1>
+                <img class="i_clinic_center_right" src="img/clinic/header_C_right.png" alt="">
+            </div>
+            <div class="i_banner_right"><img src="img/clinic/headerTree1.png" alt=""></div>
         </div>
-        <div class="i_banner_right"><img src="img/clinic/headerTree1.png" alt=""></div>
-    </div>
 
-    <div class="c_report_title">
-        <div class="c_report_title_left">
-            <p>健檢報告書號碼：1234567</p>
-            <p>寵物姓名：招財</p>
-            <p>檢查日期 ：2020/10/10</p>
-            <p>(主人)會員編號：AA55555</p>
+        <div class="c_report_title">
+            <div class="c_report_title_left">
+                <p>健檢報告書號碼：1234567</p>
+                <p>寵物姓名：樂樂</p>
+                <p>檢查日期：2020/10/10</p>
+                
+            </div>
+            <div class="c_report_title_right">
+                <select>
+                    <option>請選擇其他寵物</option>
+                    <option v-for='report in reports'>{{report.petName1}}</option>
+                    
+                </select>
+            </div>
         </div>
-        <div class="c_report_title_right">
-            <select>
-                <option>請選擇其他寵物</option>
-                <option>樂樂</option>
-                <option>進寶</option>
-            </select>
+        
+        <!-- <div class="scroll"> -->
+            <div class='c_chart-container' style="position: relative; margin:auto; max-height:500px; width:80vw">
+                <canvas id="c_myChart"></canvas>
+            </div>
+        
+        <!-- </div> -->
+        <div class="i_banner c_illustration">
+            <div class="i_banner_left"><img src="img/clinic/headerTree2.png" alt=""></div>
+        
+            <div class="i_banner_center">
+                <img class="i_clinic_center_left2" src="img/clinic/header_C_left2.png" alt="">
+                <h1><span>健檢</span>報告</h1>
+                <img class="i_clinic_center_right" src="img/clinic/header_C_right.png" alt="">
+            </div>
+            <div class="i_banner_right"><img src="img/clinic/headerTree1.png" alt=""></div>
         </div>
-    </div>
-    
-    <!-- <div class="scroll"> -->
-        <div class='c_chart-container' style="position: relative; margin:auto; max-height:500px; width:80vw">
-            <canvas id="c_myChart"></canvas>
+        <div class="c_suggestion_background">
+            <div class="c_suggestion">
+                <textarea></textarea>
+            </div>
+            <div class="c_toHomepage">
+                <a href="./clinic_index.html"><button>回到健檢首頁</button></a>
+            </div>
         </div>
-       
-    <!-- </div> -->
-    <div class="i_banner c_illustration">
-        <div class="i_banner_left"><img src="img/clinic/headerTree2.png" alt=""></div>
-    
-        <div class="i_banner_center">
-            <img class="i_clinic_center_left2" src="img/clinic/header_C_left2.png" alt="">
-            <h1><span>醫師</span>建議</h1>
-            <img class="i_clinic_center_right" src="img/clinic/header_C_right.png" alt="">
-        </div>
-        <div class="i_banner_right"><img src="img/clinic/headerTree1.png" alt=""></div>
-    </div>
-    <div class="c_suggestion_background">
-        <div class="c_suggestion">
-            <textarea></textarea>
-        </div>
-        <div class="c_toHomepage">
-            <a href="./clinic_index.html"><button>回到健檢首頁</button></a>
-        </div>
-    </div>
 
 
-    @@include('layout/footer.html')
+    </div>
+        @@include('layout/footer.html')
 
+
+    <!-- 卷軸 -->
     <script src="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.js"></script>
-    <script>
-        Array.prototype.forEach.call(document.getElementsByClassName('scroll'), function (el) {
-            new SimpleBar(el);
-        });
-    </script>
+    <!-- 圖表chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        
-        const labels = ["犬CRP", "甲狀腺功能", "進階肝膽指數", "鈣磷檢測", "血脂功能","電解質檢測","胰臟指數","影像學檢查"];
-        const data = {
-        labels: labels,
-        datasets: [{
-            label: '寵物健檢報告書',
-            data: [65, 59, 80, 81, 56, 55, 40,60],
-            backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 205, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(201, 203, 207, 0.2)'
-            ],
-            borderColor: [
-            'rgb(255, 99, 132)',
-            'rgb(255, 159, 64)',
-            'rgb(255, 205, 86)',
-            'rgb(75, 192, 192)',
-            'rgb(54, 162, 235)',
-            'rgb(153, 102, 255)',
-            'rgb(201, 203, 207)'
-            ],
-            borderWidth: 1
-        }]
-        };
-
-        const config = {
-            type: 'bar',
-            data: data,
-            options: {
-                scales: {
-                y: {
-                    beginAtZero: true
-                }
-                }
-            },
-        };
-        
-        var myChart = new Chart(
-        document.getElementById('c_myChart'),
-        config
-        );
-        </script>
+   
+    <!-- vue.js -->
+    <script src="./vendors/vue/js/vue.js"></script>
+    <script src="./js/clinic_report.js"></script>
 </body>
 
 </html>
