@@ -1,20 +1,15 @@
-// *{
-//     outline: 1px solid orange;
-// }
-
 header {
     position: relative;
     display: flex;
     align-items: center;
+    width: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 1999;
     justify-content: space-between;
     @include pad{
         justify-content: flex-end;
-        width: 100%;
-        position: fixed;
-        top:0;
-        left: 0;
-        z-index: 1000;
-        
     }
     background-color: #FFC857;
     height: 87px;
