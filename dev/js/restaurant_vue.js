@@ -277,7 +277,7 @@ let vm = new Vue({
     }
   },
   created(){
-    axios.post("php/front_end_API/select.php").then((res)=>{
+    axios.post("php/front_end_API/R_select.php").then((res)=>{
       this.allFoodMenu = res.data
     })
   },

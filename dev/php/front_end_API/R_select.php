@@ -1,5 +1,5 @@
 <?php
-    include("conn.php");
+    include("R_conn.php");
     
     //建立SQL語法
     $sql = "SELECT * FROM MEAL_DATA WHERE MEAL_STATUS = 1";
