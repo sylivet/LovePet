@@ -351,21 +351,22 @@
  
     }
     button{
-       cursor: pointer;
-       display: block;
-       margin: 0 auto;
-       font-size: 16px;
-       width: 120px;
-       height: 30px;
-       border: none;
-       outline: none;
-       border-radius: 30px;
-       margin-bottom: 20px;
-       transition: .5s;
-       text-align:center;
-       &:hover{
-         background-color: $colorOrange;
-         color: white;
-       }
+        font-family: "setofont","Noto Sans TC", sans-serif;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+        font-size: 16px;
+        width: 120px;
+        height: 30px;
+        border: none;
+        outline: none;
+        border-radius: 30px;
+        margin-bottom: 20px;
+        transition: .5s;
+        text-align:center;
+        &:hover{
+            background-color: $colorOrange;
+            color: white;
+        }
     }
  }
