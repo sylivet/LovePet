@@ -10,15 +10,15 @@ Vue.component("booking", {
   computed: {
     totalPrice() {
       var result = this.foods.reduce(function (a, b) {
-        return a + b.price * b.count;
+        return a + b.MEAL_PRICE * b.MEAL_COUNT;
       }, 0)
       return result;
     },
     filterCataToPets() {
-      return this.foods.filter(food => food.cata === "petsFood")
+      return this.foods.filter(food => food.MEAL_CATA === "petsFood")
     },
     filterCataToHuman() {
-      return this.foods.filter(food => food.cata === "humanFood")
+      return this.foods.filter(food => food.MEAL_CATA === "humanFood")
     },
   }
 })
@@ -55,6 +55,10 @@ Vue.component("addToHumanMenu", {
   methods: {
     removeItem(fid, menu) {
       this.$emit('removefood', fid, menu)
+    },
+    addCount(){
+      this.menu.MEAL_COUNT =parseInt(this.menu.MEAL_COUNT)
+      this.menu.MEAL_COUNT++
     }
   },
 })
@@ -65,6 +69,10 @@ Vue.component("addToPetsMenu", {
   methods: {
     removeItem(fid, menu) {
       this.$emit('removefood', fid, menu)
+    },
+    addCount(){
+      this.menu.MEAL_COUNT =parseInt(this.menu.MEAL_COUNT)
+      this.menu.MEAL_COUNT++
     }
   },
 })
@@ -97,325 +105,14 @@ let vm = new Vue({
     isDogOut:false, // 狗動畫啟閉
     forLightBoxInfo:[], // 食物燈箱資訊
     i:0,
-    allFoodMenu:[
-      {
-        cata: "petsCustom",
-        type: "乾糧",
-        name: "基本款餅乾",
-        eng: "mainfood",
-        price: 100,
-        cal: "30cal",
-        imgURL: "./img/restaurant/mainFood.svg",
-        count: 1
-      },
-      {
-        cata: "petsCustom",
-        type: "乾糧",
-        name: "小魚造型餅乾",
-        eng: "mainfood2",
-        price: 210,
-        cal: "36cal",
-        imgURL: "./img/restaurant/mainFood2.svg",
-        count: 1
-      },
-      {
-        cata: "petsCustom",
-        type: "乾糧",
-        name: "骨頭造型餅乾",
-        eng: "mainfood3",
-        price: 210,
-        cal: "40cal",
-        imgURL: "./img/restaurant/mainFood3.svg",
-        count: 1
-      },
-      {
-        cata: "petsCustom",
-        type: "乾糧",
-        name: "圈圈造型餅乾",
-        eng: "mainfood4",
-        price: 160,
-        cal: "42cal",
-        imgURL: "./img/restaurant/mainFood4.svg",
-        count: 1
-      },
-      {
-        cata: "petsCustom",
-        type: "主食",
-        name: "澳洲牛肉",
-        eng: "meat_beef",
-        price: 300,
-        cal: "210cal",
-        imgURL: "./img/restaurant/meat.svg",
-        count: 1
-      },
-      {
-        cata: "petsCustom",
-        type: "主食",
-        name: "台灣正港豬肉",
-        eng: "meat_pork",
-        price: 200,
-        cal: "160cal",
-        imgURL: "./img/restaurant/meat_pork.svg",
-        count: 1
-      },
-      {
-        cata: "petsCustom",
-        type: "主食",
-        name: "冰島鱈魚",
-        eng: "meat_fish",
-        price: 280,
-        cal: "185cal",
-        imgURL: "./img/restaurant/fish.svg",
-        count: 1
-      },
-      {
-        cata: "petsCustom",
-        type: "主食",
-        name: "澎湖大明蝦",
-        eng: "meat_shrimp",
-        price: 290,
-        cal: "190cal",
-        imgURL: "./img/restaurant/meat_shrimp.svg",
-        count: 1
-      },
-      {
-        cata: "petsCustom",
-        type: "主食",
-        name: "雞腿+雞胸",
-        eng: "meat_chicken",
-        price: 200,
-        cal: "160cal",
-        imgURL: "./img/restaurant/meat_chicken.svg",
-        count: 1
-      },
-      {
-        cata: "petsCustom",
-        type: "主食",
-        name: "紐西蘭帶骨羊腿",
-        eng: "meat_lamp",
-        price: 200,
-        cal: "160cal",
-        imgURL: "./img/restaurant/meat_lamp.svg",
-        count: 1
-      },
-      {
-        cata: "petsCustom",
-        type: "配菜",
-        name: "紅蘿蔔",
-        eng: "sidefood1",
-        price: 20,
-        cal: "36cal",
-        imgURL: "./img/restaurant/carrot.png",
-        count: 1
-      },
-      {
-        cata: "petsCustom",
-        type: "配菜",
-        name: "青菜",
-        eng: "sidefood2",
-        price: 20,
-        cal: "31cal",
-        imgURL: "./img/restaurant/veg1.png",
-        count: 1
-      },
-      {
-        cata: "petsCustom",
-        type: "配菜",
-        name: "放山雞的蛋",
-        eng: "sidefood3",
-        price: 20,
-        cal: "33cal",
-        imgURL: "./img/restaurant/sliceEgg.svg",
-        count: 1
-      },
-      {
-        cata: "petsCustom",
-        type: "配菜",
-        name: "酪梨",
-        eng: "sidefood4",
-        price: 20,
-        cal: "62cal",
-        imgURL: "./img/restaurant/egg2.png",
-        count: 1
-      },
-      {
-        cata: "humanFood",
-        type: "美式",
-        name: "安格斯牛肉漢堡",
-        price: 100,
-        cal: "120cal",
-        imgURL:"./img/restaurant/hamburger.png",
-        count: 1,
-        msg:"選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。"
-      },
-      {
-        cata: "humanFood",
-        type: "美式",
-        name: "費城牛肉三明治",
-        price: 120,
-        cal: "300cal",
-        imgURL:"./img/restaurant/KxytjSo.jpg",
-        count: 1,
-        msg:"選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。"
-      },
-      {
-        cata: "humanFood",
-        type: "美式",
-        name: "炸物拼盤",
-        price: 500,
-        cal: "500cal",
-        imgURL:"./img/restaurant/friedFood.jpg",
-        count: 1,
-        msg:"選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。"
-      },
-      {
-        cata: "humanFood",
-        type: "美式",
-        name: "凱薩沙拉",
-        price: 80,
-        cal: "90cal",
-        imgURL:"./img/restaurant/CaesarSalad.jpg",
-        count: 1,
-        msg:"【人氣沙拉】雞胸肉與酥脆沙拉，佐上酥脆麵包丁、培根與起司粉，淋上特製凱薩醬，經典再現。"
-      },
-      {
-        cata: "humanFood",
-        type: "美式",
-        name: "碳烤豬肋排",
-        price: 500,
-        cal: "260cal",
-      imgURL:"./img/restaurant/porkrib.jpg",
-        count: 1,
-        msg:"選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。"
-      },
-      {
-        cata: "humanFood",
-        type: "義式",
-        name: "番茄義大利麵",
-        price: 200,
-        cal: "220cal",
-      imgURL:"./img/restaurant/hamburger.png",
-        count: 1,
-        msg:"美味的番茄肉醬義大利麵，關鍵來自於肉的選擇。選用香味十足的牛肉，再加上義式香腸做食物的基底，搭配新鮮的小番茄及濃縮的醬料，最後撒上滿滿的起士粉，讓舌尖上的味蕾，更上一層樓。"
-      },
-      {
-        cata: "humanFood",
-        type: "義式",
-        name: "羅勒青醬義大利麵",
-        price: 320,
-        cal: "200cal",
-      imgURL:"./img/restaurant/hamburger.png",
-        count: 1,
-        msg:"選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。"
-      },
-      {
-        cata: "humanFood",
-        type: "義式",
-        name: "蛤蠣奶油義大利麵",
-        price: 200,
-        cal: "500cal",
-      imgURL:"./img/restaurant/hamburger.png",
-        count: 1,
-        msg:"選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。"
-      },
-      {
-        cata: "humanFood",
-        type: "義式",
-        name: "雙層美式臘腸披薩",
-        price: 300,
-        cal: "400cal",
-        imgURL:"./img/restaurant/hamburger.png",
-        count: 1,
-        msg:"選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。"
-      },
-      {
-        cata: "humanFood",
-        type: "義式",
-        name: "彩蔬鮮菇披薩",
-        price: 390,
-        cal: "290cal",
-        imgURL:"./img/restaurant/hamburger.png",
-        count: 1,
-        msg:"選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。"
-      },
-      {
-        cata: "petsFood",
-        type: "沙拉",
-        name: "雞肉沙拉",
-        price: 200,
-        cal: "200cal",
-        imgURL:"./img/restaurant/chickenSalad.jpg",
-        count: 1,
-        msg:"炎炎夏日，來道清爽的雞肉沙拉，讓狗狗攝取一天運動的養分，添加芹菜及番茄等涼性蔬菜，有助於清熱解暑，再加上適量的油脂，提高身體的吸收度，最後淋上特製的沙拉醬，保證毛孩們食慾大開。"
-      },
-      {
-        cata: "petsFood",
-        type: "沙拉",
-        name: "牛肉沙拉",
-        price: 299,
-        cal: "230cal",
-        imgURL:"./img/restaurant/beefSalad.jpg",
-        count: 1,
-        msg:"文案比程式還難寫"
-      },
-      {
-        cata: "petsFood",
-        type: "沙拉",
-        name: "嫩煎鮭魚沙拉",
-        price: 270,
-        cal: "220cal",
-        imgURL:"./img/restaurant/fishSalad.jpg",
-        count: 1,
-        msg:"這裡要想文案"
-      },
-      {
-        cata: "petsFood",
-        type: "鮮食",
-        name: "低敏結實配方",
-        price: 370,
-        cal: "250cal",
-        imgURL:"./img/restaurant/hamburger.png",
-        count: 1,
-        msg:"這裡要想文案"
-      },
-      {
-        cata: "petsFood",
-        type: "鮮食",
-        name: "關節保養配方",
-        price: 570,
-        cal: "230cal",
-        imgURL:"./img/restaurant/hamburger.png",
-        count: 1,
-        msg:"這裡要想文案"
-      },
-      {
-        cata: "petsFood",
-        type: "鮮食",
-        name: "毛髮亮麗配方",
-        price: 170,
-        cal: "320cal",
-        imgURL:"./img/restaurant/hamburger.png",
-        count: 1,
-        msg:"這裡要想文案"
-      },
-      {
-        cata: "petsFood",
-        type: "鮮食",
-        name: "元氣滿滿­­配方",
-        price: 470,
-        cal: "280cal",
-        imgURL:"./img/restaurant/hamburger.png",
-        count: 1,
-        msg:"豐富的牛肉肉塊，加上細碎的燉菜，還有蘋果以及枸杞，讓狗狗除了吃得開心，也達到養生的效果。讓狗狗建立好體質，遠離醫生。"
-      },
-    ],
+    allFoodMenu:[],
   },
   methods: {
     // 客製寵美食下一步
     choosePetCustomFood(food) {
       if (this.petCustomFoodSelection.indexOf(food) == -1) {
         this.petCustomFoodSelection.push(food);
-        switch(food.type){
+        switch(food.MEAL_TYPE){
           case "乾糧" :
             this.petCustomFoodSelect = "主食";
             break;
@@ -467,19 +164,19 @@ let vm = new Vue({
       this.i+= 1;
       var eachItem=[];
       this.petCustomFoodSelection.forEach(function(item){
-        eachItem.push(item.name)
+        eachItem.push(item.MEAL_NAME)
       });
     
       let customPetFood ={
-        cata: "petsFood",
-        type: "",
-        name: `客製寵美食${this.i}`,
+        MEAL_CATA: "petsFood",
+        MEAL_TYPE: "",
+        MEAL_NAME: `客製寵美食${this.i}`,
         eachItem: eachItem.join("、"),
         eng:"",
-        price: this.customTotalPrice,
-        cal: "",
-        imgURL: "",
-        count: 1
+        MEAL_PRICE: this.customTotalPrice,
+        MEAL_CAL: "",
+        MEAL_IMG: "",
+        MEAL_COUNT: 1
       };
       this.allFoodSelection.push(customPetFood)
       this.petCustomFoodSelect = "乾糧";
@@ -505,8 +202,8 @@ let vm = new Vue({
     },
     // 移除菜單
     remove(fid, menu) {
-      if (menu.count > 1) {
-        menu.count -= 1;
+      if (menu.MEAL_COUNT > 1) {
+        menu.MEAL_COUNT -= 1;
       } else {
         let yes = confirm("確定移除?")
         if (yes) {
@@ -526,7 +223,7 @@ let vm = new Vue({
     //菜單總價
     totalPrice() {
       var result = this.allFoodSelection.reduce((a, b) => {
-        return a + b.price * b.count;
+        return a + b.MEAL_PRICE * b.MEAL_COUNT;
       }, 0)
       return result;
     },
@@ -534,37 +231,37 @@ let vm = new Vue({
     // 客製寵美食總價
     customTotalPrice() {
       var result = this.petCustomFoodSelection.reduce((a, b)=>{
-        return a + b.price * b.count;
+        return a + b.MEAL_PRICE * b.MEAL_COUNT;
       }, 0)
       return result;
     },
     // 分類鮮食
     filterTypeToFresh() {
-      return this.allFoodMenu.filter(food => food.type === "鮮食")
+      return this.allFoodMenu.filter(food => food.MEAL_TYPE === "鮮食")
     },
     // 分類沙拉
     filterTypeToSalad() {
-      return this.allFoodMenu.filter(food => food.type === "沙拉")
+      return this.allFoodMenu.filter(food => food.MEAL_TYPE === "沙拉")
     },
     // 分類美式
     filterTypeToUS() {
-      return this.allFoodMenu.filter(food => food.type === "美式")
+      return this.allFoodMenu.filter(food => food.MEAL_TYPE === "美式")
     },
     // 分類義式
     filterTypeToItaly() {
-      return this.allFoodMenu.filter(food => food.type === "義式")
+      return this.allFoodMenu.filter(food => food.MEAL_TYPE === "義式")
     },
     // 分類客製寵食
     filterCataToPetsCustom() {
-      return this.allFoodMenu.filter(food =>food.cata === "petsCustom")
+      return this.allFoodMenu.filter(food =>food.MEAL_CATA === "petsCustom")
     },
     // 分類寵物菜單
     filterMenuToPets() {
-      return this.allFoodSelection.filter(food => food.cata === "petsFood")
+      return this.allFoodSelection.filter(food => food.MEAL_CATA === "petsFood")
     },
     // 分類人類菜單
     filterMenuToHuman() {
-      return this.allFoodSelection.filter(food => food.cata === "humanFood")
+      return this.allFoodSelection.filter(food => food.MEAL_CATA === "humanFood")
     },
   },
   watch:{
@@ -578,6 +275,11 @@ let vm = new Vue({
         ease:"ease"
       })
     }
+  },
+  created(){
+    axios.post("php/front_end_API/select.php").then((res)=>{
+      this.allFoodMenu = res.data
+    })
   },
   mounted() {
     // 卷軸
