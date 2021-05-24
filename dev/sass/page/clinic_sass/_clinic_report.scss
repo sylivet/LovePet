@@ -52,12 +52,12 @@
    @include iphoneX{
       display: block;
       margin:0 auto;
-   }
+    }
     > p{
         font-size: 19px;
         margin-left: 70px;
         margin-top: 36px;
-   }
+    }
     ul{
         display: flex;
         margin-left: 60px;
@@ -65,14 +65,14 @@
          display: block;
          margin-left: 150px;
       }
-  }
+    }
     ul li{
         margin: 0 15px;
         height:22px;
         @include iphoneX{
          margin:0 5px;
       }
-  }
+    }
     ul>li:nth-child(1){
         margin-top: 36px;
         background-color:#FB0000;
@@ -97,16 +97,11 @@
        text-align:center;
        line-height: 22px;
        
-   }
+    }
 }
+
 .c_chart-container{
-    font-family: "setofont","Noto Sans TC", sans-serif;
-}
-#c_myChart{
-    
-}
-.c_chart-container{
-   margin-bottom: 50px;
+    margin-bottom: 50px;
 }
 
 .c_illustration{
