@@ -5,7 +5,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>clinic_check</title>
+  <script src="./vendors/jquery/jquery-3.5.1.slim.min.js"></script>
+  <!-- <script src="./js/check.js"></script> -->
+  <script src="./vendors/vue/js/vue.js"></script>
+
+  <title>clinic_check</title>
   @@include('layout/style.html')
 </head>
 
@@ -25,244 +29,455 @@
       <div class="i_banner_right"><img src="img/clinic/headerTree1.png" alt=""></div>
     </div>
 
-    <div class="check_main">
+    <div class="check_main" id="check_main">
       <div class="c_left_box">
 
         <!-- 下拉選單 -->
-        <select>
+        <!-- <select>
           <option>請選擇您的寵物</option>
           <option>狗</option>
           <option>貓</option>
-        </select>
+        </select> -->
+        <!-- 套餐 -->
+        <div class="c_check" >
+          <!-- 套餐1. -->
+          <div class="c_set" id="c_set1">         
+              <div class="c_set_title">
+                <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
+                <h3>快速篩檢套餐<br>4000元</h3>
+                <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
+              </div>
+              <div class="c_set_content">
+                <ul>
+                  <li class="alpha">01</li>
+                  <li class="item">基礎理學檢查</li>
+                </ul>
+                <ul>
+                  <li class="alpha">02</li>
+                  <li class="item">重大傳染病篩檢</li>
+                </ul>
+                <ul>
+                  <li class="alpha">03</li>
+                  <li class="item">腎臟病早期篩檢</li>
+                </ul>
+                <ul>
+                  <li class="alpha">04</li>
+                  <li class="item">血液常規</li>
+                </ul>
+                <ul>
+                  <li class="alpha">05</li>
+                  <li class="item">血糖檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">06</li>
+                  <li class="item">血清蛋白質檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">07</li>
+                  <li class="item">腎指數檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">08</li>
+                  <li class="item">肝指數檢測</li>
+                </ul>
+              </div>
+              <div class="addMenu">
+                <button @click="content='c-set-1'" id="A1001" class="addButton">加入
+                <input type="hidden" value="checkdog@2x.png|快速篩檢套餐|3000元"></button>
+              </div>
+              <!-- <component :is="content"></component> -->
 
-        <div class="c_check">
-       
-          <!-- 套餐 -->
-          <div class="c_set">
-            <div class="c_set_title">
-              <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-              <h3>快速篩檢套餐<br>特價3000元</h3>
-            </div>
-            <div class="c_set_content">
-              <ul>
-                <li class="alpha">01</li>
-                <li class="item">基礎理學檢查</li>
-              </ul>
-              <ul>
-                <li class="alpha">02</li>
-                <li class="item">重大傳染病篩檢</li>
-              </ul>
-              <ul>
-                <li class="alpha">03</li>
-                <li class="item">腎臟病早期篩檢</li>
-              </ul>
-              <ul>
-                <li class="alpha">04</li>
-                <li class="item">血液常規</li>
-              </ul>
-              <ul>
-                <li class="alpha">05</li>
-                <li class="item">血糖檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">06</li>
-                <li class="item">血清蛋白質檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">07</li>
-                <li class="item">腎指數檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">08</li>
-                <li class="item">肝指數檢測</li>
-              </ul>
-            </div>
-            <div>
-              <button>加入</button>
-              <input type="hidden" value="快速篩檢|check1@2x.png|3000">
-            </div>
+          </div> 
+          <!-- 套餐2 -->
+          <div class="c_set" id="c_set2">
+              <div class="c_set_title">
+                <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
+                <h3>進階健檢套餐<br>9500元&nbsp;<span>(包含上列01~08項)</span></h3>
+                <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
+              </div>
+              <div class="c_set_content">
+                <ul>
+                  <li class="alpha">09</li>
+                  <li class="item">進階肝膽指數檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">10</li>
+                  <li class="item">鈣磷檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">11</li>
+                  <li class="item">血脂功能檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">12</li>
+                  <li class="item">電解質檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">13</li>
+                  <li class="item">胰臟指數檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">14</li>
+                  <li class="item">影像學檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">15</li>
+                  <li class="item">甲狀腺功能檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">16</li>
+                  <li class="item">消化試驗</li>
+                </ul>
+              </div>
+              <span class="mobile_span">(包含上列01~08項)</span>
+              <div class="addMenu">
+                <button @click="content='c-set-2'" id="A1002" class="addButton">加入
+                <input type="hidden" value="checkdog@2x.png|進階健檢套餐|4500元"></button>
+              </div>
+              <component :is="content"></component>
           </div>
-
-          <div class="c_set">
-            <div class="c_set_title">
-              <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-              <h3>進階健檢套餐<br>特價4500元&nbsp;<span>(包含上列01~08項)</span></h3>
-            </div>
-            <div class="c_set_content">
-              <ul>
-                <li class="alpha">09</li>
-                <li class="item">進階肝膽指數檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">10</li>
-                <li class="item">鈣磷檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">11</li>
-                <li class="item">血脂功能檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">12</li>
-                <li class="item">電解質檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">13</li>
-                <li class="item">胰臟指數檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">14</li>
-                <li class="item">影像學檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">15</li>
-                <li class="item">甲狀腺功能檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">16</li>
-                <li class="item">犬CRP檢測</li>
-              </ul>
-            </div>
-            <span class="mobile_span">(包含上列01~08項)</span>
-            <div>
-              <button>加入</button>
-              <input type="hidden" value="進階健檢|check2@2x.png|4500">
-            </div>
-          </div>
-
-          <div class="c_set">
-            <div class="c_set_title">
-              <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-              <h3>熟齡健檢套餐<br>特價7500元&nbsp;<span>(包含上列01~16項)</span></h3>
-            </div>
-            
-            <div class="c_set_content">
-              <ul>
-                <li class="alpha">17</li>
-                <li class="item">果糖胺檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">18</li>
-                <li class="item">進階眼科檢查</li>
-              </ul>
-              <ul>
-                <li class="alpha">19</li>
-                <li class="item">糞便檢查</li>
-              </ul>
-              <ul>
-                <li class="alpha">20</li>
-                <li class="item">尿液檢查</li>
-              </ul>
-              <ul>
-                <li class="alpha">21</li>
-                <li class="item">快速心電圖檢查</li>
-              </ul>
-              <ul>
-                <li class="alpha">22</li>
-                <li class="item">腹腔超音波</li>
-              </ul>
-              <ul>
-                <li class="alpha">23</li>
-                <li class="item">心臟超音波</li>
-              </ul>
-              <ul>
-                <li class="alpha">24</li>
-                <li class="item">胸腔X光</li>
-              </ul>
-            </div>
-            <span class="mobile_span">(包含上列01~16項)</span>
-            <div>
-              <input type="hidden" value="熟齡健檢|check3@2x.png|7500">
-              <button>加入</button>
-            </div>
-          </div>
+          <!-- 套餐3. -->
+          <div class="c_set" id="c_set3">
+              <div class="c_set_title">
+                <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
+                <h3>熟齡健檢套餐<br>17000元&nbsp;<span>(包含上列01~16項)</span></h3>
+                <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
+              </div>
+              
+              <div class="c_set_content">
+                <ul>
+                  <li class="alpha">17</li>
+                  <li class="item">果糖胺檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">18</li>
+                  <li class="item">進階眼科檢查</li>
+                </ul>
+                <ul>
+                  <li class="alpha">19</li>
+                  <li class="item">糞便檢查</li>
+                </ul>
+                <ul>
+                  <li class="alpha">20</li>
+                  <li class="item">尿液檢查</li>
+                </ul>
+                <ul>
+                  <li class="alpha">21</li>
+                  <li class="item">快速心電圖檢查</li>
+                </ul>
+                <ul>
+                  <li class="alpha">22</li>
+                  <li class="item">腹腔超音波</li>
+                </ul>
+                <ul>
+                  <li class="alpha">23</li>
+                  <li class="item">心臟超音波</li>
+                </ul>
+                <ul>
+                  <li class="alpha">24</li>
+                  <li class="item">胸腔X光</li>
+                </ul>
+              </div>
+              <span class="mobile_span">(包含上列01~16項)</span>
+              <div class="addMenu">
+                <button @click="content='c-set-3'" id="A1003" class="addButton">加入
+                <input type="hidden" value="checkdog@2x.png|熟齡健檢套餐|7500元"></button>
+              </div>
+              <component :is="content"></component>
+          </div> 
           <!-- 加價購 -->
           <div class="c_plus">
-            <div class="c_plus_title">
-              <img src="./img/clinic/checkplus@2x.png">
-              <h3>加價購&nbsp;<span>(最多可選2項)</span></h3>
-            </div>
-            <p>下列項目任選2項可享9折加價購</p>
-            <div class="c_plus_content">
-              <ul>
-                <li class="alpha">A</li>
-                <li class="item">血球12項檢測</li>
-                <li class="cost">2000元</li>
-                <li> <img src="./img/clinic/plus@2x.png" class="plus_button"></li>
-              </ul>
-              <ul>
-                <li class="alpha">B</li>
-                <li class="item">消化試驗</li>
-                <li class="cost">500元</li>
-                <li> <img src="./img/clinic/plus@2x.png" class="plus_button"></li>
-              </ul>
-              <ul>
-                <li class="alpha">C</li>
-                <li class="item">四合一快篩</li>
-                <li class="cost">1000元</li>
-                <li> <img src="./img/clinic/plus@2x.png" class="plus_button"></li>
-              </ul>
-              <ul>
-                <li class="alpha">D</li>
-                <li class="item">血壓測量</li>
-                <li class="cost">200元</li>
-                <li> <img src="./img/clinic/plus@2x.png" class="plus_button"></li>
-              </ul>
-              <ul>
-                <li class="alpha">E</li>
-                <li class="item">血型測定</li>
-                <li class="cost">2500元</li>
-                <li> <img src="./img/clinic/plus@2x.png" class="plus_button"></li>
-              </ul>
-              <ul>
-                <li class="alpha">F</li>
-                <li class="item">進階血液檢驗</li>
-                <li class="cost">3600元</li>
-                <li> <img src="./img/clinic/plus@2x.png" class="plus_button"></li>
-              </ul>
-              <ul>
-                <li class="alpha">G</li>
-                <li class="item">基礎血液檢驗</li>
-                <li class="cost">1200元</li>
-                <li> <img src="./img/clinic/plus@2x.png" class="plus_button"></li>
-              </ul>
-              <ul>
-                <li class="alpha">H</li>
-                <li class="item">尿中微量蛋白</li>
-                <li class="cost">800元</li>
-                <li> <img src="./img/clinic/plus@2x.png" class="plus_button"></li>
-              </ul>
-            </div>
-            
+          <div class="c_plus_title">
+            <img src="./img/clinic/checkplus@2x.png">
+            <h3>加價購&nbsp;<span>(最多可選2項)</span></h3>
           </div>
+          <p>下列項目任選2項可享9折加價購</p>
+          <div class="c_plus_content">
+            <ul id="plus25">
+              <li class="alpha">25</li>
+              <li class="item">犬血球12項檢測</li>
+              <li class="cost">2000元</li>
+              <li> <img src="./img/clinic/plus@2x.png" class="plus_button" @click="content='plusButton'"></li>
+              <component :is="content"></component>
+            </ul>
+            <ul id="plus26">
+              <li class="alpha">26</li>
+              <li class="item">犬CRP檢測</li>
+              <li class="cost">500元</li>
+              <li> <img src="./img/clinic/plus@2x.png" class="plus_button" ></li>
+            </ul>
+            <ul id="plus27">
+              <li class="alpha">27</li>
+              <li class="item">犬四合一快篩</li>
+              <li class="cost">1000元</li>
+              <li> <img src="./img/clinic/plus@2x.png" class="plus_button" id="plusButton"></li>
+            </ul>
+            <ul id="plus28">
+              <li class="alpha">28</li>
+              <li class="item">犬血型測定</li>
+              <li class="cost">2500元</li>
+              <li> <img src="./img/clinic/plus@2x.png" class="plus_button" id="plusButton"></li>
+            </ul>
+            <ul id="plus29">
+              <li class="alpha">29</li>
+              <li class="item">犬進階血液檢驗</li>
+              <li class="cost">3600元</li>
+              <li> <img src="./img/clinic/plus@2x.png" class="plus_button" id="plusButton"></li>
+            </ul>
+            <ul id="plus30">
+              <li class="alpha">30</li>
+              <li class="item">犬尿中微量蛋白</li>
+              <li class="cost">800元</li>
+              <li> <img src="./img/clinic/plus@2x.png" class="plus_button" @click="content='plusButtonH'"></li>
+              <component :is="content"></component>                         
+            </ul>  
+            <ul id="plus31">
+              <li class="alpha">31</li>
+              <li class="item">貓愛滋</li>
+              <li class="cost">700元</li>
+              <li> <img src="./img/clinic/plus@2x.png" class="plus_button" @click="content='plusButtonH'"></li>
+              <component :is="content"></component>                         
+            </ul>                 
+            <ul id="plus32">
+              <li class="alpha">32</li>
+              <li class="item">貓白血病</li>
+              <li class="cost">800元</li>
+              <li> <img src="./img/clinic/plus@2x.png" class="plus_button" @click="content='plusButtonH'"></li>
+              <component :is="content"></component>                         
+            </ul>             
+          </div>
+        
+           </div>
         </div>
+        
       </div>
-
+      
       <div class="c_right_box">
         <div class= "clinic_order">
           <h1>健檢項目</h1>
-          <div class="set"></div>
-        
+          <div class="set" id="newSet">
+            <c-set-1></c-set-1>
+             <component :is="content"></component>
+          
+          </div>
+          
           <h3>加價購</h3>
-          <div class="c_plus_1"></div>
-          <div class="c_plus_2"></div>
+          <div class="c_plus_1" id = "plus_1"></div>
+          <script type="text/x-template" id="plus_1"></script>
+          <div class="c_plus_2" id = "plus_2"></div>
          
           <h3 class="c_price">總價NT5130元</h3>
           <button>預約健檢</button>
 
         </div>
-
-          <a href="clinic_index.html"><button class="back_clinic">回健檢首頁</button></a>
-        
-        
-      </div>
+          <a href="clinic_index.html"><button class="back_clinic">回健檢首頁</button></a>    
+      </div>   
       
-    </div>
-    
+    </div>    
   </div>
+
   @@include('layout/footer.html')
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- //套餐 -->
+
+
+<script>
+    Vue.component('c-set-1',{
+      template: `
+      <div class="c_set" id="c_set1" style="width:100%">         
+              <div class="c_set_title">
+                <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
+                <h3>快速篩檢套餐<br>4000元</h3>
+                <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
+              </div>
+              <div class="c_set_content">
+                <ul>
+                  <li class="alpha">01</li>
+                  <li class="item">基礎理學檢查</li>
+                </ul>
+                <ul>
+                  <li class="alpha">02</li>
+                  <li class="item">重大傳染病篩檢</li>
+                </ul>
+                <ul>
+                  <li class="alpha">03</li>
+                  <li class="item">腎臟病早期篩檢</li>
+                </ul>
+                <ul>
+                  <li class="alpha">04</li>
+                  <li class="item">血液常規</li>
+                </ul>
+                <ul>
+                  <li class="alpha">05</li>
+                  <li class="item">血糖檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">06</li>
+                  <li class="item">血清蛋白質檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">07</li>
+                  <li class="item">腎指數檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">08</li>
+                  <li class="item">肝指數檢測</li>
+                </ul>
+              </div>
+          </div> 
+      `,
+    
+       
+    });
+
+    new Vue({
+          el: '#c_set1',
+          data: {content: '', 
+              },
+  }); 
+//   new Vue({
+//       el: '#check_main',
+//       data: {
+//         content: '', 
+//           },
+// }); 
+  
+
+ </script>
+<script>
+    Vue.component('c-set-2',{
+            template: `
+            <div class="c_set" id="c_set2" style="width:100%">
+              <div class="c_set_title">
+                <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
+                <h3>進階健檢套餐<br>9500元&nbsp;<span>(包含上列01~08項)</span></h3>
+                <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
+              </div>
+              <div class="c_set_content">
+                <ul>
+                  <li class="alpha">09</li>
+                  <li class="item">進階肝膽指數檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">10</li>
+                  <li class="item">鈣磷檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">11</li>
+                  <li class="item">血脂功能檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">12</li>
+                  <li class="item">電解質檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">13</li>
+                  <li class="item">胰臟指數檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">14</li>
+                  <li class="item">影像學檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">15</li>
+                  <li class="item">甲狀腺功能檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">16</li>
+                  <li class="item">消化試驗</li>
+                </ul>
+              </div>
+              <span class="mobile_span">(包含上列01~08項)</span>
+          </div>
+            `,
+        });
+
+        new Vue({
+          el: '#c_set2',
+          data: {content: '', 
+              },
+  }); 
   </script>
-</body>
+  <script>  
+     Vue.component('c-set-3',{
+            template: `
+            <div class="c_set" id="c_set3" style="width:100%">
+              <div class="c_set_title">
+                <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
+                <h3>熟齡健檢套餐<br>17000元&nbsp;<span>(包含上列01~16項)</span></h3>
+                <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
+              </div>
+              
+              <div class="c_set_content">
+                <ul>
+                  <li class="alpha">17</li>
+                  <li class="item">果糖胺檢測</li>
+                </ul>
+                <ul>
+                  <li class="alpha">18</li>
+                  <li class="item">進階眼科檢查</li>
+                </ul>
+                <ul>
+                  <li class="alpha">19</li>
+                  <li class="item">糞便檢查</li>
+                </ul>
+                <ul>
+                  <li class="alpha">20</li>
+                  <li class="item">尿液檢查</li>
+                </ul>
+                <ul>
+                  <li class="alpha">21</li>
+                  <li class="item">快速心電圖檢查</li>
+                </ul>
+                <ul>
+                  <li class="alpha">22</li>
+                  <li class="item">腹腔超音波</li>
+                </ul>
+                <ul>
+                  <li class="alpha">23</li>
+                  <li class="item">心臟超音波</li>
+                </ul>
+                <ul>
+                  <li class="alpha">24</li>
+                  <li class="item">胸腔X光</li>
+                </ul>
+              </div>
+              <span class="mobile_span">(包含上列01~16項)</span>
+          </div> 
+            `,
+        }); 
+        new Vue({
+          el: '#c_set3',
+          data: {content: '', 
+              },
+  }); 
+</script>
+
+<!-- //加價購  -->
+<script>
+    Vue.component('plusButton',{
+      template:`
+                  <ul id="plus25">
+                    <li class="alpha">25</li>
+                    <li class="item">犬血球12項檢測</li>
+                    <li class="cost">2000元</li>
+                  </ul>
+      `,
+    
+    });
+
+    new Vue({
+          el: '#plus25',
+          data: {content: '', 
+              },
+  });
+  </script> 
+
+
+
+
+  </body>
 
 </html>

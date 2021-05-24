@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./vendors/vue/js/vue.js"></script>
   @@include('layout/style.html')
 </head>
 <body class="bill">
@@ -11,32 +12,32 @@
   <div class="bill_wrapper">
     @@include('layout/header.html')
 
-      <div class="bill_main">
-        <div class="s_order">
+      <div class="bill_main" >
+        <div class="s_order"  id="sMember">
           <h4>訂購人資料</h4>
           <ul class="s_member">
-            <li>姓名：<span>王小明</span></li>
-            <li>e-mail：<span>Ming@gmail.com</span></li>
-            <li>連絡電話：<span>02-12345678</span></li>
-            <li>地址：<span>台北市南京東路3段219號5樓</span></li>
+            <li>姓名：<span>{{name}}</span></li>
+            <li>e-mail：<span>{{mail}}</span></li>
+            <li>連絡電話：<span>{{phone}}</span></li>
+            <li>地址：<span>{{ADD}}</span></li>
           </ul>
         </div>
 
-        <form class="s_ATTN">
+        <form class="s_ATTN" id="sATTN">
           <div class="s_radio">
             <h4>收件人資料&nbsp;<input type="radio"><label>同訂購人</label></h4>     
           </div>
           <div class="s_name">
             <label>姓名</label>
-            <input type="text">
+            <input type="text" v-model="name">
           </div>
           <div class="s_mail">
             <label>e-mail</label>
-            <input type="email">
+            <input type="email" v-model="mail">
           </div>
           <div class="s_phone">
             <label>連絡電話</label>
-            <input type="tel">
+            <input type="tel" v-model="phone">
           </div>
           <div class="s_add">
             <label>地址</label>
@@ -74,9 +75,14 @@
             </div>       
           </div>
         </form>
-
+        
         <div class="s_credit">
-          <h4>信用卡資料</h4>
+          <h4>付款方式&nbsp;
+            <input type="radio" name="bill">
+            <label >信用卡</label>
+            <input type="radio" name="bill">
+            <label >ATM</label>
+          </h4> 
           <div class="s_card">
             <input type="text" maxlength="4">
             <input type="text" maxlength="4">
@@ -109,7 +115,41 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+  let vm = new Vue({
+      el: '#sMember',
+      data: {     
+        name: '王小明',
+        mail: 'Ming@gmail.com',
+        phone: 0212345678,
+        ADD: '台北市南京東路3段219號5樓',   
+      },
+  });
 </script>
+
+<script>
+  let vn = new Vue({
+      el: '#sATTN',
+      data: {     
+        name: '王小明',
+        mail: 'Ming@gmail.com',
+        phone: 0212345678,
+        // ADD: '台北市南京東路3段219號5樓',   
+      },
+      methods: {
+        if(radio = true){
+                data = vm.data;
+        } 
+      },
+  });
+</script>
+
+
+
+
+
+
 
 </body>
 </html>
