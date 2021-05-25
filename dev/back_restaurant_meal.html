@@ -15,13 +15,10 @@
     input{
       width: 80px;
     }
-    .save{
-      display: none;
-    }
+
   </style>
   <title>樂寵後台管理</title>
 </head>
-
 <body class="backend">
   <nav class="navbar navbar-light" style="background-color: #ffc857">
     <div class="container-fluid">
@@ -103,16 +100,6 @@
         <h2 class="mb-3">餐廳餐點管理</h2>
         <div class="d-flex justify-content-between mb-3">
           <a href="back_restaurant_meal_create.html" class="btn btn-success btn-sm">新增餐點</a>
-          <!-- <div>
-            <input type="checkbox" id="all" />
-            <label for="all">全選</label>
-            <button type="button" class="btn btn-outline-success btn-sm ms-1">
-              上架
-            </button>
-            <button type="button" class="btn btn-outline-success btn-sm ms-1">
-              下架
-            </button> 
-          </div> -->
           <select>
             <option value="1">上架中</option>
             <option value="0">下架中</option>
@@ -130,7 +117,6 @@
                 <th>價格</th>
                 <th>圖片</th>
                 <th>卡路里</th>
-                <th>數量</th>
                 <th>狀態</th>
                 <th>編輯</th>
                 <th>刪除</th>
@@ -153,16 +139,23 @@
       function getData(res){
         for(let i = 0; i< res.data.length; i++){
 
-          // let status = (res.data[i].MEAL_STATUS === "1") ? "上架" : "下架";
-          
           let data = `
           <tr>
-                <td><input value="${res.data[i].MEAL_DATA_ID}" name="MEAL_DATA_ID" disabled readonly></td>
+                <td style="display: none"><input value="${res.data[i].MEAL_DATA_ID}" name="MEAL_DATA_ID" disabled readonly></td>
+                <td>${res.data[i].MEAL_DATA_ID}</td>
                 <td><input type="text" name="MEAL_NAME" value="${res.data[i].MEAL_NAME}" disabled></td>
                 <td><input type="text" name="eng" value="${res.data[i].eng}" disabled></td>
                 <td>
+                  <select name="MEAL_CATA" disabled>
+                    <option class="noShow" value="${res.data[i].MEAL_CATA}" selected>${res.data[i].MEAL_CATA}</option>
+                    <option value="petsCustom">客製寵食</option>
+                    <option value="petsFood">現有寵食</option>
+                    <option value="humanFood">現有人食</option>
+                  </select>
+                </td>
+                <td>
                   <select name="MEAL_TYPE" disabled>
-                    <option value="${res.data[i].MEAL_TYPE}" selected>${res.data[i].MEAL_TYPE}</option>
+                    <option class="noShow" value="${res.data[i].MEAL_TYPE}" selected>${res.data[i].MEAL_TYPE}</option>
                     <option value="乾糧">乾糧</option>
                     <option value="主食">主食</option>
                     <option value="配菜">配菜</option>
@@ -172,29 +165,21 @@
                     <option value="鮮食">鮮食</option>
                   </select>
                 </td>
-                <td>
-                  <select name="MEAL_CATA" disabled>
-                    <option value="${res.data[i].MEAL_CATA}" selected>${res.data[i].MEAL_CATA}</option>
-                    <option value="petsCustom">客製寵食</option>
-                    <option value="petsFood">現有寵食</option>
-                    <option value="humanFood">現有人食</option>
-                  </select>
-                </td>
                 <td><input type="text" name="MEAL_MSG" value="${res.data[i].MEAL_MSG}" disabled></td>
                 <td><input type="text" name="MEAL_PRICE" value="${res.data[i].MEAL_PRICE}" class="test" disabled></td>
-                <td><input type="text" name="MEAL_IMG" value="${res.data[i].MEAL_IMG}" disabled></td>
+                <td style="display: none"><input type="text" name="MEAL_IMG" value="${res.data[i].MEAL_IMG}" disabled></td>
+                <td><img src="${res.data[i].MEAL_IMG}" style="width:50px;"></td>
                 <td><input type="text" name="MEAL_CAL" value="${res.data[i].MEAL_CAL}" disabled></td>
-                <td><input type="text" name="MEAL_COUNT" value="1" disabled></td>
                 <td>
                   <select name="MEAL_STATUS" disabled>
-                    <option value="${res.data[i].MEAL_STATUS}" selected>${res.data[i].MEAL_STATUS === "1"? "上架" : "下架" }</option>
+                    <option class="noShow" value="${res.data[i].MEAL_STATUS}" selected>${res.data[i].MEAL_STATUS === "1"? "上架" : "下架" }</option>
                     <option value="0">下架</option>
                     <option value="1">上架</option>
                   </select>
                 </td>
-                <td class="edit"><a href="">編輯</a></td>
-                <td class="save"><button >儲存</button></td>
-                <td class="cancel"><button >刪除</button></td>
+                <td class="edit"><button class="btn btn-warning btn-sm">編輯</button></td>
+                <td style="display: none" class="save"><button class="btn btn-warning btn-sm">儲存</button></td>
+                <td class="cancel"><button class="btn btn-danger btn-sm">刪除</button></td>
           </tr>
           `
           $('.data').append(data)
@@ -209,6 +194,7 @@
         $(this).parent().find('input, select').attr('disabled', false)
         $(this).css('display', 'none')
         $(this).next().css('display', 'block')
+        $('.noShow').hide()
       });
 
       //儲存
@@ -259,8 +245,6 @@
       //刪除
       $('.data').on('click', '.cancel', function(){
 
-          console.log('object');
-
           let MEAL_DATA_ID = $(this).parent().find("input[name='MEAL_DATA_ID']").val()
 
           let yes = confirm("不要亂刪喔!")
@@ -273,7 +257,7 @@
               },            
               dataType: "text",
               success: function (res) {     
-                alert("已刪除")  
+                alert("已刪除")
               },
               error: function(exception) {
                 alert("修改失敗")     

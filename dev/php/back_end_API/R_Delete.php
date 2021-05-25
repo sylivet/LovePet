@@ -10,7 +10,7 @@
        $sql = "DELETE FROM MEAL_DATA WHERE MEAL_DATA_ID = $MEAL_DATA_ID";
 
        //執行
-       $statement->execute();
+       $pdo->exec($sql);
 
        echo "<script>alert('刪除成功'); location.href = '../.././back_restaurant_meal.html';</script>";
 

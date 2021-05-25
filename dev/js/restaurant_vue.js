@@ -142,18 +142,22 @@ let vm = new Vue({
         case "主食":
           this.petCustomFoodSelect = "乾糧",
           this.petCustomFoodSelection.pop();
+          alert('已取消')
           break;
         case "配菜" :
           if(this.petCustomFoodSelection.length>2){
             this.petCustomFoodSelection.pop();
+            alert('已取消')
           }else{
             this.petCustomFoodSelect = "主食",
             this.petCustomFoodSelection.pop();
+            alert('已取消')
           }
           break;
         case "請確認菜單":
           this.petCustomFoodSelect = "配菜",
           this.petCustomFoodSelection.pop(),
+          alert('已取消')
           this.isDogOut = false;
           break;
       }

@@ -141,9 +141,9 @@
         <div class="row align-items-start">
           <div class="col-12 leftTitle"> 
             <h1 v-if="petCustomFoodSelect === '乾糧'">請選擇乾糧<span>(擇1)</span></h1>
-            <h1 v-else-if="petCustomFoodSelect === '主食'"><i class="fa fa-chevron-left" aria-hidden="true" @click="undo"></i>請選擇主食<span>(擇1)</span></h1>
-            <h1 v-else-if="petCustomFoodSelect === '配菜'"><i class="fa fa-chevron-left" aria-hidden="true" @click="undo"></i>請選擇配菜<span>(擇4)</span></h1>
-            <h1 v-else="petCustomFoodSelect === '請確認菜單'"><i class="fa fa-chevron-left" aria-hidden="true" @click="undo"></i>請確認菜單</h1>
+            <h1 v-else-if="petCustomFoodSelect === '主食'"><i class="fa fa-chevron-left" aria-hidden="true" @click="undo"><h4>返回上一步</h4></i>請選擇主食<span>(擇1)</span></h1>
+            <h1 v-else-if="petCustomFoodSelect === '配菜'"><i class="fa fa-chevron-left" aria-hidden="true" @click="undo"><h4>返回上一步</h4></i>請選擇配菜<span>(擇4)</span></h1>
+            <h1 v-else="petCustomFoodSelect === '請確認菜單'"><i class="fa fa-chevron-left" aria-hidden="true" @click="undo"><h4>返回上一步</h4></i>請確認菜單</h1>
           </div>
           <div class="col-md-6 col-12 left customPetMenu mt-5">
             <div class="row justify-content-around" v-if="petCustomFoodSelection.length !== 6">
