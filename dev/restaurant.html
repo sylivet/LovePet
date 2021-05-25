@@ -155,7 +155,7 @@
                 <div class="foodinfo">
                   <p>{{food.MEAL_NAME}}</p>
                   <p>NT {{food.MEAL_PRICE}} 元</p>
-                  <p>{{food.MEAL_CAL}}</p>
+                  <p>{{food.MEAL_CAL}} cal</p>
                   <button @click="choosePetCustomFood(food)">加入</button>
                 </div>
               </div>
@@ -216,7 +216,7 @@
                       <template v-for="(food, fid) in filterTypeToSalad">
                         <li @click="chooseFood(food)">
                           <h4>{{fid+1}}.{{food.MEAL_NAME}}</h4>
-                          <p><span>{{food.MEAL_CAL}}</span>NT{{food.MEAL_PRICE}}元</p>
+                          <p><span>{{food.MEAL_CAL}} cal</span>NT{{food.MEAL_PRICE}}元</p>
                         </li>
                         <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="chooseFood(food)"></i>
                         <i class="fa fa-info-circle info" aria-hidden="true" @click="getLightBoxOpen(food)"></i>
@@ -232,7 +232,7 @@
                       <template v-for="(food, fid) in filterTypeToFresh">
                         <li @click="chooseFood(food)">
                           <h4>{{fid+1}}.{{food.MEAL_NAME}}<br></h4>
-                          <p><span>{{food.MEAL_CAL}}</span>NT{{food.MEAL_PRICE}}元</p>
+                          <p><span>{{food.MEAL_CAL}} cal</span>NT{{food.MEAL_PRICE}}元</p>
                         </li>
                         <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="chooseFood(food)"></i>
                         <i class="fa fa-info-circle info" aria-hidden="true" @click="getLightBoxOpen(food)"></i>
@@ -301,7 +301,7 @@
                       <template v-for="(food, fid) in filterTypeToItaly">
                         <li @click="chooseFood(food)">
                           <h4>{{fid+1}}.{{food.MEAL_NAME}}<br></h4>
-                          <p><span>{{food.MEAL_CAL}}</span>NT{{food.MEAL_PRICE}} 元</p>
+                          <p><span>{{food.MEAL_CAL}} cal</span>NT{{food.MEAL_PRICE}} 元</p>
                         </li>
                         <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="chooseFood(food)"></i>
                         <i class="fa fa-info-circle info" aria-hidden="true" @click="getLightBoxOpen(food)"></i>
@@ -317,7 +317,7 @@
                       <template v-for="(food, fid) in filterTypeToUS">
                         <li @click="chooseFood(food)">
                           <h4>{{fid+1}}.{{food.MEAL_NAME}}<br></h4>
-                          <p><span>{{food.MEAL_CAL}}</span>NT{{food.MEAL_PRICE}}元</p>
+                          <p><span>{{food.MEAL_CAL}} cal</span>NT{{food.MEAL_PRICE}}元</p>
                         </li>
                         <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="chooseFood(food)"></i>
                         <i class="fa fa-info-circle info" aria-hidden="true" @click="getLightBoxOpen(food)"></i>
