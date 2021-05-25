@@ -2,6 +2,7 @@
   padding-top: 0;
   cursor: auto;
   margin-top: 0;
+
   .back_wrapper {
     width: 100%;
     // margin: 0 auto;
@@ -10,29 +11,18 @@
     position: relative;
 
     .BK_img {
+      display: block;
       width: 100%;
-
-      @include mobile {
-        height: 100vh;
-        object-fit: cover;
-      }
-
     }
 
     .link {
-      width: 60%;
+      width: 90%;
       margin: 0 auto;
       display: flex;
       justify-content: space-around;
       position: absolute;
       top: 30%;
-      left: 20%;
-
-      @include mobile {
-        flex-direction: column;
-        top: 5%;
-        left: 20%;
-      }
+      left: 6%;
 
       a {
         display: block;
@@ -43,53 +33,81 @@
 
       .front {
         img {
-          max-width: 273px;
+          display: block;
+          max-width: 162px;
+          position: absolute;
+        }
 
-          @include mobile {
-            width: 100%;
+        img:hover {
+          animation: dog 1s linear infinite;
+          transition: .5s;
+        }
+
+        @keyframes dog {
+
+          0% {
+            top: -50px;
+          }
+
+          100% {
+            top: 0px;
           }
         }
 
         h1 {
           font-size: 30px;
-          padding-top: 5px;
+          font-family: 'setofont';
+          padding-top: 120px;
+        }
 
-          @include pad {
-            font-size: 26px;
-          }
+        h1:hover {
+          transition: 1s;
+          transform: scale(1.2);
         }
       }
 
       .logo {
         img {
-          max-width: 274px;
-
-          @include mobile {
-            width: 50%;
-            margin: 50px 80px;
-          }
+          display: block;
+          max-width: 194px;
         }
       }
 
       .back {
         img {
-          max-width: 273px;
+          display: block;
+          max-width: 174px;
+          position: absolute;
+        }
 
-          @include mobile {
-            width: 100%;
+        img:hover {
+          animation: cat 1s linear infinite;
+          transition: .5s;
+        }
+
+        @keyframes cat {
+
+          0% {
+            top: -50px;
+          }
+
+          100% {
+            top: 0px;
           }
         }
 
         h1 {
           font-size: 30px;
-          padding-top: 5px;
+          font-family: 'setofont';
+          padding-top: 120px;
+        }
 
-          @include pad {
-            font-size: 26px;
-          }
-
+        h1:hover {
+          transition: 1s;
+          transform: scale(1.2);
         }
       }
+
     }
   }
 }
