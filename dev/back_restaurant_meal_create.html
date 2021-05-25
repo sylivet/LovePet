@@ -90,66 +90,82 @@
       </div>
       <div class="col-10">
         <h2 class="mb-3">餐點新增</h2>
-        <table class="table table-striped">
-          <tbody>
-            <tr>
-              <td>名稱</td>
-              <td><input type="text" /></td>
-            </tr>
-            <tr>
-              <td>類型</td>
-              <td>
-                <select name="" id="">
-                  <option value=""></option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <td>分類</td>
-              <td>
-                <select name="" id="">
-                  <option value=""></option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <td>資訊</td>
-              <td><textarea name="" id="" cols="30" rows="10"></textarea></td>
-            </tr>
+        <form form method="post" action="./php/back_end_API/R_Insert.php" enctype="multipart/form-data">
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <td>名稱</td>
+                <td><input type="text" name="MEAL_NAME"/></td>
+              </tr>
+              <tr>
+                <td>英文名稱</td>
+                <td><input type="text" name="eng"/></td>
+              </tr>
+              <tr>
+                <td>分類</td>
+                <td>
+                  <select name="MEAL_CATA">
+                    <option value="petsCustom">客製寵食</option>
+                    <option value="petsFood">現有寵食</option>
+                    <option value="humanFood">現有人食</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>類型</td>
+                <td>
+                  <select name="MEAL_TYPE">
+                    <option value="乾糧">乾糧</option>
+                    <option value="主食">主食</option>
+                    <option value="配菜">配菜</option>
+                    <option value="美式">美式</option>
+                    <option value="義式">義式</option>
+                    <option value="沙拉">沙拉</option>
+                    <option value="鮮食">鮮食</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>資訊</td>
+                <td><textarea name="MEAL_MSG" cols="30" rows="10"></textarea></td>
+              </tr>
 
-            <tr>
-              <td>圖片</td>
-              <td><input type="file" /></td>
-            </tr>
-            <tr>
-              <td>卡路里</td>
-              <td><input type="text" /></td>
-            </tr>
-            <tr>
-              <td>數量</td>
-              <td><input type="text" /></td>
-            </tr>
-            <tr>
-              <td>狀態</td>
-              <td>
-                <input type="radio" name="news" id="online" value="1" checked />
-                <label for="online">上架中</label>
-                <input type="radio" name="news" id="notonline" value="0" />
-                <label for="notonline">下架中</label>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="d-flex justify-content-center">
-          <button type="button" class="btn btn-outline-success">取消</button>
-          <button type="button" class="btn btn-success ms-3">新增</button>
-        </div>
+              <tr>
+                <td>圖片</td>
+                <td><input type="file" name="file"/></td>
+              </tr>
+              <tr>
+                <td>卡路里</td>
+                <td><input type="text" name="MEAL_CAL"/>cal</td>
+              </tr>
+              <tr>
+                <td>價格</td>
+                <td><input type="text" name="MEAL_PRICE"/>元</td>
+              </tr>
+              <tr>
+                <td>數量</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>狀態</td>
+                <td>
+                  <input type="radio" name="MEAL_STATUS" id="online" value="1" checked />
+                  <label for="online">上架</label>
+                  <input type="radio" name="MEAL_STATUS" id="offline" value="0" />
+                  <label for="offline">下架</label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="d-flex justify-content-center">
+            <button type="reset" class="btn btn-outline-success">取消</button>
+            <button type="submit" class="btn btn-success ms-3">新增</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
