@@ -100,6 +100,7 @@ function browser() {
     watch(['dev/sass/*.scss', 'dev/sass/**/*.scss'], sassStyle).on('change', reload);
     watch(['dev/images/*.*', 'dev/images/**/*.*'], imgs_dev).on('change', reload);
     watch('dev/js/*.js', babel5).on('change', reload);
+    watch('dev/php/**/*.php', movePHP).on('change', reload);
 }
 
 
