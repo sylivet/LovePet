@@ -33,10 +33,10 @@
       <div class="swiper-container newsSwiper">
         <ul class="news swiper-wrapper">
           <li v-for="latest in news" class="swiper-slide">
-            <img :src="latest.imgURL" alt="" />
+            <img :src="latest.NEWS_IMG" alt="" />
             <div class="news-bg">
-              <h4>{{latest.title}}</h4>
-              <div class="news-content">{{latest.content}}</div>
+              <h4>{{latest.NEWS_TITLE}}</h4>
+              <div class="news-content">{{latest.NEWS_CONTENT}}</div>
             </div>
           </li>
         </ul>
