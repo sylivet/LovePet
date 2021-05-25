@@ -103,7 +103,22 @@ let vm = new Vue({
       },
     ]
   },
-  mounted() { // 首頁動畫
+  mounted() { 
+    var swiper = new Swiper(".mySwiper", {
+      effect: "cube",
+      grabCursor: true,
+      cubeEffect: {
+        shadow: true,
+        slideShadows: true,
+        shadowOffset: 20,
+        shadowScale: 0.94,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
+    
+    // 首頁動畫
     gsap.registerPlugin(ScrollTrigger);
     gsap.defaults({ ease: "ease" })
     const tl = gsap.timeline({

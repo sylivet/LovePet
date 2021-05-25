@@ -9,12 +9,13 @@ $dogNose:#fcba74;
 $dogEar:#ffc282;
 $dogEye: rgb(107, 103, 103);
 
-h1 span, h3 span{
-  color:$colorOrange
+h1 span,
+h3 span {
+  color: $colorOrange
 }
 
 
-.r_wrapper{
+.r_wrapper {
   margin: 0 auto;
 }
 
@@ -23,10 +24,12 @@ h1 span, h3 span{
   opacity: 0;
   transform: translateY(-10px);
 }
+
 .fade-enter-active,
 .fade-leave-active {
   transition: all 1s;
 }
+
 .fade-leave-to {
   opacity: 0;
   transform: translateY(-10px);
@@ -36,31 +39,34 @@ h1 span, h3 span{
 
 
 //第二區 大圖
-.mainPic{
+.mainPic {
   background-color: #D3E1BE;
 }
 
 // 第三區 三顆圓形
-.second{
+.second {
   max-width: 1400px;
   margin: 50px auto 0;
   overflow: hidden;
   padding-top: 10px;
   box-sizing: border-box;
-  .circle{
+
+  .circle {
     width: 200px;
     height: 280px;
     margin: 0 auto;
     display: flex;
     align-items: flex-end;
   }
-  h3{
+
+  h3 {
     text-align: center;
-    color:#707070;
+    color: #707070;
     margin-top: 40px;
 
   }
-  p{
+
+  p {
     width: 250px;
     margin: 0 auto;
     margin-top: 20px;
@@ -68,9 +74,9 @@ h1 span, h3 span{
   }
 }
 
-@media (max-width: 768px){
-  .second{
-    p{
+@media (max-width: 768px) {
+  .second {
+    p {
       width: 250px;
       padding-bottom: 20px;
       margin-top: 20px;
@@ -81,16 +87,18 @@ h1 span, h3 span{
 
 // 第四區 環境介紹
 
-.envIntro{
+.envIntro {
   max-width: 1400px;
   margin-top: 100px;
   margin-bottom: -150px;
   overflow: hidden;
-  .word{
+
+  .word {
     position: relative;
     padding-left: 50px;
-    &:after{
-      content:"";
+
+    &:after {
+      content: "";
       display: block;
       width: calc(100vw - 30%);
       max-width: 1200px;
@@ -104,45 +112,52 @@ h1 span, h3 span{
       z-index: -1;
     }
   }
-  .envPictures{
-    img{
+
+  .envPictures {
+    img {
       border-radius: 30px;
       max-width: 100%;
       position: relative;
     }
-    .envWord{
+
+    .envWord {
       transform: translate(-380px, -400px);
       width: 350px;
-      h2{
-        color:#707070;
+
+      h2 {
+        color: #707070;
         font-weight: bold;
       }
-      p{
+
+      p {
         letter-spacing: 2px;
         line-height: 1.6;
         margin-top: 30px;
       }
     }
   }
-  button{
+
+  button {
     outline: none;
-    border:0px;
+    border: 0px;
     cursor: pointer;
   }
 }
 
 @media (max-width: 1200px) {
-  .envIntro{
+  .envIntro {
     padding-bottom: 50px;
     margin-bottom: 0px;
-    .word{
+
+    .word {
       padding: 10px;
       position: relative;
-      &:after{
-        content:"";
+
+      &:after {
+        content: "";
         display: block;
         width: 85%;
-        height:350px;
+        height: 350px;
         border-radius: 30px;
         background-color: $colorYellow;
         position: absolute;
@@ -152,16 +167,19 @@ h1 span, h3 span{
         z-index: -1;
       }
     }
-    .envPictures{
-      .envWord{
+
+    .envPictures {
+      .envWord {
         width: 70%;
         transform: translate(15vw, 0px);
-        h2{
-          color:#707070;
+
+        h2 {
+          color: #707070;
           font-weight: bold;
           margin-top: 28px;
         }
-        p{
+
+        p {
           letter-spacing: 2px;
           line-height: 1.6;
           margin-top: 20px;
@@ -172,16 +190,18 @@ h1 span, h3 span{
 }
 
 @media (max-width: 576px) {
-  .envIntro{
-    .word{
+  .envIntro {
+    .word {
       padding: 5px;
-      p{
+
+      p {
         margin-top: 20px;
         padding: 10px;
       }
-      &:after{
+
+      &:after {
         top: -380px;
-        height:380px;
+        height: 380px;
       }
     }
   }
@@ -189,38 +209,46 @@ h1 span, h3 span{
 
 // 第五區 廚師介紹
 
-.chifIntro{
+.chifIntro {
   max-width: 1400px;
   margin-top: 60px;
   margin-bottom: 50px;
   padding: 30px;
   overflow: hidden;
-  .chifPic1,.chifPic2{
+
+  .chifPic1,
+  .chifPic2 {
     background-size: cover;
     background-position: center center;
     border-radius: 30px;
     width: 280px;
     height: 374px;
   }
-  .chifPic1{
+
+  .chifPic1 {
     background-image: url(../img/restaurant/chef_2.png);
   }
-  .chifPic2{
+
+  .chifPic2 {
     background-image: url(../img/restaurant/chef_1.png);
   }
-  .word{
+
+  .word {
     position: relative;
-    h4{
+
+    h4 {
       margin-top: 70px;
-      color:$colorOrange;
+      color: $colorOrange;
     }
-    p{
+
+    p {
       width: 220px;
       margin-top: 40px;
       line-height: 1.6;
-      color:$colorGrey
+      color: $colorGrey
     }
-    &:after{
+
+    &:after {
       content: "";
       display: block;
       width: 410px;
@@ -236,33 +264,41 @@ h1 span, h3 span{
 }
 
 //RWD
-@media (max-width: 992px){
-  .chifIntro{
-    .chifPic1,.chifPic2{
+@media (max-width: 992px) {
+  .chifIntro {
+
+    .chifPic1,
+    .chifPic2 {
       border-radius: 30px;
       height: 500px;
     }
-    .chifPic1{
+
+    .chifPic1 {
       background-image: url(../img/restaurant/chef_2.png);
     }
-    .chifPic2{
+
+    .chifPic2 {
       background-image: url(../img/restaurant/chef_1.png);
       margin-top: 50px;
     }
-    .word{
+
+    .word {
       position: relative;
       padding-left: 100px;
-      h4{
+
+      h4 {
         margin-top: 150px;
-        color:$colorOrange;
+        color: $colorOrange;
       }
-      p{
+
+      p {
         width: 280px;
         margin-top: 40px;
         line-height: 1.6;
-        color:$colorGrey;
+        color: $colorGrey;
       }
-      &:after{
+
+      &:after {
         content: "";
         display: block;
         width: 1000px;
@@ -271,44 +307,52 @@ h1 span, h3 span{
         background-color: #F2F2F2;
         position: absolute;
         top: 190px;
-        left:-50px;
+        left: -50px;
         z-index: -1;
       }
     }
   }
 }
 
-@media (max-width: 768px){
-  .chifIntro{
+@media (max-width: 768px) {
+  .chifIntro {
     min-height: 1600px;
-    .chifPic1,.chifPic2{
+
+    .chifPic1,
+    .chifPic2 {
       border-radius: 30px;
       height: 500px;
     }
-    .chifPic1{
+
+    .chifPic1 {
       background-image: url(../img/restaurant/chef_2.png);
     }
-    .chifPic2{
+
+    .chifPic2 {
       background-image: url(../img/restaurant/chef_1.png);
       margin-top: 80px;
     }
-    .word{
+
+    .word {
       position: relative;
       padding-left: 0px;
-      h4{
+
+      h4 {
         margin-top: 20px;
-        color:$colorOrange;
+        color: $colorOrange;
         text-align: center;
       }
-      p{
+
+      p {
         width: 100%;
         line-height: 1.6;
-        color:$colorGrey;
+        color: $colorGrey;
         margin: 0 auto;
         margin-top: 0px;
         padding: 15px 40px;
       }
-      &:after{
+
+      &:after {
         content: "";
         display: block;
         width: 100%;
@@ -317,7 +361,7 @@ h1 span, h3 span{
         background-color: #F2F2F2;
         position: absolute;
         top: -70px;
-        left:0px;
+        left: 0px;
         z-index: -1;
       }
     }
@@ -326,24 +370,29 @@ h1 span, h3 span{
 
 
 // 第六區 客製毛孩美食
-.customPet{
+.customPet {
   margin-top: 30px;
   margin-bottom: 100px;
   max-width: 1400px;
-  .leftTitle{
+
+  .leftTitle {
     text-align: center;
-    span{
+
+    span {
       font-size: 16px;
     }
   }
-  .customPetMenu{
+
+  .customPetMenu {
     height: 470px;
     overflow-x: auto;
-    ul li:first-child{
+
+    ul li:first-child {
       text-align: left;
       padding-left: 50px;
     }
-    button{
+
+    button {
       font-size: 16px;
       width: 100px;
       height: 30px;
@@ -354,18 +403,20 @@ h1 span, h3 span{
       transition: .5s;
       cursor: pointer;
       background-color: #fff;
-      &:hover{
+
+      &:hover {
         background-color: $colorOrange;
         color: white;
       }
-      &:active{
+
+      &:active {
         background-color: #EFEFEF;
-        color:black;
+        color: black;
       }
     }
   }
 
-  .foodback{
+  .foodback {
     background-color: #F7D081;
     border-radius: 30px;
     margin: 10px;
@@ -373,7 +424,8 @@ h1 span, h3 span{
     box-shadow: 0px 0px 10px rgba(black, .3);
     border: 1px solid #eee;
     text-align: center;
-    .foodpic{
+
+    .foodpic {
       display: flex;
       align-items: flex-end;
       width: 120px;
@@ -383,19 +435,20 @@ h1 span, h3 span{
   }
 }
 
-.foodinfo{
-  *{
+.foodinfo {
+  * {
     margin-top: 20px;
   }
 }
 
 
 // 結帳區
-.customPet{
-  .leftTitle h1{
+.customPet {
+  .leftTitle h1 {
     position: relative;
     display: inline-block;
-    i{
+
+    i {
       position: absolute;
       left: -50px;
       top: 3px;
@@ -403,8 +456,9 @@ h1 span, h3 span{
       cursor: pointer;
     }
   }
-  .right{
-    .foodpic1{
+
+  .right {
+    .foodpic1 {
       background-image: url(../img/restaurant/plate.png);
       background-size: cover;
       background-position: center center;
@@ -412,7 +466,8 @@ h1 span, h3 span{
       width: 100%;
       height: 430px;
       position: relative;
-      div{
+
+      div {
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center center;
@@ -420,44 +475,50 @@ h1 span, h3 span{
         top: 50%;
         left: 50%;
       }
-      .mainfood{
+
+      .mainfood {
         background-image: url(../img/restaurant/mainFood.svg);
         width: 300px;
         height: 300px;
-        transform: translate(-50%,-55%);
+        transform: translate(-50%, -55%);
         z-index: 99;
       }
-      .mainfood2{
+
+      .mainfood2 {
         background-image: url(../img/restaurant/mainFood2.svg);
         width: 300px;
         height: 300px;
-        transform: translate(-50%,-55%);
+        transform: translate(-50%, -55%);
         z-index: 99;
       }
-      .mainfood3{
+
+      .mainfood3 {
         background-image: url(../img/restaurant/mainFood3.svg);
         width: 300px;
         height: 300px;
-        transform: translate(-50%,-55%);
+        transform: translate(-50%, -55%);
         z-index: 99;
       }
-      .mainfood4{
+
+      .mainfood4 {
         background-image: url(../img/restaurant/mainFood4.svg);
         width: 300px;
         height: 300px;
-        transform: translate(-50%,-55%);
+        transform: translate(-50%, -55%);
         z-index: 99;
       }
-      .sidefood1{
+
+      .sidefood1 {
         background-image: url(../img/restaurant/sliceCarrot.svg);
         width: 140px;
         height: 140px;
         top: 58%;
         left: 35%;
         z-index: 100;
-        
+
       }
-      .sidefood4{
+
+      .sidefood4 {
         background-image: url(../img/restaurant/sliceAvocado.svg);
         width: 150px;
         height: 180px;
@@ -466,7 +527,8 @@ h1 span, h3 span{
         z-index: 100;
         transform: rotateZ(165deg);
       }
-      .sidefood2{
+
+      .sidefood2 {
         background-image: url(../img/restaurant/vegetable.svg);
         width: 350px;
         height: 300px;
@@ -475,7 +537,8 @@ h1 span, h3 span{
         z-index: 98;
         transform: rotateZ(26deg);
       }
-      .sidefood3{
+
+      .sidefood3 {
         background-image: url(../img/restaurant/sliceEgg.svg);
         width: 150px;
         height: 150px;
@@ -483,7 +546,8 @@ h1 span, h3 span{
         left: 22%;
         z-index: 100;
       }
-      .meat_beef{
+
+      .meat_beef {
         background-image: url(../img/restaurant/meat.svg);
         width: 250px;
         height: 200px;
@@ -491,7 +555,8 @@ h1 span, h3 span{
         left: 40%;
         z-index: 100;
       }
-      .meat_pork{
+
+      .meat_pork {
         background-image: url(../img/restaurant/meat_pork.svg);
         width: 280px;
         height: 230px;
@@ -499,7 +564,8 @@ h1 span, h3 span{
         left: 35%;
         z-index: 100;
       }
-      .meat_fish{
+
+      .meat_fish {
         background-image: url(../img/restaurant/meat_fish.svg);
         width: 250px;
         height: 200px;
@@ -507,7 +573,8 @@ h1 span, h3 span{
         left: 40%;
         z-index: 100;
       }
-      .meat_shrimp{
+
+      .meat_shrimp {
         background-image: url(../img/restaurant/meat_shrimp.svg);
         width: 250px;
         height: 200px;
@@ -515,7 +582,8 @@ h1 span, h3 span{
         left: 40%;
         z-index: 100;
       }
-      .meat_chicken{
+
+      .meat_chicken {
         background-image: url(../img/restaurant/meat_chicken.svg);
         width: 300px;
         height: 200px;
@@ -523,7 +591,8 @@ h1 span, h3 span{
         left: 30%;
         z-index: 100;
       }
-      .meat_lamp{
+
+      .meat_lamp {
         background-image: url(../img/restaurant/meat_lamp.svg);
         width: 300px;
         height: 300px;
@@ -533,31 +602,37 @@ h1 span, h3 span{
       }
     }
   }
-  .foodmenu{
+
+  .foodmenu {
     text-align: center;
     background-color: #F2F2F2;
     border-radius: 30px;
     padding: 30px;
     border: 2px solid #eee;
     box-sizing: border-box;
-    ul{
+
+    ul {
       margin-top: 10px;
       display: flex;
       justify-content: space-around;
       align-items: center;
-      li{
+
+      li {
         flex-basis: 100px;
         flex-grow: 1;
-        button{
+
+        button {
           margin-top: 20px;
           background-color: #fff;
           cursor: pointer;
-          &:hover{
+
+          &:hover {
             background-color: $colorOrange;
           }
-          &:active{
+
+          &:active {
             background-color: #FFFFFF;
-            color:black;
+            color: black;
           }
         }
       }
@@ -565,10 +640,12 @@ h1 span, h3 span{
   }
 }
 
-@media (max-width: 768px){
-  .customPet{
-    .right{
-      .foodpic1, .dogContainer{
+@media (max-width: 768px) {
+  .customPet {
+    .right {
+
+      .foodpic1,
+      .dogContainer {
         margin-bottom: 10px;
         background-size: contain;
         background-repeat: no-repeat;
@@ -578,21 +655,24 @@ h1 span, h3 span{
   }
 }
 
-@media (max-width: 576px){
-  .customPet{
-    .foodmenu{
-      ul{
-        li{
-          button{
+@media (max-width: 576px) {
+  .customPet {
+    .foodmenu {
+      ul {
+        li {
+          button {
             width: 30px;
             height: 30px;
             margin-top: 20px;
             background-color: #fff;
-            &:hover{
+
+            &:hover {
               background-color: $colorOrange;
             }
           }
-          &:first-child, &:last-child{
+
+          &:first-child,
+          &:last-child {
             flex-basis: 250px;
           }
         }
@@ -601,32 +681,37 @@ h1 span, h3 span{
   }
 }
 
-.totalPrice{
+.totalPrice {
   margin-top: 50px;
 }
 
-.addToMenu{
+.addToMenu {
   margin-top: 30px;
-  button{
+
+  button {
     background-color: #fff;
     cursor: pointer;
-    &:hover{
+
+    &:hover {
       background-color: $colorOrange;
     }
-    &:active{
+
+    &:active {
       background-color: #FFFFFF;
-      color:black;
+      color: black;
     }
   }
 }
 
-#petsMenu{
+#petsMenu {
   position: relative;
-  #showItem{
+
+  #showItem {
     display: none;
   }
-  &:hover{
-    #showItem{
+
+  &:hover {
+    #showItem {
       display: block;
       position: absolute;
       text-align: left;
@@ -635,7 +720,7 @@ h1 span, h3 span{
       bottom: -30px;
       font-size: 12px;
       border: none;
-      color:#999;
+      color: #999;
       width: 400px;
     }
 
@@ -643,12 +728,13 @@ h1 span, h3 span{
 }
 
 // 第七區 推薦毛孩美食
-.Pet{
+.Pet {
   max-width: 1400px;
   margin-top: 100px;
   margin-bottom: 100px;
+
   // 下拉式選單
-  .foodchosen{
+  .foodchosen {
     width: 100%;
     height: 36px;
     background-color: #558b6e;
@@ -660,8 +746,9 @@ h1 span, h3 span{
     text-align: center;
     text-align-last: center;
   }
+
   // 左邊沙拉類
-  .foodback{
+  .foodback {
     background-color: #F7D081;
     border-radius: 30px;
     margin: 10px;
@@ -674,7 +761,8 @@ h1 span, h3 span{
     background-repeat: no-repeat;
     background-position: 7% center;
     background-size: 40%;
-    &:before{
+
+    &:before {
       content: "沙拉";
       display: block;
       width: 180px;
@@ -690,25 +778,30 @@ h1 span, h3 span{
       transform: translate(-50%, -50%);
     }
   }
+
   //右邊文字
-  .petmenu-right{
+  .petmenu-right {
     margin-top: 100px;
     margin-bottom: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    ol{
+
+    ol {
       width: 100%;
       position: relative;
-      .addmenu{
+
+      .addmenu {
         position: absolute;
         left: 30px;
         cursor: pointer;
-        &:hover{
-          color:#4DAA57;
+
+        &:hover {
+          color: #4DAA57;
           transition: .3s;
         }
-        &:after{
+
+        &:after {
           content: "加入菜單";
           display: none;
           visibility: visible;
@@ -720,22 +813,26 @@ h1 span, h3 span{
           left: -175%;
           bottom: -25px;
           padding: 2px;
-          color:white;
+          color: white;
           font-family: 'Noto Sans TC';
         }
-        &:hover:after{
+
+        &:hover:after {
           display: block;
         }
       }
-      .info{
+
+      .info {
         position: absolute;
         left: 50px;
         cursor: pointer;
-        &:hover{
-          color:#4DAA57;
+
+        &:hover {
+          color: #4DAA57;
           transition: .3s;
         }
-        &:after{
+
+        &:after {
           content: "更多資訊";
           display: none;
           visibility: visible;
@@ -747,14 +844,16 @@ h1 span, h3 span{
           left: -175%;
           bottom: -25px;
           padding: 2px;
-          color:white;
+          color: white;
           font-family: 'Noto Sans TC';
         }
-        &:hover:after{
+
+        &:hover:after {
           display: block;
         }
       }
-      li{
+
+      li {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -763,30 +862,35 @@ h1 span, h3 span{
         cursor: pointer;
         transition: .2s;
         position: relative;
-        &:hover{
-          color:#4DAA57;
-          background-color: rgba(255,255,255,.6);
+
+        &:hover {
+          color: #4DAA57;
+          background-color: rgba(255, 255, 255, .6);
           border-radius: 6px;
-          span{
-            color:black;
+
+          span {
+            color: black;
           }
         }
-        span{
+
+        span {
           position: absolute;
           right: 10px;
           bottom: -15px;
           font-size: 10px;
           font-weight: normal;
-          color:black;
+          color: black;
           opacity: .5;
         }
-        p{
+
+        p {
           font-size: 16px;
         }
       }
     }
   }
-  button{
+
+  button {
     font-size: 16px;
     width: 100px;
     height: 30px;
@@ -798,33 +902,37 @@ h1 span, h3 span{
     cursor: pointer;
     margin-top: 20px;
     background-color: #fff;
-    &:hover{
+
+    &:hover {
       background-color: $colorOrange;
       color: white;
     }
-    &:active{
+
+    &:active {
       background-color: #FFFFFF;
-      color:black;
+      color: black;
     }
   }
 }
 
-@media (max-width: 768px){
-  .Pet{
-    .foodback{
+@media (max-width: 768px) {
+  .Pet {
+    .foodback {
       background-image: url(../img/restaurant/petfood.png);
       background-repeat: no-repeat;
       background-position: center 120px;
       background-size: 300px;
     }
+
     //右邊文字
-    .petmenu-right{
+    .petmenu-right {
       margin-top: 400px;
       margin-bottom: 100px;
       display: flex;
       flex-direction: row;
       justify-content: space-around;
-      ol{
+
+      ol {
         margin: 30px 0px;
       }
     }
@@ -832,7 +940,7 @@ h1 span, h3 span{
 }
 
 // 左邊鮮食類
-.foodback2{
+.foodback2 {
   background-color: #F7D081;
   border-radius: 30px;
   margin: 10px;
@@ -845,7 +953,8 @@ h1 span, h3 span{
   background-repeat: no-repeat;
   background-position: 7% center;
   background-size: 40%;
-  &:before{
+
+  &:before {
     content: "鮮食類";
     display: block;
     width: 180px;
@@ -861,24 +970,29 @@ h1 span, h3 span{
     transform: translate(-50%, -50%);
   }
 }
+
 //右邊文字
-.petmenu2-right{
+.petmenu2-right {
   margin-top: 100px;
   margin-bottom: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  ol{
+
+  ol {
     width: 100%;
-    .addmenu{
+
+    .addmenu {
       position: absolute;
       left: 30px;
       cursor: pointer;
-      &:hover{
-        color:#4DAA57;
+
+      &:hover {
+        color: #4DAA57;
         transition: .3s;
       }
-      &:after{
+
+      &:after {
         content: "加入菜單";
         display: none;
         visibility: visible;
@@ -890,22 +1004,26 @@ h1 span, h3 span{
         left: -175%;
         bottom: -25px;
         padding: 2px;
-        color:white;
+        color: white;
         font-family: 'Noto Sans TC';
       }
-      &:hover:after{
+
+      &:hover:after {
         display: block;
       }
     }
-    .info{
+
+    .info {
       position: absolute;
       left: 50px;
       cursor: pointer;
-      &:hover{
-        color:#4DAA57;
+
+      &:hover {
+        color: #4DAA57;
         transition: .3s;
       }
-      &:after{
+
+      &:after {
         content: "更多資訊";
         display: none;
         visibility: visible;
@@ -917,14 +1035,16 @@ h1 span, h3 span{
         left: -175%;
         bottom: -25px;
         padding: 2px;
-        color:white;
+        color: white;
         font-family: 'Noto Sans TC';
       }
-      &:hover:after{
+
+      &:hover:after {
         display: block;
       }
     }
-    li{
+
+    li {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -933,55 +1053,61 @@ h1 span, h3 span{
       cursor: pointer;
       transition: .2s;
       position: relative;
-      &:hover{
-        color:#4DAA57;
-        background-color: rgba(255,255,255,.6);
+
+      &:hover {
+        color: #4DAA57;
+        background-color: rgba(255, 255, 255, .6);
         border-radius: 6px;
-        span{
-          color:black;
+
+        span {
+          color: black;
         }
       }
-      span{
+
+      span {
         position: absolute;
         right: 10px;
         bottom: -15px;
         font-size: 10px;
         font-weight: normal;
-        color:black;
+        color: black;
         opacity: .5;
       }
-      p{
+
+      p {
         font-size: 16px;
       }
     }
   }
 }
 
-@media (max-width: 768px){
-.foodback2{
-  background-image: url(../img/restaurant/petfood2.png);
-  background-repeat: no-repeat;
-  background-position: center 120px;
-  background-size: 300px;
-}
-//右邊文字
-.petmenu2-right{
-  margin-top: 400px;
-  margin-bottom: 100px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  ol{
-    margin: 30px 0px;
+@media (max-width: 768px) {
+  .foodback2 {
+    background-image: url(../img/restaurant/petfood2.png);
+    background-repeat: no-repeat;
+    background-position: center 120px;
+    background-size: 300px;
   }
-}
+
+  //右邊文字
+  .petmenu2-right {
+    margin-top: 400px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    ol {
+      margin: 30px 0px;
+    }
+  }
 }
 
 
 // 右邊結帳區
-.Pet{
-  .foodmenu{
-    height:100%;
+.Pet {
+  .foodmenu {
+    height: 100%;
     text-align: center;
     background-color: #F2F2F2;
     border-radius: 30px;
@@ -990,12 +1116,14 @@ h1 span, h3 span{
     box-sizing: border-box;
     height: 560px;
     overflow-y: auto;
-    ul{
+
+    ul {
       margin-top: 20px;
       display: flex;
       justify-content: space-around;
       align-items: center;
-      li{
+
+      li {
         flex-basis: 1px;
         flex-grow: 1;
       }
@@ -1003,21 +1131,24 @@ h1 span, h3 span{
   }
 }
 
-@media (max-width: 576px){
-  .Pet{
-    .foodmenu{
-      ul{
-        li{
-          button{
+@media (max-width: 576px) {
+  .Pet {
+    .foodmenu {
+      ul {
+        li {
+          button {
             width: 30px;
             height: 30px;
             margin-top: 20px;
             background-color: #fff;
-            &:hover{
+
+            &:hover {
               background-color: $colorOrange;
             }
           }
-          &:first-child, &:last-child{
+
+          &:first-child,
+          &:last-child {
             flex-basis: 55px;
           }
         }
@@ -1027,12 +1158,13 @@ h1 span, h3 span{
 }
 
 // 第八區 現有人類美食
-.human{
+.human {
   margin-top: 100px;
   margin-bottom: 100px;
   max-width: 1400px;
+
   // 下拉式選單
-  .foodchosen{
+  .foodchosen {
     width: 100%;
     height: 36px;
     background-color: #558b6e;
@@ -1044,8 +1176,9 @@ h1 span, h3 span{
     text-align: center;
     text-align-last: center;
   }
+
   // 左邊義式菜單
-  .foodback{
+  .foodback {
     background-color: #F7D081;
     border-radius: 30px;
     margin: 10px;
@@ -1058,17 +1191,21 @@ h1 span, h3 span{
     background-repeat: no-repeat;
     background-position: 7% center;
     background-size: 40%;
-    ol{
+
+    ol {
       width: 100%;
-      .addmenu{
+
+      .addmenu {
         position: absolute;
         left: 80px;
         cursor: pointer;
-        &:hover{
-          color:#4DAA57;
+
+        &:hover {
+          color: #4DAA57;
           transition: .3s;
         }
-        &:after{
+
+        &:after {
           content: "加入菜單";
           display: none;
           visibility: visible;
@@ -1080,22 +1217,26 @@ h1 span, h3 span{
           left: -175%;
           bottom: -25px;
           padding: 2px;
-          color:white;
+          color: white;
           font-family: 'Noto Sans TC';
         }
-        &:hover:after{
+
+        &:hover:after {
           display: block;
         }
       }
-      .info{
+
+      .info {
         position: absolute;
         left: 100px;
         cursor: pointer;
-        &:hover{
-          color:#4DAA57;
+
+        &:hover {
+          color: #4DAA57;
           transition: .3s;
         }
-        &:after{
+
+        &:after {
           content: "更多資訊";
           display: none;
           visibility: visible;
@@ -1107,14 +1248,16 @@ h1 span, h3 span{
           left: -175%;
           bottom: -25px;
           padding: 2px;
-          color:white;
+          color: white;
           font-family: 'Noto Sans TC';
         }
-        &:hover:after{
+
+        &:hover:after {
           display: block;
         }
       }
-      li{
+
+      li {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -1123,29 +1266,34 @@ h1 span, h3 span{
         cursor: pointer;
         transition: .2s;
         position: relative;
-        &:hover{
-          color:#4DAA57;
-          background-color: rgba(255,255,255,.6);
+
+        &:hover {
+          color: #4DAA57;
+          background-color: rgba(255, 255, 255, .6);
           border-radius: 6px;
-          span{
-            color:black;
+
+          span {
+            color: black;
           }
         }
-        span{
+
+        span {
           position: absolute;
           right: 10px;
           bottom: -15px;
           font-size: 10px;
           font-weight: normal;
-          color:black;
+          color: black;
           opacity: .5;
         }
-        p{
+
+        p {
           font-size: 16px;
         }
       }
     }
-    &:before{
+
+    &:before {
       content: "義式";
       display: block;
       width: 180px;
@@ -1161,8 +1309,9 @@ h1 span, h3 span{
       transform: translate(-50%, -50%);
     }
   }
+
   // 左邊美式菜單
-  .foodback2{
+  .foodback2 {
     background-color: #F7D081;
     border-radius: 30px;
     margin: 10px;
@@ -1175,17 +1324,21 @@ h1 span, h3 span{
     background-repeat: no-repeat;
     background-position: 7% center;
     background-size: 40%;
-    ol{
+
+    ol {
       width: 100%;
-      .addmenu{
+
+      .addmenu {
         position: absolute;
         left: 80px;
         cursor: pointer;
-        &:hover{
-          color:#4DAA57;
+
+        &:hover {
+          color: #4DAA57;
           transition: .3s;
         }
-        &:after{
+
+        &:after {
           content: "加入菜單";
           display: none;
           visibility: visible;
@@ -1197,22 +1350,26 @@ h1 span, h3 span{
           left: -175%;
           bottom: -25px;
           padding: 2px;
-          color:white;
+          color: white;
           font-family: 'Noto Sans TC';
         }
-        &:hover:after{
+
+        &:hover:after {
           display: block;
         }
       }
-      .info{
+
+      .info {
         position: absolute;
         left: 100px;
         cursor: pointer;
-        &:hover{
-          color:#4DAA57;
+
+        &:hover {
+          color: #4DAA57;
           transition: .3s;
         }
-        &:after{
+
+        &:after {
           content: "更多資訊";
           display: none;
           visibility: visible;
@@ -1224,14 +1381,16 @@ h1 span, h3 span{
           left: -175%;
           bottom: -25px;
           padding: 2px;
-          color:white;
+          color: white;
           font-family: 'Noto Sans TC';
         }
-        &:hover:after{
+
+        &:hover:after {
           display: block;
         }
       }
-      li{
+
+      li {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -1240,29 +1399,34 @@ h1 span, h3 span{
         cursor: pointer;
         transition: .2s;
         position: relative;
-        &:hover{
-          color:#4DAA57;
-          background-color: rgba(255,255,255,.6);
+
+        &:hover {
+          color: #4DAA57;
+          background-color: rgba(255, 255, 255, .6);
           border-radius: 6px;
-          span{
-            color:black;
+
+          span {
+            color: black;
           }
         }
-        span{
+
+        span {
           position: absolute;
           right: 10px;
           bottom: -15px;
           font-size: 10px;
           font-weight: normal;
-          color:black;
+          color: black;
           opacity: .5;
         }
-        p{
+
+        p {
           font-size: 16px;
         }
       }
     }
-    &:before{
+
+    &:before {
       content: "美式";
       display: block;
       width: 180px;
@@ -1282,22 +1446,25 @@ h1 span, h3 span{
 
 
   //菜單右方文字
-  .human-right{
+  .human-right {
     margin-top: 100px;
     margin-bottom: 100px;
     border-radius: 30px;
     padding: 20px;
-    h4{
+
+    h4 {
       cursor: pointer;
       padding-left: 30px;
       transition: .2s;
       text-align: left;
-      &:hover{
-        color:#4DAA57
+
+      &:hover {
+        color: #4DAA57
       }
     }
   }
-  button{
+
+  button {
     font-size: 16px;
     width: 100px;
     height: 30px;
@@ -1309,25 +1476,30 @@ h1 span, h3 span{
     cursor: pointer;
     margin-top: 20px;
     background-color: #fff;
-    &:hover{
+
+    &:hover {
       background-color: $colorOrange;
       color: white;
     }
-    &:active{
+
+    &:active {
       background-color: #FFFFFF;
-      color:black;
+      color: black;
     }
   }
 }
 
-@media (max-width: 768px){
-  .human{
-    .foodback, .foodback2{
+@media (max-width: 768px) {
+  .human {
+
+    .foodback,
+    .foodback2 {
       background-repeat: no-repeat;
       background-position: center 120px;
       background-size: 300px;
     }
-    .human-right{
+
+    .human-right {
       margin-top: 300px;
       margin-bottom: 100px;
       border-radius: 30px;
@@ -1338,9 +1510,9 @@ h1 span, h3 span{
 
 
 // 右邊結帳區
-.human{
-  .foodmenu{
-    height:100%;
+.human {
+  .foodmenu {
+    height: 100%;
     text-align: center;
     background-color: #F2F2F2;
     border-radius: 30px;
@@ -1349,12 +1521,14 @@ h1 span, h3 span{
     box-sizing: border-box;
     height: 690px;
     overflow-y: auto;
-    ul{
+
+    ul {
       margin-top: 20px;
       display: flex;
       justify-content: space-around;
       align-items: center;
-      li{
+
+      li {
         flex-basis: 1px;
         flex-grow: 1;
       }
@@ -1362,21 +1536,24 @@ h1 span, h3 span{
   }
 }
 
-@media (max-width: 576px){
-  .human{
-    .foodmenu{
-      ul{
-        li{
-          button{
+@media (max-width: 576px) {
+  .human {
+    .foodmenu {
+      ul {
+        li {
+          button {
             width: 30px;
             height: 30px;
             margin-top: 20px;
             background-color: #fff;
-            &:hover{
+
+            &:hover {
               background-color: $colorOrange;
             }
           }
-          &:first-child, &:last-child{
+
+          &:first-child,
+          &:last-child {
             flex-basis: 55px;
           }
         }
@@ -1386,33 +1563,36 @@ h1 span, h3 span{
 }
 
 // 所有菜單的文字
-ol li:not(:first-child){
+ol li:not(:first-child) {
   margin-top: 50px;
 }
 
 // 人類菜單文字下移
-.human-right{
+.human-right {
   padding-top: 30px;
 }
+
 // 人類菜單圖片上移
-.human-left{
+.human-left {
   transform: translateY(-80px);
 }
 
 // slicker 關閉預設的隱藏
-.slick-list{
+.slick-list {
   overflow: visible;
 }
+
 // 更改slicker dot樣式
-.slick-dots{
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    top: 460px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-  button{
+.slick-dots {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 460px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+
+  button {
     display: inline-block;
     width: 30px;
     height: 3px;
@@ -1421,39 +1601,40 @@ ol li:not(:first-child){
     margin: 0 6px;
     font-size: 0;
   }
-  & .slick-active button{
+
+  & .slick-active button {
     background-color: $colorYellow;
   }
 }
 
-@media (max-width: 1200px){
-  .slick-dots{
+@media (max-width: 1200px) {
+  .slick-dots {
     position: absolute;
     top: 55vw;
     left: 0;
     right: 0;
     margin: 0 auto;
-}
+  }
 }
 
-@media (max-width: 768px){
-  .slick-dots{
+@media (max-width: 768px) {
+  .slick-dots {
     position: absolute;
     top: 52vw;
     left: 0;
     right: 0;
     margin: 0 auto;
-} 
+  }
 }
 
-@media (max-width: 576px){
-  .slick-dots{
+@media (max-width: 576px) {
+  .slick-dots {
     position: absolute;
     top: 50vw;
     left: 0;
     right: 0;
     margin: 0 auto;
-} 
+  }
 }
 
 // 共用下拉選單
@@ -1465,23 +1646,24 @@ ol li:not(:first-child){
   z-index: 3;
 }
 
-.sub{
+.sub {
   position: absolute;
   top: 34px;
   left: 0;
 }
 
-.mainmenu{
+.mainmenu {
   border-radius: 5px;
 }
 
-.submenu{
+.submenu {
   display: none;
 }
 
-.mainmenu,.submenu {
+.mainmenu,
+.submenu {
   text-align: center;
-  font-family: "setofont","Noto Sans TC", sans-serif;
+  font-family: "setofont", "Noto Sans TC", sans-serif;
   width: 100%;
   padding: 7px;
   font-size: 16px;
@@ -1498,8 +1680,8 @@ ol li:not(:first-child){
   background-color: #558b6e;
 }
 
-.fa-angle-up{
-  color:white;
+.fa-angle-up {
+  color: white;
   position: absolute;
   top: 5px;
   right: 30px;
@@ -1509,7 +1691,7 @@ ol li:not(:first-child){
   transition: .5s;
 }
 
-.fa-angle-up.rotate{
+.fa-angle-up.rotate {
   transform: rotateZ(0deg);
 }
 
@@ -1524,6 +1706,7 @@ ol li:not(:first-child){
   z-index: 103;
   transform: rotate(-45deg);
 }
+
 .dog:before {
   content: "";
   display: block;
@@ -1535,6 +1718,7 @@ ol li:not(:first-child){
   transform: translateY(-30%) scale(1.5);
   z-index: 103;
 }
+
 .dog * {
   position: absolute;
 }
@@ -1542,8 +1726,9 @@ ol li:not(:first-child){
 .dog-body {
   top: -50%;
   -webkit-animation: dog-body 200ms ease-in-out infinite alternate;
-          animation: dog-body 200ms ease-in-out infinite alternate;
+  animation: dog-body 200ms ease-in-out infinite alternate;
 }
+
 .dog-body:before {
   content: "";
   position: absolute;
@@ -1557,46 +1742,56 @@ ol li:not(:first-child){
   background: rgba(255, 255, 255, 0.4);
   transform-origin: right bottom;
   -webkit-animation: dog-tail-blur 200ms 33.3333333333ms ease-in-out infinite alternate both;
-          animation: dog-tail-blur 200ms 33.3333333333ms ease-in-out infinite alternate both;
+  animation: dog-tail-blur 200ms 33.3333333333ms ease-in-out infinite alternate both;
 }
+
 @-webkit-keyframes dog-tail-blur {
   from {
     transform: rotate(0);
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
+
   to {
     transform: rotate(90deg);
     opacity: 0;
   }
 }
+
 @keyframes dog-tail-blur {
   from {
     transform: rotate(0);
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
+
   to {
     transform: rotate(90deg);
     opacity: 0;
   }
 }
+
 @-webkit-keyframes dog-body {
   from {
     transform: translateX(-10%);
   }
+
   to {
     transform: translateX(10%);
   }
 }
+
 @keyframes dog-body {
   from {
     transform: translateX(-10%);
   }
+
   to {
     transform: translateX(10%);
   }
@@ -1604,26 +1799,36 @@ ol li:not(:first-child){
 
 .dog-head {
   -webkit-animation: dog-head 1800ms cubic-bezier(0.11, 0.79, 0, 0.99) infinite;
-          animation: dog-head 1800ms cubic-bezier(0.11, 0.79, 0, 0.99) infinite;
+  animation: dog-head 1800ms cubic-bezier(0.11, 0.79, 0, 0.99) infinite;
 }
+
 @-webkit-keyframes dog-head {
-  from, to {
+
+  from,
+  to {
     transform: rotate(45deg);
   }
+
   33.3% {
     transform: rotate(-45deg);
   }
+
   66.6% {
     transform: rotate(0);
   }
 }
+
 @keyframes dog-head {
-  from, to {
+
+  from,
+  to {
     transform: rotate(45deg);
   }
+
   33.3% {
     transform: rotate(-45deg);
   }
+
   66.6% {
     transform: rotate(0);
   }
@@ -1633,18 +1838,22 @@ ol li:not(:first-child){
   top: -20%;
   animation: dog-torso 200ms ease-in-out infinite alternate-reverse;
 }
+
 @-webkit-keyframes dog-torso {
   from {
     transform: translateX(-5%);
   }
+
   to {
     transform: translateX(5%);
   }
 }
+
 @keyframes dog-torso {
   from {
     transform: translateX(-5%);
   }
+
   to {
     transform: translateX(5%);
   }
@@ -1656,6 +1865,7 @@ ol li:not(:first-child){
   left: 20%;
   z-index: 1;
 }
+
 .dog-eyes:before {
   content: "";
   display: block;
@@ -1681,35 +1891,47 @@ ol li:not(:first-child){
   background: #000;
   z-index: 1;
   -webkit-animation: dog-eye 1800ms infinite;
-          animation: dog-eye 1800ms infinite;
+  animation: dog-eye 1800ms infinite;
 }
+
 @-webkit-keyframes dog-eye {
-  from, to {
+
+  from,
+  to {
     -webkit-animation-timing-function: step-end;
-            animation-timing-function: step-end;
+    animation-timing-function: step-end;
     opacity: 1;
   }
-  50%, 55% {
+
+  50%,
+  55% {
     -webkit-animation-timing-function: step-start;
-            animation-timing-function: step-start;
+    animation-timing-function: step-start;
     opacity: 0;
   }
 }
+
 @keyframes dog-eye {
-  from, to {
+
+  from,
+  to {
     -webkit-animation-timing-function: step-end;
-            animation-timing-function: step-end;
+    animation-timing-function: step-end;
     opacity: 1;
   }
-  50%, 55% {
+
+  50%,
+  55% {
     -webkit-animation-timing-function: step-start;
-            animation-timing-function: step-start;
+    animation-timing-function: step-start;
     opacity: 0;
   }
 }
+
 .dog-eye:first-child {
   left: 0;
 }
+
 .dog-eye:last-child {
   right: 0;
 }
@@ -1723,11 +1945,14 @@ ol li:not(:first-child){
   background: $dogNose;
   bottom: -15%;
 }
-.dog-muzzle:before, .dog-muzzle:after {
+
+.dog-muzzle:before,
+.dog-muzzle:after {
   content: "";
   display: block;
   position: absolute;
 }
+
 .dog-muzzle:before {
   width: 6px;
   height: 20px;
@@ -1735,6 +1960,7 @@ ol li:not(:first-child){
   left: calc(50% - 3px);
   background: #EAEBEC;
 }
+
 .dog-muzzle:after {
   background: black;
   width: 20px;
@@ -1754,36 +1980,53 @@ ol li:not(:first-child){
   z-index: -1;
   transform-origin: center top;
   -webkit-animation: dog-tongue 1800ms -50ms ease-in-out infinite;
-          animation: dog-tongue 1800ms -50ms ease-in-out infinite;
+  animation: dog-tongue 1800ms -50ms ease-in-out infinite;
 }
+
 @-webkit-keyframes dog-tongue {
-  from, to {
+
+  from,
+  to {
     transform: rotate(0);
   }
+
   16.6666666667% {
     transform: rotate(30deg);
   }
-  33.3333333333%, 66.6666666667% {
+
+  33.3333333333%,
+  66.6666666667% {
     transform: rotate(0);
   }
-  50%, 83.3333333333% {
+
+  50%,
+  83.3333333333% {
     transform: rotate(-20deg);
   }
 }
+
 @keyframes dog-tongue {
-  from, to {
+
+  from,
+  to {
     transform: rotate(0);
   }
+
   16.6666666667% {
     transform: rotate(30deg);
   }
-  33.3333333333%, 66.6666666667% {
+
+  33.3333333333%,
+  66.6666666667% {
     transform: rotate(0);
   }
-  50%, 83.3333333333% {
+
+  50%,
+  83.3333333333% {
     transform: rotate(-20deg);
   }
 }
+
 .dog-tongue:before {
   content: "";
   position: absolute;
@@ -1793,20 +2036,24 @@ ol li:not(:first-child){
   border-radius: 40px;
   background: #FD3163;
   -webkit-animation: dog-tongue-inner 100ms ease-in-out infinite alternate;
-          animation: dog-tongue-inner 100ms ease-in-out infinite alternate;
+  animation: dog-tongue-inner 100ms ease-in-out infinite alternate;
 }
+
 @-webkit-keyframes dog-tongue-inner {
   from {
     transform: translateY(5%);
   }
+
   to {
     transform: translateY(22%);
   }
 }
+
 @keyframes dog-tongue-inner {
   from {
     transform: translateY(5%);
   }
+
   to {
     transform: translateY(22%);
   }
@@ -1817,39 +2064,61 @@ ol li:not(:first-child){
   top: 25%;
   left: 30%;
   -webkit-animation: dog-ears 1800ms 100ms ease infinite;
-          animation: dog-ears 1800ms 100ms ease infinite;
+  animation: dog-ears 1800ms 100ms ease infinite;
 }
+
 @-webkit-keyframes dog-ears {
-  42.3%, 71.6% {
+
+  42.3%,
+  71.6% {
     transform: rotate(-5deg);
   }
-  50.3%, 79.6% {
+
+  50.3%,
+  79.6% {
     transform: rotate(5deg);
   }
+
   5% {
     transform: rotate(5deg);
   }
+
   12% {
     transform: rotate(-5%);
   }
-  from, 33.3%, 66%, to {
+
+  from,
+  33.3%,
+  66%,
+  to {
     transform: rotate(0);
   }
 }
+
 @keyframes dog-ears {
-  42.3%, 71.6% {
+
+  42.3%,
+  71.6% {
     transform: rotate(-5deg);
   }
-  50.3%, 79.6% {
+
+  50.3%,
+  79.6% {
     transform: rotate(5deg);
   }
+
   5% {
     transform: rotate(5deg);
   }
+
   12% {
     transform: rotate(-5%);
   }
-  from, 33.3%, 66%, to {
+
+  from,
+  33.3%,
+  66%,
+  to {
     transform: rotate(0);
   }
 }
@@ -1860,16 +2129,17 @@ ol li:not(:first-child){
   width: 50px;
   background: #EAEBEC;
   -webkit-animation-duration: 400ms;
-          animation-duration: 400ms;
+  animation-duration: 400ms;
   -webkit-animation-direction: alternate;
-          animation-direction: alternate;
+  animation-direction: alternate;
   -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
   -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-fill-mode: both;
   -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }
+
 .dog-ear:first-child {
   border-bottom-left-radius: 80%;
   border-top-right-radius: 80%;
@@ -1878,6 +2148,7 @@ ol li:not(:first-child){
   transform-origin: right bottom;
   transform: rotate(10deg);
 }
+
 .dog-ear:last-child {
   border-top-left-radius: 80%;
   border-bottom-right-radius: 80%;
@@ -1896,44 +2167,53 @@ ol li:not(:first-child){
   left: calc(50% - 11px);
   transform-origin: center bottom;
 }
+
 .dog-tail .dog-tail {
   -webkit-animation: dog-tail-segment 200ms ease-in-out infinite alternate;
-          animation: dog-tail-segment 200ms ease-in-out infinite alternate;
+  animation: dog-tail-segment 200ms ease-in-out infinite alternate;
 }
+
 @-webkit-keyframes dog-tail-segment {
   from {
     transform: rotate(-10deg);
   }
-  to {
-    transform: rotate(10deg);
-  }
-}
-@keyframes dog-tail-segment {
-  from {
-    transform: rotate(-10deg);
-  }
+
   to {
     transform: rotate(10deg);
   }
 }
 
-.dog-body > .dog-tail {
+@keyframes dog-tail-segment {
+  from {
+    transform: rotate(-10deg);
+  }
+
+  to {
+    transform: rotate(10deg);
+  }
+}
+
+.dog-body>.dog-tail {
   bottom: 90%;
   -webkit-animation: dog-tail 200ms ease-in-out infinite alternate;
-          animation: dog-tail 200ms ease-in-out infinite alternate;
+  animation: dog-tail 200ms ease-in-out infinite alternate;
 }
+
 @-webkit-keyframes dog-tail {
   from {
     transform: rotate(-45deg);
   }
+
   to {
     transform: rotate(45deg);
   }
 }
+
 @keyframes dog-tail {
   from {
     transform: rotate(-45deg);
   }
+
   to {
     transform: rotate(45deg);
   }
@@ -1949,12 +2229,13 @@ ol li:not(:first-child){
   width: 100%;
 }
 
-.dog-body, .dog-torso {
+.dog-body,
+.dog-torso {
   box-shadow: inset 0 -15px 0 0 #EAEBEC;
 }
 
 
-.dogContainer{
+.dogContainer {
   position: absolute;
   top: 13%;
   left: 22%;
@@ -1962,11 +2243,3 @@ ol li:not(:first-child){
   padding: 0;
   z-index: 101;
 }
-
-
-
-
-
-
-
-
