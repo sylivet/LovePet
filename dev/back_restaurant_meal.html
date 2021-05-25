@@ -8,6 +8,17 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
   @@include('layout/style.html')
+  <style>
+    body{
+      overflow: auto;
+    }
+    input{
+      width: 80px;
+    }
+    .save{
+      display: none;
+    }
+  </style>
   <title>樂寵後台管理</title>
 </head>
 
@@ -90,9 +101,9 @@
       </div>
       <div class="col-10">
         <h2 class="mb-3">餐廳餐點管理</h2>
-        <a href="back_restaurant_meal_create.html" class="btn btn-success btn-sm mb-3">新增餐點</a>
         <div class="d-flex justify-content-between mb-3">
-          <div>
+          <a href="back_restaurant_meal_create.html" class="btn btn-success btn-sm">新增餐點</a>
+          <!-- <div>
             <input type="checkbox" id="all" />
             <label for="all">全選</label>
             <button type="button" class="btn btn-outline-success btn-sm ms-1">
@@ -100,81 +111,180 @@
             </button>
             <button type="button" class="btn btn-outline-success btn-sm ms-1">
               下架
-            </button>
-          </div>
+            </button> 
+          </div> -->
           <select>
             <option value="1">上架中</option>
             <option value="0">下架中</option>
           </select>
         </div>
-        <table class="table table-striped table-hover text-center">
-          <thead>
-            <tr class="table-warning">
-              <th></th>
-              <th>餐點編號</th>
-              <th>名稱</th>
-              <th>類型</th>
-              <th>分類</th>
-              <th>資訊</th>
-              <th>價格</th>
-              <th>圖片</th>
-              <th>卡路里</th>
-              <th>數量</th>
-              <th>狀態</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><input type="checkbox" /></td>
-              <td>1</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><a href="###">編輯</a></td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /></td>
-              <td>2</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><a href="###">編輯</a></td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /></td>
-              <td>3</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><a href="###">編輯</a></td>
-            </tr>
-          </tbody>
-        </table>
+          <table class="table table-striped table-hover text-center">
+            <thead>
+              <tr class="table-warning">
+                <th>餐點編號</th>
+                <th>名稱</th>
+                <th>英文名稱</th>
+                <th>類型</th>
+                <th>分類</th>
+                <th>資訊</th>
+                <th>價格</th>
+                <th>圖片</th>
+                <th>卡路里</th>
+                <th>數量</th>
+                <th>狀態</th>
+                <th>編輯</th>
+                <th>刪除</th>
+              </tr>
+            </thead>
+              <tbody class="data">
+              </tbody>
+          </table>
       </div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-    crossorigin="anonymous"></script>
-</body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 
+    <script>
+      axios.post("php/back_end_API/R_select.php").then((res)=>{
+        getData(res)
+      })
+      function getData(res){
+        for(let i = 0; i< res.data.length; i++){
+
+          // let status = (res.data[i].MEAL_STATUS === "1") ? "上架" : "下架";
+          
+          let data = `
+          <tr>
+                <td><input value="${res.data[i].MEAL_DATA_ID}" name="MEAL_DATA_ID" disabled readonly></td>
+                <td><input type="text" name="MEAL_NAME" value="${res.data[i].MEAL_NAME}" disabled></td>
+                <td><input type="text" name="eng" value="${res.data[i].eng}" disabled></td>
+                <td>
+                  <select name="MEAL_TYPE" disabled>
+                    <option value="${res.data[i].MEAL_TYPE}" selected>${res.data[i].MEAL_TYPE}</option>
+                    <option value="乾糧">乾糧</option>
+                    <option value="主食">主食</option>
+                    <option value="配菜">配菜</option>
+                    <option value="美式">美式</option>
+                    <option value="義式">義式</option>
+                    <option value="沙拉">沙拉</option>
+                    <option value="鮮食">鮮食</option>
+                  </select>
+                </td>
+                <td>
+                  <select name="MEAL_CATA" disabled>
+                    <option value="${res.data[i].MEAL_CATA}" selected>${res.data[i].MEAL_CATA}</option>
+                    <option value="petsCustom">客製寵食</option>
+                    <option value="petsFood">現有寵食</option>
+                    <option value="humanFood">現有人食</option>
+                  </select>
+                </td>
+                <td><input type="text" name="MEAL_MSG" value="${res.data[i].MEAL_MSG}" disabled></td>
+                <td><input type="text" name="MEAL_PRICE" value="${res.data[i].MEAL_PRICE}" class="test" disabled></td>
+                <td><input type="text" name="MEAL_IMG" value="${res.data[i].MEAL_IMG}" disabled></td>
+                <td><input type="text" name="MEAL_CAL" value="${res.data[i].MEAL_CAL}" disabled></td>
+                <td><input type="text" name="MEAL_COUNT" value="1" disabled></td>
+                <td>
+                  <select name="MEAL_STATUS" disabled>
+                    <option value="${res.data[i].MEAL_STATUS}" selected>${res.data[i].MEAL_STATUS === "1"? "上架" : "下架" }</option>
+                    <option value="0">下架</option>
+                    <option value="1">上架</option>
+                  </select>
+                </td>
+                <td class="edit"><a href="">編輯</a></td>
+                <td class="save"><button >儲存</button></td>
+                <td class="cancel"><button >刪除</button></td>
+          </tr>
+          `
+          $('.data').append(data)
+        }
+      }
+
+      // 動態append無法click事件點擊該元件，要改為on綁定先抓到父層後，才點擊該元件。
+
+      //編輯
+      $('.data').on('click', '.edit', function(e){
+        e.preventDefault()
+        $(this).parent().find('input, select').attr('disabled', false)
+        $(this).css('display', 'none')
+        $(this).next().css('display', 'block')
+      });
+
+      //儲存
+      $('.data').on('click', '.save', function(){
+        $(this).parent().parent().find('input, select').attr('disabled', true)
+        $(this).css('display', 'none')
+        $(this).prev().css('display', 'block')
+
+        let MEAL_DATA_ID = $(this).parent().find("input[name='MEAL_DATA_ID']").val()
+        let MEAL_TYPE = $(this).parent().find("select[name='MEAL_TYPE']").val()
+        let MEAL_NAME = $(this).parent().find("input[name='MEAL_NAME']").val()
+        let MEAL_PRICE = $(this).parent().find("input[name='MEAL_PRICE']").val()
+        let MEAL_IMG = $(this).parent().find("input[name='MEAL_IMG']").val()
+        let MEAL_STATUS = $(this).parent().find("select[name='MEAL_STATUS']").val()
+        let MEAL_CATA = $(this).parent().find("select[name='MEAL_CATA']").val()
+        let MEAL_CAL = $(this).parent().find("input[name='MEAL_CAL']").val()
+        let MEAL_MSG = $(this).parent().find("input[name='MEAL_MSG']").val()
+        let MEAL_COUNT = $(this).parent().find("input[name='MEAL_COUNT']").val()
+        let eng = $(this).parent().find("input[name='eng']").val()
+
+        
+        $.ajax({            
+            method: "POST",
+            url: "php/back_end_API/R_Update.php",
+            data:{
+              'MEAL_NAME': MEAL_NAME,
+              'MEAL_TYPE': MEAL_TYPE,
+              'MEAL_DATA_ID': MEAL_DATA_ID,
+              'MEAL_PRICE': MEAL_PRICE,
+              'MEAL_IMG': MEAL_IMG,
+              'MEAL_STATUS': MEAL_STATUS,
+              'MEAL_CATA': MEAL_CATA,
+              'MEAL_CAL': MEAL_CAL,
+              'MEAL_MSG': MEAL_MSG,
+              'MEAL_COUNT': MEAL_COUNT,
+              'eng': eng,
+            },            
+            dataType: "text",
+            success: function (res) {   
+              alert("修改成功")     
+            },
+            error: function(exception) {
+              alert("修改失敗")     
+            }
+        });
+      });
+
+      //刪除
+      $('.data').on('click', '.cancel', function(){
+
+          console.log('object');
+
+          let MEAL_DATA_ID = $(this).parent().find("input[name='MEAL_DATA_ID']").val()
+
+          let yes = confirm("不要亂刪喔!")
+          if(yes){
+            $.ajax({            
+              method: "POST",
+              url: "php/back_end_API/R_Delete.php",
+              data:{
+                'MEAL_DATA_ID': MEAL_DATA_ID,
+              },            
+              dataType: "text",
+              success: function (res) {     
+                alert("已刪除")  
+              },
+              error: function(exception) {
+                alert("修改失敗")     
+              }
+            });
+          }
+
+      })
+
+
+
+    </script>
+</body>
 </html>
