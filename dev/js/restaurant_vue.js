@@ -108,6 +108,27 @@ let vm = new Vue({
     allFoodMenu:[],
   },
   methods: {
+    loginChenk(){
+      $.ajax({            
+        method: "POST",
+        url: "php/front_end_API/R_LoginCheck.php",
+        data:{},            
+        dataType: "text",
+        success: (response)=> {
+            if(response == ""){
+                //尚未登入->前往Login.php
+                alert('請先登入會員'); 
+                $('#m_sign_in_bk').show()
+              }else{
+                this.isBookingBoxOpen = true
+            }              
+        },
+        error: function(exception) {
+            alert("數據載入失敗: " + exception.status);
+        }
+    });
+    },
+
     // 客製寵美食下一步
     choosePetCustomFood(food) {
       if (this.petCustomFoodSelection.indexOf(food) == -1) {
@@ -319,6 +340,9 @@ $(function () {
     }, 100);
   });
 });
+
+// 關閉登入會員燈箱
+$('.i_closeButton').click(()=>$('#m_sign_in_bk').hide())
 
 
 
