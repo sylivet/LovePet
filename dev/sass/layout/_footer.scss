@@ -6,7 +6,9 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: #558B6E;
+    background-image: url("../img/common/paw.png");
+    background-repeat: no-repeat;
+    background-size: contain;
     position: fixed;
     pointer-events: none;
     z-index: 2000;
@@ -15,7 +17,7 @@
 .cursor::after {
     content: "";
     position: absolute;
-    border: 1px solid #558B6E;
+    border: 1px solid #915727;
     width: 20px;
     height: 20px;
     border-radius: 50%;

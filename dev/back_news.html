@@ -119,34 +119,7 @@
               <th></th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td><input type="checkbox" /></td>
-              <td>1</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><a href="###">編輯</a></td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /></td>
-              <td>2</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><a href="###">編輯</a></td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" /></td>
-              <td>3</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><a href="###">編輯</a></td>
-            </tr>
+          <tbody class="data">
           </tbody>
         </table>
       </div>
@@ -155,6 +128,107 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
     crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  <script>
+     axios.post("php/back_end_API/I_select.php").then((res) => {
+      getData(res)
+    })
+    function getData(res) {
+      for (let i = 0; i < res.data.length; i++) {
+
+        let data = `
+          <tr>
+                <td style="display: none"><input value="${res.data[i].NEWS_ID}" name="NEWS_ID" disabled readonly></td>
+                <td>${res.data[i].NEWS_ID}</td>
+                <td><input type="text" name="NEWS_TITLE" value="${res.data[i].NEWS_TITLE}" disabled></td>
+                <td style="display: none"><input type="text" name="NEWS_IMG" value="${res.data[i].NEWS_IMG}" disabled></td>
+                <td><img src="${res.data[i].NEWS_IMG}" style="width:50px;"></td>
+                <td><input type="text" name="	NEWS_CONTENT" value="${res.data[i].NEWS_CONTENT}" disabled></td>
+                <td>
+                  <select name="NEWS_STATUS" disabled>
+                    <option class="noShow" value="${res.data[i].NEWS_STATUS}" selected>${res.data[i].NEWS_STATUS === "1" ? "上架" : "下架"}</option>
+                    <option value="0">下架</option>
+                    <option value="1">上架</option>
+                  </select>
+                </td>
+                <td class="edit"><button class="btn btn-warning btn-sm">編輯</button></td>
+                <td style="display: none" class="save"><button class="btn btn-warning btn-sm">儲存</button></td>
+                <td class="cancel"><button class="btn btn-danger btn-sm">刪除</button></td>
+          </tr>
+          `
+        $('.data').append(data)
+      }
+    }
+
+    // 動態append無法click事件點擊該元件，要改為on綁定先抓到父層後，才點擊該元件。
+
+    //編輯
+    $('.data').on('click', '.edit', function (e) {
+      e.preventDefault()
+      $(this).parent().find('input, select').attr('disabled', false)
+      $(this).css('display', 'none')
+      $(this).next().css('display', 'block')
+      $('.noShow').hide()
+    });
+
+    //儲存
+    $('.data').on('click', '.save', function () {
+      $(this).parent().parent().find('input, select').attr('disabled', true)
+      $(this).css('display', 'none')
+      $(this).prev().css('display', 'block')
+
+      let NEWS_ID = $(this).parent().find("input[name='NEWS_ID']").val()
+      let NEWS_TITLE = $(this).parent().find("select[name='NEWS_TITLE']").val()
+      let NEWS_IMG = $(this).parent().find("input[name='NEWS_IMG']").val()
+      let NEWS_CONTENT = $(this).parent().find("input[name='NEWS_CONTENT']").val()
+      let NEWS_STATUS = $(this).parent().find("select[name='NEWS_STATUS']").val()
+
+
+      $.ajax({
+        method: "POST",
+        url: "php/back_end_API/I_Update.php",
+        data: {
+          'NEWS_ID': NEWS_ID,
+          'NEWS_TITLE': NEWS_TITLE,
+          'NEWS_IMG': NEWS_IMG,
+          'NEWS_CONTENT': NEWS_CONTENT,
+          'NEWS_STATUS': NEWS_STATUS,
+        },
+        dataType: "text",
+        success: function (res) {
+          alert("修改成功")
+        },
+        error: function (exception) {
+          alert("修改失敗")
+        }
+      });
+    });
+
+    //刪除
+    $('.data').on('click', '.cancel', function () {
+
+      let MEAL_DATA_ID = $(this).parent().find("input[name='NEWS_ID']").val()
+
+      let yes = confirm("不要亂刪喔!")
+      if (yes) {
+        $.ajax({
+          method: "POST",
+          url: "php/back_end_API/I_Delete.php",
+          data: {
+            'NEWS_ID': NEWS_ID,
+          },
+          dataType: "text",
+          success: function (res) {
+            alert("已刪除")
+          },
+          error: function (exception) {
+            alert("修改失敗")
+          }
+        });
+      }
+    })
+  </script>
 </body>
 
 </html>
