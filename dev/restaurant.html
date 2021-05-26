@@ -68,38 +68,38 @@
           <div class="col-xl-8 col-lg-12 order-1 order-xl-2">
             <div class="envPictures">
               <div>
-                <img src="img/restaurant/restaurent_env2.png" alt="">
+                <img src="img/restaurant/restaurent_env.jpg" alt="">
                 <div class="envWord">
-                  <h2>環境1</h2>
-                  <p>能否號碼想要社會主義，禁止優質歐洲下一頁灌水，發現湖口一點，過去辦法也就瀏覽電子商務，最終創作，附。</p>
+                  <h2>餐廳-室內</h2>
+                  <p>餐廳中的擺設承襲著整個渡假村的風格，呈現了濃厚的森林風味，整體空間款敞明亮，即使團體入住也不用為了用餐場地頭痛，桌椅擺設也設計成可以提供2～10人同桌用餐，滿足不同的需求。</p>
                 </div>
               </div>
               <div>
-                <img src="img/restaurant/restaurent_env3.png" alt="">
+                <img src="img/restaurant/restaurent_env7.jpg" alt="">
                 <div class="envWord">
-                  <h2>環境2</h2>
-                  <p>期待街道我去中有給我並在真正，辦法湖口現象得知，無奈本類不用在於通訊小學手段，推出食物顯得提問分享媒體，影響我現在預防轉讓採用管理由於足夠。</p>
+                  <h2>廚房</h2>
+                  <p>採用透明櫥窗式廚房，可以欣賞到廚師們如何分工合作，在等待餐點時，能像看一場精巧的表演秀一樣，食物現點現做，讓您跟毛小孩吃得安心。</p>
                 </div>
               </div>
               <div>
-                <img src="img/restaurant/restaurent_env4.png" alt="">
+                <img src="img/restaurant/restaurent_env4.jpg" alt="">
                 <div class="envWord">
-                  <h2>環境3</h2>
-                  <p>暴力網頁班這次身邊一臉太多民主發佈日期稿件長度，今後有限責任公司他是緩緩試題隊員浙江理解主流其中廣泛歲月，正在學會，男。</p>
+                  <h2>食物</h2>
+                  <p>所選用的主要食材皆為本園區自己生產，無添加任何化學調味料，也依然令人食指大動。</p>
                 </div>
               </div>
               <div>
-                <img src="img/restaurant/restaurent_env5.png" alt="">
+                <img src="img/restaurant/restaurent_env8.jpg" alt="">
                 <div class="envWord">
-                  <h2>環境4</h2>
-                  <p>臺灣數碼金幣中間鄉民們專門方便參與如此，本來他還年代系列代表遊客控制寵物，初步廠商掌握新人，行業協調配套，不在能源天然豐富品質新增顧問清楚。</p>
+                  <h2>餐廳戶外</h2>
+                  <p>除了室內，我們在室外也備有許多陽傘小方桌，天氣好的時候，可以一面用餐，一面愜意地看著風景與奔跑的毛小孩。</p>
                 </div>
               </div>
               <div>
-                <img src="img/restaurant/restaurent_env6.png" alt="">
+                <img src="img/restaurant/restaurent_env9.jpg" alt="">
                 <div class="envWord">
-                  <h2>環境5</h2>
-                  <p>群發打造姐姐植物國內經營，堅決可見運輸公園暫時附件控制心情改變輸出，不懂可以寬頻一起呼吸以便春天學術專區資料現場羅東，資源當前社區，液晶報。</p>
+                  <h2>廁所</h2>
+                  <p>設有一間衛浴廁所 + 一間廁所，為隱藏門設計每間廁所都有增設通風設備，擺設消毒用洗手乳、酒精，每場活動結束都有專人全面清洗消毒，請安心使用。</p>
                 </div>
               </div>
             </div>
@@ -155,7 +155,7 @@
                 <div class="foodinfo">
                   <p>{{food.MEAL_NAME}}</p>
                   <p>NT {{food.MEAL_PRICE}} 元</p>
-                  <p>{{food.MEAL_CAL}}</p>
+                  <p>{{food.MEAL_CAL}} cal</p>
                   <button @click="choosePetCustomFood(food)">加入</button>
                 </div>
               </div>
@@ -216,7 +216,7 @@
                       <template v-for="(food, fid) in filterTypeToSalad">
                         <li @click="chooseFood(food)">
                           <h4>{{fid+1}}.{{food.MEAL_NAME}}</h4>
-                          <p><span>{{food.MEAL_CAL}}</span>NT{{food.MEAL_PRICE}}元</p>
+                          <p><span>{{food.MEAL_CAL}} cal</span>NT{{food.MEAL_PRICE}}元</p>
                         </li>
                         <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="chooseFood(food)"></i>
                         <i class="fa fa-info-circle info" aria-hidden="true" @click="getLightBoxOpen(food)"></i>
@@ -232,7 +232,7 @@
                       <template v-for="(food, fid) in filterTypeToFresh">
                         <li @click="chooseFood(food)">
                           <h4>{{fid+1}}.{{food.MEAL_NAME}}<br></h4>
-                          <p><span>{{food.MEAL_CAL}}</span>NT{{food.MEAL_PRICE}}元</p>
+                          <p><span>{{food.MEAL_CAL}} cal</span>NT{{food.MEAL_PRICE}}元</p>
                         </li>
                         <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="chooseFood(food)"></i>
                         <i class="fa fa-info-circle info" aria-hidden="true" @click="getLightBoxOpen(food)"></i>
@@ -301,7 +301,7 @@
                       <template v-for="(food, fid) in filterTypeToItaly">
                         <li @click="chooseFood(food)">
                           <h4>{{fid+1}}.{{food.MEAL_NAME}}<br></h4>
-                          <p><span>{{food.MEAL_CAL}}</span>NT{{food.MEAL_PRICE}} 元</p>
+                          <p><span>{{food.MEAL_CAL}} cal</span>NT{{food.MEAL_PRICE}} 元</p>
                         </li>
                         <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="chooseFood(food)"></i>
                         <i class="fa fa-info-circle info" aria-hidden="true" @click="getLightBoxOpen(food)"></i>
@@ -317,7 +317,7 @@
                       <template v-for="(food, fid) in filterTypeToUS">
                         <li @click="chooseFood(food)">
                           <h4>{{fid+1}}.{{food.MEAL_NAME}}<br></h4>
-                          <p><span>{{food.MEAL_CAL}}</span>NT{{food.MEAL_PRICE}}元</p>
+                          <p><span>{{food.MEAL_CAL}} cal</span>NT{{food.MEAL_PRICE}}元</p>
                         </li>
                         <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="chooseFood(food)"></i>
                         <i class="fa fa-info-circle info" aria-hidden="true" @click="getLightBoxOpen(food)"></i>

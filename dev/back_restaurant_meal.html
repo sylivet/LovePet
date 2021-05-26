@@ -249,6 +249,7 @@
 
           let yes = confirm("不要亂刪喔!")
           if(yes){
+            $(this).parent().fadeOut()
             $.ajax({            
               method: "POST",
               url: "php/back_end_API/R_Delete.php",
