@@ -3,11 +3,10 @@
 .cursor {
     left: 0;
     top: 0;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    // background-color: #558B6E;
-    background-image: url("../../img/member/catlogo-8.png");
+    background-image: url("../img/common/paw.png");
     background-repeat: no-repeat;
     background-size: contain;
     position: fixed;
@@ -18,9 +17,9 @@
 .cursor::after {
     content: "";
     position: absolute;
-    border: 1px solid #C2B49A;
-    width: 30px;
-    height: 30px;
+    border: 1px solid #915727;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -31,15 +30,15 @@
 @keyframes pulse {
     0% {
         opacity: 1;
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
 
     }
 
     100% {
         opacity: 0;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         margin: 0 auto;
     }
 }

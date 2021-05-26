@@ -1,8 +1,8 @@
 <?php
-    include("../I_conn.php");
+    include("../../php/I_conn.php");
     
     //建立SQL語法
-    $sql = "SELECT NEWS_IMG, NEWS_TITLE ,NEWS_CONTENT FROM NEWS WHERE NEWS_STATUS = 1";
+    $sql = "SELECT * FROM NEWS WHERE NEWS_STATUS = 1";
     
     //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
     $statement = $pdo->prepare($sql);
