@@ -34,18 +34,22 @@
             <div class="c_report_title_right">
                 <select>
                     <option>請選擇其他寵物</option>
-                    <option v-for='report in reports'>{{report.petName1}}</option>
+                    <option v-for='(report,index) in reports'>{{index+1}}.{{report.petName}}</option>
                     
                 </select>
             </div>
         </div>
-        
+
+
+        <!-- chart.js -->
         <!-- <div class="scroll"> -->
             <div class='c_chart-container' style="position: relative; margin:auto; max-height:750px; width:80vw">
                 <canvas id="c_myChart"></canvas>
             </div>
-        
         <!-- </div> -->
+
+
+        <!-- 健檢報告書醫師建議 -->
         <div class="i_banner c_illustration">
             <div class="i_banner_left"><img src="img/clinic/headerTree2.png" alt=""></div>
         
