@@ -17,37 +17,46 @@
     <img src="img/mall/rough_cart-01@2x.png" alt="">
   </div>
 
-  <main>
+  <main id="app">
     <!-- 選擇區塊 -->
     <div class="choose_button">
-      <select name="">
-        <option value="0" selected>用品</option>
-        <option value="1">食品</option>
-        <option value="2">服飾</option>
-        <option value="3">虛擬試衣間</option>
-        <option value="4">客製化商品</option>
+      <select name="" v-model="selected" @change="hideInput">
+        <!-- 在select用v-model雙向綁定，會將當下綁定的value值給selected(這裡用於切換頁面)-->
+        <!-- 用change事件進行判斷，若點擊搜尋顯示input輸入框時，切頁不會隱藏的狀況 -->
+        <option v-for="option in options" :value="option.val">{{option.item}}</option>
+        <!-- 用v-for將options的內容放到option中並渲染到畫面上，value為option的val，文字為option的item -->
       </select>
 
       <div class="search_btn">
-        <img src="img/mall/search@2x.png" alt="">
+        <div class="input_block">
+          <transition name="slide">
+            <!--transition為Vue提供的動畫元件，name可自取名稱-->
+            <input v-model.trim="input.text" v-if="this.clicked == true && this.selected &lt 3" type="text"
+              placeholder="請輸入商品名稱">
+            <!-- input在this.clicked為true才顯示 -->
+          </transition>
+        </div>
+        <img @click="showInput" v-if="this.selected &lt 3" src="img/mall/search@2x.png" alt="">
+        <!-- 搜尋圖示點擊後執行showInput函式，且在this.selected == 0才顯示圖示(只在用品頁顯示) -->
+        <!-- &lt為小於符號，在HTML中直接用"<"會被當成標籤 -->
       </div>
     </div>
 
 
     <div class="another">
-      <div class="test" style="display: block;">
+      <div v-if="this.selected == 0" class="test">
         @@include('./Supplies.html')
       </div>
-      <div class="test" style="display: none;">
+      <div class="test">
         <!-- @@include('./Supplies.html') -->
       </div>
-      <div class="test" style="display: none;">
+      <div class="test">
         <!-- @@include('./Supplies.html') -->
       </div>
-      <div class="test" style="display: none;">
+      <div v-if="this.selected == 3" class="test">
         @@include('./Simulation.html')
       </div>
-      <div class="test" style="display: none;">
+      <div v-if="this.selected == 4" class="test">
         @@include('./Customized.html')
       </div>
     </div>
@@ -55,19 +64,81 @@
   @@include('layout/footer.html')
   <script>
 
+    // ------Jquery寫法------
+    // $('select').on('change', function () {
+    //   if (this.value !== "") {
+    //     // console.log(this.value);
+    //     $('.test').css("display", "none")//change事件發生時，所有class為test的div隱藏
+    //     $('.test').eq(this.value).css("display", "block")//test的第this.value個變為顯示(eq(索引值))
+    //   }
+    // })
 
 
-    // $('.another').load('./Supplies.html');//在首頁先預設是物品頁面
+    // ------Vue寫法------
+    let data = {
+      options: [
+        { val: 0, item: "用品" },
+        { val: 1, item: "食品" },
+        { val: 2, item: "服飾" },
+        { val: 3, item: "虛擬試衣間" },
+        { val: 4, item: "客製化商品" },
+      ],
 
-    $('select').on('change', function () {
-      if (this.value !== "") {
-        // console.log(this.value);
-        $('.test').css("display", "none")//change事件發生時，所有class為test的div隱藏
-        $('.test').eq(this.value).css("display", "block")//test的第this.value個變為顯示(eq(索引值))
+      info: [
+        { name: "小帳棚", price: "81" + `,` + "000", src: "img/mall/tent_4@2x.png" },
+        { name: "安全座椅", price: "1" + `,` + "200", src: "img/mall/seat1950元-2@2x.png" },
+        { name: "成長碗架", price: "279", src: "img/mall/成長碗架279元@2x.png" },
+        { name: "吸水墊", price: "699", src: "img/mall/吸水墊699元@2x.png" },
+        { name: "奧利反光寵物胸背帶", price: "699", src: "img/mall/奧利反光寵物胸背帶699元@2x.png" },
+        { name: "波浪斜坡寵物樓梯", price: "1" + `,` + "590", src: "img/mall/波浪斜坡寵物樓梯1590元@2x.png" },
+        { name: "糰子貓宅", price: "2" + `,` + "490", src: "img/mall/糰子貓宅2490元@2x.png" },
+        { name: "寵物碗架組", price: "2" + `,` + "250", src: "img/mall/寵物碗架組2250元@2x.png" },
+        { name: "貓抓柱", price: "1" + `,` + "690", src: "img/mall/貓抓柱1690元@2x.png" },
+        { name: "鯊魚造型貓窩", price: "479", src: "img/mall/鯊魚造型貓窩NT479@2x.png" },
+        { name: "黑六角椅墊組", price: "3" + `,` + "350", src: "img/mall/黑六角椅墊組3350元@2x.png" },
+        { name: "太空艙", price: "500" + `,` + "000", src: "img/mall/4@2x.png", },
+      ],
+
+      input: {
+        text: "",
+      },
+
+      selected: 0,
+      //selected設初值為0，與用品的val相符
+      //預設的值要能跟上面其中一個的value值吻合，否則畫面的下拉選單初始值會是空白的
+      //如果預設要是第一個請選擇的話，可以把value值設為空值
+      clicked: false,
+    }
+
+
+    let vm = new Vue({
+      el: "#app",
+      data: data,
+      methods: {
+        showInput() {
+          if (this.clicked == false) {
+            this.clicked = true;
+          } else {
+            this.clicked = false;
+          }
+        },
+        hideInput() {
+          if (this.selected < 3) {//如果切頁到非用品頁，input輸入框隱藏，點回用品頁時就會重置
+            this.clicked = false;
+            this.input.text = "";//切頁後清空輸入內容，切回時就會讓頁面重置，防止切回輸入結果還在的情況
+          }
+        }
+      },
+      computed: {
+        result() {
+          if (this.input.text) {
+            return this.info.filter(itemName => itemName.name.indexOf(this.input.text) !== -1);
+          } else {
+            return this.info;
+          }
+        }
       }
-    })
-
-
+    });
 
   </script>
 </body>
