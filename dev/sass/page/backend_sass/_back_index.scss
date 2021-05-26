@@ -2,94 +2,109 @@
   padding-top: 0;
   cursor: auto;
   margin-top: 0;
+
   .back_wrapper {
+    background-image: url("../img/back_index/Group 23@2x.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     width: 100%;
-    // margin: 0 auto;
-    margin-top: 0px;
-    // background-color: bisque;
-    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 
-    .BK_img {
-      width: 100%;
-
-      @include mobile {
-        height: 100vh;
-        object-fit: cover;
-      }
-
+    @include mobile {
+      flex-direction: column;
     }
 
-    .link {
-      width: 60%;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-around;
-      position: absolute;
-      top: 30%;
-      left: 20%;
+    a {
+      display: block;
+      color: #734b23;
+      padding-top: 5px;
+      text-align: center;
+    }
 
-      @include mobile {
-        flex-direction: column;
-        top: 5%;
-        left: 20%;
+    .front {
+      position: relative;
+
+      img {
+        max-width: 162px;
+        position: absolute;
+        top: -120px;
+        left: 0px;
       }
 
-      a {
-        display: block;
-        color: #734b23;
-        padding-top: 5px;
-        text-align: center;
+      img:hover {
+        animation: dog 1s linear infinite;
+        transition: .5s;
       }
 
-      .front {
-        img {
-          max-width: 273px;
+      @keyframes dog {
 
-          @include mobile {
-            width: 100%;
-          }
+        0% {
+          top: -120px;
         }
 
-        h1 {
-          font-size: 30px;
-          padding-top: 5px;
-
-          @include pad {
-            font-size: 26px;
-          }
+        100% {
+          top: -180px;
         }
       }
 
-      .logo {
-        img {
-          max-width: 274px;
-
-          @include mobile {
-            width: 50%;
-            margin: 50px 80px;
-          }
-        }
+      h1 {
+        font-size: 30px;
+        font-family: 'setofont';
       }
 
-      .back {
-        img {
-          max-width: 273px;
-
-          @include mobile {
-            width: 100%;
-          }
-        }
-
-        h1 {
-          font-size: 30px;
-          padding-top: 5px;
-
-          @include pad {
-            font-size: 26px;
-          }
-
-        }
+      h1:hover {
+        transition: 1s;
+        transform: scale(1.2);
       }
     }
+
+    .logo {
+      img {
+        max-width: 194px;
+      }
+    }
+
+    .back {
+      position: relative;
+
+      img {
+        max-width: 174px;
+        position: absolute;
+        top: -120px;
+        left: 0px;
+      }
+
+      img:hover {
+        animation: cat 1s linear infinite;
+        transition: .5s;
+      }
+
+      @keyframes cat {
+
+        0% {
+          top: -120px;
+        }
+
+        100% {
+          top: -180px;
+        }
+      }
+
+      h1 {
+        font-size: 30px;
+        font-family: 'setofont';
+        // padding-top: 120px;
+      }
+
+      h1:hover {
+        transition: 1s;
+        transform: scale(1.2);
+      }
+    }
+
   }
 }

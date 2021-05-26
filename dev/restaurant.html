@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <!-- bootstrap only grid-->
   <link rel="stylesheet" href="./vendors/bootstrap/CSS/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="./vendors/bootstrap/CSS/bootstrap-reboot.min.css">
   <!-- slicker -->
   <link rel="stylesheet" type="text/css" href="./vendors/slick/css/slick.css" />
   <!-- 捲軸 -->
@@ -68,38 +69,38 @@
           <div class="col-xl-8 col-lg-12 order-1 order-xl-2">
             <div class="envPictures">
               <div>
-                <img src="img/restaurant/restaurent_env2.png" alt="">
+                <img src="img/restaurant/restaurent_env.jpg" alt="">
                 <div class="envWord">
-                  <h2>環境1</h2>
-                  <p>能否號碼想要社會主義，禁止優質歐洲下一頁灌水，發現湖口一點，過去辦法也就瀏覽電子商務，最終創作，附。</p>
+                  <h2>餐廳-室內</h2>
+                  <p>餐廳中的擺設承襲著整個渡假村的風格，呈現了濃厚的森林風味，整體空間款敞明亮，即使團體入住也不用為了用餐場地頭痛，桌椅擺設也設計成可以提供2～10人同桌用餐，滿足不同的需求。</p>
                 </div>
               </div>
               <div>
-                <img src="img/restaurant/restaurent_env3.png" alt="">
+                <img src="img/restaurant/restaurent_env7.jpg" alt="">
                 <div class="envWord">
-                  <h2>環境2</h2>
-                  <p>期待街道我去中有給我並在真正，辦法湖口現象得知，無奈本類不用在於通訊小學手段，推出食物顯得提問分享媒體，影響我現在預防轉讓採用管理由於足夠。</p>
+                  <h2>廚房</h2>
+                  <p>採用透明櫥窗式廚房，可以欣賞到廚師們如何分工合作，在等待餐點時，能像看一場精巧的表演秀一樣，食物現點現做，讓您跟毛小孩吃得安心。</p>
                 </div>
               </div>
               <div>
-                <img src="img/restaurant/restaurent_env4.png" alt="">
+                <img src="img/restaurant/restaurent_env4.jpg" alt="">
                 <div class="envWord">
-                  <h2>環境3</h2>
-                  <p>暴力網頁班這次身邊一臉太多民主發佈日期稿件長度，今後有限責任公司他是緩緩試題隊員浙江理解主流其中廣泛歲月，正在學會，男。</p>
+                  <h2>食物</h2>
+                  <p>所選用的主要食材皆為本園區自己生產，無添加任何化學調味料，也依然令人食指大動。</p>
                 </div>
               </div>
               <div>
-                <img src="img/restaurant/restaurent_env5.png" alt="">
+                <img src="img/restaurant/restaurent_env8.jpg" alt="">
                 <div class="envWord">
-                  <h2>環境4</h2>
-                  <p>臺灣數碼金幣中間鄉民們專門方便參與如此，本來他還年代系列代表遊客控制寵物，初步廠商掌握新人，行業協調配套，不在能源天然豐富品質新增顧問清楚。</p>
+                  <h2>餐廳戶外</h2>
+                  <p>除了室內，我們在室外也備有許多陽傘小方桌，天氣好的時候，可以一面用餐，一面愜意地看著風景與奔跑的毛小孩。</p>
                 </div>
               </div>
               <div>
-                <img src="img/restaurant/restaurent_env6.png" alt="">
+                <img src="img/restaurant/restaurent_env9.jpg" alt="">
                 <div class="envWord">
-                  <h2>環境5</h2>
-                  <p>群發打造姐姐植物國內經營，堅決可見運輸公園暫時附件控制心情改變輸出，不懂可以寬頻一起呼吸以便春天學術專區資料現場羅東，資源當前社區，液晶報。</p>
+                  <h2>廁所</h2>
+                  <p>設有一間衛浴廁所 + 一間廁所，為隱藏門設計每間廁所都有增設通風設備，擺設消毒用洗手乳、酒精，每場活動結束都有專人全面清洗消毒，請安心使用。</p>
                 </div>
               </div>
             </div>
@@ -141,21 +142,21 @@
         <div class="row align-items-start">
           <div class="col-12 leftTitle"> 
             <h1 v-if="petCustomFoodSelect === '乾糧'">請選擇乾糧<span>(擇1)</span></h1>
-            <h1 v-else-if="petCustomFoodSelect === '主食'"><i class="fa fa-chevron-left" aria-hidden="true" @click="undo"></i>請選擇主食<span>(擇1)</span></h1>
-            <h1 v-else-if="petCustomFoodSelect === '配菜'"><i class="fa fa-chevron-left" aria-hidden="true" @click="undo"></i>請選擇配菜<span>(擇4)</span></h1>
-            <h1 v-else="petCustomFoodSelect === '請確認菜單'"><i class="fa fa-chevron-left" aria-hidden="true" @click="undo"></i>請確認菜單</h1>
+            <h1 v-else-if="petCustomFoodSelect === '主食'"><i class="fa fa-chevron-left" aria-hidden="true" @click="undo"><h4>返回上一步</h4></i>請選擇主食<span>(擇1)</span></h1>
+            <h1 v-else-if="petCustomFoodSelect === '配菜'"><i class="fa fa-chevron-left" aria-hidden="true" @click="undo"><h4>返回上一步</h4></i>請選擇配菜<span>(擇4)</span></h1>
+            <h1 v-else="petCustomFoodSelect === '請確認菜單'"><i class="fa fa-chevron-left" aria-hidden="true" @click="undo"><h4>返回上一步</h4></i>請確認菜單</h1>
           </div>
           <div class="col-md-6 col-12 left customPetMenu mt-5">
             <div class="row justify-content-around" v-if="petCustomFoodSelection.length !== 6">
-              <div class="col-5 foodback" v-for="(food, fid) in filterCataToPetsCustom" :key="food.name"
-                v-if="petCustomFoodSelect === food.type">
+              <div class="col-5 foodback" v-for="(food, fid) in filterCataToPetsCustom" :key="food.MEAL_NAME"
+                v-if="petCustomFoodSelect === food.MEAL_TYPE">
                 <div class="foodpic">
-                  <img :src="food.imgURL">
+                  <img :src="food.MEAL_IMG">
                 </div>
                 <div class="foodinfo">
-                  <p>{{food.name}}</p>
-                  <p>NT {{food.price}} 元</p>
-                  <p>{{food.cal}}</p>
+                  <p>{{food.MEAL_NAME}}</p>
+                  <p>NT {{food.MEAL_PRICE}} 元</p>
+                  <p>{{food.MEAL_CAL}} cal</p>
                   <button @click="choosePetCustomFood(food)">加入</button>
                 </div>
               </div>
@@ -164,7 +165,7 @@
             <div class="foodmenu" v-else-if="petCustomFoodSelect === '請確認菜單'">
               <h3 class="mb-4">您客製的<span>寵物</span>食品</h3>
               <custom-pets-food v-for="(food, fid) in petCustomFoodSelection" :menu="food, fid" @removefood="remove"
-              :key="food.name">
+              :key="food.MEAL_NAME">
               <template #delete>X1</template>
               </custom-pets-food>
               <h4 class="mt-4">小結:NT {{customTotalPrice | currency}} 元</h4>
@@ -215,8 +216,8 @@
                     <ol>
                       <template v-for="(food, fid) in filterTypeToSalad">
                         <li @click="chooseFood(food)">
-                          <h4>{{fid+1}}.{{food.name}}</h4>
-                          <p><span>{{food.cal}}</span>NT{{food.price}}元</p>
+                          <h4>{{fid+1}}.{{food.MEAL_NAME}}</h4>
+                          <p><span>{{food.MEAL_CAL}} cal</span>NT{{food.MEAL_PRICE}}元</p>
                         </li>
                         <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="chooseFood(food)"></i>
                         <i class="fa fa-info-circle info" aria-hidden="true" @click="getLightBoxOpen(food)"></i>
@@ -231,8 +232,8 @@
                     <ol>
                       <template v-for="(food, fid) in filterTypeToFresh">
                         <li @click="chooseFood(food)">
-                          <h4>{{fid+1}}.{{food.name}}<br></h4>
-                          <p><span>{{food.cal}}</span>NT{{food.price}}元</p>
+                          <h4>{{fid+1}}.{{food.MEAL_NAME}}<br></h4>
+                          <p><span>{{food.MEAL_CAL}} cal</span>NT{{food.MEAL_PRICE}}元</p>
                         </li>
                         <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="chooseFood(food)"></i>
                         <i class="fa fa-info-circle info" aria-hidden="true" @click="getLightBoxOpen(food)"></i>
@@ -248,16 +249,16 @@
               <h3 v-if="filterMenuToPets.length>0"><span>寵物</span>的菜單</h3>
               <!-- 加入菜單元件 -->
               <add-to-pets-menu v-for="(food, fid) in filterMenuToPets" :menu="food, fid" @removefood="remove"
-                :key="food.name"></add-to-pets-menu>
+                :key="food.MEAL_NAME"></add-to-pets-menu>
               <h3 v-if="filterMenuToHuman.length>0">您的菜單</h3>
               <add-to-human-menu v-for="(food, fid) in filterMenuToHuman" :menu="food, fid" @removefood="remove"
-              :key="food.name"></add-to-human-menu>
+              :key="food.MEAL_NAME"></add-to-human-menu>
               <div class="totalPrice">
                 <h3 v-if="allFoodSelection.length>0">總價：NT <span class="Price">{{ totalPrice | currency }}</span> 元</h3>
                 <h3 v-else>您還沒有點菜唷<i class="fa fa-frown-o" aria-hidden="true"></i></h3>
               </div>
               <div class="addToMenu">
-                <button @click="isBookingBoxOpen = true">預約餐廳</button>
+                <button @click="loginChenk()">預約餐廳</button>
               </div>
             </div>
           </div>
@@ -300,8 +301,8 @@
                     <ol>
                       <template v-for="(food, fid) in filterTypeToItaly">
                         <li @click="chooseFood(food)">
-                          <h4>{{fid+1}}.{{food.name}}<br></h4>
-                          <p><span>{{food.cal}}</span>NT{{food.price}} 元</p>
+                          <h4>{{fid+1}}.{{food.MEAL_NAME}}<br></h4>
+                          <p><span>{{food.MEAL_CAL}} cal</span>NT{{food.MEAL_PRICE}} 元</p>
                         </li>
                         <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="chooseFood(food)"></i>
                         <i class="fa fa-info-circle info" aria-hidden="true" @click="getLightBoxOpen(food)"></i>
@@ -316,8 +317,8 @@
                     <ol>
                       <template v-for="(food, fid) in filterTypeToUS">
                         <li @click="chooseFood(food)">
-                          <h4>{{fid+1}}.{{food.name}}<br></h4>
-                          <p><span>{{food.cal}}</span>NT{{food.price}}元</p>
+                          <h4>{{fid+1}}.{{food.MEAL_NAME}}<br></h4>
+                          <p><span>{{food.MEAL_CAL}} cal</span>NT{{food.MEAL_PRICE}}元</p>
                         </li>
                         <i class="fa fa-cutlery addmenu" aria-hidden="true" @click="chooseFood(food)"></i>
                         <i class="fa fa-info-circle info" aria-hidden="true" @click="getLightBoxOpen(food)"></i>
@@ -333,16 +334,16 @@
               <h3 v-if="filterMenuToHuman.length>0">您的菜單</h3>
               <!-- 加入菜單元件 -->
               <add-to-human-menu v-for="(food, fid) in filterMenuToHuman" :menu="food, fid" @removefood="remove"
-                :key="food.name"></add-to-human-menu>
+                :key="food.MEAL_NAME"></add-to-human-menu>
               <h3 v-if="filterMenuToPets.length>0"><span>寵物</span>的菜單</h3>
               <add-to-pets-menu v-for="(food, fid) in filterMenuToPets" :menu="food, fid" @removefood="remove"
-              :key="food.name"></add-to-pets-menu>
+              :key="food.MEAL_NAME"></add-to-pets-menu>
               <div class="totalPrice">
                 <h3 v-if="allFoodSelection.length>0">總價：NT <span class="Price">{{totalPrice | currency}} </span>元</h3>
                 <h3 v-else>您還沒有點菜唷<i class="fa fa-frown-o" aria-hidden="true"></i></h3>
               </div>
               <div class="addToMenu">
-                <button @click="isBookingBoxOpen = true">預約餐廳</button>
+                <button @click="loginChenk()">預約餐廳</button>
               </div>
             </div>
           </div>
@@ -365,9 +366,6 @@
 
 
   @@include('layout/footer.html')
-
-
-
 
   <!-- vue 預約餐廳元件 -->
   <script type="text/x-template" id="bookingbox">
@@ -420,17 +418,17 @@
                 <p  v-if="filterCataToPets.length!=0">寵物的菜單</p>
                     <table>
                         <tr v-for="food in filterCataToPets">
-                            <td>{{food.name}}</td>
-                              x <input type="number" :value="food.count" readonly="readonly">
-                            <td>NT {{food.count*food.price | currency}}元</td>
+                            <td>{{food.MEAL_NAME}}</td>
+                              x <input type="number" :value="food.MEAL_COUNT" readonly="readonly">
+                            <td>NT {{food.MEAL_COUNT*food.MEAL_PRICE | currency}}元</td>
                         </tr>
                     </table>   
                   <p  v-if="filterCataToHuman.length!=0">您的菜單</p>
                   <table>
                       <tr v-for="food in filterCataToHuman">
-                          <td>{{food.name}}</td>
-                            x <input type="number" :value="food.count" readonly="readonly">
-                          <td>NT {{food.count*food.price | currency}} 元</td>
+                          <td>{{food.MEAL_NAME}}</td>
+                            x <input type="number" :value="food.MEAL_COUNT" readonly="readonly">
+                          <td>NT {{food.MEAL_COUNT*food.MEAL_PRICE | currency}} 元</td>
                       </tr>
                     </table>
                     <hr v-if="foods.length!=0">
@@ -460,19 +458,19 @@
               <img src="./img/common/close.png" >
           </a>
           <div class="i_lightbox_title">
-              <h2>{{food.name}}</h2>
+              <h2>{{food.MEAL_NAME}}</h2>
           </div>
           <div class="bar">
               <div>
-                  <img :src="food.imgURL" alt="">
+                  <img :src="food.MEAL_IMG" alt="">
               </div>
               <div class="i_mealMain">
                   <div class="i_meal">
-                      <p>{{food.type}}餐點</p>
+                      <p>{{food.MEAL_TYPE}}餐點</p>
                       <div class="i_orangeLine"></div>
                   </div>
                   <div class="i_mealDataContent">
-                      <p>{{food.msg}}</p>
+                      <p>{{food.MEAL_MSG}}</p>
                   </div>
               </div>
           </div>
@@ -485,13 +483,13 @@
   <script type="text/x-template" id="addToMenu">
     <div>
       <ul>
-        <li id="petsMenu"><span>{{$attrs.fid + 1}}.{{menu.name}}</span><span v-if="menu.eachItem" id="showItem">{{menu.eachItem}}</span></li>
+        <li id="petsMenu"><span>{{$attrs.fid + 1}}.{{menu.MEAL_NAME}}</span><span v-if="menu.eachItem" id="showItem">{{menu.eachItem}}</span></li>
         <slot name="delete">
         <li><button @click="removeItem($attrs.fid,menu)"><i class="fa fa-minus-circle" aria-hidden="true"></i></button></li>
-        <li><span>X {{menu.count}}</span></li>
-        <li><button  @click="menu.count+=1"><i class="fa fa-plus-circle" aria-hidden="true"></i></button></li>
+        <li><span>X {{menu.MEAL_COUNT}}</span></li>
+        <li><button  @click="addCount"><i class="fa fa-plus-circle" aria-hidden="true"></i></button></li>
         </slot>
-        <li><span>NT {{menu.price*menu.count | currency}}元</span></li>
+        <li><span>NT {{menu.MEAL_PRICE*menu.MEAL_COUNT | currency}}元</span></li>
       </ul>
     </div>
   </script>
@@ -538,10 +536,8 @@
 
   <!-- jQuery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <!-- bootstrap -->
-  <script src="./vendors/jquery/jquery-3.5.1.slim.min.js"></script>
-  <script src="./vendors/popper/popper.min.js"></script>
-  <script src="./vendors/bootstrap/JS/bootstrap.min.js"></script>
+  <!-- axios -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
   <!-- slicker -->
   <script type="text/javascript" src="./vendors/slick/js/slick.min.js"></script>
   <script src="./js/Restaurant_slicker.js"></script>
@@ -549,11 +545,9 @@
   <script src="./vendors/GSAP/gsap.min.js"></script>
   <!-- 捲軸 -->
   <script src="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.js"></script>
-
   <!-- 月曆 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="./vendors/travo-calendar/js/tavo-calendar.js"></script>
-
   <!-- vue -->
   <script src="./vendors/vue/js/vue.js"></script>
   <script src="./js/restaurant_vue.js"></script>

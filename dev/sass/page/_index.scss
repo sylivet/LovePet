@@ -5,11 +5,14 @@
         padding-top: 87px;
     }
 }
-.content1-1,.content2-1,.content3-1,.content4-1{
+.content1-1,
+.content2-1,
+.content3-1,
+.content4-1 {
     opacity: 0;
 }
 
-.content1{
+.content1 {
     padding: 15px;
     line-height: 1.6;
     width: 0;
@@ -18,365 +21,354 @@
     position: absolute;
     top: 10%;
     left: 55%;
-    background-color: rgba(255,255,255,.7);
+    background-color: rgba(255, 255, 255, 0.7);
 }
-.content2{
+.content2 {
     @extend .content1;
     top: 15%;
     left: 70%;
 }
-.content3{
+.content3 {
     @extend .content1;
     top: 25%;
     left: 20%;
 }
-.content4{
+.content4 {
     @extend .content1;
     top: 25%;
-    left:65%;
+    left: 65%;
 }
-
-.mobile {
-    @include mobile {
-        padding-top: 54.5%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-image: url("../img/index/0-00.png");
+    .green {
+        padding-top: 87px;
         background-color: #D3E1BE;
-    }
-}
 
-.green {
-    padding-top: 87px;
-    background-color: #D3E1BE;
-
-    @include mobile {
-        display: none;
-    }
-}
-
-.animate {
-    padding-top: 54.5%;
-    background-color: #D3E1BE;
-    position: relative;
-    overflow: hidden;
-
-    img {
-        position: absolute;
-        left: 0;
-        top: 0;
-    }
-
-    .a2 {
-        opacity: 0;
-        animation: sunpulse linear infinite 3s;
-    }
-
-    @keyframes sunpulse {
-        0% {
-            transform: scale(1);
-            animation-timing-function: ease-in;
-        }
-
-        50% {
-            transform: scale(1.02);
-        }
-
-        100% {
-            transform: scale(1);
+        @include mobile {
+            display: none;
         }
     }
 
-    .a3 {
-        opacity: 0;
-        animation: cloud-movement linear forwards infinite 8s;
-    }
+    .animate {
+        padding-top: 54.5%;
+        background-color: #D3E1BE;
+        position: relative;
+        overflow: hidden;
 
-    @keyframes cloud-movement {
-        0% {
-            transform: translateX(300px);
-        }
-
-        100% {
-            opacity: 0;
-            transform: translateX(-1000px);
-        }
-    }
-
-    .a4 {
-        opacity: 0;
-    }
-
-    .a5 {
-        @extend .a4;
-    }
-
-    .a6 {
-        @extend .a4;
-    }
-
-    .a7 {
-        @extend .a4;
-    }
-
-    .a8 {
-        @extend .a4;
-    }
-
-    @keyframes shake {
-        50% {
-            transform: rotate(5deg);
-        }
-    }
-
-    .scroll-down {
-        position: absolute;
-        bottom: 30%;
-        right: 50%;
-        @media(min-width:1400px) {
-            bottom: 20%;
-        }
-        z-index: 10;
-        transform: translate(-50%, -50%);
-    }
-
-    .scroll-down span:nth-child(2) {
-        animation-delay: -0.2s;
-    }
-
-    .scroll-down span:nth-child(3) {
-        animation-delay: -0.4s;
-    }
-
-    .scroll-down span {
-        display: block;
-        width: 20px;
-        height: 20px;
-        border-bottom: 3px solid white;
-        border-right: 3px solid white;
-        transform: rotate(45deg);
-        margin: -10px;
-        animation: animate 2s infinite;
-    }
-
-    @keyframes animate {
-        0% {
-            opacity: 0;
-            transform: rotate(45deg) translate(-20px, -20px);
-        }
-
-        50% {
-            opacity: 1;
-        }
-
-        100% {
-            opacity: 0;
-            transform: rotate(45deg) translate(20px, 20px);
-        }
-    }
-}
-
-#news {
-    overflow: hidden;
-
-    h3 {
-        margin-top: 42px;
-        margin-bottom: 27px;
-        color: #915727;
-        text-align: center;
-    }
-
-    .news {
-        li {
-            position: relative;
-
-            &::before {
-                content: "";
-                padding-bottom: 400 * 100% / 600;
-                display: block;
-                width: 100%;
-            }
-
-            img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-            .news-bg {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: absolute;
-                top: 2.5%;
-                left: 2.5%;
-                width: 95%;
-                height: 95%;
-                background-color: rgba(0, 0, 0, 0.3);
-
-                h4 {
-                    display: block;
-                    color: white;
-                    padding: 20px;
-
-                }
-
-                .news-content {
-                    color: white;
-                    display: none;
-                    padding: 20px;
-                    font-size: 16px;
-                    line-height: 1.6;
-                }
-            }
-
-            &:hover .news-bg h4 {
-                display: none;
-            }
-
-            &:hover .news-bg .news-content {
-                display: block;
-
-            }
-        }
-    }
-}
-
-.swiper-container {
-    width: 100%;
-    height: auto;
-}
-
-.hotelPanorama {
-    h3 {
-        margin-top: 60px;
-        margin-bottom: 28px;
-        color: #915727;
-        text-align: center;
-    }
-
-    #panorama {
-        width: 100%;
-        max-height: 1000px;
-        height: 90vh;
-
-        @include pad {
-            height: 70vh;
-        }
-
-        cursor: none;
-
-        #controls {
+        img {
             position: absolute;
-            bottom: 0;
-            z-index: 2;
-            text-align: center;
-            width: 100%;
-            padding-bottom: 10px;
+            left: 0;
+            top: 0;
+        }
 
-            .ctrl {
-                padding: 8px 5px;
-                width: 30px;
-                text-align: center;
-                background: #FFC857;
-                color: white;
-                display: inline-block;
-                cursor: pointer;
-                &:not(:first-child){
-                    margin-left: 10px;
-                }
+        .a2 {
+            opacity: 0;
+            animation: sunpulse linear infinite 3s;
+        }
+
+        @keyframes sunpulse {
+            0% {
+                transform: scale(1);
+                animation-timing-function: ease-in;
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .a3 {
+            opacity: 0;
+            animation: cloud-movement linear forwards infinite 8s;
+        }
+
+        @keyframes cloud-movement {
+            0% {
+                transform: translateX(300px);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateX(-1000px);
+            }
+        }
+
+        .a4 {
+            opacity: 0;
+        }
+
+        .a5 {
+            @extend .a4;
+        }
+
+        .a6 {
+            @extend .a4;
+        }
+
+        .a7 {
+            @extend .a4;
+        }
+
+        .a8 {
+            @extend .a4;
+        }
+
+        @keyframes shake {
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30%;
+            right: 50%;
+            @media(min-width:1400px) {
+                bottom: 20%;
+            }
+            z-index: 10;
+            transform: translate(-50%, -50%);
+        }
+
+        .scroll-down span:nth-child(2) {
+            animation-delay: -0.2s;
+        }
+
+        .scroll-down span:nth-child(3) {
+            animation-delay: -0.4s;
+        }
+
+        .scroll-down span {
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-bottom: 3px solid white;
+            border-right: 3px solid white;
+            transform: rotate(45deg);
+            margin: -10px;
+            animation: animate 2s infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                opacity: 0;
+                transform: rotate(45deg) translate(-20px, -20px);
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: rotate(45deg) translate(20px, 20px);
             }
         }
     }
-}
 
-#location {
-    background-image: url('../img/index/mapPc.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #558b6e;
-    padding-bottom: 60px;
-    position: relative;
-    overflow: hidden;
+    #news {
+        overflow: hidden;
 
-    @include pad {
-        background-image: url('../img/index/mapPad.png');
-        background-size: 120%;
-        background-position: top;
-    }
-
-    @include iphoneX {
-        background-image: url('../img/index/mapMobile.png');
-        background-size: 120%;
-        background-position: 65% 4%;
-    }
-
-    h3 {
-        margin-top: 105px;
-        margin-bottom: 30px;
-        color: #915727;
-        text-align: center;
-    }
-
-    iframe {
-        max-width: 657px;
-        width: 100%;
-        height: 423px;
-        margin-bottom: 33px;
-        border: 5px solid #558b6e;
-        border-radius: 60px;
-    }
-
-    .locationContent {
-        max-width: 468px;
-        width: 100%;
-
-        @include pad {
-            max-width: 800px;
-            padding-left: 30px;
-            padding-right: 30px;
-        }
-    }
-
-    .locationInfo {
-        line-height: 2;
-
-        &:nth-child(2) {
-            margin-top: 25px;
+        h3 {
+            margin-top: 42px;
+            margin-bottom: 27px;
+            color: #915727;
+            text-align: center;
         }
 
-        &:last-child {
-            margin-top: 50px;
-        }
-
-        .locationInfoTitle {
-            background-color: #ffc857;
-            border-radius: 30px;
-            padding: 5px;
-            color: black;
-            margin-right: 10px;
-        }
-
-        ul {
+        .news {
             li {
-                span {
-                    &:first-child {
-                        margin-top: 15px;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    padding-bottom: 400 * 100% / 600;
+                    display: block;
+                    width: 100%;
+                }
+
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                .news-bg {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    top: 2.5%;
+                    left: 2.5%;
+                    width: 95%;
+                    height: 95%;
+                    background-color: rgba(0, 0, 0, 0.3);
+
+                    h4 {
+                        display: block;
+                        color: white;
+                        padding: 20px;
+
                     }
 
+                    .news-content {
+                        color: white;
+                        display: none;
+                        padding: 20px;
+                        font-size: 16px;
+                        line-height: 1.6;
+                    }
+                }
+
+                &:hover .news-bg h4 {
+                    display: none;
+                }
+
+                &:hover .news-bg .news-content {
                     display: block;
-                    font-weight: bold;
-                    margin-top: 10px;
-                    margin-bottom: 10px;
+
                 }
             }
         }
     }
-}
+
+    .swiper-container {
+        width: 100%;
+        height: auto;
+    }
+
+    .hotelPanorama {
+        h3 {
+            margin-top: 60px;
+            margin-bottom: 28px;
+            color: #915727;
+            text-align: center;
+        }
+
+        #panorama {
+            width: 100%;
+            max-height: 1000px;
+            height: 90vh;
+
+            @include pad {
+                height: 70vh;
+            }
+
+            cursor: none;
+
+            #controls {
+                position: absolute;
+                bottom: 0;
+                z-index: 2;
+                text-align: center;
+                width: 100%;
+                padding-bottom: 10px;
+
+                .ctrl {
+                    padding: 8px 5px;
+                    width: 30px;
+                    text-align: center;
+                    background: #FFC857;
+                    color: white;
+                    display: inline-block;
+                    cursor: pointer;
+                    &:not(:first-child) {
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    #location {
+        background-image: url('../img/index/mapPc.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #558b6e;
+        padding-bottom: 60px;
+        position: relative;
+        overflow: hidden;
+
+        @include pad {
+            background-image: url('../img/index/mapPad.png');
+            background-size: 120%;
+            background-position: top;
+        }
+
+        @include iphoneX {
+            background-image: url('../img/index/mapMobile.png');
+            background-size: 120%;
+            background-position: 65% 4%;
+        }
+
+        h3 {
+            margin-top: 105px;
+            margin-bottom: 30px;
+            color: #915727;
+            text-align: center;
+        }
+
+        iframe {
+            max-width: 657px;
+            width: 100%;
+            height: 423px;
+            margin-bottom: 33px;
+            border: 5px solid #558b6e;
+            border-radius: 60px;
+        }
+
+        .locationContent {
+            max-width: 468px;
+            width: 100%;
+
+            @include pad {
+                max-width: 800px;
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        }
+
+        .locationInfo {
+            line-height: 2;
+
+            &:nth-child(2) {
+                margin-top: 25px;
+            }
+
+            &:last-child {
+                margin-top: 50px;
+            }
+
+            .locationInfoTitle {
+                background-color: #ffc857;
+                border-radius: 30px;
+                padding: 5px;
+                color: black;
+                margin-right: 10px;
+            }
+
+            ul {
+                li {
+                    span {
+                        &:first-child {
+                            margin-top: 15px;
+                        }
+
+                        display: block;
+                        font-weight: bold;
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }

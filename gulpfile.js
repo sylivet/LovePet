@@ -12,6 +12,11 @@ function moveVendors(){
     .pipe(dest('dist/vendors/')) //目的地
 }
 
+function movePHP(){
+    return src('dev/php/**/*.*') //來源
+    .pipe(dest('dist/php/')) //目的地
+}
+
 
 // sass 編譯
 
@@ -89,21 +94,22 @@ function browser() {
             baseDir: "./dist",
             index: "index.html"
         },
-        port: 3000
+        port: 8888
     });
     watch(['dev/*.html', 'dev/**/*.html'], includeHTML).on('change', reload);
     watch(['dev/sass/*.scss', 'dev/sass/**/*.scss'], sassStyle).on('change', reload);
     watch(['dev/images/*.*', 'dev/images/**/*.*'], imgs_dev).on('change', reload);
     watch('dev/js/*.js', babel5).on('change', reload);
+    watch('dev/php/**/*.php', movePHP).on('change', reload);
 }
 
 
 // 開發用
-exports.default = series(moveVendors ,imgs_dev ,includeHTML , sassStyle  , babel5 , browser )
+exports.default = series(movePHP, moveVendors ,imgs_dev ,includeHTML , sassStyle  , babel5 , browser )
 
 
 // 打包上線用
-exports.prod = series(clear, parallel(includeHTML, sassStyle ,babel5), imgs_prod ,moveVendors);
+exports.prod = series(clear, parallel(includeHTML, sassStyle ,babel5), imgs_prod ,moveVendors, movePHP);
 
 
 
