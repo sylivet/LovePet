@@ -74,30 +74,30 @@ let data = {
     },
   ],
   news: [
-  //   {
-  //     NEWS_IMG: "img/index/news1.jpg",
-  //     NEWS_TITLE: "特製毛孩麵包上市",
-  //     NEWS_CONTENT: "無鹽鬆軟麵包，不使用小麥粉，使用有機南瓜、北海道馬鈴薯、京都山羊乳與蜂蜜等天然食材製成。"
-  //   },
-  //   {
-  //     NEWS_IMG: "img/index/news2.png",
-  //     NEWS_TITLE: "即日起游泳池開放",
-  //     NEWS_CONTENT: "炎炎夏日讓毛孩玩玩水，清涼又有趣。免費提供寵物救生衣以及浮板玩具。"
-  //   },
-  //   {
-  //     NEWS_IMG: "img/index/news3.png",
-  //     NEWS_TITLE: "與主人共享舒適房間",
-  //     NEWS_CONTENT: "我們不惜成本打造合適主人與寵物的居住環境，期望毛孩們獲得最滿意的外宿經驗。"
-  //   },
-  //   {
-  //     NEWS_IMG: "img/index/news4.png",
-  //     NEWS_TITLE: "專業寵物健檢中心",
-  //     NEWS_CONTENT: "寵物的健康不能等！樂寵擁有最專業的獸醫駐足在渡假村內，帶毛孩來檢查一番，還能自由地奔跑在園區內，增進抵抗力。"
-  //   }, {
-  //     NEWS_IMG: "img/index/news5.png",
-  //     NEWS_TITLE: "毛孩沙拉新上市",
-  //     NEWS_CONTENT: "夏季限定「雞肉沙拉」新上市！炎炎夏日，你還在餵家裡的毛孩寵物飼料嗎？趕快預訂樂寵的鮮食，讓牠清涼一下。"
-  //   },
+    {
+      NEWS_IMG: "img/index/news1.jpg",
+      NEWS_TITLE: "特製毛孩麵包上市",
+      NEWS_CONTENT: "無鹽鬆軟麵包，不使用小麥粉，使用有機南瓜、北海道馬鈴薯、京都山羊乳與蜂蜜等天然食材製成。"
+    },
+    {
+      NEWS_IMG: "img/index/news2.png",
+      NEWS_TITLE: "即日起游泳池開放",
+      NEWS_CONTENT: "炎炎夏日讓毛孩玩玩水，清涼又有趣。免費提供寵物救生衣以及浮板玩具。"
+    },
+    {
+      NEWS_IMG: "img/index/news3.png",
+      NEWS_TITLE: "與主人共享舒適房間",
+      NEWS_CONTENT: "我們不惜成本打造合適主人與寵物的居住環境，期望毛孩們獲得最滿意的外宿經驗。"
+    },
+    {
+      NEWS_IMG: "img/index/news4.png",
+      NEWS_TITLE: "專業寵物健檢中心",
+      NEWS_CONTENT: "寵物的健康不能等！樂寵擁有最專業的獸醫駐足在渡假村內，帶毛孩來檢查一番，還能自由地奔跑在園區內，增進抵抗力。"
+    }, {
+      NEWS_IMG: "img/index/news5.png",
+      NEWS_TITLE: "毛孩沙拉新上市",
+      NEWS_CONTENT: "夏季限定「雞肉沙拉」新上市！炎炎夏日，你還在餵家裡的毛孩寵物飼料嗎？趕快預訂樂寵的鮮食，讓牠清涼一下。"
+    },
   ]
 }
 
@@ -107,24 +107,9 @@ let vm = new Vue({
   created(){//對前端頁面資料進行初始化
     axios.post("php/front_end_API/I_select.php").then((res)=>{
       this.news = res.data;//獲取資料
-
     })
   },
   mounted() { 
-    var swiper = new Swiper(".mySwiper", {
-      effect: "cube",
-      grabCursor: true,
-      cubeEffect: {
-        shadow: true,
-        slideShadows: true,
-        shadowOffset: 20,
-        shadowScale: 0.94,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-      },
-    });
-    
     // 首頁動畫
     gsap.registerPlugin(ScrollTrigger);
     gsap.defaults({ ease: "ease" })
@@ -213,7 +198,7 @@ let vm = new Vue({
       duration: 2
     })
     // 首頁輪播圖
-    var swiper = new Swiper(".newsSwiper", {
+    var swiper = new Swiper(".mySwiper", {
       slidesPerView: 1,
       loop: true,
       autoplay: {
