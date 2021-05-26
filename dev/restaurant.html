@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <!-- bootstrap only grid-->
   <link rel="stylesheet" href="./vendors/bootstrap/CSS/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="./vendors/bootstrap/CSS/bootstrap-reboot.min.css">
   <!-- slicker -->
   <link rel="stylesheet" type="text/css" href="./vendors/slick/css/slick.css" />
   <!-- 捲軸 -->
@@ -257,7 +258,7 @@
                 <h3 v-else>您還沒有點菜唷<i class="fa fa-frown-o" aria-hidden="true"></i></h3>
               </div>
               <div class="addToMenu">
-                <button @click="isBookingBoxOpen = true">預約餐廳</button>
+                <button @click="loginChenk()">預約餐廳</button>
               </div>
             </div>
           </div>
@@ -342,7 +343,7 @@
                 <h3 v-else>您還沒有點菜唷<i class="fa fa-frown-o" aria-hidden="true"></i></h3>
               </div>
               <div class="addToMenu">
-                <button @click="isBookingBoxOpen = true">預約餐廳</button>
+                <button @click="loginChenk()">預約餐廳</button>
               </div>
             </div>
           </div>
@@ -365,9 +366,6 @@
 
 
   @@include('layout/footer.html')
-
-
-
 
   <!-- vue 預約餐廳元件 -->
   <script type="text/x-template" id="bookingbox">
@@ -540,10 +538,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!-- axios -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-  <!-- bootstrap -->
-  <script src="./vendors/jquery/jquery-3.5.1.slim.min.js"></script>
-  <script src="./vendors/popper/popper.min.js"></script>
-  <script src="./vendors/bootstrap/JS/bootstrap.min.js"></script>
   <!-- slicker -->
   <script type="text/javascript" src="./vendors/slick/js/slick.min.js"></script>
   <script src="./js/Restaurant_slicker.js"></script>
@@ -551,11 +545,9 @@
   <script src="./vendors/GSAP/gsap.min.js"></script>
   <!-- 捲軸 -->
   <script src="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.js"></script>
-
   <!-- 月曆 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="./vendors/travo-calendar/js/tavo-calendar.js"></script>
-
   <!-- vue -->
   <script src="./vendors/vue/js/vue.js"></script>
   <script src="./js/restaurant_vue.js"></script>
