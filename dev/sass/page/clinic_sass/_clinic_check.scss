@@ -55,10 +55,6 @@
 
           span {
             font-size: 16px;
-
-            // @media screen and (max-width: 375px) {
-            //   display: none;
-            // }
           }
 
           .mask_cat {
@@ -70,7 +66,7 @@
         }
 
         .c_set_content {
-          background-color: #f39008;
+          background-color: #ffc857;
           max-width: 333px;
 
           ul {
@@ -202,7 +198,8 @@
 
         .c_plus_content {
           max-width: 333px;
-          background-color: #f39008;
+          // background-color: #f39008;
+          background-color: #ffc857;
 
           ul {
             list-style-type: none;
