@@ -90,35 +90,37 @@
             </div>
             <div class="col-10">
                 <h2 class="mb-3">消息新增</h2>
+                <form action="./php/back_end_API/I_Insert.php" method="post" enctype="multipart/form-data">
                 <table class="table table-striped">
                     <tbody>
                         <tr>
                             <td>消息標題</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="NEWS_TITLE"></td>
                         </tr>
                         <tr>
                             <td>消息圖片</td>
-                            <td><input type="file"></td>
+                            <td><input type="file" name="file"></td>
                         </tr>
                         <tr>
                             <td>消息內容</td>
-                            <td><textarea name="" id="" cols="30" rows="10"></textarea></td>
+                            <td><textarea name="NEWS_CONTENT" cols="30" rows="10"></textarea></td>
                         </tr>
                         <tr>
                             <td>消息狀態</td>
                             <td>
-                                <input type="radio" name="news" id="online" value="1" checked>
+                                <input type="radio" name="NEWS_STATUS" id="online" value="1" checked>
                                 <label for="online">上架中</label>
-                                <input type="radio" name="news" id="notonline" value="0">
+                                <input type="radio" name="NEWS_STATUS" id="offonline" value="0">
                                 <label for="notonline">下架中</label>
                             </td>
                         </tr>
                     </tbody>
                 </table>
                 <div class="d-flex justify-content-center">
-                    <button type="button" class="btn btn-outline-success">取消</button>
-                    <button type="button" class="btn btn-success ms-3">新增</button>
+                    <button type="reset" class="btn btn-outline-success">取消</button>
+                    <button type="submit" class="btn btn-success ms-3">新增</button>
                 </div>
+            </form>
             </div>
         </div>
     </div>
