@@ -116,7 +116,7 @@
               <th>消息圖片</th>
               <th>消息內容</th>
               <th>消息狀態</th>
-              <th></th>
+              <th>編輯</th>
             </tr>
           </thead>
           <tbody class="data">
@@ -125,9 +125,7 @@
       </div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
   <script>
@@ -154,7 +152,6 @@
                 </td>
                 <td class="edit"><button class="btn btn-warning btn-sm">編輯</button></td>
                 <td style="display: none" class="save"><button class="btn btn-warning btn-sm">儲存</button></td>
-                <td class="cancel"><button class="btn btn-danger btn-sm">刪除</button></td>
           </tr>
           `
         $('.data').append(data)
@@ -204,30 +201,6 @@
         }
       });
     });
-
-    //刪除
-    $('.data').on('click', '.cancel', function () {
-
-      let MEAL_DATA_ID = $(this).parent().find("input[name='NEWS_ID']").val()
-
-      let yes = confirm("不要亂刪喔!")
-      if (yes) {
-        $.ajax({
-          method: "POST",
-          url: "php/back_end_API/I_Delete.php",
-          data: {
-            'NEWS_ID': NEWS_ID,
-          },
-          dataType: "text",
-          success: function (res) {
-            alert("已刪除")
-          },
-          error: function (exception) {
-            alert("修改失敗")
-          }
-        });
-      }
-    })
   </script>
 </body>
 
