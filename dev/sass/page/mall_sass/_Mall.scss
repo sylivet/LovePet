@@ -27,6 +27,7 @@ main{
 
 .choose_button{
   width: 100%;
+  height: 45px;
   display: flex;
   align-items: center;/*垂直置中*/
   justify-content: space-between;
@@ -35,12 +36,14 @@ main{
   select {
     width: 24%;
     height: 36px;
-    background-color: #558B6E;
+    background-color: #B2B2B2;
+    box-shadow: 0px 0px 10px -3px rgba(#000000, .5);
     border-radius: 6px;
     color: #ffffff;
     font-size: 16px;
     font-weight: bold;
     outline: none;/*取消預設框線*/
+    border: none;
     text-align: center;/*除了Chrome跟Edge以外都支援*/
     text-align-last: center;/*支援Chrome跟Edge瀏覽器*/
     @include mobile{
@@ -50,8 +53,25 @@ main{
 }
 
 .search_btn{
+  display: flex;
   cursor: pointer;
+  .input_block{
+    line-height: 45px;
+    margin-right: 10px;
+    input[type="text"]{
+      font-size: 18px;
+      border: 2px solid #B2B2B2;
+    }
+    .slide-enter-active, .slide-leave-active{//進入轉場與離開過程的狀態
+      transition: .1s
+    }
+    .slide-enter, .slide-leave-to {//進入與離開結束當下的狀態
+      opacity: 0;
+    }
+  }
   img{
    width: 45px;
+   border-radius: 20%;
+   box-shadow: 0px 0px 10px -3px rgba(#000000, .5);
  }
 }
