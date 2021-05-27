@@ -106,50 +106,99 @@
                 <table class="table table-striped table-hover text-center">
                     <thead>
                         <tr class="table-warning">
-                            <th></th>
                             <th>項目編號</th>
                             <th>項目名稱</th>
-                            <th>所屬套餐</th>
                             <th>價格</th>
                             <th>適用對象</th>
-                            <th></th>
+                            <th>所屬套餐</th>
+                            <th>編輯</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td>1</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><a href="###">編輯</a></td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td>2</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><a href="###">編輯</a></td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td>3</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><a href="###">編輯</a></td>
-                        </tr>
+                    <tbody class='data'>
+                        
                     </tbody>
                 </table>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
+    <script>
+      axios.post("php/back_end_API/C_select.php").then((res)=>{
+        getData(res)
+      })
+      function getData(res){
+        for(let i = 0; i< res.data.length; i++){
+
+          let data = `
+          <tr>
+                <td style="display: none"><input value="${res.data[i].HEALTH_CHECK_ID}" name="HEALTH_CHECK_ID" disabled readonly></td>
+                <td>${res.data[i].HEALTH_CHECK_ID}</td>
+                <td><input type="text" name="LISTNAME" value="${res.data[i].LISTNAME}" disabled></td>
+                <td><input type="number" name="PRICE" value="${res.data[i].PRICE}" disabled></td>
+                <td><input type="number" name="TESTING_SUBJECT" value="${res.data[i].TESTING_SUBJECT}" disabled></td>
+                <td>
+                    套餐
+                </td>
+                <td class="edit"><button class="btn btn-warning btn-sm">編輯</button></td>
+                <td style="display: none" class="save"><button class="btn btn-warning btn-sm">儲存</button></td>
+          </tr>
+          `
+          $('.data').append(data)
+        }
+      }
+
+      // 動態append無法click事件點擊該元件，要改為on綁定先抓到父層後，才點擊該元件。
+
+      //編輯
+      $('.data').on('click', '.edit', function(e){
+        e.preventDefault()
+        $(this).parent().find('input, select').attr('disabled', false)
+        $(this).css('display', 'none')
+        $(this).next().css('display', 'block')
+        $('.noShow').hide()
+      });
+
+      //儲存
+      $('.data').on('click', '.save', function(){
+        $(this).parent().parent().find('input, select').attr('disabled', true)
+        $(this).css('display', 'none')
+        $(this).prev().css('display', 'block')
+
+        let HEALTH_CHECK_ID = $(this).parent().find("input[name='HEALTH_CHECK_ID']").val()
+        let LISTNAME = $(this).parent().find("input[name='LISTNAME']").val()
+        let PRICE = $(this).parent().find("input[name='PRICE']").val()
+        let TESTING_SUBJECT = $(this).parent().find("input[name='TESTING_SUBJECT']").val()
+       
+
+        
+        $.ajax({            
+            method: "POST",
+            url: "php/back_end_API/C_Update.php",
+            data:{
+              'HEALTH_CHECK_ID': HEALTH_CHECK_ID,
+              'LISTNAME': LISTNAME,
+              'PRICE': PRICE,
+              'TESTING_SUBJECT': TESTING_SUBJECT,
+              
+            },            
+            dataType: "text",
+            success: function (res) {   
+              alert("修改成功")     
+            },
+            error: function(exception) {
+              alert("修改失敗")     
+            }
+        });
+      });
+
+    
+     
+
+
+
+    </script>
 </body>
 
 </html>
