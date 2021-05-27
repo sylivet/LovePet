@@ -291,14 +291,16 @@ let vm = new Vue({
   },
   watch:{
     totalPrice(){
-      $(".Price").css({
-        opacity:1
-      })
-      gsap.from(".Price", {
-        duration:2, 
-        opacity:0,
-        ease:"ease"
-      })
+      if($(".Price").length>0){
+        $(".Price").css({
+          opacity:1
+        })
+        gsap.from(".Price", {
+          duration:2, 
+          opacity:0,
+          ease:"ease"
+        })
+      }
     }
   },
   created(){
