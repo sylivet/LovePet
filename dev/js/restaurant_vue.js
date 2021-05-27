@@ -118,9 +118,9 @@ let vm = new Vue({
             if(response == ""){
                 //尚未登入->前往Login.php
                 alert('請先登入會員'); 
-                $('#m_sign_in_bk').show()
-              }else{
                 this.isBookingBoxOpen = true
+                // $('#m_sign_in_bk').show()
+              }else{
             }              
         },
         error: function(exception) {
@@ -307,13 +307,19 @@ let vm = new Vue({
     })
   },
   mounted() {
+
     // 卷軸
     Array.prototype.forEach.call(document.getElementsByClassName('bar'), function (el) {
       new SimpleBar(el);
     });
+
     // 月曆
-    const myCalendar = new TavoCalendar('#my-calendar', {
-      date: new Date(),
+    const calendar_el = document.querySelector('.i_calendar');
+
+    const my_calendar = new TavoCalendar(calendar_el)
+
+    calendar_el.addEventListener('calendar-select', (ev) => {
+      alert(my_calendar.getSelected());
     })
 
   }
@@ -339,10 +345,11 @@ $(function () {
       $(".submenu").hide();
     }, 100);
   });
+  
+  // 關閉登入會員燈箱
+  $('.i_closeButton').click(()=>$('#m_sign_in_bk').hide())
 });
 
-// 關閉登入會員燈箱
-$('.i_closeButton').click(()=>$('#m_sign_in_bk').hide())
 
 
 
