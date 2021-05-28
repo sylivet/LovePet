@@ -46,7 +46,7 @@
         <!-- <div class="h"><img src="./img/hotel/h_hotel-01.svg" alt=""></div> -->
 
         <!-- 房型選擇跟介紹-->
-        <template v-for="room in rooms">
+        <template v-for="room in typeRoom">
 
             <div class="h_room">
                 <div class="h_dropdown">
@@ -54,7 +54,7 @@
                     <label for="h_toggle" class="h_navbar"><span class="h_title">請選擇房型</span><i
                             class="far fa-chevron-down h_point"></i></label>
                     <ul class="h_dropdown_menu">
-                        <li v-for="room in rooms" class="h_content">{{room.ROOM_NAME}}</li>
+                        <li v-for="room in rooms" class="h_content" @click="dropMenuSelect = room.ROOM_NAME ">{{room.ROOM_NAME}}</li>
                     </ul>
                 </div>
 
@@ -213,9 +213,10 @@
             </div>
         </section>
     </div>
+    <room-booking v-show="isBookingBoxOpen" @closelightbox="isBookingBoxOpen = false">
+    </room-booking>
     <!-- footer -->
     @@include('layout/footer.html')
-
     <!-- vue 預約房間元件 -->
     <script type="text/x-template" id="roombookingbox">
         <div class="i_background">

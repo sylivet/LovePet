@@ -48,7 +48,12 @@ let data = {
     }, {
       imgURL: "./img/index/6-01.png",
       imgclass: "a7"
-    }, {
+    },
+    {
+      imgURL: "./img/index/6-01.png",
+      imgclass: "a7"
+    },
+    {
       imgURL: "./img/index/7-01.png",
       imgclass: "a8"
     },

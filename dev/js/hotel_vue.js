@@ -1,6 +1,6 @@
 //房間預約元件
 Vue.component("room-booking", {
-    props: ['foods'],
+    // props: ['foods'],
     template: "#roombookingbox",
     methods: {
         closeBox() {
@@ -8,27 +8,18 @@ Vue.component("room-booking", {
         }
     },
     computed: {
-        totalPrice() {
-            var result = this.foods.reduce(function (a, b) {
-                return a + b.MEAL_PRICE * b.MEAL_COUNT;
-            }, 0)
-            return result;
-        },
-        filterCataToPets() {
-            return this.foods.filter(food => food.MEAL_CATA === "petsFood")
-        },
-        filterCataToHuman() {
-            return this.foods.filter(food => food.MEAL_CATA === "humanFood")
-        },
+        totalPrice() {},
     }
 })
 
 
-/*----- 720度環景 -----*/
 let vm = new Vue({
     el: "#app",
     data: {
-        rooms: [
+        dropMenuSelect:"時毛玩意",//下拉選單選擇的
+        roomSelection:"",//預約的房間
+        isBookingBoxOpen: false, // 預約燈箱啟閉
+        rooms: [//資料庫房型資料
             {
                 ROOM_TYPE_ID:1,
                 ROOM_NAME:"時毛玩意",
@@ -80,9 +71,28 @@ let vm = new Vue({
                 PANNELLUM:"img/hotel/h_panorama1.jpg",
             },
         ],
-        allRoomMenu: [],
     },
+    computed: {//資料處理
+        typeRoom(){//篩選房型，預設時毛玩意
+            if(this.dropMenuSelect==="時毛玩意"){
+                return this.rooms.filter(room=>{
+                    return room.ROOM_NAME===this.dropMenuSelect;
+                })
+            }else{
+                return this.rooms.filter(room=>{
+                    return room.ROOM_NAME===this.dropMenuSelect;
+                })
+            }
+        }
+
+    },
+    // created(){
+    //     axios.post("php/front_end_API/H_select.php").then((res)=>{
+    //       this.rooms = res.data
+    //     })
+    // },
     mounted() {
+        /*----- 720度環景 -----*/
         pannellum.viewer = pannellum.viewer("h_panorama", {
             type: "equirectangular",
             panorama: "img/hotel/h_panorama1.jpg",
