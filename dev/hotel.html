@@ -46,7 +46,7 @@
         <!-- <div class="h"><img src="./img/hotel/h_hotel-01.svg" alt=""></div> -->
 
         <!-- 房型選擇跟介紹-->
-        <template v-for="room in rooms">
+        <template v-for="room in typeRoom">
 
             <div class="h_room">
                 <div class="h_dropdown">
@@ -54,7 +54,7 @@
                     <label for="h_toggle" class="h_navbar"><span class="h_title">請選擇房型</span><i
                             class="far fa-chevron-down h_point"></i></label>
                     <ul class="h_dropdown_menu">
-                        <li v-for="room in rooms" class="h_content">{{room.ROOM_NAME}}</li>
+                        <li v-for="room in rooms" class="h_content" @click="dropMenuSelect = room.ROOM_NAME ">{{room.ROOM_NAME}}</li>
                     </ul>
                 </div>
 
@@ -106,9 +106,7 @@
                     <div class="h_reserve">
                         <h3>房型介紹({{room.MAX_CAPACITY}}人房)</h3>
                         <h4>
-                            簡雅的線條設計，配上舒適的亞麻米色，房內更設有方便的工作桌，讓需要常外出工作的您，還能帶著寵物出門旅遊；考慮到毛孩的活動範圍，房內的擺設皆留有寬敞的空間，並配置隔音牆，讓您可以安心陪伴牠們玩耍、休息。<br />
-                            <br />
-                            浴室採乾溼分離設計，提高您的安全及便利性，並附設方型湯池，能依喜好選擇一般的泡澡或是溫泉，舒緩您一天的疲勞。
+                            {{room.ROOM_INFO}}
                         </h4>
                         <h1>NT${{room.PRICE}}</h1>
                         <button class="hotel_inquire">房況預約查詢</button>
@@ -213,9 +211,10 @@
             </div>
         </section>
     </div>
+    <room-booking v-show="isBookingBoxOpen" @closelightbox="isBookingBoxOpen = false">
+    </room-booking>
     <!-- footer -->
     @@include('layout/footer.html')
-
     <!-- vue 預約房間元件 -->
     <script type="text/x-template" id="roombookingbox">
         <div class="i_background">
@@ -319,6 +318,8 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <!-- Vue -->
     <script src="vendors/vue/js/vue.js"></script>
     <!-- 環景 -->

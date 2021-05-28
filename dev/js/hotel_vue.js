@@ -1,6 +1,6 @@
 //房間預約元件
 Vue.component("room-booking", {
-    props: ['foods'],
+    // props: ['foods'],
     template: "#roombookingbox",
     methods: {
         closeBox() {
@@ -8,27 +8,18 @@ Vue.component("room-booking", {
         }
     },
     computed: {
-        totalPrice() {
-            var result = this.foods.reduce(function (a, b) {
-                return a + b.MEAL_PRICE * b.MEAL_COUNT;
-            }, 0)
-            return result;
-        },
-        filterCataToPets() {
-            return this.foods.filter(food => food.MEAL_CATA === "petsFood")
-        },
-        filterCataToHuman() {
-            return this.foods.filter(food => food.MEAL_CATA === "humanFood")
-        },
+        totalPrice() {},
     }
 })
 
 
-/*----- 720度環景 -----*/
 let vm = new Vue({
     el: "#app",
     data: {
-        rooms: [
+        dropMenuSelect:"時毛玩意",//下拉選單選擇的
+        roomSelection:"",//預約的房間
+        isBookingBoxOpen: false, // 預約燈箱啟閉
+        rooms: [//資料庫房型資料
             {
                 ROOM_TYPE_ID:1,
                 ROOM_NAME:"時毛玩意",
@@ -38,6 +29,7 @@ let vm = new Vue({
                 ROOM_IMG2:"img/hotel/h_room2.png",
                 ROOM_IMG3:"img/hotel/h_room3.png",
                 PANNELLUM:"img/hotel/h_panorama1.jpg",
+                ROOM_INFO:"簡雅的線條設計，配上舒適的亞麻米色，房內更設有方便的工作桌，讓需要常外出工作的您，還能帶著寵物出門旅遊；考慮到毛孩的活動範圍，房內的擺設皆留有寬敞的空間，並配置隔音牆，讓您可以安心陪伴牠們玩耍、休息。浴室採乾溼分離設計，提高您的安全及便利性，並附設方型湯池，能依喜好選擇一般的泡澡或是溫泉，舒緩您一天的疲勞。",
             },
             {
                 ROOM_TYPE_ID:2,
@@ -48,6 +40,8 @@ let vm = new Vue({
                 ROOM_IMG2:"img/hotel/h_room2.png",
                 ROOM_IMG3:"img/hotel/h_room3.png",
                 PANNELLUM:"img/hotel/h_panorama1.jpg",
+                ROOM_INFO:"簡雅的線條設計，配上舒適的亞麻米色，房內更設有方便的工作桌，讓需要常外出工作的您，還能帶著寵物出門旅遊；考慮到毛孩的活動範圍，房內的擺設皆留有寬敞的空間，並配置隔音牆，讓您可以安心陪伴牠們玩耍、休息。浴室採乾溼分離設計，提高您的安全及便利性，並附設方型湯池，能依喜好選擇一般的泡澡或是溫泉，舒緩您一天的疲勞。",
+
             },
             {
                 ROOM_TYPE_ID:3,
@@ -58,6 +52,8 @@ let vm = new Vue({
                 ROOM_IMG2:"img/hotel/h_room2.png",
                 ROOM_IMG3:"img/hotel/h_room3.png",
                 PANNELLUM:"img/hotel/h_panorama1.jpg",
+                ROOM_INFO:"簡雅的線條設計，配上舒適的亞麻米色，房內更設有方便的工作桌，讓需要常外出工作的您，還能帶著寵物出門旅遊；考慮到毛孩的活動範圍，房內的擺設皆留有寬敞的空間，並配置隔音牆，讓您可以安心陪伴牠們玩耍、休息。浴室採乾溼分離設計，提高您的安全及便利性，並附設方型湯池，能依喜好選擇一般的泡澡或是溫泉，舒緩您一天的疲勞。",
+
             },
             {
                 ROOM_TYPE_ID:4,
@@ -68,6 +64,8 @@ let vm = new Vue({
                 ROOM_IMG2:"img/hotel/h_room2.png",
                 ROOM_IMG3:"img/hotel/h_room3.png",
                 PANNELLUM:"img/hotel/h_panorama1.jpg",
+                ROOM_INFO:"簡雅的線條設計，配上舒適的亞麻米色，房內更設有方便的工作桌，讓需要常外出工作的您，還能帶著寵物出門旅遊；考慮到毛孩的活動範圍，房內的擺設皆留有寬敞的空間，並配置隔音牆，讓您可以安心陪伴牠們玩耍、休息。浴室採乾溼分離設計，提高您的安全及便利性，並附設方型湯池，能依喜好選擇一般的泡澡或是溫泉，舒緩您一天的疲勞。",
+
             },
             {
                 ROOM_TYPE_ID:5,
@@ -78,11 +76,32 @@ let vm = new Vue({
                 ROOM_IMG2:"img/hotel/h_room2.png",
                 ROOM_IMG3:"img/hotel/h_room3.png",
                 PANNELLUM:"img/hotel/h_panorama1.jpg",
+                ROOM_INFO:"簡雅的線條設計，配上舒適的亞麻米色，房內更設有方便的工作桌，讓需要常外出工作的您，還能帶著寵物出門旅遊；考慮到毛孩的活動範圍，房內的擺設皆留有寬敞的空間，並配置隔音牆，讓您可以安心陪伴牠們玩耍、休息。浴室採乾溼分離設計，提高您的安全及便利性，並附設方型湯池，能依喜好選擇一般的泡澡或是溫泉，舒緩您一天的疲勞。",
+
             },
         ],
-        allRoomMenu: [],
     },
+    computed: {//資料處理
+        typeRoom(){//篩選房型，預設時毛玩意
+            if(this.dropMenuSelect==="時毛玩意"){
+                return this.rooms.filter(room=>{
+                    return room.ROOM_NAME===this.dropMenuSelect;
+                })
+            }else{
+                return this.rooms.filter(room=>{
+                    return room.ROOM_NAME===this.dropMenuSelect;
+                })
+            }
+        }
+
+    },
+    // created(){
+    //     axios.post("php/front_end_API/H_select.php").then((res)=>{
+    //       this.rooms = res.data
+    //     })
+    // },
     mounted() {
+        /*----- 720度環景 -----*/
         pannellum.viewer = pannellum.viewer("h_panorama", {
             type: "equirectangular",
             panorama: "img/hotel/h_panorama1.jpg",
