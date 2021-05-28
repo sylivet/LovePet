@@ -29,6 +29,7 @@ let vm = new Vue({
                 ROOM_IMG2:"img/hotel/h_room2.png",
                 ROOM_IMG3:"img/hotel/h_room3.png",
                 PANNELLUM:"img/hotel/h_panorama1.jpg",
+                ROOM_INFO:"簡雅的線條設計，配上舒適的亞麻米色，房內更設有方便的工作桌，讓需要常外出工作的您，還能帶著寵物出門旅遊；考慮到毛孩的活動範圍，房內的擺設皆留有寬敞的空間，並配置隔音牆，讓您可以安心陪伴牠們玩耍、休息。浴室採乾溼分離設計，提高您的安全及便利性，並附設方型湯池，能依喜好選擇一般的泡澡或是溫泉，舒緩您一天的疲勞。",
             },
             {
                 ROOM_TYPE_ID:2,
@@ -39,6 +40,8 @@ let vm = new Vue({
                 ROOM_IMG2:"img/hotel/h_room2.png",
                 ROOM_IMG3:"img/hotel/h_room3.png",
                 PANNELLUM:"img/hotel/h_panorama1.jpg",
+                ROOM_INFO:"簡雅的線條設計，配上舒適的亞麻米色，房內更設有方便的工作桌，讓需要常外出工作的您，還能帶著寵物出門旅遊；考慮到毛孩的活動範圍，房內的擺設皆留有寬敞的空間，並配置隔音牆，讓您可以安心陪伴牠們玩耍、休息。浴室採乾溼分離設計，提高您的安全及便利性，並附設方型湯池，能依喜好選擇一般的泡澡或是溫泉，舒緩您一天的疲勞。",
+
             },
             {
                 ROOM_TYPE_ID:3,
@@ -49,6 +52,8 @@ let vm = new Vue({
                 ROOM_IMG2:"img/hotel/h_room2.png",
                 ROOM_IMG3:"img/hotel/h_room3.png",
                 PANNELLUM:"img/hotel/h_panorama1.jpg",
+                ROOM_INFO:"簡雅的線條設計，配上舒適的亞麻米色，房內更設有方便的工作桌，讓需要常外出工作的您，還能帶著寵物出門旅遊；考慮到毛孩的活動範圍，房內的擺設皆留有寬敞的空間，並配置隔音牆，讓您可以安心陪伴牠們玩耍、休息。浴室採乾溼分離設計，提高您的安全及便利性，並附設方型湯池，能依喜好選擇一般的泡澡或是溫泉，舒緩您一天的疲勞。",
+
             },
             {
                 ROOM_TYPE_ID:4,
@@ -59,6 +64,8 @@ let vm = new Vue({
                 ROOM_IMG2:"img/hotel/h_room2.png",
                 ROOM_IMG3:"img/hotel/h_room3.png",
                 PANNELLUM:"img/hotel/h_panorama1.jpg",
+                ROOM_INFO:"簡雅的線條設計，配上舒適的亞麻米色，房內更設有方便的工作桌，讓需要常外出工作的您，還能帶著寵物出門旅遊；考慮到毛孩的活動範圍，房內的擺設皆留有寬敞的空間，並配置隔音牆，讓您可以安心陪伴牠們玩耍、休息。浴室採乾溼分離設計，提高您的安全及便利性，並附設方型湯池，能依喜好選擇一般的泡澡或是溫泉，舒緩您一天的疲勞。",
+
             },
             {
                 ROOM_TYPE_ID:5,
@@ -69,6 +76,8 @@ let vm = new Vue({
                 ROOM_IMG2:"img/hotel/h_room2.png",
                 ROOM_IMG3:"img/hotel/h_room3.png",
                 PANNELLUM:"img/hotel/h_panorama1.jpg",
+                ROOM_INFO:"簡雅的線條設計，配上舒適的亞麻米色，房內更設有方便的工作桌，讓需要常外出工作的您，還能帶著寵物出門旅遊；考慮到毛孩的活動範圍，房內的擺設皆留有寬敞的空間，並配置隔音牆，讓您可以安心陪伴牠們玩耍、休息。浴室採乾溼分離設計，提高您的安全及便利性，並附設方型湯池，能依喜好選擇一般的泡澡或是溫泉，舒緩您一天的疲勞。",
+
             },
         ],
     },
