@@ -393,7 +393,7 @@ $(function () {
     $(".fa-angle-up").removeClass("rotate");
     setTimeout(function () {
       $(".submenu").hide();
-    }, 100);
+    }, 200);
   });
   
   // 關閉登入會員燈箱
