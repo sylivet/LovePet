@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @@include('layout/style.html')
+    <!-- 環景 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+    <title>環景</title>
+</head>
+
+<body>
+    <!-- header -->
+    @@include('layout/header.html')
+
+        <!-- 720度環景-->
+        <section class="h_surrounding_view">
+            <div id="h_panorama">
+                <div id="h_controlbtn">
+                    <div class="h_ctrl" id="h_arrow_up">
+                        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="h_ctrl" id="h_arrow_down">
+                        <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="h_ctrl" id="h_arrow_left">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="h_ctrl" id="h_arrow_right">
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="h_ctrl" id="h_enlarge">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="h_ctrl" id="h_narrow">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- footer -->
+    @@include('layout/footer.html')
+   
+    <!-- Vue -->
+    <script src="vendors/vue/js/vue.js"></script>
+    <!-- 環景 -->
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <script src="js/hotel_test720.js"></script>
+
+</body>
+
+</html>
