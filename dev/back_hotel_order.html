@@ -132,7 +132,8 @@
     function getData(res) {
       for (let i = 0; i < res.data.length; i++) {
         // 日期轉為10位數
-        res.data[i].BOOKING_DATE = res.data[i].BOOKING_DATE.slice(0,10)
+        res.data[i].BOOKING_CHECKIN_DATE= res.data[i].BOOKING_CHECKIN_DATE.slice(0,10)
+        res.data[i].BOOKING_CHECKOUT_DATE= res.data[i].BOOKING_CHECKOUT_DATE.slice(0,10)
         res.data[i].CREATE_DATE = res.data[i].CREATE_DATE.slice(0,10)
 
         let data = `

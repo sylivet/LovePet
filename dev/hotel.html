@@ -54,7 +54,8 @@
                     <label for="h_toggle" class="h_navbar"><span class="h_title">請選擇房型</span><i
                             class="far fa-chevron-down h_point"></i></label>
                     <ul class="h_dropdown_menu">
-                        <li v-for="room in rooms" class="h_content" @click="dropMenuSelect = room.ROOM_NAME ">{{room.ROOM_NAME}}</li>
+                        <li v-for="room in rooms" class="h_content" @click="dropMenuSelect = room.ROOM_NAME ">
+                            {{room.ROOM_NAME}}</li>
                     </ul>
                 </div>
 
@@ -109,7 +110,7 @@
                             {{room.ROOM_INFO}}
                         </h4>
                         <h1>NT${{room.PRICE}}</h1>
-                        <button class="hotel_inquire">房況預約查詢</button>
+                        <button class="hotel_inquire" @click="isBookingBoxOpen=true">房況預約查詢</button>
                     </div>
                 </div>
             </div>
@@ -210,9 +211,10 @@
                 </div>
             </div>
         </section>
+        <room-booking v-show="isBookingBoxOpen" @closelightbox="isBookingBoxOpen = false" :roomtype="typeRoom">
+        </room-booking>
     </div>
-    <room-booking v-show="isBookingBoxOpen" @closelightbox="isBookingBoxOpen = false">
-    </room-booking>
+
     <!-- footer -->
     @@include('layout/footer.html')
     <!-- vue 預約房間元件 -->
@@ -264,47 +266,14 @@
                         </div>
                         <div class="i_hotel_right">
                           <ul class="i_hotel_bookingcontent">
-                              <li>
-                                  <ul class="i_checkin">
-                                      <li>入住時間：</li>
-                                      <li>2021年04月09日 (週五) 16：00 起</li>
-                                  </ul>
-                              </li>
-                              <li>
-                                  <ul class="i_checkout">
-                                      <li>退房時間：</li>
-                                      <li>2021年04月10日 (週六) 11：00 前</li>
-                                  </ul>
-                              </li>
-                              <li>
-                                  <ul class="i_roomtype">
-                                      <li>選擇房型：</li>
-                                      <li>{{room.ROOM_NAME}}</li>
-                                  </ul>
-                              </li>
-                              <li>
-                                  <ul class="i_stayamount">
-                                      <li>房客總數：</li>
-                                      <li>成人1人、孩童1人、狗1隻、貓1隻</li>
-                                  </ul>
-                              </li>
-                              <li>
-                                  <ul class="i_detail">
-                                      <li>房價明細：</li>
-                                      <li>
-                                          <ul>
-                                              <li>房型價格<span>${{room.PRICE}}</span>
-                                              </li>
-                                              <li>訂房手續費<span>$0</span>
-                                              </li>
-                                          </ul>
-                                      </li>
-                                  </ul>
-                              </li>
-                          </ul>
+                              <li>入住時間：</li>
+                              <li>退房時間：</li>
+                              <li>選擇房型：{{selectRoom.ROOM_NAME}}</li>
+                              <li>房客總數：</li>
+                            </ul>
                           <hr>
                           <div class="i_total">
-                              <h3>總價 NT 3000元</h3>
+                              <h3>總價 NT{{selectRoom.PRICE}}元</h3>
                           </div>
                           <button type="button" class="i_button">確認預約</button>
                       </div>
@@ -318,6 +287,11 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- 月曆 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="vendors/travo-calendar/js/tavo-calendar.js"></script>
+    <!-- 捲軸 -->
+    <script src="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.js"></script>
     <!-- axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <!-- Vue -->
@@ -325,27 +299,6 @@
     <!-- 環景 -->
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <script src="js/hotel_vue.js"></script>
-    <!-- 月曆 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="vendors/travo-calendar/js/tavo-calendar.js"></script>
-    <!-- 捲軸 -->
-    <script src="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.js"></script>
-
-    <!-- 搬到js檔 -->
-    <script>
-        Array.prototype.forEach.call(
-            document.getElementsByClassName("bar"),
-            function (el) {
-                new SimpleBar(el);
-            }
-        );
-
-        const myCalendar = new TavoCalendar("#my-calendar", {
-            date: new Date(),
-            blacklist: ["2021-05-10", "2021-05-23"],
-            range_select: true,
-        });
-    </script>
 </body>
 
 </html>
