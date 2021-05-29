@@ -14,8 +14,7 @@
 </head>
 
 <body class="check">
-
-  <div class="c_wrapper">
+  <div class="c_wrapper"  id="app">
     @@include('layout/header.html')
 
     <!-- 毛孩健檢 -->
@@ -40,45 +39,14 @@
               <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
             </div>
             <div class="c_set_content">
-              <ul>
-                <li class="alpha">01</li>
-                <li class="item">基礎理學檢查</li>
-              </ul>
-              <ul>
-                <li class="alpha">02</li>
-                <li class="item">重大傳染病篩檢</li>
-              </ul>
-              <ul>
-                <li class="alpha">03</li>
-                <li class="item">腎臟病早期篩檢</li>
-              </ul>
-              <ul>
-                <li class="alpha">04</li>
-                <li class="item">血液常規</li>
-              </ul>
-              <ul>
-                <li class="alpha">05</li>
-                <li class="item">血糖檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">06</li>
-                <li class="item">血清蛋白質檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">07</li>
-                <li class="item">腎指數檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">08</li>
-                <li class="item">肝指數檢測</li>
+              <ul  v-for="(item, id) in fastTest">
+                <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
+                <li class="item">{{item.LISTNAME}}</li>
               </ul>
             </div>
             <div class="addMenu">
-              <button @click="set='c-set-1'" id="A1001" class="addButton">加入
-              <input type="hidden" value="checkdog@2x.png|快速篩檢套餐|3000元"></button>
-            </div>
-            <!-- <component :is="content"></component> -->
-  
+              <button @click="choice='fast', choicePrice=4000" id="A1001" class="addButton" >加入</button>
+            </div>  
         </div> 
         <!-- 套餐2 -->
         <div class="c_set" id="c_set2">
@@ -88,45 +56,14 @@
               <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
             </div>
             <div class="c_set_content">
-              <ul>
-                <li class="alpha">09</li>
-                <li class="item">進階肝膽指數檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">10</li>
-                <li class="item">鈣磷檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">11</li>
-                <li class="item">血脂功能檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">12</li>
-                <li class="item">電解質檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">13</li>
-                <li class="item">胰臟指數檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">14</li>
-                <li class="item">影像學檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">15</li>
-                <li class="item">甲狀腺功能檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">16</li>
-                <li class="item">消化試驗</li>
+              <ul  v-for="(item, id) in advancedTest">
+                <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
+                <li class="item">{{item.LISTNAME}}</li>
               </ul>
             </div>
-            <!-- <span class="mobile_span">(包含上列01~08項)</span> -->
             <div class="addMenu">
-              <button @click="set='c-set-2'" id="A1002" class="addButton">加入
-              <input type="hidden" value="checkdog@2x.png|進階健檢套餐|4500元"></button>
+              <button @click="choice='advanced', choicePrice=9500" id="A1002" class="addButton">加入
             </div>
-            <!-- <component :is="content"></component> -->
         </div>
         <!-- 套餐3. -->
         <div class="c_set" id="c_set3">
@@ -137,126 +74,108 @@
             </div>
             
             <div class="c_set_content">
-              <ul>
-                <li class="alpha">17</li>
-                <li class="item">果糖胺檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">18</li>
-                <li class="item">進階眼科檢查</li>
-              </ul>
-              <ul>
-                <li class="alpha">19</li>
-                <li class="item">糞便檢查</li>
-              </ul>
-              <ul>
-                <li class="alpha">20</li>
-                <li class="item">尿液檢查</li>
-              </ul>
-              <ul>
-                <li class="alpha">21</li>
-                <li class="item">快速心電圖檢查</li>
-              </ul>
-              <ul>
-                <li class="alpha">22</li>
-                <li class="item">腹腔超音波</li>
-              </ul>
-              <ul>
-                <li class="alpha">23</li>
-                <li class="item">心臟超音波</li>
-              </ul>
-              <ul>
-                <li class="alpha">24</li>
-                <li class="item">胸腔X光</li>
+              <ul  v-for="(item, id) in elderTest">
+                <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
+                <li class="item">{{item.LISTNAME}}</li>
               </ul>
             </div>
-            <!-- <span class="mobile_span">(包含上列01~16項)</span> -->
             <div class="addMenu">
-              <button @click="set='c-set-3'" id="A1003" class="addButton">加入
-              <input type="hidden" value="checkdog@2x.png|熟齡健檢套餐|7500元"></button>
+              <button @click="choice='elder', choicePrice=17000" id="A1003" class="addButton">加入
             </div>
-            <!-- <component :is="content"></component> -->
         </div> 
         <!-- 加價購 -->
         <div class="c_plus">
-        <div class="c_plus_title">
-          <img src="./img/clinic/checkplus@2x.png">
-          <h4>加價購&nbsp;<span>(最多可選2項)</span></h4>
+          <div class="c_plus_title">
+            <img src="./img/clinic/checkplus@2x.png">
+            <h4>加價購&nbsp;<span>(最多可選2項)</span></h4>
+          </div>
+          <p>下列項目任選2項可享9折加價購</p>
+          <div class="c_plus_content">
+            <ul id="plus25" v-for="(item, id) in customTest">
+              <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
+              <li class="item">{{item.LISTNAME}}</li>
+              <li class="cost">{{item.PRICE}}元</li>
+              <li> <img src="./img/clinic/plus@2x.png" class="plus_button" @click="pushItem(item)"></li>
+            </ul>           
+          </div>
         </div>
-        <p>下列項目任選2項可享9折加價購</p>
-        <div class="c_plus_content">
-          <ul id="plus25">
-            <li class="alpha">25</li>
-            <li class="item">犬血球12項檢測</li>
-            <li class="cost">2000元</li>
-            <li> <img src="./img/clinic/plus@2x.png" class="plus_button" @click="plus='plusButton25'"></li>
-          </ul>
-          <ul id="plus26">
-            <li class="alpha">26</li>
-            <li class="item">犬CRP檢測</li>
-            <li class="cost">500元</li>
-            <li> <img src="./img/clinic/plus@2x.png" class="plus_button"  @click="plus='plusButton26'"></li>
-          </ul>
-          <ul id="plus27">
-            <li class="alpha">27</li>
-            <li class="item">犬四合一快篩</li>
-            <li class="cost">1000元</li>
-            <li> <img src="./img/clinic/plus@2x.png" class="plus_button"  @click="plus='plusButton27'"></li>
-          </ul>
-          <ul id="plus28">
-            <li class="alpha">28</li>
-            <li class="item">犬血型測定</li>
-            <li class="cost">2500元</li>
-            <li> <img src="./img/clinic/plus@2x.png" class="plus_button" @click="plus='plusButton28'"></li>
-          </ul>
-          <ul id="plus29">
-            <li class="alpha">29</li>
-            <li class="item">犬進階血液檢驗</li>
-            <li class="cost">3600元</li>
-            <li> <img src="./img/clinic/plus@2x.png" class="plus_button"  @click="plus='plusButton29'"></li>
-          </ul>
-          <ul id="plus30">
-            <li class="alpha">30</li>
-            <li class="item">犬尿中微量蛋白</li>
-            <li class="cost">800元</li>
-            <li> <img src="./img/clinic/plus@2x.png" class="plus_button"  @click="plus='plusButton30'"></li>
- 
-          </ul>  
-          <ul id="plus31">
-            <li class="alpha">31</li>
-            <li class="item">貓愛滋</li>
-            <li class="cost">700元</li>
-            <li> <img src="./img/clinic/plus@2x.png" class="plus_button" @click="plus='plusButton31'"></li>
 
-          </ul>                 
-          <ul id="plus32">
-            <li class="alpha">32</li>
-            <li class="item">貓白血病</li>
-            <li class="cost">800元</li>
-            <li> <img src="./img/clinic/plus@2x.png" class="plus_button" @click="plus='plusButton32'"></li>                     
-          </ul>             
-        </div>
-      
-         </div>
-   
         <div class= "clinic_order">
           <!-- <h3>您選擇的健檢項目</h3> -->
           <div class="set" id="newSet">
-            <component :is="set"></component>          
+            <div class="c_set_content" v-if="choice == 'fast'">
+              <div class="c_set" id="c_set1">         
+                <div class="c_set_title">
+                  <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
+                  <h4>快速篩檢套餐<br>4000元</h4>
+                  <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
+                </div>
+                <div class="c_set_content">
+                  <ul  v-for="(item, id) in fastTest">
+                    <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
+                    <li class="item">{{item.LISTNAME}}</li>
+                  </ul>
+                </div>
+              </div> 
+            </div>
+
+            <div class="c_set" id="c_set2" v-if="choice == 'advanced'">
+              <div class="c_set_title">
+                <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
+                <h4>進階健檢套餐<br>9500元&nbsp;<span>(包含01-08項)</span></h4>
+                <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
+              </div>
+              <div class="c_set_content">
+                <ul  v-for="(item, id) in advancedTest">
+                  <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
+                  <li class="item">{{item.LISTNAME}}</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="c_set" id="c_set3" v-if="choice == 'elder'">
+              <div class="c_set_title">
+                <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
+                <h4>熟齡健檢套餐<br>17000元&nbsp;<span>(包含01-16項)</span></h4>
+                <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
+              </div>
+              
+              <div class="c_set_content">
+                <ul  v-for="(item, id) in elderTest">
+                  <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
+                  <li class="item">{{item.LISTNAME}}</li>
+                </ul>
+              </div>
+            </div> 
           </div>
 
           <!-- <h4>加價購</h4> -->
           <div class="c_plus_1" id = "plus_1">
-            <component :is="plus"></component>     
+              <div class="c_plus" v-for="(item,id) in customChoice" v-if="id==0">
+                <div class="c_plus_content">
+                  <ul id="plus25">
+                    <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
+                    <li class="item">{{item.LISTNAME}}</li>
+                    <li class="cost" v-if="customChoice.length >= 2">特價{{item.PRICE*0.9}}元</li>
+                    <li class="cost" v-else>原價{{item.PRICE}}元</li>
+                </div> 
+              </div>  
           </div>
-                 
+
           <div class="c_plus_2" id = "plus_2">
-            <!-- <component :is="plus"></component>      -->
-              
+            <div class="c_plus" v-for="(item,id) in customChoice" v-if="id==1">
+              <div class="c_plus_content">
+                <ul id="plus25">
+                  <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
+                  <li class="item">{{item.LISTNAME}}</li>
+                  <li class="cost" v-if="customChoice.length >= 2">特價{{item.PRICE*0.9}}元</li>
+                  <li class="cost" v-else>原價{{item.PRICE}}元</li>
+              </div> 
+            </div> 
           </div>
         
-          <h4 class="c_price">您選擇的健檢項目總價NT****元</h4>
-          <button>重新選擇</button>
+          <h4 class="c_price">您選擇的健檢項目總價NT{{totalPrice | currency}}元</h4>
+          <button @click="clearAll">重新選擇</button>
           <div>
             <input type="button" value="預約健檢">
           </div>
@@ -266,262 +185,59 @@
   </div>
 
   @@include('layout/footer.html')
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-    
-
-
-<script>
- //套餐 
-  Vue.component('c-set-1',{
-      template: `
-      <div class="c_set" id="c_set1" style="width:70%,height:70%">         
-            <div class="c_set_title">
-              <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-              <h4>快速篩檢套餐<br>4000元</h4>
-              <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
-            </div>
-            <div class="c_set_content">
-              <ul>
-                <li class="alpha">01</li>
-                <li class="item">基礎理學檢查</li>
-              </ul>
-              <ul>
-                <li class="alpha">02</li>
-                <li class="item">重大傳染病篩檢</li>
-              </ul>
-              <ul>
-                <li class="alpha">03</li>
-                <li class="item">腎臟病早期篩檢</li>
-              </ul>
-              <ul>
-                <li class="alpha">04</li>
-                <li class="item">血液常規</li>
-              </ul>
-              <ul>
-                <li class="alpha">05</li>
-                <li class="item">血糖檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">06</li>
-                <li class="item">血清蛋白質檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">07</li>
-                <li class="item">腎指數檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">08</li>
-                <li class="item">肝指數檢測</li>
-              </ul>
-            </div>
-      `,  
+  <script src="./vendors/jquery/jquery-3.5.1.slim.min.js"></script>
+  <script src="./vendors/vue/js/vue.js"></script>
+  <!-- axios -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  <script>
+    Vue.filter('currency', function (price) {
+      return price.toLocaleString('en-US');
     });
 
-  Vue.component('c-set-2',{
-          template: `
-          <div class="c_set" id="c_set2" style="width:70%,height:70%">
-            <div class="c_set_title">
-              <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-              <h4>進階健檢套餐<br>9500元<span>(包含01-08項)</span></h4>
-              <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
-            </div>
-            <div class="c_set_content">
-              <ul>
-                <li class="alpha">09</li>
-                <li class="item">進階肝膽指數檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">10</li>
-                <li class="item">鈣磷檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">11</li>
-                <li class="item">血脂功能檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">12</li>
-                <li class="item">電解質檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">13</li>
-                <li class="item">胰臟指數檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">14</li>
-                <li class="item">影像學檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">15</li>
-                <li class="item">甲狀腺功能檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">16</li>
-                <li class="item">消化試驗</li>
-              </ul>
-        </div>
-          `,
-      });
-  
-  Vue.component('c-set-3',{
-            template: `
-            <div class="c_set" id="c_set3">
-            <div class="c_set_title">
-              <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-              <h4>熟齡健檢套餐<br>17000元<span>(包含01-16項)</span></h4>
-              <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
-            </div>
-            
-            <div class="c_set_content">
-              <ul>
-                <li class="alpha">17</li>
-                <li class="item">果糖胺檢測</li>
-              </ul>
-              <ul>
-                <li class="alpha">18</li>
-                <li class="item">進階眼科檢查</li>
-              </ul>
-              <ul>
-                <li class="alpha">19</li>
-                <li class="item">糞便檢查</li>
-              </ul>
-              <ul>
-                <li class="alpha">20</li>
-                <li class="item">尿液檢查</li>
-              </ul>
-              <ul>
-                <li class="alpha">21</li>
-                <li class="item">快速心電圖檢查</li>
-              </ul>
-              <ul>
-                <li class="alpha">22</li>
-                <li class="item">腹腔超音波</li>
-              </ul>
-              <ul>
-                <li class="alpha">23</li>
-                <li class="item">心臟超音波</li>
-              </ul>
-              <ul>
-                <li class="alpha">24</li>
-                <li class="item">胸腔X光</li>
-              </ul>
-            </div>
-            `,
-        }); 
-
- //加價購 
- Vue.component('plusButton25',{
-      template:`
-      <div class="c_plus">
-        <div class="c_plus_content">
-          <ul id="plus25">
-            <li class="alpha">25</li>
-            <li class="item">犬血球12項檢測</li>
-            <li class="cost">特價*元</li> 
-          </div> 
-      </div>    
-      `,    
-    });
- Vue.component('plusButton26',{
-      template:`
-      <div class="c_plus">
-        <div class="c_plus_content">
-          <ul id="plus26">
-            <li class="alpha">26</li>
-            <li class="item">犬CRP檢測</li>
-            <li class="cost">特價*元</li> 
-          </div> 
-      </div>    
-      `,    
-    });
- Vue.component('plusButton27',{
-      template:`
-      <div class="c_plus">
-        <div class="c_plus_content">
-          <ul id="plus27">
-            <li class="alpha">27</li>
-            <li class="item">犬四合一快篩</li>
-            <li class="cost">特價*元</li> 
-          </div> 
-      </div>    
-      `,    
-});
- Vue.component('plusButton28',{
-      template:`
-      <div class="c_plus">
-        <div class="c_plus_content">
-          <ul id="plus28">
-            <li class="alpha">28</li>
-            <li class="item">犬血型測定</li>
-            <li class="cost">特價*元</li> 
-          </div> 
-      </div>    
-      `,    
-}); 
-  Vue.component('plusButton29',{
-      template:`
-      <div class="c_plus">
-        <div class="c_plus_content">
-          <ul id="plus29">
-            <li class="alpha">29</li>
-            <li class="item">犬進階血液檢驗</li>
-            <li class="cost">特價*元</li> 
-          </div> 
-      </div>    
-      `,    
-});
-  Vue.component('plusButton30',{
-      template:`
-      <div class="c_plus">
-        <div class="c_plus_content">
-          <ul id="plus30">
-            <li class="alpha">30</li>
-            <li class="item">犬尿中微量蛋白</li>
-            <li class="cost">特價*元</li> 
-          </div> 
-      </div>    
-      `,    
-});
-Vue.component('plusButton31',{
-      template:`
-      <div class="c_plus">
-        <div class="c_plus_content">
-          <ul id="plus31">
-            <li class="alpha">31</li>
-            <li class="item">貓愛滋</li>
-            <li class="cost">特價*元</li> 
-          </div> 
-      </div>    
-      `,    
-});
- 
-Vue.component('plusButton32',{
-      template:`
-      <div class="c_plus">
-        <div class="c_plus_content">
-          <ul id="plus32">
-            <li class="alpha">32</li>
-            <li class="item">貓白血病</li>
-            <li class="cost">特價*元</li>                     
-          </ul>  
-        </div> 
-      </div>     
-      `,    
-});
-  new Vue({
-        el: '#check_main',
-        data: {
-          set: '',
-          plus:'', 
-            },      
-          
-  }); 
-
-
-</script>
-
-
+    let vm = new Vue({
+      el:"#app",
+      data:{
+        choice:"",
+        choicePrice:"",
+        customChoice:[],
+        checkMenu:[],
+      },
+      computed:{
+        fastTest(){
+          return this.checkMenu.slice(0, 8)
+        },
+        advancedTest(){
+          return this.checkMenu.slice(8, 16)
+        },
+        elderTest(){
+          return this.checkMenu.slice(16, 24)
+        },
+        customTest(){
+          return this.checkMenu.slice(24, 32)
+        },
+        totalPrice(){
+          let price1 = this.choicePrice== ""? 0: parseInt(this.choicePrice);
+          let price2 = this.customChoice.length==1? parseInt(this.customChoice[0].PRICE) : 0;
+          let price3 = this.customChoice.length>=2? (parseInt(this.customChoice[0].PRICE)+parseInt(this.customChoice[1].PRICE))*0.9 : 0;
+          return price1 + price2 + price3;
+        }
+      },
+      methods: {
+        clearAll(){
+          this.customChoice = [];
+          this.choice = "";
+          this.choicePrice="";
+        },
+        pushItem(item){
+          if(!this.customChoice.includes(item)){this.customChoice.push(item)}
+        }
+      },
+      created() {
+        axios.post("php/front_end_API/C_select.php").then((res)=>{
+          this.checkMenu = res.data
+        })
+      },
+    })
+  </script>
   </body>
-
 </html>
