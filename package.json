@@ -37,7 +37,12 @@
   },
   "dependencies": {
     "chart.js": "^3.2.1",
+<<<<<<< HEAD
     "swiper": "^6.6.1",
     "vue-pannellum": "^0.5.3"
+=======
+    "echarts": "^5.1.1",
+    "swiper": "^6.6.1"
+>>>>>>> 39d1c090f4c93a520364895663b88a00a70df861
   }
 }
