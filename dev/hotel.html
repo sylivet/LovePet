@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @@include('layout/style.html')
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>    
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- 環景 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
     <!-- 月曆 -->
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="vendors/travo-calendar/css/tavo-calendar.css">
+    <link rel="stylesheet" href="vendors/travo-calendar/css/tavo-calendar.css" />
     <!-- 捲軸 -->
     <link rel="stylesheet" href="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.css" />
     <title>hotel</title>
 </head>
 
-<body>    
+<body>
     <!-- header -->
     @@include('layout/header.html')
 
     <!-- 旅館banner動畫 -->
     <!-- 假圖 -->
-    <div class="h_banner">
-        <img src="img/hotel/h_banner.png" alt="">
-    </div>
+    <div id="app">
+        <div class="h_banner">
+            <img src="img/hotel/h_banner.png" alt="" />
+        </div>
 
-    <!-- <div class="h_banner">
+        <!-- <div class="h_banner">
         <div class="h_hotel">
             <img src="./img/hotel/h_hotel_bg.png" alt="" class="h_hotel_bg">
             <div class="h_cartoon">
@@ -40,323 +43,262 @@
         </div>
     </div>     -->
 
-    <!-- <div class="h"><img src="./img/hotel/h_hotel-01.svg" alt=""></div> -->
+        <!-- <div class="h"><img src="./img/hotel/h_hotel-01.svg" alt=""></div> -->
 
-    <!-- 房型選擇跟介紹-->
-    <div class="h_room">           
-        <div class="h_dropdown">
-            <input id="h_toggle" type="checkbox">
-            <label for="h_toggle" class="h_navbar"><span class="h_title">請選擇房型</span><i class="far fa-chevron-down h_point"></i></label>
-            <ul class="h_dropdown_menu">
-                <li class="h_content">時毛玩意</li>
-                <li class="h_content">一汪無際</li>
-                <li class="h_content">天羅地汪</li>
-                <li class="h_content">青喵淡寫</li>
-                <li class="h_last_content">舒毛一夏</li>
-            </ul>
-        </div>
-        
-        <div class="h_photo">
-            <div class="h_roomname">
-                <h1>天羅地汪</h1>
-            </div>
-            <div class="h_bigimage">
-                <img src="img/hotel/h_room1.png" alt="">
-            </div>
-            <div class="h_smallimage">
-                <img src="img/hotel/h_room2.png" alt="" class="h_left">
-                <img src="img/hotel/h_room3.png" alt="" class="h_right">
-            </div>
-        </div>
+        <!-- 房型選擇跟介紹-->
+        <template v-for="room in typeRoom">
 
-        <div class="h_introduction">
-            <div class="h_device">
-                <h3>設備<font color="#FF8C42">＆</font>備品</h3>
-                <div class="h_list">
+            <div class="h_room">
+                <div class="h_dropdown">
+                    <input id="h_toggle" type="checkbox" />
+                    <label for="h_toggle" class="h_navbar"><span class="h_title">請選擇房型</span><i
+                            class="far fa-chevron-down h_point"></i></label>
+                    <ul class="h_dropdown_menu">
+                        <li v-for="room in rooms" class="h_content" @click="dropMenuSelect = room.ROOM_NAME ">
+                            {{room.ROOM_NAME}}</li>
+                    </ul>
+                </div>
+
+                <div class="h_photo">
+                    <div class="h_roomname">
+                        <h1>{{room.ROOM_NAME}}</h1>
+                    </div>
+                    <div class="h_bigimage">
+                        <img :src="room.ROOM_IMG" alt="" />
+                    </div>
+                    <div class="h_smallimage">
+                        <img :src="room.ROOM_IMG2" alt="" class="h_left" />
+                        <img :src="room.ROOM_IMG3" alt="" class="h_right" />
+                    </div>
+                </div>
+
+                <div class="h_introduction">
+                    <div class="h_device">
+                        <h3>設備<font color="#FF8C42">＆</font>備品</h3>
+                        <div class="h_list">
+                            <ul>
+                                <li>
+                                    <img src="img/hotel/h_icon1.png" alt="" />
+                                    <h4>衛浴</h4>
+                                    <p>
+                                        浴缸 / 淋浴間 / 免治馬桶 / 沫浴乳 / 洗髮精 / 牙刷 / 牙膏 /
+                                        毛巾 / 吹風機
+                                    </p>
+                                </li>
+                                <li>
+                                    <img src="img/hotel/h_icon2.png" alt="" />
+                                    <h4>房間設施</h4>
+                                    <p>吧檯 / 小茶几 / 小冰箱 / 電熱水瓶</p>
+                                </li>
+                                <li>
+                                    <img src="img/hotel/h_icon3.png" alt="" />
+                                    <h4>寵物設施</h4>
+                                    <p>砂盆 / 飲水器 / 可調式碗架 / 貓抓柱 / 寵物窩墊</p>
+                                </li>
+                                <li>
+                                    <img src="img/hotel/h_icon4.png" alt="" />
+                                    <h4>網路</h4>
+                                    <p class="h_offer">Wi-Fi</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="h_reserve">
+                        <h3>房型介紹({{room.MAX_CAPACITY}}人房)</h3>
+                        <h4>
+                            {{room.ROOM_INFO}}
+                        </h4>
+                        <h1>NT${{room.PRICE}}</h1>
+                        <button class="hotel_inquire" @click="isBookingBoxOpen=true">房況預約查詢</button>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <!-- 旅館Q&A-->
+        <div class="h_wrapper">
+            <div class="h_faq1">
+                <div class="h_show">
+                    <span class="h_q1">
+                        <h3>入住時間</h3>
+                        <i class="far fa-chevron-down h_point" style="font-size: 24px; color: #000000"></i>
+                    </span>
+                </div>
+                <div class="h_panel1">
+                    下午15：00過後，退房時間為隔日上午11：00以前。
+                </div>
+            </div>
+
+            <div class="h_faq2">
+                <div class="h_flip">
+                    <span class="h_q2">
+                        <h3>備註</h3>
+                        <i class="far fa-chevron-down h_point0" style="font-size: 24px; color: #000000"></i>
+                    </span>
+                </div>
+                <div class="h_panel2">
                     <ul>
                         <li>
-                            <img src="img/hotel/h_icon1.png" alt="">
-                            <h4>衛浴</h4>
-                            <p>浴缸 / 淋浴間 / 免治馬桶 / 沫浴乳 / 洗髮精 / 牙刷 / 牙膏 / 毛巾 / 吹風機</p>
+                            一、加床費用：6歲(含)以下孩童，不收取加床費；身高大於130~150公分或7歲以上者，每位加收NT$800/位。
                         </li>
-                        <li>
-                            <img src="img/hotel/h_icon2.png" alt="">
-                            <h4>房間設施</h4>
-                            <p>吧檯 / 小茶几 / 小冰箱 / 電熱水瓶</p>
-                        </li>
-                        <li>
-                            <img src="img/hotel/h_icon3.png" alt="">
-                            <h4>寵物設施</h4>
-                            <p>砂盆 / 飲水器 / 可調式碗架 / 貓抓柱 / 寵物窩墊</p>
-                        </li>
-                        <li>
-                            <img src="img/hotel/h_icon4.png" alt="">
-                            <h4>網路</h4>
-                            <p class="h_offer">Wi-Fi</p>
+                        <li>二、於本旅館住宿者，可免費折抵停車費用。</li>
+                        <li>三、嚴禁吸毒毒品及進行任何非法行為，一經發現，則報警處理。</li>
+                        <li>四、室內全面禁菸，違者將罰鍰新台幣NT$10,000。</li>
+                        <li>五、早餐時間為上午07：00~10：00以前，茹素者請於事先告知。</li>
+                        <li class="h_notice">
+                            <img src="./img/hotel/h_note.png" alt="" />
+                            以上內容如有變更，恕不另行通知，以樂寵公告為主。
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <div class="h_reserve">
-                <h3>房型介紹(雙人房)</h3>
-                <h4>簡雅的線條設計，配上舒適的亞麻米色，房內更設有方便的工作桌，讓需要常外出工作的您，還能帶著寵物出門旅遊；考慮到毛孩的活動範圍，房內的擺設皆留有寬敞的空間，並配置隔音牆，讓您可以安心陪伴牠們玩耍、休息。<br>
-                    <br>
-                    浴室採乾溼分離設計，提高您的安全及便利性，並附設方型湯池，能依喜好選擇一般的泡澡或是溫泉，舒緩您一天的疲勞。
-                </h4>
-                <h1>NT$4,000</h1>
-                <button class="hotel_inquire">房況預約查詢</button>
+            <div class="h_faq3">
+                <div class="h_flip">
+                    <span class="h_q3">
+                        <h3>毛孩小叮嚀</h3>
+                        <i class="far fa-chevron-down h_point0" style="font-size: 24px; color: #000000"></i>
+                    </span>
+                </div>
+                <div class="h_panel3">
+                    <ul>
+                        <li>
+                            一、寵物需年滿十二個月以上，且完成預防針注射，於入住時提供接種證明。
+                        </li>
+                        <li>
+                            二、為維護每位飼主的毛孩安全，恕不接受有傳染疾病或發情中的寵物入住。
+                        </li>
+                        <li>三、以衛生作為考量，避免讓毛孩接觸到房客的床或沙發上。</li>
+                        <li>
+                            四、不隨意讓寵物大小便，如不小心排泄，請先清潔乾淨，並告知旅館服務人員。
+                        </li>
+                        <li class="h_notice">
+                            <img src="./img/hotel/h_note.png" alt="" />
+                            以上內容如有變更，恕不另行通知，以樂寵公告為主。
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- 預約燈箱 -->
-    <div class="i_background" id="h_reservation_box" style="display:none">
-        <div class="i_lightbox_bk">
-            <a href="#" class="i_closeButton">
-                <img src="img/common/close.png" alt="">
-            </a>
-            <div class="i_lightbox_title">
-                <h2>預訂內容</h2>
-            </div>
-            <div class="bar">
-                <div class="i_hotel">
-                    <div class="i_hotel_left">
-                        <div id="my-calendar" class="i_calendar"></div>
-                        <div class="i_selece_left">
-                            <div class="i_select">成人
-                                <select>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                </select>
-                                人
-                            </div>
-                            <div class="i_select">兒童
-                                <select>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                </select>
-                                人
-                            </div>
-                        </div>
-                        <div class="i_selece_right">
-                            <div class="i_select">狗
-                                <select>
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                </select>
-                                隻
-                            </div>
-                            <div class="i_select">貓
-                                <select>
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                </select>
-                                隻
-                            </div>
-                        </div>
+        <!-- 720度環景-->
+        <section class="h_surrounding_view">
+            <div id="h_panorama">
+                <div id="h_controlbtn">
+                    <div class="h_ctrl" id="h_arrow_up">
+                        <i class="fa fa-arrow-up" aria-hidden="true"></i>
                     </div>
-                    
-                    <div class="i_hotel_right">
-                        <ul class="i_hotel_bookingcontent">
-                            <li>
-                                <ul class="i_checkin">
-                                    <li>入住時間：</li>
-                                    <li>2021年04月09日 (週五) 16：00 起</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul class="i_checkout">
-                                    <li>退房時間：</li>
-                                    <li>2021年04月10日 (週六) 11：00 前</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul class="i_roomtype">
-                                    <li>選擇房型：</li>
-                                    <li>天羅地汪</li>
-                                </ul>
-                            <li>
-                                <ul class="i_stayamount">
-                                    <li>房客總數：</li>
-                                    <li>成人1人、孩童1人、狗1隻、貓1隻</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul class="i_detail">
-                                    <li>房價明細：</li>
-                                    <li>
-                                        <ul>
-                                            <li>房型價格<span>$4000</span></li>
-                                            <li>訂房手續費<span>$0</span></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <hr>
-                        <div class="i_total">
-                            <h3>總價 NT 4000元</h3>
-                        </div>
 
-                        <button type="button" class="i_button">確認預約</button>
+                    <div class="h_ctrl" id="h_arrow_down">
+                        <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="h_ctrl" id="h_arrow_left">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="h_ctrl" id="h_arrow_right">
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="h_ctrl" id="h_enlarge">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="h_ctrl" id="h_narrow">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+        <room-booking v-show="isBookingBoxOpen" @closelightbox="isBookingBoxOpen = false" :roomtype="typeRoom">
+        </room-booking>
     </div>
-
-    <!-- 旅館Q&A-->
-    <div class="h_wrapper">
-        <div class="h_faq1">
-            <div class="h_show">
-                <span class="h_q1">
-                    <h3>入住時間</h3>
-                    <i class="far fa-chevron-down h_point" style="font-size: 24px; color: #000000;"></i>
-                </span>                                
-            </div>
-            <div class="h_panel1">
-                下午15：00過後，退房時間為隔日上午11：00以前。
-            </div>
-        </div>
-    
-        <div class="h_faq2">
-            <div class="h_flip">
-                <span class="h_q2">
-                    <h3>備註</h3>
-                    <i class="far fa-chevron-down h_point0" style="font-size: 24px; color: #000000;"></i>
-                </span>            
-            </div>
-            <div class="h_panel2">
-                <ul>
-                    <li>一、加床費用：6歲(含)以下孩童，不收取加床費；身高大於130~150公分或7歲以上者，每位加收NT$800/位。</li>
-                    <li>二、於本旅館住宿者，可免費折抵停車費用。</li>
-                    <li>三、嚴禁吸毒毒品及進行任何非法行為，一經發現，則報警處理。</li>
-                    <li>四、室內全面禁菸，違者將罰鍰新台幣NT$10,000。</li>
-                    <li>五、早餐時間為上午07：00~10：00以前，茹素者請於事先告知。</li>
-                    <li class="h_notice">
-                        <img src="./img/hotel/h_note.png" alt="">
-                        以上內容如有變更，恕不另行通知，以樂寵公告為主。
-                    </li>
-                </ul>     
-            </div>
-        </div>
-    
-        <div class="h_faq3">
-            <div class="h_flip">
-                <span class="h_q3">
-                    <h3>毛孩小叮嚀</h3>
-                    <i class="far fa-chevron-down h_point0" style="font-size: 24px; color: #000000;"></i>
-                </span>
-            </div>
-            <div class="h_panel3">
-                <ul>
-                    <li>一、寵物需年滿十二個月以上，且完成預防針注射，於入住時提供接種證明。</li>
-                    <li>二、為維護每位飼主的毛孩安全，恕不接受有傳染疾病或發情中的寵物入住。</li>
-                    <li>三、以衛生作為考量，避免讓毛孩接觸到房客的床或沙發上。</li>
-                    <li>四、不隨意讓寵物大小便，如不小心排泄，請先清潔乾淨，並告知旅館服務人員。</li>
-                    <li class="h_notice">
-                        <img src="./img/hotel/h_note.png" alt="">
-                        以上內容如有變更，恕不另行通知，以樂寵公告為主。
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-     <!-- 720度環景-->
-    <section class="h_surrounding_view">        
-        <div id="h_panorama">
-            <div id="h_controlbtn">
-                <div class="h_ctrl" id="h_arrow_up">
-                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                </div>
-
-                <div class="h_ctrl" id="h_arrow_down">
-                    <i class="fa fa-arrow-down" aria-hidden="true"></i>
-                </div>
-
-                <div class="h_ctrl" id="h_arrow_left">
-                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                </div>
-
-                <div class="h_ctrl" id="h_arrow_right">
-                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                </div>
-
-                <div class="h_ctrl" id="h_enlarge">
-                    <i class="fa fa-plus" aria-hidden="true"></i>
-                </div>
-
-                <div class="h_ctrl" id="h_narrow">
-                    <i class="fa fa-minus" aria-hidden="true"></i>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- footer -->
     @@include('layout/footer.html')
-    
+    <!-- vue 預約房間元件 -->
+    <script type="text/x-template" id="roombookingbox">
+        <div class="i_background">
+          <div class="i_lightbox_bk">
+                  <a href="#" class="i_closeButton" @click.prevent="closeBox">
+                      <img src="./img/common/close.png">
+                  </a>
+                  <div class="i_lightbox_title">
+                      <h2>預訂內容</h2>
+                  </div>
+                  <div class="bar">
+                    <div class="i_hotel">
+                        <div class="i_hotel_left">
+                            <div id="my-calendar" class="i_calendar"></div>
+                            <div class="i_selece_left">
+                                <div class="i_select">成人
+                                    <select>
+                                        <option>1</option>
+                                        <option>2</option>
+                                    </select>
+                                    人
+                                </div>
+                                <div class="i_select">兒童
+                                    <select>
+                                        <option>1</option>
+                                        <option>2</option>
+                                    </select>
+                                    人
+                                </div>
+                            </div>
+                            <div class="i_selece_right">
+                                <div class="i_select">狗
+                                    <select>
+                                        <option>1</option>
+                                        <option>2</option>
+                                    </select>
+                                    隻
+                                </div>
+                                <div class="i_select">貓
+                                    <select>
+                                        <option>1</option>
+                                        <option>2</option>
+                                    </select>
+                                    隻
+                                </div>
+                            </div>
+                        </div>
+                        <div class="i_hotel_right">
+                          <ul class="i_hotel_bookingcontent">
+                              <li>入住時間：</li>
+                              <li>退房時間：</li>
+                              <li>選擇房型：{{selectRoom.ROOM_NAME}}</li>
+                              <li>房客總數：</li>
+                            </ul>
+                          <hr>
+                          <div class="i_total">
+                              <h3>總價 NT{{selectRoom.PRICE}}元</h3>
+                          </div>
+                          <button type="button" class="i_button">確認預約</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </script>
+
     <script src="./js/hotel.js"></script>
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <!-- Vue -->
-    <script src="vendors/vue/js/vue.js"></script>
-    <!-- 環景 -->
-    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>    
-    <script src="js/hotel_vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- 月曆 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="vendors/travo-calendar/js/tavo-calendar.js"></script>
     <!-- 捲軸 -->
     <script src="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.js"></script>
-
-
-
-
-    <!-- 搬到js檔 -->
-    <script>
-        Array.prototype.forEach.call(document.getElementsByClassName('bar'), function (el) {
-            new SimpleBar(el);
-        });
-
-        const myCalendar = new TavoCalendar('#my-calendar', {
-            date: new Date(),
-            blacklist: [
-                '2021-05-10', '2021-05-23'
-            ],
-            range_select: true
-        });
-    </script>    
-
-    <!-- 預約燈箱 -->
-    <!-- <script>
-        var hotel_inquire = document.getElementsByClassName("hotel_inquire");
-        var h_reservation_box = document.getElementById("h_reservation_box");
-
-        hotel_inquire.addEventListener("click",function(){
-        var h_reservation_box = document.getElementById("h_reservation_box");
-        if(h_reservation_box.style.display === "none"){
-        h_reservation_box.style.display = "block";
-        }
-
-        var close = document.getElementsByClassName("i_closeButton");
-        for(let i=0; i<close.length;i++){
-            close[i].addEventListener("click",function(){
-                if(this.closest('.i_background').style.display === "block"){
-                    this.closest('.i_background').style.display = "none";
-                }
-            });
-        }
-        });
-    </script> -->
-    
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <!-- Vue -->
+    <script src="vendors/vue/js/vue.js"></script>
+    <!-- 環景 -->
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <script src="js/hotel_vue.js"></script>
 </body>
+
 </html>

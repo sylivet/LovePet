@@ -2,9 +2,42 @@
 Vue.component("booking", {
   props: ['foods'],
   template: "#bookingbox",
+  data(){
+    return {
+        CREATE_DATE:"",
+        BOOKING_DATE:"",
+        numberOfAdults:"0",
+        numberOfKids:"0",
+        numberOfDogs:"0",
+        numberOfCats:"0",
+        food: null,
+    }
+  },
   methods: {
     closeBox() {
       this.$emit('closelightbox')
+    },
+    booking(){
+      $.ajax({            
+        method: "POST",
+        url: "php/front_end_API/R_Insert_booking.php",
+        data:{
+          'BOOKING_DATE': this.BOOKING_DATE,
+          'CREATE_DATE': this.CREATE_DATE,
+          'numberOfAdults': this.numberOfAdults,
+          'numberOfKids': this.numberOfKids,
+          'numberOfDogs': this.numberOfDogs,
+          'numberOfCats': this.numberOfCats,
+          'food': this.food
+        },            
+        dataType: "text",
+        success: (res)=> {
+          console.log(res);
+        },
+        error: function(exception) {
+            alert("數據載入失敗: " + exception.status);
+        }
+    });
     }
   },
   computed: {
@@ -20,6 +53,27 @@ Vue.component("booking", {
     filterCataToHuman() {
       return this.foods.filter(food => food.MEAL_CATA === "humanFood")
     },
+    foodsFilter(){
+      return this.foods.length == 0? this.food = null: this.food = this.foods
+    },
+  },
+  mounted(){
+    // 月曆
+    const calendar_el = document.querySelector('.i_calendar');
+
+    const my_calendar = new TavoCalendar(calendar_el)
+  
+    calendar_el.addEventListener('calendar-select', (ev) => {
+      // alert(my_calendar.getSelected());
+      this.BOOKING_DATE = my_calendar.getSelected()
+    });
+
+    // 訂單創建日期
+    let t = new Date()
+    let y = t.getFullYear()
+    let m = t.getMonth() + 1
+    let d = t.getDate()
+    return this.CREATE_DATE = `${y}-${m}-${d}`
   }
 })
 
@@ -44,6 +98,9 @@ Vue.component("customPetsFood", {
   methods: {
     removeItem(fid, menu) {
       this.$emit('removefood', fid, menu)
+    },
+    addCount(){
+      // 勿刪
     }
   },
 })
@@ -116,7 +173,7 @@ let vm = new Vue({
         dataType: "text",
         success: (response)=> {
             if(response == ""){
-                //尚未登入->前往Login.php
+                // 尚未登入->前往Login.php
                 alert('請先登入會員'); 
                 $('#m_sign_in_bk').show()
               }else{
@@ -194,7 +251,7 @@ let vm = new Vue({
     
       let customPetFood ={
         MEAL_CATA: "petsFood",
-        MEAL_TYPE: "",
+        MEAL_TYPE: "petsCustom",
         MEAL_NAME: `客製寵美食${this.i}`,
         eachItem: eachItem.join("、"),
         eng:"",
@@ -291,14 +348,16 @@ let vm = new Vue({
   },
   watch:{
     totalPrice(){
-      $(".Price").css({
-        opacity:1
-      })
-      gsap.from(".Price", {
-        duration:2, 
-        opacity:0,
-        ease:"ease"
-      })
+      if($(".Price").length>0){
+        $(".Price").css({
+          opacity:1
+        })
+        gsap.from(".Price", {
+          duration:2, 
+          opacity:0,
+          ease:"ease"
+        })
+      }
     }
   },
   created(){
@@ -307,14 +366,11 @@ let vm = new Vue({
     })
   },
   mounted() {
+    
     // 卷軸
     Array.prototype.forEach.call(document.getElementsByClassName('bar'), function (el) {
       new SimpleBar(el);
     });
-    // 月曆
-    const myCalendar = new TavoCalendar('#my-calendar', {
-      date: new Date(),
-    })
 
   }
 })
@@ -337,12 +393,13 @@ $(function () {
     $(".fa-angle-up").removeClass("rotate");
     setTimeout(function () {
       $(".submenu").hide();
-    }, 100);
+    }, 200);
   });
+  
+  // 關閉登入會員燈箱
+  $('.i_closeButton').click(()=>$('#m_sign_in_bk').hide())
 });
 
-// 關閉登入會員燈箱
-$('.i_closeButton').click(()=>$('#m_sign_in_bk').hide())
 
 
 

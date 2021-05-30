@@ -32,11 +32,11 @@
       <h3>最新消息</h3>
       <div class="swiper-container mySwiper">
         <ul class="news swiper-wrapper">
-          <li v-for="latest in news" class="swiper-slide">
+          <li v-cloak v-for="latest in news" class="swiper-slide">
             <img :src="latest.NEWS_IMG" alt="" />
             <div class="news-bg">
-              <h4>{{latest.NEWS_TITLE}}</h4>
-              <div class="news-content">{{latest.NEWS_CONTENT}}</div>
+              <h4 >{{latest.NEWS_TITLE}}</h4>
+              <div class="news-content" >{{latest.NEWS_CONTENT}}</div>
             </div>
           </li>
         </ul>

@@ -62,3 +62,7 @@ body {
 #justfont-badge{
     display: none!important;
 }
+
+[v-cloak] {
+    display: none;
+}

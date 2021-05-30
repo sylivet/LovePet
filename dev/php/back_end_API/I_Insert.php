@@ -43,7 +43,7 @@
        $NEWS_TITLE = $_POST['NEWS_TITLE'];
        $NEWS_IMG = "img/index/".$fileName;
        $NEWS_CONTENT = $_POST['NEWS_CONTENT'];
-       $NEWS_STATUS = $_POST['MEAL_STATUS'];
+       $NEWS_STATUS = $_POST['NEWS_STATUS'];
 
        //建立SQL
        $sql = 'INSERT INTO `NEWS`(`NEWS_ID`, `NEWS_TITLE`, `NEWS_IMG`, `NEWS_CONTENT`, `NEWS_STATUS`) VALUES (?,?,?,?,?)';

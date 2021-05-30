@@ -90,41 +90,44 @@
       </div>
       <div class="col-10">
         <h2 class="mb-3">健檢項目新增</h2>
-        <table class="table table-striped">
-          <tbody>
-            <tr>
-              <td>項目名稱</td>
-              <td><input type="text" /></td>
-            </tr>
-            <tr>
-              <td>所屬套餐</td>
-              <td>
-                <select name="" id="">
-                  <option value="">-</option>
-                  <option value="">快速篩檢</option>
-                  <option value="">進階健檢</option>
-                  <option value="">熟齡健檢</option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <td>價格</td>
-              <td><input type="text" /></td>
-            </tr>
-            <tr>
-              <td>適用對象</td>
-              <td>
-                <select name="" id="">
-                  <option value="">狗</option>
-                  <option value="">貓</option>
-                </select>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <form  method="post" action="./php/back_end_API/C_Insert.php" enctype="multipart/form-data">
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <td>項目名稱</td>
+                <td><input type="text" name='LISTNAME'/></td>
+              </tr>
+              <tr>
+                <td>所屬套餐</td>
+                <td>
+                  <select name="" id="">
+                    <option value="">-</option>
+                    <option value="">快速篩檢</option>
+                    <option value="">進階健檢</option>
+                    <option value="">熟齡健檢</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>價格</td>
+                <td><input type="text" name='PRICE'/></td>
+              </tr>
+              <tr>
+                <td>適用對象</td>
+                <td>
+                  <select name="TESTING_SUBJECT">
+                    <option value="1">狗</option>
+                    <option value="2">貓</option>
+                    <option value="3">共同</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
         <div class="d-flex justify-content-center">
-          <button type="button" class="btn btn-outline-success">取消</button>
-          <button type="button" class="btn btn-success ms-3">新增</button>
+          <button type="reset" class="btn btn-outline-success">取消</button>
+          <button type="submit" class="btn btn-success ms-3">新增</button>
         </div>
       </div>
     </div>
