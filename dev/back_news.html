@@ -92,16 +92,6 @@
         <h2 class="mb-3">消息管理</h2>
         <a href="back_news_create.html" class="btn btn-success btn-sm mb-3">新增消息</a>
         <div class="d-flex justify-content-between mb-3">
-          <div>
-            <input type="checkbox" id="all" />
-            <label for="all">全選</label>
-            <button type="button" class="btn btn-outline-success btn-sm ms-1">
-              上架
-            </button>
-            <button type="button" class="btn btn-outline-success btn-sm ms-1">
-              下架
-            </button>
-          </div>
           <select>
             <option value="1">上架中</option>
             <option value="0">下架中</option>
@@ -110,7 +100,6 @@
         <table class="table table-striped table-hover text-center">
           <thead>
             <tr class="table-warning">
-              <th></th>
               <th>消息編號</th>
               <th>消息標題</th>
               <th>消息圖片</th>
@@ -118,6 +107,7 @@
               <th>消息狀態</th>
               <th>編輯</th>
             </tr>
+
           </thead>
           <tbody class="data">
           </tbody>
@@ -137,13 +127,13 @@
 
         let data = `
           <tr>
-                <td><input type="checkbox" name="" id=""></td>
                 <td style="display: none"><input value="${res.data[i].NEWS_ID}" name="NEWS_ID" disabled readonly></td>
                 <td>${res.data[i].NEWS_ID}</td>
                 <td><input type="text" name="NEWS_TITLE" value="${res.data[i].NEWS_TITLE}" disabled></td>
                 <td style="display: none"><input type="text" name="NEWS_IMG" value="${res.data[i].NEWS_IMG}" disabled></td>
-                <td><img src="${res.data[i].NEWS_IMG}" style="width:50px;"></td>
-                <td><input type="text" name="	NEWS_CONTENT" value="${res.data[i].NEWS_CONTENT}" disabled></td>
+                <td><img src="${res.data[i].NEWS_IMG}" style="width:100px;"></td>
+                <td>
+                  <textarea name="NEWS_CONTENT" id="" cols="30" rows="3" disabled>${res.data[i].NEWS_CONTENT}</textarea>
                 <td>
                   <select name="NEWS_STATUS" disabled>
                     <option class="noShow" value="${res.data[i].NEWS_STATUS}" selected>${res.data[i].NEWS_STATUS === "1" ? "上架" : "下架"}</option>
@@ -164,7 +154,7 @@
     //編輯
     $('.data').on('click', '.edit', function (e) {
       e.preventDefault()
-      $(this).parent().find('input, select').attr('disabled', false)
+      $(this).parent().find('input, select, textarea').attr('disabled', false)
       $(this).css('display', 'none')
       $(this).next().css('display', 'block')
       $('.noShow').hide()
@@ -172,14 +162,14 @@
 
     //儲存
     $('.data').on('click', '.save', function () {
-      $(this).parent().parent().find('input, select').attr('disabled', true)
+      $(this).parent().parent().find('input, select, textarea').attr('disabled', true)
       $(this).css('display', 'none')
       $(this).prev().css('display', 'block')
 
       let NEWS_ID = $(this).parent().find("input[name='NEWS_ID']").val()
-      let NEWS_TITLE = $(this).parent().find("select[name='NEWS_TITLE']").val()
+      let NEWS_TITLE = $(this).parent().find("input[name='NEWS_TITLE']").val()
       let NEWS_IMG = $(this).parent().find("input[name='NEWS_IMG']").val()
-      let NEWS_CONTENT = $(this).parent().find("input[name='NEWS_CONTENT']").val()
+      let NEWS_CONTENT = $(this).parent().find("textarea[name='NEWS_CONTENT']").val()
       let NEWS_STATUS = $(this).parent().find("select[name='NEWS_STATUS']").val()
 
 

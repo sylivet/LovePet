@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "chart.js": "^3.2.1",
-    "swiper": "^6.6.1"
+    "swiper": "^6.6.1",
+    "vue-pannellum": "^0.5.3"
   }
 }
