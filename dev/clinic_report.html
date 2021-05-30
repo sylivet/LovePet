@@ -34,7 +34,7 @@
             </div>
             <div class="c_report_title_right">
                 <select v-model="current_report">
-                    <option>請選擇其他寵物</option>
+                    
                     <option v-for='(report,index) in reports'  :value="index">{{report.petName}}</option>
                     
                 </select>
@@ -44,8 +44,8 @@
 
         <!-- 圖表 -->
         <!-- <div class="scroll"> -->
-            <div class='c_chart-container' style="position: relative; margin:auto; max-height:750px; width:80vw">
-                <canvas id="c_myChart"></canvas>
+            <div class='chart-container' style="position: relative; max-height:750px; width:70vw; display:block;margin:0 auto;">
+                <canvas id="myChart"></canvas>
             </div>
         <!-- </div> -->
 
@@ -78,8 +78,7 @@
     <!-- 卷軸 -->
     <script src="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.js"></script>
     <!-- 圖表chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.0/chart.min.js"></script>
     <!-- vue.js -->
     <script src="./vendors/vue/js/vue.js"></script>
     <script src="./js/clinic_report.js"></script>
