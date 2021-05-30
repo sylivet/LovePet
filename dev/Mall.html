@@ -31,13 +31,13 @@
         <div class="input_block">
           <transition name="slide">
             <!--transition為Vue提供的動畫元件，name可自取名稱-->
-            <input v-model.trim="input.text" v-if="this.clicked == true && this.selected &lt 3" type="text"
+            <input v-model.trim="input.text" v-if="this.clicked == true && this.selected &lt 2" type="text"
               placeholder="請輸入商品名稱">
-            <!-- input在this.clicked為true才顯示 -->
+            <!-- input在this.clicked為true且this.selected小於3才顯示(必須點擊而且是用品食品服飾頁才顯示) -->
           </transition>
         </div>
-        <img @click="showInput" v-if="this.selected &lt 3" src="img/mall/search@2x.png" alt="">
-        <!-- 搜尋圖示點擊後執行showInput函式，且在this.selected == 0才顯示圖示(只在用品頁顯示) -->
+        <img @click="showInput" v-if="this.selected &lt 2" src="img/mall/search@2x.png" alt="">
+        <!-- 搜尋圖示點擊後執行showInput函式，且在this.selected < 3才顯示圖示(只在用品食品服飾頁顯示) -->
         <!-- &lt為小於符號，在HTML中直接用"<"會被當成標籤 -->
       </div>
     </div>
@@ -53,10 +53,10 @@
       <div class="test">
         <!-- @@include('./Supplies.html') -->
       </div>
-      <div v-if="this.selected == 3" class="test">
+      <div v-if="this.selected == 2" class="test">
         @@include('./Simulation.html')
       </div>
-      <div v-if="this.selected == 4" class="test">
+      <div v-if="this.selected == 3" class="test">
         @@include('./Customized.html')
       </div>
     </div>
@@ -79,13 +79,12 @@
       options: [
         { val: 0, item: "用品" },
         { val: 1, item: "食品" },
-        { val: 2, item: "服飾" },
-        { val: 3, item: "虛擬試衣間" },
-        { val: 4, item: "客製化商品" },
+        { val: 2, item: "虛擬試衣間" },
+        { val: 3, item: "客製化商品" },
       ],
 
       info: [
-        { name: "小帳棚", price: "81" + `,` + "000", src: "img/mall/tent_4@2x.png" },
+        { name: "小帳篷", price: "81" + `,` + "000", src: "img/mall/tent_4@2x.png" },
         { name: "安全座椅", price: "1" + `,` + "200", src: "img/mall/seat1950元-2@2x.png" },
         { name: "成長碗架", price: "279", src: "img/mall/成長碗架279元@2x.png" },
         { name: "吸水墊", price: "699", src: "img/mall/吸水墊699元@2x.png" },
@@ -123,7 +122,7 @@
           }
         },
         hideInput() {
-          if (this.selected < 3) {//如果切頁到非用品頁，input輸入框隱藏，點回用品頁時就會重置
+          if (this.selected < 2) {//如果切頁到非用品頁，input輸入框隱藏，點回用品頁時就會重置
             this.clicked = false;
             this.input.text = "";//切頁後清空輸入內容，切回時就會讓頁面重置，防止切回輸入結果還在的情況
           }
