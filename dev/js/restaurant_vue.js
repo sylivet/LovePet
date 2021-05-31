@@ -64,7 +64,6 @@ Vue.component("booking", {
     const my_calendar = new TavoCalendar(calendar_el)
   
     calendar_el.addEventListener('calendar-select', (ev) => {
-      // alert(my_calendar.getSelected());
       this.BOOKING_DATE = my_calendar.getSelected()
     });
 
@@ -105,7 +104,7 @@ Vue.component("customPetsFood", {
   },
 })
 
-// 加入寵物菜單元件
+// 加入人類菜單元件
 Vue.component("addToHumanMenu", {
   props: ['menu'],
   template: "#addToMenu",
@@ -119,7 +118,7 @@ Vue.component("addToHumanMenu", {
     }
   },
 })
-// 加入人類菜單元件
+// 加入寵物菜單元件
 Vue.component("addToPetsMenu", {
   props: ['menu'],
   template: "#addToMenu",
@@ -178,6 +177,7 @@ let vm = new Vue({
                 $('#m_sign_in_bk').show()
               }else{
                 this.isBookingBoxOpen = true
+                sessionStorage.clear()
             }              
         },
         error: function(exception) {
@@ -358,15 +358,26 @@ let vm = new Vue({
           ease:"ease"
         })
       }
+    },
+    allFoodSelection: {
+      handler() {
+        let value = JSON.stringify(this.allFoodSelection);
+        sessionStorage.setItem('foods', value);
+      },
+      deep: true
     }
   },
-  created(){
+  mounted() {
     axios.post("php/front_end_API/R_select.php").then((res)=>{
       this.allFoodMenu = res.data
-    })
-  },
-  mounted() {
-    
+    });
+
+    // 取localStorage
+    let value = JSON.parse(sessionStorage.getItem('foods'))
+    if(value){
+      this.allFoodSelection = value
+    };
+
     // 卷軸
     Array.prototype.forEach.call(document.getElementsByClassName('bar'), function (el) {
       new SimpleBar(el);
