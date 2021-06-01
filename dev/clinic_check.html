@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../vendors/travo-calendar/css/tavo-calendar.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.css"/>
   <title>clinic_check</title>
   @@include('layout/style.html')
 </head>
@@ -31,7 +33,7 @@
         <div class="c_set" id="c_set1">         
             <div class="c_set_title">
               <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-              <h4>快速篩檢套餐<br>4000元</h4>
+              <h4 v-model>快速篩檢套餐<br>4000元</h4>
               <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
             </div>
             <div class="c_set_content">
@@ -48,7 +50,7 @@
         <div class="c_set" id="c_set2">
             <div class="c_set_title">
               <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-              <h4>進階健檢套餐<br>9500元&nbsp;<span>(包含01-08項)</span></h4>
+              <h4>進階健檢套餐<br>9500元<span>(包含01-08項)</span></h4>
               <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
             </div>
             <div class="c_set_content">
@@ -65,7 +67,7 @@
         <div class="c_set" id="c_set3">
             <div class="c_set_title">
               <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-              <h4>熟齡健檢套餐<br>17000元&nbsp;<span>(包含01-16項)</span></h4>
+              <h4>熟齡健檢套餐<br>17000元<span>(包含01-16項)</span></h4>
               <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
             </div>
             
@@ -172,7 +174,7 @@
         
           <h4 class="c_price">您選擇的健檢項目總價NT{{totalPrice | currency}}元</h4>
           <button @click="clearAll">重新選擇</button>
-          <div>
+          <div class="c_reservation">
             <input type="button" value="預約健檢">
           </div>
           <a href="clinic_index.html"><button class="back_clinic">回健檢首頁</button></a>    
@@ -181,6 +183,8 @@
   </div>
 
   @@include('layout/footer.html')
+ 
+  </script>
   <script src="./vendors/jquery/jquery-3.5.1.slim.min.js"></script>
   <script src="./vendors/vue/js/vue.js"></script>
   <!-- axios -->
