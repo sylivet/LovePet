@@ -68,7 +68,7 @@ let data = {
       divclass: "content2",
       pclass: "content2-1"
     }, {
-      intro: "旅館配有寵物遊樂設施，房間內也有都寵物專屬寢具，讓毛小孩能與您一起渡過美好的渡假時光。",
+      intro: "旅館配有寵物遊樂設施，房間內也都有寵物專屬寢具，讓毛小孩能與您一起渡過美好的渡假時光。",
       divclass: "content3",
       pclass: "content3-1"
     },
