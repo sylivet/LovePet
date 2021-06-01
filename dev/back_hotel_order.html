@@ -105,6 +105,7 @@
             <tr class="table-warning">
               <th>訂單編號</th>
               <th>會員編號</th>
+              <th>會員姓名</th>
               <th>成立日期</th>
               <th>入住起日</th>
               <th>入住迄日</th>
@@ -132,8 +133,6 @@
     function getData(res) {
       for (let i = 0; i < res.data.length; i++) {
         // 日期轉為10位數
-        res.data[i].BOOKING_CHECKIN_DATE= res.data[i].BOOKING_CHECKIN_DATE.slice(0,10)
-        res.data[i].BOOKING_CHECKOUT_DATE= res.data[i].BOOKING_CHECKOUT_DATE.slice(0,10)
         res.data[i].CREATE_DATE = res.data[i].CREATE_DATE.slice(0,10)
 
         let data = `
@@ -141,21 +140,20 @@
               <td style="display: none"><input value="${res.data[i].HOTEL_ORDER_ID}" name="HOTEL_ORDER_ID" disabled readonly></td>
               <td class="HOTEL_ORDER_ID">${res.data[i].HOTEL_ORDER_ID}</td>
               <td class="FK_MEMBER_ID">${res.data[i].FK_MEMBER_ID}</td>
+              <td >${res.data[i].NAME}</td>
               <td>${res.data[i].CREATE_DATE}</td>
               <td>
-                <input type="text" name="BOOKING_CHECKIN_DATE" value="${res.data[i].BOOKING_CHECKIN_DATE}" disabled/>
+                <input type="text" name="BOOKING_CHECKIN_DATE" style="width:100px" value="${res.data[i].BOOKING_CHECKIN_DATE}" disabled/>
               </td>
               <td>
-                <input type="text" name="BOOKING_CHECKOUT_DATE" value="${res.data[i].BOOKING_CHECKOUT_DATE}" disabled/>
+                <input type="text" name="BOOKING_CHECKOUT_DATE" style="width:100px" value="${res.data[i].BOOKING_CHECKOUT_DATE}" disabled/>
+              </td>
+              <td>${res.data[i].ROOM_NAME}</td>
+              <td>
+                <input type="text" style="width:30px" name="NUM_OF_PEOPLE" value="${res.data[i].NUM_OF_PEOPLE}" disabled/>位
               </td>
               <td>
-                <input type="text" name="FK_ROOM_TYPE_ID" value="${res.data[i].FK_ROOM_TYPE_ID}" disabled/>
-              </td>
-              <td>
-                <input type="text" name="NUM_OF_PEOPLE" value="${res.data[i].NUM_OF_PEOPLE}" disabled/>位
-              </td>
-              <td>
-                <input type="text" name="NUM_OF_PETS" value="${res.data[i].NUM_OF_PETS}" disabled />隻
+                <input type="text" style="width:30px" name="NUM_OF_PETS" value="${res.data[i].NUM_OF_PETS}" disabled />隻
               </td>
               <td>
                 <select name="ORDER_STATUS" disabled>
@@ -200,7 +198,6 @@
       let HOTEL_ORDER_ID = $(this).parent().find("input[name='HOTEL_ORDER_ID']").val();
       let BOOKING_CHECKIN_DATE = $(this).parent().find("input[name='BOOKING_CHECKIN_DATE']").val();
       let BOOKING_CHECKOUT_DATE = $(this).parent().find("input[name='BOOKING_CHECKOUT_DATE']").val();
-      let FK_ROOM_TYPE_ID  = $(this).parent().find("input[name='FK_ROOM_TYPE_ID']").val();
       let NUM_OF_PEOPLE = $(this).parent().find("input[name='NUM_OF_PEOPLE']").val();
       let NUM_OF_PETS = $(this).parent().find("input[name='NUM_OF_PETS']").val();
       let ORDER_STATUS = $(this).parent().find("select[name='ORDER_STATUS']").val();
@@ -208,7 +205,7 @@
 
       $.ajax({
         method: "POST",
-        url: "php/back_end_API/R_Update_order.php",
+        url: "php/back_end_API/H_Update_order.php",
         data:{
           'HOTEL_ORDER_ID': HOTEL_ORDER_ID,
           'BOOKING_CHECKIN_DATE': BOOKING_CHECKIN_DATE,

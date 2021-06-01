@@ -46,56 +46,33 @@ new Vue({
             Array.prototype.forEach.call(document.getElementsByClassName('scroll'), function (el) {
                 new SimpleBar(el);
             });
-    
-        //圖表chart.js
-    
-        const labels = ["犬CRP", "甲狀腺功能", "進階肝膽指數", "鈣磷檢測", "血脂功能","電解質檢測","胰臟指數","影像學檢查"];
-        const data = {
-        labels: labels,
-            datasets: [{
-                label: '寵物健檢報告圖表',
-                data: [65, 59, 80, 81, 56, 55, 40,60],
-                defaultFontFamily:'setofont',
-                backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 205, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(201, 203, 207, 0.2)',
-                ],
-                borderColor: [
-                'rgb(255, 99, 132)',
-                'rgb(255, 159, 64)',
-                'rgb(255, 205, 86)',
-                'rgb(75, 192, 192)',
-                'rgb(54, 162, 235)',
-                'rgb(153, 102, 255)',
-                'rgb(201, 203, 207)',
-                ],
-                borderWidth: 1
-            }]
-        };
-    
-        const config = {
+
+        //圖表
+        var ctx = document.getElementById('myChart');
+        
+        var myChart = new Chart(ctx, {
             type: 'bar',
-            data: data,
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6','7'],
+                datasets: [{
+                    label: '寵物報告書',
+                    data: [6,12, 19, 3, 5, 2, 3,7],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
             options: {
                 scales: {
-                y: {
-                    beginAtZero: true
-                },
-                
+                    y: {
+                        beginAtZero: true
+                    }
                 }
-            },
-        };
-        
-        var myChart = new Chart(
-        document.getElementById('c_myChart'),
-        config
-        );
-    
-        
-    },
-});
+            }
+        });
+    }
+})
