@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2021-05-25 20:20:41
+-- 產生時間： 2021-06-01 19:35:28
 -- 伺服器版本： 8.0.23
 -- PHP 版本： 8.0.2
 
@@ -292,7 +292,7 @@ CREATE TABLE `HOTEL_ORDER` (
 --
 
 INSERT INTO `HOTEL_ORDER` (`HOTEL_ORDER_ID`, `FK_MEMBER_ID`, `CREATE_DATE`, `BOOKING_CHECKIN_DATE`, `BOOKING_CHECKOUT_DATE`, `FK_ROOM_TYPE_ID`, `NUM_OF_PEOPLE`, `NUM_OF_PETS`, `ORDER_STATUS`) VALUES
-(1, 1, '2021-05-20 00:00:00.000000', '2021-05-22', '2021-05-23', 3, 2, 1, 1),
+(1, 1, '2021-05-20 00:00:00.000000', '2021-05-22', '2021-05-23', 3, 2, 1, 0),
 (2, 2, '2021-05-24 00:00:00.000000', '2021-05-29', '2021-06-01', 5, 2, 2, 1),
 (3, 3, '2021-06-01 00:00:00.000000', '2021-06-06', '2021-06-07', 1, 4, 1, 1),
 (4, 4, '2021-06-05 00:00:00.000000', '2021-06-12', '2021-06-13', 2, 2, 1, 1),
@@ -378,31 +378,31 @@ CREATE TABLE `MEAL_DATA` (
 --
 
 INSERT INTO `MEAL_DATA` (`MEAL_DATA_ID`, `MEAL_TYPE`, `MEAL_NAME`, `MEAL_PRICE`, `MEAL_IMG`, `MEAL_STATUS`, `MEAL_CATA`, `MEAL_CAL`, `MEAL_MSG`, `count`, `eng`) VALUES
-(1, '乾糧', '基本款餅乾', 100, './img/restaurant/mainFood.svg', 1, 'petsCustom', 30, NULL, 1, 'mainfood'),
-(2, '乾糧', '小魚造型餅乾', 210, './img/restaurant/mainFood2.svg', 1, 'petsCustom', 36, NULL, 1, 'mainfood2'),
-(3, '乾糧', '骨頭造型餅乾', 210, './img/restaurant/mainFood3.svg', 1, 'petsCustom', 40, NULL, 1, 'mainfood3'),
-(4, '乾糧', '圈圈造型餅乾', 160, './img/restaurant/mainFood4.svg', 1, 'petsCustom', 42, NULL, 1, 'mainfood4'),
-(5, '主食', '澳洲牛肉', 300, './img/restaurant/meat.svg', 1, 'petsCustom', 210, NULL, 1, 'meat_beef'),
-(6, '主食', '冰島鱈魚', 280, './img/restaurant/fish.svg', 1, 'petsCustom', 185, NULL, 1, 'meat_fish'),
-(7, '主食', '澎湖大明蝦', 290, './img/restaurant/meat_shrimp.svg', 1, 'petsCustom', 190, NULL, 1, 'meat_shrimp'),
-(8, '主食', '雞腿+雞胸', 200, './img/restaurant/meat_chicken.svg', 1, 'petsCustom', 160, NULL, 1, 'meat_chicken'),
-(9, '主食', '紐西蘭帶骨羊腿', 200, './img/restaurant/meat_lamp.svg', 1, 'petsCustom', 160, NULL, 1, 'meat_lamp'),
-(10, '配菜', '紅蘿蔔', 20, './img/restaurant/carrot.png', 1, 'petsCustom', 36, NULL, 1, NULL),
-(11, '配菜', '放山雞的蛋', 20, './img/restaurant/sliceEgg.svg', 1, 'petsCustom', 33, NULL, 1, NULL),
-(12, '配菜', '酪梨', 20, './img/restaurant/egg2.png', 1, 'petsCustom', 62, NULL, 1, NULL),
-(13, '美式', '安格斯牛肉漢堡', 100, './img/restaurant/hamburger.png', 1, 'humanFood', 120, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, NULL),
-(14, '美式', '費城牛肉三明治', 120, './img/restaurant/KxytjSo.jpg', 1, 'humanFood', 300, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, NULL),
-(15, '美式', '炸物拼盤', 500, './img/restaurant/friedFood.jpg', 0, 'humanFood', 500, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, NULL),
-(16, '美式', '凱薩沙拉', 80, './img/restaurant/CaesarSalad.jpg', 1, 'humanFood', 90, '【人氣沙拉】雞胸肉與酥脆沙拉，佐上酥脆麵包丁、培根與起司粉，淋上特製凱薩醬，經典再現。', 1, NULL),
-(17, '美式', '碳烤豬肋排', 500, './img/restaurant/porkrib.jpg', 1, 'humanFood', 260, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, NULL),
-(18, '義式', '番茄義大利麵', 200, './img/restaurant/hamburger.png', 1, 'humanFood', 220, '美味的番茄肉醬義大利麵，關鍵來自於肉的選擇。選用香味十足的牛肉，再加上義式香腸做食物的基底，搭配新鮮的小番茄及濃縮的醬料，最後撒上滿滿的起士粉，讓舌尖上的味蕾，更上一層樓。', 1, NULL),
-(19, '義式', '羅勒青醬義大利麵', 320, './img/restaurant/hamburger.png', 1, 'humanFood', 200, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, NULL),
-(20, '義式', '蛤蠣奶油義大利麵', 200, './img/restaurant/hamburger.png', 1, 'humanFood', 500, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, NULL),
-(21, '義式', '雙層美式臘腸披薩', 300, './img/restaurant/hamburger.png', 1, 'humanFood', 400, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, NULL),
-(22, '義式', '彩蔬鮮菇披薩', 390, './img/restaurant/hamburger.png', 0, 'humanFood', 290, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, NULL),
-(23, '沙拉', '雞肉沙拉', 200, './img/restaurant/chickenSalad.jpg', 1, 'petsFood', 230, '炎炎夏日，來道清爽的雞肉沙拉，讓狗狗攝取一天運動的養分，添加芹菜及番茄等涼性蔬菜，有助於清熱解暑，再加上適量的油脂，提高身體的吸收度，最後淋上特製的沙拉醬，保證毛孩們食慾大開。', 1, NULL),
-(24, '沙拉', '牛肉沙拉', 299, './img/restaurant/beefSalad.jpg', 1, 'petsFood', 220, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, NULL),
-(25, '沙拉', '嫩煎鮭魚沙拉', 270, './img/restaurant/fishSalad.jpg', 1, 'petsFood', 200, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, NULL),
+(1, '乾糧', '基本款餅乾', 100, './img/restaurant/mainFood.svg', 1, 'petsCustom', 30, 'null', 1, 'mainfood'),
+(2, '乾糧', '小魚造型餅乾', 210, './img/restaurant/mainFood2.svg', 1, 'petsCustom', 36, 'null', 1, 'mainfood2'),
+(3, '乾糧', '骨頭造型餅乾', 210, './img/restaurant/mainFood3.svg', 1, 'petsCustom', 40, 'null', 1, 'mainfood3'),
+(4, '乾糧', '圈圈造型餅乾', 160, './img/restaurant/mainFood4.svg', 1, 'petsCustom', 42, 'null', 1, 'mainfood4'),
+(5, '主食', '澳洲牛肉', 300, './img/restaurant/meat.svg', 1, 'petsCustom', 210, 'null', 1, 'meat_beef'),
+(6, '主食', '冰島鱈魚', 280, './img/restaurant/fish.svg', 1, 'petsCustom', 185, 'null', 1, 'meat_fish'),
+(7, '主食', '澎湖大明蝦', 290, './img/restaurant/meat_shrimp.svg', 1, 'petsCustom', 190, 'null', 1, 'meat_shrimp'),
+(8, '主食', '雞腿+雞胸', 200, './img/restaurant/meat_chicken.svg', 1, 'petsCustom', 160, 'null', 1, 'meat_chicken'),
+(9, '主食', '紐西蘭帶骨羊腿', 200, './img/restaurant/meat_lamp.svg', 1, 'petsCustom', 160, 'null', 1, 'meat_lamp'),
+(10, '配菜', '紅蘿蔔', 20, './img/restaurant/carrot.png', 1, 'petsCustom', 36, 'null', 1, 'null'),
+(11, '配菜', '放山雞的蛋', 20, './img/restaurant/sliceEgg.svg', 1, 'petsCustom', 33, 'null', 1, 'null'),
+(12, '配菜', '酪梨', 20, './img/restaurant/egg2.png', 1, 'petsCustom', 62, 'null', 1, 'null'),
+(13, '美式', '安格斯牛肉漢堡', 100, './img/restaurant/hamburger.png', 1, 'humanFood', 120, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
+(14, '美式', '費城牛肉三明治', 120, './img/restaurant/KxytjSo.jpg', 1, 'humanFood', 300, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
+(15, '美式', '炸物拼盤', 500, './img/restaurant/friedFood.jpg', 0, 'humanFood', 500, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
+(16, '美式', '凱薩沙拉', 80, './img/restaurant/CaesarSalad.jpg', 1, 'humanFood', 90, '【人氣沙拉】雞胸肉與酥脆沙拉，佐上酥脆麵包丁、培根與起司粉，淋上特製凱薩醬，經典再現。', 1, 'null'),
+(17, '美式', '碳烤豬肋排', 500, './img/restaurant/porkrib.jpg', 1, 'humanFood', 260, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
+(18, '義式', '番茄義大利麵', 200, './img/restaurant/hamburger.png', 1, 'humanFood', 220, '美味的番茄肉醬義大利麵，關鍵來自於肉的選擇。選用香味十足的牛肉，再加上義式香腸做食物的基底，搭配新鮮的小番茄及濃縮的醬料，最後撒上滿滿的起士粉，讓舌尖上的味蕾，更上一層樓。', 1, 'null'),
+(19, '義式', '羅勒青醬義大利麵', 320, './img/restaurant/hamburger.png', 1, 'humanFood', 200, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
+(20, '義式', '蛤蠣奶油義大利麵', 200, './img/restaurant/hamburger.png', 1, 'humanFood', 500, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
+(21, '義式', '雙層美式臘腸披薩', 300, './img/restaurant/hamburger.png', 1, 'humanFood', 400, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
+(22, '義式', '彩蔬鮮菇披薩', 390, './img/restaurant/hamburger.png', 0, 'humanFood', 290, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
+(23, '沙拉', '雞肉沙拉', 200, './img/restaurant/chickenSalad.jpg', 1, 'petsFood', 230, '炎炎夏日，來道清爽的雞肉沙拉，讓狗狗攝取一天運動的養分，添加芹菜及番茄等涼性蔬菜，有助於清熱解暑，再加上適量的油脂，提高身體的吸收度，最後淋上特製的沙拉醬，保證毛孩們食慾大開。', 1, 'null'),
+(24, '沙拉', '牛肉沙拉', 299, './img/restaurant/beefSalad.jpg', 1, 'petsFood', 220, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
+(25, '沙拉', '嫩煎鮭魚沙拉', 270, './img/restaurant/fishSalad.jpg', 1, 'petsFood', 200, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
 (26, '鮮食', '低敏結實配方', 370, './img/restaurant/hamburger.png', 1, 'petsFood', 250, '這裡要想文案', 1, 'null'),
 (27, '鮮食', '關節保養配方', 350, './img/restaurant/hamburger.png', 1, 'petsFood', 260, '這裡要想文案', 1, 'null'),
 (28, '鮮食', '毛髮亮麗配方', 400, './img/restaurant/hamburger.png', 0, 'petsFood', 255, '這裡要想文案', 1, 'null'),
@@ -508,9 +508,9 @@ CREATE TABLE `NEWS` (
 
 INSERT INTO `NEWS` (`NEWS_ID`, `NEWS_TITLE`, `NEWS_IMG`, `NEWS_CONTENT`, `NEWS_STATUS`) VALUES
 (1, '特製毛孩麵包上市', 'img/index/news1.jpg', '無鹽鬆軟麵包，不使用小麥粉，使用有機南瓜、北海道馬鈴薯、京都山羊乳與蜂蜜等天然食材製成。', 1),
-(2, '即日起游泳池開放', 'img/index/news2.jpg', '炎炎夏日讓毛孩玩玩水，清涼又有趣。免費提供寵物救生衣以及浮板玩具。', 1),
-(3, '與主人共享舒適房間', 'img/index/news3.jpg', '我們不惜成本打造合適主人與寵物的居住環境，期望毛孩們獲得最滿意的外宿經驗。', 1),
-(4, '專業寵物健檢中心', 'img/index/news4.jpg', '寵物的健康不能等！樂寵擁有最專業的獸醫駐足在渡假村內，帶毛孩來檢查一番，還能自由地奔跑在園區內，增進抵抗力。', 1),
+(2, '即日起游泳池開放', 'img/index/news2.png', '炎炎夏日讓毛孩玩玩水，清涼又有趣。免費提供寵物救生衣以及浮板玩具。', 1),
+(3, '與主人共享舒適房間', 'img/index/news3.png', '我們不惜成本打造合適主人與寵物的居住環境，期望毛孩們獲得最滿意的外宿經驗。', 1),
+(4, '專業寵物健檢中心', 'img/index/news4.png', '寵物的健康不能等！樂寵擁有最專業的獸醫駐足在渡假村內，帶毛孩來檢查一番，還能自由地奔跑在園區內，增進抵抗力。', 1),
 (5, '毛孩沙拉新上市', 'img/index/news5.png', '夏季限定「雞肉沙拉」新上市！炎炎夏日，你還在餵家裡的毛孩寵物飼料嗎？趕快預訂樂寵的鮮食，讓牠清涼一下。', 1);
 
 -- --------------------------------------------------------
@@ -668,6 +668,7 @@ CREATE TABLE `ROOM_TYPE` (
   `ROOM_IMG2` varchar(200) NOT NULL,
   `ROOM_IMG3` varchar(200) NOT NULL,
   `PANNELLUM` varchar(200) DEFAULT NULL,
+  `ROOM_INFO` varchar(1000) DEFAULT NULL,
   `ROOM_STATUS` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -675,12 +676,12 @@ CREATE TABLE `ROOM_TYPE` (
 -- 傾印資料表的資料 `ROOM_TYPE`
 --
 
-INSERT INTO `ROOM_TYPE` (`ROOM_TYPE_ID`, `ROOM_NAME`, `PRICE`, `AMOUNT`, `MAX_CAPACITY`, `ROOM_IMG`, `ROOM_IMG2`, `ROOM_IMG3`, `PANNELLUM`, `ROOM_STATUS`) VALUES
-(1, '時毛玩意', 5999, 2, 4, 'img/hotel/h_room4', 'img/hotel/h_room5', 'img/hotel/h_room6', NULL, 1),
-(2, '一汪無際', 3500, 3, 2, 'img/hotel/h_room7', 'img/hotel/h_room8', 'img/hotel/h_room9', NULL, 1),
-(3, '天羅地汪', 4000, 3, 2, 'img/hotel/h_room1', 'img/hotel/h_room2', 'img/hotel/h_room3', NULL, 1),
-(4, '青喵淡寫', 4999, 2, 4, 'img/hotel/h_room10', 'img/hotel/h_room11', 'img/hotel/h_room12', NULL, 1),
-(5, '舒毛一夏', 4200, 3, 2, 'img/hotel/h_room13', 'img/hotel/h_room14', 'img/hotel/h_room15', NULL, 1);
+INSERT INTO `ROOM_TYPE` (`ROOM_TYPE_ID`, `ROOM_NAME`, `PRICE`, `AMOUNT`, `MAX_CAPACITY`, `ROOM_IMG`, `ROOM_IMG2`, `ROOM_IMG3`, `PANNELLUM`, `ROOM_INFO`, `ROOM_STATUS`) VALUES
+(1, '時毛玩意', 5999, 2, 4, 'img/hotel/h_room4.jpg', 'img/hotel/h_room5.jpg', 'img/hotel/h_room6.jpg', 'img/hotel/h_panorama2.jpeg', '房內採白色的牆面，配上強烈的紅色沙發，以及對比色系的家具，形成撞色的時髦感，且窗外撒落的陽光與綠意，讓身處在都市喧囂的我們，還能觀賞波光粼粼的河面，獲得片刻的寧靜...\r\n另有開放式廚房及餐桌，選用了時尚的大理石桌板，讓您與家人或朋友，可以享受在房內使用餐點的私人空間，不受他人打擾。\r\n', 1),
+(2, '一汪無際', 3500, 3, 2, 'img/hotel/h_room7.jpg', 'img/hotel/h_room8.jpg', 'img/hotel/h_room9.jpg', 'img/hotel/h_panorama3.jpg', '使用明亮舒適的嵌燈照明，以及大量的鏡面設計，令房間的臥室顯得有獨特的格調；周圍還配上了烤漆玻璃的櫃體，讓水藍色的門片照映，房間整個一覽無遺，不必擔心毛孩跑到您不知道的角落裡。\r\n並且化妝台上的鏡子，還接上了補光燈，絕對是您享有一天美好的開始；身旁的貓抓板也能讓貓咪與您一同互動。\r\n', 1),
+(3, '天羅地汪', 4000, 3, 2, 'img/hotel/h_room1.png', 'img/hotel/h_room2.png', 'img/hotel/h_room3.png', 'img/hotel/h_panorama1.jpg', '簡雅的線條設計，配上舒適的亞麻米色，房內更設有方便的工作桌，讓需要常外出工作的您，還能帶著寵物出門旅遊；考慮到毛孩的活動範圍，房內的擺設皆留有寬敞的空間，並配置隔音牆，讓您可以安心陪伴牠們玩耍、休息。\r\n浴室採乾溼分離設計，提高您的安全及便利性，並附設方型湯池，能依喜好選擇一般的泡澡或是溫泉，舒緩您一天的疲勞。\r\n', 1),
+(4, '青喵淡寫', 4999, 2, 4, 'img/hotel/h_room10.jpg', 'img/hotel/h_room11.jpg', 'img/hotel/h_room12.jpg', 'img/hotel/h_panorama4.jpg', '喜歡大自然的旅客，不妨選擇我們預約top1的房型。從踏入房間的那刻起，就讓您感受到大地的擁抱，採用松木質地的地板與家具，有陣陣飄來的清香；沙發與床組都是讓雙眼得以休息的大地色，配上樂寵後山特別栽種的植物，絕對是您愜意的首選。\r\n還有架高的液晶電視，讓您無論是在沙發旁與貓咪玩耍，或是在床上觀賞頻道，都是舒適自在的觀看角度。', 1),
+(5, '舒毛一夏', 4200, 3, 2, 'img/hotel/h_room13.jpg', 'img/hotel/h_room14.jpg', 'img/hotel/h_room15.jpg', 'img/hotel/h_panorama5.jpg', '位於最高樓層的景觀房型，打開窗簾便能俯瞰這個美麗的城市，坐在窗前讀讀喜歡的書本，或是小酌情誼，抬頭便能看見夜色，喜歡夜景的訪客千萬不能錯過。\r\n主色系採用了優雅的藍色，從床頭舒適柔軟的靠墊到地上天然的羊毛地毯，給您與毛孩最大的呵護，不必擔心孩子們活動的空間受到侷限，可以在房內自由地奔跑。', 1);
 
 -- --------------------------------------------------------
 
@@ -810,26 +811,27 @@ CREATE TABLE `SHOPPING_PRODUCT` (
   `PRODUCT_INFO` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `PRODUCT_SOLD` int NOT NULL,
   `PRODUCT_TYPE` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `PRODUCT_STATUS` tinyint(1) NOT NULL
+  `PRODUCT_STATUS` tinyint(1) NOT NULL,
+  `count` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 傾印資料表的資料 `SHOPPING_PRODUCT`
 --
 
-INSERT INTO `SHOPPING_PRODUCT` (`PRODUCT_ID`, `PRODUCT_NAME`, `PRODUCT_PRICE`, `PRODUCT_IMG`, `PRODUCT_INFO`, `PRODUCT_SOLD`, `PRODUCT_TYPE`, `PRODUCT_STATUS`) VALUES
-(1, '小帳棚', 81000, 'img/mall/tent_4@2x.png', '此款帳篷適用於小型犬。簡單的條紋設計，選色清新可愛。\n天然原木結構，綁帶輕鬆好穩固。內有厚實柔軟的睡墊，一面是冬天好暖不著涼，一面是夏日清爽好舒服。\n睡墊上含有止滑顆粒，讓寵物安全跑跳不位移。布料使用天然的純棉帆布，不僅透氣而且排濕。入口處的布料，可依寵物高度捲起來固定。\n睡墊有設計拉鍊，可分開墊子與睡墊套，清潔容易。拆裝容易，收納也很方便。', 0, '用品', 1),
-(2, '安全座椅', 1200, 'img/mall/seat1950元-2@2x.png', NULL, 0, '用品', 1),
-(3, '成長碗架', 279, 'img/mall/成長碗架279元@2x.png', NULL, 0, '用品', 1),
-(4, '吸水墊', 699, 'img/mall/吸水墊699元@2x.png', NULL, 0, '用品', 1),
-(5, '奧利反光寵物胸背帶', 699, 'img/mall/奧利反光寵物胸背帶699元@2x.png', NULL, 0, '用品', 1),
-(6, '波浪斜坡寵物樓梯', 1590, 'img/mall/波浪斜坡寵物樓梯1590元@2x.png', NULL, 0, '用品', 1),
-(7, '糰子貓宅', 2490, 'img/mall/糰子貓宅2490元@2x.png', NULL, 0, '用品', 1),
-(8, '寵物碗架組', 2250, 'img/mall/寵物碗架組2250元@2x.png', NULL, 0, '用品', 1),
-(9, '貓抓柱', 1690, 'img/mall/貓抓柱1690元@2x.png', NULL, 0, '用品', 1),
-(10, '鯊魚造型貓窩', 479, 'img/mall/鯊魚造型貓窩NT479@2x.png', NULL, 0, '用品', 1),
-(11, '黑六角椅墊組', 3350, 'img/mall/黑六角椅墊組3350元@2x.png', NULL, 0, '用品', 1),
-(12, '太空艙', 500000, 'img/mall/4@2x.png', NULL, 0, '用品', 1);
+INSERT INTO `SHOPPING_PRODUCT` (`PRODUCT_ID`, `PRODUCT_NAME`, `PRODUCT_PRICE`, `PRODUCT_IMG`, `PRODUCT_INFO`, `PRODUCT_SOLD`, `PRODUCT_TYPE`, `PRODUCT_STATUS`, `count`) VALUES
+(1, '小帳棚', 81000, 'img/mall/tent_4@2x.png', '此款帳篷適用於小型犬。簡單的條紋設計，選色清新可愛。\n天然原木結構，綁帶輕鬆好穩固。內有厚實柔軟的睡墊，一面是冬天好暖不著涼，一面是夏日清爽好舒服。\n睡墊上含有止滑顆粒，讓寵物安全跑跳不位移。布料使用天然的純棉帆布，不僅透氣而且排濕。入口處的布料，可依寵物高度捲起來固定。\n睡墊有設計拉鍊，可分開墊子與睡墊套，清潔容易。拆裝容易，收納也很方便。', 0, '用品', 1, 1),
+(2, '安全座椅', 1200, 'img/mall/seat1950元-2@2x.png', NULL, 0, '用品', 1, 1),
+(3, '成長碗架', 279, 'img/mall/成長碗架279元@2x.png', NULL, 0, '用品', 1, 1),
+(4, '吸水墊', 699, 'img/mall/吸水墊699元@2x.png', NULL, 0, '用品', 1, 1),
+(5, '奧利反光寵物胸背帶', 699, 'img/mall/奧利反光寵物胸背帶699元@2x.png', NULL, 0, '用品', 1, 1),
+(6, '波浪斜坡寵物樓梯', 1590, 'img/mall/波浪斜坡寵物樓梯1590元@2x.png', NULL, 0, '用品', 1, 1),
+(7, '糰子貓宅', 2490, 'img/mall/糰子貓宅2490元@2x.png', NULL, 0, '用品', 1, 1),
+(8, '寵物碗架組', 2250, 'img/mall/寵物碗架組2250元@2x.png', NULL, 0, '用品', 1, 1),
+(9, '貓抓柱', 1690, 'img/mall/貓抓柱1690元@2x.png', NULL, 0, '用品', 1, 1),
+(10, '鯊魚造型貓窩', 479, 'img/mall/鯊魚造型貓窩NT479@2x.png', NULL, 0, '用品', 1, 1),
+(11, '黑六角椅墊組', 3350, 'img/mall/黑六角椅墊組3350元@2x.png', NULL, 0, '用品', 1, 1),
+(12, '太空艙', 500000, 'img/mall/4@2x.png', NULL, 0, '用品', 1, 1);
 
 --
 -- 已傾印資料表的索引
@@ -1081,7 +1083,7 @@ ALTER TABLE `MESSAGE_LIST`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `NEWS`
 --
 ALTER TABLE `NEWS`
-  MODIFY `NEWS_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `NEWS_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `PET_INFO`

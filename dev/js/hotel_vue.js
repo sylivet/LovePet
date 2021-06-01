@@ -91,28 +91,68 @@ let vm = new Vue({
             },
         ],
     },
-    // methods:{
-    //     loginChenk(){
-    //         $.ajax({            
-    //           method: "POST",
-    //           url: "php/front_end_API/R_LoginCheck.php",
-    //           data:{},            
-    //           dataType: "text",
-    //           success: (response)=> {
-    //               if(response == ""){
-    //                   // 尚未登入->前往Login.php
-    //                   alert('請先登入會員'); 
-    //                   $('#m_sign_in_bk').show()
-    //                 }else{
-    //                   this.isBookingBoxOpen = true
-    //               }              
-    //           },
-    //           error: function(exception) {
-    //               alert("數據載入失敗: " + exception.status);
-    //           }
-    //       });
-    //       },
-    // },
+    methods:{
+        renew(){//我這裡在亂寫先不要
+            window._jf.flush();//手動更新justfont
+            this.pannellum.viewer.destory();//摧毀pannellum
+            
+            this.init();//更新pannellum
+            
+            pannellum.viewer = pannellum.viewer("h_panorama", {
+                type: "equirectangular",
+                panorama: this.typeRoom[0].PANNELLUM,
+                // 調整初始畫面位置
+                pitch: -10,
+                hfov: 180,
+                // 自動旋轉
+                autoRotate: -2,
+                // 指南針
+                compass: true,
+                // 自動加載
+                autoLoad: true,
+                // 按鈕調整畫面
+                showControls: false,
+                // 預防無限環景設定
+                mouseZoom: false,
+                draggable: false,
+                // 寵物用品位置熱點
+                hotSpots: [
+                    {
+                        pitch: -8.5,
+                        yaw: 8.7,
+                        type: "info",
+                        text: "貓抓柱",
+                    },
+                    {
+                        pitch: -20,
+                        yaw: 46,
+                        type: "info",
+                        text: "寵物窩墊",
+                    },
+                ],
+            });
+        }
+        // loginChenk(){
+        //     $.ajax({            
+        //       method: "POST",
+        //       url: "php/front_end_API/R_LoginCheck.php",
+        //       data:{},            
+        //       dataType: "text",
+        //       success: (response)=> {
+        //           if(response == ""){
+        //               // 尚未登入->前往Login.php
+        //               alert('請先登入會員'); 
+        //               $('#m_sign_in_bk').show()
+        //             }else{
+        //               this.isBookingBoxOpen = true
+        //           }              
+        //       },
+        //       error: function(exception) {
+        //           alert("數據載入失敗: " + exception.status);
+        //       }
+        //   });
+        //   },
+    },
     computed: {//資料處理
         typeRoom() {//篩選房型，預設時毛玩意
             if (this.dropMenuSelect === "時毛玩意") {
@@ -169,20 +209,20 @@ let vm = new Vue({
             mouseZoom: false,
             draggable: false,
             // 寵物用品位置熱點
-            // hotSpots: [
-            //     {
-            //         pitch: -8.5,
-            //         yaw: 8.7,
-            //         type: "info",
-            //         text: "貓抓柱",
-            //     },
-            //     {
-            //         pitch: -20,
-            //         yaw: 46,
-            //         type: "info",
-            //         text: "寵物窩墊",
-            //     },
-            // ],
+            hotSpots: [
+                {
+                    pitch: -15,
+                    yaw: 240,
+                    type: "info",
+                    text: "防蟻碗架",
+                },
+                {
+                    pitch: -7,
+                    yaw: 247,
+                    type: "info",
+                    text: "小帳棚",
+                },
+            ],
         });
 
         // Make buttons work (按鈕調整移動畫面)
