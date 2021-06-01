@@ -456,36 +456,10 @@
             }
         }
     }
-    .i_roomtype,.i_stayamount,.i_detail{
-        display: flex;
+    .alertHotel{
+        color:red;
     }
-    .i_checkin,.i_checkout{
-        li:last-child{
-            margin-top: 10px;
-        }
-    }
-    .i_detail{
-        ul{
-            li{
-                &:first-child{
-                    span{
-                        &:last-child{
-                            margin-left: 26px;
-                        }
-                    }
-                }
-                &:last-child{
-                    margin-top: 10px;
-                    
-                }
-                span{
-                    &:last-child{
-                        margin-left: 10px;
-                    }
-                }
-            }
-        }
-    }
+    
 }
 
 //加入會員 &c登入會員

@@ -55,10 +55,6 @@
 
           span {
             font-size: 16px;
-
-            // @media screen and (max-width: 375px) {
-            //   display: none;
-            // }
           }
 
           .mask_cat {
@@ -70,7 +66,7 @@
         }
 
         .c_set_content {
-          background-color: #f39008;
+          background-color: #ffc857;
           max-width: 333px;
 
           ul {
@@ -202,7 +198,8 @@
 
         .c_plus_content {
           max-width: 333px;
-          background-color: #f39008;
+          // background-color: #f39008;
+          background-color: #ffc857;
 
           ul {
             list-style-type: none;
@@ -294,7 +291,6 @@
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(8, 60px);
 
-
         @media screen and (min-width: 768px) and (max-width: 1024px) {
           width: 80%;
           padding-bottom: 50px;
@@ -321,11 +317,16 @@
 
         .set {
           width: 95%;
-          height: 75vh;
+          height: 78vh;
           margin-left: 30px;
           border: 2px dotted lightgray;
           grid-column: 1/2;
           grid-row: 1/9;
+
+          @media screen and (min-width: 1440px) {
+            height: 60vh;
+            width: 88%;
+          }
 
           @media screen and (min-width: 768px) and (max-width: 1024px) {
             height: 65vh;

@@ -14,6 +14,90 @@
 
 <body class="index">
   <div id="app">
+    <section class="mobile">
+      <div class="container">
+        <img class="logo" src="img/index/7.png" alt="">
+        <div class="carousel">
+          <input type="radio" name="slides" checked="checked" id="slide-1">
+          <input type="radio" name="slides" id="slide-2">
+          <input type="radio" name="slides" id="slide-3">
+          <input type="radio" name="slides" id="slide-4">
+          <input type="radio" name="slides" id="slide-5">
+          <input type="radio" name="slides" id="slide-6">
+          <ul class="carousel__slides">
+            <li class="carousel__slide">
+              <figure>
+                <div>
+                  <img src="img/index/m1.png" alt="">
+                </div>
+                <figcaption v-html="contents[0].intro"></figcaption>
+              </figure>
+            </li>
+            <li class="carousel__slide">
+              <figure>
+                <div>
+                  <img src="img/index/m4.png" alt="">
+                </div>
+                <figcaption v-html="contents[3].intro"></figcaption>
+              </figure>
+            </li>
+            <li class="carousel__slide">
+              <figure>
+                <div>
+                  <img src="img/index/m3.png" alt="">
+                </div>
+                <figcaption v-html="contents[2].intro"></figcaption>
+              </figure>
+            </li>
+
+            <li class="carousel__slide">
+              <figure>
+                <div>
+                  <img src="img/index/m6.png" alt="">
+                </div>
+                <figcaption v-html="contents[2].intro"></figcaption>
+              </figure>
+            </li>
+            <li class="carousel__slide">
+              <figure>
+                <div>
+                  <img src="img/index/m2.png" alt="">
+                </div>
+                <figcaption v-html="contents[1].intro"></figcaption>
+              </figure>
+            </li>
+            <li class="carousel__slide">
+              <figure>
+                <div>
+                  <img src="img/index/m5.png" alt="">
+                </div>
+                <figcaption v-html="contents[1].intro"></figcaption>
+              </figure>
+            </li>
+          </ul>
+          <ul class="carousel__thumbnails">
+            <li>
+              <label for="slide-1"><img src="img/index/m1.png" alt=""></label>
+            </li>
+            <li>
+              <label for="slide-2"><img src="img/index/m4.png" alt=""></label>
+            </li>
+            <li>
+              <label for="slide-3"><img src="img/index/m3.png" alt=""></label>
+            </li>
+            <li>
+              <label for="slide-4"><img src="img/index/m6.png" alt=""></label>
+            </li>
+            <li>
+              <label for="slide-5"><img src="img/index/m2.png" alt=""></label>
+            </li>
+            <li>
+              <label for="slide-6"><img src="img/index/m5.png" alt=""></label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
     <div class="green">
       <section class="animate">
         <img v-for="background in backgrounds" :class="background.imgclass" :src="background.imgURL" alt="">
@@ -35,8 +119,8 @@
           <li v-cloak v-for="latest in news" class="swiper-slide">
             <img :src="latest.NEWS_IMG" alt="" />
             <div class="news-bg">
-              <h4 v-cloak>{{latest.NEWS_TITLE}}</h4>
-              <div class="news-content" v-cloak>{{latest.NEWS_CONTENT}}</div>
+              <h4>{{latest.NEWS_TITLE}}</h4>
+              <div class="news-content">{{latest.NEWS_CONTENT}}</div>
             </div>
           </li>
         </ul>

@@ -46,7 +46,7 @@
         <!-- <div class="h"><img src="./img/hotel/h_hotel-01.svg" alt=""></div> -->
 
         <!-- 房型選擇跟介紹-->
-        <template v-for="room in rooms">
+        <template v-for="room in typeRoom">
 
             <div class="h_room">
                 <div class="h_dropdown">
@@ -54,7 +54,8 @@
                     <label for="h_toggle" class="h_navbar"><span class="h_title">請選擇房型</span><i
                             class="far fa-chevron-down h_point"></i></label>
                     <ul class="h_dropdown_menu">
-                        <li v-for="room in rooms" class="h_content">{{room.ROOM_NAME}}</li>
+                        <li v-for="room in rooms" class="h_content" @click="dropMenuSelect = room.ROOM_NAME ">
+                            {{room.ROOM_NAME}}</li>
                     </ul>
                 </div>
 
@@ -105,13 +106,12 @@
 
                     <div class="h_reserve">
                         <h3>房型介紹({{room.MAX_CAPACITY}}人房)</h3>
+                        <!-- 切換選單後字型會爆掉 -->
                         <h4>
-                            簡雅的線條設計，配上舒適的亞麻米色，房內更設有方便的工作桌，讓需要常外出工作的您，還能帶著寵物出門旅遊；考慮到毛孩的活動範圍，房內的擺設皆留有寬敞的空間，並配置隔音牆，讓您可以安心陪伴牠們玩耍、休息。<br />
-                            <br />
-                            浴室採乾溼分離設計，提高您的安全及便利性，並附設方型湯池，能依喜好選擇一般的泡澡或是溫泉，舒緩您一天的疲勞。
+                            {{room.ROOM_INFO}}
                         </h4>
                         <h1>NT${{room.PRICE}}</h1>
-                        <button class="hotel_inquire">房況預約查詢</button>
+                        <button class="hotel_inquire" @click="isBookingBoxOpen=true">房況預約查詢</button>
                     </div>
                 </div>
             </div>
@@ -183,39 +183,37 @@
         </div>
 
         <!-- 720度環景-->
+        <!-- 不知道怎麼切換標籤時環景圖也換 -->
         <section class="h_surrounding_view">
             <div id="h_panorama">
                 <div id="h_controlbtn">
                     <div class="h_ctrl" id="h_arrow_up">
                         <i class="fa fa-arrow-up" aria-hidden="true"></i>
                     </div>
-
                     <div class="h_ctrl" id="h_arrow_down">
                         <i class="fa fa-arrow-down" aria-hidden="true"></i>
                     </div>
-
                     <div class="h_ctrl" id="h_arrow_left">
                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
                     </div>
-
                     <div class="h_ctrl" id="h_arrow_right">
                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
                     </div>
-
                     <div class="h_ctrl" id="h_enlarge">
                         <i class="fa fa-plus" aria-hidden="true"></i>
                     </div>
-
                     <div class="h_ctrl" id="h_narrow">
                         <i class="fa fa-minus" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
         </section>
+        <room-booking v-show="isBookingBoxOpen" @closelightbox="isBookingBoxOpen = false" :roomtype="typeRoom">
+        </room-booking>
     </div>
+
     <!-- footer -->
     @@include('layout/footer.html')
-
     <!-- vue 預約房間元件 -->
     <script type="text/x-template" id="roombookingbox">
         <div class="i_background">
@@ -232,32 +230,32 @@
                             <div id="my-calendar" class="i_calendar"></div>
                             <div class="i_selece_left">
                                 <div class="i_select">成人
-                                    <select>
-                                        <option>1</option>
-                                        <option>2</option>
+                                    <select v-model.number="numberOfAdults" name="numberOfAdults">
+                                        <option selected="selected">0</option>
+                                        <option v-for="room in selectRoom.MAX_CAPACITY" :value="room" >{{room}}</option>
                                     </select>
                                     人
                                 </div>
                                 <div class="i_select">兒童
-                                    <select>
-                                        <option>1</option>
-                                        <option>2</option>
+                                    <select v-model.number="numberOfKids" name="numberOfKids">
+                                        <option selected="selected">0</option>
+                                        <option v-for="room in selectRoom.MAX_CAPACITY" :value="room" >{{room}}</option>
                                     </select>
                                     人
                                 </div>
                             </div>
                             <div class="i_selece_right">
                                 <div class="i_select">狗
-                                    <select>
-                                        <option>1</option>
-                                        <option>2</option>
+                                    <select v-model.number="numberOfDogs" name="numberOfDogs">
+                                        <option selected="selected">0</option>
+                                        <option v-for="room in selectRoom.MAX_CAPACITY" :value="room" >{{room}}</option>
                                     </select>
                                     隻
                                 </div>
                                 <div class="i_select">貓
-                                    <select>
-                                        <option>1</option>
-                                        <option>2</option>
+                                    <select v-model.number="numberOfCats" name="numberOfCats">
+                                        <option selected="selected">0</option>
+                                        <option v-for="room in selectRoom.MAX_CAPACITY" :value="room" >{{room}}</option>
                                     </select>
                                     隻
                                 </div>
@@ -265,49 +263,28 @@
                         </div>
                         <div class="i_hotel_right">
                           <ul class="i_hotel_bookingcontent">
+                              <li>入住時間：</li>
+                              <li>退房時間：</li>
+                              <li>選擇房型：{{selectRoom.ROOM_NAME}}</li>
+                              <li>房客總數：</li>
+                              
                               <li>
-                                  <ul class="i_checkin">
-                                      <li>入住時間：</li>
-                                      <li>2021年04月09日 (週五) 16：00 起</li>
-                                  </ul>
-                              </li>
-                              <li>
-                                  <ul class="i_checkout">
-                                      <li>退房時間：</li>
-                                      <li>2021年04月10日 (週六) 11：00 前</li>
-                                  </ul>
-                              </li>
-                              <li>
-                                  <ul class="i_roomtype">
-                                      <li>選擇房型：</li>
-                                      <li>{{room.ROOM_NAME}}</li>
-                                  </ul>
-                              </li>
-                              <li>
-                                  <ul class="i_stayamount">
-                                      <li>房客總數：</li>
-                                      <li>成人1人、孩童1人、狗1隻、貓1隻</li>
-                                  </ul>
-                              </li>
-                              <li>
-                                  <ul class="i_detail">
-                                      <li>房價明細：</li>
-                                      <li>
-                                          <ul>
-                                              <li>房型價格<span>${{room.PRICE}}</span>
-                                              </li>
-                                              <li>訂房手續費<span>$0</span>
-                                              </li>
-                                          </ul>
-                                      </li>
-                                  </ul>
-                              </li>
-                          </ul>
+                                  <span v-if="numberOfAdults>0">成人{{numberOfAdults}}人</span>
+                                  <span v-if="numberOfAdults>0&&numberOfKids>0">、</span>
+                                  <span v-if="numberOfKids>0">兒童{{numberOfKids}}人</span>
+                                </li>
+                              <li v-if="numberOfDogs>0||numberOfCats>0">
+                                <span v-if="numberOfDogs>0">狗{{numberOfDogs}}隻</span>  
+                                <span v-if="numberOfDogs>0&&numberOfCats>0">、</span>
+                                <span v-if="numberOfCats>0">貓{{numberOfCats}}隻</span>
+                            </li>
+                            </ul>
                           <hr>
                           <div class="i_total">
-                              <h3>總價 NT 3000元</h3>
+                              <h3 v-if="numberOfAdults+numberOfKids<=selectRoom.MAX_CAPACITY">總價 NT{{selectRoom.PRICE}}元</h3>
+                              <h3 class="alertHotel" v-else="numberOfAdults+numberOfKids>selectRoom.MAX_CAPACITY">超過房間人數上限，無法預約</h3>
                           </div>
-                          <button type="button" class="i_button">確認預約</button>
+                          <button v-if="numberOfAdults+numberOfKids<=selectRoom.MAX_CAPACITY" type="button" class="i_button">確認預約</button>
                       </div>
                   </div>
               </div>
@@ -319,32 +296,18 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <!-- Vue -->
-    <script src="vendors/vue/js/vue.js"></script>
-    <!-- 環景 -->
-    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
-    <script src="js/hotel_vue.js"></script>
     <!-- 月曆 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="vendors/travo-calendar/js/tavo-calendar.js"></script>
     <!-- 捲軸 -->
     <script src="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.js"></script>
-
-    <!-- 搬到js檔 -->
-    <script>
-        Array.prototype.forEach.call(
-            document.getElementsByClassName("bar"),
-            function (el) {
-                new SimpleBar(el);
-            }
-        );
-
-        const myCalendar = new TavoCalendar("#my-calendar", {
-            date: new Date(),
-            blacklist: ["2021-05-10", "2021-05-23"],
-            range_select: true,
-        });
-    </script>
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <!-- Vue -->
+    <script src="vendors/vue/js/vue.js"></script>
+    <!-- 環景 -->
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <script src="js/hotel_vue.js"></script>
 </body>
 
 </html>
