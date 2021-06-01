@@ -119,63 +119,63 @@ m_sign_up.addEventListener('click',function(){
   }
 
   //--------------------- 沒輸入值時的提醒 ---------------------------// 
-  // for( let i=0; i<input_js.length; i++){
-  //   if( input_js[i].value == '' ){
-  //     input_js[i].placeholder = '此處不能空白';
-  //     input_js[i].style['background-color'] = 'lightgray';
-  //     input_js[i].style.color = 'white';
-  //     $("#m_sign_up").attr('disabled',true);
-  //   }else{
-  //     $("#m_sign_up").attr('disabled',false);
+  for( let i=0; i<input_js.length; i++){
+    if( input_js[i].value == '' ){
+      input_js[i].placeholder = '此處不能空白';
+      input_js[i].style['background-color'] = 'lightgray';
+      input_js[i].style.color = 'white';
+      $("#m_sign_up").attr('disabled',true);
+    }else{
+      $("#m_sign_up").attr('disabled',false);
 
       
-  //   };
-  // }
+    };
+  }
 
-  if($('input').val() == ''){
-    $('input').attr('placeholder','此處不能空白').css('backgroundColor','red');
-    $("#m_sign_up").attr('disabled',true);
-  }else{
-    $("#m_sign_up").attr('disabled',false);
+  // if($('input').val() == ''){
+  //   $('input').attr('placeholder','此處不能空白').css('backgroundColor','red');
+  //   $("#m_sign_up").attr('disabled',true);
+  // }else{
+  //   $("#m_sign_up").attr('disabled',false);
 
-  };
+  // };
   
   //--------------------- 連結後端程式 ---------------------------// 
-//   $.ajax({
-//     type : "POST",
-//     url : "./php/front_end_API/M_sign_up.php",
-//     data : {
-//       un : $("#username").val(),
-//       ml : $("#mail").val(),
-//       pwd : $("#new_pwd").val(), 
-//       nm : $("#nickname2").val(),
-//       phe : $("#phone").val(), 
-//       ads : $("#address").val(),
-//     },
-//     dataType : 'html' //設定該網頁回應的會是 html 格式
-//   }).done(function(data) {
-//     //成功的時候
-//     console.log(data);
-//     if(data == "yes")
-//     {
-//       alert("註冊成功，請重新登入!");
-//       //window.location.href="admin/login.php";
-//       m_sign_up_bk.style.display = "none";
-//       m_sign_in_bk.style.display = "block";
-//     }
-//     else
-//     {
-//       alert("註冊失敗，請與系統人員聯繫");
-//     }
+  $.ajax({
+    type : "POST",
+    url : "./php/front_end_API/M_sign_up.php",
+    data : {
+      un : $("#username").val(),
+      ml : $("#mail").val(),
+      pwd : $("#new_pwd").val(), 
+      nm : $("#nickname2").val(),
+      phe : $("#phone").val(), 
+      ads : $("#address").val(),
+    },
+    dataType : 'html' //設定該網頁回應的會是 html 格式
+  }).done(function(data) {
+    //成功的時候
+    console.log(data);
+    if(data == "yes")
+    {
+      alert("註冊成功，請重新登入!");
+      //window.location.href="admin/login.php";
+      m_sign_up_bk.style.display = "none";
+      m_sign_in_bk.style.display = "block";
+    }
+    else
+    {
+      alert("註冊失敗，請與系統人員聯繫");
+    }
     
-//   }).fail(function(jqXHR, textStatus, errorThrown) {
-//     //失敗的時候
-//     alert("有錯誤產生，請看 console log");
-//     console.log(jqXHR.responseText);
-//   });
+  }).fail(function(jqXHR, textStatus, errorThrown) {
+    //失敗的時候
+    alert("有錯誤產生，請看 console log");
+    console.log(jqXHR.responseText);
+  });
 
 
-// });
+});
 
 //--------------------- 輸入值時清除預設 ---------------------------// 
 for( let i=0; i<input_js.length; i++){
