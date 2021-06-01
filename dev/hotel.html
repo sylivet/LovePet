@@ -21,10 +21,10 @@
 <body>
     <!-- header -->
     @@include('layout/header.html')
+    <div id="app">
 
     <!-- 旅館banner動畫 -->
     <!-- 假圖 -->
-    <div id="app">
         <div class="h_banner">
             <img src="img/hotel/h_banner.png" alt="" />
         </div>
@@ -54,7 +54,7 @@
                     <label for="h_toggle" class="h_navbar"><span class="h_title">請選擇房型</span><i
                             class="far fa-chevron-down h_point"></i></label>
                     <ul class="h_dropdown_menu">
-                        <li v-for="room in rooms" class="h_content" @click="dropMenuSelect = room.ROOM_NAME ">
+                        <li v-for="room in rooms" class="h_content" @click="dropMenuSelect = room.ROOM_NAME">
                             {{room.ROOM_NAME}}</li>
                     </ul>
                 </div>
