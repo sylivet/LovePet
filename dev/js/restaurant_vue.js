@@ -10,7 +10,7 @@ Vue.component("booking", {
         numberOfKids:"0",
         numberOfDogs:"0",
         numberOfCats:"0",
-        food: null,
+        food: null
     }
   },
   methods: {
@@ -18,26 +18,41 @@ Vue.component("booking", {
       this.$emit('closelightbox')
     },
     booking(){
-      $.ajax({            
-        method: "POST",
-        url: "php/front_end_API/R_Insert_booking.php",
-        data:{
-          'BOOKING_DATE': this.BOOKING_DATE,
-          'CREATE_DATE': this.CREATE_DATE,
-          'numberOfAdults': this.numberOfAdults,
-          'numberOfKids': this.numberOfKids,
-          'numberOfDogs': this.numberOfDogs,
-          'numberOfCats': this.numberOfCats,
-          'food': this.food
-        },            
-        dataType: "text",
-        success: (res)=> {
-          console.log(res);
-        },
-        error: function(exception) {
-            alert("數據載入失敗: " + exception.status);
+      if(!this.BOOKING_DATE){
+        alert('請選預定日期')
+      }else{
+        if(this.numberOfAdults === "0"){
+          alert('請選人數')
+        }else{
+          $.ajax({            
+            method: "POST",
+            url: "php/front_end_API/R_Insert_booking.php",
+            data:{
+              'BOOKING_DATE': this.BOOKING_DATE,
+              'CREATE_DATE': this.CREATE_DATE,
+              'numberOfAdults': this.numberOfAdults,
+              'numberOfKids': this.numberOfKids,
+              'numberOfDogs': this.numberOfDogs,
+              'numberOfCats': this.numberOfCats,
+              'food': this.food
+            },            
+            dataType: "text",
+            success: (res)=> {
+              console.log(res);
+            },
+            error: function(exception) {
+                alert("數據載入失敗: " + exception.status);
+            }
+        });
         }
-    });
+      }
+    console.log(this.CREATE_DATE);
+    console.log(this.BOOKING_DATE);
+    console.log(this.numberOfAdults);
+    console.log(this.numberOfKids);
+    console.log(this.numberOfDogs);
+    console.log(this.numberOfCats);
+    console.log(this.food);
     }
   },
   computed: {
@@ -64,7 +79,6 @@ Vue.component("booking", {
     const my_calendar = new TavoCalendar(calendar_el)
   
     calendar_el.addEventListener('calendar-select', (ev) => {
-      // alert(my_calendar.getSelected());
       this.BOOKING_DATE = my_calendar.getSelected()
     });
 
@@ -74,6 +88,11 @@ Vue.component("booking", {
     let m = t.getMonth() + 1
     let d = t.getDate()
     return this.CREATE_DATE = `${y}-${m}-${d}`
+  },
+  watch:{
+    foods(){
+      this.food = this.foods
+    }
   }
 })
 
@@ -105,7 +124,7 @@ Vue.component("customPetsFood", {
   },
 })
 
-// 加入寵物菜單元件
+// 加入人類菜單元件
 Vue.component("addToHumanMenu", {
   props: ['menu'],
   template: "#addToMenu",
@@ -119,7 +138,7 @@ Vue.component("addToHumanMenu", {
     }
   },
 })
-// 加入人類菜單元件
+// 加入寵物菜單元件
 Vue.component("addToPetsMenu", {
   props: ['menu'],
   template: "#addToMenu",
@@ -147,6 +166,7 @@ Vue.filter('currency', function (price) {
 });
 
 
+
 let vm = new Vue({
   el: "#app",
   data: {
@@ -165,7 +185,7 @@ let vm = new Vue({
     allFoodMenu:[],
   },
   methods: {
-    loginChenk(){
+    loginCheck(){
       $.ajax({            
         method: "POST",
         url: "php/front_end_API/R_LoginCheck.php",
@@ -174,10 +194,11 @@ let vm = new Vue({
         success: (response)=> {
             if(response == ""){
                 // 尚未登入->前往Login.php
-                alert('請先登入會員'); 
-                $('#m_sign_in_bk').show()
-              }else{
+                // alert('請先登入會員'); 
+                // $('#m_sign_in_bk').show()
                 this.isBookingBoxOpen = true
+              }else{
+                sessionStorage.clear()
             }              
         },
         error: function(exception) {
@@ -358,15 +379,26 @@ let vm = new Vue({
           ease:"ease"
         })
       }
+    },
+    allFoodSelection: {
+      handler() {
+        let value = JSON.stringify(this.allFoodSelection);
+        sessionStorage.setItem('foods', value);
+      },
+      deep: true
     }
   },
-  created(){
+  mounted() {
     axios.post("php/front_end_API/R_select.php").then((res)=>{
       this.allFoodMenu = res.data
-    })
-  },
-  mounted() {
-    
+    });
+
+    // 取localStorage
+    let value = JSON.parse(sessionStorage.getItem('foods'))
+    if(value){
+      this.allFoodSelection = value
+    };
+
     // 卷軸
     Array.prototype.forEach.call(document.getElementsByClassName('bar'), function (el) {
       new SimpleBar(el);

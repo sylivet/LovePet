@@ -39,24 +39,25 @@
           <h2>會員登入</h2>
         </div>
         <div class="m_sign signIn">
-          <form action="">
+          <form method="post" action="sign_in2.php">
             <section>
               <ul>
                 <li>
                   <label for="mail"><img src="./img/member/Icon material-person.png" alt=""
                       style=" height: 30px;"></label>
-                  <input type="email" placeholder="請輸入您的電子信箱">
+                  <input type="email" placeholder="請輸入您的電子信箱" id="m_account">
                 </li>
                 <li>
                   <label for="new_pwd"><img src="./img/member/Icon ionic-ios-lock.png" alt=""
                       style="height: 30px;"></label>
-                  <input type="text" placeholder="請輸入您的正確密碼">
+                  <input type="password" placeholder="請輸入您的正確密碼" id="m_pwd">
                 </li>
 
               </ul>
             </section>
 
-            <input type="button" id="m_to_sign_in" onclick="javascript:location.href='member_index.html' " value="會員登入">
+            <!-- <input type="button" id="m_to_sign_in"  onclick="javascript:location.href='member_index.html' "  value="會員登入"> -->
+            <input type="button" id="m_to_sign_in" onclick="M_sign_in()" value="會員登入">
 
             <div class="m_under_submit">
               <div>
@@ -98,10 +99,9 @@
               歡迎光臨，如果您是新會員，請填寫下面資訊進行註冊，如您已是會員，請直接
               <input class="m_turnto_signin" type="button" value="登入" id="m_switch_sign_in">
               。
-
             </p>
 
-            <form action="">
+            <form action="" id="sign_up_fm">
               <section>
                 <h5>個人資料</h5>
                 <div class="m_underline_2"></div>
@@ -113,7 +113,7 @@
                   </li>
                   <li>
                     <label for="mail">*電子信箱</label>
-                    <input type="email" placeholder="請輸入您的電子信箱">
+                    <input type="email" placeholder="請輸入您的電子信箱" id='mail'>
                   </li>
                   <li>
                     <label for="phone">*連絡電話</label>
@@ -133,34 +133,31 @@
                     <input type="text" id="address">
                   </li>
 
-                </ul>
-              </section>
+                  <section>
+                    <h5>帳戶密碼</h5>
+                    <div class="m_underline_2"></div>
+                    <ul>
+                      <li>
+                        <label for="nickname2">*帳戶名稱</label>
+                        <input type="text" id="nickname2" placeholder="我們如何稱呼您">
+                      </li>
+                      <li>
+                        <label for="new_pwd">*設定密碼</label>
+                        <input type="password" placeholder="請輸入您的密碼" id="new_pwd">
+                      </li>
+                      <li>
+                        <label for="chk_pwd">*確認密碼</label>
+                        <input type="password" id="chk_pwd" placeholder="請再次輸入密碼">
+                      </li>
+                    </ul>
 
-              <section>
-                <h5>帳戶密碼</h5>
-                <div class="m_underline_2"></div>
-                <ul>
-                  <li>
-                    <label for="nickname">*帳戶名稱</label>
-                    <input type="text" id="nickname" placeholder="我們如何稱呼您">
-                  </li>
-                  <li>
-                    <label for="new_pwd">*設定密碼</label>
-                    <input type="text" placeholder="請輸入您的密碼">
-                  </li>
-                  <li>
-                    <label for="chk_pwd">*確認密碼</label>
-                    <input type="text" id="chk_pwd" placeholder="請再次輸入密碼">
-                  </li>
-                </ul>
+                  </section>
 
-              </section>
+                  <input type="checkbox" id="agree_items">
+                  <label for="agree_items">我已閱讀，並同意</label>
+                  <a href="#">會員條款</a>
 
-              <input type="checkbox" id="agree_items">
-              <label for="agree_items">我已閱讀，並同意</label>
-              <a href="#">會員條款</a>
-
-              <input type="submit" value="確認註冊">
+                  <input type="button" value="確認註冊" id="m_sign_up">
 
             </form>
           </article>

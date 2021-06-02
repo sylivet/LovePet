@@ -2,7 +2,12 @@
     include("../../php/I_conn.php");
     
     //建立SQL語法
-    $sql = "SELECT * FROM `HOTEL_ORDER`";
+    $sql = "SELECT ho.HOTEL_ORDER_ID,ho.FK_MEMBER_ID,m.NAME,CREATE_DATE,ho.BOOKING_CHECKIN_DATE,ho.BOOKING_CHECKOUT_DATE,rt.ROOM_NAME,ho.NUM_OF_PEOPLE,ho.NUM_OF_PETS,ho.ORDER_STATUS
+    FROM HOTEL_ORDER ho
+    left join MEMBER m
+    on ho.FK_MEMBER_ID=m.MEMBER_ID
+    left join ROOM_TYPE rt
+    on ho.FK_ROOM_TYPE_ID= rt.ROOM_TYPE_ID";
     
     //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
     $statement = $pdo->prepare($sql);
