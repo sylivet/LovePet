@@ -2,6 +2,10 @@ body.mall{
   background-image: url(../../../img/mall/dog_foot_big@2x.png);
 }
 
+[v-cloak] {
+  display: none;
+}
+
 .banner {
   width: 100%;
   img{
@@ -57,15 +61,22 @@ main{
   cursor: pointer;
   .input_block{
     line-height: 45px;
-    margin-right: 10px;
     input[type="text"]{
+      width: 150px;
+      height: 30px;
+      line-height: 30px;
       font-size: 18px;
       border: 2px solid #B2B2B2;
+      margin-left: 10px;
+      &::placeholder{
+        font-size: 16px;
+      }
     }
     .slide-enter-active, .slide-leave-active{//進入轉場與離開過程的狀態
-      transition: .1s
+      transition: .3s;
     }
     .slide-enter, .slide-leave-to {//進入與離開結束當下的狀態
+      transition: .1s;
       opacity: 0;
     }
   }

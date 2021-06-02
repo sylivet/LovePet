@@ -8,18 +8,18 @@
   <link rel="stylesheet" type="text/css" href="./vendors/slick/css/slick.css" />
   <link rel="stylesheet" type="text/css" href="./vendors/slick/css/slick-theme.css" />
   <link rel="stylesheet" href="./css/style.css">
+  <script src="./vendors/vue/js/vue.js"></script>
   <title>view</title>
   @@include('layout/style.html')
 </head>
 
 <body class="shopping">
   <div class="s_wrapper">
-    @@include('layout/header.html')
-
-    <div class="shopping_main">
+    <div id="formall" class="shopping_main">
+      @@include('layout/header.html')
       <div class="s_ph">
         <div class="s_big_ph">
-          <img src="img/mall/tent_1@2x.png" alt="">
+          <img :src="this.info[0].photo" alt="">
           <img src="img/mall/tent_1_s@2x.png" class="img_pad">
         </div>
         <div class="s_small_ph">
@@ -30,10 +30,10 @@
       </div>
 
       <div class="s_text">
-        <h3>寵物休閒小帳棚<br>2500元<br><span>已售出:100個</span></h3>
+        <h3>{{info[0].name}}<br>{{info[0].price}}元<br><span>已售出:{{info[0].sold}}個</span></h3>
 
         <div class="s_button">
-          <button class="s_buy"> <span class="material-icons">shopping_cart</span></button>
+          <button @click="addToCart(info[0])" class="s_buy"> <span class="material-icons">shopping_cart</span></button>
           <!-- <button class="s_back">回商品頁</button> -->
           <a href="./Mall.html">回商品頁</a>
         </div>
@@ -59,7 +59,7 @@
     </div>
     <!-- 燈箱 -->
     <!-- @@include('layout/shoppingCart_LightBox.html') -->
-    <div id="i_shoppingCart_bk" class="i_background" style="display:none">
+    <!-- <div id="i_shoppingCart_bk" class="i_background" style="display:none">
       <div class="i_lightbox_bk">
         <a class="i_closeButton">
           <img src="../img/common/close.png" alt="">
@@ -110,7 +110,7 @@
           <a href="s_bill.html" class="i_button">結帳</a>
         </div>
       </div>
-    </div>
+    </div> -->
     @@include('layout/footer.html')
   </div>
   <scrip src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -144,17 +144,31 @@
 
     //popup
 
-    var shoppingcartbk = document.getElementById("i_shoppingCart_bk");
-    $('.s_buy').click(function () {
-      shoppingcartbk.style.display = "block";
-    });
+    // var shoppingcartbk = document.getElementById("i_shoppingCart_bk");
+    // $('.s_buy').click(function () {
+    //   shoppingcartbk.style.display = "block";
+    // });
 
-    $('.i_closeButton').click(function () {
-      shoppingcartbk.style.display = "none";
-    });
-
+    // $('.i_closeButton').click(function () {
+    //   shoppingcartbk.style.display = "none";
+    // });
   </script>
-
+  <!-- <script>
+    new Vue({
+      el: "#buy",
+      data: { name: "寵物休閒小帳棚", price: 2500, sold: 1, photo: "img/mall/tent_1@2x.png", },
+      methods: {
+        // addCart() {
+        //   this.name ==
+        // }
+      }
+    })
+  </script> -->
+  <!-- 購物車組件 -->
+  <!-- <script src="js/cart_component.js"></script> -->
+  <!-- 打開與關閉購物車 -->
+  <script src="js/mall_vue.js"></script>
+  <script src="js/shopping_cart.js"></script>
 </body>
 
 </html>

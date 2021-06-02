@@ -165,7 +165,18 @@
     width: 90%;
     margin: 0 auto;
     overflow-y: scroll;
-
+    .icon{
+        width: 30px;
+        height: 30px;
+        background-color: black;
+        border-radius: 999px;
+        color: white;
+        text-align: center;
+        line-height: 30px;
+        font-size: 30px;
+        user-select: none;
+        cursor: pointer;
+    }
     table {
         display: flex;
         justify-content: center;
@@ -216,6 +227,7 @@
                 }
 
                 &:nth-child(4) {
+                    display: flex;
                     margin-left: 30px;
 
                     @include mobile {
@@ -456,36 +468,10 @@
             }
         }
     }
-    .i_roomtype,.i_stayamount,.i_detail{
-        display: flex;
+    .alertHotel{
+        color:red;
     }
-    .i_checkin,.i_checkout{
-        li:last-child{
-            margin-top: 10px;
-        }
-    }
-    .i_detail{
-        ul{
-            li{
-                &:first-child{
-                    span{
-                        &:last-child{
-                            margin-left: 26px;
-                        }
-                    }
-                }
-                &:last-child{
-                    margin-top: 10px;
-                    
-                }
-                span{
-                    &:last-child{
-                        margin-left: 10px;
-                    }
-                }
-            }
-        }
-    }
+    
 }
 
 //加入會員 &c登入會員
