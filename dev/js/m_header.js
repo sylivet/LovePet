@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function(){
       success: function success(response) {
         if (response.indexOf("@") == -1 && response.indexOf("com") == -1 ) {
             //alert(response); //查看 member ID
-             alert('歡迎登入會員');
+             //alert('歡迎登入會員');
              m_sign_in_bk.style.display = "block";
 
         } else {
@@ -110,70 +110,82 @@ let m_sign_up = document.getElementById('m_sign_up');
 
 m_sign_up.addEventListener('click',function(){
 
-  //------------------- password 判別是否一致 ------------------------// 
+
+    //--------------------- 沒輸入值時的提醒 ---------------------------// 
+    for( let i=0; i<input_js.length; i++){
+      if( input_js[i].value == '' ){
+        input_js[i].placeholder = '此處不能空白';
+        input_js[i].style['background-color'] = 'lightgray';
+        input_js[i].style.color = 'white';
+        $("#m_sign_up").attr('disabled',true);
+      }else{
+        $("#m_sign_up").attr('disabled',false);
+        
+      };
+
+    }
+   //$('#agree_items').prop('checked',true);
+  
+    if($('#username').val() == '' ||
+       $('#mail').val() == '' ||
+       $('#phone').val() == '' ||
+       $('#address').val() == '' ||
+       $('#nickname2').val() == '' ||
+       $('#new_pwd').val() == '' ||
+       $('#chk_pwd').val() == '' ||
+       $('#agree_items').prop('checked') == false
+    ){
+      alert('空白處 及 會員條款 請確認');
+    }else{
+      //alert('bbb');
+       //------------------- password 判別是否一致 ------------------------// 
   if( $("#new_pwd").val() != $("#chk_pwd").val() ){
+
     alert('密碼不一致，請再次確認!');
     $("#m_sign_up").attr('disabled',true);
+
   }else{
+
+    //alert('密碼一致，進行下一步!');
     $("#m_sign_up").attr('disabled',false);
+
+        //--------------------- 連結後端程式 ---------------------------// 
+      $.ajax({
+        type : "POST",
+        url : "./php/front_end_API/M_sign_up.php",
+        data : {
+          un : $("#username").val(),
+          ml : $("#mail").val(),
+          pwd : $("#new_pwd").val(), 
+          nm : $("#nickname2").val(),
+          phe : $("#phone").val(), 
+          ads : $("#address").val(),
+        },
+        dataType : 'html' //設定該網頁回應的會是 html 格式
+      }).done(function(data) {
+        //成功的時候
+        console.log(data);
+        if(data == "yes")
+        {
+          alert("註冊成功，請重新登入!");
+          //window.location.href="admin/login.php";
+          m_sign_up_bk.style.display = "none";
+          m_sign_in_bk.style.display = "block";
+        }
+        else
+        {
+          alert("註冊失敗，請確認資料是否輸入正確。");
+        }
+        
+      }).fail(function(jqXHR, textStatus, errorThrown) {
+        //失敗的時候
+        alert("有錯誤產生，請看 console log");
+        console.log(jqXHR.responseText);
+      });
   }
-
-  //--------------------- 沒輸入值時的提醒 ---------------------------// 
-  for( let i=0; i<input_js.length; i++){
-    if( input_js[i].value == '' ){
-      input_js[i].placeholder = '此處不能空白';
-      input_js[i].style['background-color'] = 'lightgray';
-      input_js[i].style.color = 'white';
-      $("#m_sign_up").attr('disabled',true);
-    }else{
-      $("#m_sign_up").attr('disabled',false);
-
-      
-    };
-  }
-
-  // if($('input').val() == ''){
-  //   $('input').attr('placeholder','此處不能空白').css('backgroundColor','red');
-  //   $("#m_sign_up").attr('disabled',true);
-  // }else{
-  //   $("#m_sign_up").attr('disabled',false);
-
-  // };
-  
-  //--------------------- 連結後端程式 ---------------------------// 
-  $.ajax({
-    type : "POST",
-    url : "./php/front_end_API/M_sign_up.php",
-    data : {
-      un : $("#username").val(),
-      ml : $("#mail").val(),
-      pwd : $("#new_pwd").val(), 
-      nm : $("#nickname2").val(),
-      phe : $("#phone").val(), 
-      ads : $("#address").val(),
-    },
-    dataType : 'html' //設定該網頁回應的會是 html 格式
-  }).done(function(data) {
-    //成功的時候
-    console.log(data);
-    if(data == "yes")
-    {
-      alert("註冊成功，請重新登入!");
-      //window.location.href="admin/login.php";
-      m_sign_up_bk.style.display = "none";
-      m_sign_in_bk.style.display = "block";
-    }
-    else
-    {
-      alert("註冊失敗，請與系統人員聯繫");
     }
     
-  }).fail(function(jqXHR, textStatus, errorThrown) {
-    //失敗的時候
-    alert("有錯誤產生，請看 console log");
-    console.log(jqXHR.responseText);
-  });
-
+   
 
 });
 
@@ -259,7 +271,8 @@ for( let i=0; i<input_js.length; i++){
       m_sign_in_bk.style.display = "none";
 
     }else{
-      alert(`您好，帳號或密碼錯誤`);
+      //alert(`您好，帳號或密碼錯誤`);
+      alert(`連結未成功，狀態為${xhr.status}`);
       console.log(xhr.status);
     }
   }
