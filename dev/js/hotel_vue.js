@@ -19,7 +19,15 @@ Vue.component("room-booking", {
         selectRoom() {
             return this.roomtype[0];
         }
-    }
+    },
+    watch:{
+        roomtype(){
+            this.numberOfAdults=0,
+            this.numberOfKids= 0,
+            this.numberOfDogs= 0,
+            this.numberOfCats= 0
+        }
+    },
 })
 
 
@@ -29,7 +37,7 @@ let vm = new Vue({
         dropMenuSelect: "時毛玩意",//下拉選單選擇的
         roomSelection: "",//預約的房間
         isBookingBoxOpen: false, // 預約燈箱啟閉
-        pannellum:null,
+        pannellum:null,//環景圖預設空值
         setting: [
             [//ROOM1
                 {
@@ -87,6 +95,12 @@ let vm = new Vue({
                     yaw: 140,
                     type: "info",
                     text: "漂浮水碗",
+                },
+                {
+                    pitch: -27,
+                    yaw: 165,
+                    type: "info",
+                    text: "潔牙玩具/寵物木眠床",
                 },
             ],
         ],
@@ -177,9 +191,8 @@ let vm = new Vue({
             window._jf.flush();//手動更新justfont
         },
         changeRoom(room, i) {
+            const self=this;            
             this.dropMenuSelect = room.ROOM_NAME
-
-            const self=this;
             if(self.pannellum){
                 self.pannellum.destroy();
                 self.pannellum=null;
@@ -232,9 +245,9 @@ let vm = new Vue({
             range_select: true,
         });
         /*----- 720度環景 -----*/
-        this.pannellum= pannellum.viewer("h_panorama", {
+        self.pannellum= pannellum.viewer("h_panorama", {
             type: "equirectangular",
-            panorama: this.typeRoom[0].PANNELLUM,//錯誤==
+            panorama: self.typeRoom[0].PANNELLUM,//錯誤==
             // 調整初始畫面位置
             pitch: -10,
             hfov: 180,

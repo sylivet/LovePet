@@ -251,7 +251,7 @@ let vm = new Vue({
             pitch: 0,
             hfov: 180,
             // 自動旋轉
-            // autoRotate: -2,
+            autoRotate: -2,
             // 指南針
             compass: true,
             // 自動加載
