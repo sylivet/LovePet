@@ -307,8 +307,8 @@
                 <div class="row">
                   <div class="col-md-8 offset-md-4 col-12  human-right">
                     <ol>
-                      <template v-for="(food, fid) in filterTypeToItaly" >
-                        <li @click="chooseFood(food)" >
+                      <template v-for="(food, fid) in filterTypeToItaly">
+                        <li @click="chooseFood(food)">
                           <h4>{{fid+1}}.{{food.MEAL_NAME}}<br></h4>
                           <p><span>{{food.MEAL_CAL}} cal</span>NT{{food.MEAL_PRICE}} 元</p>
                         </li>
@@ -319,7 +319,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col foodback2" v-else="humanFoodSelect === '美式'" >
+              <div class="col foodback2" v-else="humanFoodSelect === '美式'">
                 <div class="row">
                   <div class="col-md-8 offset-md-4 human-right">
                     <ol>
@@ -455,10 +455,6 @@
   <script type="text/x-template" id="lightBox">
     <div class="i_background">
       <div class="i_lightbox_bk">
-          <div class="i_menu">
-              <p>主菜</p>
-              <div class="i_orangeLine"></div>
-          </div>
           <a href="#" class="i_closeButton" @click.prevent="closeBox">
               <img src="./img/common/close.png" >
           </a>
@@ -470,13 +466,19 @@
                   <img :src="food.MEAL_IMG" alt="">
               </div>
               <div class="i_mealMain">
+                <div class="i_mm">
+                  <div class="i_menu">
+                    <p>主菜</p>
+                    <div class="i_orangeLine"></div>
+                  </div>
                   <div class="i_meal">
-                      <p>{{food.MEAL_TYPE}}餐點</p>
-                      <div class="i_orangeLine"></div>
+                    <p>{{food.MEAL_TYPE}}餐點</p>
+                    <div class="i_orangeLine"></div>
                   </div>
-                  <div class="i_mealDataContent">
-                      <p>{{food.MEAL_MSG}}</p>
-                  </div>
+                </div>
+                <div class="i_mealDataContent">
+                  <p>{{food.MEAL_MSG}}</p>
+                </div>
               </div>
           </div>
           <a href="#" class="i_addMenu" @click.prevent="getFood(food)">加入菜單</a>
