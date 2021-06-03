@@ -15,9 +15,9 @@ $(function () {
   });
 
   //blur事件未寫
-  $('#h_toggle').blur(function () {
-    $(".h_content").parent().parent().removeClass("h_openmenu");
-  });
+  // $('body').click(function () {
+  //   $(".h_content").parent().parent().removeClass("h_openmenu");
+  // });
   
   /*----- 旅館Q&A -----*/
     $('.h_show').click(function () {
