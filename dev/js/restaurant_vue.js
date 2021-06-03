@@ -201,16 +201,16 @@ let vm = new Vue({
     loginCheck(){
       $.ajax({            
         method: "POST",
-        url: "php/front_end_API/R_LoginCheck.php",
+        url: "php/front_end_API/M_getsession_MID.php",
         data:{},            
         dataType: "text",
         success: (response)=> {
-            if(response == ""){
+            if(response == "N"){
                 // 尚未登入->前往Login.php
-                // alert('請先登入會員'); 
-                // $('#m_sign_in_bk').show()
-                this.isBookingBoxOpen = true
+                alert('請先登入會員'); 
+                $('#m_sign_in_bk').show()
               }else{
+                this.isBookingBoxOpen = true
                 sessionStorage.clear()
             }              
         },
