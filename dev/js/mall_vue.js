@@ -1,6 +1,6 @@
 Vue.component('the-cart', {
   template: '#cart',
-  props: ['counts'],
+  props: ['counts'], //counts接chooseItem陣列
   data() {
     return {
       cartData: [],
@@ -11,22 +11,23 @@ Vue.component('the-cart', {
   },
   methods: {
     plus() {
-      this.$emit('toplus'); //子元件傳值給父元件用$emit(自訂事件)
+      this.$emit('to-plus'); //子元件傳值給父元件用$emit(自訂事件)
       console.log('有偵測到功能');
     },
     sub() {
-      if (this.selected > 0) {
-        this.selected--;
-      } else {
-        this.selected == 0;
-      }
+      this.$emit('to-sub');
+      console.log('有偵測到功能');
+    },
+    remove() {
+      this.$emit('to-remove');
+      console.log('有偵測到刪除功能');
     },
   },
-  computed: {
-    chooseProduct() {
-      return this.counts;
-    },
-  },
+  // computed: {
+  //   chooseProduct() {
+  //     return this.counts;
+  //   },
+  // },
 });
 // localStorage;
 // vuex;
@@ -39,83 +40,7 @@ let data = {
     { val: 3, item: '客製化商品' },
   ],
 
-  info: [
-    {
-      name: '小帳篷',
-      price: '81' + `,` + '000',
-      src: 'img/mall/tent_4@2x.png',
-      link: './s_view.html',
-      count: 1,
-      sold: 500,
-      photo: 'img/mall/tent_1@2x.png',
-    },
-    {
-      name: '安全座椅',
-      price: '1' + `,` + '200',
-      src: 'img/mall/seat1950元-2@2x.png',
-      link: '',
-    },
-    {
-      name: '成長碗架',
-      price: '279',
-      src: 'img/mall/成長碗架279元@2x.png',
-      link: '',
-    },
-    {
-      name: '吸水墊',
-      price: '699',
-      src: 'img/mall/吸水墊699元@2x.png',
-      link: '',
-    },
-    {
-      name: '奧利反光寵物胸背帶',
-      price: '699',
-      src: 'img/mall/奧利反光寵物胸背帶699元@2x.png',
-      link: '',
-    },
-    {
-      name: '波浪斜坡寵物樓梯',
-      price: '1' + `,` + '590',
-      src: 'img/mall/波浪斜坡寵物樓梯1590元@2x.png',
-      link: '',
-    },
-    {
-      name: '糰子貓宅',
-      price: '2' + `,` + '490',
-      src: 'img/mall/糰子貓宅2490元@2x.png',
-      link: '',
-    },
-    {
-      name: '寵物碗架組',
-      price: '2' + `,` + '250',
-      src: 'img/mall/寵物碗架組2250元@2x.png',
-      link: '',
-    },
-    {
-      name: '貓抓柱',
-      price: '1' + `,` + '690',
-      src: 'img/mall/貓抓柱1690元@2x.png',
-      link: '',
-    },
-    {
-      name: '鯊魚造型貓窩',
-      price: '479',
-      src: 'img/mall/鯊魚造型貓窩NT479@2x.png',
-      link: '',
-    },
-    {
-      name: '黑六角椅墊組',
-      price: '3' + `,` + '350',
-      src: 'img/mall/黑六角椅墊組3350元@2x.png',
-      link: '',
-    },
-    {
-      name: '太空艙',
-      price: '500' + `,` + '000',
-      src: 'img/mall/4@2x.png',
-      link: '',
-    },
-  ],
+  info: [],
 
   food: [
     {
@@ -191,6 +116,13 @@ let data = {
 new Vue({
   el: '#formall',
   data: data,
+  created() {
+    var self = this;
+    //對前端頁面資料進行初始化
+    axios.post('php/front_end_API/y_select.php').then(function (res) {
+      self.info = res.data;
+    });
+  },
   methods: {
     showInput() {
       if (this.clicked == false) {
@@ -210,17 +142,39 @@ new Vue({
       console.log(this.info[0].count);
       this.info[0].count++;
     },
-    addToCart(product) {
-      if (this.chooseItem.indexOf(product) == -1) {
-        this.chooseItem.push(product); //chooseItem['小帳篷']
+    decrease() {
+      console.log(this.info[0].count);
+      if (this.info[0].count > 0) {
+        this.info[0].count--;
+      } else {
+        return 0;
       }
+    },
+    addToCart(product1, product2, product3) {
+      if (this.chooseItem.indexOf(product1 && product2 && product3) == -1) {
+        this.chooseItem.push(product1, product2, product3); //chooseItem['陣列']
+        console.log(this.chooseItem);
+      }
+    },
+    removeToCart() {
+      let result = $.map(this.chooseItem, function (item) {
+        return item.name;
+      });
+      console.log(result[0]);
+      for (let i = 0; i < result.length; i++) {
+        if (result[i] === result[i]) {
+          console.log('aa');
+        }
+      }
+      // 箭頭函式，尋找陣列chooseItem中符合的元素，並返回其 index值，每個元素都會執行cllback function，如果參數item(陣列元素)也存在於陣列裡，返回它的index值
+      // this.chooseItem.splice(index, 1); //刪除該index
     },
   },
   computed: {
     forsup() {
       if (this.input.text) {
         return this.info.filter(
-          itemName => itemName.name.indexOf(this.input.text) !== -1,
+          itemName => itemName.PRODUCT_NAME.indexOf(this.input.text) !== -1,
         );
       } else {
         return this.info;
@@ -229,7 +183,7 @@ new Vue({
     forfood() {
       if (this.input.text) {
         return this.food.filter(
-          itemName => itemName.name.indexOf(this.input.text) !== -1,
+          itemName => itemName.PRODUCT_NAME.indexOf(this.input.text) !== -1,
         );
       } else {
         return this.food;

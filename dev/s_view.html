@@ -8,7 +8,6 @@
   <link rel="stylesheet" type="text/css" href="./vendors/slick/css/slick.css" />
   <link rel="stylesheet" type="text/css" href="./vendors/slick/css/slick-theme.css" />
   <link rel="stylesheet" href="./css/style.css">
-  <script src="./vendors/vue/js/vue.js"></script>
   <title>view</title>
   @@include('layout/style.html')
 </head>
@@ -19,7 +18,7 @@
       @@include('layout/header.html')
       <div class="s_ph">
         <div class="s_big_ph">
-          <img :src="this.info[0].photo" alt="">
+          <img :src="this.info[0].PRODUCT_IMG" alt="">
           <img src="img/mall/tent_1_s@2x.png" class="img_pad">
         </div>
         <div class="s_small_ph">
@@ -30,16 +29,15 @@
       </div>
 
       <div class="s_text">
-        <h3>{{info[0].name}}<br>{{info[0].price}}元<br><span>已售出:{{info[0].sold}}個</span></h3>
+        <h3>{{info[0].PRODUCT_NAME}}<br>{{info[0].PRODUCT_PRICE}}元<br><span>已售出:{{info[0].PRODUCT_SOLD}}個</span></h3>
 
         <div class="s_button">
-          <button @click="addToCart(info[0])" class="s_buy"> <span class="material-icons">shopping_cart</span></button>
+          <button @click="addToCart(info[0],info[1],info[2])" class="s_buy"> <span
+              class="material-icons">shopping_cart</span></button>
           <!-- <button class="s_back">回商品頁</button> -->
           <a href="./Mall.html">回商品頁</a>
         </div>
-        <p>
-          此款帳篷適用於小型犬。簡單的條紋設計，選色清新可愛。<br>天然原木結構，綁帶輕鬆好穩固。內有厚實柔軟的睡墊，一面是冬天好暖不著涼，一面是夏日清爽好舒服。<br>睡墊上含有止滑顆粒，讓寵物安全跑跳不位移。布料使用天然的純棉帆布，不僅透氣而且排濕。入口處的布料，可依寵物高度捲起來固定。<br>睡墊有設計拉鍊，可分開墊子與睡墊套，清潔容易。拆裝容易，收納也很方便。
-        </p>
+        <p>{{info[0].PRODUCT_INFO}}</p>
       </div>
     </div>
     <div class="s_Carousel">
@@ -57,65 +55,10 @@
         <div class="slide_image"><img src="img/mall/R5@2x.png"> </div>
       </section>
     </div>
-    <!-- 燈箱 -->
-    <!-- @@include('layout/shoppingCart_LightBox.html') -->
-    <!-- <div id="i_shoppingCart_bk" class="i_background" style="display:none">
-      <div class="i_lightbox_bk">
-        <a class="i_closeButton">
-          <img src="../img/common/close.png" alt="">
-        </a>
-        <div class="i_lightbox_title">
-          <h2>購物車清單</h2>
-        </div>
-        <div class="i_shoppingCart bar" id="bar">
-          <table>
-            <tr>
-              <td><img src="#" alt=""></td>
-              <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
-              <td>商品商品</td>
-              <td>
-                <i class="fa fa-minus-circle" aria-hidden="true"></i>
-                <input type="text" value="1" readonly="readonly">
-                <i class="fa fa-plus-circle" aria-hidden="true"></i>
-              </td>
-              <td>NT 100元</td>
-            </tr>
-            <tr>
-              <td><img src="#" alt=""></td>
-              <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
-              <td>商品商品</td>
-              <td>
-                <i class="fa fa-minus-circle" aria-hidden="true"></i>
-                <input type="text" value="1" readonly="readonly">
-                <i class="fa fa-plus-circle" aria-hidden="true"></i>
-              </td>
-              <td>NT 100元</td>
-            </tr>
-            <tr>
-              <td><img src="#" alt=""></td>
-              <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
-              <td>商品商品</td>
-              <td>
-                <i class="fa fa-minus-circle" aria-hidden="true"></i>
-                <input type="text" value="1" readonly="readonly">
-                <i class="fa fa-plus-circle" aria-hidden="true"></i>
-              </td>
-              <td>NT 100元</td>
-            </tr>
-          </table>
-          <hr>
-          <div class="i_total">
-            <h3>總價 NT 300元</h3>
-          </div>
-          <a href="s_bill.html" class="i_button">結帳</a>
-        </div>
-      </div>
-    </div> -->
     @@include('layout/footer.html')
   </div>
-  <scrip src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></scrip>
-  <script type="text/javascript" src="./vendors/slick/js/slick.min.js"></script>
+
+
 
   <script>
     //輪播圖
@@ -131,7 +74,7 @@
         responsive: [{
           breakpoint: 768,
           settings: {
-          slidesToShow: 3,
+            slidesToShow: 3,
           }
         }, {
           breakpoint: 520,
@@ -141,29 +84,17 @@
         }]
       });
     });
-
-    //popup
-
-    // var shoppingcartbk = document.getElementById("i_shoppingCart_bk");
-    // $('.s_buy').click(function () {
-    //   shoppingcartbk.style.display = "block";
-    // });
-
-    // $('.i_closeButton').click(function () {
-    //   shoppingcartbk.style.display = "none";
-    // });
   </script>
-  <!-- <script>
-    new Vue({
-      el: "#buy",
-      data: { name: "寵物休閒小帳棚", price: 2500, sold: 1, photo: "img/mall/tent_1@2x.png", },
-      methods: {
-        // addCart() {
-        //   this.name ==
-        // }
-      }
-    })
-  </script> -->
+
+
+
+  <!-- axios -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  <!-- Vue -->
+  <script src="./vendors/vue/js/vue.js"></script>
+  <scrip src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></scrip>
+  <script type="text/javascript" src="./vendors/slick/js/slick.min.js"></script>
   <!-- 購物車組件 -->
   <!-- <script src="js/cart_component.js"></script> -->
   <!-- 打開與關閉購物車 -->

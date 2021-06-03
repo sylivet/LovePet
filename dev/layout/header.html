@@ -1,7 +1,8 @@
 <header id="formall">
   <!-- 購物車 -->
   <div class="yu_wrapper">
-    <the-cart @toplus="increase" :counts="chooseItem"></the-cart>
+    <the-cart @to-plus="increase" @to-sub="
+    decrease" @to-remove="removeToCart" :counts="chooseItem"></the-cart>
     <!-- 父元件接收自訂事件toplus -->
     <!-------------- m_header ----------------->
     <div class=" m_header m_toggle">

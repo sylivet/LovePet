@@ -88,22 +88,21 @@
         <h2>購物車清單</h2>
       </div>
       <div class="i_shoppingCart bar" id="bar">
-        <table v-for="(item,index) in chooseProduct">
+        <table v-for="(item,index) in counts">
           <tr>
-            <td><img :src="item.photo" alt=""></td>
+            <td><img :src="item.PRODUCT_IMG" alt=""></td>
             <td>
-              <div class="icon">&times;</div>
+              <div @click="remove" class="icon">&times;</div>
             </td>
-            <td>{{item.name}}</td>
+            <td>{{item.PRODUCT_NAME}}</td>
             <td>
               <div @click="sub" class="icon">−</div>
               <!-- 做click事件 -->
               <input type="text" :value="item.count" readonly="readonly">
               <div @click="plus" class="icon">+</div>
             </td>
-            <td>NT{{item.price}}元</td>
+            <td>NT{{item.PRODUCT_PRICE}}元</td>
           </tr>
-
         </table>
         <hr>
         <div class="i_total">

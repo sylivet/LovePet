@@ -5,14 +5,10 @@
   $db_user = "root";
   //$db_pass = "ac1234zxc";
   $db_select = "LOVE_PET";
-  $db_pass = "co01co01241";
+  $db_pass = "kevin820304";
 
   //建立資料庫連線物件
   $dsn = "mysql:host=".$db_host.";dbname=".$db_select;
 
   //建立PDO物件，並放入指定的相關資料
   $pdo = new PDO($dsn, $db_user, $db_pass);
-
-
-
-?>

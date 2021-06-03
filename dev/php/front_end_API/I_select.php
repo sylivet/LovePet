@@ -15,4 +15,3 @@
     // PDO::FETCH_NUM 返回以數字作為索引鍵(KEY)的陣列(ARRAY)，由0開始編號
 
     echo json_encode($data);
-?>
