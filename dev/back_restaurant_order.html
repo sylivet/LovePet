@@ -24,7 +24,7 @@
 				/* outline: none; */
 			}
 			.orderdetail{
-				width: 400px;
+				width: 600px;
 				padding: 20px;
 				background-color: #D3E0BE;
 				box-sizing: border-box;
@@ -226,20 +226,7 @@
 			</div>
 		</div>
 
-		<div class="orderdetail" style="display: none;">
-			<h4 class="r_close" style="cursor: pointer;">X</h4>
-			<h4>訂單明細</h4>
-			<div class="r_membername">訂單人:${res.data[i].NAME}</div>
-			<div class="r_people">預約人數:${res.data[i].NUM_OF_PEOPLE}</div>
-			<div class="r_pets">預約寵物數:${res.data[i].NUM_OF_PETS}</div>
-			<div class="r_bookingdate">成立日期:${res.data[i].CREATE_DATE}</div>
-			<div class="r_creategdate">預約日期:${res.data[i].BOOKING_DATE}</div>
-			<div class="r_dishes">菜單名稱:
-				<ul>
-					<li>${res.data[i].MEAL_NAME}<span>*${res.data[i].MEAL_AMOUNT}份</span></li>
-				</ul>
-			</div>
-		</div>
+		<div class="orderdetail" style="display: none;"></div>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
@@ -247,7 +234,6 @@
 			axios.post("php/back_end_API/R_select_order.php").then((res) => {
 				getData(res);
 				$('.R_orderNumber').text(res.data.length)
-				// console.log(res.data);
 			});
 
 
@@ -295,6 +281,7 @@
 					$(".data").append(data);
 				}
 			}
+
 
 			//編輯
 			$(".data").on("click", ".edit", function (e) {
@@ -361,39 +348,136 @@
 					}
 			});
 
-			// 明細
-			$(".data").on("click", ".detail", function (e) {
-				axios.post("php/back_end_API/R_select_order_detail.php").then((res) => {
-				getDetail(res)
-				$(".orderdetail").toggle()
+
+
+
+
+			// 菜單明細
+			$(".data").on("click", ".detail", function () {
+				$(".orderdetail").html("");
+
+				let RESTAURANT_ORDER_ID = $(this).parent().find("input[name='RESTAURANT_ORDER_ID']").val();
+				let BOOKING_DATE = $(this).parent().find("input[name='BOOKING_DATE']").val();
+				let NUM_OF_PEOPLE = $(this).parent().find("input[name='NUM_OF_PEOPLE']").val();
+				let NUM_OF_PETS = $(this).parent().find("input[name='NUM_OF_PETS']").val();
+				let ORDER_STATUS = $(this).parent().find("select[name='ORDER_STATUS']").val();
+				let FK_MEMBER_ID = $(this).parent().find("td.FK_MEMBER_ID").text();
+
+				// 取訂單明細AJAX
+				$.ajax({
+					method: "POST",
+					url: "php/back_end_API/R_select_order_detail.php",
+					data:{
+						'RESTAURANT_ORDER_ID': RESTAURANT_ORDER_ID
+					},
+					dataType: "text",
+					success: function (res) {
+						let newres = JSON.parse(res)
+						getDetail(newres,RESTAURANT_ORDER_ID,BOOKING_DATE,NUM_OF_PEOPLE,NUM_OF_PETS,ORDER_STATUS,FK_MEMBER_ID)
+					},
+					error: function(exception) {
+						alert("修改失敗")
+					}
 				});
 			});
 
-			$('.r_close').click(function(){
-				$(this).closest('.orderdetail').hide()
-			})
+			
 
-			function getDetail(res){
-				console.log(res.data);
+			// 取訂單明細
+			function getDetail(newres,RESTAURANT_ORDER_ID,BOOKING_DATE,NUM_OF_PEOPLE,NUM_OF_PETS,ORDER_STATUS, FK_MEMBER_ID){
+				let detail = `
+					<h4 class="r_close">X</h4>
+					<h4>訂單明細</h4>
+					<div class="r_membername">會員編號:${FK_MEMBER_ID}</div>
+					<div class="r_people">預約人數:${NUM_OF_PEOPLE}人</div>
+					<div class="r_pets">預約寵物數:${NUM_OF_PETS}隻</div>
+					<div class="r_creategdate">預約日期:${BOOKING_DATE}</div>
+					<div class="r_dishes"><h4>菜單名稱:</h4>
 
-					// let detail = `
-					// <h4 class="r_close">X</h4>
-					// <h4>訂單明細</h4>
-					// // <div class="r_membername">訂單人:${res.data[i].NAME}</div>
-					// <div class="r_people">預約人數:${res.data[i].NUM_OF_PEOPLE}</div>
-					// <div class="r_pets">預約寵物數:${res.data[i].NUM_OF_PETS}</div>
-					// <div class="r_bookingdate">成立日期:${res.data[i].CREATE_DATE}</div>
-					// <div class="r_creategdate">預約日期:${res.data[i].BOOKING_DATE}</div>
-					// <div class="r_dishes">菜單名稱:
-					// 	<ul>
-					// 		<li>${res.data[i].MEAL_NAME}<span>*${res.data[i].MEAL_AMOUNT}份</span></li>
-					// 	</ul>
-					// </div>
-					// `
+					</div>
+					<div class="r_Customdishes"><h4>客製菜單:</h4>
 
-					// $(".orderdetail").append(detail);
+					</div>
+					<div class="r_status"><h4>訂單狀態:</h4>${ORDER_STATUS === "1"? "已完成" : "未完成" }</div>
+					`
+					$(".orderdetail").append(detail);
+
+
+					for(let i = 0 ; i<newres.length; i++){
+
+						let dishes = `
+							<ul>
+								<li>
+									${i+1}.${newres[i].MEAL_NAME} * ${newres[i].MEAL_AMOUNT}份
+								</li>
+							</ul>
+						`
+						$(".r_dishes").append(dishes);
+					}
+
+					// 取客製菜單AJAX
+					$.ajax({
+					method: "POST",
+					url: "php/back_end_API/R_select_order_Customdetail.php",
+					data:{
+						'RESTAURANT_ORDER_ID': RESTAURANT_ORDER_ID
+					},
+					dataType: "text",
+					success: function (res) {
+						let newres = JSON.parse(res)
+						getCustomDetail(newres)
+					},
+					error: function(exception) {
+						alert("修改失敗")
+					}
+				});
+
+
+				// 關閉明細燈箱
+				$('.r_close').click(function(){
+						$(this).closest('.orderdetail').fadeOut()
+				})
 			}
+				
+
+				// 取客製菜單
+				function getCustomDetail(newres){
+						$(".orderdetail").fadeToggle()
+						let j = 1
+						// 每五個取客製份數
+						for(let i = 0 ; i<newres.length; i+=5){
+							
+								let dishes = `
+									<ul>
+										<li>
+											${j}.<span class="dishName${j++}"></span>* <span class="dishAmonut">${newres[i].MEAL_COSTURMRIZE_AMOUNT}</span>份
+										</li>
+									</ul>
+								`
+								$(".r_Customdishes").append(dishes);
+
+
+						}
+
+
+						// 每一個取客製餐點
+						let k = 1
+						for(let i = 0 ; i<newres.length; i++){
+							
+							$(`.dishName${k}`).append(`<span>${newres[i].ingredients},</span>`);
+
+							if((i+1)%5===0){
+								k++
+							}
+						}
+				}
+
+
+
 
 		</script>
 	</body>
 </html>
+
+
+
