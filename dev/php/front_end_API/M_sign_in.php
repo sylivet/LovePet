@@ -3,6 +3,9 @@
     $account = $_POST["account2"];
     $pwd = $_POST["pwd2"];
 
+    // $account = 'a111111@yahoo.com.tw';
+    // $pwd = '1111';
+
 
     // ========= 取得與資料庫連線 ========== //
     include("../M_conn.php");
@@ -19,16 +22,17 @@
      $statement->execute();
      $data = $statement->fetch();
  
-
+     //echo $data['MEMBER_ID'];
+        
      //依資料筆數判斷是否為會員
-     if(count($data) > 0){
+     if( !empty($data) ){
 
-        //echo json_encode('good');
 
         session_start();
-        $_SESSION["memberID"] = $account; 
+        $_SESSION["memberID"] = $data['MEMBER_ID']; 
 
-        // echo $_SESSION["memberID"];
+        //echo $_SESSION["memberID"];
+        
         //echo json_encode($_SESSION["memberID"]); 
         // session_unset();
         // session_destroy();
@@ -48,7 +52,7 @@
  
      }else{
          //跳出提示停留在後台登入頁
-         echo "<script>alert('帳號或密碼錯誤!'); location.href = '../Login.html';</script>"; 
+         echo  json_encode('nonedata');  
  
      }
 ?>
