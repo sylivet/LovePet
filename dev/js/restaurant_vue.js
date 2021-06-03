@@ -34,11 +34,11 @@ Vue.component("booking", {
               'numberOfKids': this.numberOfKids,
               'numberOfDogs': this.numberOfDogs,
               'numberOfCats': this.numberOfCats,
-              'food': this.food
             },            
             dataType: "text",
             success: (res)=> {
-              console.log(res);
+              // console.log(res);
+              this.another()
             },
             error: function(exception) {
                 alert("數據載入失敗: " + exception.status);
@@ -46,13 +46,26 @@ Vue.component("booking", {
         });
         }
       }
-    console.log(this.CREATE_DATE);
-    console.log(this.BOOKING_DATE);
-    console.log(this.numberOfAdults);
-    console.log(this.numberOfKids);
-    console.log(this.numberOfDogs);
-    console.log(this.numberOfCats);
-    console.log(this.food);
+  },
+  another(){
+    axios.get("php/back_end_API/R_select_order.php").then((res)=>{
+        $.ajax({            
+          method: "POST",
+          url: "php/front_end_API/R_Insert_booking_Detail.php",
+          data:{
+            'FK_RESTAURANT_ORDER_ID': 11, //res.data[res.data.length-1].RESTAURANT_ORDER_ID,
+            'MEAL_AMOUNT': 1, //this.food.MEAL_AMOUNT,
+            'food': 20 //this.food.MEAL_DATA_ID
+          },            
+          dataType: "text",
+          success: (res2)=> {
+            console.log(res2);
+          },
+          error: function(exception) {
+              alert("數據載入失敗: " + exception.status);
+          }
+        });
+      })
     }
   },
   computed: {
@@ -188,16 +201,16 @@ let vm = new Vue({
     loginCheck(){
       $.ajax({            
         method: "POST",
-        url: "php/front_end_API/R_LoginCheck.php",
+        url: "php/front_end_API/M_getsession_MID.php",
         data:{},            
         dataType: "text",
         success: (response)=> {
-            if(response == ""){
+            if(response == "N"){
                 // 尚未登入->前往Login.php
-                // alert('請先登入會員'); 
-                // $('#m_sign_in_bk').show()
-                this.isBookingBoxOpen = true
+                alert('請先登入會員'); 
+                $('#m_sign_in_bk').show()
               }else{
+                this.isBookingBoxOpen = true
                 sessionStorage.clear()
             }              
         },
@@ -298,9 +311,15 @@ let vm = new Vue({
 
     // 加入菜單
     chooseFood(food) {
-      if (this.allFoodSelection.indexOf(food) == -1) {
+      // 因為localstorage 傳參改變，改判斷MEAL_NAME
+      let check = this.allFoodSelection.some((item)=>{
+        return item.MEAL_NAME === food.MEAL_NAME
+      })
+
+      if(!check){
         this.allFoodSelection.push(food);
       }
+
       this.isLightBoxOpen = false
     },
     // 移除菜單
@@ -320,7 +339,9 @@ let vm = new Vue({
       this.isLightBoxOpen = true
       this.forLightBoxInfo = this.allFoodMenu.find(item=>item === food)
     },
-
+    font(){
+      window._jf.flush()
+    }
   },
   computed: {
     //菜單總價

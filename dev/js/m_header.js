@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function(){
   let m_control = document.querySelector('#m_header_control');
   m_control.addEventListener('click',function(){
 
+    //alert('測試按鈕!!!');
     //----------------- 用 JQuery $.ajax 嘗試去做判斷 (成功 ----------------//
     $.ajax({
       method: "POST",
@@ -76,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function(){
       data: {},
       dataType: "text",
       success: function success(response) {
-        if (response.indexOf("@") == -1 && response.indexOf("com") == -1 ) {
+        if (response == "N"){
             //alert(response); //查看 member ID
              //alert('歡迎登入會員');
              m_sign_in_bk.style.display = "block";
@@ -86,14 +87,17 @@ document.addEventListener("DOMContentLoaded", function(){
                 //------------------------- m_member_information -------------------------//會員資訊
 
                 let m_details_o =  localStorage.getItem('m_datainfro');//轉型
+                let m_header = document.querySelector('.m_header');
+                m_header.classList.toggle('m_toggle');
+
                 if(m_details_o != ''){
                 let m_details_ok =  JSON.parse(m_details_o);
-                document.getElementById('m_nickname').innerText = m_details_ok['NICKNAME'];
-                document.getElementById('m_pic').src = m_details_ok['MEMBER_IMG'];
+                console.log( m_details_ok );
+                //console.log(m_details_ok['NICKNAME']);
+                 document.getElementById('m_nickname').innerText = m_details_ok['NICKNAME'];
+                 document.getElementById('m_pic').src = m_details_ok['MEMBER_IMG'];
               }
-
-          let m_header = document.querySelector('.m_header');
-          m_header.classList.toggle('m_toggle');
+          
         }
       },
       error: function error(exception) {
@@ -249,7 +253,7 @@ for( let i=0; i<input_js.length; i++){
 
 
 
-//============================ 登入function ================================//
+// //============================ 登入function ================================//
  	function M_sign_in(){
     let account = document.getElementById('m_account').value;
     let pwd = document.getElementById('m_pwd').value;
@@ -265,13 +269,18 @@ for( let i=0; i<input_js.length; i++){
       let m_data = JSON.parse(xhr.responseText);
       //alert(m_data);
 
+      if( m_data != 'nonedata' ){
       localStorage.setItem('m_datainfro',xhr.responseText); //存入storage
       console.log(m_data);
       alert(`歡迎 使用者${m_data.NICKNAME} 回來!`);
       m_sign_in_bk.style.display = "none";
+      }else{
+
+        alert('帳號或密碼錯誤，請再重新輸入')
+      }
 
     }else{
-      //alert(`您好，帳號或密碼錯誤`);
+      
       alert(`連結未成功，狀態為${xhr.status}`);
       console.log(xhr.status);
     }
@@ -293,4 +302,5 @@ xhr.send('account2='+ account +'&'+ 'pwd2='+ pwd );
   //1111
 
 	}
+
 
