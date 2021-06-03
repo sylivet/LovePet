@@ -1,6 +1,33 @@
 
 document.addEventListener("DOMContentLoaded", function(){
 
+  //======================== 是否登入的 ""呈現"" ===============================//
+  $.ajax({
+    method: "POST",
+    url: "./php/front_end_API/M_getsession_MID.php",
+    data: {},
+    dataType: "text",
+    success: function success(response) {
+      let res = JSON.parse(response);
+      //alert(res);
+      if (res == "N"){
+      //alert('no member');
+      $('#m_header_control').attr('style','color:orange;');
+
+      } else {
+      //alert('yes member');
+      $('#m_header_control').removeAttr('style');  
+        
+      }
+    },
+    error: function error(exception) {
+      alert("數據載入失敗: " + exception.status);
+    }
+  });
+
+
+
+
   //====================== m_sign_in / up ==========================//
   
   let m_sign_btn = document.getElementById('m_sign_btn');
@@ -30,14 +57,16 @@ document.addEventListener("DOMContentLoaded", function(){
           //alert(response);
           let m_header = document.querySelector('.m_header');
           m_header.classList.toggle('m_toggle');
+         $('#m_header_control').attr('style','color:orange;');
         },
         error: function error(exception) {
           alert("數據載入失敗: " + exception.status);
         }
       });
+
     }else{
-      let m_header = document.querySelector('.m_header');
-      m_header.classList.toggle('m_toggle');
+      // let m_header = document.querySelector('.m_header');
+      // m_header.classList.toggle('m_toggle');
     };
 
   });
@@ -77,7 +106,10 @@ document.addEventListener("DOMContentLoaded", function(){
       data: {},
       dataType: "text",
       success: function success(response) {
-        if (response == "N"){
+
+        let res =  JSON.parse(response);
+
+        if (res == "N"){
             //alert(response); //查看 member ID
              //alert('歡迎登入會員');
              m_sign_in_bk.style.display = "block";
@@ -85,10 +117,12 @@ document.addEventListener("DOMContentLoaded", function(){
         } else {
 
                 //------------------------- m_member_information -------------------------//會員資訊
-
-                let m_details_o =  localStorage.getItem('m_datainfro');//轉型
+                
+                
                 let m_header = document.querySelector('.m_header');
                 m_header.classList.toggle('m_toggle');
+
+                let m_details_o =  localStorage.getItem('m_datainfro');//轉型
 
                 if(m_details_o != ''){
                 let m_details_ok =  JSON.parse(m_details_o);
@@ -273,9 +307,10 @@ for( let i=0; i<input_js.length; i++){
       localStorage.setItem('m_datainfro',xhr.responseText); //存入storage
       console.log(m_data);
       alert(`歡迎 使用者${m_data.NICKNAME} 回來!`);
+      $('#m_header_control').removeAttr('style');  
       m_sign_in_bk.style.display = "none";
-      }else{
 
+      }else{
         alert('帳號或密碼錯誤，請再重新輸入')
       }
 

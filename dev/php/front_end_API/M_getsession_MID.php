@@ -6,7 +6,7 @@
         }
         //$_SESSION["memberID"] = $account; 
 
-        echo isset($_SESSION["memberID"])  ?  json_encode($_SESSION["memberID"]) : "N";
+        echo isset($_SESSION["memberID"])  ?  json_encode($_SESSION["memberID"]) : json_encode("N");
 
         // session_unset();
         // session_destroy();

@@ -8,6 +8,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     @@include('layout/style.html')
+    <style>
+      body{
+        overflow: auto;
+      }
+      input{
+        width: 100px;
+      }
+  
+    </style>
     <title>樂寵後台管理</title>
 </head>
 
@@ -101,7 +110,7 @@
                 <table class="table table-striped table-hover text-center">
                     <thead>
                         <tr class="table-warning">
-                            <th>會員編號</th>
+                            <th>編號</th>
                             <th>會員帳號</th>
                             <th>會員稱呼</th>
                             <th>會員全名</th>
@@ -138,12 +147,12 @@
               <tr class="dataTable">
                     <td style="display: none"><input value="${res.data[i].MEMBER_ID}" name="MEMBER_ID" disabled readonly></td>
                     <td>${res.data[i].MEMBER_ID}</td>
-                    <td><input type="text" name="ACCOUNT" value="${res.data[i].ACCOUNT}" disabled></td>
+                    <td><input type="text" name="ACCOUNT" value="${res.data[i].ACCOUNT}" disabled style="width:200px;"></td>
                     <td><input type="text" name="NICKNAME" value="${res.data[i].NICKNAME}" disabled></td>
                     <td><input type="text" name="NAME" value="${res.data[i].NAME}" disabled></td>
-                    <td><input type="text" name="ADDRES" value="${res.data[i].ADDRES}" disabled></td>
+                    <td><input type="text" name="ADDRES" value="${res.data[i].ADDRES}" disabled style="width:300px;"></td>
                     <td><input type="text" name="PHONE" value="${res.data[i].PHONE}" disabled></td>
-                    <td><input type="text" name="AUTHORITY" value="${res.data[i].AUTHORITY}" disabled></td>
+                    <td ><input type="text" name="AUTHORITY" value="${res.data[i].AUTHORITY}" disabled style="width:30px;"></td>
                     <td>
                       <select name="SUBSCRIPTION" disabled>
                         <option class="noShow" value="${res.data[i].SUBSCRIPTION}" selected>${res.data[i].SUBSCRIPTION}</option>
@@ -152,7 +161,7 @@
                       </select>
                     </td>
                   
-                    <td>
+                    <td >
                       <select name="DELIEVERY_NOTICE" disabled>
                         <option class="noShow" value="${res.data[i].DELIEVERY_NOTICE}" selected>${res.data[i].DELIEVERY_NOTICE}</option>
                         <option value="2">2</option>

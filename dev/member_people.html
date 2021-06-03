@@ -130,18 +130,7 @@
     @@include('layout/footer.html')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script>
-    //====================== m_member_information ==========================//會員資訊
-
-        let m_details_o =  localStorage.getItem('m_datainfro');//轉型
-        let m_details_ok =  JSON.parse(m_details_o);
-        // console.log(m_details_ok);
-        // console.log(typeof(m_details_ok));
-        // console.log(m_details_ok['NICKNAME']); 
-        
-        document.getElementById('m_nickname2').value = m_details_ok['NICKNAME'];
-        document.getElementById('m_pic2').src = m_details_ok['MEMBER_IMG'];
-    </script>
+    <script src="./js/m_member_people.js"></script>
     </body>
 
 </html>
