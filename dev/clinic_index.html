@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,12 @@
     @@include('layout/style.html')
     <title>clinic_index</title>
 </head>
+
 <body>
+    @@include('layout/header.html')
     <div id='app'>
-        @@include('layout/header.html') 
         <div class="c_banner">
-            <img src="./img/clinic/rough_clinic-01@2x.png" >
+            <img src="./img/clinic/rough_clinic-01@2x.png">
         </div>
         <div class="c_nav">
             <ul>
@@ -27,13 +29,18 @@
                     <h3>{{content.title}}</h3>
                     <p>{{content.text}}</p>
                 </div>
-               
+
             </div>
         </div>
 
-        @@include('layout/footer.html')
     </div>
+    @@include('layout/footer.html')
     <script src="./vendors/vue/js/vue.js"></script>
     <script src="./js/clinic_index.js"></script>
+    <!-- 購物車共用組件 -->
+    <script src="js/mall_vue.js"></script>
+    <!-- 打開與關閉購物車 -->
+    <script src="js/shopping_cart.js"></script>
 </body>
+
 </html>

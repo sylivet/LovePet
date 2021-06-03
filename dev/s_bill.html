@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,149 +8,154 @@
   <script src="./vendors/vue/js/vue.js"></script>
   @@include('layout/style.html')
 </head>
+
 <body class="bill">
 
   <div class="bill_wrapper">
     @@include('layout/header.html')
 
-      <div class="bill_main" >
-        <div class="s_order"  id="sMember">
-          <h4>訂購人資料</h4>
-          <ul class="s_member">
-            <li>姓名：<span>{{name}}</span></li>
-            <li>e-mail：<span>{{mail}}</span></li>
-            <li>連絡電話：<span>{{phone}}</span></li>
-            <li>地址：<span>{{ADD}}</span></li>
-          </ul>
-        </div>
-
-        <form class="s_ATTN" id="sATTN">
-          <div class="s_radio">
-            <h4>收件人資料&nbsp;<input type="radio"><label>同訂購人</label></h4>     
-          </div>
-          <div class="s_name">
-            <label>姓名</label>
-            <input type="text" v-model="name">
-          </div>
-          <div class="s_mail">
-            <label>e-mail</label>
-            <input type="email" v-model="mail">
-          </div>
-          <div class="s_phone">
-            <label>連絡電話</label>
-            <input type="tel" v-model="phone">
-          </div>
-          <div class="s_add">
-            <label>地址</label>
-            <div class="s_postoffice">
-              <select>
-                <option value="">基隆市</option>
-                <option value="">台北市</option>
-                <option value="">新北市</option>
-                <option value="">台北市</option>
-                <option value="">桃園市</option>
-                <option value="">新竹市</option>
-                <option value="">新竹縣</option>
-                <option value="">苗栗縣</option>
-                <option value="">台中市</option>
-                <option value="">彰化縣</option>
-                <option value="">南投縣</option>
-                <option value="">雲林縣</option>
-                <option value="">嘉義市</option>
-                <option value="">嘉義縣</option>
-                <option value="">台南市</option>
-                <option value="">高雄市</option>
-                <option value="">屏東縣</option>
-                <option value="">台東縣</option>
-                <option value="">花蓮縣</option>
-                <option value="">宜蘭縣</option>
-                <option value="">澎湖縣</option>
-                <option value="">金門縣</option>
-                <option value="">連江縣</option>
-              </select>
-              <select>
-                <option value="">中山區</option>
-                <option value="">中正區</option>
-              </select>
-              <input type="text">
-            </div>       
-          </div>
-        </form>
-        
-        <div class="s_credit">
-          <h4>付款方式&nbsp;
-            <input type="radio" name="bill">
-            <label >信用卡</label>
-            <input type="radio" name="bill">
-            <label >ATM</label>
-          </h4> 
-          <div class="s_card">
-            <input type="text" maxlength="4">
-            <input type="text" maxlength="4">
-            <input type="text" maxlength="4">
-            <input type="text" maxlength="4">
-            <label>授權碼</label>
-            <input type="text" maxlength="3">
-          </div>
-        </div>
-
-        <div class="s_invoice">
-          <h4>發票資料</h4>
-          <select>
-            <option>個人雲端發票</option>
-            <option>個人紙本發票</option>
-            <option>發票捐贈</option>
-          </select>
-        </div>
-
-        <form class=bill_form>
-          <h3>訂單金額NT<span>3000</span>元</h3>
-          <div class="s_BTN">
-            <a href="Mall.html">回商品頁</a>
-            <input type="submit" value="確認結帳">
-          </div>
-        </form>
+    <div class="bill_main">
+      <div class="s_order" id="sMember">
+        <h4>訂購人資料</h4>
+        <ul class="s_member">
+          <li>姓名：<span>{{name}}</span></li>
+          <li>e-mail：<span>{{mail}}</span></li>
+          <li>連絡電話：<span>{{phone}}</span></li>
+          <li>地址：<span>{{ADD}}</span></li>
+        </ul>
       </div>
-      @@include('layout/footer.html')
-  </div>  
+
+      <form class="s_ATTN" id="sATTN">
+        <div class="s_radio">
+          <h4>收件人資料&nbsp;<input type="radio"><label>同訂購人</label></h4>
+        </div>
+        <div class="s_name">
+          <label>姓名</label>
+          <input type="text" v-model="name">
+        </div>
+        <div class="s_mail">
+          <label>e-mail</label>
+          <input type="email" v-model="mail">
+        </div>
+        <div class="s_phone">
+          <label>連絡電話</label>
+          <input type="tel" v-model="phone">
+        </div>
+        <div class="s_add">
+          <label>地址</label>
+          <div class="s_postoffice">
+            <select>
+              <option value="">基隆市</option>
+              <option value="">台北市</option>
+              <option value="">新北市</option>
+              <option value="">台北市</option>
+              <option value="">桃園市</option>
+              <option value="">新竹市</option>
+              <option value="">新竹縣</option>
+              <option value="">苗栗縣</option>
+              <option value="">台中市</option>
+              <option value="">彰化縣</option>
+              <option value="">南投縣</option>
+              <option value="">雲林縣</option>
+              <option value="">嘉義市</option>
+              <option value="">嘉義縣</option>
+              <option value="">台南市</option>
+              <option value="">高雄市</option>
+              <option value="">屏東縣</option>
+              <option value="">台東縣</option>
+              <option value="">花蓮縣</option>
+              <option value="">宜蘭縣</option>
+              <option value="">澎湖縣</option>
+              <option value="">金門縣</option>
+              <option value="">連江縣</option>
+            </select>
+            <select>
+              <option value="">中山區</option>
+              <option value="">中正區</option>
+            </select>
+            <input type="text">
+          </div>
+        </div>
+      </form>
+
+      <div class="s_credit">
+        <h4>付款方式&nbsp;
+          <input type="radio" name="bill">
+          <label>信用卡</label>
+          <input type="radio" name="bill">
+          <label>ATM</label>
+        </h4>
+        <div class="s_card">
+          <input type="text" maxlength="4">
+          <input type="text" maxlength="4">
+          <input type="text" maxlength="4">
+          <input type="text" maxlength="4">
+          <label>授權碼</label>
+          <input type="text" maxlength="3">
+        </div>
+      </div>
+
+      <div class="s_invoice">
+        <h4>發票資料</h4>
+        <select>
+          <option>個人雲端發票</option>
+          <option>個人紙本發票</option>
+          <option>發票捐贈</option>
+        </select>
+      </div>
+
+      <form class=bill_form>
+        <h3>訂單金額NT<span>3000</span>元</h3>
+        <div class="s_BTN">
+          <a href="Mall.html">回商品頁</a>
+          <input type="submit" value="確認結帳">
+        </div>
+      </form>
+    </div>
+    @@include('layout/footer.html')
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-<script>
-  let vm = new Vue({
+  <script>
+    let vm = new Vue({
       el: '#sMember',
-      data: {     
+      data: {
         name: '王小明',
         mail: 'Ming@gmail.com',
-        phone: '0212345678' ,
-        ADD: '台北市南京東路3段219號5樓',   
+        phone: '0212345678',
+        ADD: '台北市南京東路3段219號5樓',
       },
-  });
-</script>
+    });
+  </script>
 
-<script>
-  let vn = new Vue({
+  <script>
+    let vn = new Vue({
       el: '#sATTN',
-      data: {     
+      data: {
         name: '王小明',
         mail: 'Ming@gmail.com',
         phone: '0212345678',
         // ADD: '台北市南京東路3段219號5樓',   
       },
       methods: {
-        if(radio = true){
-                data = vm.data;
-        } 
+        if(radio = true) {
+          data = vm.data;
+        }
       },
-  });
-</script>
+    });
+  </script>
 
 
 
 
 
-
+  <!-- 購物車共用組件 -->
+  <script src="js/mall_vue.js"></script>
+  <!-- 打開與關閉購物車 -->
+  <script src="js/shopping_cart.js"></script>
 
 </body>
+
 </html>

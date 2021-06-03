@@ -14,7 +14,7 @@
     @@include('layout/header.html')
     <div id="app">
 
-        <!-- 健診報告書 -->
+
         <div class="i_banner">
             <div class="i_banner_left"><img src="img/clinic/headerTree2.png" alt=""></div>
             <div class="i_banner_center">
@@ -25,35 +25,17 @@
             <div class="i_banner_right"><img src="img/clinic/headerTree1.png" alt=""></div>
         </div>
 
-        <div class="c_report_title">
-            <div class="c_report_title_left" v-for='report in reports' v-show='reports[current_report] === report'>
-                <p> {{report.reportNumber}} </p>
-                <p>寵物姓名：{{report.petName}}</p>
-                <p>{{report.checkDate}}</p>
-                
-            </div>
-            <div class="c_report_title_right">
-                <select v-model="current_report">
-                    
-                    <option v-for='(report,index) in reports'  :value="index">{{report.petName}}</option>
-                    
-                </select>
-            </div>
-        </div>
-
+        <!-- 健檢基本資料 -->
+        <report-basic :reports='reports'></report-basic>
 
         <!-- 圖表 -->
-        <!-- <div class="scroll"> -->
-            <div class='chart-container' style="position: relative; max-height:750px; width:70vw; display:block;margin:0 auto;">
-                <canvas id="myChart"></canvas>
-            </div>
-        <!-- </div> -->
+        <report-chart :reports='reports'></report-chart>
 
 
-        <!-- 健檢報告書醫師建議 -->
+
         <div class="i_banner c_illustration">
             <div class="i_banner_left"><img src="img/clinic/headerTree2.png" alt=""></div>
-        
+
             <div class="i_banner_center">
                 <img class="i_clinic_center_left2" src="img/clinic/header_C_left2.png" alt="">
                 <h1><span>健檢</span>報告</h1>
@@ -61,20 +43,15 @@
             </div>
             <div class="i_banner_right"><img src="img/clinic/headerTree1.png" alt=""></div>
         </div>
-        <div class="c_suggestion_background">
-            <div class="c_suggestion">
-                <textarea readonly></textarea>
-            </div>
-            <div class="c_toHomepage">
-                <a href="./clinic_index.html"><button>回到健檢首頁</button></a>
-            </div>
-        </div>
-
+        <!-- 健檢報告書醫師建議 -->
+        <report-suggestion :reports='reports'></report-suggestion>
 
     </div>
-        @@include('layout/footer.html')
+    @@include('layout/footer.html')
 
 
+    <!-- API -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <!-- 卷軸 -->
     <script src="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.js"></script>
     <!-- 圖表chart.js -->
@@ -82,6 +59,10 @@
     <!-- vue.js -->
     <script src="./vendors/vue/js/vue.js"></script>
     <script src="./js/clinic_report.js"></script>
+    <!-- 購物車共用組件 -->
+    <script src="js/mall_vue.js"></script>
+    <!-- 打開與關閉購物車 -->
+    <script src="js/shopping_cart.js"></script>
 
 </body>
 

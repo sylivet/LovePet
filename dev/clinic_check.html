@@ -26,158 +26,158 @@
 
     <div div class="check_main" id="check_main">
 
-      <!-- 套餐 -->     
-        <!-- 套餐1. -->
-        <div class="c_set" id="c_set1">         
-            <div class="c_set_title">
-              <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-              <h4>快速篩檢套餐<br>4000元</h4>
-              <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
+      <!-- 套餐 -->
+      <!-- 套餐1. -->
+      <div class="c_set" id="c_set1">
+        <div class="c_set_title">
+          <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
+          <h4>快速篩檢套餐<br>4000元</h4>
+          <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
+        </div>
+        <div class="c_set_content">
+          <ul v-for="(item, id) in fastTest">
+            <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
+            <li class="item">{{item.LISTNAME}}</li>
+          </ul>
+        </div>
+        <div class="addMenu">
+          <button @click="choice='fast', choicePrice=4000" id="A1001" class="addButton">加入</button>
+        </div>
+      </div>
+      <!-- 套餐2 -->
+      <div class="c_set" id="c_set2">
+        <div class="c_set_title">
+          <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
+          <h4>進階健檢套餐<br>9500元&nbsp;<span>(包含01-08項)</span></h4>
+          <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
+        </div>
+        <div class="c_set_content">
+          <ul v-for="(item, id) in advancedTest">
+            <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
+            <li class="item">{{item.LISTNAME}}</li>
+          </ul>
+        </div>
+        <div class="addMenu">
+          <button @click="choice='advanced', choicePrice=9500" id="A1002" class="addButton">加入
+        </div>
+      </div>
+      <!-- 套餐3. -->
+      <div class="c_set" id="c_set3">
+        <div class="c_set_title">
+          <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
+          <h4>熟齡健檢套餐<br>17000元&nbsp;<span>(包含01-16項)</span></h4>
+          <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
+        </div>
+
+        <div class="c_set_content">
+          <ul v-for="(item, id) in elderTest">
+            <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
+            <li class="item">{{item.LISTNAME}}</li>
+          </ul>
+        </div>
+        <div class="addMenu">
+          <button @click="choice='elder', choicePrice=17000" id="A1003" class="addButton">加入
+        </div>
+      </div>
+      <!-- 加價購 -->
+      <div class="c_plus">
+        <div class="c_plus_title">
+          <img src="./img/clinic/checkplus@2x.png">
+          <h4>加價購&nbsp;<span>(最多可選2項)</span></h4>
+        </div>
+        <p>下列項目任選2項可享9折加價購</p>
+        <div class="c_plus_content">
+          <ul id="plus25" v-for="(item, id) in customTest">
+            <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
+            <li class="item">{{item.LISTNAME}}</li>
+            <li class="cost">{{item.PRICE}}元</li>
+            <li> <img src="./img/clinic/plus@2x.png" class="plus_button" @click="pushItem(item)"></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="clinic_order">
+        <!-- <h3>您選擇的健檢項目</h3> -->
+        <div class="set" id="newSet">
+          <div class="c_set_content" v-if="choice == 'fast'">
+            <div class="c_set" id="c_set1">
+              <div class="c_set_title">
+                <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
+                <h4>快速篩檢套餐<br>4000元</h4>
+                <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
+              </div>
+              <div class="c_set_content">
+                <ul v-for="(item, id) in fastTest">
+                  <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
+                  <li class="item">{{item.LISTNAME}}</li>
+                </ul>
+              </div>
             </div>
-            <div class="c_set_content">
-              <ul  v-for="(item, id) in fastTest">
-                <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
-                <li class="item">{{item.LISTNAME}}</li>
-              </ul>
-            </div>
-            <div class="addMenu">
-              <button @click="choice='fast', choicePrice=4000" id="A1001" class="addButton" >加入</button>
-            </div>  
-        </div> 
-        <!-- 套餐2 -->
-        <div class="c_set" id="c_set2">
+          </div>
+
+          <div class="c_set" id="c_set2" v-if="choice == 'advanced'">
             <div class="c_set_title">
               <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
               <h4>進階健檢套餐<br>9500元&nbsp;<span>(包含01-08項)</span></h4>
               <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
             </div>
             <div class="c_set_content">
-              <ul  v-for="(item, id) in advancedTest">
+              <ul v-for="(item, id) in advancedTest">
                 <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
                 <li class="item">{{item.LISTNAME}}</li>
               </ul>
             </div>
-            <div class="addMenu">
-              <button @click="choice='advanced', choicePrice=9500" id="A1002" class="addButton">加入
-            </div>
-        </div>
-        <!-- 套餐3. -->
-        <div class="c_set" id="c_set3">
+          </div>
+
+          <div class="c_set" id="c_set3" v-if="choice == 'elder'">
             <div class="c_set_title">
               <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
               <h4>熟齡健檢套餐<br>17000元&nbsp;<span>(包含01-16項)</span></h4>
               <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
             </div>
-            
+
             <div class="c_set_content">
-              <ul  v-for="(item, id) in elderTest">
+              <ul v-for="(item, id) in elderTest">
                 <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
                 <li class="item">{{item.LISTNAME}}</li>
               </ul>
             </div>
-            <div class="addMenu">
-              <button @click="choice='elder', choicePrice=17000" id="A1003" class="addButton">加入
-            </div>
-        </div> 
-        <!-- 加價購 -->
-        <div class="c_plus">
-          <div class="c_plus_title">
-            <img src="./img/clinic/checkplus@2x.png">
-            <h4>加價購&nbsp;<span>(最多可選2項)</span></h4>
-          </div>
-          <p>下列項目任選2項可享9折加價購</p>
-          <div class="c_plus_content">
-            <ul id="plus25" v-for="(item, id) in customTest">
-              <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
-              <li class="item">{{item.LISTNAME}}</li>
-              <li class="cost">{{item.PRICE}}元</li>
-              <li> <img src="./img/clinic/plus@2x.png" class="plus_button" @click="pushItem(item)"></li>
-            </ul>           
           </div>
         </div>
 
-        <div class= "clinic_order">
-          <!-- <h3>您選擇的健檢項目</h3> -->
-          <div class="set" id="newSet">
-            <div class="c_set_content" v-if="choice == 'fast'">
-              <div class="c_set" id="c_set1">         
-                <div class="c_set_title">
-                  <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-                  <h4>快速篩檢套餐<br>4000元</h4>
-                  <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
-                </div>
-                <div class="c_set_content">
-                  <ul  v-for="(item, id) in fastTest">
-                    <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
-                    <li class="item">{{item.LISTNAME}}</li>
-                  </ul>
-                </div>
-              </div> 
+        <!-- <h4>加價購</h4> -->
+        <div class="c_plus_1" id="plus_1">
+          <div class="c_plus" v-for="(item,id) in customChoice" v-if="id==0">
+            <div class="c_plus_content">
+              <ul id="plus25">
+                <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
+                <li class="item">{{item.LISTNAME}}</li>
+                <li class="cost" v-if="customChoice.length >= 2">特價{{item.PRICE*0.9}}元</li>
+                <li class="cost" v-else>原價{{item.PRICE}}元</li>
             </div>
-
-            <div class="c_set" id="c_set2" v-if="choice == 'advanced'">
-              <div class="c_set_title">
-                <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-                <h4>進階健檢套餐<br>9500元&nbsp;<span>(包含01-08項)</span></h4>
-                <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
-              </div>
-              <div class="c_set_content">
-                <ul  v-for="(item, id) in advancedTest">
-                  <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
-                  <li class="item">{{item.LISTNAME}}</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="c_set" id="c_set3" v-if="choice == 'elder'">
-              <div class="c_set_title">
-                <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-                <h4>熟齡健檢套餐<br>17000元&nbsp;<span>(包含01-16項)</span></h4>
-                <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
-              </div>
-              
-              <div class="c_set_content">
-                <ul  v-for="(item, id) in elderTest">
-                  <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
-                  <li class="item">{{item.LISTNAME}}</li>
-                </ul>
-              </div>
-            </div> 
           </div>
-
-          <!-- <h4>加價購</h4> -->
-          <div class="c_plus_1" id = "plus_1">
-              <div class="c_plus" v-for="(item,id) in customChoice" v-if="id==0">
-                <div class="c_plus_content">
-                  <ul id="plus25">
-                    <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
-                    <li class="item">{{item.LISTNAME}}</li>
-                    <li class="cost" v-if="customChoice.length >= 2">特價{{item.PRICE*0.9}}元</li>
-                    <li class="cost" v-else>原價{{item.PRICE}}元</li>
-                </div> 
-              </div>  
-          </div>
-
-          <div class="c_plus_2" id = "plus_2">
-            <div class="c_plus" v-for="(item,id) in customChoice" v-if="id==1">
-              <div class="c_plus_content">
-                <ul id="plus25">
-                  <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
-                  <li class="item">{{item.LISTNAME}}</li>
-                  <li class="cost" v-if="customChoice.length >= 2">特價{{item.PRICE*0.9}}元</li>
-                  <li class="cost" v-else>原價{{item.PRICE}}元</li>
-              </div> 
-            </div> 
-          </div>
-        
-          <h4 class="c_price">您選擇的健檢項目總價NT{{totalPrice | currency}}元</h4>
-          <button @click="clearAll">重新選擇</button>
-          <div>
-            <input type="button" value="預約健檢">
-          </div>
-          <a href="clinic_index.html"><button class="back_clinic">回健檢首頁</button></a>    
         </div>
-    </div>  
+
+        <div class="c_plus_2" id="plus_2">
+          <div class="c_plus" v-for="(item,id) in customChoice" v-if="id==1">
+            <div class="c_plus_content">
+              <ul id="plus25">
+                <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
+                <li class="item">{{item.LISTNAME}}</li>
+                <li class="cost" v-if="customChoice.length >= 2">特價{{item.PRICE*0.9}}元</li>
+                <li class="cost" v-else>原價{{item.PRICE}}元</li>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="c_price">您選擇的健檢項目總價NT{{totalPrice | currency}}元</h4>
+        <button @click="clearAll">重新選擇</button>
+        <div>
+          <input type="button" value="預約健檢">
+        </div>
+        <a href="clinic_index.html"><button class="back_clinic">回健檢首頁</button></a>
+      </div>
+    </div>
   </div>
 
   @@include('layout/footer.html')
@@ -185,55 +185,61 @@
   <script src="./vendors/vue/js/vue.js"></script>
   <!-- axios -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  <!-- 購物車共用組件 -->
+  <script src="js/mall_vue.js"></script>
+  <!-- 打開與關閉購物車 -->
+  <script src="js/shopping_cart.js"></script>
+
   <script>
     Vue.filter('currency', function (price) {
       return price.toLocaleString('en-US');
     });
 
     let vm = new Vue({
-      el:"#app",
-      data:{
-        choice:"",
-        choicePrice:"",
-        customChoice:[],
-        checkMenu:[],
+      el: "#app",
+      data: {
+        choice: "",
+        choicePrice: "",
+        customChoice: [],
+        checkMenu: [],
       },
-      computed:{
-        fastTest(){
+      computed: {
+        fastTest() {
           return this.checkMenu.slice(0, 8)
         },
-        advancedTest(){
+        advancedTest() {
           return this.checkMenu.slice(8, 16)
         },
-        elderTest(){
+        elderTest() {
           return this.checkMenu.slice(16, 24)
         },
-        customTest(){
+        customTest() {
           return this.checkMenu.slice(24, 32)
         },
-        totalPrice(){
-          let price1 = this.choicePrice== ""? 0: parseInt(this.choicePrice);
-          let price2 = this.customChoice.length==1? parseInt(this.customChoice[0].PRICE) : 0;
-          let price3 = this.customChoice.length>=2? (parseInt(this.customChoice[0].PRICE)+parseInt(this.customChoice[1].PRICE))*0.9 : 0;
+        totalPrice() {
+          let price1 = this.choicePrice == "" ? 0 : parseInt(this.choicePrice);
+          let price2 = this.customChoice.length == 1 ? parseInt(this.customChoice[0].PRICE) : 0;
+          let price3 = this.customChoice.length >= 2 ? (parseInt(this.customChoice[0].PRICE) + parseInt(this.customChoice[1].PRICE)) * 0.9 : 0;
           return price1 + price2 + price3;
         }
       },
       methods: {
-        clearAll(){
+        clearAll() {
           this.customChoice = [];
           this.choice = "";
-          this.choicePrice="";
+          this.choicePrice = "";
         },
-        pushItem(item){
-          if(!this.customChoice.includes(item)){this.customChoice.push(item)}
+        pushItem(item) {
+          if (!this.customChoice.includes(item)) { this.customChoice.push(item) }
         }
       },
       created() {
-        axios.post("php/front_end_API/C_select.php").then((res)=>{
+        axios.post("php/front_end_API/C_select.php").then((res) => {
           this.checkMenu = res.data
         })
       },
     })
   </script>
-  </body>
+</body>
+
 </html>

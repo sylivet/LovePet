@@ -21,10 +21,10 @@
 <body>
     <!-- header -->
     @@include('layout/header.html')
+    <div id="app">
 
     <!-- 旅館banner動畫 -->
     <!-- 假圖 -->
-    <div id="app">
         <div class="h_banner">
             <img src="img/hotel/h_banner.png" alt="" />
         </div>
@@ -54,7 +54,7 @@
                     <label for="h_toggle" class="h_navbar"><span class="h_title">請選擇房型</span><i
                             class="far fa-chevron-down h_point"></i></label>
                     <ul class="h_dropdown_menu">
-                        <li v-for="room in rooms" class="h_content" @click="dropMenuSelect = room.ROOM_NAME ">
+                        <li v-for="(room,i) in rooms" @click="changeRoom(room, i)" class="h_content">
                             {{room.ROOM_NAME}}</li>
                     </ul>
                 </div>
@@ -183,7 +183,7 @@
         </div>
 
         <!-- 720度環景-->
-        <!-- 不知道怎麼切換標籤時環景圖也換 -->
+
         <section class="h_surrounding_view">
             <div id="h_panorama">
                 <div id="h_controlbtn">
@@ -229,34 +229,33 @@
                         <div class="i_hotel_left">
                             <div id="my-calendar" class="i_calendar"></div>
                             <div class="i_selece_left">
-                                <!-- option 會return string導致加法運算出錯 -->
                                 <div class="i_select">成人
-                                    <select v-model="numberOfAdults" name="numberOfAdults">
+                                    <select v-model.number="numberOfAdults" name="numberOfAdults">
                                         <option selected="selected">0</option>
-                                        <option v-for="room in selectRoom.MAX_CAPACITY" :value="room">{{room}}</option>
+                                        <option v-for="room in selectRoom.MAX_CAPACITY" :value="room" >{{room}}</option>
                                     </select>
                                     人
                                 </div>
                                 <div class="i_select">兒童
-                                    <select v-model="numberOfKids" name="numberOfKids">
+                                    <select v-model.number="numberOfKids" name="numberOfKids">
                                         <option selected="selected">0</option>
-                                        <option v-for="room in selectRoom.MAX_CAPACITY" :value="room">{{room}}</option>
+                                        <option v-for="room in selectRoom.MAX_CAPACITY" :value="room" >{{room}}</option>
                                     </select>
                                     人
                                 </div>
                             </div>
                             <div class="i_selece_right">
                                 <div class="i_select">狗
-                                    <select v-model="numberOfDogs" name="numberOfDogs">
+                                    <select v-model.number="numberOfDogs" name="numberOfDogs">
                                         <option selected="selected">0</option>
-                                        <option v-for="room in selectRoom.MAX_CAPACITY" :value="room">{{room}}</option>
+                                        <option v-for="room in selectRoom.MAX_CAPACITY" :value="room" >{{room}}</option>
                                     </select>
                                     隻
                                 </div>
                                 <div class="i_select">貓
-                                    <select v-model="numberOfCats" name="numberOfCats">
+                                    <select v-model.number="numberOfCats" name="numberOfCats">
                                         <option selected="selected">0</option>
-                                        <option v-for="room in selectRoom.MAX_CAPACITY" :value="room">{{room}}</option>
+                                        <option v-for="room in selectRoom.MAX_CAPACITY" :value="room" >{{room}}</option>
                                     </select>
                                     隻
                                 </div>
@@ -309,6 +308,10 @@
     <!-- 環景 -->
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <script src="js/hotel_vue.js"></script>
+    <!-- 購物車共用組件 -->
+    <script src="js/mall_vue.js"></script>
+    <!-- 打開與關閉購物車 -->
+    <script src="js/shopping_cart.js"></script>
 </body>
 
 </html>

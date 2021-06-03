@@ -217,7 +217,7 @@
       padding-top: 50px;
       padding-left: 90px;
       padding-bottom: 50px;
-
+      overflow: hidden;
       @include pad {
         padding-left: 50px;
       }

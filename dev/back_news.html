@@ -133,9 +133,9 @@
                 <td style="display: none"><input type="text" name="NEWS_IMG" value="${res.data[i].NEWS_IMG}" disabled></td>
                 <td><img src="${res.data[i].NEWS_IMG}" style="width:100px;"></td>
                 <td>
-                  <textarea name="NEWS_CONTENT" id="" cols="30" rows="3" disabled>${res.data[i].NEWS_CONTENT}</textarea>
+                  <textarea name="NEWS_CONTENT" cols="30" rows="3" disabled>${res.data[i].NEWS_CONTENT}</textarea>
                 <td>
-                  <select name="MEAL_STATUS" disabled>
+                  <select name="NEWS_STATUS" disabled>
                     <option class="noShow" value="${res.data[i].NEWS_STATUS}" selected>${res.data[i].NEWS_STATUS === "1"? "上架" : "下架" }</option>
                     <option value="1">上架</option>
                     <option value="0">下架</option>
@@ -156,7 +156,7 @@
       e.preventDefault()
       $(this).parent().find('input, select, textarea').attr('disabled', false)
       $(this).css('display', 'none')
-      $(this).next().css('display', 'block')
+      $(this).next().css('display', 'table-cell')
       $('.noShow').hide()
       isChangeOnShelf = $(this).parent().find("select[name='NEWS_STATUS']").val()
     });
@@ -165,7 +165,7 @@
     $('.data').on('click', '.save', function () {
       $(this).parent().parent().find('input, select, textarea').attr('disabled', true)
       $(this).css('display', 'none')
-      $(this).prev().css('display', 'block')
+      $(this).prev().css('display', 'table-cell')
 
       let NEWS_ID = $(this).parent().find("input[name='NEWS_ID']").val()
       let NEWS_TITLE = $(this).parent().find("input[name='NEWS_TITLE']").val()
@@ -195,7 +195,6 @@
                   axios.post("php/back_end_API/I_select.php").then((res)=>{
                       getData(res)
                   })
-
                   alert("修改成功");
                 },500)
               }else{

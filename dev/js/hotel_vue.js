@@ -2,21 +2,21 @@
 Vue.component("room-booking", {
     props: ['roomtype'],
     template: "#roombookingbox",
-    data(){
+    data() {
         return {
-            numberOfAdults:0,
-            numberOfKids:0,
-            numberOfDogs:0,
-            numberOfCats:0,
+            numberOfAdults: 0,
+            numberOfKids: 0,
+            numberOfDogs: 0,
+            numberOfCats: 0,
         }
-      },
+    },
     methods: {
         closeBox() {
             this.$emit('closelightbox')
         }
     },
     computed: {
-        selectRoom(){
+        selectRoom() {
             return this.roomtype[0];
         }
     }
@@ -29,6 +29,67 @@ let vm = new Vue({
         dropMenuSelect: "時毛玩意",//下拉選單選擇的
         roomSelection: "",//預約的房間
         isBookingBoxOpen: false, // 預約燈箱啟閉
+        index: "",
+        setting: [
+            [//ROOM1
+                {
+                    pitch: -15,
+                    yaw: 240,
+                    type: "info",
+                    text: "防蟻碗架",
+                },
+                {
+                    pitch: -7,
+                    yaw: 247,
+                    type: "info",
+                    text: "小帳棚",
+                },
+            ],
+            [//ROOM2
+                {
+                    pitch: -20,
+                    yaw: 119,
+                    type: "info",
+                    text: "貓抓板",
+                },
+                {
+                    pitch: 24,
+                    yaw: 299,
+                    type: "info",
+                    text: "貓走道",
+                },
+            ],
+            [//ROOM3
+                {
+                    pitch: -8.5,
+                    yaw: 8.7,
+                    type: "info",
+                    text: "貓抓柱",
+                },
+                {
+                    pitch: -20,
+                    yaw: 46,
+                    type: "info",
+                    text: "寵物窩墊",
+                },
+            ],
+            [//ROOM4
+                {
+                    pitch: 10,
+                    yaw: 21,
+                    type: "info",
+                    text: "貓跳台",
+                },
+            ],
+            [//ROOM5
+                {
+                    pitch: -20,
+                    yaw: 140,
+                    type: "info",
+                    text: "漂浮水碗",
+                },
+            ],
+        ],
         rooms: [//資料庫房型資料
             {
                 ROOM_TYPE_ID: 1,
@@ -91,28 +152,33 @@ let vm = new Vue({
             },
         ],
     },
-    // methods:{
-    //     loginChenk(){
-    //         $.ajax({            
-    //           method: "POST",
-    //           url: "php/front_end_API/R_LoginCheck.php",
-    //           data:{},            
-    //           dataType: "text",
-    //           success: (response)=> {
-    //               if(response == ""){
-    //                   // 尚未登入->前往Login.php
-    //                   alert('請先登入會員'); 
-    //                   $('#m_sign_in_bk').show()
-    //                 }else{
-    //                   this.isBookingBoxOpen = true
-    //               }              
-    //           },
-    //           error: function(exception) {
-    //               alert("數據載入失敗: " + exception.status);
-    //           }
-    //       });
-    //       },
-    // },
+    methods: {
+        // loginChenk(){
+        //     $.ajax({            
+        //       method: "POST",
+        //       url: "php/front_end_API/R_LoginCheck.php",
+        //       data:{},            
+        //       dataType: "text",
+        //       success: (response)=> {
+        //           if(response == ""){
+        //               // 尚未登入->前往Login.php
+        //               alert('請先登入會員'); 
+        //               $('#m_sign_in_bk').show()
+        //             }else{
+        //               this.isBookingBoxOpen = true
+        //           }              
+        //       },
+        //       error: function(exception) {
+        //           alert("數據載入失敗: " + exception.status);
+        //       }
+        //   });
+        //   },
+
+        changeRoom(room, i) {
+            this.dropMenuSelect = room.ROOM_NAME
+            this.index = i
+        }
+    },
     computed: {//資料處理
         typeRoom() {//篩選房型，預設時毛玩意
             if (this.dropMenuSelect === "時毛玩意") {
@@ -127,15 +193,7 @@ let vm = new Vue({
         }
 
     },
-    // created(){
-        //var self = this;
-    //     axios.post("php/front_end_API/H_select.php").then((res)=>{
-    //       self.rooms = res.data
-    //     })
-    // },
-
     mounted() {
-
         /*----- 卷軸 -----*/
         Array.prototype.forEach.call(
             document.getElementsByClassName("bar"),
@@ -143,7 +201,7 @@ let vm = new Vue({
                 new SimpleBar(el);
             }
         );
-        
+
         /*----- 月曆 -----*/
         const myCalendar = new TavoCalendar("#my-calendar", {
             date: new Date(),
@@ -151,7 +209,7 @@ let vm = new Vue({
             range_select: true,
         });
         /*----- 720度環景 -----*/
-        pannellum.viewer = pannellum.viewer("h_panorama", {
+        let p = pannellum.viewer("h_panorama", {
             type: "equirectangular",
             panorama: this.typeRoom[0].PANNELLUM,//錯誤==
             // 調整初始畫面位置
@@ -169,40 +227,66 @@ let vm = new Vue({
             mouseZoom: false,
             draggable: false,
             // 寵物用品位置熱點
-            // hotSpots: [
-            //     {
-            //         pitch: -8.5,
-            //         yaw: 8.7,
-            //         type: "info",
-            //         text: "貓抓柱",
-            //     },
-            //     {
-            //         pitch: -20,
-            //         yaw: 46,
-            //         type: "info",
-            //         text: "寵物窩墊",
-            //     },
-            // ],
+            hotSpots: this.setting[0],
         });
+
 
         // Make buttons work (按鈕調整移動畫面)
         document.getElementById("h_arrow_up").addEventListener("click", function (e) {
-            pannellum.viewer.setPitch(pannellum.viewer.getPitch() + 15);
+            p.setPitch(p.getPitch() + 15);
         });
         document.getElementById("h_arrow_down").addEventListener("click", function (e) {
-            pannellum.viewer.setPitch(pannellum.viewer.getPitch() - 15);
+            p.setPitch(p.getPitch() - 15);
         });
         document.getElementById("h_arrow_left").addEventListener("click", function (e) {
-            pannellum.viewer.setYaw(pannellum.viewer.getYaw() - 15);
+            p.setYaw(p.getYaw() - 15);
         });
         document.getElementById("h_arrow_right").addEventListener("click", function (e) {
-            pannellum.viewer.setYaw(pannellum.viewer.getYaw() + 15);
+            p.setYaw(p.getYaw() + 15);
         });
         document.getElementById("h_enlarge").addEventListener("click", function (e) {
-            pannellum.viewer.setHfov(pannellum.viewer.getHfov() - 15);
+            p.setHfov(p.getHfov() - 15);
         });
         document.getElementById("h_narrow").addEventListener("click", function (e) {
-            pannellum.viewer.setHfov(pannellum.viewer.getHfov() + 15);
+            p.setHfov(p.getHfov() + 15);
         });
     },
+    watch: {
+        index() {
+            let p = pannellum.viewer('h_panorama', {
+                "type": "equirectangular",
+                "panorama": this.rooms[this.index].PANNELLUM,
+                "autoLoad": true,
+                "autoRotate": -2,
+                'pitch': -10,
+                'hfov': 180,
+                'autoRotate': -2,
+                'compass': true,
+                'autoLoad': true,
+                'showControls': false,
+                'mouseZoom': false,
+                'draggable': false,
+                hotSpots: this.setting[this.index],
+            });
+
+            document.getElementById("h_arrow_up").addEventListener("click", function (e) {
+                p.setPitch(p.getPitch() + 15);
+            });
+            document.getElementById("h_arrow_down").addEventListener("click", function (e) {
+                p.setPitch(p.getPitch() - 15);
+            });
+            document.getElementById("h_arrow_left").addEventListener("click", function (e) {
+                p.setYaw(p.getYaw() - 15);
+            });
+            document.getElementById("h_arrow_right").addEventListener("click", function (e) {
+                p.setYaw(p.getYaw() + 15);
+            });
+            document.getElementById("h_enlarge").addEventListener("click", function (e) {
+                p.setHfov(p.getHfov() - 15);
+            });
+            document.getElementById("h_narrow").addEventListener("click", function (e) {
+                p.setHfov(p.getHfov() + 15);
+            });
+        }
+    }
 });

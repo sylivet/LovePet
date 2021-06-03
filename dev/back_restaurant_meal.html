@@ -169,7 +169,7 @@
                 <td><input type="text" name="MEAL_MSG" value="${res.data[i].MEAL_MSG}" disabled></td>
                 <td><input type="text" name="MEAL_PRICE" value="${res.data[i].MEAL_PRICE}" class="test" disabled></td>
                 <td style="display: none"><input type="text" name="MEAL_IMG" value="${res.data[i].MEAL_IMG}" disabled></td>
-                <td><img src="${res.data[i].MEAL_IMG}" style="width:30px;"></td>
+                <td><img src="${res.data[i].MEAL_IMG}" style="width:80px;"></td>
                 <td><input type="text" name="MEAL_CAL" value="${res.data[i].MEAL_CAL}" disabled></td>
                 <td>
                   <select name="MEAL_STATUS" disabled>
@@ -194,13 +194,13 @@
         e.preventDefault()
         // 使其無法同時編輯兩個
         $('.data').find('input, select').attr('disabled', true)
-        $('.edit').css('display', 'block')
+        $('.edit').css('display', 'table-cell')
         $('.save').css('display', 'none')
 
 
         $(this).parent().find('input, select').attr('disabled', false)
         $(this).css('display', 'none')
-        $(this).next().css('display', 'block')
+        $(this).next().css('display', 'table-cell')
         $('.noShow').hide()
         isChangeOnShelf = $(this).parent().find("select[name='MEAL_STATUS']").val()
       });
@@ -209,7 +209,7 @@
       $('.data').on('click', '.save', function(){
         $(this).parent().parent().find('input, select').attr('disabled', true)
         $(this).css('display', 'none')
-        $(this).prev().css('display', 'block')
+        $(this).prev().css('display', 'table-cell')
 
         let MEAL_DATA_ID = $(this).parent().find("input[name='MEAL_DATA_ID']").val()
         let MEAL_TYPE = $(this).parent().find("select[name='MEAL_TYPE']").val()

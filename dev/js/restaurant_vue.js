@@ -10,7 +10,7 @@ Vue.component("booking", {
         numberOfKids:"0",
         numberOfDogs:"0",
         numberOfCats:"0",
-        food: null,
+        food: null
     }
   },
   methods: {
@@ -18,26 +18,41 @@ Vue.component("booking", {
       this.$emit('closelightbox')
     },
     booking(){
-      $.ajax({            
-        method: "POST",
-        url: "php/front_end_API/R_Insert_booking.php",
-        data:{
-          'BOOKING_DATE': this.BOOKING_DATE,
-          'CREATE_DATE': this.CREATE_DATE,
-          'numberOfAdults': this.numberOfAdults,
-          'numberOfKids': this.numberOfKids,
-          'numberOfDogs': this.numberOfDogs,
-          'numberOfCats': this.numberOfCats,
-          'food': this.food
-        },            
-        dataType: "text",
-        success: (res)=> {
-          console.log(res);
-        },
-        error: function(exception) {
-            alert("數據載入失敗: " + exception.status);
+      if(!this.BOOKING_DATE){
+        alert('請選預定日期')
+      }else{
+        if(this.numberOfAdults === "0"){
+          alert('請選人數')
+        }else{
+          $.ajax({            
+            method: "POST",
+            url: "php/front_end_API/R_Insert_booking.php",
+            data:{
+              'BOOKING_DATE': this.BOOKING_DATE,
+              'CREATE_DATE': this.CREATE_DATE,
+              'numberOfAdults': this.numberOfAdults,
+              'numberOfKids': this.numberOfKids,
+              'numberOfDogs': this.numberOfDogs,
+              'numberOfCats': this.numberOfCats,
+              'food': this.food
+            },            
+            dataType: "text",
+            success: (res)=> {
+              console.log(res);
+            },
+            error: function(exception) {
+                alert("數據載入失敗: " + exception.status);
+            }
+        });
         }
-    });
+      }
+    console.log(this.CREATE_DATE);
+    console.log(this.BOOKING_DATE);
+    console.log(this.numberOfAdults);
+    console.log(this.numberOfKids);
+    console.log(this.numberOfDogs);
+    console.log(this.numberOfCats);
+    console.log(this.food);
     }
   },
   computed: {
@@ -73,6 +88,11 @@ Vue.component("booking", {
     let m = t.getMonth() + 1
     let d = t.getDate()
     return this.CREATE_DATE = `${y}-${m}-${d}`
+  },
+  watch:{
+    foods(){
+      this.food = this.foods
+    }
   }
 })
 
@@ -146,6 +166,7 @@ Vue.filter('currency', function (price) {
 });
 
 
+
 let vm = new Vue({
   el: "#app",
   data: {
@@ -164,7 +185,7 @@ let vm = new Vue({
     allFoodMenu:[],
   },
   methods: {
-    loginChenk(){
+    loginCheck(){
       $.ajax({            
         method: "POST",
         url: "php/front_end_API/R_LoginCheck.php",
@@ -173,10 +194,10 @@ let vm = new Vue({
         success: (response)=> {
             if(response == ""){
                 // 尚未登入->前往Login.php
-                alert('請先登入會員'); 
-                $('#m_sign_in_bk').show()
-              }else{
+                // alert('請先登入會員'); 
+                // $('#m_sign_in_bk').show()
                 this.isBookingBoxOpen = true
+              }else{
                 sessionStorage.clear()
             }              
         },

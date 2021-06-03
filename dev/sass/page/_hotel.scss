@@ -186,23 +186,6 @@
                     cursor: pointer;
                 }
             }
-
-            .h_last_content{
-                background-color: rgba(0, 0, 0, .3);
-                color: #ffffff;
-                font-family: "setofont","Noto Sans TC", sans-serif;
-                font-size: 16px;
-                font-weight: bold;
-                text-align: center;
-                text-align-last: center;
-                line-height: 36px;
-                border-radius: 0 0 6px 6px;
-    
-                &:hover{
-                    background-color: #558B6E;
-                    cursor: pointer;
-                }
-            }
         }        
         
         #h_toggle{

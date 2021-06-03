@@ -75,3 +75,42 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="js/cursor.js"></script>
+
+
+<!-- 購物車組件 -->
+<script type="text/x-template" id="cart">
+  <div id="i_shoppingCart_bk" class="i_background" style="display:none">
+    <div class="i_lightbox_bk">
+      <a class="i_closeButton">
+        <img src="./img/common/close.png" alt="">
+      </a>
+      <div class="i_lightbox_title">
+        <h2>購物車清單</h2>
+      </div>
+      <div class="i_shoppingCart bar" id="bar">
+        <table v-for="(item,index) in chooseProduct">
+          <tr>
+            <td><img :src="item.photo" alt=""></td>
+            <td>
+              <div class="icon">&times;</div>
+            </td>
+            <td>{{item.name}}</td>
+            <td>
+              <div @click="sub" class="icon">−</div>
+              <!-- 做click事件 -->
+              <input type="text" :value="item.count" readonly="readonly">
+              <div @click="plus" class="icon">+</div>
+            </td>
+            <td>NT{{item.price}}元</td>
+          </tr>
+
+        </table>
+        <hr>
+        <div class="i_total">
+          <h3>總價 NT 81000元</h3>
+        </div>
+        <a href="s_bill.html" class="i_button">結帳</a>
+      </div>
+    </div>
+  </div>
+</script>

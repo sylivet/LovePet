@@ -13,12 +13,14 @@
 
   <!-- 商品區塊 -->
   <div class="supplies_block">
-    <div v-for="(item,index) in result" class="items">
+    <div v-for="(item,index) in forsup" class="items">
       <img :src="item.src" alt="">
       <div class="info_block">
         <h4>{{item.name}}<br>${{item.price}}元</h4>
         <div class="view_btn">
-          <h3>view</h3>
+          <a :href="item.link">
+            <h3>view</h3>
+          </a>
         </div>
       </div>
     </div>
