@@ -53,6 +53,9 @@ body {
         overflow-x:visible;
         cursor: auto;
     }
+    @include mobile{
+        cursor: auto;
+    }
 }
 
 *{

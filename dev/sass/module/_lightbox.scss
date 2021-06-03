@@ -469,7 +469,16 @@
         }
     }
     .alertHotel{
-        color:red;
+        color:#558B6E;
+    }
+    input{
+        background-color: transparent;
+        outline: 0;
+        border: 0;
+        cursor: none;
+        @include mobile{
+            cursor: auto;
+        }
     }
     
 }

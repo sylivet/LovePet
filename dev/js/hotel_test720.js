@@ -83,18 +83,18 @@
 //             draggable: false,
 //             // 寵物用品位置熱點
 //             hotSpots: [
-//                 {
-//                     pitch: -15,
-//                     yaw: 240,
-//                     type: "info",
-//                     text: "防蟻碗架",
-//                 },
-//                 {
-//                     pitch: -7,
-//                     yaw: 247,
-//                     type: "info",
-//                     text: "小帳棚",
-//                 },
+                // {
+                //     pitch: -15,
+                //     yaw: 240,
+                //     type: "info",
+                //     text: "防蟻碗架",
+                // },
+                // {
+                //     pitch: -7,
+                //     yaw: 247,
+                //     type: "info",
+                //     text: "小帳棚",
+                // },
 //             ],
 //         });
 
@@ -145,18 +145,18 @@
 //             draggable: false,
 //             // 寵物用品位置熱點
 //             hotSpots: [
-//                 {
-//                     pitch: -20,
-//                     yaw: 119,
-//                     type: "info",
-//                     text: "貓抓板",
-//                 },
-//                 {
-//                     pitch: 24,
-//                     yaw: 299,
-//                     type: "info",
-//                     text: "貓走道",
-//                 },
+                // {
+                //     pitch: -20,
+                //     yaw: 119,
+                //     type: "info",
+                //     text: "貓抓板",
+                // },
+                // {
+                //     pitch: 24,
+                //     yaw: 299,
+                //     type: "info",
+                //     text: "貓走道",
+                // },
 //             ],
 //         });
 
@@ -207,12 +207,12 @@
 //             draggable: false,
 //             // 寵物用品位置熱點
 //             hotSpots: [
-//                 {
-//                     pitch: 10,
-//                     yaw: 21,
-//                     type: "info",
-//                     text: "貓跳台",
-//                 },
+                // {
+                //     pitch: 10,
+                //     yaw: 21,
+                //     type: "info",
+                //     text: "貓跳台",
+                // },
 //             ],
 //         });
 

@@ -54,7 +54,7 @@
                     <label for="h_toggle" class="h_navbar"><span class="h_title">請選擇房型</span><i
                             class="far fa-chevron-down h_point"></i></label>
                     <ul class="h_dropdown_menu">
-                        <li v-for="room in rooms" class="h_content" @click="dropMenuSelect = room.ROOM_NAME">
+                        <li v-for="(room,i) in rooms" @click="changeRoom(room, i)" class="h_content">
                             {{room.ROOM_NAME}}</li>
                     </ul>
                 </div>
@@ -183,7 +183,7 @@
         </div>
 
         <!-- 720度環景-->
-        <!-- 不知道怎麼切換標籤時環景圖也換 -->
+
         <section class="h_surrounding_view">
             <div id="h_panorama">
                 <div id="h_controlbtn">
