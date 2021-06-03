@@ -29,7 +29,7 @@ let vm = new Vue({
         dropMenuSelect: "時毛玩意",//下拉選單選擇的
         roomSelection: "",//預約的房間
         isBookingBoxOpen: false, // 預約燈箱啟閉
-        index: "",
+        pannellum:null,
         setting: [
             [//ROOM1
                 {
@@ -173,11 +173,33 @@ let vm = new Vue({
         //       }
         //   });
         //   },
-
+        font(){
+            window._jf.flush();//手動更新justfont
+        },
         changeRoom(room, i) {
             this.dropMenuSelect = room.ROOM_NAME
-            this.index = i
-        }
+
+            const self=this;
+            if(self.pannellum){
+                self.pannellum.destroy();
+                self.pannellum=null;
+            }
+            self.pannellum = pannellum.viewer('h_panorama', {
+                "type": "equirectangular",
+                "panorama": self.rooms[i].PANNELLUM,
+                "autoLoad": true,
+                "autoRotate": -2,
+                'pitch': -10,
+                'hfov': 180,
+                'autoRotate': -2,
+                'compass': true,
+                'autoLoad': true,
+                'showControls': false,
+                'mouseZoom': false,
+                'draggable': false,
+                hotSpots: self.setting[i],
+            });
+        },
     },
     computed: {//資料處理
         typeRoom() {//篩選房型，預設時毛玩意
@@ -194,6 +216,7 @@ let vm = new Vue({
 
     },
     mounted() {
+        const self=this;
         /*----- 卷軸 -----*/
         Array.prototype.forEach.call(
             document.getElementsByClassName("bar"),
@@ -209,7 +232,7 @@ let vm = new Vue({
             range_select: true,
         });
         /*----- 720度環景 -----*/
-        let p = pannellum.viewer("h_panorama", {
+        this.pannellum= pannellum.viewer("h_panorama", {
             type: "equirectangular",
             panorama: this.typeRoom[0].PANNELLUM,//錯誤==
             // 調整初始畫面位置
@@ -230,63 +253,24 @@ let vm = new Vue({
             hotSpots: this.setting[0],
         });
 
-
-        // Make buttons work (按鈕調整移動畫面)
+        //按鈕調整移動畫面
         document.getElementById("h_arrow_up").addEventListener("click", function (e) {
-            p.setPitch(p.getPitch() + 15);
+            self.pannellum.setPitch(self.pannellum.getPitch() + 15);
         });
         document.getElementById("h_arrow_down").addEventListener("click", function (e) {
-            p.setPitch(p.getPitch() - 15);
+            self.pannellum.setPitch(self.pannellum.getPitch() - 15);
         });
         document.getElementById("h_arrow_left").addEventListener("click", function (e) {
-            p.setYaw(p.getYaw() - 15);
+            self.pannellum.setYaw(self.pannellum.getYaw() - 15);
         });
         document.getElementById("h_arrow_right").addEventListener("click", function (e) {
-            p.setYaw(p.getYaw() + 15);
+            self.pannellum.setYaw(self.pannellum.getYaw() + 15);
         });
         document.getElementById("h_enlarge").addEventListener("click", function (e) {
-            p.setHfov(p.getHfov() - 15);
+            self.pannellum.setHfov(self.pannellum.getHfov() - 15);
         });
         document.getElementById("h_narrow").addEventListener("click", function (e) {
-            p.setHfov(p.getHfov() + 15);
+            self.pannellum.setHfov(self.pannellum.getHfov() + 15);
         });
     },
-    watch: {
-        index() {
-            let p = pannellum.viewer('h_panorama', {
-                "type": "equirectangular",
-                "panorama": this.rooms[this.index].PANNELLUM,
-                "autoLoad": true,
-                "autoRotate": -2,
-                'pitch': -10,
-                'hfov': 180,
-                'autoRotate': -2,
-                'compass': true,
-                'autoLoad': true,
-                'showControls': false,
-                'mouseZoom': false,
-                'draggable': false,
-                hotSpots: this.setting[this.index],
-            });
-
-            document.getElementById("h_arrow_up").addEventListener("click", function (e) {
-                p.setPitch(p.getPitch() + 15);
-            });
-            document.getElementById("h_arrow_down").addEventListener("click", function (e) {
-                p.setPitch(p.getPitch() - 15);
-            });
-            document.getElementById("h_arrow_left").addEventListener("click", function (e) {
-                p.setYaw(p.getYaw() - 15);
-            });
-            document.getElementById("h_arrow_right").addEventListener("click", function (e) {
-                p.setYaw(p.getYaw() + 15);
-            });
-            document.getElementById("h_enlarge").addEventListener("click", function (e) {
-                p.setHfov(p.getHfov() - 15);
-            });
-            document.getElementById("h_narrow").addEventListener("click", function (e) {
-                p.setHfov(p.getHfov() + 15);
-            });
-        }
-    }
 });

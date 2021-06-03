@@ -620,6 +620,23 @@
 
 /*----- 720度環景 -----*/
 .h_surrounding_view {
+    position: relative;
+    #h_controlbtn{
+        position: absolute;
+        z-index: 2;
+        bottom:1%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .h_ctrl {
+        width: 30px;
+        background-color: #FFC857;
+        color: #ffffff;
+        padding: 8px 5px;  
+        text-align: center;              
+        display: inline-block;
+        cursor: pointer;
+    }
     #h_panorama {
         width: 100%;
         max-height: 1000px;
@@ -639,15 +656,6 @@
             z-index: 2;
             text-align: center;            
 
-            .h_ctrl {
-                width: 30px;
-                background-color: #FFC857;
-                color: #ffffff;
-                padding: 8px 5px;  
-                text-align: center;              
-                display: inline-block;
-                cursor: pointer;
-            }
         }
     }
 }
