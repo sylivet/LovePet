@@ -1,109 +1,170 @@
 .faq_wrapper{
-    width: 85%;
-    background-image: url(img/index/faq_bg.png);
-    border: 2px solid firebrick;
-    // 背景跑不出來
-    margin: 45px auto;
+    width: 100%;
+    background-image: url(../img/index/faq_bg.png);
+    background-repeat: repeat;
 
-    .faq_talk_bubble1{
-        width: 100%;
-        margin-bottom: 20px;
+    .faq_main{
+        width: 85%;
+        margin: 0 auto;
+        padding: 45px 0 27px 0;
 
-        .faq_customer{
-            width: 80px;
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 30px;
+        @include mobile{
+            width: 95%;
         }
 
-        .faq_talk {
-            width: 475px;
-            background-color:rgba(255,200,87,.15);
-            position: relative;
-            display: inline-block;
-            vertical-align: middle;
-            border-radius: 30px;
+        .faq_talk_bubble1{
+            width: 100%;
+            margin-bottom: 20px;
+    
+            .faq_customer{
+                width: 80px;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 30px;
 
-            .faq_talktext{
-                padding: 20px 16px;
-                line-height: 36px;                
-
-                .faq_topic{
-                    color: #707070;
+                @include mobile{
+                    width: 65px;
+                    margin-right: 20px;
                 }
             }
-        }
+    
+            .faq_talk {
+                width: 470px;
+                background-color: #FFF7E5;
+                position: relative;
+                display: inline-block;
+                vertical-align: middle;
+                border-radius: 30px;
 
-        .faq_say1:after{
-            content: ' ';
-            border: 12px solid;
-            border-color: transparent rgba(255,200,87,.15) rgba(255,200,87,.15) transparent;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            left: -24px;
-        }
-    }
+                @include pad{
+                    width: 400px;
+                }
 
-    .faq_talk_bubble2{
-        width: 100%;
-        text-align: right;
-        margin-bottom: 20px;
+                @media (min-width: 429px) and (max-width: 615px){
+                    width: 220px;
+                }
 
-        .faq_talk {
-            width: 1100px;
-            background-color:rgba(255,200,87,.15);
-            position: relative;
-            display: inline-block;
-            vertical-align: middle;
-            border-radius: 30px;
+                @media (min-width: 375px) and (max-width: 428px){
+                    width: 180px;
+                }
 
-            // @media (min-width: 1400px) and (max-width: 1680px) {
-            //     width: 800px;
-            // }
-
-            // @media (min-width: 1281px) and (max-width: 1399px) {
-            //     width: 700px;
-            // }
-
-            // @media notebook {
-            //     width: 600px;
-            //     // 這裡RWD怪怪的
-            // }
-
-            .faq_talktext{
-                padding: 20px 16px;
-                line-height: 36px;                
-
-                .faq_answer{
-                    color: #000000;
-                    text-align: left;
-
-                    img{
-                        width: 100%;
-                        margin-top: 10px;
-                        border-radius: 30px;
-                        border: 2px dashed #f39800;
+                @include iphoneX{
+                    width: 170px;
+                }
+    
+                .faq_talktext{
+                    padding: 20px 16px;
+                    line-height: 36px;
+                    
+                    @include mobile{
+                        padding: 20px 10px;
+                    }                    
+    
+                    .faq_topic{
+                        color: #707070;
                     }
                 }
             }
+    
+            .faq_say1:after{
+                content: ' ';
+                border: 12px solid;
+                border-color: transparent #FFF7E5 #FFF7E5 transparent;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: -24px;
+            }
         }
+    
+        .faq_talk_bubble2{
+            width: 100%;
+            text-align: right;
+            margin-bottom: 20px;
+    
+            .faq_talk {
+                width: 602px;
+                background-color:#FFF7E5;
+                position: relative;
+                display: inline-block;
+                vertical-align: middle;
+                border-radius: 30px;
 
-        .faq_say2:after{
-            content: ' ';
-            border: 12px solid;
-            border-color: rgba(255,200,87,.15) transparent transparent rgba(255,200,87,.15);
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: -24px;
-        }
+                @media (min-width: 1800px) and (max-width: 1920px) {
+                    width: 1100px;
+                }
 
-        .faq_lovepet{
-            width: 80px;
-            display: inline-block;
-            vertical-align: middle;
-            margin-left: 30px;
+                @media (min-width: 1650px) and (max-width: 1799px) {
+                    width: 1000px;
+                }
+    
+                @media (min-width: 1400px) and (max-width: 1649px) {
+                    width: 800px;
+                }
+    
+                @media (min-width: 1281px) and (max-width: 1399px) {
+                    width: 700px;
+                }
+    
+                @include pad{
+                    width: 400px;
+                }
+
+                @media (min-width: 429px) and (max-width: 615px){
+                    width: 220px;
+                }
+
+                @media (min-width: 375px) and (max-width: 428px){
+                    width: 180px;
+                }
+
+                @include iphoneX{
+                    width: 170px;
+                }
+    
+                .faq_talktext{
+                    padding: 20px 16px;
+                    line-height: 36px;
+                    
+                    @include mobile{
+                        padding: 20px 10px;
+                    }
+    
+                    .faq_answer{
+                        color: #000000;
+                        text-align: left;
+    
+                        img{
+                            width: 100%;
+                            margin-top: 10px;
+                            border-radius: 30px;
+                            border: 2px dashed #f39800;
+                        }
+                    }
+                }
+            }
+    
+            .faq_say2:after{
+                content: ' ';
+                border: 12px solid;
+                border-color: #FFF7E5 transparent transparent #FFF7E5;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: -24px;
+            }
+    
+            .faq_lovepet{
+                width: 80px;
+                display: inline-block;
+                vertical-align: middle;
+                margin-left: 30px;
+
+                @include mobile{
+                    width: 65px;
+                    margin-left: 20px;
+                }
+            }
         }
-    }
+    }    
 }

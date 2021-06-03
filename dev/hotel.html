@@ -48,13 +48,13 @@
         <!-- 房型選擇跟介紹-->
         <template v-for="room in typeRoom">
 
-            <div class="h_room">
+            <div class="h_room" @click="font">
                 <div class="h_dropdown">
                     <input id="h_toggle" type="checkbox" />
                     <label for="h_toggle" class="h_navbar"><span class="h_title">請選擇房型</span><i
                             class="far fa-chevron-down h_point"></i></label>
                     <ul class="h_dropdown_menu">
-                        <li v-for="room in rooms" class="h_content" @click="dropMenuSelect = room.ROOM_NAME">
+                        <li v-for="(room,i) in rooms" @click="changeRoom(room, i)" class="h_content">
                             {{room.ROOM_NAME}}</li>
                     </ul>
                 </div>
@@ -183,29 +183,30 @@
         </div>
 
         <!-- 720度環景-->
-        <!-- 不知道怎麼切換標籤時環景圖也換 -->
+
         <section class="h_surrounding_view">
-            <div id="h_panorama">
-                <div id="h_controlbtn">
-                    <div class="h_ctrl" id="h_arrow_up">
-                        <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                    </div>
-                    <div class="h_ctrl" id="h_arrow_down">
-                        <i class="fa fa-arrow-down" aria-hidden="true"></i>
-                    </div>
-                    <div class="h_ctrl" id="h_arrow_left">
-                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                    </div>
-                    <div class="h_ctrl" id="h_arrow_right">
-                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                    </div>
-                    <div class="h_ctrl" id="h_enlarge">
-                        <i class="fa fa-plus" aria-hidden="true"></i>
-                    </div>
-                    <div class="h_ctrl" id="h_narrow">
-                        <i class="fa fa-minus" aria-hidden="true"></i>
-                    </div>
+            <div id="h_controlbtn">
+                <div class="h_ctrl" id="h_arrow_up">
+                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
                 </div>
+                <div class="h_ctrl" id="h_arrow_down">
+                    <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                </div>
+                <div class="h_ctrl" id="h_arrow_left">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                </div>
+                <div class="h_ctrl" id="h_arrow_right">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </div>
+                <div class="h_ctrl" id="h_enlarge">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                </div>
+                <div class="h_ctrl" id="h_narrow">
+                    <i class="fa fa-minus" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div id="h_panorama">
+
             </div>
         </section>
         <room-booking v-show="isBookingBoxOpen" @closelightbox="isBookingBoxOpen = false" :roomtype="typeRoom">
@@ -263,11 +264,19 @@
                         </div>
                         <div class="i_hotel_right">
                           <ul class="i_hotel_bookingcontent">
-                              <li>入住時間：</li>
-                              <li>退房時間：</li>
-                              <li>選擇房型：{{selectRoom.ROOM_NAME}}</li>
+                              <li>
+                                入住時間：
+                                <input type="text" name="BOOKING_CHECKIN_DATE">
+                              </li>
+                              <li>
+                                退房時間：
+                                <input type="text" name="BOOKING_CHECKOUT_DATE" >
+                              </li>
+                              <li>
+                                選擇房型：{{selectRoom.ROOM_NAME}}
+                                <input type="text" :value="selectRoom.ROOM_TYPE_ID" name="FK_ROOM_TYPE_ID">
+                              </li>
                               <li>房客總數：</li>
-                              
                               <li>
                                   <span v-if="numberOfAdults>0">成人{{numberOfAdults}}人</span>
                                   <span v-if="numberOfAdults>0&&numberOfKids>0">、</span>

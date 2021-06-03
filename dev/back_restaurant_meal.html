@@ -223,7 +223,11 @@
         let MEAL_COUNT = $(this).parent().find("input[name='MEAL_COUNT']").val()
         let eng = $(this).parent().find("input[name='eng']").val()
 
-        
+        //判斷是否改變上下架
+        if(isChangeOnShelf!=MEAL_STATUS){
+          $(this).closest('.dataTable').fadeOut()
+        }
+
         $.ajax({            
             method: "POST",
             url: "php/back_end_API/R_Update.php",
@@ -243,9 +247,6 @@
             dataType: "text",
             success: function (res) {   
               if(isChangeOnShelf!=MEAL_STATUS){
-
-                $(this).closest('.dataTable').fadeOut()
-
                 setTimeout(()=>{
                   // 清空重新撈資料
                   $('.data').html('')
@@ -264,11 +265,6 @@
               alert("修改失敗");     
             }
         });
-
-        //判斷是否改變上下架
-        if(isChangeOnShelf!=MEAL_STATUS){
-          $(this).closest('.dataTable').fadeOut()
-        }
       });
 
       //刪除
@@ -277,7 +273,9 @@
 
         let yes = confirm("不要亂刪喔!");
         if(yes){
+          
           $(this).parent().fadeOut()
+
           $.ajax({            
             method: "POST",
             url: "php/back_end_API/R_Delete.php",
@@ -285,8 +283,16 @@
               'MEAL_DATA_ID': MEAL_DATA_ID,
             },            
             dataType: "text",
-            success: function (res) {     
-              alert("已刪除");
+            success: function (res) {
+              setTimeout(()=>{
+                // 清空重新撈資料
+                $('.data').html('')
+                $('#onshelf').val('2')
+                axios.post("php/back_end_API/R_select.php").then((res)=>{
+                    getData(res)
+                })
+                alert("已刪除");
+              },500)
             },
             error: function(exception) {
               alert("修改失敗");     
@@ -312,9 +318,6 @@
 						});
           }
 			});
-
-
-
     </script>
 </body>
 </html>

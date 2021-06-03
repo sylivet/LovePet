@@ -91,7 +91,15 @@
             @include iphoneX {
                 display: none;
             }
+        }
 
+        //常見問題
+        .i_faq_center {
+            max-width: 110px;
+
+            @include iphoneX {
+                max-width: 70px;
+            }
         }
     }
     .i_banner_right {

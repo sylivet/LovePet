@@ -68,7 +68,6 @@
 //寵物餐點
 .i_mealMain {
     display: flex;
-
     @include pad {
         flex-direction: column;
     }
@@ -77,8 +76,7 @@
 
     .i_meal {
         @include pad {
-            order: 2;
-            margin: 30px 45px 35px 42px;
+            margin: 24px 0px 15px 42px;
         }
 
         white-space: nowrap;
@@ -92,18 +90,19 @@
             position: absolute;
             left: -20px;
             bottom: -8px;
+            @include pad{
+                display: none;
+            }
         }
     }
 
     .i_mealDataContent {
         @include pad {
-            order: 1;
-            margin-left: 85px;
+            margin-top: 0;
+            margin-left: 45px;
         }
-
         @include mobile {
             margin-left: 50px;
-            margin-right: 50px;
         }
         text-align: left;
         margin-top: 24px;
@@ -135,15 +134,19 @@
 }
 
 //人類餐點
-.i_menu {
-    position: absolute;
 
-    @include pad {
-        top: 10px;
+.i_mm{
+    display: flex;
+    flex-direction: column;
+    @include pad{
+        flex-direction: row;
     }
 
-    top:500px;
-    left: 55px;
+}
+.i_menu {
+    margin-left: 45px;
+    margin-top: 24px;
+    white-space: nowrap;
 
     p {
         font-size: 14px;
@@ -154,9 +157,9 @@
     .i_orangeLine {
         border-top: 5px solid #FFC857;
         width: 40px;
-        position: absolute;
-        left: 10px;
-        bottom: -8px;
+        margin-left: 10px;
+        margin-top: 3px;
+
     }
 }
 
@@ -469,7 +472,16 @@
         }
     }
     .alertHotel{
-        color:red;
+        color:#558B6E;
+    }
+    input{
+        background-color: transparent;
+        outline: 0;
+        border: 0;
+        cursor: none;
+        @include mobile{
+            cursor: auto;
+        }
     }
     
 }

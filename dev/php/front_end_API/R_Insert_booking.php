@@ -10,15 +10,15 @@
        $numberOfKids = $_POST['numberOfKids'];
        $numberOfDogs = $_POST['numberOfDogs'];
        $numberOfCats = $_POST['numberOfCats'];
-       $food = $_POST['food'];
+       // $food = $_POST['food'];
 
        $NUM_OF_PEOPLE = $numberOfAdults + $numberOfKids;
        $NUM_OF_PETS = $numberOfDogs + $numberOfCats;
 
-       for($i=0 ; $i < count($food); $i++){
+       // for($i=0 ; $i < count($food); $i++){
 
               //food items
-              $foodName = $food[$i]["MEAL_NAME"];
+              // $foodName = $food[$i]["MEAL_NAME"];
 
               //建立SQL
               $sql = 'INSERT INTO RESTAURANT_ORDER (FK_MEMBER_ID, CREATE_DATE, BOOKING_DATE, NUM_OF_PEOPLE, NUM_OF_PETS, ORDER_STATUS) VALUES (6, ?, ?, ?, ?, 0)';
@@ -30,7 +30,7 @@
               $statement->bindValue(3 , $NUM_OF_PEOPLE); 
               $statement->bindValue(4 , $NUM_OF_PETS); 
               $statement->execute();
-       }
+       // }
 
 
 
