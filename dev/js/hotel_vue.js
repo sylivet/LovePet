@@ -88,6 +88,12 @@ let vm = new Vue({
                     type: "info",
                     text: "漂浮水碗",
                 },
+                {
+                    pitch: -27,
+                    yaw: 165,
+                    type: "info",
+                    text: "潔牙玩具/寵物木眠床",
+                },
             ],
         ],
         rooms: [//資料庫房型資料
