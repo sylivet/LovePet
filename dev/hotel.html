@@ -264,19 +264,19 @@
                         </div>
                         <div class="i_hotel_right">
                           <ul class="i_hotel_bookingcontent">
-                              <li>
+                              <li v-if="start.length && end.length >0">
                                 入住時間：
-                                <input type="text" name="BOOKING_CHECKIN_DATE">
+                                <input type="text" name="BOOKING_CHECKIN_DATE" :value="start">
                               </li>
-                              <li>
+                              <li v-if="start.length && end.length >0">
                                 退房時間：
-                                <input type="text" name="BOOKING_CHECKOUT_DATE" >
+                                <input type="text" name="BOOKING_CHECKOUT_DATE" :value="end">
                               </li>
                               <li>
                                 選擇房型：{{selectRoom.ROOM_NAME}}
                                 <input type="text" :value="selectRoom.ROOM_TYPE_ID" name="FK_ROOM_TYPE_ID">
                               </li>
-                              <li>房客總數：</li>
+                              <li v-if="numberOfDogs>0||numberOfCats||numberOfAdults||numberOfKids>0">房客總數：</li>
                               <li>
                                   <span v-if="numberOfAdults>0">成人{{numberOfAdults}}人</span>
                                   <span v-if="numberOfAdults>0&&numberOfKids>0">、</span>
@@ -293,7 +293,7 @@
                               <h3 v-if="numberOfAdults+numberOfKids<=selectRoom.MAX_CAPACITY">總價 NT{{selectRoom.PRICE}}元</h3>
                               <h3 class="alertHotel" v-else="numberOfAdults+numberOfKids>selectRoom.MAX_CAPACITY">超過房間人數上限，無法預約</h3>
                           </div>
-                          <button v-if="numberOfAdults+numberOfKids<=selectRoom.MAX_CAPACITY" type="button" class="i_button">確認預約</button>
+                          <button v-if="numberOfAdults+numberOfKids<=selectRoom.MAX_CAPACITY&&numberOfAdults>0" type="button" class="i_button">確認預約</button>
                       </div>
                   </div>
               </div>
