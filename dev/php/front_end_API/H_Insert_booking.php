@@ -17,27 +17,17 @@
        $NUM_OF_PEOPLE = $numberOfAdults + $numberOfKids;
        $NUM_OF_PETS = $numberOfDogs + $numberOfCats;
 
-       for($i=0 ; $i < count($food); $i++){
-
-              //food items
-              $foodName = $food[$i]["MEAL_NAME"];
-
-              //建立SQL
-              $sql = 'INSERT INTO HOTEL_ORDER (FK_MEMBER_ID, CREATE_DATE, BOOKING_CHECKIN_DATE, BOOKING_CHECKOUT_DATE, FK_ROOM_TYPE_ID, NUM_OF_PEOPLE, NUM_OF_PETS, ORDER_STATUS) VALUES (?, ?, ?, ?, ?, ?, ?, 0)';
-              
-              //執行
-              $statement = $pdo->prepare($sql);     
-              $statement->bindValue(1 , $FK_MEMBER_ID); //神神秘秘的不知道
-              $statement->bindValue(2 , $CREATE_DATE); 
-              $statement->bindValue(3 , $BOOKING_CHECKIN_DATE); 
-              $statement->bindValue(4 , $BOOKING_CHECKOUT_DATE); 
-              $statement->bindValue(5 , $FK_ROOM_TYPE_ID); 
-              $statement->bindValue(6 , $NUM_OF_PEOPLE); 
-              $statement->bindValue(7 , $NUM_OF_PETS); 
-              $statement->bindValue(8 , $ORDER_STATUS); 
-              $statement->execute();
-       }
-
-
-
+       //建立SQL
+       $sql = 'INSERT INTO HOTEL_ORDER (FK_MEMBER_ID, CREATE_DATE, BOOKING_CHECKIN_DATE, BOOKING_CHECKOUT_DATE, FK_ROOM_TYPE_ID, NUM_OF_PEOPLE, NUM_OF_PETS, ORDER_STATUS) VALUES (?, ?, ?, ?, ?, ?, ?, 0)';
+       //執行
+       $statement = $pdo->prepare($sql);     
+       $statement->bindValue(1 , $FK_MEMBER_ID); //神神秘秘的不知道
+       $statement->bindValue(2 , $CREATE_DATE); 
+       $statement->bindValue(3 , $BOOKING_CHECKIN_DATE); 
+       $statement->bindValue(4 , $BOOKING_CHECKOUT_DATE); 
+       $statement->bindValue(5 , $FK_ROOM_TYPE_ID); 
+       $statement->bindValue(6 , $NUM_OF_PEOPLE); 
+       $statement->bindValue(7 , $NUM_OF_PETS); 
+       $statement->bindValue(8 , $ORDER_STATUS); 
+       $statement->execute();
 ?>

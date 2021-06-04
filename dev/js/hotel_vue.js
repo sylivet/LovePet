@@ -8,6 +8,8 @@ Vue.component("room-booking", {
             numberOfKids: 0,
             numberOfDogs: 0,
             numberOfCats: 0,
+            start:"",
+            end:"",
         }
     },
     methods: {
@@ -25,8 +27,25 @@ Vue.component("room-booking", {
             this.numberOfAdults=0,
             this.numberOfKids= 0,
             this.numberOfDogs= 0,
-            this.numberOfCats= 0
+            this.numberOfCats= 0,
+            this.start="",
+            this.end=""
         }
+    },
+    mounted(){
+                /*----- 月曆 -----*/
+                const calendar_el = document.querySelector('#my-calendar');
+                const myCalendar = new TavoCalendar(calendar_el, {
+                    date: new Date(),
+                    blacklist: ["2021-06-10", "2021-06-23"],
+                    range_select: true,
+                });
+        
+                calendar_el.addEventListener('calendar-range', (ev) => {
+                    const range = myCalendar.getRange();
+                    this.start = range.start
+                    this.end = range.end
+                });
     },
 })
 
@@ -167,26 +186,45 @@ let vm = new Vue({
         ],
     },
     methods: {
-        // loginChenk(){
-        //     $.ajax({            
-        //       method: "POST",
-        //       url: "php/front_end_API/R_LoginCheck.php",
-        //       data:{},            
-        //       dataType: "text",
-        //       success: (response)=> {
-        //           if(response == ""){
-        //               // 尚未登入->前往Login.php
-        //               alert('請先登入會員'); 
-        //               $('#m_sign_in_bk').show()
-        //             }else{
-        //               this.isBookingBoxOpen = true
-        //           }              
-        //       },
-        //       error: function(exception) {
-        //           alert("數據載入失敗: " + exception.status);
-        //       }
-        //   });
-        //   },
+        loginCheck(){
+            $.ajax({            
+              method: "POST",
+              url: "php/front_end_API/M_getsession_MID.php",
+              data:{},            
+              dataType: "text",
+              success: (response)=> {
+                  if(response == "N"){
+                      // 尚未登入->前往Login.php
+                      alert('請先登入會員'); 
+                      $('#m_sign_in_bk').show()
+                    }else{
+                        $.ajax({            
+                            method: "POST",
+                            url: "php/front_end_API/H_Insert_booking.php",
+                            data:{
+                              'BOOKING_CHECKIN_DATE': this.BOOKING_CHECKIN_DATE,
+                              'BOOKING_CHECKOUT_DATE': this.BOOKING_CHECKOUT_DATE,
+                              'FK_ROOM_TYPE_ID':this.FK_ROOM_TYPE_ID,
+                              'numberOfAdults': this.numberOfAdults,
+                              'numberOfKids': this.numberOfKids,
+                              'numberOfDogs': this.numberOfDogs,
+                              'numberOfCats': this.numberOfCats,
+                            },            
+                            dataType: "text",
+                            success: function(){
+                                alert("修改成功");
+                            },
+                            error: function(exception) {
+                                alert("數據載入失敗: " + exception.status);
+                            }
+                        });
+                  }              
+              },
+              error: function(exception) {
+                  alert("數據載入失敗: " + exception.status);
+              }
+          });
+        },
         font(){
             window._jf.flush();//手動更新justfont
         },
@@ -238,12 +276,7 @@ let vm = new Vue({
             }
         );
 
-        /*----- 月曆 -----*/
-        const myCalendar = new TavoCalendar("#my-calendar", {
-            date: new Date(),
-            blacklist: ["2021-06-10", "2021-06-23"],
-            range_select: true,
-        });
+
         /*----- 720度環景 -----*/
         self.pannellum= pannellum.viewer("h_panorama", {
             type: "equirectangular",
