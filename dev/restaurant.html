@@ -365,7 +365,7 @@
     </transition>
     <!-- 預約燈箱 -->
     <transition name="fade">
-      <booking v-show="isBookingBoxOpen" @closelightbox="isBookingBoxOpen = false" :foods="allFoodSelection">
+      <booking v-show="isBookingBoxOpen" @closelightbox="isBookingBoxOpen = false" :foods="allFoodSelection" :member="memberID">
       </booking>
     </transition>
 
