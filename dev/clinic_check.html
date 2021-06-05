@@ -5,12 +5,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+  integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- 月曆 -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="vendors/travo-calendar/css/tavo-calendar.css" />
+  <!-- 捲軸 -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.css" />
   <title>clinic_check</title>
   @@include('layout/style.html')
 </head>
 
 <body class="check">
   @@include('layout/header.html')
+
   <div class="c_wrapper" id="app">
 
     <!-- 毛孩健檢 -->
@@ -31,7 +39,7 @@
       <div class="c_set" id="c_set1">
         <div class="c_set_title">
           <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-          <h4>快速篩檢套餐<br>4000元</h4>
+          <h4>{{fast}}<br>4000元</h4>
           <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
         </div>
         <div class="c_set_content">
@@ -48,7 +56,7 @@
       <div class="c_set" id="c_set2">
         <div class="c_set_title">
           <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-          <h4>進階健檢套餐<br>9500元&nbsp;<span>(包含01-08項)</span></h4>
+          <h4>{{advanced}}<br>9500元<span>(包含01-08項)</span></h4>
           <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
         </div>
         <div class="c_set_content">
@@ -65,7 +73,7 @@
       <div class="c_set" id="c_set3">
         <div class="c_set_title">
           <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-          <h4>熟齡健檢套餐<br>17000元&nbsp;<span>(包含01-16項)</span></h4>
+          <h4>{{elder}}<br>17000元<span>(包含01-16項)</span></h4>
           <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
         </div>
 
@@ -79,13 +87,13 @@
           <button @click="choice='elder', choicePrice=17000" id="A1003" class="addButton">加入
         </div>
       </div>
-      <!-- 加價購 -->
+<!-- 加價購 -->
       <div class="c_plus">
         <div class="c_plus_title">
           <img src="./img/clinic/checkplus@2x.png">
           <h4>加價購&nbsp;<span>(最多可選2項)</span></h4>
         </div>
-        <p>下列項目任選2項可享9折加價購</p>
+        <p>下列項目任選可享9折加價購</p>
         <div class="c_plus_content">
           <ul id="plus25" v-for="(item, id) in customTest">
             <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
@@ -95,7 +103,7 @@
           </ul>
         </div>
       </div>
-
+<!-- 訂單 -->
       <div class="clinic_order">
         <!-- <h3>您選擇的健檢項目</h3> -->
         <div class="set" id="newSet">
@@ -103,7 +111,7 @@
             <div class="c_set" id="c_set1">
               <div class="c_set_title">
                 <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-                <h4>快速篩檢套餐<br>4000元</h4>
+                <h4>{{fast}}<br>4000元</h4>
                 <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
               </div>
               <div class="c_set_content">
@@ -118,7 +126,7 @@
           <div class="c_set" id="c_set2" v-if="choice == 'advanced'">
             <div class="c_set_title">
               <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-              <h4>進階健檢套餐<br>9500元&nbsp;<span>(包含01-08項)</span></h4>
+              <h4>{{advanced}}<br>9500元<span>(包含01-08項)</span></h4>
               <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
             </div>
             <div class="c_set_content">
@@ -132,7 +140,7 @@
           <div class="c_set" id="c_set3" v-if="choice == 'elder'">
             <div class="c_set_title">
               <img src="./img/clinic/checkdog@2x.png" class="mask_dog">
-              <h4>熟齡健檢套餐<br>17000元&nbsp;<span>(包含01-16項)</span></h4>
+              <h4>{{elder}}<br>17000元<span>(包含01-16項)</span></h4>
               <img src="./img/clinic/maskcat@2x.png" class="mask_cat">
             </div>
 
@@ -152,8 +160,8 @@
               <ul id="plus25">
                 <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
                 <li class="item">{{item.LISTNAME}}</li>
-                <li class="cost" v-if="customChoice.length >= 2">特價{{item.PRICE*0.9}}元</li>
-                <li class="cost" v-else>原價{{item.PRICE}}元</li>
+                <li class="cost">{{item.PRICE*0.9}}元</li>
+                <!-- <li class="cost" v-else>原價{{item.PRICE}}元</li> -->
             </div>
           </div>
         </div>
@@ -164,8 +172,9 @@
               <ul id="plus25">
                 <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
                 <li class="item">{{item.LISTNAME}}</li>
-                <li class="cost" v-if="customChoice.length >= 2">特價{{item.PRICE*0.9}}元</li>
-                <li class="cost" v-else>原價{{item.PRICE}}元</li>
+                <li class="cost">{{item.PRICE*0.9}}元</li>
+                <!-- <li class="cost" v-if="customChoice.length >= 2">{{item.PRICE*0.9}}元</li> -->   
+                <!-- <li class="cost" v-else>原價{{item.PRICE}}元</li> -->
             </div>
           </div>
         </div>
@@ -173,73 +182,134 @@
         <h4 class="c_price">您選擇的健檢項目總價NT{{totalPrice | currency}}元</h4>
         <button @click="clearAll">重新選擇</button>
         <div>
-          <input type="button" value="預約健檢">
+          <!-- <input type="button" value="預約健檢" class="clinicBookingButton" @click="isBookingBoxOpen=true"> -->
+          <button class="clinicBookingButton"  @click="isBookingBoxOpen = true">預約健檢</button>
+         
         </div>
         <a href="clinic_index.html"><button class="back_clinic">回健檢首頁</button></a>
       </div>
     </div>
+    <!-- 預約燈箱 -->
+    <transition name="fade">
+      <!-- <clinic-booking v-show="isBookingBoxOpen" @closelightbox="isBookingBoxOpen = false" :check="choicePrice","customChoice","checkMenu">      
+      </clinic-booking> -->
+      <!-- 綁定check到 Vue.component的props-->
+      <!--clinic-booking // Vue.component的名字 -->
+      <div id="clinic-booking" v-show="isBookingBoxOpen" @closelightbox="isBookingBoxOpen = false" :check="checkMenu">      
+      </div> 
+    </transition>
   </div>
-
+<!-- app結尾 -->
+<!-- footer -->
   @@include('layout/footer.html')
-  <script src="./vendors/jquery/jquery-3.5.1.slim.min.js"></script>
-  <script src="./vendors/vue/js/vue.js"></script>
-  <!-- axios -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-  <!-- 購物車共用組件 -->
-  <script src="js/mall_vue.js"></script>
-  <!-- 打開與關閉購物車 -->
-  <script src="js/shopping_cart.js"></script>
 
+ <!-- 預約健檢燈箱 -->
+ <script type="text/x-template" id="clinicBox">
+  <!-- Vue.component的 template-->
+   <div class="i_background">
+       <!-- style="display:none" -->
+      <div class="i_lightbox_bk">
+          <a href="#" class="i_closeButton" >
+              <img src="./img/common/close.png" alt="">
+          </a>
+          <!-- @click.prevent="closeBox" -->
+          <div class="i_lightbox_title">
+              <h2>預訂內容</h2>
+          </div>
+          <div class="bar">
+          <div class="i_clinic">
+              <div class="i_clinic_left">
+                  <!-- 月曆 -->
+                  <div id="my-calendar" class="i_calendar"></div>
+                 
+                  <div class="i_petsname">
+                      <span>請選擇寵物名字</span>
+                      <select>
+                        <!-- v-for="(pet,id) in pets" -->
+                          <option>pet.PET_NAME</option>
+                      </select>
+                  </div>
+              </div>
+              <div class="i_clinic_right">
+                <p>健檢項目</p>
+                <table>
+                  
+                    <tr>
+                      <td>
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    </td>
+                        <td>預約時間</td>
+                        <td>2021年04月09日 (週五) 16：00 起</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    </td>
+                        <td>checkSet.TESTING_SUBJECT</td>
+                        <td>NT 9500元</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    </td>
+                        <td>加價購</td>
+                        <td class="cost" v-if="customChoice.length >= 2">特價800元</td>
+                        <!-- <td class="cost" v-else>原價{{item.PRICE}}元<</td> -->
+                    
+                      </tr>
+                    <tr>
+                      <td>
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    </td>
+                        <td>加價購</td>
+                        <td class="cost" v-if="customChoice.length >= 2">特價250元</td>
+  
+                    </tr>
+                </table>
+                <hr>
+                <div class="i_total">
+                    <h3>總價 NT400元</h3>
+                </div>
+                <button type="button" class="i_button"  >確認預約</button>
+               
+                 <!-- @click="loginCheck" -->
+            </div>
+          </div>
+      </div>
+      </div>
+     </div>
+ </script> 
+<!-- 卷軸 -->
   <script>
-    Vue.filter('currency', function (price) {
-      return price.toLocaleString('en-US');
-    });
+    // Array.prototype.forEach.call(document.getElementsByClassName('bar[0]'), function (el) {
+    //     new SimpleBar(el);
+    // });
+// 初始化庫，在頁面上生成一個基本的日曆
+  // const myCalendar = new TavoCalendar('#my-calendar', {
+  //     date = new Date()
+  //   });
+  </script> 
+  
+ 
+ 
+   <!-- jQuery -->
+ <script src="vendors/jquery/jquery-3.5.1.slim.min.js"></script>
+  <!-- 月曆 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="vendors/travo-calendar/js/tavo-calendar.js"></script>
+  <!-- 捲軸 -->
+  <script src="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.js"></script>
+ <!-- axios -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+ <!-- Vue -->
+ <script src="vendors/vue/js/vue.min.js"></script>
+ <script src="vendors/vue/js/vue.js"></script>
+ <!-- 購物車共用組件 -->
+ <script src="js/mall_vue.js"></script>
+ <!-- 打開與關閉購物車 -->
+ <script src="js/shopping_cart.js"></script>
+ <script src="js/check_vue.js"></script>
 
-    let vm = new Vue({
-      el: "#app",
-      data: {
-        choice: "",
-        choicePrice: "",
-        customChoice: [],
-        checkMenu: [],
-      },
-      computed: {
-        fastTest() {
-          return this.checkMenu.slice(0, 8)
-        },
-        advancedTest() {
-          return this.checkMenu.slice(8, 16)
-        },
-        elderTest() {
-          return this.checkMenu.slice(16, 24)
-        },
-        customTest() {
-          return this.checkMenu.slice(24, 32)
-        },
-        totalPrice() {
-          let price1 = this.choicePrice == "" ? 0 : parseInt(this.choicePrice);
-          let price2 = this.customChoice.length == 1 ? parseInt(this.customChoice[0].PRICE) : 0;
-          let price3 = this.customChoice.length >= 2 ? (parseInt(this.customChoice[0].PRICE) + parseInt(this.customChoice[1].PRICE)) * 0.9 : 0;
-          return price1 + price2 + price3;
-        }
-      },
-      methods: {
-        clearAll() {
-          this.customChoice = [];
-          this.choice = "";
-          this.choicePrice = "";
-        },
-        pushItem(item) {
-          if (!this.customChoice.includes(item)) { this.customChoice.push(item) }
-        }
-      },
-      created() {
-        axios.post("php/front_end_API/C_select.php").then((res) => {
-          this.checkMenu = res.data
-        })
-      },
-    })
-  </script>
 </body>
 
 </html>
