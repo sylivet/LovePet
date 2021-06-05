@@ -36,7 +36,7 @@
 
 
        // 取得RESTAURANT_ORDER_ID
-       $sql2 = 'SELECT RESTAURANT_ORDER_ID FROM LOVE_PET.RESTAURANT_ORDER WHERE CREATE_DATE = ?';
+       $sql2 = 'SELECT RESTAURANT_ORDER_ID FROM RESTAURANT_ORDER WHERE CREATE_DATE = ?';
 
        $statement = $pdo->prepare($sql2);
        $statement->bindValue(1 , $CREATE_DATE);  
@@ -84,7 +84,7 @@
 
 
        //取得MEAL_CUSTORMRIZE_ID
-       $sql5 = 'SELECT MEAL_CUSTORMRIZE_ID FROM LOVE_PET.MEAL_CUSTORMRIZE WHERE FK_RESTAURANT_ORDER_ID = ?';
+       $sql5 = 'SELECT MEAL_CUSTORMRIZE_ID FROM MEAL_CUSTORMRIZE WHERE FK_RESTAURANT_ORDER_ID = ?';
 
        $statement = $pdo->prepare($sql5);
        $statement->bindValue(1 , $RESTAURANT_ORDER_ID[0]);  
@@ -101,7 +101,7 @@
                             $ID = $MEAL_CUSTORMRIZE_ID[$j][0];
                             $INGREDIENTS = $petsFood[$j]["INGREDIENTS"][$q];
               
-                            $sql6 = 'INSERT INTO LOVE_PET.MEAL_COSTURMRIZE_DETAILS (FK_MEAL_COSTURMRIZE_ID, INGREDIENTS) VALUES(?, ?)';
+                            $sql6 = 'INSERT INTO MEAL_COSTURMRIZE_DETAILS (FK_MEAL_COSTURMRIZE_ID, INGREDIENTS) VALUES(?, ?)';
               
                             $statement = $pdo->prepare($sql6);
                             $statement->bindValue(1 , $ID); 
