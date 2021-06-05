@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2021-06-01 19:35:28
+-- 產生時間： 2021-06-05 07:50:03
 -- 伺服器版本： 8.0.23
 -- PHP 版本： 8.0.2
 
@@ -206,9 +206,9 @@ CREATE TABLE `HEALTH_REPORT` (
 --
 
 INSERT INTO `HEALTH_REPORT` (`HEALTH_REPORT_ID`, `SEQ`, `FK_HOSPITAL_ORDER_ID`, `FK_HEALTH_CHECK_ID`, `HEALTH_CHECK_VALUE`) VALUES
-(1000, 1, 1, 1, '視力:正常,聽力:正常,牙齒:一顆斷牙'),
-(1000, 2, 1, 2, '無'),
-(1000, 3, 1, 3, '無異狀'),
+(1000, 1, 1, 1, '視力:正常,聽力:正常,牙齒:一顆斷牙。'),
+(1000, 2, 1, 2, '無。'),
+(1000, 3, 1, 3, '無異狀。'),
 (1000, 4, 1, 4, '86'),
 (1000, 5, 1, 5, '67'),
 (1000, 6, 1, 6, '46'),
@@ -219,27 +219,27 @@ INSERT INTO `HEALTH_REPORT` (`HEALTH_REPORT_ID`, `SEQ`, `FK_HOSPITAL_ORDER_ID`, 
 (1000, 11, 1, 11, '54'),
 (1000, 12, 1, 12, '59'),
 (1000, 13, 1, 13, '65'),
-(1000, 14, 1, 14, '無異狀'),
-(1000, 15, 1, 15, '正常'),
-(1000, 16, 1, 16, '正常'),
+(1000, 14, 1, 14, '無異狀。'),
+(1000, 15, 1, 15, '正常。'),
+(1000, 16, 1, 16, '正常。'),
 (1000, 17, 1, 26, '57'),
-(1001, 1, 2, 1, '視力:正常,聽力:正常,牙齒:正常'),
-(1001, 2, 2, 2, '無'),
-(1001, 3, 2, 3, '無異狀'),
+(1001, 1, 2, 1, '視力:正常,聽力:正常,牙齒:正常。'),
+(1001, 2, 2, 2, '無。'),
+(1001, 3, 2, 3, '無異狀。'),
 (1001, 4, 2, 4, '64'),
 (1001, 5, 2, 5, '78'),
 (1001, 6, 2, 6, '86'),
 (1001, 7, 2, 7, '48'),
 (1001, 8, 2, 8, '76'),
-(1002, 1, 3, 1, '視力:正常,聽力:輕微受損,牙齒:正常'),
-(1002, 2, 3, 2, '無'),
-(1002, 3, 3, 3, '無異狀'),
+(1002, 1, 3, 1, '視力:正常,聽力:輕微受損,牙齒:正常。'),
+(1002, 2, 3, 2, '無。'),
+(1002, 3, 3, 3, '無異狀。'),
 (1002, 4, 3, 4, '78'),
 (1002, 5, 3, 5, '57'),
 (1002, 6, 3, 6, '73'),
 (1002, 7, 3, 7, '56'),
 (1002, 8, 3, 8, '83'),
-(1002, 9, 3, 32, '無');
+(1002, 9, 3, 32, '無。');
 
 -- --------------------------------------------------------
 
@@ -341,14 +341,14 @@ INSERT INTO `MEAL_COSTURMRIZE_DETAILS` (`MEAL_COSTURMRIZE_DETAILS_ID`, `FK_MEAL_
 CREATE TABLE `MEAL_CUSTORMRIZE` (
   `MEAL_CUSTORMRIZE_ID` int NOT NULL,
   `FK_RESTAURANT_ORDER_ID` int NOT NULL,
-  `MEAL_COSTURMRIZE _AMOUNT` int NOT NULL
+  `MEAL_COSTURMRIZE_AMOUNT` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 傾印資料表的資料 `MEAL_CUSTORMRIZE`
 --
 
-INSERT INTO `MEAL_CUSTORMRIZE` (`MEAL_CUSTORMRIZE_ID`, `FK_RESTAURANT_ORDER_ID`, `MEAL_COSTURMRIZE _AMOUNT`) VALUES
+INSERT INTO `MEAL_CUSTORMRIZE` (`MEAL_CUSTORMRIZE_ID`, `FK_RESTAURANT_ORDER_ID`, `MEAL_COSTURMRIZE_AMOUNT`) VALUES
 (1, 1, 1),
 (2, 2, 1),
 (3, 3, 1);
@@ -831,7 +831,28 @@ INSERT INTO `SHOPPING_PRODUCT` (`PRODUCT_ID`, `PRODUCT_NAME`, `PRODUCT_PRICE`, `
 (9, '貓抓柱', 1690, 'img/mall/貓抓柱1690元@2x.png', NULL, 0, '用品', 1, 1),
 (10, '鯊魚造型貓窩', 479, 'img/mall/鯊魚造型貓窩NT479@2x.png', NULL, 0, '用品', 1, 1),
 (11, '黑六角椅墊組', 3350, 'img/mall/黑六角椅墊組3350元@2x.png', NULL, 0, '用品', 1, 1),
-(12, '太空艙', 500000, 'img/mall/4@2x.png', NULL, 0, '用品', 1, 1);
+(12, '太空艙', 500000, 'img/mall/4@2x.png', NULL, 0, '用品', 1, 1),
+(13, '野菜玉子燒(犬)', 85, 'img/mall/野菜玉子燒(犬)85元@2x.png', NULL, 0, '食品', 1, 1),
+(14, '無穀如意棒', 108, 'img/mall/無穀如意棒108元@2x.png', NULL, 0, '食品', 1, 1),
+(15, '花之戀SUSHI', 88, 'img/mall/花之戀SUSHI88元@2x.png', NULL, 0, '食品', 1, 1),
+(16, '翻滾吧蛋炒飯', 49, 'img/mall/翻滾吧蛋炒飯49元@2x.png', NULL, 0, '食品', 1, 1),
+(17, '香甜地瓜雞肉餐', 85, 'img/mall/香甜地瓜雞肉餐85元@2x.png', NULL, 0, '食品', 1, 1),
+(18, '雞肉佐南瓜秋葵', 130, 'img/mall/雞肉佐南瓜秋葵130元@2x.png', NULL, 0, '食品', 1, 1),
+(19, '清蒸泰鱸魚', 128, 'img/mall/清蒸泰鱸魚128元@2x.png', NULL, 0, '食品', 1, 1),
+(20, '古典約克燴肉漢堡', 95, 'img/mall/古典約克燴肉漢堡95元@2x.png', NULL, 0, '食品', 1, 1),
+(21, '鮭魚佐低脂雞漢堡9', 95, 'img/mall/鮭魚佐低脂雞漢堡95元@2x.png', NULL, 0, '食品', 1, 1),
+(22, '寵物鮮食粽', 85, 'img/mall/寵物鮮食粽85元@2x.png', NULL, 0, '食品', 1, 1),
+(23, '麻洋芋豬後腿', 80, 'img/mall/芝麻洋芋豬後腿80元@2x.png', NULL, 0, '食品', 1, 1),
+(24, '番茄花菜牛肋脊', 80, 'img/mall/番茄花菜牛肋脊80元@2x.png', NULL, 0, '食品', 1, 1),
+(25, '', 690, 'img/mall/clothes1@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
+(26, '', 690, 'img/mall/clothes2@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
+(27, '', 690, 'img/mall/clothes3@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
+(28, '', 690, 'img/mall/clothes4@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
+(29, '', 690, 'img/mall/clothes5@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
+(30, '', 690, 'img/mall/clothes6@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
+(31, '', 690, 'img/mall/clothes7@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
+(32, '', 690, 'img/mall/clothes8@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
+(33, '', 690, 'img/mall/clothes9@2x.png', NULL, 0, '虛擬試衣間', 1, 1);
 
 --
 -- 已傾印資料表的索引
@@ -1083,7 +1104,7 @@ ALTER TABLE `MESSAGE_LIST`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `NEWS`
 --
 ALTER TABLE `NEWS`
-  MODIFY `NEWS_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `NEWS_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `PET_INFO`
@@ -1149,7 +1170,7 @@ ALTER TABLE `SHOPPING_ORDER_DETAIL`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `SHOPPING_PRODUCT`
 --
 ALTER TABLE `SHOPPING_PRODUCT`
-  MODIFY `PRODUCT_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `PRODUCT_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- 已傾印資料表的限制式
