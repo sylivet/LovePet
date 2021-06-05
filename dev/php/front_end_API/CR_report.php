@@ -2,11 +2,14 @@
     include("../../php/C_conn.php");
     
     //建立SQL語法
-    $sql = "select pi.PET_NAME, hr.HEALTH_REPORT_ID, ds.SUGGESTION, hc.LISTNAME, ho.BOOKING_DATE, hr.HEALTH_CHECK_VALUE, ho.FK_MEMBER_ID  FROM HEALTH_REPORT  as hr
-    left join HOSPITAL_ORDER  as ho on ho.HOSPITAL_ORDER_ID = hr.FK_HOSPITAL_ORDER_ID
-    left join HEALTH_CHECK as hc on hc.HEALTH_CHECK_ID = hr.FK_HEALTH_CHECK_ID
-    left join PET_INFO as pi on pi.PET_ID = ho.FK_PET_ID
-    left join DOCTOR_SUGGESTION as ds on ds.FK_HOSPITAL_ORDER_ID = ho.HOSPITAL_ORDER_ID  ";
+    $sql ="SELECT distinct 
+    hc.LISTNAME, hr.HEALTH_CHECK_VALUE 
+    FROM 
+    HEALTH_CHECK hc 
+    left join HEALTH_REPORT hr 
+    on hc.HEALTH_CHECK_ID = hr.FK_HEALTH_CHECK_ID
+    where 
+    hr.FK_HOSPITAL_ORDER_ID = 1";
     
     
     

@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
     include("../../php/M_conn.php");
+=======
+    include("../../php/C_conn.php");
+>>>>>>> Tony
     
 
     function go($p){

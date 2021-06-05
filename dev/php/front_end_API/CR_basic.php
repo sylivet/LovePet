@@ -1,13 +1,20 @@
 <?php
     include("../../php/C_conn.php");
+    // $_POST['id']
     
     //建立SQL語法
-    $sql = "select pi.PET_NAME, hr.HEALTH_REPORT_ID, ds.SUGGESTION, hc.LISTNAME, ho.BOOKING_DATE, hr.HEALTH_CHECK_VALUE, ho.FK_MEMBER_ID  FROM HEALTH_REPORT  as hr
-    left join HOSPITAL_ORDER  as ho on ho.HOSPITAL_ORDER_ID = hr.FK_HOSPITAL_ORDER_ID
-    left join HEALTH_CHECK as hc on hc.HEALTH_CHECK_ID = hr.FK_HEALTH_CHECK_ID
-    left join PET_INFO as pi on pi.PET_ID = ho.FK_PET_ID
-    left join DOCTOR_SUGGESTION as ds on ds.FK_HOSPITAL_ORDER_ID = ho.HOSPITAL_ORDER_ID  ";
-    
+    $sql = "select distinct
+	hr.HEALTH_REPORT_ID,
+	pi.PET_NAME,
+	ho.BOOKING_DATE
+    from
+	HEALTH_REPORT hr
+	left join HOSPITAL_ORDER ho
+		on hr.FK_HOSPITAL_ORDER_ID = ho.HOSPITAL_ORDER_ID 
+	left join PET_INFO pi
+		on ho.FK_PET_ID = pi.PET_ID
+    where
+	 ho.FK_MEMBER_ID = 1 ";
     
     
     //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
