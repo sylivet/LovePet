@@ -4,6 +4,7 @@ Vue.component("room-booking", {
     template: "#roombookingbox",
     data() {
         return {
+            FK_MEMBER_ID: null,
             numberOfAdults: 0,
             numberOfKids: 0,
             numberOfDogs: 0,
@@ -29,14 +30,14 @@ Vue.component("room-booking", {
                       alert('請先登入會員'); 
                       $('#m_sign_in_bk').show()
                     }else{
-                      this.isBookingBoxOpen = true
-                      this.memberID = parseInt(response.split(`"`).join(""))
+                      this.FK_MEMBER_ID = parseInt(response.split(`"`).join(""))
                       sessionStorage.clear()
 
                       $.ajax({            
                         method: "POST",
                         url: "php/front_end_API/H_Insert_booking.php",
                         data:{
+                          'FK_MEMBER_ID': this.FK_MEMBER_ID,
                           'BOOKING_CHECKIN_DATE': this.start,
                           'BOOKING_CHECKOUT_DATE': this.end,
                           'FK_ROOM_TYPE_ID': this.roomID,
@@ -48,12 +49,8 @@ Vue.component("room-booking", {
                         dataType: "text",
                         success: (res)=> {
                           console.log(res);
-                          if(res === "ok"){
-                            alert("已幫您預約")
-                            this.$emit('closelightbox')
-                          }else{
-                            alert("預約失敗")
-                          }
+                        alert("已幫您預約")
+                        this.$emit('closelightbox')
                         },
                         error: function(exception) {
                             alert("數據載入失敗: " + exception.status);
