@@ -4,7 +4,6 @@ Vue.component("room-booking", {
     template: "#roombookingbox",
     data() {
         return {
-            FK_MEMBER_ID: null,
             numberOfAdults: 0,
             numberOfKids: 0,
             numberOfDogs: 0,
@@ -20,7 +19,6 @@ Vue.component("room-booking", {
     methods: {
         closeBox() {
             this.$emit('closelightbox')
-            
         },
         loginCheck(){
             $.ajax({            
@@ -177,7 +175,6 @@ let vm = new Vue({
         rooms: []
     },
     methods: {
-
         font(){
             window._jf.flush();//手動更新justfont
         },
@@ -236,9 +233,9 @@ let vm = new Vue({
         rooms(){
             const self=this;
         /*----- 720度環景 -----*/
-        self.pannellum= pannellum.viewer("h_panorama", {
+        this.pannellum= pannellum.viewer("h_panorama", {
             type: "equirectangular",
-            panorama: self.typeRoom[0].PANNELLUM,//錯誤==
+            panorama: this.typeRoom[0].PANNELLUM,//錯誤==
             // 調整初始畫面位置
             pitch: -10,
             hfov: 180,
