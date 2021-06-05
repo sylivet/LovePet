@@ -4,22 +4,22 @@ const bus =new Vue();
 Vue.component('report-basic',{
     template:`
     <div class="c_report_title">
-        <div class="c_report_title_left" v-for='report in reports' v-show='reports[current_report] === report'>
-            <p>寵物報告編號:{{report.HEALTH_REPORT_ID}} </p>
-            <p>寵物姓名：{{report.PET_NAME}}</p>
-            <p>寵物健檢日期:{{report.BOOKING_DATE}}</p>
+        <div class="c_report_title_left" v-for='basic in basics' v-show='basics[current_report] === basic'>
+            <p>寵物報告編號:{{basic.HEALTH_REPORT_ID}} </p>
+            <p>寵物姓名：{{basic.PET_NAME}}</p>
+            <p>寵物健檢日期:{{basic.BOOKING_DATE}}</p>
             
         </div>
         <div class="c_report_title_right">
             <select v-model="current_report" @change='changed'>
                 
-                <option v-for='(report,index) in reports'  :value="index">{{report.PET_NAME}}</option>
+                <option v-for='(select,index) in selects'  :value="index">{{select.PET_NAME}}</option>
                 
             </select>
         </div>
     </div>
     `,
-    props:['reports'],
+    props:['selects','basics'],
     data(){
         return {
             current_report:0,
@@ -28,6 +28,13 @@ Vue.component('report-basic',{
     methods:{
         changed(){
             bus.$emit('reportNumber',this.current_report)
+            // $.ajax({
+            //     url: "",
+            //     type: "POST",       // 傳送資料有包含檔案，必須是 POST
+            //     data: "object",
+            //     dataType: "json",
+            //     timeout: 0,
+            // })    
         }
     }
     
@@ -40,7 +47,7 @@ Vue.component('report-chart', {
         <canvas id="myChart"></canvas>
     </div>
     `,
-    props:['reports'],
+    props:['charts'],
     data(){
         return{
             count:0,
@@ -82,7 +89,9 @@ Vue.component('report-suggestion', {
     template:`
     <div class="c_suggestion_background">
         <div class="c_suggestion">
-            <textarea readonly>{{reports[count].SUGGESTION}}</textarea>
+            <textarea readonly>
+                
+            </textarea>
         </div>
         <div class="c_toHomepage">
             <a href="./clinic_index.html"><button>回到健檢首頁</button></a>
@@ -94,6 +103,7 @@ Vue.component('report-suggestion', {
     data(){
         return{
             count:0,
+
         }
     },
     
@@ -110,23 +120,66 @@ Vue.component('report-suggestion', {
 new Vue({
     el:'#app',
     data:{
+        selects:[],
+        basics:[],
+        charts:[],
         reports:[], 
-        
+        current_report:0,
     },
 
     created(){
         axios.post("php/front_end_API/CR_select.php").then((res)=>{
-          this.reports = res.data
+            this.selects = res.data
         })
+
+
+        axios.post("php/front_end_API/CR_basic.php").then((res)=>{
+            this.basics = res.data
+        })
+
+        axios.post("php/front_end_API/CR_report.php").then((res)=>{
+
+            // console.log(res.data);
+            let filterChart = res.data.filter( (item) =>{
+                return item.HEALTH_CHECK_VALUE > 1;
+            })
+            
+            this.charts = filterChart;
+
+
+            // let filterReport = res.data.filter(function(item) {
+            //     return typeof(item.HEALTH_CHECK_VALUE) === 'string' ;
+            // })
+
+            // console.log(filterReport);
+           
+            this.reports = res.data;
+
+
+
+        })
+        
+        
+
+        //   axios.post('/user', {
+        //     id: 1,
+        //   })
+        //   .then(function (response) {
+        //     console.log(response);
+        //   })
+        //   .catch(function (error) {
+        //     console.log(error);
+        //   });
+          
         // axios({
         //     method:'post',
-        //     url:'./php/test.php',
+        //     url:'php/front_end_API/CR_select.php',
         //     data:{MEMBER_ID : localStorage["memberId"]}
         //     ,
         // }).then(response => {
-        //    console.log(response);
+        //    this.selects = response.data
            
-        //   })
+        // })
           
     },
 })

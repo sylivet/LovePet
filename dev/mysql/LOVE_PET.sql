@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2021-06-01 19:35:28
+-- 產生時間： 2021-06-05 11:35:53
 -- 伺服器版本： 8.0.23
 -- PHP 版本： 8.0.2
 
@@ -206,9 +206,9 @@ CREATE TABLE `HEALTH_REPORT` (
 --
 
 INSERT INTO `HEALTH_REPORT` (`HEALTH_REPORT_ID`, `SEQ`, `FK_HOSPITAL_ORDER_ID`, `FK_HEALTH_CHECK_ID`, `HEALTH_CHECK_VALUE`) VALUES
-(1000, 1, 1, 1, '視力:正常,聽力:正常,牙齒:一顆斷牙'),
-(1000, 2, 1, 2, '無'),
-(1000, 3, 1, 3, '無異狀'),
+(1000, 1, 1, 1, '視力:正常,聽力:正常,牙齒:一顆斷牙。'),
+(1000, 2, 1, 2, '無。'),
+(1000, 3, 1, 3, '無異狀。'),
 (1000, 4, 1, 4, '86'),
 (1000, 5, 1, 5, '67'),
 (1000, 6, 1, 6, '46'),
@@ -219,27 +219,27 @@ INSERT INTO `HEALTH_REPORT` (`HEALTH_REPORT_ID`, `SEQ`, `FK_HOSPITAL_ORDER_ID`, 
 (1000, 11, 1, 11, '54'),
 (1000, 12, 1, 12, '59'),
 (1000, 13, 1, 13, '65'),
-(1000, 14, 1, 14, '無異狀'),
-(1000, 15, 1, 15, '正常'),
-(1000, 16, 1, 16, '正常'),
+(1000, 14, 1, 14, '無異狀。'),
+(1000, 15, 1, 15, '正常。'),
+(1000, 16, 1, 16, '正常。'),
 (1000, 17, 1, 26, '57'),
-(1001, 1, 2, 1, '視力:正常,聽力:正常,牙齒:正常'),
-(1001, 2, 2, 2, '無'),
-(1001, 3, 2, 3, '無異狀'),
+(1001, 1, 2, 1, '視力:正常,聽力:正常,牙齒:正常。'),
+(1001, 2, 2, 2, '無。'),
+(1001, 3, 2, 3, '無異狀。'),
 (1001, 4, 2, 4, '64'),
 (1001, 5, 2, 5, '78'),
 (1001, 6, 2, 6, '86'),
 (1001, 7, 2, 7, '48'),
 (1001, 8, 2, 8, '76'),
-(1002, 1, 3, 1, '視力:正常,聽力:輕微受損,牙齒:正常'),
-(1002, 2, 3, 2, '無'),
-(1002, 3, 3, 3, '無異狀'),
+(1002, 1, 3, 1, '視力:正常,聽力:輕微受損,牙齒:正常。'),
+(1002, 2, 3, 2, '無。'),
+(1002, 3, 3, 3, '無異狀。'),
 (1002, 4, 3, 4, '78'),
 (1002, 5, 3, 5, '57'),
 (1002, 6, 3, 6, '73'),
 (1002, 7, 3, 7, '56'),
 (1002, 8, 3, 8, '83'),
-(1002, 9, 3, 32, '無');
+(1002, 9, 3, 32, '無。');
 
 -- --------------------------------------------------------
 
@@ -320,17 +320,20 @@ INSERT INTO `MEAL_COSTURMRIZE_DETAILS` (`MEAL_COSTURMRIZE_DETAILS_ID`, `FK_MEAL_
 (2, 1, '澳洲牛肉'),
 (3, 1, '紅蘿蔔'),
 (4, 1, '放山雞的蛋'),
-(5, 1, '酪梨'),
-(6, 2, '骨頭造型餅乾'),
-(7, 2, '冰島鱈魚'),
-(8, 2, '紅蘿蔔'),
-(9, 2, '放山雞的蛋'),
-(10, 2, '酪梨'),
-(11, 3, '圈圈造型餅乾'),
-(12, 3, '澎湖大明蝦'),
-(13, 3, '紅蘿蔔'),
-(14, 3, '放山雞的蛋'),
-(15, 3, '酪梨');
+(5, 1, '南瓜'),
+(6, 1, '青菜'),
+(7, 2, '骨頭造型餅乾'),
+(8, 2, '冰島鱈魚'),
+(9, 2, '紅蘿蔔'),
+(10, 2, '放山雞的蛋'),
+(11, 2, '南瓜'),
+(12, 2, '青菜'),
+(13, 3, '圈圈造型餅乾'),
+(14, 3, '澎湖大明蝦'),
+(15, 3, '紅蘿蔔'),
+(16, 3, '放山雞的蛋'),
+(17, 3, '南瓜'),
+(18, 3, '青菜');
 
 -- --------------------------------------------------------
 
@@ -341,14 +344,14 @@ INSERT INTO `MEAL_COSTURMRIZE_DETAILS` (`MEAL_COSTURMRIZE_DETAILS_ID`, `FK_MEAL_
 CREATE TABLE `MEAL_CUSTORMRIZE` (
   `MEAL_CUSTORMRIZE_ID` int NOT NULL,
   `FK_RESTAURANT_ORDER_ID` int NOT NULL,
-  `MEAL_COSTURMRIZE _AMOUNT` int NOT NULL
+  `MEAL_COSTURMRIZE_AMOUNT` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 傾印資料表的資料 `MEAL_CUSTORMRIZE`
 --
 
-INSERT INTO `MEAL_CUSTORMRIZE` (`MEAL_CUSTORMRIZE_ID`, `FK_RESTAURANT_ORDER_ID`, `MEAL_COSTURMRIZE _AMOUNT`) VALUES
+INSERT INTO `MEAL_CUSTORMRIZE` (`MEAL_CUSTORMRIZE_ID`, `FK_RESTAURANT_ORDER_ID`, `MEAL_COSTURMRIZE_AMOUNT`) VALUES
 (1, 1, 1),
 (2, 2, 1),
 (3, 3, 1);
@@ -368,17 +371,17 @@ CREATE TABLE `MEAL_DATA` (
   `MEAL_STATUS` tinyint(1) NOT NULL,
   `MEAL_CATA` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `MEAL_CAL` int NOT NULL,
-  `MEAL_MSG` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `count` int NOT NULL,
-  `eng` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
+  `MEAL_MSG` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `MEAL_COUNT` int NOT NULL,
+  `eng` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 傾印資料表的資料 `MEAL_DATA`
 --
 
-INSERT INTO `MEAL_DATA` (`MEAL_DATA_ID`, `MEAL_TYPE`, `MEAL_NAME`, `MEAL_PRICE`, `MEAL_IMG`, `MEAL_STATUS`, `MEAL_CATA`, `MEAL_CAL`, `MEAL_MSG`, `count`, `eng`) VALUES
-(1, '乾糧', '基本款餅乾', 100, './img/restaurant/mainFood.svg', 1, 'petsCustom', 30, 'null', 1, 'mainfood'),
+INSERT INTO `MEAL_DATA` (`MEAL_DATA_ID`, `MEAL_TYPE`, `MEAL_NAME`, `MEAL_PRICE`, `MEAL_IMG`, `MEAL_STATUS`, `MEAL_CATA`, `MEAL_CAL`, `MEAL_MSG`, `MEAL_COUNT`, `eng`) VALUES
+(1, '乾糧', '基本款造型餅乾', 100, './img/restaurant/mainFood.svg', 1, 'petsCustom', 30, 'null', 1, 'mainfood'),
 (2, '乾糧', '小魚造型餅乾', 210, './img/restaurant/mainFood2.svg', 1, 'petsCustom', 36, 'null', 1, 'mainfood2'),
 (3, '乾糧', '骨頭造型餅乾', 210, './img/restaurant/mainFood3.svg', 1, 'petsCustom', 40, 'null', 1, 'mainfood3'),
 (4, '乾糧', '圈圈造型餅乾', 160, './img/restaurant/mainFood4.svg', 1, 'petsCustom', 42, 'null', 1, 'mainfood4'),
@@ -387,26 +390,27 @@ INSERT INTO `MEAL_DATA` (`MEAL_DATA_ID`, `MEAL_TYPE`, `MEAL_NAME`, `MEAL_PRICE`,
 (7, '主食', '澎湖大明蝦', 290, './img/restaurant/meat_shrimp.svg', 1, 'petsCustom', 190, 'null', 1, 'meat_shrimp'),
 (8, '主食', '雞腿+雞胸', 200, './img/restaurant/meat_chicken.svg', 1, 'petsCustom', 160, 'null', 1, 'meat_chicken'),
 (9, '主食', '紐西蘭帶骨羊腿', 200, './img/restaurant/meat_lamp.svg', 1, 'petsCustom', 160, 'null', 1, 'meat_lamp'),
-(10, '配菜', '紅蘿蔔', 20, './img/restaurant/carrot.png', 1, 'petsCustom', 36, 'null', 1, 'null'),
-(11, '配菜', '放山雞的蛋', 20, './img/restaurant/sliceEgg.svg', 1, 'petsCustom', 33, 'null', 1, 'null'),
-(12, '配菜', '酪梨', 20, './img/restaurant/egg2.png', 1, 'petsCustom', 62, 'null', 1, 'null'),
+(10, '配菜', '紅蘿蔔', 20, './img/restaurant/carrot.png', 1, 'petsCustom', 36, 'null', 1, 'sidefood1'),
+(11, '配菜', '放山雞的蛋', 20, './img/restaurant/sliceEgg.svg', 1, 'petsCustom', 33, 'null', 1, 'sidefood3'),
+(12, '配菜', '南瓜', 20, './img/restaurant/pumpkin.png', 1, 'petsCustom', 62, 'null', 1, 'sidefood4'),
 (13, '美式', '安格斯牛肉漢堡', 100, './img/restaurant/hamburger.png', 1, 'humanFood', 120, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
 (14, '美式', '費城牛肉三明治', 120, './img/restaurant/KxytjSo.jpg', 1, 'humanFood', 300, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
 (15, '美式', '炸物拼盤', 500, './img/restaurant/friedFood.jpg', 0, 'humanFood', 500, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
 (16, '美式', '凱薩沙拉', 80, './img/restaurant/CaesarSalad.jpg', 1, 'humanFood', 90, '【人氣沙拉】雞胸肉與酥脆沙拉，佐上酥脆麵包丁、培根與起司粉，淋上特製凱薩醬，經典再現。', 1, 'null'),
 (17, '美式', '碳烤豬肋排', 500, './img/restaurant/porkrib.jpg', 1, 'humanFood', 260, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
 (18, '義式', '番茄義大利麵', 200, './img/restaurant/hamburger.png', 1, 'humanFood', 220, '美味的番茄肉醬義大利麵，關鍵來自於肉的選擇。選用香味十足的牛肉，再加上義式香腸做食物的基底，搭配新鮮的小番茄及濃縮的醬料，最後撒上滿滿的起士粉，讓舌尖上的味蕾，更上一層樓。', 1, 'null'),
-(19, '義式', '羅勒青醬義大利麵', 320, './img/restaurant/hamburger.png', 1, 'humanFood', 200, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
-(20, '義式', '蛤蠣奶油義大利麵', 200, './img/restaurant/hamburger.png', 1, 'humanFood', 500, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
-(21, '義式', '雙層美式臘腸披薩', 300, './img/restaurant/hamburger.png', 1, 'humanFood', 400, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
+(19, '義式', '羅勒青醬義大利麵', 320, './img/restaurant/hamburger.png', 1, 'humanFood', 200, '這是一個很好吃的羅勒青醬義大利麵', 1, 'null'),
+(20, '義式', '蛤蠣奶油義大利麵', 200, './img/restaurant/hamburger.png', 1, 'humanFood', 500, '蛤蠣很新鮮喔~ 很好吃的義大利麵', 1, 'null'),
+(21, '義式', '雙層美式臘腸披薩', 300, './img/restaurant/hamburger.png', 1, 'humanFood', 400, '不想吃義大利麵，那就吃披薩吧。', 1, 'null'),
 (22, '義式', '彩蔬鮮菇披薩', 390, './img/restaurant/hamburger.png', 0, 'humanFood', 290, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
 (23, '沙拉', '雞肉沙拉', 200, './img/restaurant/chickenSalad.jpg', 1, 'petsFood', 230, '炎炎夏日，來道清爽的雞肉沙拉，讓狗狗攝取一天運動的養分，添加芹菜及番茄等涼性蔬菜，有助於清熱解暑，再加上適量的油脂，提高身體的吸收度，最後淋上特製的沙拉醬，保證毛孩們食慾大開。', 1, 'null'),
 (24, '沙拉', '牛肉沙拉', 299, './img/restaurant/beefSalad.jpg', 1, 'petsFood', 220, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
 (25, '沙拉', '嫩煎鮭魚沙拉', 270, './img/restaurant/fishSalad.jpg', 1, 'petsFood', 200, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
-(26, '鮮食', '低敏結實配方', 370, './img/restaurant/hamburger.png', 1, 'petsFood', 250, '這裡要想文案', 1, 'null'),
-(27, '鮮食', '關節保養配方', 350, './img/restaurant/hamburger.png', 1, 'petsFood', 260, '這裡要想文案', 1, 'null'),
-(28, '鮮食', '毛髮亮麗配方', 400, './img/restaurant/hamburger.png', 0, 'petsFood', 255, '這裡要想文案', 1, 'null'),
-(29, '鮮食', '元氣滿滿­­配方', 480, './img/restaurant/hamburger.png', 1, 'petsFood', 280, '豐富的牛肉肉塊，加上細碎的燉菜，還有蘋果以及枸杞，讓狗狗除了吃得開心，也達到養生的效果。讓狗狗建立好體質，遠離醫生。', 1, 'null');
+(26, '鮮食', '低敏結實配方', 370, './img/restaurant/hamburger.png', 1, 'petsFood', 250, '專業營養師調配，可作為狗狗長期主食，手切新鮮肉塊，搭配多元食材，針對機能營養進補，滿滿肉塊讓毛孩大口咬咬，即開即食，嗜口性高。', 1, 'null'),
+(27, '鮮食', '關節保養配方', 350, './img/restaurant/hamburger.png', 1, 'petsFood', 260, '讓毛孩走路不卡卡的獨家配方，添加支持關節健康的四大成份，給毛孩健步如飛的行動力！', 1, 'null'),
+(28, '鮮食', '毛髮亮麗配方', 400, './img/restaurant/hamburger.png', 0, 'petsFood', 255, '全面及均衡營養的乾糧，專利配方證實能保持健康皮膚和亮麗毛髮。', 1, 'null'),
+(29, '鮮食', '元氣滿滿­­配方', 480, './img/restaurant/hamburger.png', 1, 'petsFood', 280, '豐富的牛肉肉塊，加上細碎的燉菜，還有蘋果以及枸杞，讓狗狗除了吃得開心，也達到養生的效果。讓狗狗建立好體質，遠離醫生。', 1, 'null'),
+(30, '配菜', '青菜', 20, './img/restaurant/veg1.png', 1, 'petsCustom', 36, 'null', 1, 'sidefood2');
 
 -- --------------------------------------------------------
 
@@ -831,7 +835,28 @@ INSERT INTO `SHOPPING_PRODUCT` (`PRODUCT_ID`, `PRODUCT_NAME`, `PRODUCT_PRICE`, `
 (9, '貓抓柱', 1690, 'img/mall/貓抓柱1690元@2x.png', NULL, 0, '用品', 1, 1),
 (10, '鯊魚造型貓窩', 479, 'img/mall/鯊魚造型貓窩NT479@2x.png', NULL, 0, '用品', 1, 1),
 (11, '黑六角椅墊組', 3350, 'img/mall/黑六角椅墊組3350元@2x.png', NULL, 0, '用品', 1, 1),
-(12, '太空艙', 500000, 'img/mall/4@2x.png', NULL, 0, '用品', 1, 1);
+(12, '太空艙', 500000, 'img/mall/4@2x.png', NULL, 0, '用品', 1, 1),
+(13, '野菜玉子燒(犬)', 85, 'img/mall/野菜玉子燒(犬)85元@2x.png', NULL, 0, '食品', 1, 1),
+(14, '無穀如意棒', 108, 'img/mall/無穀如意棒108元@2x.png', NULL, 0, '食品', 1, 1),
+(15, '花之戀SUSHI', 88, 'img/mall/花之戀SUSHI88元@2x.png', NULL, 0, '食品', 1, 1),
+(16, '翻滾吧蛋炒飯', 49, 'img/mall/翻滾吧蛋炒飯49元@2x.png', NULL, 0, '食品', 1, 1),
+(17, '香甜地瓜雞肉餐', 85, 'img/mall/香甜地瓜雞肉餐85元@2x.png', NULL, 0, '食品', 1, 1),
+(18, '雞肉佐南瓜秋葵', 130, 'img/mall/雞肉佐南瓜秋葵130元@2x.png', NULL, 0, '食品', 1, 1),
+(19, '清蒸泰鱸魚', 128, 'img/mall/清蒸泰鱸魚128元@2x.png', NULL, 0, '食品', 1, 1),
+(20, '古典約克燴肉漢堡', 95, 'img/mall/古典約克燴肉漢堡95元@2x.png', NULL, 0, '食品', 1, 1),
+(21, '鮭魚佐低脂雞漢堡9', 95, 'img/mall/鮭魚佐低脂雞漢堡95元@2x.png', NULL, 0, '食品', 1, 1),
+(22, '寵物鮮食粽', 85, 'img/mall/寵物鮮食粽85元@2x.png', NULL, 0, '食品', 1, 1),
+(23, '麻洋芋豬後腿', 80, 'img/mall/芝麻洋芋豬後腿80元@2x.png', NULL, 0, '食品', 1, 1),
+(24, '番茄花菜牛肋脊', 80, 'img/mall/番茄花菜牛肋脊80元@2x.png', NULL, 0, '食品', 1, 1),
+(25, '', 690, 'img/mall/clothes1@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
+(26, '', 690, 'img/mall/clothes2@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
+(27, '', 690, 'img/mall/clothes3@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
+(28, '', 690, 'img/mall/clothes4@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
+(29, '', 690, 'img/mall/clothes5@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
+(30, '', 690, 'img/mall/clothes6@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
+(31, '', 690, 'img/mall/clothes7@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
+(32, '', 690, 'img/mall/clothes8@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
+(33, '', 690, 'img/mall/clothes9@2x.png', NULL, 0, '虛擬試衣間', 1, 1);
 
 --
 -- 已傾印資料表的索引
@@ -944,6 +969,7 @@ ALTER TABLE `PET_INFO`
 --
 ALTER TABLE `RESTAURANT_ORDER`
   ADD PRIMARY KEY (`RESTAURANT_ORDER_ID`),
+  ADD UNIQUE KEY `CREATE_DATE_UNIQUE` (`CREATE_DATE`),
   ADD KEY `FK_MEMBER_ID_idx` (`FK_MEMBER_ID`);
 
 --
@@ -1053,7 +1079,7 @@ ALTER TABLE `HOTEL_ORDER`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `MEAL_COSTURMRIZE_DETAILS`
 --
 ALTER TABLE `MEAL_COSTURMRIZE_DETAILS`
-  MODIFY `MEAL_COSTURMRIZE_DETAILS_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `MEAL_COSTURMRIZE_DETAILS_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `MEAL_CUSTORMRIZE`
@@ -1065,7 +1091,7 @@ ALTER TABLE `MEAL_CUSTORMRIZE`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `MEAL_DATA`
 --
 ALTER TABLE `MEAL_DATA`
-  MODIFY `MEAL_DATA_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `MEAL_DATA_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `MEMBER`
@@ -1149,7 +1175,7 @@ ALTER TABLE `SHOPPING_ORDER_DETAIL`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `SHOPPING_PRODUCT`
 --
 ALTER TABLE `SHOPPING_PRODUCT`
-  MODIFY `PRODUCT_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `PRODUCT_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
 
 --
 -- 已傾印資料表的限制式

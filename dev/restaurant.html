@@ -33,7 +33,7 @@
 
 
       <!--  第三區 三顆圓形 -->
-      <div class="contain-fluid second">
+      <div class="container-fluid second">
         <div class="row">
           <div class="col-xl-4 col-md-4 col-sm-12">
             <div class="circle">
@@ -256,10 +256,10 @@
               <h3 v-if="filterMenuToPets.length>0"><span>寵物</span>的菜單</h3>
               <!-- 加入菜單元件 -->
               <add-to-pets-menu v-for="(food, fid) in filterMenuToPets" :menu="food, fid" @removefood="remove"
-                :key="food.MEAL_NAME"></add-to-pets-menu>
+                :key="food.MEAL_DATA_ID"></add-to-pets-menu>
               <h3 v-if="filterMenuToHuman.length>0">您的菜單</h3>
               <add-to-human-menu v-for="(food, fid) in filterMenuToHuman" :menu="food, fid" @removefood="remove"
-                :key="food.MEAL_NAME"></add-to-human-menu>
+                :key="food.MEAL_DATA_ID"></add-to-human-menu>
               <div class="totalPrice">
                 <h3 v-if="allFoodSelection.length>0">總價：NT <span class="Price">{{ totalPrice | currency }}</span> 元</h3>
                 <h3 v-else>您還沒有點菜唷<i class="fa fa-frown-o" aria-hidden="true"></i></h3>
@@ -342,10 +342,10 @@
               <h3 v-if="filterMenuToHuman.length>0">您的菜單</h3>
               <!-- 加入菜單元件 -->
               <add-to-human-menu v-for="(food, fid) in filterMenuToHuman" :menu="food, fid" @removefood="remove"
-                :key="food.MEAL_NAME"></add-to-human-menu>
+                :key="food.MEAL_DATA_ID"></add-to-human-menu>
               <h3 v-if="filterMenuToPets.length>0"><span>寵物</span>的菜單</h3>
               <add-to-pets-menu v-for="(food, fid) in filterMenuToPets" :menu="food, fid" @removefood="remove"
-                :key="food.MEAL_NAME"></add-to-pets-menu>
+                :key="food.MEAL_DATA_ID"></add-to-pets-menu>
               <div class="totalPrice">
                 <h3 v-if="allFoodSelection.length>0">總價：NT <span class="Price">{{totalPrice | currency}} </span>元</h3>
                 <h3 v-else>您還沒有點菜唷<i class="fa fa-frown-o" aria-hidden="true"></i></h3>
@@ -365,7 +365,7 @@
     </transition>
     <!-- 預約燈箱 -->
     <transition name="fade">
-      <booking v-show="isBookingBoxOpen" @closelightbox="isBookingBoxOpen = false" :foods="allFoodSelection">
+      <booking v-show="isBookingBoxOpen" @closelightbox="isBookingBoxOpen = false" :foods="allFoodSelection" :member="memberID">
       </booking>
     </transition>
 
@@ -393,13 +393,15 @@
                   <div class="i_selece_left">
                       <div class="i_select">成人
                           <select v-model="numberOfAdults" name="numberOfAdults">
-                              <option :value="i" v-for="i in 10">{{i}}</option>
+                              <option value="0" selected>0</option>
+                              <option :value="i" v-for="i in 30">{{i}}</option>
                           </select>
                           人
                       </div>
                       <div class="i_select">兒童
                             <select v-model="numberOfKids" name="numberOfKids">
-                              <option :value="i" v-for="i in 10">{{i}}</option>
+                              <option value="0" selected>0</option>
+                              <option :value="i" v-for="i in 30">{{i}}</option>
                             </select>
                           人
                       </div>
@@ -407,12 +409,14 @@
                 <div class="i_selece_right">
                   <div class="i_select">狗
                       <select v-model="numberOfDogs" name="numberOfDogs">
+                        <option value="0" selected>0</option>
                         <option :value="i" v-for="i in 10">{{i}}</option>
                       </select>
                       隻
                   </div>
                   <div class="i_select">貓
                       <select v-model="numberOfCats" name="numberOfCats">
+                        <option value="0" selected>0</option>
                         <option :value="i" v-for="i in 10">{{i}}</option>
                       </select>
                       隻

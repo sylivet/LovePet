@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
+
+  <title>clinic_top</title>
+  <style>
+ 
+    body{
+      padding-top: 87px;
+    }
+    
+.clinic_top{
+  position: relative;
+  background-image: url("./img/clinic/back_c-01.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;  
+}
+@media(max-width:400px) {
+  .clinic_top{
+      position: relative;
+      background-image: url("./img/clinic/back_c-01.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: top; 
+      width: 100%;
+      height: 30vh;
+    }
+      }
+
+.cloud{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  opacity: 1;
+  animation:cloud linear forwards infinite 3s;
+}
+
+.clinic{
+  width: 20%;
+  position: absolute;
+  top:5%;
+  left: 40%;
+  z-index: 888;
+  opacity: 1;
+}
+
+.doctor{
+  width: 10%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  z-index: 999;
+}
+@media(max-width:400px){
+  .doctor{
+  width: 10%;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  z-index: 999;
+  }
+}
+
+.sun{
+  width: 5%;
+  position: absolute;
+  top:5%;
+  left: 10%;
+  z-index: 888;
+}
+
+.animals{
+  width: 40%;
+  position: absolute;
+  top:5%;
+  left: 30%;
+  z-index: 888;
+}
+
+.report{
+  width: 30%;
+  position: absolute;
+  top:15%;
+  left: 35%;
+  z-index: 888;
+  opacity: 0;
+}
+
+
+
+/* 暗示往下滑的箭頭 */
+.scroll-down {
+            position: absolute;
+            bottom: 10%;
+            right: 50%;
+            
+            z-index: 10;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+        }
+ @media(min-width:1400px) {
+  .scroll-down {  bottom: 20%;
+            }
+ }
+ @media screen and (max-width:400px){
+  .scroll-down{
+    display: none;
+  }
+ }
+
+.scroll-down span:nth-child(2) {
+            animation-delay: -0.2s;
+        }
+
+ .scroll-down span:nth-child(3) {
+            animation-delay: -0.4s;
+        }
+
+ .scroll-down span {
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-bottom: 3px solid white;
+            border-right: 3px solid white;
+            transform: rotate(45deg);
+            margin: -10px;
+            animation: animate 2s infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                opacity: 0;
+                transform: rotate(45deg) translate(-20px, -20px);
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: rotate(45deg) translate(20px, 20px);
+            }
+        }
+
+  </style>
+</head>
+<body>
+  <div class="clinic_top">
+
+    <div class="cloud">
+      <img src="./img/clinic/cloud.svg" alt="">
+    </div> 
+    <div class="doctor">
+      <img src="./img/clinic/Dr.svg" alt="">
+    </div>
+    <div class="clinic">
+      <img src="./img/clinic/clinic.svg" alt="">
+    </div> 
+    <div class="sun">
+      <img src="./img/clinic/sun-05.svg" alt="">
+    </div>
+    <div class="animals">
+      <img src="./img/clinic/animals.svg" alt="">
+    </div>
+    <div class="report">
+      <img src="./img/clinic/report.svg" alt="">
+    </div> 
+<!-- 暗示往下滑的箭頭 -->
+    <div class="scroll-down"> 
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <script>
+//診所
+
+// gsap.registerPlugin(ScrollTrigger);
+
+//     gsap.defaults({ ease: "ease" })
+//     const t1 = gsap.timeline({
+//       paused: true,
+//       scrollTrigger: {
+//         trigger: '.clinic_top', //要使用ScrollTrigger的範圍
+//         start: 'top top',
+//         end: 'bottom+=2500 top',
+//         pin: true,
+//         scrub: 1,
+//         // markers: true
+//       },
+//       defaults: {
+//         duration: 1
+//       }
+//     })
+//     .to('.clinic', {opacity:0.2})  //診所出現
+//     .to('.clinic', {opacity:1})  //診所出現
+     
+//     .to('.doctor', {scale:2, x:-200}) //醫生往前
+    
+//     .to('.report', {opacity:0.5, opacity:1})   //報告書出現
+
+//     .to('.animals', {scale:0.5, opacity:0.5}) //小動物縮小消失
+//     .to('.animals', {scale:0.2, opacity:0}) //小動物縮小消失
+
+//     .to('.clinic', { scale:1.3, scale:2, y:200})  //診所放大
+
+//     .to('.report', {scale:0.5, opacity:0})  //報告書縮小
+
+
+
+  
+  
+
+var clinic_position = window.innerWidth < 768 ? 0 : 100;
+// var doctor_position = window.innerWidth < 768 ? -100 : -250;
+
+var C1 = new TimelineMax();
+    C1.to('.clinic', 3, {    
+      x: 0,
+      y: clinic_position,
+    })
+    C1.to('.doctor', 1,{scale:2})
+
+      .to('.report', 1.5, { 
+        opacity: 1 })
+
+      // .to('.doctor', 3,{
+      //   x:doctor_position, 
+      // })
+
+      .to('.animals',1,{scale:.2,opacity:0})
+
+      .to('.clinic', 3, { 
+        scale:2,
+        transformOrigin: 'top center',
+      })
+
+      .to('.report', 1.5, { 
+        scale:.5,
+        opacity: 0 
+      });
+
+    // 雲
+    TweenMax.to('.cloud', 8, { 
+            x: -1200, 
+            y:0, 
+            repeat:-1,
+            ease:Power0.easeNone, 
+    }) ;
+
+    // 太陽
+    TweenMax.to('.sun', 5, {
+      rotation:360,
+      transformOrigin: 'center center',
+      ease:Power0.easeNone,   
+      repeat:-1,
+    }); 
+
+  
+    
+  </script>
+</body>
+</html>

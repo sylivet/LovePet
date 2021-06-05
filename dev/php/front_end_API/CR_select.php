@@ -1,16 +1,21 @@
 <?php
+    include("../../php/C_conn.php");
+    
+    //建立SQL語法
+    $sql = "select PET_NAME from PET_INFO where FK_MEMBER_ID = ?";
+    
+    
+    //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
+    $statement = $pdo->prepare($sql);
+    $statement ->bindValue(1,$_POST[''])
+    $statement->execute();
+    
+    //抓出全部且依照順序封裝成一個二維陣列
+    $data = $statement->fetchAll(PDO::FETCH_ASSOC); 
 
-include("../../php/C_conn.php");
+    // PDO::FETCH_ASSOC 返回以欄位名稱作為索引鍵
+    // PDO::FETCH_NUM 返回以數字作為索引鍵(KEY)的陣列(ARRAY)，由0開始編號
+    
 
-$data = json_decode(file_get_contents("php://input"), TRUE);
-$memberId = $data['MEMBER_ID'];
-
-$sql = "select PET_NAME from PET_INFO where FK_MEMBER_ID = :memberId";
-$statement = $pdo->prepare($sql);
-$statement->bindValue(":memberId", $memberId);
-$statement->execute();
-$result = $statement->fetchAll();
-
-echo json_encode($result);
-
+    echo json_encode($data);
 ?>

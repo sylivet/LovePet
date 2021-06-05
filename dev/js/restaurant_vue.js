@@ -1,16 +1,20 @@
 // 預約餐廳元件
 Vue.component("booking", {
-  props: ['foods'],
+  props: ['foods', 'member'],
   template: "#bookingbox",
   data(){
     return {
+        FK_MEMBER_ID: null,
         CREATE_DATE:"",
         BOOKING_DATE:"",
         numberOfAdults:"0",
         numberOfKids:"0",
         numberOfDogs:"0",
         numberOfCats:"0",
-        food: null
+        // 篩掉客製寵美食的菜單
+        food: [],
+        // 只存客製寵美食的菜單
+        petsFood:[]
     }
   },
   methods: {
@@ -18,6 +22,17 @@ Vue.component("booking", {
       this.$emit('closelightbox')
     },
     booking(){
+      // 訂單創建日期
+      let t = new Date()
+      let y = t.getFullYear()
+      let M = t.getMonth() + 1
+      let d = t.getDate()
+      let h = t.getHours()
+      let m = t.getMinutes()
+      let s = t.getSeconds()
+      this.CREATE_DATE = `${y}-${M}-${d} ${h}:${m}:${s}`
+
+
       if(!this.BOOKING_DATE){
         alert('請選預定日期')
       }else{
@@ -28,17 +43,27 @@ Vue.component("booking", {
             method: "POST",
             url: "php/front_end_API/R_Insert_booking.php",
             data:{
-              'BOOKING_DATE': this.BOOKING_DATE,
+              'FK_MEMBER_ID': this.FK_MEMBER_ID,
               'CREATE_DATE': this.CREATE_DATE,
+              'BOOKING_DATE': this.BOOKING_DATE,
               'numberOfAdults': this.numberOfAdults,
               'numberOfKids': this.numberOfKids,
               'numberOfDogs': this.numberOfDogs,
               'numberOfCats': this.numberOfCats,
+              // 篩掉客製寵美食的菜單
+              'food': this.food.length ===0? null: this.food,
+              // 只存客製寵美食的菜單
+              'petsFood': this.petsFood.length ===0? null: this.petsFood
             },            
             dataType: "text",
             success: (res)=> {
-              // console.log(res);
-              this.another()
+              console.log(res);
+              if(res === "ok"){
+                alert("已幫您預約")
+                this.$emit('closelightbox')
+              }else{
+                alert("預約失敗")
+              }
             },
             error: function(exception) {
                 alert("數據載入失敗: " + exception.status);
@@ -46,26 +71,6 @@ Vue.component("booking", {
         });
         }
       }
-  },
-  another(){
-    axios.get("php/back_end_API/R_select_order.php").then((res)=>{
-        $.ajax({            
-          method: "POST",
-          url: "php/front_end_API/R_Insert_booking_Detail.php",
-          data:{
-            'FK_RESTAURANT_ORDER_ID': 11, //res.data[res.data.length-1].RESTAURANT_ORDER_ID,
-            'MEAL_AMOUNT': 1, //this.food.MEAL_AMOUNT,
-            'food': 20 //this.food.MEAL_DATA_ID
-          },            
-          dataType: "text",
-          success: (res2)=> {
-            console.log(res2);
-          },
-          error: function(exception) {
-              alert("數據載入失敗: " + exception.status);
-          }
-        });
-      })
     }
   },
   computed: {
@@ -80,10 +85,7 @@ Vue.component("booking", {
     },
     filterCataToHuman() {
       return this.foods.filter(food => food.MEAL_CATA === "humanFood")
-    },
-    foodsFilter(){
-      return this.foods.length == 0? this.food = null: this.food = this.foods
-    },
+    }
   },
   mounted(){
     // 月曆
@@ -94,20 +96,24 @@ Vue.component("booking", {
     calendar_el.addEventListener('calendar-select', (ev) => {
       this.BOOKING_DATE = my_calendar.getSelected()
     });
-
-    // 訂單創建日期
-    let t = new Date()
-    let y = t.getFullYear()
-    let m = t.getMonth() + 1
-    let d = t.getDate()
-    return this.CREATE_DATE = `${y}-${m}-${d}`
   },
   watch:{
     foods(){
-      this.food = this.foods
+      // 篩掉客製寵美食的菜單
+      let noPetsCustom = this.foods.filter(food => food.MEAL_TYPE !== "petsCustom")
+      let PetsCustom = this.foods.filter(food => food.MEAL_TYPE === "petsCustom")
+      this.food = [];
+      this.food = noPetsCustom
+      this.petsFood = [];
+      this.petsFood = PetsCustom
+    },
+    member(){
+      this.FK_MEMBER_ID = this.member
     }
   }
 })
+
+
 
 // 燈箱元件
 Vue.component("box", {
@@ -194,6 +200,7 @@ let vm = new Vue({
     isBookingBoxOpen: false, // 預約燈箱啟閉
     isDogOut:false, // 狗動畫啟閉
     forLightBoxInfo:[], // 食物燈箱資訊
+    memberID: null,
     i:0,
     allFoodMenu:[],
   },
@@ -202,15 +209,13 @@ let vm = new Vue({
       $.ajax({            
         method: "POST",
         url: "php/front_end_API/M_getsession_MID.php",
-        data:{},            
-        dataType: "text",
         success: (response)=> {
-            if(response == "N"){
-                // 尚未登入->前往Login.php
+          if(response === '"N"'){
                 alert('請先登入會員'); 
                 $('#m_sign_in_bk').show()
               }else{
                 this.isBookingBoxOpen = true
+                this.memberID = parseInt(response.split(`"`).join(""))
                 sessionStorage.clear()
             }              
         },
@@ -277,6 +282,7 @@ let vm = new Vue({
 
     // 客製寵美食確認
     confirmCustomFood(){
+      let id = Date.now()
       this.i+= 1;
       var eachItem=[];
       this.petCustomFoodSelection.forEach(function(item){
@@ -284,19 +290,19 @@ let vm = new Vue({
       });
     
       let customPetFood ={
+        MEAL_DATA_ID: id,
         MEAL_CATA: "petsFood",
         MEAL_TYPE: "petsCustom",
-        MEAL_NAME: `客製寵美食${this.i}`,
+        MEAL_NAME: "客製寵美食",
         eachItem: eachItem.join("、"),
-        eng:"",
+        INGREDIENTS: eachItem,
         MEAL_PRICE: this.customTotalPrice,
-        MEAL_CAL: "",
-        MEAL_IMG: "",
         MEAL_COUNT: 1
       };
       this.allFoodSelection.push(customPetFood)
       this.petCustomFoodSelect = "乾糧";
       this.isDogOut = false;
+      this.forPHP = this.petCustomFoodSelection;
       this.petCustomFoodSelection = [];
     },
     // 客製寵美食取消
