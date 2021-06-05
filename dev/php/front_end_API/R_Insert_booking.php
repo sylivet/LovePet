@@ -18,7 +18,8 @@
 
        // 所有被選的菜單 給$sql3用的
        $food = $_POST['food'];
-
+       $petsFood = $_POST['petsFood'];
+       
 
 
        //插入RESTAURANT_ORDER
@@ -49,54 +50,66 @@
 
 
        //插入RESTAURANT_ORDER DETAIL
-       for($i=0 ; $i < count($food); $i++){
-              $MEAL_DATA_ID = $food[$i]["MEAL_DATA_ID"];
-              $MEAL_AMOUNT = $food[$i]["MEAL_COUNT"];
+       if($food!==""){
+              for($i=0 ; $i < count($food); $i++){
+                     $MEAL_DATA_ID = $food[$i]["MEAL_DATA_ID"];
+                     $MEAL_AMOUNT = $food[$i]["MEAL_COUNT"];
+       
+                     $sql3 = 'INSERT INTO RESTAURTAT_ORDER_DETAIL (FK_RESTAURANT_ORDER_ID, FK_MEAL_DATA_ID, MEAL_AMOUNT) VALUES(?, ?, ?)';
+       
+                     $statement = $pdo->prepare($sql3);     
+                     $statement->bindValue(1 , $RESTAURANT_ORDER_ID[0]); 
+                     $statement->bindValue(2 , $MEAL_DATA_ID); 
+                     $statement->bindValue(3 , $MEAL_AMOUNT); 
+                     $statement->execute();
+              };
+       }
 
-              $sql3 = 'INSERT INTO RESTAURTAT_ORDER_DETAIL (FK_RESTAURANT_ORDER_ID, FK_MEAL_DATA_ID, MEAL_AMOUNT) VALUES(?, ?, ?)';
-
-              $statement = $pdo->prepare($sql3);     
-              $statement->bindValue(1 , $RESTAURANT_ORDER_ID[0]); 
-              $statement->bindValue(2 , $MEAL_DATA_ID); 
-              $statement->bindValue(3 , $MEAL_AMOUNT); 
-              $statement->execute();
-       };
-
-       /*
+       // 客製化寵食===================================
        //插入MEAL_CUSTORMRIZE
-       $sql4 = 'INSERT INTO MEAL_CUSTORMRIZE  (FK_RESTAURANT_ORDER_ID, MEAL_COSTURMRIZE_AMOUNT) VALUES(?, ?)';
+       if($petsFood !==""){
+              for($k=0 ; $k < count($petsFood); $k++){
 
-       $statement = $pdo->prepare($sql4);     
-       $statement->bindValue(1 , $RESTAURANT_ORDER_ID[0]); 
-       $statement->bindValue(2 , ); 
-       $statement->execute();
+                     $MEAL_COSTURMRIZE_AMOUNT = $petsFood[$k]["MEAL_COUNT"];
 
+                     $sql4 = 'INSERT INTO MEAL_CUSTORMRIZE  (FK_RESTAURANT_ORDER_ID, MEAL_COSTURMRIZE_AMOUNT) VALUES(?, ?)';
+              
+                     $statement = $pdo->prepare($sql4);     
+                     $statement->bindValue(1 , $RESTAURANT_ORDER_ID[0]); 
+                     $statement->bindValue(2 , $MEAL_COSTURMRIZE_AMOUNT);
+                     $statement->execute();
+              }
+       }
 
 
 
        //取得MEAL_CUSTORMRIZE_ID
-       $sql5 = 'SELECT MEAL_CUSTORMRIZE_ID FROM LOVE_PET.RESTAURANT_ORDER WHERE FK_RESTAURANT_ORDER_ID = ?';
+       $sql5 = 'SELECT MEAL_CUSTORMRIZE_ID FROM LOVE_PET.MEAL_CUSTORMRIZE WHERE FK_RESTAURANT_ORDER_ID = ?';
 
        $statement = $pdo->prepare($sql5);
        $statement->bindValue(1 , $RESTAURANT_ORDER_ID[0]);  
        $statement->execute();
-       $MEAL_CUSTORMRIZE_ID = $statement->fetch();
+       $MEAL_CUSTORMRIZE_ID = $statement->fetchAll(PDO::FETCH_NUM );
 
 
 
+       // $petsFood
        //插入MEAL_CUSTORMRIZE DETAIL
-       for($j=0 ; $j < count($food); $j++){
-              // $MEAL_DATA_ID = $food[$j]["MEAL_DATA_ID"];
-              // $MEAL_AMOUNT = $food[$i]["MEAL_COUNT"];
-
-              $sql6 = 'INSERT INTO LOVE_PET.MEAL_COSTURMRIZE_DETAILS (FK_MEAL_COSTURMRIZE_ID, INGREDIENTS) VALUES(?, ?)';
-
-              $statement = $pdo->prepare($sql6);     
-              $statement->bindValue(1 , $MEAL_CUSTORMRIZE_ID[0]); 
-              $statement->bindValue(2 , '客製菜單細項'); 
-              $statement->execute();
-
+       for($j=0 ; $j < count($MEAL_CUSTORMRIZE_ID); $j++){
+                     for($q=0 ; $q < count($petsFood[0]["INGREDIENTS"]); $q++){
+                            
+                            $ID = $MEAL_CUSTORMRIZE_ID[$j][0];
+                            $INGREDIENTS = $petsFood[$j]["INGREDIENTS"][$q];
               
+                            $sql6 = 'INSERT INTO LOVE_PET.MEAL_COSTURMRIZE_DETAILS (FK_MEAL_COSTURMRIZE_ID, INGREDIENTS) VALUES(?, ?)';
+              
+                            $statement = $pdo->prepare($sql6);
+                            $statement->bindValue(1 , $ID); 
+                            $statement->bindValue(2 , $INGREDIENTS);
+                            $statement->execute();
+              }
        };
-       */
+
+       echo "ok";
+
 ?>
