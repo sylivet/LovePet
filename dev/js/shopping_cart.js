@@ -1,6 +1,5 @@
 var shoppingcart = document.getElementById('i_shoppingCart');
 shoppingcart.addEventListener('click', function () {
-  alert();
   var shoppingcartbk = document.getElementById('i_shoppingCart_bk');
   if (shoppingcartbk.style.display === 'none') {
     shoppingcartbk.style.display = 'block';
