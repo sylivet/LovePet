@@ -10,10 +10,10 @@
   @@include('layout/style.html')
   <title>Love Pet</title>
 </head>
-@@include('layout/header.html')
 
 <body class="index">
   <div id="app">
+    @@include('layout/header.html')
     <section class="mobile">
       <div class="container">
         <img class="logo" src="img/index/7.png" alt="">
@@ -187,6 +187,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
   <script src="vendors/vue/js/vue.js"></script>
   <script src="js/index_vue.js"></script>
+      <!-- 購物車共用組件 -->
+      <script src="js/mall_vue.js"></script>
+      <!-- 打開與關閉購物車 -->
+      <script src="js/shopping_cart.js"></script>
 </body>
 
 </html>
