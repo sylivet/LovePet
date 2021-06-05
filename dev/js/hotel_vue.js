@@ -4,23 +4,70 @@ Vue.component("room-booking", {
     template: "#roombookingbox",
     data() {
         return {
+            FK_MEMBER_ID: null,
             numberOfAdults: 0,
             numberOfKids: 0,
             numberOfDogs: 0,
             numberOfCats: 0,
             start:"",
             end:"",
+            roomCapacity:null,
+            roomName:null,
+            roomID:null,
+            roomPrice:null
         }
     },
     methods: {
         closeBox() {
             this.$emit('closelightbox')
-        }
-    },
-    computed: {
-        selectRoom() {
-            return this.roomtype[0];
-        }
+            
+        },
+        loginCheck(){
+            $.ajax({            
+              method: "POST",
+              url: "php/front_end_API/M_getsession_MID.php",
+              success: (response)=> {
+                if(response === '"N"'){
+                      alert('請先登入會員'); 
+                      $('#m_sign_in_bk').show()
+                    }else{
+                      this.isBookingBoxOpen = true
+                      this.memberID = parseInt(response.split(`"`).join(""))
+                      sessionStorage.clear()
+
+                      $.ajax({            
+                        method: "POST",
+                        url: "php/front_end_API/H_Insert_booking.php",
+                        data:{
+                          'BOOKING_CHECKIN_DATE': this.start,
+                          'BOOKING_CHECKOUT_DATE': this.end,
+                          'FK_ROOM_TYPE_ID': this.roomID,
+                          'numberOfAdults': this.numberOfAdults,
+                          'numberOfKids': this.numberOfKids,
+                          'numberOfDogs': this.numberOfDogs,
+                          'numberOfCats': this.numberOfCats,
+                        },            
+                        dataType: "text",
+                        success: (res)=> {
+                          console.log(res);
+                          if(res === "ok"){
+                            alert("已幫您預約")
+                            this.$emit('closelightbox')
+                          }else{
+                            alert("預約失敗")
+                          }
+                        },
+                        error: function(exception) {
+                            alert("數據載入失敗: " + exception.status);
+                        }
+                    });
+                  }              
+              },
+              error: function(exception) {
+                  alert("數據載入失敗: " + exception.status);
+              }
+          });
+          },
     },
     watch:{
         roomtype(){
@@ -29,7 +76,11 @@ Vue.component("room-booking", {
             this.numberOfDogs= 0,
             this.numberOfCats= 0,
             this.start="",
-            this.end=""
+            this.end="",
+            this.roomCapacity=parseInt(this.roomtype[0].MAX_CAPACITY),
+            this.roomName=this.roomtype[0].ROOM_NAME,
+            this.roomID=this.roomtype[0].ROOM_TYPE_ID,
+            this.roomPrice=parseInt(this.roomtype[0].PRICE)
         }
     },
     mounted(){
@@ -123,49 +174,10 @@ let vm = new Vue({
                 },
             ],
         ],
-        rooms: [
-        ],
+        rooms: []
     },
     methods: {
-        // loginCheck(){
-        //     $.ajax({            
-        //       method: "POST",
-        //       url: "php/front_end_API/M_getsession_MID.php",
-        //       data:{},            
-        //       dataType: "text",
-        //       success: (response)=> {
-        //           if(response == "N"){
-        //               // 尚未登入->前往Login.php
-        //               alert('請先登入會員'); 
-        //               $('#m_sign_in_bk').show()
-        //             }else{
-        //                 $.ajax({            
-        //                     method: "POST",
-        //                     url: "php/front_end_API/H_Insert_booking.php",
-        //                     data:{
-        //                       'BOOKING_CHECKIN_DATE': this.BOOKING_CHECKIN_DATE,
-        //                       'BOOKING_CHECKOUT_DATE': this.BOOKING_CHECKOUT_DATE,
-        //                       'FK_ROOM_TYPE_ID':this.FK_ROOM_TYPE_ID,
-        //                       'numberOfAdults': this.numberOfAdults,
-        //                       'numberOfKids': this.numberOfKids,
-        //                       'numberOfDogs': this.numberOfDogs,
-        //                       'numberOfCats': this.numberOfCats,
-        //                     },            
-        //                     dataType: "text",
-        //                     success: function(){
-        //                         alert("修改成功");
-        //                     },
-        //                     error: function(exception) {
-        //                         alert("數據載入失敗: " + exception.status);
-        //                     }
-        //                 });
-        //           }              
-        //       },
-        //       error: function(exception) {
-        //           alert("數據載入失敗: " + exception.status);
-        //       }
-        //   });
-        // },
+
         font(){
             window._jf.flush();//手動更新justfont
         },
@@ -207,22 +219,22 @@ let vm = new Vue({
         }
 
     },
-    created(){
+    mounted() {
+        
         axios.post("php/front_end_API/H_select.php").then((res)=>{
             this.rooms = res.data
-          });
-    },
-    mounted() {
-        const self=this;
+        });
         /*----- 卷軸 -----*/
         Array.prototype.forEach.call(
             document.getElementsByClassName("bar"),
             function (el) {
                 new SimpleBar(el);
             }
-        );
-
-
+            );
+    },
+    watch:{
+        rooms(){
+            const self=this;
         /*----- 720度環景 -----*/
         self.pannellum= pannellum.viewer("h_panorama", {
             type: "equirectangular",
@@ -264,5 +276,6 @@ let vm = new Vue({
         document.getElementById("h_narrow").addEventListener("click", function (e) {
             self.pannellum.setHfov(self.pannellum.getHfov() + 15);
         });
-    },
+        }
+    }
 });
