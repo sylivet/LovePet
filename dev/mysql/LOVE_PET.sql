@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2021-06-05 11:35:53
+-- 產生時間： 2021-06-06 07:46:43
 -- 伺服器版本： 8.0.23
 -- PHP 版本： 8.0.2
 
@@ -398,18 +398,18 @@ INSERT INTO `MEAL_DATA` (`MEAL_DATA_ID`, `MEAL_TYPE`, `MEAL_NAME`, `MEAL_PRICE`,
 (15, '美式', '炸物拼盤', 500, './img/restaurant/friedFood.jpg', 0, 'humanFood', 500, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
 (16, '美式', '凱薩沙拉', 80, './img/restaurant/CaesarSalad.jpg', 1, 'humanFood', 90, '【人氣沙拉】雞胸肉與酥脆沙拉，佐上酥脆麵包丁、培根與起司粉，淋上特製凱薩醬，經典再現。', 1, 'null'),
 (17, '美式', '碳烤豬肋排', 500, './img/restaurant/porkrib.jpg', 1, 'humanFood', 260, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
-(18, '義式', '番茄義大利麵', 200, './img/restaurant/hamburger.png', 1, 'humanFood', 220, '美味的番茄肉醬義大利麵，關鍵來自於肉的選擇。選用香味十足的牛肉，再加上義式香腸做食物的基底，搭配新鮮的小番茄及濃縮的醬料，最後撒上滿滿的起士粉，讓舌尖上的味蕾，更上一層樓。', 1, 'null'),
-(19, '義式', '羅勒青醬義大利麵', 320, './img/restaurant/hamburger.png', 1, 'humanFood', 200, '這是一個很好吃的羅勒青醬義大利麵', 1, 'null'),
-(20, '義式', '蛤蠣奶油義大利麵', 200, './img/restaurant/hamburger.png', 1, 'humanFood', 500, '蛤蠣很新鮮喔~ 很好吃的義大利麵', 1, 'null'),
-(21, '義式', '雙層美式臘腸披薩', 300, './img/restaurant/hamburger.png', 1, 'humanFood', 400, '不想吃義大利麵，那就吃披薩吧。', 1, 'null'),
+(18, '義式', '番茄義大利麵', 200, './img/restaurant/tomatoPasta.jpg', 1, 'humanFood', 220, '美味的番茄肉醬義大利麵，關鍵來自於肉的選擇。選用香味十足的牛肉，再加上義式香腸做食物的基底，搭配新鮮的小番茄及濃縮的醬料，最後撒上滿滿的起士粉，讓舌尖上的味蕾，更上一層樓。', 1, 'null'),
+(19, '義式', '羅勒青醬義大利麵', 320, './img/restaurant/greenPasta.jpg', 1, 'humanFood', 200, '這是一個很好吃的羅勒青醬義大利麵', 1, 'null'),
+(20, '義式', '蛤蠣奶油義大利麵', 200, './img/restaurant/clamPasta.jpg', 1, 'humanFood', 500, '蛤蠣很新鮮喔~ 很好吃的義大利麵', 1, 'null'),
+(21, '義式', '雙層美式臘腸披薩', 300, './img/restaurant/Pizza.jpg', 1, 'humanFood', 400, '不想吃義大利麵，那就吃披薩吧。', 1, 'null'),
 (22, '義式', '彩蔬鮮菇披薩', 390, './img/restaurant/hamburger.png', 0, 'humanFood', 290, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
 (23, '沙拉', '雞肉沙拉', 200, './img/restaurant/chickenSalad.jpg', 1, 'petsFood', 230, '炎炎夏日，來道清爽的雞肉沙拉，讓狗狗攝取一天運動的養分，添加芹菜及番茄等涼性蔬菜，有助於清熱解暑，再加上適量的油脂，提高身體的吸收度，最後淋上特製的沙拉醬，保證毛孩們食慾大開。', 1, 'null'),
 (24, '沙拉', '牛肉沙拉', 299, './img/restaurant/beefSalad.jpg', 1, 'petsFood', 220, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
 (25, '沙拉', '嫩煎鮭魚沙拉', 270, './img/restaurant/fishSalad.jpg', 1, 'petsFood', 200, '選用頂級厚實的安格斯牛肉，搭配濃郁的起士醬，讓牛番茄和生菜穿梭其中，增加其層次感，配上鬆軟的漢堡麵包，每一口都是鮮甜多汁的享受。', 1, 'null'),
-(26, '鮮食', '低敏結實配方', 370, './img/restaurant/hamburger.png', 1, 'petsFood', 250, '專業營養師調配，可作為狗狗長期主食，手切新鮮肉塊，搭配多元食材，針對機能營養進補，滿滿肉塊讓毛孩大口咬咬，即開即食，嗜口性高。', 1, 'null'),
-(27, '鮮食', '關節保養配方', 350, './img/restaurant/hamburger.png', 1, 'petsFood', 260, '讓毛孩走路不卡卡的獨家配方，添加支持關節健康的四大成份，給毛孩健步如飛的行動力！', 1, 'null'),
-(28, '鮮食', '毛髮亮麗配方', 400, './img/restaurant/hamburger.png', 0, 'petsFood', 255, '全面及均衡營養的乾糧，專利配方證實能保持健康皮膚和亮麗毛髮。', 1, 'null'),
-(29, '鮮食', '元氣滿滿­­配方', 480, './img/restaurant/hamburger.png', 1, 'petsFood', 280, '豐富的牛肉肉塊，加上細碎的燉菜，還有蘋果以及枸杞，讓狗狗除了吃得開心，也達到養生的效果。讓狗狗建立好體質，遠離醫生。', 1, 'null'),
+(26, '鮮食', '低敏結實配方', 370, './img/restaurant/petsFood.jpg', 1, 'petsFood', 250, '專業營養師調配，可作為狗狗長期主食，手切新鮮肉塊，搭配多元食材，針對機能營養進補，滿滿肉塊讓毛孩大口咬咬，即開即食，嗜口性高。', 1, 'null'),
+(27, '鮮食', '關節保養配方', 350, './img/restaurant/petsFood.jpg', 1, 'petsFood', 260, '讓毛孩走路不卡卡的獨家配方，添加支持關節健康的四大成份，給毛孩健步如飛的行動力！', 1, 'null'),
+(28, '鮮食', '毛髮亮麗配方', 400, './img/restaurant/petsFood.jpg', 1, 'petsFood', 255, '全面及均衡營養的乾糧，專利配方證實能保持健康皮膚和亮麗毛髮。', 1, 'null'),
+(29, '鮮食', '元氣滿滿­­配方', 480, './img/restaurant/petsFood.jpg', 1, 'petsFood', 280, '豐富的牛肉肉塊，加上細碎的燉菜，還有蘋果以及枸杞，讓狗狗除了吃得開心，也達到養生的效果。讓狗狗建立好體質，遠離醫生。', 1, 'null'),
 (30, '配菜', '青菜', 20, './img/restaurant/veg1.png', 1, 'petsCustom', 36, 'null', 1, 'sidefood2');
 
 -- --------------------------------------------------------
@@ -1109,7 +1109,7 @@ ALTER TABLE `MESSAGE_LIST`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `NEWS`
 --
 ALTER TABLE `NEWS`
-  MODIFY `NEWS_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `NEWS_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `PET_INFO`
@@ -1175,7 +1175,7 @@ ALTER TABLE `SHOPPING_ORDER_DETAIL`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `SHOPPING_PRODUCT`
 --
 ALTER TABLE `SHOPPING_PRODUCT`
-  MODIFY `PRODUCT_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
+  MODIFY `PRODUCT_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- 已傾印資料表的限制式
