@@ -14,7 +14,8 @@ Vue.component("room-booking", {
             roomCapacity:null,
             roomName:null,
             roomID:null,
-            roomPrice:null
+            roomPrice:null,
+            roomBlackList:[]
         }
     },
     methods: {
@@ -47,8 +48,7 @@ Vue.component("room-booking", {
                           'numberOfCats': this.numberOfCats,
                         },            
                         dataType: "text",
-                        success: (res)=> {
-                          console.log(res);
+                        success: ()=> {
                         alert("已幫您預約")
                         this.$emit('closelightbox')
                         },
@@ -76,22 +76,36 @@ Vue.component("room-booking", {
             this.roomName=this.roomtype[0].ROOM_NAME,
             this.roomID=this.roomtype[0].ROOM_TYPE_ID,
             this.roomPrice=parseInt(this.roomtype[0].PRICE)
+        },
+        roomID(){
+            $.ajax({            
+                method: "POST",
+                url: "php/front_end_API/H_blacklist.php",
+                data:{
+                    'FK_ROOM_TYPE_ID' : this.roomID
+                },            
+                dataType: "text",
+                success: (res)=> {
+                    this.roomBlackList = JSON.parse(res);
+                }
+            });
         }
     },
     mounted(){
-                /*----- 月曆 -----*/
-                const calendar_el = document.querySelector('#my-calendar');
-                const myCalendar = new TavoCalendar(calendar_el, {
-                    date: new Date(),
-                    blacklist: ["2021-06-10", "2021-06-23"],
-                    range_select: true,
-                });
+        const self=this;
+            /*----- 月曆 -----*/
+            const calendar_el = document.querySelector('#my-calendar');
+            const myCalendar = new TavoCalendar(calendar_el, {
+                date: new Date(),
+                blacklist: ["2021-06-10", "2021-06-23"],
+                range_select: true,
+            });
         
-                calendar_el.addEventListener('calendar-range', (ev) => {
-                    const range = myCalendar.getRange();
-                    this.start = range.start
-                    this.end = range.end
-                });
+            calendar_el.addEventListener('calendar-range', (ev) => {
+                const range = myCalendar.getRange();
+                this.start = range.start
+                this.end = range.end
+            });
     },
 })
 
@@ -273,3 +287,34 @@ let vm = new Vue({
         }
     }
 });
+
+$(function () {
+    /* ----- 房型選擇跟介紹 -----*/
+    $(".mainmenu").click(function () {
+      $(".submenu").toggle();
+      $(".fa-angle-up").toggleClass("rotate");
+    });
+  
+    $(".submenu").click(function () {
+      $(this).parent().prev(".mainmenu").val($(this).val());
+      $(".submenu").hide();
+      $(".fa-angle-up").removeClass("rotate");
+    });
+  
+    $(".mainmenu").blur(function () {
+      $(".fa-angle-up").removeClass("rotate");
+      setTimeout(function () {
+        $(".submenu").hide();
+      }, 200);
+    });
+    
+    /*----- 旅館Q&A -----*/
+      $('.h_show').click(function () {
+        $(this).next().slideToggle('slow');
+        $(this).parent().toggleClass('h_faqopen');
+      });
+      $('.h_flip').click(function () {
+        $(this).next().slideToggle('slow');
+        $(this).parent().toggleClass('h_faqopen0');
+      });
+  });
