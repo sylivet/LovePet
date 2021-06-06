@@ -5,7 +5,7 @@
   $db_user = "root";
   //$db_pass = "password";
   $db_select = "LOVE_PET";
-  $db_pass = "co01co01241";
+  $db_pass = "password";
 
   //建立資料庫連線物件
   $dsn = "mysql:host=".$db_host.";dbname=".$db_select;
