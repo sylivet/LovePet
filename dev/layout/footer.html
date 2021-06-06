@@ -81,7 +81,7 @@
 
 <script type="text/x-template" id="cart">
   <div class="i_shoppingCart bar" id="bar">
-    <table v-for="(item,index) in counts">
+    <table v-for="(item,index) in counts" :key="item.PRODUCT_ID">
       <tr>
         <td><img :src="item.PRODUCT_IMG" alt=""></td>
         <td>
