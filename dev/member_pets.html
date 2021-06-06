@@ -12,21 +12,8 @@
     <body>
         @@include('layout/header.html')
 <!-- =================================================側邊攔===================================================== -->
-<div class="m_wrapper">
-    <aside>
-   <div>
-         <h5><a href="./member_index.html"><img src="./img/member/catlogo-8.png" alt=""><span>會員專區</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></h5>
-         <div class="m_underline_1"></div>
-         <ul>
-             <li><a href="./member_people.html"><img src="./img/member/catlogo-8.png" alt=""><span>我的帳號</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
-             <li><a href="./member_pets.html"><img src="./img/member/catlogo-8.png" alt=""><span>我的寵物</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
-             <li><a href="./member_order_management.html"><img src="./img/member/catlogo-8.png" alt=""><span>訂單管理</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
-             <li class="m_little_li"><a href="./member_order_management.html"><img src="./img/member/catlogo-8.png" alt=""><span>已完成</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
-             <li class="m_little_li"><a href="./member_order_management.html"><img src="./img/member/catlogo-8.png" alt=""><span>未完成</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
-         </ul>
-         <input type="button" value="登&emsp;出">
-   </div>
-    </aside>
+<div class="m_wrapper" id='app'>
+    <my-aside></my-aside>
          
 <!-- =================================================主要內容===================================================== -->
          <main>
@@ -35,8 +22,8 @@
             <section class="m_pets m_pets_pics">
                 <section  class="m_pets ">
                     <form action="">
-                        <div>
-                            <img src="./img/member/Group 2151.png" alt="profile"  class="m_pet_pic" id="m_pet1">
+                        <div class="m_frame">
+                            <img src="" alt="profile"  class="m_pet_pic" id="m_pet1">
                         </div>
                         <div>
                             <input type="text" id="pet_name1" placeholder="名字">
@@ -47,8 +34,8 @@
 
                 <section class="m_pets ">
                     <form action="">
-                        <div>
-                            <img src="./img/member/Group 2151.png" alt="profile"  class="m_pet_pic" id="m_pet0" >
+                        <div class="m_frame">
+                            <img src='' alt="profile"  class="m_pet_pic" id="m_pet0" >
                         </div>
                         <div>
                             <input type="text" id="pet_name0" placeholder="名字">
@@ -59,8 +46,8 @@
 
                 <section class="m_pets ">
                     <form action="">
-                        <div>
-                            <img src="./img/member/Group 2151.png" alt="profile"  class="m_pet_pic" id="m_pet2">
+                        <div class="m_frame">
+                            <img src="" alt="profile"  class="m_pet_pic" id="m_pet2">
                         </div>
                         <div>
                             <input type="text" id="pet_name2" placeholder="名字">
@@ -180,7 +167,12 @@
     @@include('layout/footer.html')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="./js/m_member_pet.js"></script>
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <!-- vue -->
+    <script src="./vendors/vue/js/vue.js"></script>
+    <script src="./js/m_aside_contrl.js"></script>
+    <!-- <script src="./js/m_member_pet.js"></script> -->
     </body>
 
 </html>
