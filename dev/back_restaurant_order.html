@@ -129,7 +129,7 @@
 									list-group-item-action
 									list-group-item-secondary
 								"
-								><span class="badge bg-success rounded-pill">0</span>
+								><span class="badge bg-success rounded-pill H_orderNumber">0</span>
 								旅館訂單</a
 							>
 							<a
@@ -277,6 +277,10 @@
 				getData(res);
 				$('.R_orderNumber').text(res.data.length)
 			});
+			
+			axios.post("php/back_end_API/H_select_order.php").then((res) => {
+      	$('.H_orderNumber').text(res.data.length)
+    	});
 
 
 			function getData(res) {
