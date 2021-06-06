@@ -1,19 +1,29 @@
-<header id="formall">
-  <!-- 購物車 -->
+<header id="forCart">
   <div class="yu_wrapper">
-    <the-cart @to-plus="increase" @to-sub="
-    decrease" @to-remove="removeToCart" :counts="chooseItem"></the-cart>
-    <!-- 父元件接收自訂事件toplus -->
+    <!-- 購物車 -->
+    <div id="i_shoppingCart_bk" class="i_background" style="display:none">
+      <div class="i_lightbox_bk">
+        <a class="i_closeButton">
+          <img src="./img/common/close.png" alt="">
+        </a>
+        <div class="i_lightbox_title">
+          <h2>購物車清單</h2>
+        </div>
+        <!-- 購物車組件 -->
+        <the-cart @to-plus="increase" @to-sub="decrease" @to-remove="removeToCart" :counts="chooseItem"></the-cart>
+        <!-- 父元件接收自訂事件toplus -->
+      </div>
+    </div>
     <!-------------- m_header ----------------->
     <div class=" m_header m_toggle">
       <h5><a href="./member_index.html"><img src="./img/member/catlogo-8.png" alt=""><span>會員專區</span><img
             src="./img/member/catlogo-8.png" alt="" style="opacity: 0;"></a></h5>
 
       <div><a href="./member_people.html">
-            <img src="./img/member/Profile-Male-PNG.jpg" alt="profile" class="m_person_pic" id='m_pic'>
-            <span id='m_nickname'>吳愛寵 </span>
-            <span>&emsp; 您好</span>
-          </a>
+          <img src="./img/member/Profile-Male-PNG.jpg" alt="profile" class="m_person_pic" id='m_pic'>
+          <span id='m_nickname'>吳愛寵 </span>
+          <span>&emsp; 您好</span>
+        </a>
       </div>
       <div class="m_pets">
         <a href="./member_pets.html"><img src="./img/member/Group 2151.png" alt="profile" class="m_pet_pic"></a>
@@ -206,7 +216,7 @@
         </a>
       </li>
       <li>
-        <a id="i_shoppingCart">
+        <a @click="open" id="i_shoppingCart">
           <span class="material-icons">shopping_cart</span>
         </a>
       </li>

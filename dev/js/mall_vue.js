@@ -114,7 +114,7 @@ let data = {
 };
 
 new Vue({
-  el: '#formall',
+  el: '#forCart',
   data: data,
   created() {
     var self = this;
@@ -168,6 +168,24 @@ new Vue({
       }
       // 箭頭函式，尋找陣列chooseItem中符合的元素，並返回其 index值，每個元素都會執行cllback function，如果參數item(陣列元素)也存在於陣列裡，返回它的index值
       // this.chooseItem.splice(index, 1); //刪除該index
+    },
+    rerender() {
+      window._jf.flush(); //手動更新justfont
+    },
+    open() {
+      var shoppingcartbk = document.getElementById('i_shoppingCart_bk');
+      if (shoppingcartbk.style.display === 'none') {
+        shoppingcartbk.style.display = 'block';
+      }
+
+      var close = document.getElementsByClassName('i_closeButton');
+      for (let i = 0; i < close.length; i++) {
+        close[i].addEventListener('click', function () {
+          if (this.closest('.i_background').style.display === 'block') {
+            this.closest('.i_background').style.display = 'none';
+          }
+        });
+      }
     },
   },
   computed: {

@@ -233,14 +233,14 @@
                                 <div class="i_select">成人
                                     <select v-model.number="numberOfAdults" name="numberOfAdults">
                                         <option selected="selected">0</option>
-                                        <option v-for="room in selectRoom.MAX_CAPACITY" :value="room" >{{room}}</option>
+                                        <option v-for="room in roomCapacity" :value="room" >{{room}}</option>
                                     </select>
                                     人
                                 </div>
                                 <div class="i_select">兒童
                                     <select v-model.number="numberOfKids" name="numberOfKids">
                                         <option selected="selected">0</option>
-                                        <option v-for="room in selectRoom.MAX_CAPACITY" :value="room" >{{room}}</option>
+                                        <option v-for="room in roomCapacity" :value="room" >{{room}}</option>
                                     </select>
                                     人
                                 </div>
@@ -249,14 +249,14 @@
                                 <div class="i_select">狗
                                     <select v-model.number="numberOfDogs" name="numberOfDogs">
                                         <option selected="selected">0</option>
-                                        <option v-for="room in selectRoom.MAX_CAPACITY" :value="room" >{{room}}</option>
+                                        <option v-for="room in roomCapacity" :value="room" >{{room}}</option>
                                     </select>
                                     隻
                                 </div>
                                 <div class="i_select">貓
                                     <select v-model.number="numberOfCats" name="numberOfCats">
                                         <option selected="selected">0</option>
-                                        <option v-for="room in selectRoom.MAX_CAPACITY" :value="room" >{{room}}</option>
+                                        <option v-for="room in roomCapacity" :value="room" >{{room}}</option>
                                     </select>
                                     隻
                                 </div>
@@ -273,8 +273,8 @@
                                 <input type="text" name="BOOKING_CHECKOUT_DATE" :value="end">
                               </li>
                               <li>
-                                選擇房型：{{selectRoom.ROOM_NAME}}
-                                <input type="text" :value="selectRoom.ROOM_TYPE_ID" name="FK_ROOM_TYPE_ID">
+                                選擇房型：{{roomName}}
+                                <input type="text" :value="roomID" name="FK_ROOM_TYPE_ID">
                               </li>
                               <li v-if="numberOfDogs>0||numberOfCats||numberOfAdults||numberOfKids>0">房客總數：</li>
                               <li>
@@ -290,10 +290,10 @@
                             </ul>
                           <hr>
                           <div class="i_total">
-                              <h3 v-if="numberOfAdults+numberOfKids<=selectRoom.MAX_CAPACITY">總價 NT{{selectRoom.PRICE}}元</h3>
-                              <h3 class="alertHotel" v-else="numberOfAdults+numberOfKids>selectRoom.MAX_CAPACITY">超過房間人數上限，無法預約</h3>
+                              <h3 v-if="numberOfAdults+numberOfKids<=roomCapacity">總價 NT{{roomPrice}}元</h3>
+                              <h3 class="alertHotel" v-else="numberOfAdults+numberOfKids>roomCapacity">超過房間人數上限，無法預約</h3>
                           </div>
-                          <button v-if="numberOfAdults+numberOfKids<=selectRoom.MAX_CAPACITY&&numberOfAdults>0" type="button" class="i_button">確認預約</button>
+                          <button v-if="numberOfAdults+numberOfKids<=roomCapacity&&numberOfAdults>0" class="i_button" @click="loginCheck">確認預約</button>
                       </div>
                   </div>
               </div>

@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="./vendors/slick/css/slick.css" />
   <link rel="stylesheet" type="text/css" href="./vendors/slick/css/slick-theme.css" />
-  <link rel="stylesheet" href="./css/style.css">
+  <!-- <link rel="stylesheet" href="./css/style.css"> -->
   <title>view</title>
   @@include('layout/style.html')
 </head>
 
 <body class="shopping">
   <div class="s_wrapper">
-    <div id="formall" class="shopping_main">
+    <div id="forCart" class="shopping_main">
       @@include('layout/header.html')
       <div class="s_ph">
         <div class="s_big_ph">
@@ -29,7 +29,9 @@
       </div>
 
       <div class="s_text">
-        <h3>{{info[0].PRODUCT_NAME}}<br>{{info[0].PRODUCT_PRICE}}元<br><span>已售出:{{info[0].PRODUCT_SOLD}}個</span></h3>
+        <h3>
+          {{this.info[0].PRODUCT_NAME}}<br>{{this.info[0].PRODUCT_PRICE}}元<br><span>已售出:{{this.info[0].PRODUCT_SOLD}}個</span>
+        </h3>
 
         <div class="s_button">
           <button @click="addToCart(info[0],info[1],info[2])" class="s_buy"> <span
@@ -37,7 +39,7 @@
           <!-- <button class="s_back">回商品頁</button> -->
           <a href="./Mall.html">回商品頁</a>
         </div>
-        <p>{{info[0].PRODUCT_INFO}}</p>
+        <p>{{this.info[0].PRODUCT_INFO}}</p>
       </div>
     </div>
     <div class="s_Carousel">
@@ -96,10 +98,10 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></scrip>
   <script type="text/javascript" src="./vendors/slick/js/slick.min.js"></script>
   <!-- 購物車組件 -->
+  <script src="js/mall_vue.js"></script>
   <!-- <script src="js/cart_component.js"></script> -->
   <!-- 打開與關閉購物車 -->
-  <script src="js/mall_vue.js"></script>
-  <script src="js/shopping_cart.js"></script>
+  <!-- <script src="js/shopping_cart.js"></script> -->
 </body>
 
 </html>
