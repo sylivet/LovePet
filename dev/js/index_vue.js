@@ -85,13 +85,13 @@ let vm = new Vue({
   el: "#app",
   data: data,
   created(){
-    var self = this;
+    const self = this;
     //對前端頁面資料進行初始化
     axios.post("php/front_end_API/I_select.php").then(function (res) {
       self.news = res.data; //獲取資料
       self.$nextTick(() => {//在DOM已掛載、渲染完成後，執行nextTick()內的程式碼
         //最新消息
-        var swiper = new Swiper(".mySwiper", {
+        let swiper = new Swiper(".mySwiper", {
           slidesPerView: 1,
           loop: true,
           autoplay: {
@@ -207,32 +207,6 @@ let vm = new Vue({
       scale:.8,
       duration: 2
     })
-    // 首頁輪播圖
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 1,
-      loop: true,
-      autoplay: {
-        delay: 3500
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true
-      },
-      breakpoints: {
-        500: {
-          slidesPerView: 2
-        },
-        768: {
-          slidesPerView: 3
-        },
-        1024: {
-          slidesPerView: 4
-        },
-        1300: {
-          slidesPerView: 5
-        }
-      }
-    });
 
     // 首頁環景圖
     pannellum.viewer = pannellum.viewer("panorama", {

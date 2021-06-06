@@ -4,23 +4,65 @@ Vue.component("room-booking", {
     template: "#roombookingbox",
     data() {
         return {
+            FK_MEMBER_ID: null,
             numberOfAdults: 0,
             numberOfKids: 0,
             numberOfDogs: 0,
             numberOfCats: 0,
             start:"",
             end:"",
+            roomCapacity:null,
+            roomName:null,
+            roomID:null,
+            roomPrice:null
         }
     },
     methods: {
         closeBox() {
             this.$emit('closelightbox')
-        }
-    },
-    computed: {
-        selectRoom() {
-            return this.roomtype[0];
-        }
+        },
+        loginCheck(){
+            $.ajax({            
+              method: "POST",
+              url: "php/front_end_API/M_getsession_MID.php",
+              success: (response)=> {
+                if(response === '"N"'){
+                      alert('請先登入會員'); 
+                      $('#m_sign_in_bk').show()
+                    }else{
+                      this.FK_MEMBER_ID = parseInt(response.split(`"`).join(""))
+                      sessionStorage.clear()
+
+                      $.ajax({            
+                        method: "POST",
+                        url: "php/front_end_API/H_Insert_booking.php",
+                        data:{
+                          'FK_MEMBER_ID': this.FK_MEMBER_ID,
+                          'BOOKING_CHECKIN_DATE': this.start,
+                          'BOOKING_CHECKOUT_DATE': this.end,
+                          'FK_ROOM_TYPE_ID': this.roomID,
+                          'numberOfAdults': this.numberOfAdults,
+                          'numberOfKids': this.numberOfKids,
+                          'numberOfDogs': this.numberOfDogs,
+                          'numberOfCats': this.numberOfCats,
+                        },            
+                        dataType: "text",
+                        success: (res)=> {
+                          console.log(res);
+                        alert("已幫您預約")
+                        this.$emit('closelightbox')
+                        },
+                        error: function(exception) {
+                            alert("數據載入失敗: " + exception.status);
+                        }
+                    });
+                  }              
+              },
+              error: function(exception) {
+                  alert("數據載入失敗: " + exception.status);
+              }
+          });
+          },
     },
     watch:{
         roomtype(){
@@ -29,7 +71,11 @@ Vue.component("room-booking", {
             this.numberOfDogs= 0,
             this.numberOfCats= 0,
             this.start="",
-            this.end=""
+            this.end="",
+            this.roomCapacity=parseInt(this.roomtype[0].MAX_CAPACITY),
+            this.roomName=this.roomtype[0].ROOM_NAME,
+            this.roomID=this.roomtype[0].ROOM_TYPE_ID,
+            this.roomPrice=parseInt(this.roomtype[0].PRICE)
         }
     },
     mounted(){
@@ -123,108 +169,9 @@ let vm = new Vue({
                 },
             ],
         ],
-        rooms: [//資料庫房型資料
-            {
-                ROOM_TYPE_ID: 1,
-                ROOM_NAME: "時毛玩意",
-                PRICE: 5999,
-                MAX_CAPACITY: 4,
-                ROOM_IMG: "img/hotel/h_room4.jpg",
-                ROOM_IMG2: "img/hotel/h_room5.jpg",
-                ROOM_IMG3: "img/hotel/h_room6.jpg",
-                PANNELLUM: "img/hotel/h_panorama2.jpeg",
-                ROOM_INFO: "房內採白色的牆面，配上強烈的紅色沙發，以及對比色系的家具，形成撞色的時髦感，且窗外撒落的陽光與綠意，讓身處在都市喧囂的我們，還能觀賞波光粼粼的河面，獲得片刻的寧靜...另有開放式廚房及餐桌，選用了時尚的大理石桌板，讓您與家人或朋友，可以享受在房內使用餐點的私人空間，不受他人打擾。",
-            },
-            {
-                ROOM_TYPE_ID: 2,
-                ROOM_NAME: "一汪無際",
-                PRICE: 3500,
-                MAX_CAPACITY: 2,
-                ROOM_IMG: "img/hotel/h_room7.jpg",
-                ROOM_IMG2: "img/hotel/h_room8.jpg",
-                ROOM_IMG3: "img/hotel/h_room9.jpg",
-                PANNELLUM: "img/hotel/h_panorama3.jpg",
-                ROOM_INFO: "使用明亮舒適的嵌燈照明，以及大量的鏡面設計，令房間的臥室顯得有獨特的格調；周圍還配上了烤漆玻璃的櫃體，讓水藍色的門片照映，房間整個一覽無遺，不必擔心毛孩跑到您不知道的角落裡。並且化妝台上的鏡子，還接上了補光燈，絕對是您享有一天美好的開始；身旁的貓抓板也能讓貓咪與您一同互動。",
-
-            },
-            {
-                ROOM_TYPE_ID: 3,
-                ROOM_NAME: "天羅地汪",
-                PRICE: 4000,
-                MAX_CAPACITY: 2,
-                ROOM_IMG: "img/hotel/h_room1.png",
-                ROOM_IMG2: "img/hotel/h_room2.png",
-                ROOM_IMG3: "img/hotel/h_room3.png",
-                PANNELLUM: "img/hotel/h_panorama1.jpg",
-                ROOM_INFO: "簡雅的線條設計，配上舒適的亞麻米色，房內更設有方便的工作桌，讓需要常外出工作的您，還能帶著寵物出門旅遊；考慮到毛孩的活動範圍，房內的擺設皆留有寬敞的空間，並配置隔音牆，讓您可以安心陪伴牠們玩耍、休息。浴室採乾溼分離設計，提高您的安全及便利性，並附設方型湯池，能依喜好選擇一般的泡澡或是溫泉，舒緩您一天的疲勞。",
-
-            },
-            {
-                ROOM_TYPE_ID: 4,
-                ROOM_NAME: "青喵淡寫",
-                PRICE: 4999,
-                MAX_CAPACITY: 4,
-                ROOM_IMG: "img/hotel/h_room10.jpg",
-                ROOM_IMG2: "img/hotel/h_room11.jpg",
-                ROOM_IMG3: "img/hotel/h_room12.jpg",
-                PANNELLUM: "img/hotel/h_panorama4.jpg",
-                ROOM_INFO: "喜歡大自然的旅客，不妨選擇我們預約top1的房型。從踏入房間的那刻起，就讓您感受到大地的擁抱，採用松木質地的地板與家具，有陣陣飄來的清香；沙發與床組都是讓雙眼得以休息的大地色，配上樂寵後山特別栽種的植物，絕對是您愜意的首選。還有架高的液晶電視，讓您無論是在沙發旁與貓咪玩耍，或是在床上觀賞頻道，都是舒適自在的觀看角度。",
-
-            },
-            {
-                ROOM_TYPE_ID: 5,
-                ROOM_NAME: "舒毛一夏",
-                PRICE: 4200,
-                MAX_CAPACITY: 2,
-                ROOM_IMG: "img/hotel/h_room13.jpg",
-                ROOM_IMG2: "img/hotel/h_room14.jpg",
-                ROOM_IMG3: "img/hotel/h_room15.jpg",
-                PANNELLUM: "img/hotel/h_panorama5.jpg",
-                ROOM_INFO: "位於最高樓層的景觀房型，打開窗簾便能俯瞰這個美麗的城市，坐在窗前讀讀喜歡的書本，或是小酌情誼，抬頭便能看見夜色，喜歡夜景的訪客千萬不能錯過。主色系採用了優雅的藍色，從床頭舒適柔軟的靠墊到地上天然的羊毛地毯，給您與毛孩最大的呵護，不必擔心孩子們活動的空間受到侷限，可以在房內自由地奔跑。",
-
-            },
-        ],
+        rooms: []
     },
     methods: {
-        loginCheck(){
-            $.ajax({            
-              method: "POST",
-              url: "php/front_end_API/M_getsession_MID.php",
-              data:{},            
-              dataType: "text",
-              success: (response)=> {
-                  if(response == "N"){
-                      // 尚未登入->前往Login.php
-                      alert('請先登入會員'); 
-                      $('#m_sign_in_bk').show()
-                    }else{
-                        $.ajax({            
-                            method: "POST",
-                            url: "php/front_end_API/H_Insert_booking.php",
-                            data:{
-                              'BOOKING_CHECKIN_DATE': this.BOOKING_CHECKIN_DATE,
-                              'BOOKING_CHECKOUT_DATE': this.BOOKING_CHECKOUT_DATE,
-                              'FK_ROOM_TYPE_ID':this.FK_ROOM_TYPE_ID,
-                              'numberOfAdults': this.numberOfAdults,
-                              'numberOfKids': this.numberOfKids,
-                              'numberOfDogs': this.numberOfDogs,
-                              'numberOfCats': this.numberOfCats,
-                            },            
-                            dataType: "text",
-                            success: function(){
-                                alert("修改成功");
-                            },
-                            error: function(exception) {
-                                alert("數據載入失敗: " + exception.status);
-                            }
-                        });
-                  }              
-              },
-              error: function(exception) {
-                  alert("數據載入失敗: " + exception.status);
-              }
-          });
-        },
         font(){
             window._jf.flush();//手動更新justfont
         },
@@ -267,20 +214,25 @@ let vm = new Vue({
 
     },
     mounted() {
-        const self=this;
+        
+        axios.post("php/front_end_API/H_select.php").then((res)=>{
+            this.rooms = res.data
+        });
         /*----- 卷軸 -----*/
         Array.prototype.forEach.call(
             document.getElementsByClassName("bar"),
             function (el) {
                 new SimpleBar(el);
             }
-        );
-
-
+            );
+    },
+    watch:{
+        rooms(){
+            const self=this;
         /*----- 720度環景 -----*/
-        self.pannellum= pannellum.viewer("h_panorama", {
+        this.pannellum= pannellum.viewer("h_panorama", {
             type: "equirectangular",
-            panorama: self.typeRoom[0].PANNELLUM,//錯誤==
+            panorama: this.typeRoom[0].PANNELLUM,//錯誤==
             // 調整初始畫面位置
             pitch: -10,
             hfov: 180,
@@ -318,5 +270,6 @@ let vm = new Vue({
         document.getElementById("h_narrow").addEventListener("click", function (e) {
             self.pannellum.setHfov(self.pannellum.getHfov() + 15);
         });
-    },
+        }
+    }
 });

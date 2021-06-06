@@ -116,13 +116,17 @@
         display: block;
         margin: 0 auto;
         padding: 0 20px;
-        textarea{
+        .c_suggestion_inner{
             background-color: #fff;
             margin-top: 80px;
             margin-bottom: 50px;
             width: 100%;
             height: 450px;
-            resize: none;
+            border: 2px solid #FFC857;
+            padding: 10px;
+            p{
+                line-height: 1.6;
+            }
         }
     }
     .c_toHomepage{

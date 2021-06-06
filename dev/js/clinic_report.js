@@ -50,7 +50,15 @@ Vue.component('report-chart', {
     props:['charts'],
     data(){
         return{
-            count:0,
+            current_report:0,
+        }
+    },
+    computed: {
+        listName(){
+            for(let i = 0 ;i < this.charts.length ;i++){
+                
+            }
+            return this.charts.LISTNAME[i];
         }
     },
     mounted() {
@@ -60,7 +68,7 @@ Vue.component('report-chart', {
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['1', '2', '3', '4', '5', '6','7'],
+                labels: ['1','2','3','4','5','6','7'],
                 datasets: [{
                     label: '寵物報告書',
                     data: [7,3,8,6,5,1,9],
@@ -81,6 +89,9 @@ Vue.component('report-chart', {
                 }
             }
         });
+        
+
+
     },
 })
 
@@ -89,9 +100,12 @@ Vue.component('report-suggestion', {
     template:`
     <div class="c_suggestion_background">
         <div class="c_suggestion">
-            <textarea readonly>
-                
-            </textarea>
+            <div class='c_suggestion_inner'>
+                <p v-for='report in reports'>{{report.LISTNAME}}:{{report.HEALTH_CHECK_VALUE}}</p>
+                <hr>
+                <h3>醫師建議:</h3>
+                <p v-for='report in reports2' v-show='reports2[current_report] === report'>{{report.SUGGESTION}}</p>
+            </div>
         </div>
         <div class="c_toHomepage">
             <a href="./clinic_index.html"><button>回到健檢首頁</button></a>
@@ -99,10 +113,10 @@ Vue.component('report-suggestion', {
     </div>
     `,
 
-    props:['reports'],
+    props:['reports','reports2'],
     data(){
         return{
-            count:0,
+            current_report:0,
 
         }
     },
@@ -110,7 +124,7 @@ Vue.component('report-suggestion', {
     
     mounted() {
         bus.$on('reportNumber',(value) =>{
-            this.count = value
+            this.current_report = value
         })
     },
     
@@ -124,38 +138,44 @@ new Vue({
         basics:[],
         charts:[],
         reports:[], 
+        reports2:[],
         current_report:0,
     },
 
     created(){
         axios.post("php/front_end_API/CR_select.php").then((res)=>{
-            this.selects = res.data
+           
+            this.selects = res.data;
+            
         })
 
 
         axios.post("php/front_end_API/CR_basic.php").then((res)=>{
-            this.basics = res.data
+            
+            this.basics = res.data;
+
         })
 
         axios.post("php/front_end_API/CR_report.php").then((res)=>{
 
-            // console.log(res.data);
-            let filterChart = res.data.filter( (item) =>{
+            let filterChart = res.data.filter( (item) => {
+
                 return item.HEALTH_CHECK_VALUE > 1;
-            })
-            
+            });  
             this.charts = filterChart;
 
+            let filterReport = res.data.filter((item) =>   
+                item.HEALTH_CHECK_VALUE.includes('。') ? item:null    
+            );
+            this.reports = filterReport;
 
-            // let filterReport = res.data.filter(function(item) {
-            //     return typeof(item.HEALTH_CHECK_VALUE) === 'string' ;
-            // })
+        })
 
-            // console.log(filterReport);
-           
-            this.reports = res.data;
+        
 
-
+        axios.post("php/front_end_API/CR_report2.php").then((res)=>{
+            
+            this.reports2 = res.data;
 
         })
         
