@@ -49,12 +49,8 @@ document.addEventListener('DOMContentLoaded', function () {
           //alert(response);
           let m_header = document.querySelector('.m_header');
           m_header.classList.toggle('m_toggle');
-<<<<<<< HEAD
           window.location.href="front_index.html";
          $('#m_header_control').attr('style','color:orange;');
-=======
-          $('#m_header_control').attr('style', 'color:orange;');
->>>>>>> c27edd3622a61d7cefaf59a059eb2d37690077f1
         },
         error: function error(exception) {
           alert('數據載入失敗: ' + exception.status);
