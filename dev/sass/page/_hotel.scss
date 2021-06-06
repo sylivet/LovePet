@@ -90,7 +90,18 @@
      }
 }
 
-
+.h_position {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 54px;
+    @include mobile{
+        .selectMenu{
+            margin-left:54px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+    }
+}
 
 
 /* ----- 房型選擇跟介紹 -----*/
@@ -102,95 +113,6 @@
     @include mobile {
         margin: 0 10px;
         margin-bottom: 36px;
-    }
-
-    .h_dropdown{    
-        width: 225px;
-        background-color: #ffffff;
-        border-radius: 6px;
-        position: relative;
-        top: auto;
-        right: auto;
-        display: block;
-        margin-left: auto;
-        margin-right: 0;   
-        margin-bottom: 18px;
-        z-index: 10;
-
-        @include mobile{
-            width: 100%;
-        }
-
-        &.h_openmenu{
-            .h_navbar{
-                border-radius: 6px 6px 0 0;
-                
-                .fa-chevron-down{
-                    transform: rotate(180deg);
-                }
-            }
-
-            .h_dropdown_menu{
-                opacity: 1;
-                display: block;
-            }
-        }
-
-        .h_navbar{
-            width: 100%;
-            display: block;
-            height: 36px;
-            background: rgba(0, 0, 0, .3);
-            color: #ffffff;
-            font-family: "setofont","Noto Sans TC", sans-serif;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-            text-align-last: center;
-            line-height: 36px;
-            border-radius: 6px;
-            cursor: pointer;
-
-            .fa-chevron-down{
-                position: absolute;
-                top: 30%;
-                right: 15px;
-                transform: rotate(0deg);
-                transition: 0.5s;
-            }
-        }
-
-        .h_dropdown_menu{
-            background-color: #ffffff;
-            border-radius: 0 0 6px 6px;
-            width: 100%;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            opacity: 0;
-            transition: 0.5s;
-            display: none;
-
-            .h_content{
-                background-color: rgba(0, 0, 0, .3);
-                color: #ffffff;
-                font-family: "setofont","Noto Sans TC", sans-serif;
-                font-size: 16px;
-                font-weight: bold;
-                text-align: center;
-                text-align-last: center;
-                line-height: 36px;
-    
-                &:hover{
-                    background-color: #558B6E;
-                    cursor: pointer;
-                }
-            }
-        }        
-        
-        #h_toggle{
-            display: none;
-        }
     }
 
     .h_photo {
