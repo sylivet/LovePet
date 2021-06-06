@@ -1,246 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-			integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
-			crossorigin="anonymous"
-		/>
-		@@include('layout/style.html')
-		<title>樂寵後台管理</title>
-		<style>
-			body {
-				overflow: auto;
-			}
-			input,
-			select {
-				width: 100px;
-				text-align: right;
-			}
-			.orderdetail{
-				display: none;
-				width: 600px;
-				padding: 20px;
-				background-color: #333;
-				box-sizing: border-box;
-				position: fixed;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				border-radius: 5px;
-				/* font-weight: bold; */
-			}
-			.orderdetail *:not(h4){
-				margin-top: 10px;
-			}
 
-			.orderdetail h4{
-				color:white
-			}
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+	@@include('layout/back_style.html')
+	<title>樂寵後台管理</title>
+	<style>
+		body {
+			overflow: auto;
+		}
 
-			.orderdetail .r_close{
-				text-align: center;
-				width: 30px;
-				height: 30px;
-				margin-left: auto;
-				line-height:30px;
-				cursor: pointer;
-			}
+		input,
+		select {
+			width: 100px;
+			text-align: right;
+		}
 
-			.r_title{
-				margin-top: -20px;
-			}
+		.orderdetail {
+			display: none;
+			width: 600px;
+			padding: 20px;
+			background-color: #333;
+			box-sizing: border-box;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border-radius: 5px;
+			/* font-weight: bold; */
+		}
 
-			.r_membername, .r_people, .r_pets, .r_creategdate{
-				padding-left: 100px;
-				color:#75aafa;
-			}
+		.orderdetail *:not(h4) {
+			margin-top: 10px;
+		}
 
-			.r_dishes li, .r_Customdishes li, .r_status li{
-				padding-left: 100px;
-				color:#75aafa;
-			}
-		</style>
-	</head>
+		.orderdetail h4 {
+			color: white
+		}
 
-	<body class="backend">
-		<nav class="navbar navbar-light" style="background-color: #ffc857">
-			<div class="container-fluid">
-				<div class="d-flex align-items-center">
-					<img
-						class="ms-5"
-						src="img/common/i_logo.png"
-						alt=""
-						style="max-width: 50px"
-					/>
-					<p class="navbar-brand ms-3">樂寵後台管理</p>
-				</div>
-				<div class="me-5"><a href="#">登出</a></div>
+		.orderdetail .r_close {
+			text-align: center;
+			width: 30px;
+			height: 30px;
+			margin-left: auto;
+			line-height: 30px;
+			cursor: pointer;
+		}
+
+		.r_title {
+			margin-top: -20px;
+		}
+
+		.r_membername,
+		.r_people,
+		.r_pets,
+		.r_creategdate {
+			padding-left: 100px;
+			color: #75aafa;
+		}
+
+		.r_dishes li,
+		.r_Customdishes li,
+		.r_status li {
+			padding-left: 100px;
+			color: #75aafa;
+		}
+	</style>
+</head>
+
+<body class="backend">
+	<nav class="navbar navbar-light" style="background-color: #ffc857">
+		<div class="container-fluid">
+			<div class="d-flex align-items-center">
+				<a href="index.html"><img class="ms-5" src="img/common/i_logo.png" alt="" style="max-width: 50px" /></a>
+				<p class="navbar-brand ms-3">樂寵後台管理</p>
 			</div>
-		</nav>
-		<div class="container mt-5">
-			<div class="row">
-				<div class="col-2">
-					<div class="list-group text-center">
-						<a
-							href="back_member.html"
-							class="
+			<div class="me-5"><a href="#">登出</a></div>
+		</div>
+	</nav>
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-2">
+				<div class="list-group text-center">
+					<a href="back_member.html" class="
 								list-group-item list-group-item-action list-group-item-success
-							"
-							>會員管理</a
-						>
-						<a
-							href="back_news.html"
-							class="
+							">會員管理</a>
+					<a href="back_news.html" class="
 								list-group-item list-group-item-action list-group-item-success
-							"
-							>消息管理</a
-						>
-						<a
-							class="
+							">消息管理</a>
+					<a class="
 								list-group-item list-group-item-action list-group-item-success
-							"
-							data-bs-toggle="collapse"
-							href="#order-list"
-							role="button"
-							aria-expanded="false"
-							aria-controls="order-list"
-							><span class="badge bg-success rounded-pill orderManage">0</span> 訂單管理</a
-						>
-						<div class="collapse" id="order-list">
-							<a
-								href="back_restaurant_order.html"
-								class="
+							" data-bs-toggle="collapse" href="#order-list" role="button" aria-expanded="false"
+						aria-controls="order-list"><span class="badge bg-success rounded-pill orderManage">0</span>
+						訂單管理</a>
+					<div class="collapse" id="order-list">
+						<a href="back_restaurant_order.html" class="
 									list-group-item
 									list-group-item-action
 									list-group-item-secondary
-								"
-								><span class="badge bg-success rounded-pill R_orderNumber">0</span>
-								餐廳訂單</a
-							>
-							<a
-								href="back_hotel_order.html"
-								class="
+								"><span class="badge bg-success rounded-pill R_orderNumber">0</span>
+							餐廳訂單</a>
+						<a href="back_hotel_order.html" class="
 									list-group-item
 									list-group-item-action
 									list-group-item-secondary
-								"
-								><span class="badge bg-success rounded-pill">0</span>
-								旅館訂單</a
-							>
-							<a
-								href="back_hospital_order.html"
-								class="
+								"><span class="badge bg-success rounded-pill">0</span>
+							旅館訂單</a>
+						<a href="back_hospital_order.html" class="
 									list-group-item
 									list-group-item-action
 									list-group-item-secondary
-								"
-								><span class="badge bg-success rounded-pill">0</span>
-								健檢訂單</a
-							>
-							<a
-								href="back_shopping_order.html"
-								class="
+								"><span class="badge bg-success rounded-pill">0</span>
+							健檢訂單</a>
+						<a href="back_shopping_order.html" class="
 									list-group-item
 									list-group-item-action
 									list-group-item-secondary
-								"
-								><span class="badge bg-success rounded-pill">0</span>
-								商城訂單</a
-							>
-						</div>
-						<a
-							class="
-								list-group-item list-group-item-action list-group-item-success
-							"
-							data-bs-toggle="collapse"
-							href="#product-list"
-							role="button"
-							aria-expanded="false"
-							aria-controls="product-list"
-							>商品管理</a
-						>
-						<div class="collapse" id="product-list">
-							<a
-								href="back_restaurant_meal.html"
-								class="
-									list-group-item
-									list-group-item-action
-									list-group-item-secondary
-								"
-								>餐廳餐點</a
-							>
-							<a
-								href="back_room_type.html"
-								class="
-									list-group-item
-									list-group-item-action
-									list-group-item-secondary
-								"
-								>旅館房型</a
-							>
-							<a
-								href="back_health_check.html"
-								class="
-									list-group-item
-									list-group-item-action
-									list-group-item-secondary
-								"
-								>健檢項目</a
-							>
-							<a
-								href="back_shopping_product.html"
-								class="
-									list-group-item
-									list-group-item-action
-									list-group-item-secondary
-								"
-								>商城商品</a
-							>
-						</div>
-						<a
-							href="back_message_list.html"
-							class="
-								list-group-item list-group-item-action list-group-item-success
-							"
-							><span class="badge bg-success rounded-pill">0</span> 商城留言</a
-						>
+								"><span class="badge bg-success rounded-pill">0</span>
+							商城訂單</a>
 					</div>
+					<a class="
+								list-group-item list-group-item-action list-group-item-success
+							" data-bs-toggle="collapse" href="#product-list" role="button" aria-expanded="false"
+						aria-controls="product-list">商品管理</a>
+					<div class="collapse" id="product-list">
+						<a href="back_restaurant_meal.html" class="
+									list-group-item
+									list-group-item-action
+									list-group-item-secondary
+								">餐廳餐點</a>
+						<a href="back_room_type.html" class="
+									list-group-item
+									list-group-item-action
+									list-group-item-secondary
+								">旅館房型</a>
+						<a href="back_health_check.html" class="
+									list-group-item
+									list-group-item-action
+									list-group-item-secondary
+								">健檢項目</a>
+						<a href="back_shopping_product.html" class="
+									list-group-item
+									list-group-item-action
+									list-group-item-secondary
+								">商城商品</a>
+					</div>
+					<a href="back_message_list.html" class="
+								list-group-item list-group-item-action list-group-item-success
+							"><span class="badge bg-success rounded-pill">0</span> 商城留言</a>
 				</div>
-				<div class="col-10">
-					<h2 class="mb-3">餐廳訂單管理</h2>
-					<select name="" id="byNumber">
-						<option value="訂單編號">訂單編號</option>
-						<option value="會員編號">會員編號</option>
-					</select>
-					<input type="text" id="name" class="mb-3 ms-2" />
-					<table class="table table-striped table-hover text-center">
-						<thead>
-							<tr class="table-warning">
-								<th>訂單編號</th>
-								<th>會員編號</th>
-								<th>成立日期</th>
-								<th>預約日期</th>
-								<th>人數</th>
-								<th>寵物數</th>
-								<th>訂單狀態</th>
-								<th>訂單明細</th>
-								<th>編輯</th>
-							</tr>
-						</thead>
-						<tbody class="data">
-						</tbody>
-					</table>
-				</div>
+			</div>
+			<div class="col-10">
+				<h2 class="mb-3">餐廳訂單管理</h2>
+				<select name="" id="byNumber">
+					<option value="訂單編號">訂單編號</option>
+					<option value="會員編號">會員編號</option>
+				</select>
+				<input type="text" id="name" class="mb-3 ms-2" />
+				<table class="table table-striped table-hover text-center">
+					<thead>
+						<tr class="table-warning">
+							<th>訂單編號</th>
+							<th>會員編號</th>
+							<th>成立日期</th>
+							<th>預約日期</th>
+							<th>人數</th>
+							<th>寵物數</th>
+							<th>訂單狀態</th>
+							<th>訂單明細</th>
+							<th>編輯</th>
+						</tr>
+					</thead>
+					<tbody class="data">
+					</tbody>
+				</table>
 			</div>
 		</div>
+	</div>
 
-		<div class="orderdetail">
-			<!-- <h4 class="r_close">X</h4>
+	<div class="orderdetail">
+		<!-- <h4 class="r_close">X</h4>
 			<h4 class="r_title">訂單明細</h4>
 			<div class="r_membername">會員編號:1</div>
 			<div class="r_people">預約人數:5人</div>
@@ -268,25 +211,25 @@
 					</li>
 				</ul>
 			</div> -->
-		</div>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-		<script>
-			axios.post("php/back_end_API/R_select_order.php").then((res) => {
-				getData(res);
-				$('.R_orderNumber').text(res.data.length)
-			});
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+	<script>
+		axios.post("php/back_end_API/R_select_order.php").then((res) => {
+			getData(res);
+			$('.R_orderNumber').text(res.data.length)
+		});
 
 
-			function getData(res) {
-				for (let i = 0; i < res.data.length; i++) {
-					// 日期轉為10位數
-					res.data[i].BOOKING_DATE = res.data[i].BOOKING_DATE.slice(0,10)
-					res.data[i].CREATE_DATE = res.data[i].CREATE_DATE.slice(0,10)
+		function getData(res) {
+			for (let i = 0; i < res.data.length; i++) {
+				// 日期轉為10位數
+				res.data[i].BOOKING_DATE = res.data[i].BOOKING_DATE.slice(0, 10)
+				res.data[i].CREATE_DATE = res.data[i].CREATE_DATE.slice(0, 10)
 
 
-					let data = `
+				let data = `
             <tr class="show">
 								<td style="display: none"><input value="${res.data[i].RESTAURANT_ORDER_ID}" name="RESTAURANT_ORDER_ID" disabled readonly></td>
 								<td class="RESTAURANT_ORDER_ID">${res.data[i].RESTAURANT_ORDER_ID}</td>
@@ -303,7 +246,7 @@
 								</td>
 								<td>
 									<select name="ORDER_STATUS" disabled>
-										<option class="noShow" value="${res.data[i].ORDER_STATUS}" selected>${res.data[i].ORDER_STATUS === "1"? "已完成" : "未完成" }</option>
+										<option class="noShow" value="${res.data[i].ORDER_STATUS}" selected>${res.data[i].ORDER_STATUS === "1" ? "已完成" : "未完成"}</option>
 										<option value="0">未完成</option>
 										<option value="1">已完成</option>
 									</select>
@@ -320,115 +263,115 @@
 						</tr>
           `;
 
-					$(".data").append(data);
-				}
+				$(".data").append(data);
 			}
+		}
 
 
-			//編輯
-			$(".data").on("click", ".edit", function (e) {
-				e.preventDefault();
-				// 使其無法同時編輯兩個
-				$('.data').find('input, select').attr('disabled', true)
-        $('.edit').css('display', 'table-cell')
-        $('.save').css('display', 'none')
+		//編輯
+		$(".data").on("click", ".edit", function (e) {
+			e.preventDefault();
+			// 使其無法同時編輯兩個
+			$('.data').find('input, select').attr('disabled', true)
+			$('.edit').css('display', 'table-cell')
+			$('.save').css('display', 'none')
 
 
-				$(this).parent().find("input, select").attr("disabled", false);
-				$(this).css("display", "none");
-				$(this).next().css("display", "table-cell");
-				$('.noShow').hide()
+			$(this).parent().find("input, select").attr("disabled", false);
+			$(this).css("display", "none");
+			$(this).next().css("display", "table-cell");
+			$('.noShow').hide()
+		});
+
+
+		//儲存
+		$(".data").on("click", ".save", function () {
+			$(this).parent().parent().find("input, select").attr("disabled", true);
+			$(this).css("display", "none");
+			$(this).prev().css("display", "table-cell");
+
+			let RESTAURANT_ORDER_ID = $(this).parent().find("input[name='RESTAURANT_ORDER_ID']").val();
+			let BOOKING_DATE = $(this).parent().find("input[name='BOOKING_DATE']").val();
+			let NUM_OF_PEOPLE = $(this).parent().find("input[name='NUM_OF_PEOPLE']").val();
+			let NUM_OF_PETS = $(this).parent().find("input[name='NUM_OF_PETS']").val();
+			let ORDER_STATUS = $(this).parent().find("select[name='ORDER_STATUS']").val();
+
+
+			$.ajax({
+				method: "POST",
+				url: "php/back_end_API/R_Update_order.php",
+				data: {
+					'BOOKING_DATE': BOOKING_DATE,
+					'NUM_OF_PEOPLE': NUM_OF_PEOPLE,
+					'NUM_OF_PETS': NUM_OF_PETS,
+					'ORDER_STATUS': ORDER_STATUS,
+					'RESTAURANT_ORDER_ID': RESTAURANT_ORDER_ID
+				},
+				dataType: "text",
+				success: function (res) {
+					alert("修改成功")
+				},
+				error: function (exception) {
+					alert("修改失敗")
+				}
 			});
-
-		
-			//儲存
-			$(".data").on("click", ".save", function () {
-				$(this).parent().parent().find("input, select").attr("disabled", true);
-				$(this).css("display", "none");
-				$(this).prev().css("display", "table-cell");
-
-				let RESTAURANT_ORDER_ID = $(this).parent().find("input[name='RESTAURANT_ORDER_ID']").val();
-				let BOOKING_DATE = $(this).parent().find("input[name='BOOKING_DATE']").val();
-				let NUM_OF_PEOPLE = $(this).parent().find("input[name='NUM_OF_PEOPLE']").val();
-				let NUM_OF_PETS = $(this).parent().find("input[name='NUM_OF_PETS']").val();
-				let ORDER_STATUS = $(this).parent().find("select[name='ORDER_STATUS']").val();
+		});
 
 
-				$.ajax({
-					method: "POST",
-					url: "php/back_end_API/R_Update_order.php",
-					data:{
-						'BOOKING_DATE': BOOKING_DATE,
-						'NUM_OF_PEOPLE': NUM_OF_PEOPLE,
-						'NUM_OF_PETS': NUM_OF_PETS,
-						'ORDER_STATUS': ORDER_STATUS,
-						'RESTAURANT_ORDER_ID': RESTAURANT_ORDER_ID
-					},
-					dataType: "text",
-					success: function (res) {
-						alert("修改成功")
-					},
-					error: function(exception) {
-						alert("修改失敗")
-					}
+		// 搜尋bar
+		$("#name").on("keyup", function () {
+			let byOrderNum = $('#byNumber').val()
+			var value = $(this).val();
+			if (byOrderNum === "訂單編號") {
+				$(".RESTAURANT_ORDER_ID").filter(function () {
+					$(this).parent().toggle($(this).text().indexOf(value) != -1)
 				});
-			});
-
-
-			// 搜尋bar
-			$("#name").on("keyup", function() {
-				let byOrderNum = $('#byNumber').val()
-				var value = $(this).val();
-					if(byOrderNum === "訂單編號"){
-						$(".RESTAURANT_ORDER_ID").filter(function() {
-								$(this).parent().toggle($(this).text().indexOf(value) != -1)			
-						});
-					}else{
-						$(".FK_MEMBER_ID").filter(function() {
-								$(this).parent().toggle($(this).text().indexOf(value) != -1)			
-						});
-					}
-			});
-
-
-
-
-
-			// 菜單明細
-			$(".data").on("click", ".detail", function () {
-				$(".orderdetail").html("");
-				$(".orderdetail").fadeIn();
-
-				let RESTAURANT_ORDER_ID = $(this).parent().find("input[name='RESTAURANT_ORDER_ID']").val();
-				let BOOKING_DATE = $(this).parent().find("input[name='BOOKING_DATE']").val();
-				let NUM_OF_PEOPLE = $(this).parent().find("input[name='NUM_OF_PEOPLE']").val();
-				let NUM_OF_PETS = $(this).parent().find("input[name='NUM_OF_PETS']").val();
-				let ORDER_STATUS = $(this).parent().find("select[name='ORDER_STATUS']").val();
-				let FK_MEMBER_ID = $(this).parent().find("td.FK_MEMBER_ID").text();
-
-				// 取訂單明細AJAX
-				$.ajax({
-					method: "POST",
-					url: "php/back_end_API/R_select_order_detail.php",
-					data:{
-						'RESTAURANT_ORDER_ID': RESTAURANT_ORDER_ID
-					},
-					dataType: "text",
-					success: function (res) {
-						let newres = JSON.parse(res)
-						getDetail(newres,RESTAURANT_ORDER_ID,BOOKING_DATE,NUM_OF_PEOPLE,NUM_OF_PETS,ORDER_STATUS,FK_MEMBER_ID)
-					},
-					error: function(exception) {
-						alert("修改失敗")
-					}
+			} else {
+				$(".FK_MEMBER_ID").filter(function () {
+					$(this).parent().toggle($(this).text().indexOf(value) != -1)
 				});
+			}
+		});
+
+
+
+
+
+		// 菜單明細
+		$(".data").on("click", ".detail", function () {
+			$(".orderdetail").html("");
+			$(".orderdetail").fadeIn();
+
+			let RESTAURANT_ORDER_ID = $(this).parent().find("input[name='RESTAURANT_ORDER_ID']").val();
+			let BOOKING_DATE = $(this).parent().find("input[name='BOOKING_DATE']").val();
+			let NUM_OF_PEOPLE = $(this).parent().find("input[name='NUM_OF_PEOPLE']").val();
+			let NUM_OF_PETS = $(this).parent().find("input[name='NUM_OF_PETS']").val();
+			let ORDER_STATUS = $(this).parent().find("select[name='ORDER_STATUS']").val();
+			let FK_MEMBER_ID = $(this).parent().find("td.FK_MEMBER_ID").text();
+
+			// 取訂單明細AJAX
+			$.ajax({
+				method: "POST",
+				url: "php/back_end_API/R_select_order_detail.php",
+				data: {
+					'RESTAURANT_ORDER_ID': RESTAURANT_ORDER_ID
+				},
+				dataType: "text",
+				success: function (res) {
+					let newres = JSON.parse(res)
+					getDetail(newres, RESTAURANT_ORDER_ID, BOOKING_DATE, NUM_OF_PEOPLE, NUM_OF_PETS, ORDER_STATUS, FK_MEMBER_ID)
+				},
+				error: function (exception) {
+					alert("修改失敗")
+				}
 			});
+		});
 
-			
 
-			// 取訂單明細
-			function getDetail(newres,RESTAURANT_ORDER_ID,BOOKING_DATE,NUM_OF_PEOPLE,NUM_OF_PETS,ORDER_STATUS, FK_MEMBER_ID){
-				let detail = `
+
+		// 取訂單明細
+		function getDetail(newres, RESTAURANT_ORDER_ID, BOOKING_DATE, NUM_OF_PEOPLE, NUM_OF_PETS, ORDER_STATUS, FK_MEMBER_ID) {
+			let detail = `
 					<h4 class="r_close">X</h4>
 					<h4>訂單明細：</h4>
 					<div class="r_membername">會員編號:${FK_MEMBER_ID}</div>
@@ -445,120 +388,118 @@
 						<h4 class="r_status">訂單狀態：</h4>
 								<ul>
 									<li>
-										<span class="finished">${ORDER_STATUS === "1"? "已完成" : "未完成" }</span>
+										<span class="finished">${ORDER_STATUS === "1" ? "已完成" : "未完成"}</span>
 									</li>
 								</ul>
 					</div>
 					`
-					$(".orderdetail").append(detail);
+			$(".orderdetail").append(detail);
 
-					if(newres.length!==0){
-						for(let i = 0 ; i<newres.length; i++){
-	
-							let dishes = `
+			if (newres.length !== 0) {
+				for (let i = 0; i < newres.length; i++) {
+
+					let dishes = `
 								<ul>
 									<li>
-										<span>${i+1}.${newres[i].MEAL_NAME}</span> * <span>${newres[i].MEAL_AMOUNT}</span>份
+										<span>${i + 1}.${newres[i].MEAL_NAME}</span> * <span>${newres[i].MEAL_AMOUNT}</span>份
 									</li>
 								</ul>
 							`
-							$(".r_dishes").append(dishes);
-						};
-					}else{
-							let dishes = `
+					$(".r_dishes").append(dishes);
+				};
+			} else {
+				let dishes = `
 									<ul>
 										<li>
 											<span>沒有餐點</span>
 										</li>
 									</ul>
 								`
-								$(".r_dishes").append(dishes);
-					}
-
-					// 取客製菜單AJAX
-					$.ajax({
-					method: "POST",
-					url: "php/back_end_API/R_select_order_Customdetail.php",
-					data:{
-						'RESTAURANT_ORDER_ID': RESTAURANT_ORDER_ID
-					},
-					dataType: "text",
-					success: function (res) {
-						let newres = JSON.parse(res)
-						getCustomDetail(newres)
-					},
-					error: function(exception) {
-						alert("修改失敗")
-					}
-				});
-
-
-				// 關閉明細燈箱
-				$('.r_close').click(function(){
-						$(this).closest('.orderdetail').fadeOut()
-				});
+				$(".r_dishes").append(dishes);
 			}
-				
 
-				// 取客製菜單
-				function getCustomDetail(newres){
-						
-						let j = 1
-						// 每六個取客製份數
-						if(newres[0]['FK_MEAL_COSTURMRIZE_ID'] !== null){
-							for(let i = 0 ; i<newres.length; i+=6){
-								
-									let dishes = `
+			// 取客製菜單AJAX
+			$.ajax({
+				method: "POST",
+				url: "php/back_end_API/R_select_order_Customdetail.php",
+				data: {
+					'RESTAURANT_ORDER_ID': RESTAURANT_ORDER_ID
+				},
+				dataType: "text",
+				success: function (res) {
+					let newres = JSON.parse(res)
+					getCustomDetail(newres)
+				},
+				error: function (exception) {
+					alert("修改失敗")
+				}
+			});
+
+
+			// 關閉明細燈箱
+			$('.r_close').click(function () {
+				$(this).closest('.orderdetail').fadeOut()
+			});
+		}
+
+
+		// 取客製菜單
+		function getCustomDetail(newres) {
+
+			let j = 1
+			// 每六個取客製份數
+			if (newres[0]['FK_MEAL_COSTURMRIZE_ID'] !== null) {
+				for (let i = 0; i < newres.length; i += 6) {
+
+					let dishes = `
 										<ul>
 											<li>
 												${j}.<span class="dishName${j++}"></span>* <span class="dishAmonut">${newres[i].MEAL_COSTURMRIZE_AMOUNT}</span>份
 											</li>
 										</ul>
 									`
-									$(".r_Customdishes").append(dishes);
-	
-	
-							}
-	
-	
-							// 每一個取客製餐點
-							let k = 1
-							for(let i = 0 ; i<newres.length; i++){
-								
-								$(`.dishName${k}`).append(`<span>${newres[i].ingredients},</span>`);
-	
-								if((i+1)%6===0){
-									k++
-								}
-							}
-						}else{
+					$(".r_Customdishes").append(dishes);
 
-							let dishes = `
+
+				}
+
+
+				// 每一個取客製餐點
+				let k = 1
+				for (let i = 0; i < newres.length; i++) {
+
+					$(`.dishName${k}`).append(`<span>${newres[i].ingredients},</span>`);
+
+					if ((i + 1) % 6 === 0) {
+						k++
+					}
+				}
+			} else {
+
+				let dishes = `
 										<ul>
 											<li>
 												<span>沒有客製餐點</span>
 											</li>
 										</ul>
 									`
-									$(".r_Customdishes").append(dishes);
-						}
+				$(".r_Customdishes").append(dishes);
+			}
 
 
-						// 訂單狀態css顏色
-							if($('.finished').text()==="未完成"){
-									$('.finished').css('color', 'red')
-							}else{
-									$('.finished').css('color', 'rgb(24, 180, 24)')
-							};
-						};
+			// 訂單狀態css顏色
+			if ($('.finished').text() === "未完成") {
+				$('.finished').css('color', 'red')
+			} else {
+				$('.finished').css('color', 'rgb(24, 180, 24)')
+			};
+		};
 
 
 
-				
 
-		</script>
-	</body>
+
+	</script>
+</body>
+
 </html>
-
-
-
