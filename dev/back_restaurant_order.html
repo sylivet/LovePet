@@ -24,6 +24,7 @@
 			.orderdetail{
 				display: none;
 				width: 600px;
+				max-height: 80%;
 				padding: 20px;
 				background-color: #333;
 				box-sizing: border-box;
@@ -32,7 +33,6 @@
 				left: 50%;
 				transform: translate(-50%, -50%);
 				border-radius: 5px;
-				/* font-weight: bold; */
 			}
 			.orderdetail *:not(h4){
 				margin-top: 10px;
@@ -87,7 +87,7 @@
 				10%{
 					opacity:.50;
 					transform-origin: 50% 50%;
-					transform: rotate(-5deg) scale(6);
+					transform: rotate(-5deg) scale(5);
 					transition: all .3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
 				}
 				100%{
@@ -421,6 +421,7 @@
 				$(".orderdetail").html("");
 				$(".orderdetail").fadeIn();
 
+
 				let RESTAURANT_ORDER_ID = $(this).parent().find("input[name='RESTAURANT_ORDER_ID']").val();
 				let BOOKING_DATE = $(this).parent().find("input[name='BOOKING_DATE']").val();
 				let NUM_OF_PEOPLE = $(this).parent().find("input[name='NUM_OF_PEOPLE']").val();
@@ -538,6 +539,14 @@
 				$('.r_close').click(function(){
 						$(this).closest('.orderdetail').fadeOut()
 				});
+				
+				//控制燈箱卷軸
+				$('.orderdetail').css('overflow', 'hidden')
+				if($('.orderdetail').height()>=400){
+					console.log($('.orderdetail').height());
+					$('.orderdetail').css('overflow-y', 'auto')
+				}
+
 
 			}
 				
