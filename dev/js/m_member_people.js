@@ -27,12 +27,14 @@ document.addEventListener("DOMContentLoaded", function(){
           data : {  MID : res,  }, //---透過 MID 去抓該筆會員資料
           dataType : 'html' 
         }).done(function(data){    //---載入成功
-          let m_data =  JSON.parse(data);
-          let m_datas = m_data[0]
-          console.log(m_datas);
-          //console.log(typeof(m_data));
-          console.log(m_datas['MEMBER_IMG']);
-          $('#m_pic2').attr('src',`${m_datas['MEMBER_IMG']}`);
+          console.log(data);
+          console.log(typeof(data));
+          // let m_data =  JSON.parse(data);
+          // let m_datas = m_data[0]
+          // console.log(m_datas);
+          // //console.log(typeof(m_data));
+          // console.log(m_datas['MEMBER_IMG']);
+          // $('#m_pic2').attr('src',`${m_datas['MEMBER_IMG']}`);
 
 
          

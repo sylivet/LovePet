@@ -1,6 +1,6 @@
 <?php
 
-$input_account = $_POST["MID"];
+ $input_account = $_POST["MID"];
 //$input_account = 1;
 
 // ========= 取得與資料庫連線 ========== //
@@ -9,7 +9,7 @@ include("../M_conn.php");
 
 //============================= 引入資料 =====================================//
 
-$sql = "SELECT * FROM LOVE_PET.MEMBER WHERE (`MEMBER_ID` = ?);";
+$sql = "SELECT * FROM MEMBER WHERE (`MEMBER_ID` = ?);";
     
     //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
     $statement = $pdo->prepare($sql);    
