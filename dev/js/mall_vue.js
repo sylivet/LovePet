@@ -7,7 +7,7 @@ Vue.component('the-cart', {
     };
   },
   mounted() {
-    // check localStorage;
+    let items = JSON.parse(localStorage.getItem('items'));
   },
   methods: {
     plus() {
@@ -118,7 +118,8 @@ new Vue({
     reRender() {
       window._jf.flush(); //手動更新justfont
     },
-    open() {
+    openCart() {
+      console.log('from_vue');
       var shoppingcartbk = document.getElementById('i_shoppingCart_bk');
       if (shoppingcartbk.style.display === 'none') {
         shoppingcartbk.style.display = 'block';
