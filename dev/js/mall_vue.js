@@ -7,7 +7,7 @@ Vue.component('the-cart', {
     };
   },
   mounted() {
-    // check localStorage;
+    let items = JSON.parse(localStorage.getItem('items'));
   },
   methods: {
     plus() {
@@ -42,64 +42,7 @@ let data = {
 
   info: [],
 
-  food: [
-    {
-      name: '野菜玉子燒(犬)',
-      price: '85',
-      src: 'img/mall/野菜玉子燒(犬)85元@2x.png',
-    },
-    {
-      name: '無穀如意棒',
-      price: '108',
-      src: 'img/mall/無穀如意棒108元@2x.png',
-    },
-    {
-      name: '花之戀SUSHI',
-      price: '88',
-      src: 'img/mall/花之戀SUSHI88元@2x.png',
-    },
-    {
-      name: '翻滾吧蛋炒飯',
-      price: '49',
-      src: 'img/mall/翻滾吧蛋炒飯49元@2x.png',
-    },
-    {
-      name: '香甜地瓜雞肉餐',
-      price: '85',
-      src: 'img/mall/香甜地瓜雞肉餐85元@2x.png',
-    },
-    {
-      name: '雞肉佐南瓜秋葵',
-      price: '130',
-      src: 'img/mall/雞肉佐南瓜秋葵130元@2x.png',
-    },
-    {
-      name: '清蒸泰鱸魚',
-      price: '128',
-      src: 'img/mall/清蒸泰鱸魚128元@2x.png',
-    },
-    {
-      name: '古典約克燴肉漢堡',
-      price: '95',
-      src: 'img/mall/古典約克燴肉漢堡95元@2x.png',
-    },
-    {
-      name: '鮭魚佐低脂雞漢堡',
-      price: '95',
-      src: 'img/mall/鮭魚佐低脂雞漢堡95元@2x.png',
-    },
-    { name: '寵物鮮食粽', price: '85', src: 'img/mall/寵物鮮食粽85元@2x.png' },
-    {
-      name: '芝麻洋芋豬後腿',
-      price: '80',
-      src: 'img/mall/芝麻洋芋豬後腿80元@2x.png',
-    },
-    {
-      name: '番茄花菜牛肋脊',
-      price: '80',
-      src: 'img/mall/番茄花菜牛肋脊80元@2x.png',
-    },
-  ],
+  food: [],
 
   input: {
     text: '',
@@ -119,8 +62,11 @@ new Vue({
   created() {
     var self = this;
     //對前端頁面資料進行初始化
-    axios.post('php/front_end_API/y_select.php').then(function (res) {
+    axios.post('php/front_end_API/sup_select.php').then(function (res) {
       self.info = res.data;
+    });
+    axios.post('php/front_end_API/food_select.php').then(function (res) {
+      self.food = res.data;
     });
   },
   methods: {
@@ -169,10 +115,11 @@ new Vue({
       // 箭頭函式，尋找陣列chooseItem中符合的元素，並返回其 index值，每個元素都會執行cllback function，如果參數item(陣列元素)也存在於陣列裡，返回它的index值
       // this.chooseItem.splice(index, 1); //刪除該index
     },
-    rerender() {
+    reRender() {
       window._jf.flush(); //手動更新justfont
     },
-    open() {
+    openCart() {
+      console.log('from_vue');
       var shoppingcartbk = document.getElementById('i_shoppingCart_bk');
       if (shoppingcartbk.style.display === 'none') {
         shoppingcartbk.style.display = 'block';

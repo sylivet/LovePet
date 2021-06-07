@@ -76,9 +76,9 @@
 
 <script type="text/x-template" id="cart">
   <div class="i_shoppingCart bar" id="bar">
-    <table v-for="(item,index) in counts">
-      <tr>
-        <td><img :src="item.PRODUCT_IMG" alt=""></td>
+    <table v-for="(item,index) in counts" :key="item.PRODUCT_ID">
+      <tr class="myItems">
+        <td><img class="myImg" :src="item.PRODUCT_IMG" alt=""></td>
         <td>
           <div @click="remove" class="icon">&times;</div>
         </td>
