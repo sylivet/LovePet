@@ -67,6 +67,7 @@
 				animation-fill-mode:forwards;
 				pointer-events: none;
 				box-sizing: border-box;
+				z-index: -1;
 			}
 
 			.r_membername, .r_people, .r_pets, .r_creategdate{
@@ -90,9 +91,14 @@
 					transition: all .3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
 				}
 				100%{
-					opacity:1;
+					opacity:0.6;
 					transform: rotate(0deg) scale(1);
 				}
+			}
+
+			.done button{
+				width: 100%;
+				border: 1px solid #000;
 			}
 		</style>
 	</head>
@@ -337,7 +343,7 @@
 									<input type="text" name="NUM_OF_PETS" value="${res.data[i].NUM_OF_PETS}" disabled />隻
 								</td>
 								<td>
-									<select class="ORDER_STATUS" name="ORDER_STATUS" disabled>
+									<select class="ORDER_STATUS" name="ORDER_STATUS" data-id="${i}" disabled>
 										<option class="noShow" value="${res.data[i].ORDER_STATUS}" selected>${res.data[i].ORDER_STATUS === "1"? "已完成" : "未完成" }</option>
 										<option value="0">未完成</option>
 										<option value="1">已完成</option>
@@ -521,8 +527,10 @@
 				// 訂單明細裡的編輯按鈕
 				$('.done').click(function(){
 					updateOrder(RESTAURANT_ORDER_ID, BOOKING_DATE, NUM_OF_PEOPLE, NUM_OF_PETS, 1)
-					$('.finished').text('已完成')
-					$('.finished').css('color', 'rgb(24, 180, 24)')
+					$('.finished').text('已完成');
+					$('.finished').css('color', 'rgb(24, 180, 24)');
+					$(".data").find('.ORDER_STATUS').eq(RESTAURANT_ORDER_ID-1).val('1');
+					$(".forStamp").append(`<img class="stamp" src="./img/restaurant/complete.png">`)
 				})
 
 				

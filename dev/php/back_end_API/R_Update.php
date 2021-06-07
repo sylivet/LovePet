@@ -11,12 +11,11 @@
     $MEAL_CATA = $_POST['MEAL_CATA'];
     $MEAL_CAL = $_POST['MEAL_CAL'];
     $MEAL_MSG = $_POST['MEAL_MSG'];
-    $eng = $_POST['eng'];
 
 
 
     //建立SQL
-    $sql = "UPDATE MEAL_DATA set MEAL_TYPE = ?, MEAL_NAME = ?, MEAL_PRICE = ?,MEAL_IMG = ?, MEAL_STATUS = ?, MEAL_CATA = ?, MEAL_CAL = ?, MEAL_MSG = ?, MEAL_COUNT = '1', eng = ?  WHERE MEAL_DATA_ID = ?";
+    $sql = "UPDATE MEAL_DATA set MEAL_TYPE = ?, MEAL_NAME = ?, MEAL_PRICE = ?,MEAL_IMG = ?, MEAL_STATUS = ?, MEAL_CATA = ?, MEAL_CAL = ?, MEAL_MSG = ?, MEAL_COUNT = '1' WHERE MEAL_DATA_ID = ?";
     
     //執行
     $statement = $pdo->prepare($sql);     
@@ -28,8 +27,7 @@
     $statement->bindValue(6 , $MEAL_CATA);
     $statement->bindValue(7 , $MEAL_CAL);
     $statement->bindValue(8 , $MEAL_MSG);
-    $statement->bindValue(9 , $eng);
-    $statement->bindValue(10 , $MEAL_DATA_ID);
+    $statement->bindValue(9 , $MEAL_DATA_ID);
     $statement->execute();
 
 
