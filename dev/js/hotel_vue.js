@@ -67,16 +67,17 @@ Vue.component("room-booking", {
   },
   watch: {
     roomtype() {
-      (this.numberOfAdults = 0),
-        (this.numberOfKids = 0),
-        (this.numberOfDogs = 0),
-        (this.numberOfCats = 0),
-        (this.start = ""),
-        (this.end = ""),
-        (this.roomCapacity = parseInt(this.roomtype[0].MAX_CAPACITY)),
-        (this.roomName = this.roomtype[0].ROOM_NAME),
-        (this.roomID = this.roomtype[0].ROOM_TYPE_ID),
-        (this.roomPrice = parseInt(this.roomtype[0].PRICE));
+      this.numberOfAdults = 0,
+      this.numberOfKids = 0,
+      this.numberOfDogs = 0,
+      this.numberOfCats = 0,
+      this.start = "",
+      this.end = "",
+      this.roomCapacity = parseInt(this.roomtype[0].MAX_CAPACITY),
+      this.roomName = this.roomtype[0].ROOM_NAME,
+      this.roomID = this.roomtype[0].ROOM_TYPE_ID,
+      this.roomPrice = parseInt(this.roomtype[0].PRICE);
+      this.newBlackList=[];
     },
     roomID() {
       $.ajax({
@@ -90,20 +91,44 @@ Vue.component("room-booking", {
           this.roomBlackList = JSON.parse(res);
           for (let i = 0; i <= this.roomBlackList.length; i++) {
             const current = this.roomBlackList[i];
-            if (parseInt(current.stays) === 1) {
-              this.newBlackList.push(current.BOOKING_CHECKIN_DATE);
-            } else {
-              for (let j = 0; j < parseInt(current.stays); j++) {
-                const dateTime = new Date(current.BOOKING_CHECKIN_DATE);
-                dateTime = dateTime.setDate(dateTime.getDate() + j);
-                dateTime = new Date(dateTime).toISOString().split("T")[0];
-                this.newBlackList.push(dateTime);
+            if(current){
+              if (parseInt(current.stays) === 1) {
+                if(current.BOOKING_CHECKIN_DATE>new Date().toISOString().split("T")[0]){
+                  this.newBlackList.push(current.BOOKING_CHECKIN_DATE);
+                }
+              } else {
+                for (let j = 0; j < parseInt(current.stays); j++) {
+                  const dateTime = new Date(current.BOOKING_CHECKIN_DATE);
+                  dateTime = dateTime.setDate(dateTime.getDate() + j);
+                  dateTime = new Date(dateTime).toISOString().split("T")[0];
+                  if(dateTime>new Date().toISOString().split("T")[0]){
+                    this.newBlackList.push(dateTime);
+                  }
+                }
               }
             }
           }
         },
       });
     },
+    newBlackList(){
+      $("#my-calendar").empty();
+      const self = this;
+      /*----- 月曆 -----*/
+
+      const calendar_el = document.querySelector("#my-calendar");
+      const myCalendar = new TavoCalendar(calendar_el, {
+        date: new Date(),
+        blacklist: self.newBlackList,
+        range_select: true,
+      });
+  
+      calendar_el.addEventListener("calendar-range", (ev) => {
+        const range = myCalendar.getRange();
+        self.start = range.start;
+        self.end = range.end;
+      });
+    }
   },
   mounted() {
     /*----- 卷軸 -----*/
@@ -113,20 +138,6 @@ Vue.component("room-booking", {
         new SimpleBar(el);
       }
     );
-    const self = this;
-    /*----- 月曆 -----*/
-    const calendar_el = document.querySelector("#my-calendar");
-    const myCalendar = new TavoCalendar(calendar_el, {
-      date: new Date(),
-      blacklist: self.newBlackList,
-      range_select: true,
-    });
-
-    calendar_el.addEventListener("calendar-range", (ev) => {
-      const range = myCalendar.getRange();
-      self.start = range.start;
-      self.end = range.end;
-    });
   },
 });
 
@@ -137,6 +148,7 @@ let vm = new Vue({
     roomSelection: "", //預約的房間
     isBookingBoxOpen: false, // 預約燈箱啟閉
     pannellum: null, //環景圖預設空值
+    pitch:["-10","3","-10","3","0"],
     setting: [
       [
         //ROOM1
@@ -226,7 +238,7 @@ let vm = new Vue({
         panorama: self.rooms[i].PANNELLUM,
         autoLoad: true,
         autoRotate: -2,
-        pitch: -10,
+        pitch: self.pitch[i],
         hfov: 180,
         autoRotate: -2,
         compass: true,
@@ -297,7 +309,7 @@ let vm = new Vue({
         type: "equirectangular",
         panorama: this.typeRoom[0].PANNELLUM, //錯誤==
         // 調整初始畫面位置
-        pitch: -10,
+        pitch: this.pitch[0],
         hfov: 180,
         // 自動旋轉
         autoRotate: -2,

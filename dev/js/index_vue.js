@@ -60,7 +60,7 @@ let data = {
   ],
   contents: [
     {
-      intro: "餐廳使用我們渡假村自產自銷的天然食材，堅持不含防腐劑及化學添加。<br>讓毛孩吃得到真食物，並從中獲得飽足感。",
+      intro: "餐廳使用渡假村自產自銷的天然食材，堅持不含防腐劑及化學添加，讓毛孩吃得到真食物，並從中獲得飽足感。",
       divclass: "content1",
       pclass: "content1-1"
     }, {
@@ -68,12 +68,12 @@ let data = {
       divclass: "content2",
       pclass: "content2-1"
     }, {
-      intro: "旅館配有寵物遊樂設施，房間內也都有寵物專屬寢具，讓毛小孩能與您一起渡過美好的渡假時光。",
+      intro: "旅館配有寵物遊樂設備，房間內也有設置寵物的寢具，讓毛小孩能與您一起渡過美好的時光。",
       divclass: "content3",
       pclass: "content3-1"
     },
     {
-      intro: "除了有米其林主廚外，我們餐廳配有寵物專屬的廚師，還能事先客製專屬的毛孩美食。",
+      intro: "除了有米其林主廚外，餐廳配有寵物專屬的廚師，還能事先客製屬於毛孩的美食。",
       divclass: "content4",
       pclass: "content4-1"
     },
