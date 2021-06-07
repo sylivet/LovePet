@@ -103,7 +103,7 @@
               <th>編號</th>
               <th>名稱</th>
               <th>價格</th>
-              <th>人數上限</th>
+              <th>人數</th>
               <th>介紹</th>
               <th>照片</th>
               <th>照片2</th>
@@ -134,11 +134,11 @@
           <tr class="dataTable">
                 <td style="display: none"><input value="${res.data[i].ROOM_TYPE_ID}" name="ROOM_TYPE_ID" disabled readonly></td>
                 <td>${res.data[i].ROOM_TYPE_ID}</td>
-                <td><input type="text" style="width:100px" name="ROOM_NAME" value="${res.data[i].ROOM_NAME}" disabled></td>
+                <td><input type="text" style="width:80px" name="ROOM_NAME" value="${res.data[i].ROOM_NAME}" disabled></td>
                 <td><input type="text" style="width:50px" name="PRICE" value="${res.data[i].PRICE}" disabled></td>
                 <td>${res.data[i].MAX_CAPACITY}</td>
                 <td>
-                  <textarea name="ROOM_INFO" cols="10" rows="5"  disabled>${res.data[i].ROOM_INFO}</textarea>
+                  <textarea name="ROOM_INFO" cols="15" rows="5"  disabled>${res.data[i].ROOM_INFO}</textarea>
                 <td style="display: none"><input type="text" name="ROOM_IMG" value="${res.data[i].ROOM_IMG}" disabled></td>
                 <td><img src="${res.data[i].ROOM_IMG}" style="width:50px;"></td>
                 <td><img src="${res.data[i].ROOM_IMG2}" style="width:50px;"></td>

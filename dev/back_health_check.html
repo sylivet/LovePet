@@ -122,9 +122,9 @@
           <tr>
                 <td style="display: none"><input value="${res.data[i].HEALTH_CHECK_ID}" name="HEALTH_CHECK_ID" disabled readonly></td>
                 <td>${res.data[i].HEALTH_CHECK_ID}</td>
-                <td><input type="text" name="LISTNAME" value="${res.data[i].LISTNAME}" disabled></td>
+                <td>${res.data[i].LISTNAME}</td>
                 <td><input type="number" name="PRICE" value="${res.data[i].PRICE}" disabled></td>
-                <td><input type="number" name="TESTING_SUBJECT" value="${res.data[i].TESTING_SUBJECT}" disabled></td>
+                <td>${res.data[i].TESTING_SUBJECT}</td>
                 <td class="edit"><button class="btn btn-warning btn-sm">編輯</button></td>
                 <td style="display: none" class="save"><button class="btn btn-warning btn-sm">儲存</button></td>
           </tr>
@@ -140,7 +140,7 @@
         e.preventDefault()
         $(this).parent().find('input, select').attr('disabled', false)
         $(this).css('display', 'none')
-        $(this).next().css('display', 'block')
+        $(this).next().css('display', 'table-cell')
         $('.noShow').hide()
       });
 
@@ -148,23 +148,18 @@
       $('.data').on('click', '.save', function(){
         $(this).parent().parent().find('input, select').attr('disabled', true)
         $(this).css('display', 'none')
-        $(this).prev().css('display', 'block')
+        $(this).prev().css('display', 'table-cell')
 
         let HEALTH_CHECK_ID = $(this).parent().find("input[name='HEALTH_CHECK_ID']").val()
-        let LISTNAME = $(this).parent().find("input[name='LISTNAME']").val()
         let PRICE = $(this).parent().find("input[name='PRICE']").val()
-        let TESTING_SUBJECT = $(this).parent().find("input[name='TESTING_SUBJECT']").val()
-       
-
+      
         
         $.ajax({            
             method: "POST",
             url: "php/back_end_API/C_Update.php",
             data:{
               'HEALTH_CHECK_ID': HEALTH_CHECK_ID,
-              'LISTNAME': LISTNAME,
               'PRICE': PRICE,
-              'TESTING_SUBJECT': TESTING_SUBJECT,
               
             },            
             dataType: "text",
