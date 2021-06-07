@@ -1,18 +1,21 @@
 //預約健檢元件
 Vue.component("clinic-booking", {
-  props: ['check'],
+  props: ['menuselect', 'custom', 'member'],
   template: "#clinicBox",
   data(){
       return {
-        
+        customed: this.custom,
+        select: null,
+        takeHEALTH_CHECK_ID:"",
+        petsName:[],
+        petChoice:""
       }
     },
   methods: {
       closeBox() {
           this.$emit('closelightbox')
       },
-
-      booking(){
+      booking() {
         if(!this.BOOKING_DATE){
           alert('請選預定日期')
         }else{
@@ -37,19 +40,74 @@ Vue.component("clinic-booking", {
               }
           });
           }
-        }
-      console.log(this.CREATE_DATE);
-      console.log(this.BOOKING_DATE);
-      console.log(this.i_petsname);
-
-    
+        }    
       },
   },
-
-  computed: {
-    // checkSet(){
-    //   return this.check[0];
-    // }
+  computed:{
+    priceFilter(){
+      if(this.customed.length<2){
+        return this.customed
+      }else{
+        let newCustomed = this.customed.map((item)=>{
+          return (
+            {
+              'HEALTH_CHECK_ID':item.HEALTH_CHECK_ID,
+              'LISTNAME':item.LISTNAME,
+              'PRICE':item.PRICE*0.9,
+              'TESTING_SUBJECT':item.TESTING_SUBJECT
+            }
+          )
+        });
+        return newCustomed
+      }
+    },
+    totalPrice1() {
+      if(this.select){
+        var result = this.select.reduce((a, b) => {
+          return a + parseInt(b.PRICE);
+        }, 0)
+        return result;
+      }else{
+        return 0
+      }
+    },
+    totalPrice2() {
+      if(this.customed.length>=2){
+        var result = this.customed.reduce((a, b) => {
+          return a + parseInt(b.PRICE)*0.9;
+        }, 0)
+        return result;
+      }else if(this.customed.length==1){
+        return parseInt(this.customed[0].PRICE)
+      }else{
+        return 0
+      };
+    },
+  },
+  watch:{
+    menuselect(){
+      this.select = this.menuselect;
+      this.takeHEALTH_CHECK_ID = this.menuselect[this.menuselect.length-1].HEALTH_CHECK_ID
+    },
+    member(){
+      $.ajax({            
+        method: "POST",
+        url: "php/front_end_API/C_findPetsName.php",
+        data:{
+          'FK_MEMBER_ID': this.member,
+        },            
+        dataType: "text",
+        success: (res)=> {
+          this.petsName = []
+          JSON.parse(res).forEach((item)=>{
+            this.petsName.push(item.PET_NAME)
+          })
+        },
+        error: function(exception) {
+            alert("數據載入失敗: " + exception.status);
+        }
+    });
+    }
   },
   mounted() {
 
@@ -92,10 +150,12 @@ Vue.component("clinic-booking", {
       choicePrice: "",
       customChoice: [],
       checkMenu: [],
+      selected:[],
       isBookingBoxOpen: false, // 預約燈箱啟閉
       fast:'快速篩檢套餐',
       advanced:'進階健檢套餐',
       elder:'熟齡健檢套餐',
+      memberID: null
     },
     computed: {
       fastTest() {
@@ -128,6 +188,39 @@ Vue.component("clinic-booking", {
       pushItem(item){
         if(!this.customChoice.includes(item)){this.customChoice.push(item)}
       },
+      fastSelected(){
+        this.choice = 'fast'
+        this.choicePrice = 4000
+        this.selected = this.checkMenu.slice(0, 8)
+      },
+      advancedSelected(){
+        this.choice = 'advanced'
+        this.choicePrice = 9500
+        this.selected = this.checkMenu.slice(0, 16)
+      },
+      elderSelected(){
+        this.choice = 'elder'
+        this.choicePrice = 17000
+        this.selected = this.checkMenu.slice(0, 24)
+      },
+      loginCheck(){
+        $.ajax({            
+          method: "POST",
+          url: "php/front_end_API/M_getsession_MID.php",
+          success: (response)=> {
+            if(response === '"N"'){
+                  alert('請先登入會員'); 
+                  $('#m_sign_in_bk').show()
+                }else{
+                  this.isBookingBoxOpen = true
+                  this.memberID = parseInt(response.split(`"`).join(""))
+              }              
+          },
+          error: function(exception) {
+              alert("數據載入失敗: " + exception.status);
+          }
+      });
+      },
 
     },
 
@@ -137,7 +230,6 @@ Vue.component("clinic-booking", {
       })
     },
 
-    });  
-             
+    });   
                 
 
