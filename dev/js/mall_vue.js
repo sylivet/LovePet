@@ -6,16 +6,17 @@ Vue.component('the-cart', {
       cartData: [],
     };
   },
-  mounted() {
-    let items = JSON.parse(localStorage.getItem('items'));
-  },
+  // mounted() {
+  //   let items = JSON.parse(localStorage.getItem('items'));
+  // },
   methods: {
-    plus() {
-      this.$emit('to-plus'); //子元件傳值給父元件用$emit(自訂事件)
+    plus(index) {
+      this.$emit('to-plus', index); //子元件傳值給父元件用$emit(自訂事件)
+      // this.counts[index].count++;
       console.log('有偵測到功能');
     },
-    sub() {
-      this.$emit('to-sub');
+    sub(index) {
+      this.$emit('to-sub', index);
       console.log('有偵測到功能');
     },
     remove() {
@@ -23,11 +24,14 @@ Vue.component('the-cart', {
       console.log('有偵測到刪除功能');
     },
   },
-  // computed: {
-  //   chooseProduct() {
-  //     return this.counts;
-  //   },
-  // },
+  computed: {
+    currentPrice() {
+      console.log(this.counts);
+      for (let i = 0; i < this.counts.length; i++) {
+        return this.counts[i].count * this.counts[i].PRODUCT_PRICE;
+      }
+    },
+  },
 });
 // localStorage;
 // vuex;
@@ -84,33 +88,26 @@ new Vue({
         this.input.text = ''; //切頁後清空輸入內容，切回時就會讓頁面重置，防止切回輸入結果還在的情況
       }
     },
-    increase() {
-      console.log(this.info[0].count);
-      this.info[0].count++;
+    increase(i) {
+      this.info[i].count++;
+      // console.log(this.info);
     },
-    decrease() {
-      console.log(this.info[0].count);
-      if (this.info[0].count > 0) {
-        this.info[0].count--;
+    decrease(i) {
+      if (this.info[i].count > 0) {
+        this.info[i].count--;
       } else {
         return 0;
       }
     },
-    addToCart(product1, product2, product3) {
-      if (this.chooseItem.indexOf(product1 && product2 && product3) == -1) {
-        this.chooseItem.push(product1, product2, product3); //chooseItem['陣列']
-        console.log(this.chooseItem);
+    addToCart(product) {
+      if (this.chooseItem.indexOf(product) == -1) {
+        this.chooseItem.push(product); //chooseItem['陣列']
       }
+      console.log(this.chooseItem);
     },
     removeToCart() {
-      let result = $.map(this.chooseItem, function (item) {
-        return item.name;
-      });
-      console.log(result[0]);
-      for (let i = 0; i < result.length; i++) {
-        if (result[i] === result[i]) {
-          console.log('aa');
-        }
+      let check_delete = confirm('是否移除?');
+      if (check_delete) {
       }
       // 箭頭函式，尋找陣列chooseItem中符合的元素，並返回其 index值，每個元素都會執行cllback function，如果參數item(陣列元素)也存在於陣列裡，返回它的index值
       // this.chooseItem.splice(index, 1); //刪除該index
@@ -136,6 +133,7 @@ new Vue({
     },
   },
   computed: {
+    // 關鍵字搜尋功能
     forsup() {
       if (this.input.text) {
         return this.info.filter(

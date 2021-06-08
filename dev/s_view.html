@@ -12,12 +12,12 @@
 </head>
 
 <body class="shopping">
-  <div class="s_wrapper">
-    <div id="forCart" class="shopping_main">
+  <div id="forCart" class="s_wrapper">
+    <div v-for="item in info" class="shopping_main">
       @@include('layout/header.html')
       <div class="s_ph">
         <div class="s_big_ph">
-          <img :src="this.info[0].PRODUCT_IMG" alt="">
+          <img src="img/mall/tent_1@2x.png" alt="">
           <img src="img/mall/tent_1_s@2x.png" class="img_pad">
         </div>
         <div class="s_small_ph">
@@ -29,16 +29,15 @@
 
       <div class="s_text">
         <h3>
-          {{this.info[0].PRODUCT_NAME}}<br>{{this.info[0].PRODUCT_PRICE}}元<br><span>已售出:{{this.info[0].PRODUCT_SOLD}}個</span>
+          {{item.PRODUCT_NAME}}<br>{{item.PRODUCT_PRICE}}元<br><span>已售出:{{item.PRODUCT_SOLD}}個</span>
         </h3>
 
         <div class="s_button">
-          <button @click="addToCart(info[0],info[1],info[2])" class="s_buy"> <span
-              class="material-icons">shopping_cart</span></button>
+          <button @click="addToCart(item)" class="s_buy"> <span class="material-icons">shopping_cart</span></button>
           <!-- <button class="s_back">回商品頁</button> -->
           <a href="./Mall.html">回商品頁</a>
         </div>
-        <p>{{this.info[0].PRODUCT_INFO}}</p>
+        <p>{{item.PRODUCT_INFO}}</p>
       </div>
     </div>
     <div class="s_Carousel">
@@ -56,15 +55,15 @@
         <div class="slide_image"><img src="img/mall/R5@2x.png"> </div>
       </section>
     </div>
-    @@include('layout/footer.html')
   </div>
+  @@include('layout/footer.html')
 
-  <script>
+  <!-- <script>
     shoppingcart.removeEventListener('click', a1, false);
     console.log('yes');
     m_sign_btn.removeEventListener('click', a2, false);
     console.log('yes');
-  </script>
+  </script> -->
 
 
   <script>
