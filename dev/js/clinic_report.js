@@ -30,7 +30,7 @@ Vue.component('report-basic',{
             bus.$emit('reportNumber',this.current_report)
             // $.ajax({
             //     url: "",
-            //     type: "POST",       // 傳送資料有包含檔案，必須是 POST
+            //     type: "POST",      
             //     data: "object",
             //     dataType: "json",
             //     timeout: 0,
@@ -51,48 +51,52 @@ Vue.component('report-chart', {
     data(){
         return{
             current_report:0,
+            list:[],
         }
     },
-    computed: {
-        listName(){
-            for(let i = 0 ;i < this.charts.length ;i++){
-                
+    watch:{
+        charts() { 
+            let arr=[[],[]]
+            for(let i = 0; i < this.charts.length ;i++){
+                arr[0].push(this.charts[i].LISTNAME);
             }
-            return this.charts.LISTNAME[i];
-        }
-    },
-    mounted() {
-        //圖表
-        var ctx = document.getElementById('myChart');
-        
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['1','2','3','4','5','6','7'],
-                datasets: [{
-                    label: '寵物報告書',
-                    data: [7,3,8,6,5,1,9],
-                    backgroundColor: [
-                        'rgba(54, 162, 235, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(54, 162, 235, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+            
+            for(let i = 0; i < this.charts.length ;i++){
+                arr[1].push(this.charts[i].HEALTH_CHECK_VALUE);
+            }
+            this.list = arr;
+
+            //圖表
+            var ctx = document.getElementById('myChart');
+            
+            ctx = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels:this.list[0],
+                    datasets: [{
+                        label: '寵物報告書',
+                        data:this.list[1],
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
-            }
-        });
-        
-
+            });
+        },  
 
     },
+    
 })
 
 
@@ -168,7 +172,7 @@ new Vue({
                 item.HEALTH_CHECK_VALUE.includes('。') ? item:null    
             );
             this.reports = filterReport;
-
+           
         })
 
         

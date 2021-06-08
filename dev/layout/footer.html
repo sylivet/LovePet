@@ -11,7 +11,7 @@
             <a href="front_index.html#location">地理位置</a>
           </li>
           <li>
-            <a href="../lovepet_faq.html">常見FAQ</a>
+            <a href="lovepet_faq.html">常見FAQ</a>
           </li>
         </ul>
       </div>
@@ -72,18 +72,13 @@
     XXXXXXXXXXXXX。若有侵權疑慮，您可以私訊[TibaMe-前端設計工程師養成班]，後續會由專人協助處理。
   </p>
 </footer>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="js/cursor.js"></script>
-
-
 <!-- 購物車組件 -->
 
 <script type="text/x-template" id="cart">
   <div class="i_shoppingCart bar" id="bar">
-    <table v-for="(item,index) in counts">
-      <tr>
-        <td><img :src="item.PRODUCT_IMG" alt=""></td>
+    <table v-for="(item,index) in counts" :key="item.PRODUCT_ID">
+      <tr class="myItems">
+        <td><img class="myImg" :src="item.PRODUCT_IMG" alt=""></td>
         <td>
           <div @click="remove" class="icon">&times;</div>
         </td>
@@ -104,3 +99,23 @@
     <a href="s_bill.html" class="i_button">結帳</a>
   </div>
 </script>
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- 鼠標 -->
+<script src="js/cursor.js"></script>
+<!-- axios -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<!-- GSAP -->
+<script src="./vendors/GSAP/gsap.min.js"></script>
+<!-- 捲軸 -->
+<script src="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.js"></script>
+<!-- 月曆 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="./vendors/travo-calendar/js/tavo-calendar.js"></script>
+<!-- vue -->
+<script src="./vendors/vue/js/vue.js"></script>
+<!-- 購物車共用組件 -->
+<script src="js/mall_vue.js"></script>
+<!-- 打開與關閉購物車 -->
+<script src="js/shopping_cart.js"></script>

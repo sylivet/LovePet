@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="./vendors/slick/css/slick.css" />
   <link rel="stylesheet" type="text/css" href="./vendors/slick/css/slick-theme.css" />
-  <!-- <link rel="stylesheet" href="./css/style.css"> -->
   <title>view</title>
   @@include('layout/style.html')
 </head>
@@ -60,6 +59,12 @@
     @@include('layout/footer.html')
   </div>
 
+  <script>
+    shoppingcart.removeEventListener('click', a1, false);
+    console.log('yes');
+    m_sign_btn.removeEventListener('click', a2, false);
+    console.log('yes');
+  </script>
 
 
   <script>
@@ -87,18 +92,9 @@
       });
     });
   </script>
-
-
-
-  <!-- axios -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-  <!-- Vue -->
-  <script src="./vendors/vue/js/vue.js"></script>
   <scrip src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></scrip>
   <script type="text/javascript" src="./vendors/slick/js/slick.min.js"></script>
-  <!-- 購物車組件 -->
-  <script src="js/mall_vue.js"></script>
   <!-- <script src="js/cart_component.js"></script> -->
   <!-- 打開與關閉購物車 -->
   <!-- <script src="js/shopping_cart.js"></script> -->

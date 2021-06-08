@@ -23,8 +23,8 @@
     @@include('layout/header.html')
     <div id="app">
 
-    <!-- 旅館banner動畫 -->
-    <!-- 假圖 -->
+        <!-- 旅館banner動畫 -->
+        <!-- 假圖 -->
         <div class="h_banner">
             <img src="img/hotel/h_banner.png" alt="" />
         </div>
@@ -46,19 +46,20 @@
         <!-- <div class="h"><img src="./img/hotel/h_hotel-01.svg" alt=""></div> -->
 
         <!-- 房型選擇跟介紹-->
+        
+        
         <template v-for="room in typeRoom">
-
-            <div class="h_room" @click="font">
-                <div class="h_dropdown">
-                    <input id="h_toggle" type="checkbox" />
-                    <label for="h_toggle" class="h_navbar"><span class="h_title">請選擇房型</span><i
-                            class="far fa-chevron-down h_point"></i></label>
-                    <ul class="h_dropdown_menu">
-                        <li v-for="(room,i) in rooms" @click="changeRoom(room, i)" class="h_content">
-                            {{room.ROOM_NAME}}</li>
-                    </ul>
+            <div class="h_position">
+                <div class="selectMenu">
+                    <i class="fa fa-angle-up rotate" aria-hidden="true"></i>
+                    <input class="mainmenu" type="text" value="請選擇房型" readonly />
+                    <div class="sub">
+                        <input class="submenu"  v-for="(room,i) in rooms" @click="changeRoom(room, i)"type="text" :value="room.ROOM_NAME" readonly />
+                    </div>
                 </div>
-
+            </div>
+             
+            <div class="h_room" @click="font">
                 <div class="h_photo">
                     <div class="h_roomname">
                         <h1>{{room.ROOM_NAME}}</h1>
@@ -301,26 +302,9 @@
       </div>
     </script>
 
-    <script src="./js/hotel.js"></script>
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <!-- 月曆 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="vendors/travo-calendar/js/tavo-calendar.js"></script>
-    <!-- 捲軸 -->
-    <script src="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.js"></script>
-    <!-- axios -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-    <!-- Vue -->
-    <script src="vendors/vue/js/vue.js"></script>
     <!-- 環景 -->
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <!-- vue -->
     <script src="js/hotel_vue.js"></script>
-    <!-- 購物車共用組件 -->
-    <script src="js/mall_vue.js"></script>
-    <!-- 打開與關閉購物車 -->
-    <script src="js/shopping_cart.js"></script>
 </body>
-
 </html>

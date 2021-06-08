@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
-  @@include('layout/style.html')
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+			crossorigin="anonymous"
+		/>
+		@@include('layout/style.html')
   <style>
     body{
       overflow: auto;
@@ -16,6 +19,21 @@
       width: 80px;
     }
 
+    input[name="MEAL_PRICE"]{
+      width: 50px;
+    }
+    input[name="MEAL_CAL"]{
+      width: 50px;
+    }
+    input[name="MEAL_NAME"]{
+      width: 135px;
+    }
+
+    .backend .list-group {
+    width: 76%;
+    }
+
+
   </style>
   <title>樂寵後台管理</title>
 </head>
@@ -23,7 +41,7 @@
   <nav class="navbar navbar-light" style="background-color: #ffc857">
     <div class="container-fluid">
       <div class="d-flex align-items-center">
-        <img class="ms-5" src="img/common/i_logo.png" alt="" style="max-width: 50px" />
+        <a href="index.html"><img class="ms-5" src="img/common/i_logo.png" alt="" style="max-width: 50px" /></a>
         <p class="navbar-brand ms-3">樂寵後台管理</p>
       </div>
       <div class="me-5"><a href="#">登出</a></div>
@@ -109,9 +127,8 @@
           <table class="table table-striped table-hover text-center">
             <thead>
               <tr class="table-warning">
-                <th>餐點編號</th>
+                <th>餐點</th>
                 <th>名稱</th>
-                <th>英文名稱</th>
                 <th>類型</th>
                 <th>分類</th>
                 <th>資訊</th>
@@ -145,7 +162,6 @@
                 <td style="display: none"><input value="${res.data[i].MEAL_DATA_ID}" name="MEAL_DATA_ID" disabled readonly></td>
                 <td>${res.data[i].MEAL_DATA_ID}</td>
                 <td><input type="text" name="MEAL_NAME" value="${res.data[i].MEAL_NAME}" disabled></td>
-                <td><input type="text" name="eng" value="${res.data[i].eng}" disabled></td>
                 <td>
                   <select name="MEAL_CATA" disabled>
                     <option class="noShow" value="${res.data[i].MEAL_CATA}" selected>${res.data[i].MEAL_CATA}</option>
@@ -221,7 +237,6 @@
         let MEAL_CAL = $(this).parent().find("input[name='MEAL_CAL']").val()
         let MEAL_MSG = $(this).parent().find("input[name='MEAL_MSG']").val()
         let MEAL_COUNT = $(this).parent().find("input[name='MEAL_COUNT']").val()
-        let eng = $(this).parent().find("input[name='eng']").val()
 
         //判斷是否改變上下架
         if(isChangeOnShelf!=MEAL_STATUS){
@@ -242,7 +257,6 @@
               'MEAL_CAL': MEAL_CAL,
               'MEAL_MSG': MEAL_MSG,
               'MEAL_COUNT': MEAL_COUNT,
-              'eng': eng,
             },            
             dataType: "text",
             success: function (res) {   
