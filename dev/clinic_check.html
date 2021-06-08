@@ -215,8 +215,8 @@
                   <div id="my-calendar" class="i_calendar"></div>
                   <div class="i_petsname">
                       <span>請選擇寵物名字</span>
-                      <select v-model="petChoice" >
-                          <option v-for="(item, index) in petsName" :value="item" :key="index">{{item}}</option>
+                      <select v-model="petsID" >
+                          <option v-for="(item, index) in petsInfo" :value="item.PET_ID" :key="index">{{item.PET_NAME}}</option>
                       </select>
                   </div>
               </div>
@@ -242,7 +242,7 @@
                 <div class="i_total">
                     <h3>總價 NT{{totalPrice1+totalPrice2}}元</h3>
                 </div>
-                <button type="button" class="i_button">確認預約</button>
+                <button type="button" class="i_button" @click="booking">確認預約</button>
             </div>
           </div>
       </div>

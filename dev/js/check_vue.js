@@ -4,11 +4,14 @@ Vue.component("clinic-booking", {
   template: "#clinicBox",
   data(){
       return {
+        BOOKING_DATE:"",
+        CREATE_DATE:"",
+        takeHEALTH_CHECK_ID:"",
+        petsID:"",
+        memberID:this.member,
         customed: this.custom,
         select: null,
-        takeHEALTH_CHECK_ID:"",
-        petsName:[],
-        petChoice:""
+        petsInfo:null,
       }
     },
   methods: {
@@ -16,6 +19,16 @@ Vue.component("clinic-booking", {
           this.$emit('closelightbox')
       },
       booking() {
+        let t = new Date()
+        let y = t.getFullYear()
+        let M = t.getMonth() + 1
+        let d = t.getDate()
+        let h = t.getHours()
+        let m = t.getMinutes()
+        let s = t.getSeconds()
+        this.CREATE_DATE = `${y}-${M}-${d} ${h}:${m}:${s}`
+
+
         if(!this.BOOKING_DATE){
           alert('請選預定日期')
         }else{
@@ -26,13 +39,18 @@ Vue.component("clinic-booking", {
               method: "POST",
               url: "php/front_end_API/C_Insert_booking.php",
               data:{
-                'BOOKING_DATE': this.BOOKING_DATE,
+                'FK_MEMBER_ID': this.memberID,
+                'FK_PET_ID': this.petsID,
                 'CREATE_DATE': this.CREATE_DATE,
-                'i_petsname': this.i_petsname,
-              
+                'BOOKING_DATE': this.BOOKING_DATE,
+                'FK_SET_MENU_ID': this.MenuID,
+                'FK_HELTH_CHECK_ID': this.addMenuID,
+                'FK_HELTH_CHECK_ID2': this.addMenuID1,
+                'TOTAL_PRICE': this.totalPrice1 + this.totalPrice2,
               },            
               dataType: "text",
               success: (res)=> {
+                this.$emit('closelightbox')
                 console.log(res);
               },
               error: function(exception) {
@@ -40,7 +58,8 @@ Vue.component("clinic-booking", {
               }
           });
           }
-        }    
+        }
+
       },
   },
   computed:{
@@ -83,6 +102,35 @@ Vue.component("clinic-booking", {
         return 0
       };
     },
+    MenuID(){
+      if(this.takeHEALTH_CHECK_ID == 8){
+        return 1
+      }else if(this.takeHEALTH_CHECK_ID == 16){
+        return 2
+      }else if(this.takeHEALTH_CHECK_ID == 24){
+        return 3
+      }else{
+        return 0
+      }
+    },
+    addMenuID(){
+      if(this.customed.length == 0){
+        return ""
+      }else if(this.customed.length == 1){
+        return this.customed[0].HEALTH_CHECK_ID
+      }else if(this.customed.length == 2){
+        return this.customed[0].HEALTH_CHECK_ID
+      }
+    },
+    addMenuID1(){
+      if(this.customed.length == 0){
+        return ""
+      }else if(this.customed.length == 1){
+        return 0
+      }else if(this.customed.length == 2){
+        return this.customed[1].HEALTH_CHECK_ID
+      }
+    }
   },
   watch:{
     menuselect(){
@@ -98,15 +146,13 @@ Vue.component("clinic-booking", {
         },            
         dataType: "text",
         success: (res)=> {
-          this.petsName = []
-          JSON.parse(res).forEach((item)=>{
-            this.petsName.push(item.PET_NAME)
-          })
+          this.petsInfo = JSON.parse(res)
         },
         error: function(exception) {
             alert("數據載入失敗: " + exception.status);
         }
     });
+      this.memberID = this.member
     }
   },
   mounted() {
@@ -121,18 +167,12 @@ Vue.component("clinic-booking", {
     
     /*----- 月曆 -----*/
     const calendar_el = document.querySelector('.i_calendar');
-    const my_calendar = new TavoCalendar(calendar_el);
+
+    const my_calendar = new TavoCalendar(calendar_el)
+  
     calendar_el.addEventListener('calendar-select', (ev) => {
       this.BOOKING_DATE = my_calendar.getSelected()
-      // alert(myCalendar.getSelected());
     });
-
-    // 訂單創建日期
-    let t = new Date()
-    let y = t.getFullYear()
-    let m = t.getMonth() + 1
-    let d = t.getDate()
-    return this.CREATE_DATE = `${y}-${m}-${d}`
   }
 })
 
