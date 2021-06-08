@@ -1,6 +1,7 @@
 // *{
 //   outline: 1px solid red;
 // }
+
 @mixin pad {
   @media(max-width:1025px) {
       @content;
@@ -45,6 +46,7 @@ $m_line_height: 2.5;
   background-color: $m_line_color;
   margin: 30px 0;
   display: inline-block;
+  
 }
 
 
@@ -134,6 +136,11 @@ $m_line_height: 2.5;
 .m_wrapper .m_pets{ 
   //margin-bottom: 2px;
   background-color: white;
+}
+
+.m_wrapper  .mactive{
+  background-color:$m_line_color;
+  padding: 2%;
 }
 
 //================================== 層 ==================================//
