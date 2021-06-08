@@ -503,7 +503,6 @@ $m_title_color:rgb(255,169,144);
     margin: 0 auto;
     padding: 30px 60px  $m_bottom_space;
     border-radius: 30px;
-    //overflow-y: scroll;
 
     @include mobile {
         padding: 30px $m_bottom_space $m_bottom_space;
@@ -575,6 +574,9 @@ $m_title_color:rgb(255,169,144);
 
 //加入會員補充
 .signUp{
+    height: 440px;
+    overflow-y: auto;
+
     padding: 15px 30px 10px;
     @include iphoneX{
         padding: 15px 10px 10px;
