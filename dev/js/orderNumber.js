@@ -28,6 +28,11 @@ axios.post("php/back_end_API/S_select_order.php").then((res) => {
   addNum(a)
 });
 
+// 商城
+axios.post("php/back_end_API/SM_select.php").then((res) => {
+  $('.SM_orderNumber').text(res.data.length)
+});
+
 // 所有的訂單數量
 let all = 0;
 function addNum(a){
