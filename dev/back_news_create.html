@@ -23,71 +23,7 @@
     </nav>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-2">
-                <div class="list-group text-center">
-                    <a href="back_member.html" class="
-                          list-group-item list-group-item-action list-group-item-success
-                        ">會員管理</a>
-                    <a href="back_news.html" class="
-                          list-group-item list-group-item-action list-group-item-success
-                        ">消息管理</a>
-                    <a class="
-                          list-group-item list-group-item-action list-group-item-success
-                        " data-bs-toggle="collapse" href="#order-list" role="button" aria-expanded="false"
-                        aria-controls="order-list"><span class="badge bg-success rounded-pill">0</span> 訂單管理</a>
-                    <div class="collapse" id="order-list">
-                        <a href="back_restaurant_order.html" class="
-                            list-group-item
-                            list-group-item-action
-                            list-group-item-secondary
-                          "><span class="badge bg-success rounded-pill">0</span> 餐廳訂單</a>
-                        <a href="back_hotel_order.html" class="
-                            list-group-item
-                            list-group-item-action
-                            list-group-item-secondary
-                          "><span class="badge bg-success rounded-pill">0</span> 旅館訂單</a>
-                        <a href="back_hospital_order.html" class="
-                            list-group-item
-                            list-group-item-action
-                            list-group-item-secondary
-                          "><span class="badge bg-success rounded-pill">0</span> 健檢訂單</a>
-                        <a href="back_shopping_order.html" class="
-                            list-group-item
-                            list-group-item-action
-                            list-group-item-secondary
-                          "><span class="badge bg-success rounded-pill">0</span> 商城訂單</a>
-                    </div>
-                    <a class="
-                          list-group-item list-group-item-action list-group-item-success
-                        " data-bs-toggle="collapse" href="#product-list" role="button" aria-expanded="false"
-                        aria-controls="product-list">商品管理</a>
-                    <div class="collapse" id="product-list">
-                        <a href="back_restaurant_meal.html" class="
-                            list-group-item
-                            list-group-item-action
-                            list-group-item-secondary
-                          ">餐廳餐點</a>
-                        <a href="back_room_type.html" class="
-                            list-group-item
-                            list-group-item-action
-                            list-group-item-secondary
-                          ">旅館房型</a>
-                        <a href="back_health_check.html" class="
-                            list-group-item
-                            list-group-item-action
-                            list-group-item-secondary
-                          ">健檢項目</a>
-                        <a href="back_shopping_product.html" class="
-                            list-group-item
-                            list-group-item-action
-                            list-group-item-secondary
-                          ">商城商品</a>
-                    </div>
-                    <a href="back_message_list.html" class="
-                          list-group-item list-group-item-action list-group-item-success
-                        "><span class="badge bg-success rounded-pill">0</span> 商城留言</a>
-                </div>
-            </div>
+            @@include('back_leftSide.html')
             <div class="col-10">
                 <h2 class="mb-3">消息新增</h2>
                 <form action="./php/back_end_API/I_Insert.php" method="post" enctype="multipart/form-data">
@@ -125,6 +61,7 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/orderNumber.js"></script>
 </body>
 
 </html>

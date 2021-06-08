@@ -49,7 +49,8 @@ document.addEventListener('DOMContentLoaded', function () {
           //alert(response);
           let m_header = document.querySelector('.m_header');
           m_header.classList.toggle('m_toggle');
-          $('#m_header_control').attr('style', 'color:orange;');
+          window.location.href="front_index.html";
+         $('#m_header_control').attr('style','color:orange;');
         },
         error: function error(exception) {
           alert('數據載入失敗: ' + exception.status);
