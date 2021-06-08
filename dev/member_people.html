@@ -12,21 +12,8 @@
     <body>
         @@include('layout/header.html')
 <!-- =================================================側邊攔===================================================== -->
-    <div class="m_wrapper">
-        <aside>
-        <div>
-            <h5><a href="./member_index.html"><img src="./img/member/catlogo-8.png" alt=""><span>會員專區</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></h5>
-            <div class="m_underline_1"></div>
-            <ul>
-                <li><a href="./member_people.html"><img src="./img/member/catlogo-8.png" alt=""><span>我的帳號</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
-                <li><a href="./member_pets.html"><img src="./img/member/catlogo-8.png" alt=""><span>我的寵物</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
-                <li><a href="./member_order_management.html"><img src="./img/member/catlogo-8.png" alt=""><span>訂單管理</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
-                <li class="m_little_li"><a href="./member_order_management.html"><img src="./img/member/catlogo-8.png" alt=""><span>已完成</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
-                <li class="m_little_li"><a href="./member_order_management.html"><img src="./img/member/catlogo-8.png" alt=""><span>未完成</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
-            </ul>
-            <input type="button" value="登&emsp;出">
-        </div>
-        </aside>
+    <div class="m_wrapper" id='app'>
+        <my-aside></my-aside>
 <!-- =================================================主要內容===================================================== -->
          <main>
 
@@ -78,7 +65,6 @@
         </div>
 
     @@include('layout/footer.html')
-    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- axios -->
@@ -392,4 +378,5 @@
         });
     </script>
     </body>
+
 </html>

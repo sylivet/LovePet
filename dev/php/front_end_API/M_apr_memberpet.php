@@ -9,15 +9,7 @@ include("../M_conn.php");
 
 //============================= 引入資料 =====================================//
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 $sql = "SELECT * FROM PET_INFO WHERE (`FK_MEMBER_ID` = ?);";
-=======
-$sql = "SELECT * FROM LOVEPP.PET_INFO WHERE (`FK_MEMBER_ID` = ?);";
->>>>>>> 856365245ea5f35dd5ec08fde5a60d4544d3ae4c
-=======
-$sql = "SELECT * FROM LOVE_PET.PET_INFO WHERE (`FK_MEMBER_ID` = ?);";
->>>>>>> dcfbdfd7960a77d5a2eb45a60b5b61b91407a1c8
     
     //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
     $statement = $pdo->prepare($sql);    
