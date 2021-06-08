@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function(){
             MID : res,	
             },
           dataType : 'html' 
-<<<<<<< HEAD
         }).done(function(data){    //---載入成功
           console.log(data);
           console.log(typeof(data));
@@ -39,15 +38,6 @@ document.addEventListener("DOMContentLoaded", function(){
           // //console.log(typeof(m_data));
           // console.log(m_datas['MEMBER_IMG']);
           // $('#m_pic2').attr('src',`${m_datas['MEMBER_IMG']}`);
-=======
-        }).done(function(data){  //---載入成功
-          let m_data =  JSON.parse(data);
-          let m_datas = m_data[0]
-          console.log(m_datas);
-          //console.log(typeof(m_data));
-          console.log(m_datas['MEMBER_IMG']);
-          $('#m_pic2').attr('src',`${m_datas['MEMBER_IMG']}`);
->>>>>>> 856365245ea5f35dd5ec08fde5a60d4544d3ae4c
 
 
 
