@@ -16,7 +16,7 @@
     
      // ========== 建立SQL語法 ============ //
 
-     $sql = "INSERT INTO `LOVE_PET`.`MEMBER` (`ACCOUNT`, `NICKNAME`, `PASSWORD`, `NAME`, `ADDRES`, `PHONE`, `AUTHORITY`, `SUBSCRIPTION`, `DELIEVERY_NOTICE`) 
+     $sql = "INSERT INTO `MEMBER` (`ACCOUNT`, `NICKNAME`, `PASSWORD`, `NAME`, `ADDRES`, `PHONE`, `AUTHORITY`, `SUBSCRIPTION`, `DELIEVERY_NOTICE`) 
      VALUES (?, ?, ?, ?, ?, ?, '2', '1', '1');";
      
      //執行

@@ -33,100 +33,34 @@
 
             <!-- ------------------------------寵物頭貼---------------------------------- -->
             <section class="m_pets m_pets_pics">
-                <section  class="m_pets ">
-                    <form action="">
-                        <div>
-                            <img src="./img/member/Group 2151.png" alt="profile"  class="m_pet_pic" id="m_pet1">
-                        </div>
-                        <div>
-                            <input type="text" id="pet_name1" placeholder="名字">
-                            <label for="pet_name1"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
-                        </div>
-                    </form>
-                </section>
-
-                <section class="m_pets ">
-                    <form action="">
-                        <div>
-                            <img src="./img/member/Group 2151.png" alt="profile"  class="m_pet_pic" id="m_pet0" >
-                        </div>
-                        <div>
-                            <input type="text" id="pet_name0" placeholder="名字">
-                            <label for="pet_name2"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
-                        </div>
-                    </form>
-                </section>
-
-                <section class="m_pets ">
-                    <form action="">
-                        <div>
-                            <img src="./img/member/Group 2151.png" alt="profile"  class="m_pet_pic" id="m_pet2">
-                        </div>
-                        <div>
-                            <input type="text" id="pet_name2" placeholder="名字">
-                            <label for="pet_name3"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
-                        </div>
-                    </form>
-                </section>
+                <my-petpic :class='{"mactive":currentpet===key}' @click.native='currentpet = key' v-for='(itm,key) in mymemberpet' :petsrc='itm.PET_IMG' :petname='itm.PET_NAME'></my-petpic>
+                <!-- <my-petpic @click.native='currentpet = itm'  :class='{"mactive":currentpet===itm}' v-for='(itm,key) in mymemberpet' :petsrc='itm.PET_IMG' :petname='itm.PET_NAME'></my-petpic> -->
             </section>
 
             <!-- ------------------------------基本資料---------------------------------- -->
-             <section class="m_pets  m_pet_info"> 
-                <h5>基本資料</h5>
-                <div class="m_underline_2"></div> 
+             <my-petinfo v-for='(itm,key) in mymemberpet'
+             v-if ="currentpet === key" 
+             :petspecies='itm.PET_SPECIES'
+             :petweight='itm.PET_WEIGHT'
+             :petage='itm.PET_AGE'
+             :petchip='itm.PET_CHIP_NUMBER'
+             :petgender='itm.PET_GENDER'
+             :petcut='itm.PET_STERILIZATION'
+             
+             ></my-petinfo>
+             
 
-                 <form action="">
-                    <ul>
-                        <li>
-                            <label for="species">種類</label>
-                            <input type="text" id="species">
-                            <label for="species"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
-                        </li>
-                        <li>
-                            <label for="weight">體重</label>
-                            <input type="text" id="weight">
-                            <label for="weight"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
-                        </li>
-                        <li>
-                            <label for="age">年齡</label>
-                            <input type="text" id="age">
-                            <label for="age"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
-                        </li>
-                        <li>
-                            <label for="birthday">生日</label>
-                            <input type="text" id="birthday">
-                            <label for="birthday"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
-                        </li>
-                        <li class="m_pet_chip_num">
-                            <label for="chip_number">晶片號碼</label>
-                            <input type="text" id="chip_number">
-                            <label for="chip_number"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
-                        </li>
+             <!-- ------------------------------基本資料---------------------------------- -->
+             <!-- <my-petinfo v-if="currentpet"
+             :petspecies='currentpet.PET_SPECIES'
+             :petweight='currentpet.PET_WEIGHT'
+             :petage='currentpet.PET_AGE'
+             :petchip='currentpet.PET_CHIP_NUMBER'
+             :petgender='currentpet.PET_GENDER'
+             :petcut='currentpet.PET_STERILIZATION'
+             
+             ></my-petinfo> -->
 
-                        <li class="m_pet_radio">
-
-                            <p>性別</p>
-                            <input type="radio" id="boy" name="gender" value="boy">
-                            <label for="boy">男生</label>
-                            <input type="radio" id="girl" name="gender" value="girl">
-                            <label for="girl">女生</label>
-
-                        </li>
-                        <li class="m_pet_radio">
-
-                            <p>是否結紮</p>
-                            <input type="radio" id="ster_did" name="sterilization" value="boy">
-                            <label for="ster_did">已結</label>
-                            <input type="radio" id="ster_yet" name="sterilization" value="girl">
-                            <label for="ster_yet">未結</label>
-
-                        </li>
-                    </ul>
-
-                <input type="submit" value="確認更改" class="m_btn">
-                </form>
-             </section>
-            
              <!-- ------------------------------緊急處理---------------------------------- -->
              <section class="m_emergancy_data">
                 <h5>緊急處理資訊</h5>
@@ -180,7 +114,202 @@
     @@include('layout/footer.html')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="./js/m_member_pet.js"></script>
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <!-- vue -->
+    <script src="./vendors/vue/js/vue.js"></script>
+    <!-- <script src="./js/m_aside_contrl.js"></script> -->
+    <!-- <script src="./js/m_member_pet.js"></script> -->
+    <script>
+    
+             Vue.component('my-petpic',{
+                template: `<section class="m_pets ">
+                            <div>
+                                <div >
+                                    <img :src='petsrc' alt="profile"  class="m_pet_pic" id="m_pet2">
+                                </div>
+                                <div>
+                                    <input type="text" id="pet_name2" placeholder="名字" :value='petname'>
+                                    <label for="pet_name3"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                                </div>
+                            </div>
+                        </section>`,
+
+                props:['petsrc','petname'],
+                
+             });
+    
+             Vue.component('my-petinfo',{
+            template: `<section class="m_pets  m_pet_info"> 
+                        <h5>基本資料</h5>
+                        <div class="m_underline_2"></div> 
+
+                        <form action="">
+                            <ul>
+                                <li>
+                                    <label for="species">種類</label>
+                                    <input type="text" id="species" :value='petspecies==0? "貓貓":"狗狗"'>
+                                    <label for="species"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                                </li>
+                                <li>
+                                    <label for="weight">體重</label>
+                                    <input type="text" id="weight" :value="petweight+' 公斤'">
+                                    <label for="weight"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                                </li>
+                                <li>
+                                    <label for="age">年齡</label>
+                                    <input type="text" id="age" :value='petage+" 歲"'>
+                                    <label for="age"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                                </li>
+                                <li>
+                                    <label for="chip_number">晶片</label>
+                                    <input type="text" id="chip_number" :value='petchip'>
+                                    <label for="birthday"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                                </li>
+
+                                <li class="m_pet_radio">
+
+                                    <p>性別</p>
+                                    <input type="radio" id="boy" name="gender" value="boy" :checked='petgender===1'>
+                                    <label for="boy">男生</label>
+                                    <input type="radio" id="girl" name="gender" value="girl" :checked='petgender===0'>
+                                    <label for="girl">女生</label>
+
+                                </li>
+                                <li class="m_pet_radio">
+
+                                    <p>是否結紮</p>
+                                    <input type="radio" id="ster_did" name="sterilization" value="boy" :checked='petcut===1?"boy":"girl"'>
+                                    <label for="ster_did">已結</label>
+                                    <input type="radio" id="ster_yet" name="sterilization" value="girl" :checked='petcut===0?"boy":"girl"'>
+                                    <label for="ster_yet">未結</label>
+
+                                </li>
+                            </ul>
+
+                        <input type="submit" value="確認更改" class="m_btn">
+                        </form>
+                    </section>`,
+            props:['petspecies','petweight','petage','petchip','petgender','petcut'],
+            computed:{
+                condition(){
+                    return '' ;
+                },
+            },
+         });
+    
+             Vue.component('my-aside',{
+                template: 
+                    ` <aside>
+                        <div>
+                            <h5><a href="./member_index.html"><img src="./img/member/catlogo-8.png" alt=""><span>會員專區</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></h5>
+                            <div class="m_underline_1"></div>
+                            <ul>
+                                <li><a href="./member_people.html"><img src="./img/member/catlogo-8.png" alt=""><span>我的帳號</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
+                                <li><a href="./member_pets.html"><img src="./img/member/catlogo-8.png" alt=""><span>我的寵物</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
+                                <li><a href="./member_order_management.html"><img src="./img/member/catlogo-8.png" alt=""><span>訂單管理</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
+                                <li class="m_little_li"><a href="./member_order_management.html"><img src="./img/member/catlogo-8.png" alt=""><span>已完成</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
+                                <li class="m_little_li"><a href="./member_order_management.html"><img src="./img/member/catlogo-8.png" alt=""><span>未完成</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
+                            </ul>
+                            <input type="button" value="登 出" @click="mleave" >
+                        </div>
+                       </aside>`,
+                data(){
+                    return {
+                        mconfirm: '確認登出嗎?',
+                    };
+                },
+                methods:{
+                    mleave(){   //--- 登出function
+                        if(confirm(this.mconfirm) == true){
+                        localStorage.clear();                            //清除local
+    
+                        $.ajax({                                         //清除session ID
+                            method: "POST",
+                            url: "./php/front_end_API/M_removesession_MID.php",
+                            data: {},
+                            dataType: "text",
+                            success: function success(response) {
+                            //alert(response);
+                            //let m_header = document.querySelector('.m_header');
+                            //m_header.classList.toggle('m_toggle');
+                            window.location.href="front_index.html";
+                            //$('#m_header_control').attr('style','color:orange;');
+                            },
+                            error: function error(exception) {
+                            alert("數據載入失敗: " + exception.status);
+                            }
+                        });
+    
+                        }else{
+    
+                        };
+                        },
+                },
+             });
+    
+              
+                new Vue({
+                el: '#app',
+                data: {
+                    mymember:[],
+                    mymemberpet:[],
+                    currentpet:0,
+                    // currentpet:null,
+                },
+                methods: {
+                    getmymemberdata(info){
+                    let self = this;
+
+                        $.ajax({
+                            type : "POST",	
+                            url : "./php/front_end_API/M_apr_memberpeople.php",  
+                            data : {  
+                                MID : info,            //---透過 MID 去抓該筆會員資料
+                            }, 
+                            dataType : 'html' 
+                            }).done(function(data){    //---載入成功
+                                console.log(data);
+                            self.mymember =  JSON.parse(data);
+                            
+                            }).fail(function(jqXHR){   //---載入失敗
+                            alert("res為ID數據載入失敗: " + jqXHR.status);
+                            });
+
+                    },
+                    getmemberpetdata(info){
+                    let self = this;
+
+                        $.ajax({
+                            type : "POST",	
+                            url : "./php/front_end_API/M_apr_memberpet.php",  
+                            data : {  
+                                MID : info,            //---透過 MID 去抓該筆會員資料
+                            }, 
+                            dataType : 'html' 
+                            }).done(function(data){    //---載入成功
+                                console.log(data);
+                            self.mymemberpet =  JSON.parse(data);
+                            // self.currentpet = self.mymemberpet[0]; //陣列
+                            
+                            }).fail(function(jqXHR){   //---載入失敗
+                            alert("res為ID數據載入失敗: " + jqXHR.status);
+                            });
+
+                    },
+                },
+                created(){
+
+                    axios.post("php/front_end_API/M_getsession_MID.php").then((res)=>{
+                    this.getmymemberdata(res.data);
+                    this.getmemberpetdata(res.data);
+                    });
+
+
+                },
+
+            });
+        </script>
     </body>
 
 </html>

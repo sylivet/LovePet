@@ -17,7 +17,7 @@
               $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
               
               //檔案最終存放位置
-              $filePath = $ServerRoot."img/index/".$fileName;
+              $filePath = $ServerRoot."/dist/img/mall/".$fileName;
        
               //將暫存檔搬移到正確位置
               move_uploaded_file($filePath_Temp, $filePath);
@@ -40,24 +40,30 @@
        //---------------------------------------------------
 
        //取得POST過來的值
-       $NEWS_TITLE = $_POST['NEWS_TITLE'];
-       $NEWS_IMG = "img/index/".$fileName;
-       $NEWS_CONTENT = $_POST['NEWS_CONTENT'];
-       $NEWS_STATUS = $_POST['NEWS_STATUS'];
+       $PRODUCT_NAME = $_POST['PRODUCT_NAME'];
+       $PRODUCT_PRICE = $_POST['PRODUCT_PRICE'];
+       $PRODUCT_IMG = "img/mall/".$fileName;
+       $PRODUCT_INFO = $_POST['PRODUCT_INFO'];
+       $PRODUCT_SOLD = $_POST['PRODUCT_SOLD'];
+       $PRODUCT_TYPE = $_POST['PRODUCT_TYPE'];
+       $PRODUCT_STATUS = $_POST['PRODUCT_STATUS'];
 
        //建立SQL
-       $sql = 'INSERT INTO `NEWS`(`NEWS_ID`, `NEWS_TITLE`, `NEWS_IMG`, `NEWS_CONTENT`, `NEWS_STATUS`) VALUES (?,?,?,?,?)';
+       $sql = 'INSERT INTO `SHOPPING_PRODUCT`( `PRODUCT_NAME`, `PRODUCT_PRICE`, `PRODUCT_IMG`, `PRODUCT_INFO`, `PRODUCT_SOLD`, `PRODUCT_TYPE`, `PRODUCT_STATUS`) VALUES (?,?,?,?,?,?,?)';
        
 
        //執行
        $statement = $pdo->prepare($sql);     
-       $statement->bindValue(1 , $NEWS_TITLE); 
-       $statement->bindValue(2 , $NEWS_IMG);
-       $statement->bindValue(3 , $NEWS_CONTENT);
-       $statement->bindValue(4 , $NEWS_STATUS);
+       $statement->bindValue(1 , $PRODUCT_NAME); 
+       $statement->bindValue(2 , $PRODUCT_PRICE);
+       $statement->bindValue(3 , $PRODUCT_IMG);
+       $statement->bindValue(4 , $PRODUCT_INFO);
+       $statement->bindValue(5 , $PRODUCT_SOLD);
+       $statement->bindValue(6 , $PRODUCT_TYPE);
+       $statement->bindValue(7 , $PRODUCT_STATUS);
        $statement->execute();
 
-       echo "<script>alert('新增消息成功'); location.href = '../.././back_news_create.html';</script>";
+       echo "<script>alert('新增商品成功'); location.href = '../.././back_shopping_product.html';</script>";
 
 
 

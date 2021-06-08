@@ -100,39 +100,55 @@
               <th>訂單編號</th>
               <th>訂單回饋</th>
               <th>官方回覆</th>
-              <th></th>
+              <th>編輯</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><a href="###">編輯</a></td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><a href="###">編輯</a></td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><a href="###">編輯</a></td>
-            </tr>
+          <tbody class="data">
           </tbody>
         </table>
       </div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  <script>
+    axios.post("php/back_end_API/SM_select.php").then((res) => {
+      getData(res)
+    })
+    function getData(res) {
+      for (let i = 0; i < res.data.length; i++) {
+
+        let data = `
+          <tr class="dataTable">
+                <td style="display: none"><input value="${res.data[i].MESSAGE_LIST_ID}" name="MESSAGE_LIST_ID" disabled readonly></td>
+                <td>${res.data[i].MESSAGE_LIST_ID}</td>
+                <td>${res.data[i].FK_SHOPPING_ORDER_ID}</td>
+                <td>
+                  <textarea name="NEWS_CONTENT" cols="30" rows="3" disabled>${res.data[i].MESSAGE_CONTENT}</textarea>
+                </td>
+                <td>
+                  <textarea name="NEWS_CONTENT" cols="30" rows="3" disabled>${res.data[i].OFFICAL_FEEDBACK}</textarea>
+                </td>
+                <td class="edit"><button class="btn btn-warning btn-sm">編輯</button></td>
+                <td style="display: none" class="save"><button class="btn btn-warning btn-sm">儲存</button></td>
+          </tr>
+          `
+        $('.data').append(data)
+      }
+    }
+
+    //編輯
+    $('.data').on('click', '.edit', function (e) {
+      e.preventDefault()
+      $(this).parent().find('input, select, textarea').attr('disabled', false)
+      $(this).css('display', 'none')
+      $(this).next().css('display', 'table-cell')
+      $('.noShow').hide()
+    });
+
+
+  </script>
 </body>
 
 </html>

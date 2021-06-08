@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
         input_js[i].placeholder = '此處不能空白';
         input_js[i].style['background-color'] = 'lightgray';
         input_js[i].style.color = 'white';
-        $('#m_sign_up').attr('disabled', true);
+        //$('#m_sign_up').attr('disabled', true);
       } else {
         $('#m_sign_up').attr('disabled', false);
       }
@@ -159,7 +159,8 @@ document.addEventListener('DOMContentLoaded', function () {
       //------------------- password 判別是否一致 ------------------------//
       if ($('#new_pwd').val() != $('#chk_pwd').val()) {
         alert('密碼不一致，請再次確認!');
-        $('#m_sign_up').attr('disabled', true);
+        // $('#new_pwd').val() = '';
+        // $('#chk_pwd').val() = '';
       } else {
         //alert('密碼一致，進行下一步!');
         $('#m_sign_up').attr('disabled', false);
@@ -183,6 +184,8 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(data);
             if (data == 'yes') {
               alert('註冊成功，請重新登入!');
+              $('#m_account').css({'backgroundColor':'white',}).prop('placeholder',"請輸入您的電子信箱");
+              $('#m_pwd').css({'backgroundColor':'white',}).prop('placeholder',"請輸入您的正確密碼");
               //window.location.href="admin/login.php";
               m_sign_up_bk.style.display = 'none';
               m_sign_in_bk.style.display = 'block';
@@ -209,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   //--------------------- Email 判別是否重複 ---------------------------//
-  $('#mail').on('keyup', function () {
+  $('#mail').on('blur', function () {
     var keyin_value = $(this).val();
     console.log(keyin_value);
 
@@ -232,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function () {
             $('#m_sign_up').attr('disabled', false);
             $('#mail').css('color', 'black');
           } else {
-            alert('已有此帳號，不可重複註冊');
+             alert('已有此帳號，不可重複註冊');
             $('#m_sign_up').attr('disabled', true);
             $('#mail').css('color', 'red');
           }

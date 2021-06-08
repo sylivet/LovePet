@@ -29,13 +29,15 @@ document.addEventListener("DOMContentLoaded", function(){
             MID : res,	
             },
           dataType : 'html' 
-        }).done(function(data){  //---載入成功
-          let m_data =  JSON.parse(data);
-          let m_datas = m_data[0]
-          console.log(m_datas);
-          //console.log(typeof(m_data));
-          console.log(m_datas['MEMBER_IMG']);
-          $('#m_pic2').attr('src',`${m_datas['MEMBER_IMG']}`);
+        }).done(function(data){    //---載入成功
+          console.log(data);
+          console.log(typeof(data));
+          // let m_data =  JSON.parse(data);
+          // let m_datas = m_data[0]
+          // console.log(m_datas);
+          // //console.log(typeof(m_data));
+          // console.log(m_datas['MEMBER_IMG']);
+          // $('#m_pic2').attr('src',`${m_datas['MEMBER_IMG']}`);
 
 
 

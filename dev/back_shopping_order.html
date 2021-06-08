@@ -1,147 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+			crossorigin="anonymous"
+		/>
+		@@include('layout/style.html')
+		<title>樂寵後台管理</title>
+		<style>
+			body {
+				overflow: auto;
+			}
+			input,
+			select {
+				width: 100px;
+				text-align: right;
+			}
+			.orderdetail{
+				display: none;
+				width: 600px;
+				max-height: 80%;
+				padding: 20px;
+				background-color: #333;
+				box-sizing: border-box;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				border-radius: 5px;
+			}
+			.orderdetail *:not(h4){
+				margin-top: 10px;
+			}
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
-  @@include('layout/back_style.html')
-  <title>樂寵後台管理</title>
-</head>
+			.orderdetail h4{
+				color:white
+			}
 
-<body class="backend">
-  <nav class="navbar navbar-light" style="background-color: #ffc857">
-    <div class="container-fluid">
-      <div class="d-flex align-items-center">
-        <a href="index.html"><img class="ms-5" src="img/common/i_logo.png" alt="" style="max-width: 50px" /></a>
-        <p class="navbar-brand ms-3">樂寵後台管理</p>
-      </div>
-      <div class="me-5"><a href="#">登出</a></div>
-    </div>
-  </nav>
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col-2">
-        <div class="list-group text-center">
-          <a href="back_member.html" class="
-                list-group-item list-group-item-action list-group-item-success
-              ">會員管理</a>
-          <a href="back_news.html" class="
-                list-group-item list-group-item-action list-group-item-success
-              ">消息管理</a>
-          <a class="
-                list-group-item list-group-item-action list-group-item-success
-              " data-bs-toggle="collapse" href="#order-list" role="button" aria-expanded="false"
-            aria-controls="order-list"><span class="badge bg-success rounded-pill">0</span> 訂單管理</a>
-          <div class="collapse" id="order-list">
-            <a href="back_restaurant_order.html" class="
-                  list-group-item
-                  list-group-item-action
-                  list-group-item-secondary
-                "><span class="badge bg-success rounded-pill">0</span> 餐廳訂單</a>
-            <a href="back_hotel_order.html" class="
-                  list-group-item
-                  list-group-item-action
-                  list-group-item-secondary
-                "><span class="badge bg-success rounded-pill">0</span> 旅館訂單</a>
-            <a href="back_hospital_order.html" class="
-                  list-group-item
-                  list-group-item-action
-                  list-group-item-secondary
-                "><span class="badge bg-success rounded-pill">0</span> 健檢訂單</a>
-            <a href="back_shopping_order.html" class="
-                  list-group-item
-                  list-group-item-action
-                  list-group-item-secondary
-                "><span class="badge bg-success rounded-pill">0</span> 商城訂單</a>
-          </div>
-          <a class="
-                list-group-item list-group-item-action list-group-item-success
-              " data-bs-toggle="collapse" href="#product-list" role="button" aria-expanded="false"
-            aria-controls="product-list">商品管理</a>
-          <div class="collapse" id="product-list">
-            <a href="back_restaurant_meal.html" class="
-                  list-group-item
-                  list-group-item-action
-                  list-group-item-secondary
-                ">餐廳餐點</a>
-            <a href="back_room_type.html" class="
-                  list-group-item
-                  list-group-item-action
-                  list-group-item-secondary
-                ">旅館房型</a>
-            <a href="back_health_check.html" class="
-                  list-group-item
-                  list-group-item-action
-                  list-group-item-secondary
-                ">健檢項目</a>
-            <a href="back_shopping_product.html" class="
-                  list-group-item
-                  list-group-item-action
-                  list-group-item-secondary
-                ">商城商品</a>
-          </div>
-          <a href="back_message_list.html" class="
-                list-group-item list-group-item-action list-group-item-success
-              "><span class="badge bg-success rounded-pill">0</span> 商城留言</a>
-        </div>
-      </div>
-      <div class="col-10">
-        <h2 class="mb-3">商城訂單管理</h2>
-        <select name="" id="">
-          <option value="">訂單編號</option>
-          <option value="">會員編號</option>
-        </select>
-        <input type="text" id="name" class="mb-3 ms-2" />
-        <button type="button" class="btn btn-success btn-sm ms-2 mb-2">
-          搜尋
-        </button>
-        <table class="table table-striped table-hover text-center">
-          <thead>
-            <tr class="table-warning">
-              <th></th>
-              <th>訂單編號</th>
-              <th>成立日期</th>
-              <th>會員編號</th>
-              <th>訂單狀態</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><a href="###">編輯</a></td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><a href="###">編輯</a></td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><a href="###">編輯</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-    crossorigin="anonymous"></script>
-</body>
+			.orderdetail .r_close{
+				text-align: center;
+				width: 30px;
+				height: 30px;
+				margin-left: auto;
+				line-height:30px;
+				cursor: pointer;
+			}
 
+			.r_title{
+				margin-top: -20px;
+			}
+
+			.stamp{
+				/* display: none; */
+				position: absolute;
+				top: 20%;
+				left: 15%;
+				width:450px;
+				animation-name: pulse;
+				animation-duration: 0.5s;
+				opacity: 0;
+				animation-fill-mode:forwards;
+				pointer-events: none;
+				box-sizing: border-box;
+				z-index: -1;
+			}
+
+			.r_membername, .r_people, .r_pets, .r_creategdate{
+				padding-left: 100px;
+				color:#75aafa;
+			}
+
+			.r_dishes li, .r_Customdishes li, .r_status li{
+				padding-left: 100px;
+				color:#75aafa;
+			}
+
+			@keyframes pulse{
+				0%{
+					opacity: 0;
+				}
+				10%{
+					opacity:.50;
+					transform-origin: 50% 50%;
+					transform: rotate(-5deg) scale(5);
+					transition: all .3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+				}
+				100%{
+					opacity:0.6;
+					transform: rotate(0deg) scale(1);
+				}
+			}
+
+			.done button{
+				width: 100%;
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+
+	<body class="backend">
+		<nav class="navbar navbar-light" style="background-color: #ffc857">
+			<div class="container-fluid">
+				<div class="d-flex align-items-center">
+					<img
+						class="ms-5"
+						src="img/common/i_logo.png"
+						alt=""
+						style="max-width: 50px"
+					/>
+					<p class="navbar-brand ms-3">樂寵後台管理</p>
+				</div>
+				<div class="me-5"><a href="#">登出</a></div>
+			</div>
+		</nav>
+		<div class="container mt-5">
+			<div class="row">
+				<div class="col-2">
+					<div class="list-group text-center">
+						<a
+							href="back_member.html"
+							class="
+								list-group-item list-group-item-action list-group-item-success
+							"
+							>會員管理</a
+						>
+						<a
+							href="back_news.html"
+							class="
+								list-group-item list-group-item-action list-group-item-success
+							"
+							>消息管理</a
+						>
+						<a
+							class="
+								list-group-item list-group-item-action list-group-item-success
+							"
+							data-bs-toggle="collapse"
+							href="#order-list"
+							role="button"
+							aria-expanded="false"
+							aria-controls="order-list"
+							><span class="badge bg-success rounded-pill orderManage">0</span> 訂單管理</a
+						>
+						<div class="collapse" id="order-list">
+							<a
+								href="back_restaurant_order.html"
+								class="
+									list-group-item
+									list-group-item-action
+									list-group-item-secondary
+								"
+								><span class="badge bg-success rounded-pill R_orderNumber">0</span>
+								餐廳訂單</a
+							>
+							<a
+								href="back_hotel_order.html"
+								class="
+									list-group-item
+									list-group-item-action
+									list-group-item-secondary
+								"
+								><span class="badge bg-success rounded-pill H_orderNumber">0</span>
+								旅館訂單</a
+							>
+							<a
+								href="back_hospital_order.html"
+								class="
+									list-group-item
+									list-group-item-action
+									list-group-item-secondary
+								"
+								><span class="badge bg-success rounded-pill">0</span>
+								健檢訂單</a
+							>
+							<a
+								href="back_shopping_order.html"
+								class="
+									list-group-item
+									list-group-item-action
+									list-group-item-secondary
+								"
+								><span class="badge bg-success rounded-pill">0</span>
+								商城訂單</a
+							>
+						</div>
+						<a
+							class="
+								list-group-item list-group-item-action list-group-item-success
+							"
+							data-bs-toggle="collapse"
+							href="#product-list"
+							role="button"
+							aria-expanded="false"
+							aria-controls="product-list"
+							>商品管理</a
+						>
+						<div class="collapse" id="product-list">
+							<a
+								href="back_restaurant_meal.html"
+								class="
+									list-group-item
+									list-group-item-action
+									list-group-item-secondary
+								"
+								>餐廳餐點</a
+							>
+							<a
+								href="back_room_type.html"
+								class="
+									list-group-item
+									list-group-item-action
+									list-group-item-secondary
+								"
+								>旅館房型</a
+							>
+							<a
+								href="back_health_check.html"
+								class="
+									list-group-item
+									list-group-item-action
+									list-group-item-secondary
+								"
+								>健檢項目</a
+							>
+							<a
+								href="back_shopping_product.html"
+								class="
+									list-group-item
+									list-group-item-action
+									list-group-item-secondary
+								"
+								>商城商品</a
+							>
+						</div>
+						<a
+							href="back_message_list.html"
+							class="
+								list-group-item list-group-item-action list-group-item-success
+							"
+							><span class="badge bg-success rounded-pill">0</span> 商城留言</a
+						>
+					</div>
+				</div>
+				<div class="col-10">
+					<h2 class="mb-3">商城訂單管理</h2>
+					<select name="" id="byNumber">
+						<option value="訂單編號">訂單編號</option>
+						<option value="會員編號">會員編號</option>
+					</select>
+					<input type="text" id="name" class="mb-3 ms-2" />
+					<table class="table table-striped table-hover text-center">
+						<thead>
+							<tr class="table-warning">
+								<th>訂單編號</th>
+								<th>會員編號</th>
+								<th>成立日期</th>
+								<th>付款方式</th>
+								<th>宅配方式</th>
+								<th>訂單狀態</th>
+								<th>訂單明細</th>
+								<th>編輯</th>
+							</tr>
+						</thead>
+						<tbody class="data">
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+		<script>
+			axios.post("php/back_end_API/S_select_order.php").then((res) => {
+				getData(res);
+			});
+
+			function getData(res) {
+				for (let i = 0; i < res.data.length; i++) {
+					// 日期轉為10位數
+					res.data[i].CREATE_DATE = res.data[i].CREATE_DATE.slice(0,10)
+
+					let data = `
+            <tr class="show">
+								<td style="display: none"><input value="${res.data[i].SHOPPING_ORDER_ID}" name="SHOPPING_ORDER_ID" disabled readonly></td>
+								<td class="SHOPPING_ORDER_ID">${res.data[i].SHOPPING_ORDER_ID}</td>
+								<td class="FK_MEMBER_ID">${res.data[i].FK_MEMBER_ID}</td>
+								<td>${res.data[i].CREATE_DATE}</td>
+								<td>
+									<input type="text" name="PAYMENT" value="${res.data[i].PAYMENT}" disabled/>
+								</td>
+								<td>
+									<input type="text" name="HOME_DELIVERY" value="${res.data[i].HOME_DELIVERY}" disabled/>
+								</td>
+								<td>
+									<select class="ORDER_STATUS" name="ORDER_STATUS" data-id="${i}" disabled>
+										<option class="noShow" value="${res.data[i].ORDER_STATUS}" selected>${res.data[i].ORDER_STATUS === "1"? "已完成" : "未完成" }</option>
+										<option value="0">未完成</option>
+										<option value="1">已完成</option>
+									</select>
+								</td>
+								<td class="detail">
+									<button class="btn btn-primary btn-sm">明細</button>
+								</td>
+								<td class="edit">
+									<button class="btn btn-warning btn-sm">編輯</button>
+								</td>
+								<td style="display: none" class="save">
+									<button class="btn btn-warning btn-sm">儲存</button>
+								</td>
+						</tr>
+          `;
+
+					$(".data").append(data);
+				}
+			}
+
+
+			//編輯
+			$(".data").on("click", ".edit", function (e) {
+				e.preventDefault();
+				// 使其無法同時編輯兩個
+				$('.data').find('input, select').attr('disabled', true)
+        $('.edit').css('display', 'table-cell')
+        $('.save').css('display', 'none')
+
+
+				$(this).parent().find("input, select").attr("disabled", false);
+				$(this).css("display", "none");
+				$(this).next().css("display", "table-cell");
+				$('.noShow').hide()
+			});
+
+			// 搜尋bar
+			$("#name").on("keyup", function() {
+				let byOrderNum = $('#byNumber').val()
+				var value = $(this).val();
+					if(byOrderNum === "訂單編號"){
+						$(".SHOPPING_ORDER_ID").filter(function() {
+								$(this).parent().toggle($(this).text().indexOf(value) != -1)			
+						});
+					}else{
+						$(".FK_MEMBER_ID").filter(function() {
+								$(this).parent().toggle($(this).text().indexOf(value) != -1)			
+						});
+					}
+			});
+
+		</script>
+	</body>
 </html>
+
+
+

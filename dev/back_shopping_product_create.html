@@ -90,39 +90,49 @@
       </div>
       <div class="col-10">
         <h2 class="mb-3">商品新增</h2>
-        <table class="table table-striped">
-          <tbody>
-            <tr>
-              <td>商品名稱</td>
-              <td><input type="text" /></td>
-            </tr>
-            <tr>
-              <td>商品資料</td>
-              <td><textarea name="" id="" cols="30" rows="10"></textarea></td>
-            </tr>
-            <tr>
-              <td>商品圖片</td>
-              <td><input type="file" /></td>
-            </tr>
-            <tr>
-              <td>商品價格</td>
-              <td><input type="text" /></td>
-            </tr>
-            <tr>
-              <td>商品狀態</td>
-              <td>
-                <input type="radio" name="news" id="online" value="1" checked />
-                <label for="online">上架中</label>
-                <input type="radio" name="news" id="notonline" value="0" />
-                <label for="notonline">下架中</label>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="d-flex justify-content-center">
-          <button type="button" class="btn btn-outline-success">取消</button>
-          <button type="button" class="btn btn-success ms-3">新增</button>
-        </div>
+        <form action="./php/back_end_API/S_Insert.php" method="post" enctype="multipart/form-data">
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <td>名稱</td>
+                <td><input type="text" name="PRODUCT_NAME" /></td>
+              </tr>
+              <tr>
+                <td>介紹</td>
+                <td><textarea name="PRODUCT_INFO" cols="30" rows="10"></textarea></td>
+              </tr>
+              <tr>
+                <td>圖片</td>
+                <td><input type="file" name="file" /></td>
+              </tr>
+              <tr>
+                <td>價格</td>
+                <td><input type="text" name="PRODUCT_PRICE" /></td>
+              </tr>
+              <tr>
+                <td>類型</td>
+                <td><input type="text" name="PRODUCT_TYPE" /></td>
+              </tr>
+              <tr>
+                <td>已售出</td>
+                <td><input type="text" name="PRODUCT_SOLD" value="0" readonly /></td>
+              </tr>
+              <tr>
+                <td>商品狀態</td>
+                <td>
+                  <input type="radio" name="PRODUCT_STATUS" id="online" value="1" checked />
+                  <label for="online">上架</label>
+                  <input type="radio" name="PRODUCT_STATUS" id="offline" value="0" />
+                  <label for="offline">下架</label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="d-flex justify-content-center">
+            <button type="reset" class="btn btn-outline-success">取消</button>
+            <button type="submit" class="btn btn-success ms-3">新增</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

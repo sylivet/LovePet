@@ -24,29 +24,14 @@
     <div id="app">
 
         <!-- 旅館banner動畫 -->
-        <!-- 假圖 -->
         <div class="h_banner">
             <img src="img/hotel/h_banner.png" alt="" />
         </div>
 
-        <!-- <div class="h_banner">
-        <div class="h_hotel">
-            <img src="./img/hotel/h_hotel_bg.png" alt="" class="h_hotel_bg">
-            <div class="h_cartoon">
-                <img src="./img/hotel/h_moon.png" alt="" class="h_moon">
-                <img src="./img/hotel/h_cat.png" alt="" class="h_cat">
-                <img src="./img/hotel/h_anemoscope.png" alt="" class="h_anemoscope">
-                <img src="./img/hotel/h_bicycle.png" alt="" class="h_bicycle">
-                <img src="./img/hotel/h_wheel.png" alt="" class="h_wheel1">
-                <img src="./img/hotel/h_wheel.png" alt="" class="h_wheel2">
-            </div>            
-        </div>
-    </div>     -->
 
-        <!-- <div class="h"><img src="./img/hotel/h_hotel-01.svg" alt=""></div> -->
 
-        <!-- 房型選擇跟介紹-->
-        
+
+        <!-- 房型選擇跟介紹-->        
         
         <template v-for="room in typeRoom">
             <div class="h_position">
@@ -58,8 +43,7 @@
                     </div>
                 </div>
             </div>
-
-            
+             
             <div class="h_room" @click="font">
                 <div class="h_photo">
                     <div class="h_roomname">

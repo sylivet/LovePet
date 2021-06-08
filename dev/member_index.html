@@ -33,34 +33,47 @@
 
             <!-- ------------------------------個人頭貼---------------------------------- -->
             <article class="personal_info">
+<<<<<<< HEAD
+            
+                <my-pic :picsrc='mymember[0].MEMBER_IMG' ></my-pic>
+           
+                <input type="text" id="m_nickname2" placeholder="您的稱呼" :value='mymember[0].NICKNAME'>
+
+                
+=======
             <div>
                 <img src="./img/member/Profile-Male-PNG.jpg" alt="profile"  class="m_person_pic" id="m_pic2">
            </div>
            <!-- <ul class="personal_info">
             <li> -->
                 <!-- <label for="nickname">&ensp;帳戶名稱</label> -->
-                <input type="text" id="m_nickname2" placeholder="您的稱呼">
+                <input type="text" id="m_nickname2" placeholder="您的稱呼" style="font-size:24px; font-family: 'setofont','Noto Sans TC', sans-serif;">
                 <!-- <label for="nickname"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label> -->
             <!-- </li>
             </ul> -->
+>>>>>>> dcfbdfd7960a77d5a2eb45a60b5b61b91407a1c8
             <p class="m_link"><a href="./member_people.html">查看更多 > </a></p>
             </article>
 
 
             <!-- ------------------------------寵物頭貼---------------------------------- -->
             <article class="m_member_pets">
-            <h5>
-                我的寵物
-            </h5>
+            <h5>我的寵物</h5>
             <div class="m_underline_2"></div>
+            
             <section class="m_pets m_pets_pics">
+<<<<<<< HEAD
+                <my-petpic v-for='itm in mymemberpet' :petsrc='itm.PET_IMG' :petname='itm.PET_NAME'></my-petpic>
+            </section>
+
+=======
             <section >
                 <form action="">
                     <div>
                         <img src="./img/member/Group 2151.png" alt="profile"  class="m_pet_pic">
                     </div>
                     <div>
-                        <input type="text" id="pet_name1" placeholder="名字">
+                        <input type="text" id="pet_name1" placeholder="名字" style="font-size:24px; font-family: 'setofont','Noto Sans TC', sans-serif;">
                         <!-- <label for="pet_name1"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label> -->
                     </div>
                 </form>
@@ -72,7 +85,7 @@
                         <img src="./img/member/Group 2151.png" alt="profile"  class="m_pet_pic">
                     </div>
                     <div>
-                        <input type="text" id="pet_name2" placeholder="名字">
+                        <input type="text" id="pet_name2" placeholder="名字" style="font-size:24px; font-family: 'setofont','Noto Sans TC', sans-serif;">
                         <!-- <label for="pet_name2"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label> -->
                     </div>
                 </form>
@@ -84,168 +97,272 @@
                         <img src="./img/member/Group 2151.png" alt="profile"  class="m_pet_pic">
                     </div>
                     <div>
-                        <input type="text" id="pet_name3" placeholder="名字">
+                        <input type="text" id="pet_name3" placeholder="名字" style="font-size:24px; font-family: 'setofont','Noto Sans TC', sans-serif;">
                         <!-- <label for="pet_name3"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label> -->
                     </div>
                 </form>
             </section>
             </section>
+>>>>>>> dcfbdfd7960a77d5a2eb45a60b5b61b91407a1c8
             <p class="m_link"><a href="./member_pets.html">查看更多 > </a></p>
             </article>
 
             <!------------------------------訂單管理------------------------------->
             <article class="m_member_order">
-            <h5>
-                訂單管理
-            </h5>
+            <h5>訂單管理</h5>
+
             <ul class="m_get_type">
-                <li><span>已完成</span><div  class="m_underline_3"></div></li>
-                <li><span>未完成</span><div  class="m_underline_3"></div></li>
+                <li @click="order='complete'" ><span @click="chgfocus" >已完成</span><div  class="m_underline_3" :style="{ opacity: opacity }" ></div></li>
+                <li @click="order='notyet'"><span @click="chgfocus" >未完成</span><div  class="m_underline_3" :style="{ opacity: opacity2 }" ></div></li>  
             </ul>
             <div class="m_underline_2"></div>
 
-            <section>
-            <ul class="m_item_details">
-                <li class="m_item_title"><p>type <span>shopping cart</span></p>
-                    <p>order number <span>20200408996ZA_02</span></p>
-                    <p>2020/04/08</p>
-                </li>
-                <li><h6>狀&emsp;&emsp;態</h6><p>已完成</p></li>
-                <li><h6>宅配地址</h6><p>北市中山區南京東路二段一號2樓</p></li>
-                <li><h6>總&emsp;&emsp;計</h6><p>NT $1000</p></li>
-                <li><h6>購買項目</h6><p>衣服*1</p><p>包包*1</p></li>
-                <li><h6>其他備註</h6><p>想要新貨</p></li>
-                <li><h6>新增留言</h6><p><img src="" alt="">無</p></li>
-            </ul>
+            <keep-alive>
+            <component :is="order"></component>
+            </keep-alive>
 
-            <div class="m_buy_details m_appear">
-                <p>項目明細</p>
-                <table>
-                    <tr class="m_item_title">
-                        <td  class="m_item_pic">圖片</td>
-                        <td  class="m_item_id">型號</td>
-                        <td  class="m_item_type">類別</td>
-                        <td  class="m_item_amount">數量</td>
-                        <td  class="m_item_price">金額</td>
-                    </tr>
-                    <tr>
-                        <td  class="m_item_pic"><img src="./img/member/shoppingsample1.png" alt=""></td>
-                        <td  class="m_item_id">AF0023001</td>
-                        <td  class="m_item_type">衣服 / M號 / 黑</td>
-                        <td  class="m_item_amount">1 pcs</td>
-                        <td  class="m_item_price">NT $600</td>
-                    </tr>
-                    <tr>
-                        <td  class="m_item_pic"><img src="./img/member/shoppingsample2.png" alt=""></td>
-                        <td  class="m_item_id">AF0023002</td>
-                        <td  class="m_item_type">包包 / M號 / 黑</td>
-                        <td  class="m_item_amount">1 pcs</td>
-                        <td  class="m_item_price">NT $400</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="m_msg_details m_appear">
-                <p>留言紀錄</p>
-                <ul>
-                    <li class="m_client_ask"><img src="./img/member/Profile-Male-PNG.jpg" alt=""><article><p>想要新貨可以嗎?</p><p>time 2020/04/22 16:00</p></article></li>
-                    <li class="m_lovepet_re"><img src="./img/common/i_logo.png" alt=""><article><p>沒問題，我們都是新貨</p><p>time 2020/04/22 16:00</p></article></li>
-                    <li class="m_client_ask"><img src="./img/member/Profile-Male-PNG.jpg" alt=""><article><p>好的，感謝!</p><p>time 2020/04/22 16:00</p></article></li>
-                    <li class="m_lovepet_re"><img src="./img/common/i_logo.png" alt=""><article><p>不會，應該的。</p><p>time 2020/04/22 16:00</p></article></li>
-                </ul>
-            </div>
-            <div class="m_dt_streth_btn">
-                <input type="button" value="訂單明細">
-            </div>
-            </section>
-
-            <section>
-                <ul class="m_item_details">
-                    <li class="m_item_title"><p>type <span>shopping cart</span></p>
-                        <p>order number <span>20200408996ZA_02</span></p>
-                        <p>2020/04/08</p>
-                    </li>
-                    <li><h6>狀&emsp;&emsp;態</h6><p>已完成</p></li>
-                    <li><h6>宅配地址</h6><p>北市中山區南京東路二段一號2樓</p></li>
-                    <li><h6>總&emsp;&emsp;計</h6><p>NT $1000</p></li>
-                    <li><h6>購買項目</h6><p>衣服*1</p><p>包包*1</p></li>
-                    <li><h6>其他備註</h6><p>想要新貨</p></li>
-                    <li><h6>新增留言</h6><p><img src="" alt="">無</p></li>
-                </ul>
-    
-                <div class="m_buy_details m_appear">
-                    <p>項目明細</p>
-                    <table>
-                        <tr class="m_item_title">
-                            <td  class="m_item_pic">圖片</td>
-                            <td  class="m_item_id">型號</td>
-                            <td  class="m_item_type">類別</td>
-                            <td  class="m_item_amount">數量</td>
-                            <td  class="m_item_price">金額</td>
-                        </tr>
-                        <tr>
-                            <td  class="m_item_pic"><img src="./img/member/shoppingsample1.png" alt=""></td>
-                            <td  class="m_item_id">AF0023001</td>
-                            <td  class="m_item_type">衣服 / M號 / 黑</td>
-                            <td  class="m_item_amount">1 pcs</td>
-                            <td  class="m_item_price">NT $600</td>
-                        </tr>
-                        <tr>
-                            <td  class="m_item_pic"><img src="./img/member/shoppingsample2.png" alt=""></td>
-                            <td  class="m_item_id">AF0023002</td>
-                            <td  class="m_item_type">包包 / M號 / 黑</td>
-                            <td  class="m_item_amount">1 pcs</td>
-                            <td  class="m_item_price">NT $400</td>
-                        </tr>
-                    </table>
-                </div>
-    
-                <div class="m_msg_details m_appear">
-                    <p>留言紀錄</p>
-                    <ul>
-                        <li class="m_client_ask"><img src="./img/member/Profile-Male-PNG.jpg" alt=""><article><p>想要新貨可以嗎?</p><p>time 2020/04/22 16:00</p></article></li>
-                        <li class="m_lovepet_re"><img src="./img/common/i_logo.png" alt=""><article><p>沒問題，我們都是新貨</p><p>time 2020/04/22 16:00</p></article></li>
-                        <li class="m_client_ask"><img src="./img/member/Profile-Male-PNG.jpg" alt=""><article><p>好的，感謝!</p><p>time 2020/04/22 16:00</p></article></li>
-                        <li class="m_lovepet_re"><img src="./img/common/i_logo.png" alt=""><article><p>不會，應該的。</p><p>time 2020/04/22 16:00</p></article></li>
-                    </ul>
-                </div>
-                <div class="m_dt_streth_btn">
-                    <input type="button" value="訂單明細">
-                </div>
-            </section>
             
             <p class="m_link"><a href="./member_order_management.html">查看更多 > </a></p>
-            
             </article>
 
          </main>
-    </div>
+</div>
     @@include('layout/footer.html')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<<<<<<< HEAD
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <!-- vue -->
+    <script src="./vendors/vue/js/vue.js"></script>
+    <!-- <script src="./js/m_aside_contrl.js"></script> -->
+=======
+>>>>>>> 856365245ea5f35dd5ec08fde5a60d4544d3ae4c
     <script>
-        
-          //========================== order streth ===========================//
-          var m_dt_btn = document.querySelectorAll('input[type="button"]');
-        for(let i=0; i<m_dt_btn.length; i++){
-
-            m_dt_btn[i].addEventListener('click',function(){
-                this.closest('section').querySelector('.m_buy_details').classList.toggle("m_appear");
-                this.closest('section').querySelector('.m_msg_details').classList.toggle("m_appear");
+       
+    //--- 會員
+        Vue.component('my-pic',{
+                template: `<div>
+                            <img :src="picsrc" alt="profile"  class="m_person_pic" id="m_pic2">
+                            </div>`,
+                props:['picsrc'],
             });
-        }
+    //--- 寵物
+        Vue.component('my-petpic',{
+                template: `<section class="m_pets ">
+                            <form action="">
+                                <div class="m_frame">
+                                    <img :src='petsrc' alt="profile"  class="m_pet_pic" id="m_pet2">
+                                </div>
+                                <div>
+                                    <input type="text" id="pet_name2" placeholder="名字" :value='petname'>
+                                    <label for="pet_name3"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                                </div>
+                            </form>
+                        </section>`,
+                props:['petsrc','petname'],
 
-          //====================== m_member_information ==========================//會員資訊
+             });    
+    //--- 訂單
+        Vue.component('complete',{
+            template: `
+                <div>       
+                    <section>
+                        <ul class="m_item_details">
+                            <li class="m_item_title"><p>type <span>shopping cart</span></p>
+                                <p>order number <span>20200408996ZA_02</span></p>
+                                <p>2020/04/08</p>
+                            </li>
+                            <li><h6>狀&emsp;&emsp;態</h6><p>已完成</p></li>
+                            <li><h6>宅配地址</h6><p>北市中山區南京東路二段一號2樓</p></li>
+                            <li><h6>總&emsp;&emsp;計</h6><p>NT $1000</p></li>
+                            <li><h6>購買項目</h6><p>衣服*1</p><p>包包*1</p></li>
+                            <li><h6>其他備註</h6><p>想要新貨</p></li>
+                            <li><h6>新增留言</h6><p><img src="" alt="">無</p></li>
+                        </ul>
+            
 
-        let m_details_o =  localStorage.getItem('m_datainfro');//轉型
-        let m_details_ok =  JSON.parse(m_details_o);
-        // console.log(m_details_ok);
-        // console.log(typeof(m_details_ok));
-        // console.log(m_details_ok['NICKNAME']); 
-        
-        document.getElementById('m_nickname2').value = m_details_ok['NICKNAME'];
-        document.getElementById('m_pic2').src = m_details_ok['MEMBER_IMG'];
+                        <div class="m_buy_details"  :class="{ 'm_appear': isappear}">
+                            <p>項目明細</p>
+                            <table>
+                                <tr class="m_item_title">
+                                    <td  class="m_item_pic">圖片</td>
+                                    <td  class="m_item_id">型號</td>
+                                    <td  class="m_item_type">類別</td>
+                                    <td  class="m_item_amount">數量</td>
+                                    <td  class="m_item_price">金額</td>
+                                </tr>
+                                <tr>
+                                    <td  class="m_item_pic"><img src="./img/member/shoppingsample1.png" alt=""></td>
+                                    <td  class="m_item_id">AF0023001</td>
+                                    <td  class="m_item_type">衣服 / M號 / 黑</td>
+                                    <td  class="m_item_amount">1 pcs</td>
+                                    <td  class="m_item_price">$600</td>
+                                </tr>
+                                <tr>
+                                    <td  class="m_item_pic"><img src="./img/member/shoppingsample2.png" alt=""></td>
+                                    <td  class="m_item_id">AF0023002</td>
+                                    <td  class="m_item_type">包包 / M號 / 黑</td>
+                                    <td  class="m_item_amount">1 pcs</td>
+                                    <td  class="m_item_price">$400</td>
+                                </tr>
+                            </table>
+                        </div>
+            
+
+                        <div class="m_msg_details " :class="{ 'm_appear': isappear}">
+                            <p>留言紀錄</p>
+                            <ul>
+                                <li class="m_client_ask"><img src="./img/member/Profile-Male-PNG.jpg" alt=""><article><p>想要新貨可以嗎?</p><p>time 2020/04/22 16:00</p></article></li>
+                                <li class="m_lovepet_re"><img src="./img/common/i_logo.png" alt=""><article><p>沒問題，我們都是新貨</p><p>time 2020/04/22 16:00</p></article></li>
+                                <li class="m_client_ask"><img src="./img/member/Profile-Male-PNG.jpg" alt=""><article><p>好的，感謝!</p><p>time 2020/04/22 16:00</p></article></li>
+                                <li class="m_lovepet_re"><img src="./img/common/i_logo.png" alt=""><article><p>不會，應該的。</p><p>time 2020/04/22 16:00</p></article></li>
+                            </ul>
+                        </div>
+                        <div class="m_dt_streth_btn">
+                            <input type="button" value="訂單明細" @click="dtoggle">
+                        </div>
+                        </section>
+                </div>
+            `,
+       
+            methods:{
+                dtoggle(){
+                    this.isappear = !this.isappear;
+                },
+            },
+            data(){
+                return{
+                    isappear : true,
+                };
+            },
+        });
+
+        Vue.component('notyet',{
+            template: `
+                <div>
+                    <section>
+                        <p> 暫無此資料 </p>
+                        <P> 訂單皆完成 </p>
+                    </section> 
+                </div>
+            `,
+        });
+
+    //--- 側邊攔
+        Vue.component('my-aside',{
+          template: 
+              ` <aside>
+                  <div>
+                      <h5><a href="./member_index.html"><img src="./img/member/catlogo-8.png" alt=""><span>會員專區</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></h5>
+                      <div class="m_underline_1"></div>
+                      <ul>
+                          <li><a href="./member_people.html"><img src="./img/member/catlogo-8.png" alt=""><span>我的帳號</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
+                          <li><a href="./member_pets.html"><img src="./img/member/catlogo-8.png" alt=""><span>我的寵物</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
+                          <li><a href="./member_order_management.html"><img src="./img/member/catlogo-8.png" alt=""><span>訂單管理</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
+                          <li class="m_little_li"><a href="./member_order_management.html"><img src="./img/member/catlogo-8.png" alt=""><span>已完成</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
+                          <li class="m_little_li"><a href="./member_order_management.html"><img src="./img/member/catlogo-8.png" alt=""><span>未完成</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></li>
+                      </ul>
+                      <input type="button" value="登 出" @click="mleave" >
+                  </div>
+                 </aside>`,
+          data(){
+              return {
+                  mconfirm: '確認登出嗎?',
+              };
+          },
+          methods:{
+              mleave(){   //--- 登出function
+                  if(confirm(this.mconfirm) == true){
+                  localStorage.clear();                            //清除local
+
+                  $.ajax({                                         //清除session ID
+                      method: "POST",
+                      url: "./php/front_end_API/M_removesession_MID.php",
+                      data: {},
+                      dataType: "text",
+                      success: function success(response) {
+                      window.location.href="front_index.html";
+                      },
+                      error: function error(exception) {
+                      alert("數據載入失敗: " + exception.status);
+                      }
+                  });
+
+                  }else{
+
+                  };
+                  },
+          },
+       });
     
+    //--- 主鍵Vue
+        new Vue({
+            el: '#app',
+            data: {
+                order: 'complete',
+                opacity: 1,
+                opacity2: 0,
+
+                mymember:[],
+                mymemberpet:[],
+            },
+            methods:{
+                chgfocus(){
+                    if(this.opacity == 0){this.opacity = 1}else{this.opacity = 0}
+                    if(this.opacity2 == 0){this.opacity2 = 1}else{this.opacity2 = 0}
+                },
+                getmymemberdata(info){
+                    let self = this;
+
+                        $.ajax({
+                            type : "POST",	
+                            url : "./php/front_end_API/M_apr_memberpeople.php",  
+                            data : {  
+                                MID : info,            //---透過 MID 去抓該筆會員資料
+                            }, 
+                            dataType : 'html' 
+                            }).done(function(data){    //---載入成功
+                                console.log(data);
+                            self.mymember =  JSON.parse(data);
+                            
+                            }).fail(function(jqXHR){   //---載入失敗
+                            alert("res為ID數據載入失敗: " + jqXHR.status);
+                            });
+
+                    },
+                getmemberpetdata(info){
+                let self = this;
+
+                    $.ajax({
+                        type : "POST",	
+                        url : "./php/front_end_API/M_apr_memberpet.php",  
+                        data : {  
+                            MID : info,            //---透過 MID 去抓該筆會員資料
+                        }, 
+                        dataType : 'html' 
+                        }).done(function(data){    //---載入成功
+                            console.log(data);
+                        self.mymemberpet =  JSON.parse(data);
+                        
+                        }).fail(function(jqXHR){   //---載入失敗
+                        alert("res為ID數據載入失敗: " + jqXHR.status);
+                        });
+
+                },
+            },
+            created(){
+
+                axios.post("php/front_end_API/M_getsession_MID.php").then((res)=>{
+                this.getmymemberdata(res.data);
+                this.getmemberpetdata(res.data);
+                });
+
+
+            },
+        });
+
+
 
       </script>
     </body>
