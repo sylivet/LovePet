@@ -152,8 +152,16 @@ $m_line_height: 2.5;
   padding: 0 150px;
   overflow-x: scroll;
 
+  // #pet_name0, #pet_name2{
+  //   font-size: 24px;
+  //   font-family: 'setofont','Noto Sans TC', sans-serif;
+  // }
+  // 字型會跑掉@@
+
   @include m_input_style(60%);
   input{
+    text-align: center;
+    
     &::placeholder{
       text-align: center;
     }
@@ -167,7 +175,6 @@ $m_line_height: 2.5;
 .m_pet_pic{
   width: 200px;
   margin: 20px 10px;
-
 
   opacity: 0.6;
   &:hover{

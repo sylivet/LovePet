@@ -33,12 +33,25 @@
 
             <!-- ------------------------------個人頭貼---------------------------------- -->
             <article class="personal_info">
+<<<<<<< HEAD
             
                 <my-pic :picsrc='mymember[0].MEMBER_IMG' ></my-pic>
            
                 <input type="text" id="m_nickname2" placeholder="您的稱呼" :value='mymember[0].NICKNAME'>
 
                 
+=======
+            <div>
+                <img src="./img/member/Profile-Male-PNG.jpg" alt="profile"  class="m_person_pic" id="m_pic2">
+           </div>
+           <!-- <ul class="personal_info">
+            <li> -->
+                <!-- <label for="nickname">&ensp;帳戶名稱</label> -->
+                <input type="text" id="m_nickname2" placeholder="您的稱呼" style="font-size:24px; font-family: 'setofont','Noto Sans TC', sans-serif;">
+                <!-- <label for="nickname"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label> -->
+            <!-- </li>
+            </ul> -->
+>>>>>>> dcfbdfd7960a77d5a2eb45a60b5b61b91407a1c8
             <p class="m_link"><a href="./member_people.html">查看更多 > </a></p>
             </article>
 
@@ -49,9 +62,48 @@
             <div class="m_underline_2"></div>
             
             <section class="m_pets m_pets_pics">
+<<<<<<< HEAD
                 <my-petpic v-for='itm in mymemberpet' :petsrc='itm.PET_IMG' :petname='itm.PET_NAME'></my-petpic>
             </section>
 
+=======
+            <section >
+                <form action="">
+                    <div>
+                        <img src="./img/member/Group 2151.png" alt="profile"  class="m_pet_pic">
+                    </div>
+                    <div>
+                        <input type="text" id="pet_name1" placeholder="名字" style="font-size:24px; font-family: 'setofont','Noto Sans TC', sans-serif;">
+                        <!-- <label for="pet_name1"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label> -->
+                    </div>
+                </form>
+            </section>
+
+            <section class="m_pets ">
+                <form action="">
+                    <div>
+                        <img src="./img/member/Group 2151.png" alt="profile"  class="m_pet_pic">
+                    </div>
+                    <div>
+                        <input type="text" id="pet_name2" placeholder="名字" style="font-size:24px; font-family: 'setofont','Noto Sans TC', sans-serif;">
+                        <!-- <label for="pet_name2"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label> -->
+                    </div>
+                </form>
+            </section>
+
+            <section class="m_pets ">
+                <form action="">
+                    <div>
+                        <img src="./img/member/Group 2151.png" alt="profile"  class="m_pet_pic">
+                    </div>
+                    <div>
+                        <input type="text" id="pet_name3" placeholder="名字" style="font-size:24px; font-family: 'setofont','Noto Sans TC', sans-serif;">
+                        <!-- <label for="pet_name3"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label> -->
+                    </div>
+                </form>
+            </section>
+            </section>
+>>>>>>> dcfbdfd7960a77d5a2eb45a60b5b61b91407a1c8
             <p class="m_link"><a href="./member_pets.html">查看更多 > </a></p>
             </article>
 

@@ -33,6 +33,7 @@
 
             <!-- ------------------------------寵物頭貼---------------------------------- -->
             <section class="m_pets m_pets_pics">
+<<<<<<< HEAD
                 <my-petpic :class='{"mactive":currentpet===key}' @click.native='currentpet = key' v-for='(itm,key) in mymemberpet' :petsrc='itm.PET_IMG' :petname='itm.PET_NAME'></my-petpic>
                 <!-- <my-petpic @click.native='currentpet = itm'  :class='{"mactive":currentpet===itm}' v-for='(itm,key) in mymemberpet' :petsrc='itm.PET_IMG' :petname='itm.PET_NAME'></my-petpic> -->
             </section>
@@ -49,6 +50,79 @@
              
              ></my-petinfo>
              
+=======
+                <section  class="m_pets ">
+                    <form action="">
+                        <div>
+                            <img src="./img/member/Group 2151.png" alt="profile"  class="m_pet_pic" id="m_pet1">
+                        </div>
+                        <div>
+                            <input type="text" id="pet_name1" placeholder="名字" style="font-size:24px; font-family: 'setofont','Noto Sans TC', sans-serif;">
+                            <label for="pet_name1"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="m_pets ">
+                    <form action="">
+                        <div>
+                            <img src="./img/member/Group 2151.png" alt="profile"  class="m_pet_pic" id="m_pet0" >
+                        </div>
+                        <div>
+                            <input type="text" id="pet_name0" placeholder="名字" style="font-size:24px; font-family: 'setofont','Noto Sans TC', sans-serif;">
+                            <label for="pet_name2"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="m_pets ">
+                    <form action="">
+                        <div>
+                            <img src="./img/member/Group 2151.png" alt="profile"  class="m_pet_pic" id="m_pet2">
+                        </div>
+                        <div>
+                            <input type="text" id="pet_name2" placeholder="名字" style="font-size:24px; font-family: 'setofont','Noto Sans TC', sans-serif;">
+                            <label for="pet_name3"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                        </div>
+                    </form>
+                </section>
+            </section>
+
+            <!-- ------------------------------基本資料---------------------------------- -->
+             <section class="m_pets  m_pet_info"> 
+                <h5>基本資料</h5>
+                <div class="m_underline_2"></div> 
+
+                 <form action="">
+                    <ul>
+                        <li>
+                            <label for="species">種類</label>
+                            <input type="text" id="species" style="font-size:24px; font-family: 'setofont','Noto Sans TC', sans-serif;">
+                            <label for="species"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                        </li>
+                        <li>
+                            <label for="weight">體重</label>
+                            <input type="text" id="weight" style="font-size:24px; font-family: 'setofont','Noto Sans TC', sans-serif;">
+                            <label for="weight"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                        </li>
+                        <li>
+                            <label for="age">年齡</label>
+                            <input type="text" id="age" style="font-size:24px; font-family: 'setofont','Noto Sans TC', sans-serif;">
+                            <label for="age"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                        </li>
+                        <li>
+                            <label for="birthday">生日</label>
+                            <input type="text" id="birthday" style="font-size:24px; font-family: 'setofont','Noto Sans TC', sans-serif;">
+                            <label for="birthday"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                        </li>
+                        <li class="m_pet_chip_num">
+                            <label for="chip_number">晶片號碼</label>
+                            <input type="text" id="chip_number" style="font-size:24px; font-family: 'setofont','Noto Sans TC', sans-serif;">
+                            <label for="chip_number"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                        </li>
+
+                        <li class="m_pet_radio">
+>>>>>>> dcfbdfd7960a77d5a2eb45a60b5b61b91407a1c8
 
              <!-- ------------------------------基本資料---------------------------------- -->
              <!-- <my-petinfo v-if="currentpet"
