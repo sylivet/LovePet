@@ -5,7 +5,7 @@
     $FK_MEMBER_ID = $_POST["FK_MEMBER_ID"];
     
     //建立SQL語法
-    $sql = "select PET_NAME from PET_INFO where FK_MEMBER_ID = $FK_MEMBER_ID";
+    $sql = "select PET_NAME, PET_ID from PET_INFO where FK_MEMBER_ID = $FK_MEMBER_ID";
     
     
     //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
