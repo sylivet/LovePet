@@ -17,7 +17,7 @@
               $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
               
               //檔案最終存放位置
-              $filePath = $ServerRoot."/dist/img/mall/".$fileName;
+              $filePath = $ServerRoot."/LovePet/dist/img/mall/".$fileName;
        
               //將暫存檔搬移到正確位置
               move_uploaded_file($filePath_Temp, $filePath);
@@ -49,7 +49,7 @@
        $PRODUCT_STATUS = $_POST['PRODUCT_STATUS'];
 
        //建立SQL
-       $sql = 'INSERT INTO `SHOPPING_PRODUCT`( `PRODUCT_NAME`, `PRODUCT_PRICE`, `PRODUCT_IMG`, `PRODUCT_INFO`, `PRODUCT_SOLD`, `PRODUCT_TYPE`, `PRODUCT_STATUS`) VALUES (?,?,?,?,?,?,?)';
+       $sql = 'INSERT INTO `SHOPPING_PRODUCT`( `PRODUCT_NAME`, `PRODUCT_PRICE`, `PRODUCT_IMG`, `PRODUCT_INFO`, `PRODUCT_SOLD`, `PRODUCT_TYPE`, `PRODUCT_STATUS`,	`count`) VALUES (?,?,?,?,?,?,?,1)';
        
 
        //執行
