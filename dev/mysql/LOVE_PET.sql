@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2021-06-06 07:46:43
+-- 產生時間： 2021-06-09 07:49:29
 -- 伺服器版本： 8.0.23
 -- PHP 版本： 8.0.2
 
@@ -80,7 +80,7 @@ CREATE TABLE `HEALTH_CHECK` (
   `HEALTH_CHECK_ID` int NOT NULL,
   `LISTNAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `PRICE` int NOT NULL,
-  `TESTING_SUBJECT` tinyint(1) NOT NULL
+  `TESTING_SUBJECT` varchar(4) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -88,38 +88,38 @@ CREATE TABLE `HEALTH_CHECK` (
 --
 
 INSERT INTO `HEALTH_CHECK` (`HEALTH_CHECK_ID`, `LISTNAME`, `PRICE`, `TESTING_SUBJECT`) VALUES
-(1, '基礎理學檢查', 100, 3),
-(2, '重大傳染病篩檢', 500, 3),
-(3, '腎臟病早期篩檢', 500, 3),
-(4, '血色素檢測', 500, 3),
-(5, '血糖檢測', 500, 3),
-(6, '血清蛋白質檢測', 500, 3),
-(7, '腎指數檢測', 700, 3),
-(8, '肝指數檢測', 700, 3),
-(9, '進階肝膽指數檢測', 800, 3),
-(10, '鈣磷檢測', 500, 3),
-(11, '血脂功能檢測', 400, 3),
-(12, '電解質檢測', 500, 3),
-(13, '胰臟指數檢測', 800, 3),
-(14, '影像學檢測', 1000, 3),
-(15, '甲狀腺功能檢測', 800, 3),
-(16, '消化試驗', 700, 3),
-(17, '果糖胺檢測', 300, 3),
-(18, '進階眼科檢查', 200, 3),
-(19, '糞便檢查', 100, 3),
-(20, '尿液檢查', 600, 3),
-(21, '快速心電圖檢查', 1000, 3),
-(22, '腹腔超音波', 2000, 3),
-(23, '心臟超音波', 2800, 3),
-(24, '胸腔X光', 500, 3),
-(25, '犬血球12項檢測', 2000, 2),
-(26, '犬CRP檢測', 500, 2),
-(27, '犬四合一快篩', 1000, 2),
-(28, '犬血型測定', 2500, 2),
-(29, '犬進階血液檢驗', 3600, 2),
-(30, '犬尿中微量蛋白', 800, 2),
-(31, '貓愛滋', 700, 1),
-(32, '貓白血病', 800, 1);
+(1, '基礎理學檢查', 100, '共同'),
+(2, '重大傳染病篩檢', 500, '共同'),
+(3, '腎臟病早期篩檢', 500, '共同'),
+(4, '血色素檢測', 500, '共同'),
+(5, '血糖檢測', 500, '共同'),
+(6, '血清蛋白質檢測', 500, '共同'),
+(7, '腎指數檢測', 700, '共同'),
+(8, '肝指數檢測', 700, '共同'),
+(9, '進階肝膽指數檢測', 800, '共同'),
+(10, '鈣磷檢測', 500, '共同'),
+(11, '血脂功能檢測', 400, '共同'),
+(12, '電解質檢測', 500, '共同'),
+(13, '胰臟指數檢測', 800, '共同'),
+(14, '影像學檢測', 1000, '共同'),
+(15, '甲狀腺功能檢測', 800, '共同'),
+(16, '消化試驗', 700, '共同'),
+(17, '果糖胺檢測', 300, '共同'),
+(18, '進階眼科檢查', 200, '共同'),
+(19, '糞便檢查', 100, '共同'),
+(20, '尿液檢查', 600, '共同'),
+(21, '快速心電圖檢查', 1000, '共同'),
+(22, '腹腔超音波', 2000, '共同'),
+(23, '心臟超音波', 2800, '共同'),
+(24, '胸腔X光', 500, '共同'),
+(25, '犬血球12項檢測', 2000, '狗'),
+(26, '犬CRP檢測', 500, '狗'),
+(27, '犬四合一快篩', 1000, '狗'),
+(28, '犬血型測定', 2500, '狗'),
+(29, '犬進階血液檢驗', 3600, '狗'),
+(30, '犬尿中微量蛋白', 800, '狗'),
+(31, '貓愛滋', 700, '貓'),
+(32, '貓白血病', 800, '貓');
 
 -- --------------------------------------------------------
 
@@ -138,54 +138,54 @@ CREATE TABLE `HEALTH_CHECK& SET` (
 --
 
 INSERT INTO `HEALTH_CHECK& SET` (`HEALTH_CHECK & SET_ID`, `FK_HEALTH_CHECK_ID`, `FK_SET_MENU_ID`) VALUES
-(1, 1, 1),
-(2, 2, 1),
-(3, 3, 1),
-(4, 4, 1),
-(5, 5, 1),
-(6, 6, 1),
-(7, 7, 1),
-(8, 8, 1),
-(9, 9, 1),
-(10, 10, 1),
-(11, 11, 1),
-(12, 12, 1),
-(13, 13, 1),
-(14, 14, 1),
-(15, 15, 1),
-(16, 16, 1),
-(17, 17, 1),
-(18, 18, 1),
-(19, 19, 1),
-(20, 20, 1),
-(21, 21, 1),
-(22, 22, 1),
-(23, 23, 1),
-(24, 24, 1),
-(25, 9, 2),
-(26, 10, 2),
-(27, 11, 2),
-(28, 12, 2),
-(29, 13, 2),
-(30, 14, 2),
-(31, 15, 2),
-(32, 16, 2),
-(33, 17, 2),
-(34, 18, 2),
-(35, 19, 2),
-(36, 20, 2),
-(37, 21, 2),
-(38, 22, 2),
-(39, 23, 2),
-(40, 24, 2),
-(41, 17, 3),
-(42, 18, 3),
-(43, 19, 3),
-(44, 20, 3),
-(45, 21, 3),
-(46, 22, 3),
-(47, 23, 3),
-(48, 24, 3);
+(1, 1, 3),
+(2, 2, 3),
+(3, 3, 3),
+(4, 4, 3),
+(5, 5, 3),
+(6, 6, 3),
+(7, 7, 3),
+(8, 8, 3),
+(9, 9, 3),
+(10, 10, 3),
+(11, 11, 3),
+(12, 12, 3),
+(13, 13, 3),
+(14, 14, 3),
+(15, 15, 3),
+(16, 16, 3),
+(17, 17, 3),
+(18, 18, 3),
+(19, 19, 3),
+(20, 20, 3),
+(21, 21, 3),
+(22, 22, 3),
+(23, 23, 3),
+(24, 24, 3),
+(25, 1, 2),
+(26, 2, 2),
+(27, 3, 2),
+(28, 4, 2),
+(29, 5, 2),
+(30, 6, 2),
+(31, 7, 2),
+(32, 8, 2),
+(33, 9, 2),
+(34, 10, 2),
+(35, 11, 2),
+(36, 12, 2),
+(37, 13, 2),
+(38, 14, 2),
+(39, 15, 2),
+(40, 16, 2),
+(41, 1, 1),
+(42, 2, 1),
+(43, 3, 1),
+(44, 4, 1),
+(45, 5, 1),
+(46, 6, 1),
+(47, 7, 1),
+(48, 8, 1);
 
 -- --------------------------------------------------------
 
@@ -267,7 +267,8 @@ CREATE TABLE `HOSPITAL_ORDER` (
 INSERT INTO `HOSPITAL_ORDER` (`HOSPITAL_ORDER_ID`, `FK_MEMBER_ID`, `FK_PET_ID`, `CREATE_DATE`, `BOOKING_DATE`, `FK_SET_MENU_ID`, `FK_HELTH_CHECK_ID`, `FK_HELTH_CHECK_ID2`, `TOTAL_PRICE`, `ORDER_STATUS`) VALUES
 (1, 1, 1, '2021-01-01 00:00:00.000000', '2021-05-05 00:00:00.000000', 2, 26, NULL, 10000, 1),
 (2, 3, 5, '2021-03-21 00:00:00.000000', '2021-06-03 00:00:00.000000', 1, NULL, NULL, 4000, 1),
-(3, 4, 9, '2021-04-06 00:00:00.000000', '2021-07-01 00:00:00.000000', 1, 32, 31, 5500, 0);
+(3, 4, 9, '2021-04-06 00:00:00.000000', '2021-07-01 00:00:00.000000', 1, 32, 31, 5500, 0),
+(4, 1, 1, '2021-06-09 13:37:50.000000', '2021-06-16 00:00:00.000000', 2, 30, 31, 10850, 0);
 
 -- --------------------------------------------------------
 
@@ -605,60 +606,6 @@ INSERT INTO `RESTAURTAT_ORDER_DETAIL` (`RESTAURTAT_ORDER_DETAIL_ID`, `FK_RESTAUR
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `ROOM_BOOKING_STATUS`
---
-
-CREATE TABLE `ROOM_BOOKING_STATUS` (
-  `ROOM_BOOKING_STATUS_ID` int NOT NULL,
-  `FK_ROOM_ITEM_ID` int NOT NULL,
-  `BOOKED_DATE` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- 傾印資料表的資料 `ROOM_BOOKING_STATUS`
---
-
-INSERT INTO `ROOM_BOOKING_STATUS` (`ROOM_BOOKING_STATUS_ID`, `FK_ROOM_ITEM_ID`, `BOOKED_DATE`) VALUES
-(1, 302, '2021-05-22'),
-(2, 601, '2021-05-29'),
-(3, 101, '2021-06-06'),
-(4, 203, '2021-06-12'),
-(5, 502, '2021-06-18'),
-(6, 603, '2021-05-22');
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `ROOM_ITEM`
---
-
-CREATE TABLE `ROOM_ITEM` (
-  `ROOM_ITEM_ID` int NOT NULL,
-  `FK_ROOM_TYPE_ID` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- 傾印資料表的資料 `ROOM_ITEM`
---
-
-INSERT INTO `ROOM_ITEM` (`ROOM_ITEM_ID`, `FK_ROOM_TYPE_ID`) VALUES
-(101, 1),
-(102, 1),
-(201, 2),
-(202, 2),
-(203, 2),
-(301, 3),
-(302, 3),
-(303, 3),
-(501, 4),
-(502, 4),
-(601, 5),
-(602, 5),
-(603, 5);
-
--- --------------------------------------------------------
-
---
 -- 資料表結構 `ROOM_TYPE`
 --
 
@@ -666,7 +613,6 @@ CREATE TABLE `ROOM_TYPE` (
   `ROOM_TYPE_ID` int NOT NULL,
   `ROOM_NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `PRICE` int NOT NULL,
-  `AMOUNT` int NOT NULL,
   `MAX_CAPACITY` int NOT NULL,
   `ROOM_IMG` varchar(200) NOT NULL,
   `ROOM_IMG2` varchar(200) NOT NULL,
@@ -680,12 +626,12 @@ CREATE TABLE `ROOM_TYPE` (
 -- 傾印資料表的資料 `ROOM_TYPE`
 --
 
-INSERT INTO `ROOM_TYPE` (`ROOM_TYPE_ID`, `ROOM_NAME`, `PRICE`, `AMOUNT`, `MAX_CAPACITY`, `ROOM_IMG`, `ROOM_IMG2`, `ROOM_IMG3`, `PANNELLUM`, `ROOM_INFO`, `ROOM_STATUS`) VALUES
-(1, '時毛玩意', 5999, 2, 4, 'img/hotel/h_room4.jpg', 'img/hotel/h_room5.jpg', 'img/hotel/h_room6.jpg', 'img/hotel/h_panorama2.jpeg', '房內採白色的牆面，配上強烈的紅色沙發，以及對比色系的家具，形成撞色的時髦感，且窗外撒落的陽光與綠意，讓身處在都市喧囂的我們，還能觀賞波光粼粼的河面，獲得片刻的寧靜...\r\n另有開放式廚房及餐桌，選用了時尚的大理石桌板，讓您與家人或朋友，可以享受在房內使用餐點的私人空間，不受他人打擾。\r\n', 1),
-(2, '一汪無際', 3500, 3, 2, 'img/hotel/h_room7.jpg', 'img/hotel/h_room8.jpg', 'img/hotel/h_room9.jpg', 'img/hotel/h_panorama3.jpg', '使用明亮舒適的嵌燈照明，以及大量的鏡面設計，令房間的臥室顯得有獨特的格調；周圍還配上了烤漆玻璃的櫃體，讓水藍色的門片照映，房間整個一覽無遺，不必擔心毛孩跑到您不知道的角落裡。\r\n並且化妝台上的鏡子，還接上了補光燈，絕對是您享有一天美好的開始；身旁的貓抓板也能讓貓咪與您一同互動。\r\n', 1),
-(3, '天羅地汪', 4000, 3, 2, 'img/hotel/h_room1.png', 'img/hotel/h_room2.png', 'img/hotel/h_room3.png', 'img/hotel/h_panorama1.jpg', '簡雅的線條設計，配上舒適的亞麻米色，房內更設有方便的工作桌，讓需要常外出工作的您，還能帶著寵物出門旅遊；考慮到毛孩的活動範圍，房內的擺設皆留有寬敞的空間，並配置隔音牆，讓您可以安心陪伴牠們玩耍、休息。\r\n浴室採乾溼分離設計，提高您的安全及便利性，並附設方型湯池，能依喜好選擇一般的泡澡或是溫泉，舒緩您一天的疲勞。\r\n', 1),
-(4, '青喵淡寫', 4999, 2, 4, 'img/hotel/h_room10.jpg', 'img/hotel/h_room11.jpg', 'img/hotel/h_room12.jpg', 'img/hotel/h_panorama4.jpg', '喜歡大自然的旅客，不妨選擇我們預約top1的房型。從踏入房間的那刻起，就讓您感受到大地的擁抱，採用松木質地的地板與家具，有陣陣飄來的清香；沙發與床組都是讓雙眼得以休息的大地色，配上樂寵後山特別栽種的植物，絕對是您愜意的首選。\r\n還有架高的液晶電視，讓您無論是在沙發旁與貓咪玩耍，或是在床上觀賞頻道，都是舒適自在的觀看角度。', 1),
-(5, '舒毛一夏', 4200, 3, 2, 'img/hotel/h_room13.jpg', 'img/hotel/h_room14.jpg', 'img/hotel/h_room15.jpg', 'img/hotel/h_panorama5.jpg', '位於最高樓層的景觀房型，打開窗簾便能俯瞰這個美麗的城市，坐在窗前讀讀喜歡的書本，或是小酌情誼，抬頭便能看見夜色，喜歡夜景的訪客千萬不能錯過。\r\n主色系採用了優雅的藍色，從床頭舒適柔軟的靠墊到地上天然的羊毛地毯，給您與毛孩最大的呵護，不必擔心孩子們活動的空間受到侷限，可以在房內自由地奔跑。', 1);
+INSERT INTO `ROOM_TYPE` (`ROOM_TYPE_ID`, `ROOM_NAME`, `PRICE`, `MAX_CAPACITY`, `ROOM_IMG`, `ROOM_IMG2`, `ROOM_IMG3`, `PANNELLUM`, `ROOM_INFO`, `ROOM_STATUS`) VALUES
+(1, '時毛玩意', 5999, 4, 'img/hotel/h_room4.jpg', 'img/hotel/h_room5.jpg', 'img/hotel/h_room6.jpg', 'img/hotel/h_panorama2.jpeg', '房內採白色的牆面，配上強烈的紅色沙發，以及對比色系的家具，形成撞色的時髦感，且窗外撒落的陽光與綠意，讓身處在都市喧囂的我們，還能觀賞波光粼粼的河面，獲得片刻的寧靜...\r\n另有開放式廚房及餐桌，選用了時尚的大理石桌板，讓您與家人或朋友，可以享受在房內使用餐點的私人空間，不受他人打擾。\r\n', 1),
+(2, '神清氣貓', 3500, 2, 'img/hotel/h_room7.jpg', 'img/hotel/h_room8.jpg', 'img/hotel/h_room9.jpg', 'img/hotel/h_panorama3.jpg', '使用明亮舒適的嵌燈照明，以及大量的鏡面設計，令房間的臥室顯得有獨特的格調；周圍還配上了烤漆玻璃的櫃體，讓水藍色的門片照映，房間整個一覽無遺，不必擔心毛孩跑到您不知道的角落裡。\r\n並且化妝台上的鏡子，還接上了補光燈，絕對是您享有一天美好的開始；身旁的貓抓板也能讓貓咪與您一同互動。\r\n', 1),
+(3, '雙喵愛葉', 4000, 2, 'img/hotel/h_room1.png', 'img/hotel/h_room2.png', 'img/hotel/h_room3.png', 'img/hotel/h_panorama1.jpg', '簡雅的線條設計，配上舒適的亞麻米色，房內更設有方便的工作桌，讓需要常外出工作的您，還能帶著寵物出門旅遊；考慮到毛孩的活動範圍，房內的擺設皆留有寬敞的空間，並配置隔音牆，讓您可以安心陪伴牠們玩耍、休息。\r\n浴室採乾溼分離設計，提高您的安全及便利性，並附設方型湯池，能依喜好選擇一般的泡澡或是溫泉，舒緩您一天的疲勞。\r\n', 1),
+(4, '青喵淡寫', 4999, 4, 'img/hotel/h_room10.jpg', 'img/hotel/h_room11.jpg', 'img/hotel/h_room12.jpg', 'img/hotel/h_panorama4.jpg', '喜歡大自然的旅客，不妨選擇我們預約top1的房型。從踏入房間的那刻起，就讓您感受到大地的擁抱，採用松木質地的地板與家具，有陣陣飄來的清香；沙發與床組都是讓雙眼得以休息的大地色，配上樂寵後山特別栽種的植物，絕對是您愜意的首選。\r\n還有架高的液晶電視，讓您無論是在沙發旁與貓咪玩耍，或是在床上觀賞頻道，都是舒適自在的觀看角度。', 1),
+(5, '舒毛一夏', 4200, 2, 'img/hotel/h_room13.jpg', 'img/hotel/h_room14.jpg', 'img/hotel/h_room15.jpg', 'img/hotel/h_panorama5.jpg', '位於最高樓層的景觀房型，打開窗簾便能俯瞰這個美麗的城市，坐在窗前讀讀喜歡的書本，或是小酌情誼，抬頭便能看見夜色，喜歡夜景的訪客千萬不能錯過。\r\n主色系採用了優雅的藍色，從床頭舒適柔軟的靠墊到地上天然的羊毛地毯，給您與毛孩最大的呵護，不必擔心孩子們活動的空間受到侷限，可以在房內自由地奔跑。', 1);
 
 -- --------------------------------------------------------
 
@@ -816,47 +762,51 @@ CREATE TABLE `SHOPPING_PRODUCT` (
   `PRODUCT_SOLD` int NOT NULL,
   `PRODUCT_TYPE` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `PRODUCT_STATUS` tinyint(1) NOT NULL,
-  `count` int DEFAULT NULL
+  `count` int NOT NULL,
+  `IMG1` varchar(200) DEFAULT NULL,
+  `IMG2` varchar(200) DEFAULT NULL,
+  `IMG3` varchar(200) DEFAULT NULL,
+  `IMG4` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 傾印資料表的資料 `SHOPPING_PRODUCT`
 --
 
-INSERT INTO `SHOPPING_PRODUCT` (`PRODUCT_ID`, `PRODUCT_NAME`, `PRODUCT_PRICE`, `PRODUCT_IMG`, `PRODUCT_INFO`, `PRODUCT_SOLD`, `PRODUCT_TYPE`, `PRODUCT_STATUS`, `count`) VALUES
-(1, '小帳棚', 81000, 'img/mall/tent_4@2x.png', '此款帳篷適用於小型犬。簡單的條紋設計，選色清新可愛。\n天然原木結構，綁帶輕鬆好穩固。內有厚實柔軟的睡墊，一面是冬天好暖不著涼，一面是夏日清爽好舒服。\n睡墊上含有止滑顆粒，讓寵物安全跑跳不位移。布料使用天然的純棉帆布，不僅透氣而且排濕。入口處的布料，可依寵物高度捲起來固定。\n睡墊有設計拉鍊，可分開墊子與睡墊套，清潔容易。拆裝容易，收納也很方便。', 0, '用品', 1, 1),
-(2, '安全座椅', 1200, 'img/mall/seat1950元-2@2x.png', NULL, 0, '用品', 1, 1),
-(3, '成長碗架', 279, 'img/mall/成長碗架279元@2x.png', NULL, 0, '用品', 1, 1),
-(4, '吸水墊', 699, 'img/mall/吸水墊699元@2x.png', NULL, 0, '用品', 1, 1),
-(5, '奧利反光寵物胸背帶', 699, 'img/mall/奧利反光寵物胸背帶699元@2x.png', NULL, 0, '用品', 1, 1),
-(6, '波浪斜坡寵物樓梯', 1590, 'img/mall/波浪斜坡寵物樓梯1590元@2x.png', NULL, 0, '用品', 1, 1),
-(7, '糰子貓宅', 2490, 'img/mall/糰子貓宅2490元@2x.png', NULL, 0, '用品', 1, 1),
-(8, '寵物碗架組', 2250, 'img/mall/寵物碗架組2250元@2x.png', NULL, 0, '用品', 1, 1),
-(9, '貓抓柱', 1690, 'img/mall/貓抓柱1690元@2x.png', NULL, 0, '用品', 1, 1),
-(10, '鯊魚造型貓窩', 479, 'img/mall/鯊魚造型貓窩NT479@2x.png', NULL, 0, '用品', 1, 1),
-(11, '黑六角椅墊組', 3350, 'img/mall/黑六角椅墊組3350元@2x.png', NULL, 0, '用品', 1, 1),
-(12, '太空艙', 500000, 'img/mall/4@2x.png', NULL, 0, '用品', 1, 1),
-(13, '野菜玉子燒(犬)', 85, 'img/mall/野菜玉子燒(犬)85元@2x.png', NULL, 0, '食品', 1, 1),
-(14, '無穀如意棒', 108, 'img/mall/無穀如意棒108元@2x.png', NULL, 0, '食品', 1, 1),
-(15, '花之戀SUSHI', 88, 'img/mall/花之戀SUSHI88元@2x.png', NULL, 0, '食品', 1, 1),
-(16, '翻滾吧蛋炒飯', 49, 'img/mall/翻滾吧蛋炒飯49元@2x.png', NULL, 0, '食品', 1, 1),
-(17, '香甜地瓜雞肉餐', 85, 'img/mall/香甜地瓜雞肉餐85元@2x.png', NULL, 0, '食品', 1, 1),
-(18, '雞肉佐南瓜秋葵', 130, 'img/mall/雞肉佐南瓜秋葵130元@2x.png', NULL, 0, '食品', 1, 1),
-(19, '清蒸泰鱸魚', 128, 'img/mall/清蒸泰鱸魚128元@2x.png', NULL, 0, '食品', 1, 1),
-(20, '古典約克燴肉漢堡', 95, 'img/mall/古典約克燴肉漢堡95元@2x.png', NULL, 0, '食品', 1, 1),
-(21, '鮭魚佐低脂雞漢堡9', 95, 'img/mall/鮭魚佐低脂雞漢堡95元@2x.png', NULL, 0, '食品', 1, 1),
-(22, '寵物鮮食粽', 85, 'img/mall/寵物鮮食粽85元@2x.png', NULL, 0, '食品', 1, 1),
-(23, '麻洋芋豬後腿', 80, 'img/mall/芝麻洋芋豬後腿80元@2x.png', NULL, 0, '食品', 1, 1),
-(24, '番茄花菜牛肋脊', 80, 'img/mall/番茄花菜牛肋脊80元@2x.png', NULL, 0, '食品', 1, 1),
-(25, '', 690, 'img/mall/clothes1@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
-(26, '', 690, 'img/mall/clothes2@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
-(27, '', 690, 'img/mall/clothes3@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
-(28, '', 690, 'img/mall/clothes4@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
-(29, '', 690, 'img/mall/clothes5@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
-(30, '', 690, 'img/mall/clothes6@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
-(31, '', 690, 'img/mall/clothes7@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
-(32, '', 690, 'img/mall/clothes8@2x.png', NULL, 0, '虛擬試衣間', 1, 1),
-(33, '', 690, 'img/mall/clothes9@2x.png', NULL, 0, '虛擬試衣間', 1, 1);
+INSERT INTO `SHOPPING_PRODUCT` (`PRODUCT_ID`, `PRODUCT_NAME`, `PRODUCT_PRICE`, `PRODUCT_IMG`, `PRODUCT_INFO`, `PRODUCT_SOLD`, `PRODUCT_TYPE`, `PRODUCT_STATUS`, `count`, `IMG1`, `IMG2`, `IMG3`, `IMG4`) VALUES
+(1, '小帳棚', 81000, 'img/mall/tent_4@2x.png', '此款帳篷適用於小型犬。簡單的條紋設計，選色清新可愛。\n天然原木結構，綁帶輕鬆好穩固。內有厚實柔軟的睡墊，一面是冬天好暖不著涼，一面是夏日清爽好舒服。\n睡墊上含有止滑顆粒，讓寵物安全跑跳不位移。布料使用天然的純棉帆布，不僅透氣而且排濕。入口處的布料，可依寵物高度捲起來固定。\n睡墊有設計拉鍊，可分開墊子與睡墊套，清潔容易。拆裝容易，收納也很方便。', 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(2, '安全座椅', 1200, 'img/mall/seat1950元-2@2x.png', '項圈固定扣可調節長度，可扣住項圈更安全。\r\n口袋設計收納方便，在座椅兩側附上口袋設計，可收納玩具、背帶、尿墊等小物。\r\n可分離式坐墊，除了是安全座椅，也可以拆開單獨使用坐墊。\r\n守護毛孩，飼主有責，安全座椅防止毛孩暈車、急轉彎時重心不穩、煞車時跌落、上車就開始興奮跑跳....等狀況。', 100, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(3, '成長碗架', 279, 'img/mall/成長碗架279元@2x.png', '陪伴毛孩成長，雙口調整寵物碗架。木製碗架符合中小型犬及貓進食高度，以減少進食角度問題造成消化不適的問題。\r\n高度可調能隨著毛孩體型調整，雙口碗盆斜邊大開口，進食無死角。保護頸椎，減輕頸椎腳關節負擔。\r\n陶瓷碗盆斜邊大開口，清洗容易，大直徑好就口。\r\n結構穩固，碗盆跟餐桌可以分離\r\n，清洗方便。\r\n', 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(4, '吸水墊', 699, 'img/mall/吸水墊699元@2x.png', NULL, 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(5, '奧利反光寵物胸背帶', 699, 'img/mall/奧利反光寵物胸背帶699元@2x.png', NULL, 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(6, '波浪斜坡寵物樓梯', 1590, 'img/mall/波浪斜坡寵物樓梯1590元@2x.png', NULL, 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(7, '糰子貓宅', 2490, 'img/mall/糰子貓宅2490元@2x.png', NULL, 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(8, '寵物碗架組', 2250, 'img/mall/寵物碗架組2250元@2x.png', NULL, 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(9, '貓抓柱', 1690, 'img/mall/貓抓柱1690元@2x.png', NULL, 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(10, '鯊魚造型貓窩', 479, 'img/mall/鯊魚造型貓窩NT479@2x.png', NULL, 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(11, '黑六角椅墊組', 3350, 'img/mall/黑六角椅墊組3350元@2x.png', NULL, 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(12, '太空艙', 500000, 'img/mall/4@2x.png', NULL, 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(13, '野菜玉子燒(犬)', 85, 'img/mall/野菜玉子燒(犬)85元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(14, '無穀如意棒', 108, 'img/mall/無穀如意棒108元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(15, '花之戀SUSHI', 88, 'img/mall/花之戀SUSHI88元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(16, '翻滾吧蛋炒飯', 49, 'img/mall/翻滾吧蛋炒飯49元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(17, '香甜地瓜雞肉餐', 85, 'img/mall/香甜地瓜雞肉餐85元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(18, '雞肉佐南瓜秋葵', 130, 'img/mall/雞肉佐南瓜秋葵130元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(19, '清蒸泰鱸魚', 128, 'img/mall/清蒸泰鱸魚128元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(20, '古典約克燴肉漢堡', 95, 'img/mall/古典約克燴肉漢堡95元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(21, '鮭魚佐低脂雞漢堡9', 95, 'img/mall/鮭魚佐低脂雞漢堡95元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(22, '寵物鮮食粽', 85, 'img/mall/寵物鮮食粽85元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(23, '麻洋芋豬後腿', 80, 'img/mall/芝麻洋芋豬後腿80元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(24, '番茄花菜牛肋脊', 80, 'img/mall/番茄花菜牛肋脊80元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(25, '', 690, 'img/mall/clothes1@2x.png', NULL, 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
+(26, '', 690, 'img/mall/clothes2@2x.png', NULL, 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
+(27, '', 690, 'img/mall/clothes3@2x.png', NULL, 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
+(28, '', 690, 'img/mall/clothes4@2x.png', NULL, 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
+(29, '', 690, 'img/mall/clothes5@2x.png', NULL, 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
+(30, '', 690, 'img/mall/clothes6@2x.png', NULL, 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
+(31, '', 690, 'img/mall/clothes7@2x.png', NULL, 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
+(32, '', 690, 'img/mall/clothes8@2x.png', NULL, 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
+(33, '', 690, 'img/mall/clothes9@2x.png', NULL, 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL);
 
 --
 -- 已傾印資料表的索引
@@ -981,20 +931,6 @@ ALTER TABLE `RESTAURTAT_ORDER_DETAIL`
   ADD KEY `RESTAURTAT_ORDER_DETAIL_MEAL_DATA_ID1_idx` (`FK_MEAL_DATA_ID`);
 
 --
--- 資料表索引 `ROOM_BOOKING_STATUS`
---
-ALTER TABLE `ROOM_BOOKING_STATUS`
-  ADD PRIMARY KEY (`ROOM_BOOKING_STATUS_ID`),
-  ADD KEY `FK_ROOM_ITEM_ID_idx` (`FK_ROOM_ITEM_ID`);
-
---
--- 資料表索引 `ROOM_ITEM`
---
-ALTER TABLE `ROOM_ITEM`
-  ADD PRIMARY KEY (`ROOM_ITEM_ID`),
-  ADD KEY `FK_ROOM_TYPE_ID_idx` (`FK_ROOM_TYPE_ID`);
-
---
 -- 資料表索引 `ROOM_TYPE`
 --
 ALTER TABLE `ROOM_TYPE`
@@ -1067,7 +1003,7 @@ ALTER TABLE `HEALTH_CHECK& SET`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `HOSPITAL_ORDER`
 --
 ALTER TABLE `HOSPITAL_ORDER`
-  MODIFY `HOSPITAL_ORDER_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `HOSPITAL_ORDER_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `HOTEL_ORDER`
@@ -1128,12 +1064,6 @@ ALTER TABLE `RESTAURANT_ORDER`
 --
 ALTER TABLE `RESTAURTAT_ORDER_DETAIL`
   MODIFY `RESTAURTAT_ORDER_DETAIL_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- 使用資料表自動遞增(AUTO_INCREMENT) `ROOM_BOOKING_STATUS`
---
-ALTER TABLE `ROOM_BOOKING_STATUS`
-  MODIFY `ROOM_BOOKING_STATUS_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `ROOM_TYPE`
@@ -1260,18 +1190,6 @@ ALTER TABLE `RESTAURANT_ORDER`
 ALTER TABLE `RESTAURTAT_ORDER_DETAIL`
   ADD CONSTRAINT `RESTAURTAT_ORDER_DETAIL_MEAL_DATA_ID1` FOREIGN KEY (`FK_MEAL_DATA_ID`) REFERENCES `MEAL_DATA` (`MEAL_DATA_ID`),
   ADD CONSTRAINT `RESTAURTAT_ORDER_DETAIL_RESTAURANT_ORDER_ID` FOREIGN KEY (`FK_RESTAURANT_ORDER_ID`) REFERENCES `RESTAURANT_ORDER` (`RESTAURANT_ORDER_ID`);
-
---
--- 資料表的限制式 `ROOM_BOOKING_STATUS`
---
-ALTER TABLE `ROOM_BOOKING_STATUS`
-  ADD CONSTRAINT `ROOM_BOOKING_STATUS_ROOM_ITEM_ID` FOREIGN KEY (`FK_ROOM_ITEM_ID`) REFERENCES `ROOM_ITEM` (`ROOM_ITEM_ID`);
-
---
--- 資料表的限制式 `ROOM_ITEM`
---
-ALTER TABLE `ROOM_ITEM`
-  ADD CONSTRAINT `ROOM_ITEM_ROOM_TYPE_ID` FOREIGN KEY (`FK_ROOM_TYPE_ID`) REFERENCES `ROOM_TYPE` (`ROOM_TYPE_ID`);
 
 --
 -- 資料表的限制式 `SHOPPING_CUSTORMRIZE`
