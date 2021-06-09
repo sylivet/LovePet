@@ -13,11 +13,11 @@
 
 <body class="shopping">
   <div id="forCart" class="s_wrapper">
+    @@include('layout/header.html')
     <div v-for="item in info" class="shopping_main">
-      @@include('layout/header.html')
       <div class="s_ph">
         <div class="s_big_ph">
-          <img src="img/mall/tent_1@2x.png" alt="">
+          <img :src="item.PRODUCT_IMG" alt="">
           <img src="img/mall/tent_1_s@2x.png" class="img_pad">
         </div>
         <div class="s_small_ph">
