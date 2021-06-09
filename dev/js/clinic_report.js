@@ -4,42 +4,108 @@ const bus =new Vue();
 Vue.component('report-basic',{
     template:`
     <div class="c_report_title">
-        <div class="c_report_title_left" v-for='basic in basics' v-show='basics[current_report] === basic'>
-            <p>寵物報告編號:{{basic.HEALTH_REPORT_ID}} </p>
-            <p>寵物姓名：{{basic.PET_NAME}}</p>
-            <p>寵物健檢日期:{{basic.BOOKING_DATE}}</p>
+        <div class="c_report_title_left" v-if='PET=="請選擇您的寵物"'>
+            <p>寵物報告編號:</p>
+            <p>寵物姓名：</p>
+            <p>寵物健檢日期:</p>
             
         </div>
+        <div class="c_report_title_left" v-for='(select,index) in selects' v-show='selects[PET] === select'>
+        <p>寵物報告編號:{{select.HEALTH_REPORT_ID}}</p>
+        <p>寵物姓名：{{select.PET_NAME}}</p>
+        <p>寵物健檢日期:{{select.BOOKING_DATE}}</p>
+        
+    </div>
         <div class="c_report_title_right">
-            <select v-model="current_report" @change='changed'>
-                
+            <select v-model="PET">
+
+                <option disabled selected="selected">請選擇您的寵物</option>
                 <option v-for='(select,index) in selects'  :value="index">{{select.PET_NAME}}</option>
                 
             </select>
         </div>
     </div>
     `,
-    props:['selects','basics'],
+    props:['selects','memberid'],
     data(){
         return {
-            current_report:0,
+            PET:'請選擇您的寵物',
+            SELECTS:[],
+            allreport:[],
+            charts:[],
+            reports:[],
+            suggestion:[],
         }
     },
-    methods:{
-        changed(){
-            bus.$emit('reportNumber',this.current_report)
-            // $.ajax({
-            //     url: "",
-            //     type: "POST",      
-            //     data: "object",
-            //     dataType: "json",
-            //     timeout: 0,
-            // })    
-        }
-    }
     
-})
+    methods:{
+        
+    },
+    watch:{
+        PET() {
+            // select + basic
+            $.ajax({            
+                method: "POST",
+                url: "php/front_end_API/CR_select.php",
+                data:{'FK_MEMBER_ID' : this.memberid},
+                success: (res)=> {
+                    this.SELECTS = JSON.parse(res);
+                    // reports
+                    $.ajax({            
+                       method: "POST",
+                       url: "php/front_end_API/CR_report.php",
+                       data:{'FK_PET_ID' : this.SELECTS[this.PET].PET_ID},
+                             
+                        success: (res)=> {
+   
+                            document.querySelector('.chart-container').innerHTML = '<canvas id="myChart"></canvas>'
+                            this.allreport = JSON.parse(res);
 
+                            //  suggestion
+                             $.ajax({            
+                                method: "POST",
+                                url: "php/front_end_API/CR_report2.php",
+                                data:{'FK_PET_ID' : this.SELECTS[this.PET].PET_ID},
+                                success: (res)=> {
+                                    
+                                    this.suggestion = JSON.parse(res);
+                                },
+                                
+                            });
+                        },
+                       
+                    })
+                },
+                error: function(exception) {
+                    alert("數據載入失敗: " + exception.status);
+                }
+            });
+
+        },
+        allreport() {
+            let filterChart = this.allreport.filter ((item) => {
+                return item.HEALTH_CHECK_VALUE > 1;
+            });  
+            this.charts = filterChart;
+            document.querySelector('.chart-container').innerHTML = '<canvas id="myChart"></canvas>'
+           
+            let filterReport = this.allreport.filter ((item) =>   
+               item.HEALTH_CHECK_VALUE.includes('。') ? item:null    
+            );
+            this.reports = filterReport;
+        },
+        charts() {
+            document.querySelector('.chart-container').innerHTML = '<canvas id="myChart"></canvas>'
+            bus.$emit('chart',this.charts); 
+        },
+        reports() {
+            bus.$emit('report',this.reports); 
+        },
+        suggestion() {
+            bus.$emit('sug',this.suggestion);
+        },
+    }
+})
 
 Vue.component('report-chart', {
     template:`
@@ -47,35 +113,26 @@ Vue.component('report-chart', {
         <canvas id="myChart"></canvas>
     </div>
     `,
-    props:['charts'],
+    props:[],
     data(){
         return{
             current_report:0,
             list:[],
+            chart:[],
+            ctx:null,
+            chartjs:[],
         }
     },
-    watch:{
-        charts() { 
-            let arr=[[],[]]
-            for(let i = 0; i < this.charts.length ;i++){
-                arr[0].push(this.charts[i].LISTNAME);
-            }
-            
-            for(let i = 0; i < this.charts.length ;i++){
-                arr[1].push(this.charts[i].HEALTH_CHECK_VALUE);
-            }
-            this.list = arr;
-
-            //圖表
-            var ctx = document.getElementById('myChart');
-            
-            ctx = new Chart(ctx, {
+    methods: {
+        callChart() {
+            this.ctx = document.getElementById('myChart');
+            this.ctx = new Chart(this.ctx, {
                 type: 'bar',
                 data: {
-                    labels:this.list[0],
+                    labels:this.chartjs[0],
                     datasets: [{
                         label: '寵物報告書',
-                        data:this.list[1],
+                        data:this.chartjs[1],
                         backgroundColor: [
                             'rgba(54, 162, 235, 0.2)'
                         ],
@@ -93,22 +150,44 @@ Vue.component('report-chart', {
                     }
                 }
             });
+        }
+    },
+    mounted(){
+        bus.$on('chart',(value) =>{ this.chart = value })
+        
+    },    
+    watch:{
+        chart() { 
+           
+            // if(this.ctx!=null){
+            //     this.ctx.destroy();
+            //     this.ctx = null;
+            // }
+            let arr=[[],[]]
+            for(let i = 0; i < this.chart.length ;i++){
+                arr[0].push(this.chart[i].LISTNAME);
+            }
+            
+            for(let i = 0; i < this.chart.length ;i++){
+                arr[1].push(this.chart[i].HEALTH_CHECK_VALUE);
+            }
+            this.chartjs = arr;
+            this.callChart();
+           
         },  
-
     },
     
 })
-
 
 Vue.component('report-suggestion', {
     template:`
     <div class="c_suggestion_background">
         <div class="c_suggestion">
             <div class='c_suggestion_inner'>
-                <p v-for='report in reports'>{{report.LISTNAME}}:{{report.HEALTH_CHECK_VALUE}}</p>
+                <p v-for='sug in report'>{{sug.LISTNAME}}:{{sug.HEALTH_CHECK_VALUE}}</p>
                 <hr>
                 <h3>醫師建議:</h3>
-                <p v-for='report in reports2' v-show='reports2[current_report] === report'>{{report.SUGGESTION}}</p>
+                <p v-for='sug in suggestions'>{{sug.SUGGESTION}}</p>
             </div>
         </div>
         <div class="c_toHomepage">
@@ -116,28 +195,30 @@ Vue.component('report-suggestion', {
         </div>
     </div>
     `,
-
-    props:['reports','reports2'],
+    props:[],
     data(){
         return{
             current_report:0,
-
+            report:[],
+            suggestions:[],
         }
     },
-    
-    
     mounted() {
-        bus.$on('reportNumber',(value) =>{
-            this.current_report = value
+        bus.$on('report',(value) =>{
+            this.report = value
         })
+        bus.$on('sug',(value) =>{
+            this.suggestions = value
+        }) 
     },
     
 })
 
-
 new Vue({
     el:'#app',
     data:{
+        PET_ID:null,
+        MEMBER_ID:null,
         selects:[],
         basics:[],
         charts:[],
@@ -145,65 +226,34 @@ new Vue({
         reports2:[],
         current_report:0,
     },
-
+    watch:{
+        MEMBER_ID(){
+            //select
+            $.ajax({            
+                method: "POST",
+                url: "php/front_end_API/CR_select.php",
+                data:{'FK_MEMBER_ID' : this.MEMBER_ID},
+                success: (res)=> {
+                    this.selects = JSON.parse(res);
+                },
+                error: function(exception) {
+                    alert("數據載入失敗: " + exception.status);
+                }
+            });
+        }
+    },
     created(){
-        axios.post("php/front_end_API/CR_select.php").then((res)=>{
-           
-            this.selects = res.data;
-            
-        })
-
-
-        axios.post("php/front_end_API/CR_basic.php").then((res)=>{
-            
-            this.basics = res.data;
-
-        })
-
-        axios.post("php/front_end_API/CR_report.php").then((res)=>{
-
-            let filterChart = res.data.filter( (item) => {
-
-                return item.HEALTH_CHECK_VALUE > 1;
-            });  
-            this.charts = filterChart;
-
-            let filterReport = res.data.filter((item) =>   
-                item.HEALTH_CHECK_VALUE.includes('。') ? item:null    
-            );
-            this.reports = filterReport;
-           
-        })
-
-        
-
-        axios.post("php/front_end_API/CR_report2.php").then((res)=>{
-            
-            this.reports2 = res.data;
-
-        })
-        
-        
-
-        //   axios.post('/user', {
-        //     id: 1,
-        //   })
-        //   .then(function (response) {
-        //     console.log(response);
-        //   })
-        //   .catch(function (error) {
-        //     console.log(error);
-        //   });
-          
-        // axios({
-        //     method:'post',
-        //     url:'php/front_end_API/CR_select.php',
-        //     data:{MEMBER_ID : localStorage["memberId"]}
-        //     ,
-        // }).then(response => {
-        //    this.selects = response.data
-           
-        // })
-          
+        $.ajax({            
+            method: "POST",
+            url: "php/front_end_API/M_getsession_MID.php",
+            success: (response)=> {
+                
+                this.MEMBER_ID = parseInt(response.split(`"`).join(""))
+                    
+            },
+            error: function(exception) {
+                alert("數據載入失敗: " + exception.status);
+            }
+        });
     },
 })

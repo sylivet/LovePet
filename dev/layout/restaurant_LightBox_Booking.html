@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../vendors/travo-calendar/css/tavo-calendar.css">
+    <link rel="stylesheet" href="../../dist/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="i_background">
+        <div class="i_lightbox_bk">
+            <a href="#" class="i_closeButton">
+                <img src="../img/common/close.png" alt="">
+            </a>
+            <div class="i_lightbox_title">
+                <h2>預訂內容</h2>
+            </div>
+            <div class="bar">
+            
+            <div class="i_restaurant">
+            <div class="i_restaurant_left">
+                <div id="my-calendar" class="i_calendar"></div>
+                <div class="i_selece_left">
+                    <div class="i_select">
+                        <span>成人</span>
+                        <select>
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                        <span>人</span>
+                    </div>
+                    <div class="i_select">
+                        <span>兒童</span>
+                        <select>
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                        <span>人</span>
+                    </div>
+                </div>
+               <div class="i_selece_right">
+                <div class="i_select">
+                    <span>狗</span>
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                    </select>
+                    <span>隻</span>
+                </div>
+                <div class="i_select">
+                    <span>貓</span>                  
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                    </select>
+                    <span>隻</span>
+                </div>
+               </div>
+            </div>
+            <div class="i_restaurant_right">
+                <p>您的<span>寵物</span>菜單</p>
+                
+                <table>
+                    <tr>
+                        <td>雞肉沙拉</td>
+                        <td><i class="fa fa-minus-circle" aria-hidden="true"></i>
+                            <input type="text" value="1" readonly="readonly">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i></td>
+                        <td>NT 100元</td>
+                    </tr>
+                    <tr>
+                        <td>牛肉沙拉</td>
+                        <td><i class="fa fa-minus-circle" aria-hidden="true"></i>
+                            <input type="text" value="1" readonly="readonly">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i></td>
+                        <td>NT 100元</td>
+                    </tr>
+                    <tr>
+                        <td>嫩煎鮭魚沙拉</td>
+                        <td><i class="fa fa-minus-circle" aria-hidden="true"></i>
+                            <input type="text" value="1" readonly="readonly">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i></td>
+                        <td>NT 100元</td>
+                    </tr>
+                    <tr>
+                        <td>寵物客製餐點</td>
+                        <td><i class="fa fa-minus-circle" aria-hidden="true"></i>
+                            <input type="text" value="1" readonly="readonly">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i></td>
+                        <td>NT 100元</td>
+                    </tr>
+                </table>
+                <p>您的菜單</p>
+                
+                <table>
+                    <tr>
+                        <td>雞肉沙拉</td>
+                        <td><i class="fa fa-minus-circle" aria-hidden="true"></i>
+                            <input type="text" value="1" readonly="readonly">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i></td>
+                        <td>NT 100元</td>
+                    </tr>
+                    <tr>
+                        <td>牛肉沙拉</td>
+                        <td><i class="fa fa-minus-circle" aria-hidden="true"></i>
+                            <input type="text" value="1" readonly="readonly">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i></td>
+                        <td>NT 100元</td>
+                    </tr>
+                  </table>
+                  <hr>
+                <div class="i_total">
+                    <h3>總價 NT 300元</h3>
+                </div>
+                
+                <button type="button" class="i_button">確認預約</button>
+            </div>
+        </div>
+        </div>
+        </div>
+    </div>
+    <script src="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.js"></script>
+    <script>
+        Array.prototype.forEach.call(document.getElementsByClassName('bar'), function (el) {
+            new SimpleBar(el);
+        });
+    </script>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="../vendors/travo-calendar/js/tavo-calendar.js"></script>
+    <script>
+        const myCalendar = new TavoCalendar('#my-calendar', {
+            date: new Date(),
+        })
+    </script>
+</body>
+</body>
+
+</html>
