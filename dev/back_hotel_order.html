@@ -38,7 +38,7 @@
             <tr class="table-warning">
               <th>訂單編號</th>
               <th>會員編號</th>
-              <th>會員姓名</th>
+              <th>名字</th>
               <th>成立日期</th>
               <th>入住起日</th>
               <th>入住迄日</th>
@@ -74,7 +74,7 @@
               <td style="display: none"><input value="${res.data[i].HOTEL_ORDER_ID}" name="HOTEL_ORDER_ID" disabled readonly></td>
               <td class="HOTEL_ORDER_ID">${res.data[i].HOTEL_ORDER_ID}</td>
               <td class="FK_MEMBER_ID">${res.data[i].FK_MEMBER_ID}</td>
-              <td >${res.data[i].NAME}</td>
+              <td style="width:80px">${res.data[i].NAME}</td>
               <td>${res.data[i].CREATE_DATE}</td>
               <td>
                 <input type="text" name="BOOKING_CHECKIN_DATE" style="width:100px" value="${res.data[i].BOOKING_CHECKIN_DATE}" disabled/>
@@ -84,10 +84,10 @@
               </td>
               <td>${res.data[i].ROOM_NAME}</td>
               <td>
-                <input type="text" style="width:30px" name="NUM_OF_PEOPLE" value="${res.data[i].NUM_OF_PEOPLE}" disabled/>位
+                <input type="text" style="width:30px" name="NUM_OF_PEOPLE" value="${res.data[i].NUM_OF_PEOPLE}" disabled/>
               </td>
               <td>
-                <input type="text" style="width:30px" name="NUM_OF_PETS" value="${res.data[i].NUM_OF_PETS}" disabled />隻
+                <input type="text" style="width:30px" name="NUM_OF_PETS" value="${res.data[i].NUM_OF_PETS}" disabled />
               </td>
               <td>
                 <select name="ORDER_STATUS" disabled>
