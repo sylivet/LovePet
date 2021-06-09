@@ -32,9 +32,11 @@ axios.post("php/back_end_API/S_select_order.php").then((res) => {
   addNum(a)
 });
 
-// 商城
+// 商城留言
 axios.post("php/back_end_API/SM_select.php").then((res) => {
-  $('.SM_orderNumber').text(res.data.length)
+  let unFinished = res.data.filter((item)=>{ return item.OFFICAL_FEEDBACK === ''})
+  let a=unFinished.length
+  $('.SM_orderNumber').text(a)
 });
 
 // 所有的訂單數量
