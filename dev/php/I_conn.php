@@ -3,10 +3,6 @@
 //MySQL相關資訊
 $db_host = "127.0.0.1";
 $db_user = "root";
-<<<<<<< HEAD
-$db_pass = "password";
-=======
->>>>>>> dev
 $db_select = "LOVE_PET";
 $db_pass = "ac1234zxc";
 
