@@ -19,7 +19,10 @@
         </div>
         <div class="c_nav">
             <ul>
-                <li v-for='nav in navs'><a :href='nav.url'>{{nav.title}}</a></li>
+                <li><a href='./clinic_check.html'>毛孩健檢</a></li>
+                <li @click='loginCheck'><a>健檢報告書</a></li>
+                <li><a href='./clinic_emergency.html'>緊急處理</a></li>
+                <li><a href='./clinic_faq.html'>毛孩FAQ</a></li>
             </ul>
         </div>
         <div class="c_content">

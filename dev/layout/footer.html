@@ -78,23 +78,23 @@
   <div class="i_shoppingCart bar" id="bar">
     <table id="data-id" v-for="(item,index) in counts">
       <tr class="myItems">
-        <td><img :src="item.PRODUCT_IMG" alt=""></td>
+        <td><img :src="getIMG" alt=""></td>
         <td>
           <div @click="remove" class="icon">&times;</div>
         </td>
-        <td>{{item.PRODUCT_NAME}}</td>
+        <td>{{getName}}</td>
         <td>
-          <div @click="sub(index)" class="icon">−</div>
+          <div @click="sub" class="icon">−</div>
           <!-- 做click事件 -->
-          <input type="text" :value="item.count" readonly="readonly">
+          <input type="text" :value="getCount" readonly="readonly">
           <div @click="plus(index)" class="icon">+</div>
         </td>
-        <td>NT{{item.PRODUCT_PRICE}}元</td>
+        <td>NT{{getPrice}}元</td>
       </tr>
     </table>
     <hr>
     <div class="i_total">
-      <h3>總價 NT 81000元</h3>
+      <h3>總價 NT {{getTotalPrice}}元</h3>
     </div>
     <a href="s_bill.html" class="i_button">結帳</a>
   </div>
