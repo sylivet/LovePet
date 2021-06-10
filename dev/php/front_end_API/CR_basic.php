@@ -1,11 +1,15 @@
 <?php
     include("../../php/C_conn.php");
-    // $_POST['id']
+    include("M_getsession_MID.php");
+
+    $FK_MEMBER_ID = $_SESSION["memberID"];
+  
+    $PET_ID = $_POST['PET_ID'];
     
     //建立SQL語法
     $sql = "select distinct
 	hr.HEALTH_REPORT_ID,
-	pi.PET_NAME,
+    pi.PET_ID,
 	ho.BOOKING_DATE
     from
 	HEALTH_REPORT hr
@@ -14,9 +18,11 @@
 	left join PET_INFO pi
 		on ho.FK_PET_ID = pi.PET_ID
     where
-	 ho.FK_MEMBER_ID = 1 ";
+	ho.FK_MEMBER_ID =  $FK_MEMBER_ID and pi.PET_ID = $PET_ID 
+    ";
     
     
+
     //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
     $statement = $pdo->prepare($sql);
 

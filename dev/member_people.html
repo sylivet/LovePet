@@ -1,35 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        @@include('layout/style.html')
-        <title>header</title>
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @@include('layout/style.html')
+    <title>header</title>
+</head>
 
-    <body>
-        @@include('layout/header.html')
-<!-- =================================================側邊攔===================================================== -->
+<body>
+    @@include('layout/header.html')
+    <!-- =================================================側邊攔===================================================== -->
     <div class="m_wrapper" id='app'>
         <my-aside></my-aside>
-<!-- =================================================主要內容===================================================== -->
-         <main>
+        <!-- =================================================主要內容===================================================== -->
+        <main>
 
             <!-- ------------------------------個人頭貼---------------------------------- -->
-            <my-pic :picsrc='mymember[0].MEMBER_IMG' ></my-pic>
+            <my-pic :picsrc='mymember[0].MEMBER_IMG'></my-pic>
 
             <!-- ------------------------------基本資料---------------------------------- -->
-             <my-info :nickname='mymember[0].NICKNAME'
-                      :name='mymember[0].NAME'
-                      :account='mymember[0].ACCOUNT'
-                      :phone='mymember[0].PHONE'
-                      :addres='mymember[0].ADDRES'
-                      :mid='mymember[0].MEMBER_ID'
-             ></my-info>
-             <!-- ------------------------------密碼設定---------------------------------- -->
-             <my-password :pwd='mymember[0].PASSWORD' :mid='mymember[0].MEMBER_ID'></my-password>
+            <my-info :nickname='mymember[0].NICKNAME' :name='mymember[0].NAME' :account='mymember[0].ACCOUNT'
+                :phone='mymember[0].PHONE' :addres='mymember[0].ADDRES' :mid='mymember[0].MEMBER_ID'></my-info>
+            <!-- ------------------------------密碼設定---------------------------------- -->
+            <my-password :pwd='mymember[0].PASSWORD' :mid='mymember[0].MEMBER_ID'></my-password>
 
             <!-- ------------------------------通知設定---------------------------------- -->
             <!-- <section class="m_info_option">
@@ -58,37 +53,39 @@
             </section> -->
 
             <my-notice :getnews='mymember[0].SUBSCRIPTION'></my-notice>
-         </main>
-         
-         <!-- <my-component :mmb='mymember' ></my-component> -->
-    
-        </div>
+        </main>
+
+        <!-- <my-component :mmb='mymember' ></my-component> -->
+
+    </div>
 
     @@include('layout/footer.html')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <!-- vue -->
     <script src="./vendors/vue/js/vue.js"></script>
+    <!-- 購物車共用組件 -->
+    <script src="js/mall_vue.js"></script>
     <!-- <script src="./js/m_aside_contrl.js"></script> -->
     <!-- <script src="./js/m_member_people.js"></script> -->
     <script>
 
-    //-- 個人專區
-        Vue.component('my-component',{
+        //-- 個人專區
+        Vue.component('my-component', {
             template: `<h1 style="color:red;">{{mmb}}</h1>`,
-            props:['mmb'],
-         });
+            props: ['mmb'],
+        });
 
-         Vue.component('my-pic',{
+        Vue.component('my-pic', {
             template: `<div>
                          <img :src="picsrc" alt="profile"  class="m_person_pic" id="m_pic2">
                         </div>`,
-            props:['picsrc'],
-         });
+            props: ['picsrc'],
+        });
 
-         Vue.component('my-info',{
+        Vue.component('my-info', {
             template: `<section>
                         <h5>個人資料</h5>
                         <div class="m_underline_2"></div>
@@ -125,9 +122,9 @@
                         <input type="button" value="確認更改" class="m_btn" @click="chgperinfo" >
                         </form>
                     </section>`,
-            props:['nickname','name','account','phone','addres','mid'],
-            data(){
-                return{ 
+            props: ['nickname', 'name', 'account', 'phone', 'addres', 'mid'],
+            data() {
+                return {
                     // nickname: '',
                     // name: '',
                     // account: '',
@@ -136,47 +133,47 @@
                     // mid: '',
                 };
             },
-            methods:{
-                chgperinfo(){   //--- 登出function
+            methods: {
+                chgperinfo() {   //--- 登出function
                     //alert(this.oldpwd);
-                    if( this.nickname == '' ||  
+                    if (this.nickname == '' ||
                         this.name == '' ||
                         this.phone == '' ||
-                        this.addres == ''  ){
+                        this.addres == '') {
                         alert('不能空白');
-                    }else{ 
-                        
-                        alert('OK');
-                        let newp = this ;
-                        $.ajax({
-                            type : "POST",	
-                            url : "./php/back_end_API/M_personUpdate.php",  
-                            data : {  
-                                NIC : newp.nickname,  
-                                NME : newp.name,
-                                PHE : newp.phone,
-                                ADS : newp.addres,
-                                MID : newp.mid,
-                            }, 
-                            dataType : 'html' 
-                            }).done(function(data){    //---載入成功
+                    } else {
 
-                            if( data ){ 
+                        alert('OK');
+                        let newp = this;
+                        $.ajax({
+                            type: "POST",
+                            url: "./php/back_end_API/M_personUpdate.php",
+                            data: {
+                                NIC: newp.nickname,
+                                NME: newp.name,
+                                PHE: newp.phone,
+                                ADS: newp.addres,
+                                MID: newp.mid,
+                            },
+                            dataType: 'html'
+                        }).done(function (data) {    //---載入成功
+
+                            if (data) {
                                 alert('資料更新成功!!');
                                 //localStorage.setItem('m_datainfro', `{ "NICKNAME": "${newp.nickname}",}` ); //存入storage 
                             };
-                            
-                            }).fail(function(jqXHR){   //---載入失敗
+
+                        }).fail(function (jqXHR) {   //---載入失敗
                             alert("res為ID數據載入失敗: " + jqXHR.status);
-                            });
+                        });
                     }
-                    },
+                },
             },
 
-            
-         });
 
-         Vue.component('my-password',{
+        });
+
+        Vue.component('my-password', {
             template: ` <section class="m_pwd_setting">
                             <h5>密碼設定</h5>
                             <div class="m_underline_2"></div>
@@ -202,63 +199,63 @@
                             <input type="button" value="確認更改" class="m_btn" @click="chgpassword" >
                             </form>
                         </section>`,
-            props:['pwd','mid'],
-            data(){
-                return{ 
+            props: ['pwd', 'mid'],
+            data() {
+                return {
                     oldpwd: '0000000000',
                     newpwd: '0000000000',
                     chkpwd: '0000000000',
                 };
             },
-            methods:{
-                chgpassword(){   //--- 登出function
+            methods: {
+                chgpassword() {   //--- 登出function
                     //alert(this.oldpwd);
-                    if( this.oldpwd === this.pwd ){
+                    if (this.oldpwd === this.pwd) {
                         alert('密碼一致，繼續下一步');
-                        let newp = this ;
-                        if( newp.newpwd === newp.chkpwd ){
+                        let newp = this;
+                        if (newp.newpwd === newp.chkpwd) {
                             alert('變更密碼成功!');
                             //alert(newp.mid);
                             //alert(newp.newpwd);
 
                             $.ajax({
-                            type : "POST",	
-                            url : "./php/back_end_API/M_pwdUpdate.php",  
-                            data : {  
-                                MID : newp.mid,  
-                                PWD : newp.newpwd,     //---透過 MID 去抓該筆會員資料
-                            }, 
-                            dataType : 'html' 
-                            }).done(function(data){    //---載入成功
-                            if( data ){ 
-                                alert('密碼更新成功!!'); 
-                                newp.oldpwd = '';
-                                newp.newpwd = '';
-                                newp.chkpwd = '';
-                            };
-                            
-                            
-                            }).fail(function(jqXHR){   //---載入失敗
-                            alert("res為ID數據載入失敗: " + jqXHR.status);
+                                type: "POST",
+                                url: "./php/back_end_API/M_pwdUpdate.php",
+                                data: {
+                                    MID: newp.mid,
+                                    PWD: newp.newpwd,     //---透過 MID 去抓該筆會員資料
+                                },
+                                dataType: 'html'
+                            }).done(function (data) {    //---載入成功
+                                if (data) {
+                                    alert('密碼更新成功!!');
+                                    newp.oldpwd = '';
+                                    newp.newpwd = '';
+                                    newp.chkpwd = '';
+                                };
+
+
+                            }).fail(function (jqXHR) {   //---載入失敗
+                                alert("res為ID數據載入失敗: " + jqXHR.status);
                             });
 
-                        }else{
+                        } else {
                             alert('新設密碼不一致，請確認!');
-                            newp.newpwd =  '';
-                            newp.chkpwd = ''; 
+                            newp.newpwd = '';
+                            newp.chkpwd = '';
                         }
-                    }else{ 
+                    } else {
                         alert('密碼不一致，請重新確認!');
                         this.oldpwd = '';
-                        this.newpwd =  '';
-                        this.chkpwd = ''; 
-                    
-                    }
-                    },
-            },
-         });
+                        this.newpwd = '';
+                        this.chkpwd = '';
 
-         Vue.component('my-notice',{
+                    }
+                },
+            },
+        });
+
+        Vue.component('my-notice', {
             template: ` <section class="m_info_option">
                             <h5>通知設定</h5>
                             <div class="m_underline_2"></div>
@@ -283,11 +280,11 @@
                             <input type="submit" value="確認送出" class="m_btn">
                             </form>
                     </section>`,
-            props:['getnews'],
-         });
+            props: ['getnews'],
+        });
 
-         Vue.component('my-aside',{
-            template: 
+        Vue.component('my-aside', {
+            template:
                 ` <aside>
                     <div>
                         <h5><a href="./member_index.html"><img src="./img/member/catlogo-8.png" alt=""><span>會員專區</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></h5>
@@ -302,73 +299,73 @@
                         <input type="button" value="登 出" @click="mleave" >
                     </div>
                    </aside>`,
-            data(){
+            data() {
                 return {
                     mconfirm: '確認登出嗎?',
                 };
             },
-            methods:{
-                mleave(){   //--- 登出function
-                    if(confirm(this.mconfirm) == true){
-                    localStorage.clear();                            //清除local
+            methods: {
+                mleave() {   //--- 登出function
+                    if (confirm(this.mconfirm) == true) {
+                        localStorage.clear();                            //清除local
 
-                    $.ajax({                                         //清除session ID
-                        method: "POST",
-                        url: "./php/front_end_API/M_removesession_MID.php",
-                        data: {},
-                        dataType: "text",
-                        success: function success(response) {
-                        //alert(response);
-                        //let m_header = document.querySelector('.m_header');
-                        //m_header.classList.toggle('m_toggle');
-                        window.location.href="front_index.html";
-                        //$('#m_header_control').attr('style','color:orange;');
-                        },
-                        error: function error(exception) {
-                        alert("數據載入失敗: " + exception.status);
-                        }
-                    });
+                        $.ajax({                                         //清除session ID
+                            method: "POST",
+                            url: "./php/front_end_API/M_removesession_MID.php",
+                            data: {},
+                            dataType: "text",
+                            success: function success(response) {
+                                //alert(response);
+                                //let m_header = document.querySelector('.m_header');
+                                //m_header.classList.toggle('m_toggle');
+                                window.location.href = "front_index.html";
+                                //$('#m_header_control').attr('style','color:orange;');
+                            },
+                            error: function error(exception) {
+                                alert("數據載入失敗: " + exception.status);
+                            }
+                        });
 
-                    }else{
+                    } else {
 
                     };
-                    },
+                },
             },
-         });
+        });
 
-          new Vue({
+        new Vue({
             el: '#app',
             data: {
-                mymember:[],
-                midata:null,
+                mymember: [],
+                midata: null,
             },
             methods: {
-                getmymemberdata(info){
-                   let self = this;
-                   this.midata = info;
+                getmymemberdata(info) {
+                    let self = this;
+                    this.midata = info;
 
                     $.ajax({
-                        type : "POST",	
-                        url : "./php/front_end_API/M_apr_memberpeople.php",  
-                        data : {  
-                            MID : info,            //---透過 MID 去抓該筆會員資料
-                        }, 
-                        dataType : 'html' 
-                        }).done(function(data){    //---載入成功
-                            console.log(data);
-                        self.mymember =  JSON.parse(data);
+                        type: "POST",
+                        url: "./php/front_end_API/M_apr_memberpeople.php",
+                        data: {
+                            MID: info,            //---透過 MID 去抓該筆會員資料
+                        },
+                        dataType: 'html'
+                    }).done(function (data) {    //---載入成功
+                        console.log(data);
+                        self.mymember = JSON.parse(data);
                         console.log(self.mymember);
-                        
-                        }).fail(function(jqXHR){   //---載入失敗
+
+                    }).fail(function (jqXHR) {   //---載入失敗
                         alert("res為ID數據載入失敗: " + jqXHR.status);
-                        });
+                    });
 
                 },
             },
-            created(){
+            created() {
 
-                axios.post("php/front_end_API/M_getsession_MID.php").then((res)=>{
-                this.getmymemberdata(res.data);
+                axios.post("php/front_end_API/M_getsession_MID.php").then((res) => {
+                    this.getmymemberdata(res.data);
                 });
 
 
@@ -377,6 +374,6 @@
 
         });
     </script>
-    </body>
+</body>
 
 </html>

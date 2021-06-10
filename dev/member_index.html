@@ -1,87 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        @@include('layout/style.html')
-        <title>header</title>
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @@include('layout/style.html')
+    <title>header</title>
+</head>
 
-    <body>
-        @@include('layout/header.html')
-<!-- =================================================側邊攔===================================================== -->
-<div class="m_wrapper" id='app'>
-    <my-aside></my-aside>
-         
-<!-- =================================================主要內容===================================================== -->
-         <main class="m_member_index">
+<body>
+    @@include('layout/header.html')
+    <!-- =================================================側邊攔===================================================== -->
+    <div class="m_wrapper" id='app'>
+        <my-aside></my-aside>
+
+        <!-- =================================================主要內容===================================================== -->
+        <main class="m_member_index">
 
             <!-- ------------------------------個人頭貼---------------------------------- -->
             <article class="personal_info">
-            
-                <my-pic :picsrc='mymember[0].MEMBER_IMG' ></my-pic>
-           
+
+                <my-pic :picsrc='mymember[0].MEMBER_IMG'></my-pic>
+
                 <input type="text" id="m_nickname2" placeholder="您的稱呼" :value='mymember[0].NICKNAME'>
 
-                
-            <p class="m_link"><a href="./member_people.html">查看更多 > </a></p>
+
+                <p class="m_link"><a href="./member_people.html">查看更多 > </a></p>
             </article>
 
 
             <!-- ------------------------------寵物頭貼---------------------------------- -->
             <article class="m_member_pets">
-            <h5>我的寵物</h5>
-            <div class="m_underline_2"></div>
-            
-            <section class="m_pets m_pets_pics">
-                <my-petpic v-for='itm in mymemberpet' :petsrc='itm.PET_IMG' :petname='itm.PET_NAME'></my-petpic>
-            </section>
+                <h5>我的寵物</h5>
+                <div class="m_underline_2"></div>
 
-            <p class="m_link"><a href="./member_pets.html">查看更多 > </a></p>
+                <section class="m_pets m_pets_pics">
+                    <my-petpic v-for='itm in mymemberpet' :petsrc='itm.PET_IMG' :petname='itm.PET_NAME'></my-petpic>
+                </section>
+
+                <p class="m_link"><a href="./member_pets.html">查看更多 > </a></p>
             </article>
 
             <!------------------------------訂單管理------------------------------->
             <article class="m_member_order">
-            <h5>訂單管理</h5>
+                <h5>訂單管理</h5>
 
-            <ul class="m_get_type">
-                <li @click="order='complete'" ><span @click="chgfocus" >已完成</span><div  class="m_underline_3" :style="{ opacity: opacity }" ></div></li>
-                <li @click="order='notyet'"><span @click="chgfocus" >未完成</span><div  class="m_underline_3" :style="{ opacity: opacity2 }" ></div></li>  
-            </ul>
-            <div class="m_underline_2"></div>
+                <ul class="m_get_type">
+                    <li @click="order='complete'"><span @click="chgfocus">已完成</span>
+                        <div class="m_underline_3" :style="{ opacity: opacity }"></div>
+                    </li>
+                    <li @click="order='notyet'"><span @click="chgfocus">未完成</span>
+                        <div class="m_underline_3" :style="{ opacity: opacity2 }"></div>
+                    </li>
+                </ul>
+                <div class="m_underline_2"></div>
 
-            <keep-alive>
-            <component :is="order"></component>
-            </keep-alive>
+                <keep-alive>
+                    <component :is="order"></component>
+                </keep-alive>
 
-            
-            <p class="m_link"><a href="./member_order_management.html">查看更多 > </a></p>
+
+                <p class="m_link"><a href="./member_order_management.html">查看更多 > </a></p>
             </article>
 
-         </main>
-</div>
+        </main>
+    </div>
     @@include('layout/footer.html')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <!-- vue -->
     <script src="./vendors/vue/js/vue.js"></script>
+    <!-- 購物車共用組件 -->
+    <script src="js/mall_vue.js"></script>
     <!-- <script src="./js/m_aside_contrl.js"></script> -->
     <script>
-       
-    //--- 會員
-        Vue.component('my-pic',{
-                template: `<div>
+
+        //--- 會員
+        Vue.component('my-pic', {
+            template: `<div>
                             <img :src="picsrc" alt="profile"  class="m_person_pic" id="m_pic2">
                             </div>`,
-                props:['picsrc'],
-            });
-    //--- 寵物
-        Vue.component('my-petpic',{
-                template: `<section class="m_pets ">
+            props: ['picsrc'],
+        });
+        //--- 寵物
+        Vue.component('my-petpic', {
+            template: `<section class="m_pets ">
                             <form action="">
                                 <div class="m_frame">
                                     <img :src='petsrc' alt="profile"  class="m_pet_pic" id="m_pet2">
@@ -92,11 +98,11 @@
                                 </div>
                             </form>
                         </section>`,
-                props:['petsrc','petname'],
+            props: ['petsrc', 'petname'],
 
-             });    
-    //--- 訂單
-        Vue.component('complete',{
+        });
+        //--- 訂單
+        Vue.component('complete', {
             template: `
                 <div>       
                     <section>
@@ -157,20 +163,20 @@
                         </section>
                 </div>
             `,
-       
-            methods:{
-                dtoggle(){
+
+            methods: {
+                dtoggle() {
                     this.isappear = !this.isappear;
                 },
             },
-            data(){
-                return{
-                    isappear : true,
+            data() {
+                return {
+                    isappear: true,
                 };
             },
         });
 
-        Vue.component('notyet',{
+        Vue.component('notyet', {
             template: `
                 <div>
                     <section>
@@ -181,10 +187,10 @@
             `,
         });
 
-    //--- 側邊攔
-        Vue.component('my-aside',{
-          template: 
-              ` <aside>
+        //--- 側邊攔
+        Vue.component('my-aside', {
+            template:
+                ` <aside>
                   <div>
                       <h5><a href="./member_index.html"><img src="./img/member/catlogo-8.png" alt=""><span>會員專區</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></h5>
                       <div class="m_underline_1"></div>
@@ -198,37 +204,37 @@
                       <input type="button" value="登 出" @click="mleave" >
                   </div>
                  </aside>`,
-          data(){
-              return {
-                  mconfirm: '確認登出嗎?',
-              };
-          },
-          methods:{
-              mleave(){   //--- 登出function
-                  if(confirm(this.mconfirm) == true){
-                  localStorage.clear();                            //清除local
+            data() {
+                return {
+                    mconfirm: '確認登出嗎?',
+                };
+            },
+            methods: {
+                mleave() {   //--- 登出function
+                    if (confirm(this.mconfirm) == true) {
+                        localStorage.clear();                            //清除local
 
-                  $.ajax({                                         //清除session ID
-                      method: "POST",
-                      url: "./php/front_end_API/M_removesession_MID.php",
-                      data: {},
-                      dataType: "text",
-                      success: function success(response) {
-                      window.location.href="front_index.html";
-                      },
-                      error: function error(exception) {
-                      alert("數據載入失敗: " + exception.status);
-                      }
-                  });
+                        $.ajax({                                         //清除session ID
+                            method: "POST",
+                            url: "./php/front_end_API/M_removesession_MID.php",
+                            data: {},
+                            dataType: "text",
+                            success: function success(response) {
+                                window.location.href = "front_index.html";
+                            },
+                            error: function error(exception) {
+                                alert("數據載入失敗: " + exception.status);
+                            }
+                        });
 
-                  }else{
+                    } else {
 
-                  };
-                  },
-          },
-       });
-    
-    //--- 主鍵Vue
+                    };
+                },
+            },
+        });
+
+        //--- 主鍵Vue
         new Vue({
             el: '#app',
             data: {
@@ -236,58 +242,58 @@
                 opacity: 1,
                 opacity2: 0,
 
-                mymember:[],
-                mymemberpet:[],
+                mymember: [],
+                mymemberpet: [],
             },
-            methods:{
-                chgfocus(){
-                    if(this.opacity == 0){this.opacity = 1}else{this.opacity = 0}
-                    if(this.opacity2 == 0){this.opacity2 = 1}else{this.opacity2 = 0}
+            methods: {
+                chgfocus() {
+                    if (this.opacity == 0) { this.opacity = 1 } else { this.opacity = 0 }
+                    if (this.opacity2 == 0) { this.opacity2 = 1 } else { this.opacity2 = 0 }
                 },
-                getmymemberdata(info){
+                getmymemberdata(info) {
                     let self = this;
 
-                        $.ajax({
-                            type : "POST",	
-                            url : "./php/front_end_API/M_apr_memberpeople.php",  
-                            data : {  
-                                MID : info,            //---透過 MID 去抓該筆會員資料
-                            }, 
-                            dataType : 'html' 
-                            }).done(function(data){    //---載入成功
-                                console.log(data);
-                            self.mymember =  JSON.parse(data);
-                            
-                            }).fail(function(jqXHR){   //---載入失敗
-                            alert("res為ID數據載入失敗: " + jqXHR.status);
-                            });
+                    $.ajax({
+                        type: "POST",
+                        url: "./php/front_end_API/M_apr_memberpeople.php",
+                        data: {
+                            MID: info,            //---透過 MID 去抓該筆會員資料
+                        },
+                        dataType: 'html'
+                    }).done(function (data) {    //---載入成功
+                        console.log(data);
+                        self.mymember = JSON.parse(data);
 
-                    },
-                getmemberpetdata(info){
-                let self = this;
+                    }).fail(function (jqXHR) {   //---載入失敗
+                        alert("res為ID數據載入失敗: " + jqXHR.status);
+                    });
+
+                },
+                getmemberpetdata(info) {
+                    let self = this;
 
                     $.ajax({
-                        type : "POST",	
-                        url : "./php/front_end_API/M_apr_memberpet.php",  
-                        data : {  
-                            MID : info,            //---透過 MID 去抓該筆會員資料
-                        }, 
-                        dataType : 'html' 
-                        }).done(function(data){    //---載入成功
-                            console.log(data);
-                        self.mymemberpet =  JSON.parse(data);
-                        
-                        }).fail(function(jqXHR){   //---載入失敗
+                        type: "POST",
+                        url: "./php/front_end_API/M_apr_memberpet.php",
+                        data: {
+                            MID: info,            //---透過 MID 去抓該筆會員資料
+                        },
+                        dataType: 'html'
+                    }).done(function (data) {    //---載入成功
+                        console.log(data);
+                        self.mymemberpet = JSON.parse(data);
+
+                    }).fail(function (jqXHR) {   //---載入失敗
                         alert("res為ID數據載入失敗: " + jqXHR.status);
-                        });
+                    });
 
                 },
             },
-            created(){
+            created() {
 
-                axios.post("php/front_end_API/M_getsession_MID.php").then((res)=>{
-                this.getmymemberdata(res.data);
-                this.getmemberpetdata(res.data);
+                axios.post("php/front_end_API/M_getsession_MID.php").then((res) => {
+                    this.getmymemberdata(res.data);
+                    this.getmemberpetdata(res.data);
                 });
 
 
@@ -296,7 +302,7 @@
 
 
 
-      </script>
-    </body>
+    </script>
+</body>
 
 </html>

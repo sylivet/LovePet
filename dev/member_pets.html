@@ -1,44 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        @@include('layout/style.html')
-        <title>header</title>
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @@include('layout/style.html')
+    <title>header</title>
+</head>
 
-    <body>
-        @@include('layout/header.html')
-<!-- =================================================側邊攔===================================================== -->
-<div class="m_wrapper" id='app'>
-    <my-aside></my-aside>
-         
-<!-- =================================================主要內容===================================================== -->
-         <main>
+<body>
+    @@include('layout/header.html')
+    <!-- =================================================側邊攔===================================================== -->
+    <div class="m_wrapper" id='app'>
+        <my-aside></my-aside>
+
+        <!-- =================================================主要內容===================================================== -->
+        <main>
 
             <!-- ------------------------------寵物頭貼---------------------------------- -->
             <section class="m_pets m_pets_pics">
-                <my-petpic :class='{"mactive":currentpet===key}' @click.native='currentpet = key' v-for='(itm,key) in mymemberpet' :petsrc='itm.PET_IMG' :petname='itm.PET_NAME'></my-petpic>
+                <my-petpic :class='{"mactive":currentpet===key}' @click.native='currentpet = key'
+                    v-for='(itm,key) in mymemberpet' :petsrc='itm.PET_IMG' :petname='itm.PET_NAME'></my-petpic>
                 <!-- <my-petpic @click.native='currentpet = itm'  :class='{"mactive":currentpet===itm}' v-for='(itm,key) in mymemberpet' :petsrc='itm.PET_IMG' :petname='itm.PET_NAME'></my-petpic> -->
             </section>
 
             <!-- ------------------------------基本資料---------------------------------- -->
-             <my-petinfo v-for='(itm,key) in mymemberpet'
-             v-if ="currentpet === key" 
-             :petspecies='itm.PET_SPECIES'
-             :petweight='itm.PET_WEIGHT'
-             :petage='itm.PET_AGE'
-             :petchip='itm.PET_CHIP_NUMBER'
-             :petgender='itm.PET_GENDER'
-             :petcut='itm.PET_STERILIZATION'
-             
-             ></my-petinfo>
-             
+            <my-petinfo v-for='(itm,key) in mymemberpet' v-if="currentpet === key" :petspecies='itm.PET_SPECIES'
+                :petweight='itm.PET_WEIGHT' :petage='itm.PET_AGE' :petchip='itm.PET_CHIP_NUMBER'
+                :petgender='itm.PET_GENDER' :petcut='itm.PET_STERILIZATION'></my-petinfo>
 
-             <!-- ------------------------------基本資料---------------------------------- -->
-             <!-- <my-petinfo v-if="currentpet"
+
+            <!-- ------------------------------基本資料---------------------------------- -->
+            <!-- <my-petinfo v-if="currentpet"
              :petspecies='currentpet.PET_SPECIES'
              :petweight='currentpet.PET_WEIGHT'
              :petage='currentpet.PET_AGE'
@@ -48,69 +42,71 @@
              
              ></my-petinfo> -->
 
-             <!-- ------------------------------緊急處理---------------------------------- -->
-             <section class="m_emergancy_data">
+            <!-- ------------------------------緊急處理---------------------------------- -->
+            <section class="m_emergancy_data">
                 <h5>緊急處理資訊</h5>
                 <div class="m_underline_2"></div>
-                    
-                    <ul>
-                        <li>
-                           <h6>緊急處理編號</h6>
-                           <p>處理編號: 01號</p>
-                        </li>
-                        <li>
-                            <h6>事件發生日期</h6>
-                            <p>2021/05/01</p>
-                        </li>
-                        <li>
-                            <h6>寵物受傷部位</h6>
-                            <p>左前大腿內側關節</p>
-                        </li>
-                        <li class="m_discript">
-                            <h6>緊急處理敘述</h6>
-                            <p>以消毒紗布或敷料（或清潔的布塊或乾淨手帕或用手）置於傷口上，然後以手掌或手指施壓，壓５?１０分鐘，等出血停止後，用繃帶或膠帶包紮固定。但傷口如有尖銳異物或碎骨頭時，不可使用此法。</p>
-                        </li>
-                        <li></li> <!-- style用的 -->
-                    </ul>
 
-                    <ul>
-                        <li>
-                           <h6>緊急處理編號</h6>
-                           <p>處理編號: 01號</p>
-                        </li>
-                        <li>
-                            <h6>事件發生日期</h6>
-                            <p>2021/05/01</p>
-                        </li>
-                        <li>
-                            <h6>寵物受傷部位</h6>
-                            <p>左前大腿內側關節</p>
-                        </li>
-                        <li class="m_discript">
-                            <h6>緊急處理敘述</h6>
-                            <p>以消毒紗布或敷料（或清潔的布塊或乾淨手帕或用手）置於傷口上，然後以手掌或手指施壓，壓５?１０分鐘，等出血停止後，用繃帶或膠帶包紮固定。但傷口如有尖銳異物或碎骨頭時，不可使用此法。</p>
-                        </li>
-                        <li></li> <!-- style用的 -->
-                    </ul>
+                <ul>
+                    <li>
+                        <h6>緊急處理編號</h6>
+                        <p>處理編號: 01號</p>
+                    </li>
+                    <li>
+                        <h6>事件發生日期</h6>
+                        <p>2021/05/01</p>
+                    </li>
+                    <li>
+                        <h6>寵物受傷部位</h6>
+                        <p>左前大腿內側關節</p>
+                    </li>
+                    <li class="m_discript">
+                        <h6>緊急處理敘述</h6>
+                        <p>以消毒紗布或敷料（或清潔的布塊或乾淨手帕或用手）置於傷口上，然後以手掌或手指施壓，壓５?１０分鐘，等出血停止後，用繃帶或膠帶包紮固定。但傷口如有尖銳異物或碎骨頭時，不可使用此法。</p>
+                    </li>
+                    <li></li> <!-- style用的 -->
+                </ul>
 
-             </section>
+                <ul>
+                    <li>
+                        <h6>緊急處理編號</h6>
+                        <p>處理編號: 01號</p>
+                    </li>
+                    <li>
+                        <h6>事件發生日期</h6>
+                        <p>2021/05/01</p>
+                    </li>
+                    <li>
+                        <h6>寵物受傷部位</h6>
+                        <p>左前大腿內側關節</p>
+                    </li>
+                    <li class="m_discript">
+                        <h6>緊急處理敘述</h6>
+                        <p>以消毒紗布或敷料（或清潔的布塊或乾淨手帕或用手）置於傷口上，然後以手掌或手指施壓，壓５?１０分鐘，等出血停止後，用繃帶或膠帶包紮固定。但傷口如有尖銳異物或碎骨頭時，不可使用此法。</p>
+                    </li>
+                    <li></li> <!-- style用的 -->
+                </ul>
+
+            </section>
 
 
-         </main>
+        </main>
     </div>
     @@include('layout/footer.html')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <!-- vue -->
     <script src="./vendors/vue/js/vue.js"></script>
+    <!-- 購物車共用組件 -->
+    <script src="js/mall_vue.js"></script>
     <!-- <script src="./js/m_aside_contrl.js"></script> -->
     <!-- <script src="./js/m_member_pet.js"></script> -->
     <script>
-    
-             Vue.component('my-petpic',{
-                template: `<section class="m_pets ">
+
+        Vue.component('my-petpic', {
+            template: `<section class="m_pets ">
                             <div>
                                 <div >
                                     <img :src='petsrc' alt="profile"  class="m_pet_pic" id="m_pet2">
@@ -122,11 +118,11 @@
                             </div>
                         </section>`,
 
-                props:['petsrc','petname'],
-                
-             });
-    
-             Vue.component('my-petinfo',{
+            props: ['petsrc', 'petname'],
+
+        });
+
+        Vue.component('my-petinfo', {
             template: `<section class="m_pets  m_pet_info"> 
                         <h5>基本資料</h5>
                         <div class="m_underline_2"></div> 
@@ -177,17 +173,17 @@
                         <input type="submit" value="確認更改" class="m_btn">
                         </form>
                     </section>`,
-            props:['petspecies','petweight','petage','petchip','petgender','petcut'],
-            computed:{
-                condition(){
-                    return '' ;
+            props: ['petspecies', 'petweight', 'petage', 'petchip', 'petgender', 'petcut'],
+            computed: {
+                condition() {
+                    return '';
                 },
             },
-         });
-    
-             Vue.component('my-aside',{
-                template: 
-                    ` <aside>
+        });
+
+        Vue.component('my-aside', {
+            template:
+                ` <aside>
                         <div>
                             <h5><a href="./member_index.html"><img src="./img/member/catlogo-8.png" alt=""><span>會員專區</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></h5>
                             <div class="m_underline_1"></div>
@@ -201,102 +197,102 @@
                             <input type="button" value="登 出" @click="mleave" >
                         </div>
                        </aside>`,
-                data(){
-                    return {
-                        mconfirm: '確認登出嗎?',
-                    };
-                },
-                methods:{
-                    mleave(){   //--- 登出function
-                        if(confirm(this.mconfirm) == true){
+            data() {
+                return {
+                    mconfirm: '確認登出嗎?',
+                };
+            },
+            methods: {
+                mleave() {   //--- 登出function
+                    if (confirm(this.mconfirm) == true) {
                         localStorage.clear();                            //清除local
-    
+
                         $.ajax({                                         //清除session ID
                             method: "POST",
                             url: "./php/front_end_API/M_removesession_MID.php",
                             data: {},
                             dataType: "text",
                             success: function success(response) {
-                            //alert(response);
-                            //let m_header = document.querySelector('.m_header');
-                            //m_header.classList.toggle('m_toggle');
-                            window.location.href="front_index.html";
-                            //$('#m_header_control').attr('style','color:orange;');
+                                //alert(response);
+                                //let m_header = document.querySelector('.m_header');
+                                //m_header.classList.toggle('m_toggle');
+                                window.location.href = "front_index.html";
+                                //$('#m_header_control').attr('style','color:orange;');
                             },
                             error: function error(exception) {
-                            alert("數據載入失敗: " + exception.status);
+                                alert("數據載入失敗: " + exception.status);
                             }
                         });
-    
-                        }else{
-    
-                        };
+
+                    } else {
+
+                    };
+                },
+            },
+        });
+
+
+        new Vue({
+            el: '#app',
+            data: {
+                mymember: [],
+                mymemberpet: [],
+                currentpet: 0,
+                // currentpet:null,
+            },
+            methods: {
+                getmymemberdata(info) {
+                    let self = this;
+
+                    $.ajax({
+                        type: "POST",
+                        url: "./php/front_end_API/M_apr_memberpeople.php",
+                        data: {
+                            MID: info,            //---透過 MID 去抓該筆會員資料
                         },
-                },
-             });
-    
-              
-                new Vue({
-                el: '#app',
-                data: {
-                    mymember:[],
-                    mymemberpet:[],
-                    currentpet:0,
-                    // currentpet:null,
-                },
-                methods: {
-                    getmymemberdata(info){
-                    let self = this;
+                        dataType: 'html'
+                    }).done(function (data) {    //---載入成功
+                        console.log(data);
+                        self.mymember = JSON.parse(data);
 
-                        $.ajax({
-                            type : "POST",	
-                            url : "./php/front_end_API/M_apr_memberpeople.php",  
-                            data : {  
-                                MID : info,            //---透過 MID 去抓該筆會員資料
-                            }, 
-                            dataType : 'html' 
-                            }).done(function(data){    //---載入成功
-                                console.log(data);
-                            self.mymember =  JSON.parse(data);
-                            
-                            }).fail(function(jqXHR){   //---載入失敗
-                            alert("res為ID數據載入失敗: " + jqXHR.status);
-                            });
-
-                    },
-                    getmemberpetdata(info){
-                    let self = this;
-
-                        $.ajax({
-                            type : "POST",	
-                            url : "./php/front_end_API/M_apr_memberpet.php",  
-                            data : {  
-                                MID : info,            //---透過 MID 去抓該筆會員資料
-                            }, 
-                            dataType : 'html' 
-                            }).done(function(data){    //---載入成功
-                                console.log(data);
-                            self.mymemberpet =  JSON.parse(data);
-                            // self.currentpet = self.mymemberpet[0]; //陣列
-                            
-                            }).fail(function(jqXHR){   //---載入失敗
-                            alert("res為ID數據載入失敗: " + jqXHR.status);
-                            });
-
-                    },
-                },
-                created(){
-
-                    axios.post("php/front_end_API/M_getsession_MID.php").then((res)=>{
-                    this.getmymemberdata(res.data);
-                    this.getmemberpetdata(res.data);
+                    }).fail(function (jqXHR) {   //---載入失敗
+                        alert("res為ID數據載入失敗: " + jqXHR.status);
                     });
 
+                },
+                getmemberpetdata(info) {
+                    let self = this;
+
+                    $.ajax({
+                        type: "POST",
+                        url: "./php/front_end_API/M_apr_memberpet.php",
+                        data: {
+                            MID: info,            //---透過 MID 去抓該筆會員資料
+                        },
+                        dataType: 'html'
+                    }).done(function (data) {    //---載入成功
+                        console.log(data);
+                        self.mymemberpet = JSON.parse(data);
+                        // self.currentpet = self.mymemberpet[0]; //陣列
+
+                    }).fail(function (jqXHR) {   //---載入失敗
+                        alert("res為ID數據載入失敗: " + jqXHR.status);
+                    });
 
                 },
+            },
+            created() {
 
-            });
-        </script>
-    </body>
+                axios.post("php/front_end_API/M_getsession_MID.php").then((res) => {
+                    this.getmymemberdata(res.data);
+                    this.getmemberpetdata(res.data);
+                });
+
+
+            },
+
+        });
+    </script>
+</body>
 
 </html>
