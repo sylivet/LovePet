@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .bg{
+        background-image:url("img/mall/dog_foot_big@2x.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.box {
+  max-width: 400px;  
+  padding: 20px;
+  background-color: rgba(255,255,255, 0.2);
+  backdrop-filter: blur(6px);
+  border-radius: 25px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,.5);
+  text-align: center;
+  font-family: sans-serif;
+  color: #558B6E
+}
+
+.inp{
+  min-width: 190px;
+  color: grey;
+  padding: 5px 5px 5px 15px;
+  border: 0;
+  box-shadow: 0px 3px 4px rgba(0,0,0,.3);
+  border-radius: 20px;
+  margin-top:20px
+}
+
+.inp:focus {
+    outline: none;
+}
+
+.btn{
+  width: 80px;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #558B6E;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  border: solid 2px white;
+  transition-duration: 1.5s;
+}
+
+.btn:hover{
+  background-color: rgba(255,255,255,.1);
+  color: #558B6E;
+  border: solid 2px #558B6E;
+  transition-duration: 1.5s;
+
+}
+  .locate{
+    float: right;
+    width: 100px;
+    text-decoration: none;
+    color:#734B23
+  }
+</style>
+<body class="bg">
+    <div class="box">
+      <h1>後台登入</h1>
+      <form action="php/back_end_API/B_login.php" method="post">
+        <input class="inp" type="text" placeholder="管理員帳號" name="account2">
+        <input class="inp" type="password" placeholder="密碼" name="pwd2">
+        <hr style="border-color: rgba(0,0,0, 0)">
+        <input class="btn" type="submit" value="登入">
+        <br>
+        <a class="locate" href="front_index.html" >回到前台首頁</a>
+      </form>
+    </div>
+  </body>
+</html>
