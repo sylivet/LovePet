@@ -26,18 +26,9 @@
         session_start();
         $_SESSION["memberID"] = $data['MEMBER_ID']; 
 
-        echo json_encode($data); 
-        // echo $_SESSION["memberID"]; 
-        
-        
-        //  include("../../Lib/Member.php");
- 
-
-        //  //將登入資訊寫入session
-        //  setSessionB($_POST["account"]);
  
         //  //導回後台首頁        
-        echo "<script>alert('管理員登入成功'); location.href = '../.././back_member.html';</script>";
+        echo "<script>location.href = '../.././back_member.html';</script>";
  
      }else{
          //跳出提示停留在後台登入頁
