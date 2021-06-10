@@ -31,19 +31,20 @@
 
 
 
-        <!-- 房型選擇跟介紹-->        
-        
+        <!-- 房型選擇跟介紹-->
+
         <template v-for="room in typeRoom">
             <div class="h_position">
                 <div class="selectMenu">
                     <i class="fa fa-angle-up rotate" aria-hidden="true"></i>
                     <input class="mainmenu" type="text" value="請選擇房型" readonly />
                     <div class="sub">
-                        <input class="submenu"  v-for="(room,i) in rooms" @click="changeRoom(room, i)"type="text" :value="room.ROOM_NAME" readonly />
+                        <input class="submenu" v-for="(room,i) in rooms" @click="changeRoom(room, i)" type="text"
+                            :value="room.ROOM_NAME" readonly />
                     </div>
                 </div>
             </div>
-             
+
             <div class="h_room" @click="font">
                 <div class="h_photo">
                     <div class="h_roomname">
@@ -292,4 +293,5 @@
     <!-- vue -->
     <script src="js/hotel_vue.js"></script>
 </body>
+
 </html>
