@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-  integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <!-- 月曆 -->
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="vendors/travo-calendar/css/tavo-calendar.css" />
@@ -87,7 +87,7 @@
           <button @click="elderSelected" id="A1003" class="addButton">加入
         </div>
       </div>
-<!-- 加價購 -->
+      <!-- 加價購 -->
       <div class="c_plus">
         <div class="c_plus_title">
           <img src="./img/clinic/checkplus@2x.png">
@@ -103,7 +103,7 @@
           </ul>
         </div>
       </div>
-<!-- 訂單 -->
+      <!-- 訂單 -->
       <div class="clinic_order">
         <!-- <h3>您選擇的健檢項目</h3> -->
         <div class="set" id="newSet">
@@ -160,7 +160,7 @@
               <ul id="plus25">
                 <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
                 <li class="item">{{item.LISTNAME}}</li>
-                <li class="cost" v-if="customChoice.length >= 2">{{item.PRICE*0.9}}元</li>   
+                <li class="cost" v-if="customChoice.length >= 2">{{item.PRICE*0.9}}元</li>
                 <li class="cost" v-else>{{item.PRICE}}元</li>
             </div>
           </div>
@@ -172,7 +172,7 @@
               <ul id="plus25">
                 <li class="alpha">{{item.HEALTH_CHECK_ID}}</li>
                 <li class="item">{{item.LISTNAME}}</li>
-                <li class="cost" v-if="customChoice.length >= 2">{{item.PRICE*0.9}}元</li>   
+                <li class="cost" v-if="customChoice.length >= 2">{{item.PRICE*0.9}}元</li>
                 <li class="cost" v-else>{{item.PRICE}}元</li>
             </div>
           </div>
@@ -182,19 +182,20 @@
         <button @click="clearAll">重新選擇</button>
         <div>
           <!-- <input type="button" value="預約健檢" class="clinicBookingButton" @click="isBookingBoxOpen=true"> -->
-          <button class="clinicBookingButton"  @click="loginCheck">預約健檢</button>
-         
+          <button class="clinicBookingButton" @click="loginCheck">預約健檢</button>
+
         </div>
         <a href="clinic_index.html"><button class="back_clinic">回健檢首頁</button></a>
       </div>
     </div>
     <!-- 預約燈箱 -->
     <transition name="fade">
-      <clinic-booking v-show="isBookingBoxOpen" @closelightbox="isBookingBoxOpen = false" :menuselect="selected" :custom="customChoice" :member="memberID"></clinic-booking>
+      <clinic-booking v-show="isBookingBoxOpen" @closelightbox="isBookingBoxOpen = false" :menuselect="selected"
+        :custom="customChoice" :member="memberID"></clinic-booking>
     </transition>
   </div>
-<!-- app結尾 -->
-<!-- footer -->
+  <!-- app結尾 -->
+  <!-- footer -->
   @@include('layout/footer.html')
 
   <!-- 預約健檢燈箱 -->
@@ -248,15 +249,16 @@
       </div>
       </div>
     </div>
-  </script> 
+  </script>
 
 
 
-<!-- 購物車共用組件 -->
-<script src="js/mall_vue.js"></script>
-<!-- 打開與關閉購物車 -->
-<script src="js/shopping_cart.js"></script>
-<script src="js/check_vue.js"></script>
+
+  <!-- 打開與關閉購物車 -->
+  <!-- <script src="js/shopping_cart.js"></script> -->
+  <script src="js/check_vue.js"></script>
+  <!-- 購物車共用組件 -->
+  <script src="js/mall_vue.js"></script>
 
 </body>
 

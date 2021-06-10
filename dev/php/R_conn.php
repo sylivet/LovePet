@@ -4,7 +4,7 @@
 $db_host = "127.0.0.1";
 $db_user = "root";
 $db_select = "LOVE_PET";
-$db_pass = "ac1234zxc";
+$db_pass = "kevin820304";
 
 
 //建立資料庫連線物件

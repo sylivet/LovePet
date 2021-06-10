@@ -4,12 +4,8 @@ const storage = localStorage;
 Vue.component('the-cart', {
   template: '#cart',
   props: ['counts'], //counts接chooseItem陣列
-  data() {
-    return {};
-  },
-  // mounted() {
-  //   let items = JSON.parse(localStorage.getItem('items'));
-  // },
+  // data() {},
+  // mounted() {},
   methods: {
     plus(index) {
       this.$emit('to-plus', index); //子元件傳值給父元件用$emit(自訂事件)
@@ -33,9 +29,6 @@ Vue.component('the-cart', {
     },
     getName() {
       // console.log(this.counts);
-      // for (let i = 0; i < this.counts.length; i++) {
-      //   console.log(JSON.parse(storage.getItem('items'))[i].name);
-      // }
       // JSON.parse() 方法把會把一個JSON字串轉換成 JavaScript的數值或是物件
     },
     getPrice() {
@@ -76,6 +69,8 @@ let data = {
   //如果預設要是第一個請選擇的話，可以把value值設為空值
   clicked: false,
   chooseItem: [], //被選擇加入的商品
+  page: 0,
+  currentPage: [],
 };
 
 new Vue({
@@ -86,11 +81,15 @@ new Vue({
     //對前端頁面資料進行初始化
     axios.post('php/front_end_API/sup_select.php').then(function (res) {
       self.info = res.data;
+      self.currentPage.push(
+        self.info[parseInt(location.href.split('#')[1]) - 1],
+      ); //動態新增會有問題 index對不上
     });
     axios.post('php/front_end_API/food_select.php').then(function (res) {
       self.food = res.data;
     });
   },
+  mounted() {},
   methods: {
     showInput() {
       if (this.clicked == false) {
@@ -161,7 +160,9 @@ new Vue({
       window._jf.flush(); //手動更新justfont
     },
     openCart() {
-      console.log('from_vue');
+      // console.log('from_vue');
+      // console.log(localStorage);
+      this.chooseItem = JSON.parse(localStorage.getItem('items'));
       var shoppingcartbk = document.getElementById('i_shoppingCart_bk');
       if (shoppingcartbk.style.display === 'none') {
         shoppingcartbk.style.display = 'block';
@@ -175,6 +176,10 @@ new Vue({
           }
         });
       }
+    },
+    into(pointer) {
+      this.currentPage.push(this.info[pointer]);
+      console.log(this.info[this.page]);
     },
   },
   computed: {

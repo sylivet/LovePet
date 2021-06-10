@@ -72,24 +72,25 @@
     XXXXXXXXXXXXX。若有侵權疑慮，您可以私訊[TibaMe-前端設計工程師養成班]，後續會由專人協助處理。
   </p>
 </footer>
-<!-- 購物車組件 -->
 
+
+<!-- 購物車組件 -->
 <script type="text/x-template" id="cart">
   <div class="i_shoppingCart bar" id="bar">
     <table id="data-id" v-for="(item,index) in counts">
       <tr class="myItems">
-        <td><img :src="getIMG" alt=""></td>
+        <td><img :src="item.item_img" alt=""></td>
         <td>
           <div @click="remove" class="icon">&times;</div>
         </td>
-        <td>{{getName}}</td>
+        <td>{{item.item_name}}</td>
         <td>
           <div @click="sub" class="icon">−</div>
           <!-- 做click事件 -->
-          <input type="text" :value="getCount" readonly="readonly">
+          <input type="text" :value="item.item_count" readonly="readonly">
           <div @click="plus(index)" class="icon">+</div>
         </td>
-        <td>NT{{getPrice}}元</td>
+        <td>NT{{item.item_price}}元</td>
       </tr>
     </table>
     <hr>
@@ -116,6 +117,6 @@
 <!-- vue -->
 <script src="./vendors/vue/js/vue.js"></script>
 <!-- 購物車共用組件 -->
-<script src="js/mall_vue.js"></script>
+<!-- <script src="js/mall_vue.js"></script> -->
 <!-- 打開與關閉購物車 -->
-<script src="js/shopping_cart.js"></script>
+<!-- <script src="js/shopping_cart.js"></script> -->

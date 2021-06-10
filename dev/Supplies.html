@@ -5,7 +5,7 @@
     <div class="info_block">
       <h4>{{item.PRODUCT_NAME}}<br>${{item.PRODUCT_PRICE}}元</h4>
       <div class="view_btn">
-        <a href="./s_view.html">
+        <a :href="`./s_view.html#${item.PRODUCT_ID}`">
           <h3>view</h3>
         </a>
       </div>

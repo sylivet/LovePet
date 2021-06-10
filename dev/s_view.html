@@ -14,7 +14,7 @@
 <body class="shopping">
   <div id="forCart" class="s_wrapper">
     @@include('layout/header.html')
-    <div v-for="item in info" class="shopping_main">
+    <div v-for="item in currentPage" class="shopping_main">
       <div class="s_ph">
         <div class="s_big_ph">
           <img :src="item.PRODUCT_IMG" alt="">
@@ -97,6 +97,8 @@
   <!-- <script src="js/cart_component.js"></script> -->
   <!-- 打開與關閉購物車 -->
   <!-- <script src="js/shopping_cart.js"></script> -->
+
+  <script src="js/mall_vue.js"></script>
 </body>
 
 </html>
