@@ -9,6 +9,17 @@
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
     @@include('layout/back_style.html')
   <title>樂寵後台管理</title>
+  <style>
+    body{
+      overflow: auto;
+    }
+    input{
+      width: 80px;
+    }
+    input[name="BOOKING_DATE"]{
+      width: 100px;
+    }
+  </style>
 </head>
 
 <body class="backend">
@@ -25,71 +36,7 @@
   </nav>
   <div class="container mt-5">
     <div class="row">
-      <div class="col-2">
-        <div class="list-group text-center">
-          <a href="back_member.html" class="
-              list-group-item list-group-item-action list-group-item-success
-            ">會員管理</a>
-          <a href="back_news.html" class="
-              list-group-item list-group-item-action list-group-item-success
-            ">消息管理</a>
-          <a class="
-              list-group-item list-group-item-action list-group-item-success
-            " data-bs-toggle="collapse" href="#order-list" role="button" aria-expanded="false"
-            aria-controls="order-list"><span class="badge bg-success rounded-pill">0</span> 訂單管理</a>
-          <div class="collapse" id="order-list">
-            <a href="back_restaurant_order.html" class="
-                list-group-item
-                list-group-item-action
-                list-group-item-secondary
-              "><span class="badge bg-success rounded-pill">0</span> 餐廳訂單</a>
-            <a href="back_hotel_order.html" class="
-                list-group-item
-                list-group-item-action
-                list-group-item-secondary
-              "><span class="badge bg-success rounded-pill">0</span> 旅館訂單</a>
-            <a href="back_hospital_order.html" class="
-                list-group-item
-                list-group-item-action
-                list-group-item-secondary
-              "><span class="badge bg-success rounded-pill C_orderNumber">0</span> 健檢訂單</a>
-            <a href="back_shopping_order.html" class="
-                list-group-item
-                list-group-item-action
-                list-group-item-secondary
-              "><span class="badge bg-success rounded-pill">0</span> 商城訂單</a>
-          </div>
-          <a class="
-              list-group-item list-group-item-action list-group-item-success
-            " data-bs-toggle="collapse" href="#product-list" role="button" aria-expanded="false"
-            aria-controls="product-list">商品管理</a>
-          <div class="collapse" id="product-list">
-            <a href="back_restaurant_meal.html" class="
-                list-group-item
-                list-group-item-action
-                list-group-item-secondary
-              ">餐廳餐點</a>
-            <a href="back_room_type.html" class="
-                list-group-item
-                list-group-item-action
-                list-group-item-secondary
-              ">旅館房型</a>
-            <a href="back_health_check.html" class="
-                list-group-item
-                list-group-item-action
-                list-group-item-secondary
-              ">健檢項目</a>
-            <a href="back_shopping_product.html" class="
-                list-group-item
-                list-group-item-action
-                list-group-item-secondary
-              ">商城商品</a>
-          </div>
-          <a href="back_message_list.html" class="
-              list-group-item list-group-item-action list-group-item-success
-            "><span class="badge bg-success rounded-pill">0</span> 商城留言</a>
-        </div>
-      </div>
+      @@include('back_leftSide.html')
       <div class="col-10">
         <h2 class="mb-3">健檢訂單管理</h2>
         <select name="" id="byNumber">
@@ -125,10 +72,10 @@
     crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+		<script src="./js/orderNumber.js"></script>
 		<script>
-			axios.post("php/back_end_API/C_select_order.php").then((res) => {
+		axios.post("php/back_end_API/C_select_order.php").then((res) => {
 				getData(res);
-				$('.C_orderNumber').text(res.data.length)
 			});
 
       function getData(res) {
@@ -150,10 +97,10 @@
 									<input type="text" name="FK_SET_MENU_ID" value="${res.data[i].FK_SET_MENU_ID}" disabled/>
 								</td>
 								<td>
-									<input type="text" name="FK_HEALTH_CHECK_ID" value="${res.data[i].FK_HEALTH_CHECK_ID}" disabled />
+									<input type="text" name="FK_HELTH_CHECK_ID" value="${res.data[i].FK_HELTH_CHECK_ID===null?'0':res.data[i].FK_HELTH_CHECK_ID}" disabled />
 								</td>
                 <td>
-									<input type="text" name="FK_HEALTH_CHECK_ID2" value="${res.data[i].FK_HEALTH_CHECK_ID2}" disabled />
+									<input type="text" name="FK_HELTH_CHECK_ID2" value="${res.data[i].FK_HELTH_CHECK_ID2===null?'0':res.data[i].FK_HELTH_CHECK_ID2}" disabled />
 								</td>
 								<td>
 									<select name="ORDER_STATUS" disabled>
@@ -198,9 +145,12 @@
 				let HOSPITAL_ORDER_ID = $(this).parent().find("input[name='HOSPITAL_ORDER_ID']").val();
 				let BOOKING_DATE = $(this).parent().find("input[name='BOOKING_DATE']").val();
 				let FK_SET_MENU_ID = $(this).parent().find("input[name='FK_SET_MENU_ID']").val();
-				let FK_HEALTH_CHECK_ID = $(this).parent().find("input[name='FK_HEALTH_CHECK_ID']").val();
-				let FK_HEALTH_CHECK_ID2 = $(this).parent().find("input[name='FK_HEALTH_CHECK_ID2']").val();
+				let FK_HELTH_CHECK_ID = $(this).parent().find("input[name='FK_HELTH_CHECK_ID']").val();
+				let FK_HELTH_CHECK_ID2 = $(this).parent().find("input[name='FK_HELTH_CHECK_ID2']").val();
 				let ORDER_STATUS = $(this).parent().find("select[name='ORDER_STATUS']").val();
+
+        console.log(FK_HELTH_CHECK_ID);
+        console.log(FK_HELTH_CHECK_ID2);
 
 
 				$.ajax({
@@ -209,13 +159,14 @@
 					data:{
 						'BOOKING_DATE': BOOKING_DATE,
 						'FK_SET_MENU_ID': FK_SET_MENU_ID,
-						'FK_HEALTH_CHECK_ID': FK_HEALTH_CHECK_ID,
-						'FK_HEALTH_CHECK_ID2': FK_HEALTH_CHECK_ID2,
+						'FK_HELTH_CHECK_ID': FK_HELTH_CHECK_ID,
+						'FK_HELTH_CHECK_ID2': FK_HELTH_CHECK_ID2,
 						'ORDER_STATUS': ORDER_STATUS,
 						'HOSPITAL_ORDER_ID': HOSPITAL_ORDER_ID
 					},
 					dataType: "text",
 					success: function (res) {
+            console.log(res);
 						alert("修改成功")
 					},
 					error: function(exception) {

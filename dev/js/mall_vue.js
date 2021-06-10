@@ -1,21 +1,23 @@
+// 設定LaclStorage，放在變數中以後若要改SessionStorage
+const storage = localStorage;
+
 Vue.component('the-cart', {
   template: '#cart',
   props: ['counts'], //counts接chooseItem陣列
   data() {
-    return {
-      cartData: [],
-    };
+    return {};
   },
-  mounted() {
-    // check localStorage;
-  },
+  // mounted() {
+  //   let items = JSON.parse(localStorage.getItem('items'));
+  // },
   methods: {
-    plus() {
-      this.$emit('to-plus'); //子元件傳值給父元件用$emit(自訂事件)
+    plus(index) {
+      this.$emit('to-plus', index); //子元件傳值給父元件用$emit(自訂事件)
+      // this.counts[index].count++;
       console.log('有偵測到功能');
     },
-    sub() {
-      this.$emit('to-sub');
+    sub(index) {
+      this.$emit('to-sub', index);
       console.log('有偵測到功能');
     },
     remove() {
@@ -23,14 +25,34 @@ Vue.component('the-cart', {
       console.log('有偵測到刪除功能');
     },
   },
-  // computed: {
-  //   chooseProduct() {
-  //     return this.counts;
-  //   },
-  // },
+  computed: {
+    currentPrice() {
+      // for (let i = 0; i < this.counts.length; i++) {
+      //   return this.counts[i].count * this.counts[i].PRODUCT_PRICE;
+      // }
+    },
+    getName() {
+      // console.log(this.counts);
+      // for (let i = 0; i < this.counts.length; i++) {
+      //   console.log(JSON.parse(storage.getItem('items'))[i].name);
+      // }
+      // JSON.parse() 方法把會把一個JSON字串轉換成 JavaScript的數值或是物件
+    },
+    getPrice() {
+      // return JSON.parse(storage.getItem('item_0')).PRODUCT_PRICE;
+    },
+    getIMG() {
+      // return JSON.parse(storage.getItem('item_0')).PRODUCT_IMG;
+    },
+    getCount() {
+      // return JSON.parse(storage.getItem('item_0')).count;
+      return 1;
+    },
+    getTotalPrice() {
+      return 100;
+    },
+  },
 });
-// localStorage;
-// vuex;
 
 let data = {
   options: [
@@ -42,64 +64,7 @@ let data = {
 
   info: [],
 
-  food: [
-    {
-      name: '野菜玉子燒(犬)',
-      price: '85',
-      src: 'img/mall/野菜玉子燒(犬)85元@2x.png',
-    },
-    {
-      name: '無穀如意棒',
-      price: '108',
-      src: 'img/mall/無穀如意棒108元@2x.png',
-    },
-    {
-      name: '花之戀SUSHI',
-      price: '88',
-      src: 'img/mall/花之戀SUSHI88元@2x.png',
-    },
-    {
-      name: '翻滾吧蛋炒飯',
-      price: '49',
-      src: 'img/mall/翻滾吧蛋炒飯49元@2x.png',
-    },
-    {
-      name: '香甜地瓜雞肉餐',
-      price: '85',
-      src: 'img/mall/香甜地瓜雞肉餐85元@2x.png',
-    },
-    {
-      name: '雞肉佐南瓜秋葵',
-      price: '130',
-      src: 'img/mall/雞肉佐南瓜秋葵130元@2x.png',
-    },
-    {
-      name: '清蒸泰鱸魚',
-      price: '128',
-      src: 'img/mall/清蒸泰鱸魚128元@2x.png',
-    },
-    {
-      name: '古典約克燴肉漢堡',
-      price: '95',
-      src: 'img/mall/古典約克燴肉漢堡95元@2x.png',
-    },
-    {
-      name: '鮭魚佐低脂雞漢堡',
-      price: '95',
-      src: 'img/mall/鮭魚佐低脂雞漢堡95元@2x.png',
-    },
-    { name: '寵物鮮食粽', price: '85', src: 'img/mall/寵物鮮食粽85元@2x.png' },
-    {
-      name: '芝麻洋芋豬後腿',
-      price: '80',
-      src: 'img/mall/芝麻洋芋豬後腿80元@2x.png',
-    },
-    {
-      name: '番茄花菜牛肋脊',
-      price: '80',
-      src: 'img/mall/番茄花菜牛肋脊80元@2x.png',
-    },
-  ],
+  food: [],
 
   input: {
     text: '',
@@ -119,8 +84,11 @@ new Vue({
   created() {
     var self = this;
     //對前端頁面資料進行初始化
-    axios.post('php/front_end_API/y_select.php').then(function (res) {
+    axios.post('php/front_end_API/sup_select.php').then(function (res) {
       self.info = res.data;
+    });
+    axios.post('php/front_end_API/food_select.php').then(function (res) {
+      self.food = res.data;
     });
   },
   methods: {
@@ -138,41 +106,62 @@ new Vue({
         this.input.text = ''; //切頁後清空輸入內容，切回時就會讓頁面重置，防止切回輸入結果還在的情況
       }
     },
-    increase() {
-      console.log(this.info[0].count);
-      this.info[0].count++;
+    increase(i) {
+      this.chooseItem[i].count++;
+      storage.setItem(`item_0`);
+      // console.log(this.info);
     },
-    decrease() {
-      console.log(this.info[0].count);
-      if (this.info[0].count > 0) {
-        this.info[0].count--;
+    decrease(i) {
+      if (this.chooseItem[i].count > 0) {
+        this.chooseItem[i].count--;
       } else {
         return 0;
       }
     },
-    addToCart(product1, product2, product3) {
-      if (this.chooseItem.indexOf(product1 && product2 && product3) == -1) {
-        this.chooseItem.push(product1, product2, product3); //chooseItem['陣列']
-        console.log(this.chooseItem);
+    addToCart(product) {
+      // 只要一按加到購物車就存到localStorage
+
+      let cart = {
+        item_id: product.PRODUCT_ID,
+        item_img: product.PRODUCT_IMG,
+        item_name: product.PRODUCT_NAME,
+        item_count: product.count,
+      };
+      // 設定localStorage的value要放的資料
+
+      let value = JSON.parse(localStorage.getItem('items'));
+      // getItem() 方法中輸入key可以得到對應的value，並轉換成JS物件型態
+      if (value) {
+        // 如果items裡有value，cart物件被加到陣列的最後
+        value.push(cart);
+      } else {
+        // 若items裡尚未有value，value就是cart，並以陣列包住
+        value = [cart];
+      }
+      storage.setItem('items', JSON.stringify(value));
+      // 加到localStorage，key為items，value為字串化後的items
+
+      if (this.chooseItem.indexOf(product) == -1) {
+        this.chooseItem.push(product); //chooseItem['陣列']
       }
     },
     removeToCart() {
-      let result = $.map(this.chooseItem, function (item) {
-        return item.name;
-      });
-      console.log(result[0]);
-      for (let i = 0; i < result.length; i++) {
-        if (result[i] === result[i]) {
-          console.log('aa');
+      let check_delete = confirm('是否移除?');
+      if (check_delete) {
+        for (let i = 1; i < localStorage.length; i++) {
+          if (JSON.stringify(localStorage.key(i)) == `item_1`) {
+            console.log(`item_${this.i}`);
+          }
+          // 箭頭函式，尋找陣列chooseItem中符合的元素，並返回其 index值，每個元素都會執行cllback function，如果參數item(陣列元素)也存在於陣列裡，返回它的index值
+          // this.chooseItem.splice(index, 1); //刪除該index
         }
       }
-      // 箭頭函式，尋找陣列chooseItem中符合的元素，並返回其 index值，每個元素都會執行cllback function，如果參數item(陣列元素)也存在於陣列裡，返回它的index值
-      // this.chooseItem.splice(index, 1); //刪除該index
     },
-    rerender() {
+    reRender() {
       window._jf.flush(); //手動更新justfont
     },
-    open() {
+    openCart() {
+      console.log('from_vue');
       var shoppingcartbk = document.getElementById('i_shoppingCart_bk');
       if (shoppingcartbk.style.display === 'none') {
         shoppingcartbk.style.display = 'block';
@@ -189,6 +178,7 @@ new Vue({
     },
   },
   computed: {
+    // 關鍵字搜尋功能
     forsup() {
       if (this.input.text) {
         return this.info.filter(

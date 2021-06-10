@@ -17,7 +17,7 @@
               $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
               
               //檔案最終存放位置
-              $filePath = $ServerRoot."/dist/img/index/".$fileName;
+              $filePath = $ServerRoot."img/index/".$fileName;
        
               //將暫存檔搬移到正確位置
               move_uploaded_file($filePath_Temp, $filePath);

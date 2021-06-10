@@ -1,169 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>  
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
+
   <title>mall_top</title>
 
   <style>
-    body{
+    body {
       padding-top: 87px;
       overflow-x: hidden;
     }
-  
-      .mall_top{
-        position: relative;
-        background-image: url("./img/mall/back_cart-01.svg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        width: 100%;
-        height: 100vh;       
-      }
 
-      @media(max-width:400px) {
-        .mall_top { 
-        position: relative;
-        background-image: url("./img/mall/back_cart-01.svg");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: top; 
-        width: 100%;
-        height: 30vh;    
-        }
-      }
+    .mall_top {
+      position: relative;
+      background-image: url("./img/mall/back_cart-01.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 100vh;
+    }
 
-      @media screen and (min-width:401px) and (max-width:1200px){
-        .mall_top { 
+    @media(max-width:400px) {
+      .mall_top {
         position: relative;
         background-image: url("./img/mall/back_cart-01.svg");
         background-repeat: no-repeat;
         background-size: contain;
-        background-position: top; 
+        background-position: top;
         width: 100%;
-        height: 75vh;    
-        }
+        height: 30vh;
       }
+    }
 
-      .cloud_cart{
+    @media screen and (min-width:401px) and (max-width:1200px) {
+      .mall_top {
+        position: relative;
+        background-image: url("./img/mall/back_cart-01.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: top;
         width: 100%;
-        position: absolute;
-        top:0;
-        left: 0;
-        z-index: 999;
+        height: 75vh;
       }
+    }
 
-      .hand_cart{
-        width: 90%;
-        position: absolute;
-        top:0;
-        left: 10%;
-        opacity: 0;
-        z-index: 999;
-      }
+    .cloud_cart {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
 
-      .cart_cart{
-        width: 90%; 
-        position: absolute;
-        top:0;
-        left: 5%;
-        z-index: 999;   
-      }
+    .hand_cart {
+      width: 90%;
+      position: absolute;
+      top: 0;
+      left: 10%;
+      opacity: 0;
+      z-index: 999;
+    }
 
-      .pro1{
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 888;
-        opacity: 0;
-      }
+    .cart_cart {
+      width: 90%;
+      position: absolute;
+      top: 0;
+      left: 5%;
+      z-index: 999;
+    }
 
-      .pro2{
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 888;
-        opacity: 0;
-      }
+    .pro1 {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 888;
+      opacity: 0;
+    }
 
-      .pro3{
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 888;
-        opacity: 0;
-      }
+    .pro2 {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 888;
+      opacity: 0;
+    }
 
-      .products2_cart{
-        width: 90%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 888;
-        opacity: 0;
-      }
-      /* 暗示往下滑的箭頭 */
+    .pro3 {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 888;
+      opacity: 0;
+    }
+
+    .products2_cart {
+      width: 90%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 888;
+      opacity: 0;
+    }
+
+    /* 暗示往下滑的箭頭 */
+    .scroll-down {
+      position: absolute;
+      bottom: 10%;
+      right: 50%;
+
+      z-index: 10;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+    }
+
+    @media(min-width:1400px) {
       .scroll-down {
-            position: absolute;
-            bottom: 10%;
-            right: 50%;
-            
-            z-index: 10;
-            transform: translate(-50%, -50%);
-            z-index: 999;
-        }
-      @media(min-width:1400px) {
-        .scroll-down {  bottom: 20%;
-            }
+        bottom: 20%;
       }
-      @media screen and (max-width:400px){
-        .scroll-down{
-            display: none;
+    }
+
+    @media screen and (max-width:400px) {
+      .scroll-down {
+        display: none;
       }
- }
+    }
 
-.scroll-down span:nth-child(2) {
-            animation-delay: -0.2s;
-        }
+    .scroll-down span:nth-child(2) {
+      animation-delay: -0.2s;
+    }
 
- .scroll-down span:nth-child(3) {
-            animation-delay: -0.4s;
-        }
+    .scroll-down span:nth-child(3) {
+      animation-delay: -0.4s;
+    }
 
- .scroll-down span {
-            display: block;
-            width: 20px;
-            height: 20px;
-            border-bottom: 3px solid white;
-            border-right: 3px solid white;
-            transform: rotate(45deg);
-            margin: -10px;
-            animation: animate 2s infinite;
-        }
+    .scroll-down span {
+      display: block;
+      width: 20px;
+      height: 20px;
+      border-bottom: 3px solid white;
+      border-right: 3px solid white;
+      transform: rotate(45deg);
+      margin: -10px;
+      animation: animate 2s infinite;
+    }
 
-        @keyframes animate {
-            0% {
-                opacity: 0;
-                transform: rotate(45deg) translate(-20px, -20px);
-            }
+    @keyframes animate {
+      0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px, -20px);
+      }
 
-            50% {
-                opacity: 1;
-            }
+      50% {
+        opacity: 1;
+      }
 
-            100% {
-                opacity: 0;
-                transform: rotate(45deg) translate(20px, 20px);
-            }
-        }
+      100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(20px, 20px);
+      }
+    }
   </style>
 
 </head>
@@ -180,7 +185,7 @@
     <div class="cart_cart">
       <img src="./img/mall/cart_cart-01.svg" alt="">
     </div>
- 
+
     <div class="pro1">
       <img src="./img/mall/pro1-01.svg" alt="">
     </div>
@@ -194,7 +199,7 @@
       <img src="./img/mall/products2_cart-01.svg" alt="">
     </div>
     <!-- 暗示往下滑的箭頭 -->
-    <div class="scroll-down"> 
+    <div class="scroll-down">
       <span></span>
       <span></span>
       <span></span>
@@ -202,7 +207,7 @@
     </div>
   </div>
   </div>
-  
+
   <script>
     // gsap.registerPlugin(ScrollTrigger);
 
@@ -223,55 +228,59 @@
     // })
 
     //變數寫法     
-var hand_position = window.innerWidth < 768 ? -180 : -520;
+    var hand_position = window.innerWidth < 768 ? -180 : -520;
 
-var MALL = new TimelineMax();
-    MALL.to('.hand_cart', 1, { 
-            opacity:1, 
+    var MALL = new TimelineMax();
+    MALL.to('.hand_cart', 1, {
+      opacity: 1,
     })
 
-    // .to('.hand_cart', { x: -500, x: -520}) //手
-    
-    .to('.pro1',.15,{scale:0.8,opacity:1}) //商品倒出
-    .to('.pro2',.15,{scale:0.8,opacity:1})
-    .to('.pro3',.15,{scale:0.8,opacity:1})
+      // .to('.hand_cart', { x: -500, x: -520}) //手
 
-    
+      .to('.pro1', .15, { scale: 0.8, opacity: 1 }) //商品倒出
+      .to('.pro2', .15, { scale: 0.8, opacity: 1 })
+      .to('.pro3', .15, { scale: 0.8, opacity: 1 })
 
-    //購物車加大   
-    .to('.cart_cart',{
-      transformOrigin: 'bottom center',
-      // ease: Elastic.easeOut.config(1.5,0.3) ,scale:2.5  
-      ease: Bounce.easeOut ,scale:2   
-    })
 
-    //商品淡出
-    .to('.pro3',.1,{opacity:0
-    })
-    .to('.pro1',.1,{opacity:0
-    })
-    .to('.pro2',.1,{opacity:0
-    })
 
-    //商品滿出來
-    .to('.products2_cart',1,{opacity:1,})
+      //購物車加大   
+      .to('.cart_cart', {
+        transformOrigin: 'bottom center',
+        // ease: Elastic.easeOut.config(1.5,0.3) ,scale:2.5  
+        ease: Bounce.easeOut, scale: 2
+      })
 
-    //手離開
-    .to('.hand_cart', 1, { 
-            x: 520, 
-            y:0, 
-            opacity:0,
+      //商品淡出
+      .to('.pro3', .1, {
+        opacity: 0
+      })
+      .to('.pro1', .1, {
+        opacity: 0
+      })
+      .to('.pro2', .1, {
+        opacity: 0
+      })
+
+      //商品滿出來
+      .to('.products2_cart', 1, { opacity: 1, })
+
+      //手離開
+      .to('.hand_cart', 1, {
+        x: 520,
+        y: 0,
+        opacity: 0,
+      });
+
+
+    //雲
+    TweenMax.to('.cloud_cart', 8, {
+      x: -1000,
+      repeat: -1,
     });
 
 
- //雲
-    TweenMax.to('.cloud_cart', 8, { 
-            x: -1000, 
-            repeat:-1,
-    }) ;
 
-
-    
   </script>
 </body>
+
 </html>

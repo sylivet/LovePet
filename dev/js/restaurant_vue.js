@@ -57,7 +57,6 @@ Vue.component("booking", {
             },            
             dataType: "text",
             success: (res)=> {
-              console.log(res);
               if(res === "ok"){
                 alert("已幫您預約")
                 this.$emit('closelightbox')
