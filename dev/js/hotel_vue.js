@@ -360,3 +360,21 @@ let vm = new Vue({
     },
   },
 });
+
+
+var h1 = new TimelineMax();
+  h1.to('.wood1', 1, { 
+        opacity:1,
+      })
+      .to('.wood2', 1, { 
+        opacity:1,
+      })
+      .to('.wood3', 1, { 
+        opacity:1,
+      })
+      .to('.wood4', 1, { 
+        opacity:1,
+      })
+      .to('.wood5', 1, { 
+        opacity:1,
+      }) 

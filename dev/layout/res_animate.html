@@ -22,18 +22,9 @@
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 100vh;  
-}
-@media screen and (max-width:400px){
-  .res_top{
-      position: relative;
-      background-image: url("./img/restaurant/res_back-01.svg");
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: top; 
-      width: 100%;
-      height: 50vh;  
-    }
+  padding-top:56.25%;
+  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .cloud{
@@ -42,109 +33,59 @@
   top: 0;
   left: 0;
   z-index: 999;
+  animation:cloud linear forwards infinite 8s alternate-reverse;
+}
+@keyframes cloud {
+	0% {
+    opacity: 0;
+		transform: translateX(500px);
+	}
+
+  50%{
+    opacity: 0.8;
+  }
+
+	100% {
+		opacity: 0;
+		transform: translateX(-1200px);
+	}
 }
 
 .p1{
   width: 100%;
   position: absolute;
-  top: -20%;
+  bottom: 0;
   left: 0;
-}
-@media screen and (max-width:400px){
-  .p1{
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-}
-@media screen and (min-width:401px) and (max-width:1200px){
-  .p1{
-  width: 100%;
-  position: absolute;
-  top: 20%;
-  left: 0;
-}
 }
 
 .p2{
   width: 100%;
   position: absolute;
-  top: -10%;
+  bottom: 10%;
   left:-3%;
-}
-@media screen and (max-width:400px){
-  .p2{
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left:0;
-}
-}
-@media screen and (min-width:401px) and (max-width:1200px){
-  .p2{
-  width: 100%;
-  position: absolute;
-  top: 20%;
-  left:0;
-}
 }
 
 .dog1{
   width: 100%;
   position: absolute;
-  top: -10%;
+  bottom: 10%;
   left: 0;
 }
 
-@media screen and (max-width:400px){
-  .dog1{
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-}
-@media screen and (min-width:401px) and (max-width:1200px){
-  .dog1{
-  width: 100%;
-  position: absolute;
-  top: 20%;
-  left: 0;
-}
-}
 
 .dog2,.dog3,.dog4,.dog5,.dog6,.dog7{
   width: 100%;
   position: absolute;
-  top: -10%;
+  bottom: 10%;
   left: 0;
   opacity: 0;
-}
-@media screen and (max-width:400px){
-  .dog2,.dog3,.dog4,.dog5,.dog6,.dog7{
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-}
-@media screen and (min-width:401px) and (max-width:1200px){
-  .dog2,.dog3,.dog4,.dog5,.dog6,.dog7{
-  width: 100%;
-  position: absolute;
-  top: 20%;
-  left: 0;
-  opacity: 0;
-}
 }
 
 
 /* 暗示往下滑的箭頭 */
 .scroll-down {
             position: absolute;
-            bottom: 10%;
+            bottom: 5%;
             right: 50%;
             
             z-index: 10;
@@ -246,52 +187,6 @@
   </div>
 
   <script>
-//餐廳
-
-// gsap.registerPlugin(ScrollTrigger);
-
-//     gsap.defaults({ ease: "ease" })
-//     const t1 = gsap.timeline({
-//       paused: true,
-//       scrollTrigger: {
-//         trigger: '.res_top', //要使用ScrollTrigger的範圍
-//         start: 'top top',
-//         end: 'bottom+=2500 top',
-//         pin: true,
-//         scrub: 1,
-//         // markers: true
-//       },
-//       defaults: {
-//         duration: 1
-//       }
-//     })
-    //客人
-    // .to('.p1', {opacity:1})  
-
-    // .to('.p2', {opacity:1}) 
-
-    //小狗
-  //   .to('.dog1' , 0.1 , {opacity:0})
-  // .to('.dog2' , 0.1 , {opacity:1})
-  // .to('.dog2' , 0.1 , {opacity:0})
-  // .to('.dog3' , 0.1 , {opacity:1})
-  // .to('.dog3' , 0.1 , {opacity:0})
-  // .to('.dog4' , 0.1 , {opacity:1})
-  // .to('.dog4' , 0.1 , {opacity:0})
-  // .to('.dog5' , 0.1 , {opacity:1})
-  // .to('.dog5' , 0.1 , {opacity:0})
-  // .to('.dog6' , 0.1 , {opacity:1})
-  // .to('.dog6' , 0.1 , {opacity:0})
-  // .to('.dog7' , 0.1 , {opacity:1})
-     
-    // 雲
-    TweenMax.to('.cloud', 8, { 
-            x: -1200, 
-            y:0, 
-            repeat:-1,
-            ease:Power0.easeNone, 
-    }) ;
-
     //小狗
   var dl = new TimelineMax();
   dl.to('.dog1' , 0.1 , {opacity:0})
@@ -306,18 +201,6 @@
   .to('.dog6' , 0.15 , {opacity:1})
   .to('.dog6' , 0.1 , {opacity:0})
   .to('.dog7' , 0.15 , {opacity:1})
- 
-  // dl.stop();  //先讓動畫暫停
-  // document.getElementById('runningdog').onmouseover = function(){  //滑鼠滑過去才play
-  //   dl.play();
-  // }
-
-  // document.getElementById('runningdog').onmouseleave = function(){  //反轉回到最初狀態
-  //   dl.reverse();
-  // }
-
-  
-  
     
   </script>
 </body>

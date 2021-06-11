@@ -16,28 +16,159 @@
     <!-- 捲軸 -->
     <link rel="stylesheet" href="https://cdn.staticfile.org/simplebar/5.2.1/simplebar.min.css" />
     <title>hotel</title>
+    <style>
+        .hotel_top{
+          position: relative;
+          background-image: url("./img/hotel/back_hotel-01.svg");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          width: 100%;
+          padding-top:56.25%;
+          overflow: hidden;
+          overflow-x: hidden;
+        }
+        
+        .wood1,.wood2,.wood3,.wood4,.wood5{
+          width: 80%;
+          position: absolute;
+          top: 0;
+          left: 15%;
+          opacity: 0;
+        }
+        .wood1{
+          z-index: 999;
+        }
+        .wood2{
+          z-index: 888;
+        }
+        .wood3{
+          z-index: 777;
+        }
+        .wood4{
+          z-index: 666;
+        }
+        .wood5{
+          z-index: 555;
+        }
+        
+        .wind{
+          width: 2%;
+          position: absolute;
+          top: 38%;
+          left: 26%;
+        }
+        
+        .star{
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          animation: star linear forwards infinite 1s alternate-reverse;
+        }
+        @keyframes star{
+          0%{
+            opacity: 0;
+            }
+        
+          50%{
+            opacity: .5;
+            scale: 15;
+            }
+        
+          100%{
+            opacity: 1;
+            scale: 30;
+            }
+        }
+        
+        .star2{
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          animation: star linear forwards infinite 3s alternate-reverse;
+        }
+        @keyframes star{
+          0%{
+            opacity: 0.5;
+            }
+        
+          100%{
+            opacity: 1;
+            }
+        }
+        
+        
+        /* 暗示往下滑的箭頭 */
+        .scroll-down {
+                    position: absolute;
+                    bottom: 5%;
+                    right: 50%;
+                    
+                    z-index: 10;
+                    transform: translate(-50%, -50%);
+                    z-index: 999;
+                }
+         @media(min-width:1400px) {
+          .scroll-down {  bottom: 20%;
+                    }
+         }
+         @media screen and (max-width:400px){
+          .scroll-down{
+            display: none;
+          }
+         }
+        
+        .scroll-down span:nth-child(2) {
+                    animation-delay: -0.2s;
+                }
+        
+         .scroll-down span:nth-child(3) {
+                    animation-delay: -0.4s;
+                }
+        
+         .scroll-down span {
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                    border-bottom: 3px solid white;
+                    border-right: 3px solid white;
+                    transform: rotate(45deg);
+                    margin: -10px;
+                    animation: animate 2s infinite;
+                }
+        
+                @keyframes animate {
+                    0% {
+                        opacity: 0;
+                        transform: rotate(45deg) translate(-20px, -20px);
+                    }
+        
+                    50% {
+                        opacity: 1;
+                    }
+        
+                    100% {
+                        opacity: 0;
+                        transform: rotate(45deg) translate(20px, 20px);
+                    }
+                }
+          </style>
 </head>
 
 <body>
+  @@include('layout/hotel_animate.html')
     <!-- header -->
     <div id="forCart">
         @@include('layout/header.html')
     </div>
     <div id="app">
-
-        <!-- 旅館banner動畫 -->
-        <div class="h_banner">
-            <img src="img/hotel/h_banner.png" alt="" />
-        </div>
-
-
-
-
         <!-- 房型選擇跟介紹-->
 
         <template v-for="room in typeRoom">
             <div class="h_position">
-                <div class="selectMenu">
+                <div class="selectMenu" style="margin-top: 30px;">
                     <i class="fa fa-angle-up rotate" aria-hidden="true"></i>
                     <input class="mainmenu" type="text" value="請選擇房型" readonly />
                     <div class="sub">
@@ -289,7 +420,6 @@
           </div>
       </div>
     </script>
-
     <!-- 環景 -->
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <!-- vue -->
