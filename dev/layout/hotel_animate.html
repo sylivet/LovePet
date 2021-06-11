@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
+  <title>hotel_top</title>
+  <style>
+      body{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+.hotel_top{
+  position: relative;
+  background-image: url("./back_hotel-01.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  padding-top:56.25%;
+  overflow: hidden;
+  overflow-x: hidden;
+}
+
+.wood1,.wood2,.wood3,.wood4,.wood5{
+  width: 80%;
+  position: absolute;
+  top: 0;
+  left: 15%;
+  opacity: 0;
+}
+.wood1{
+  z-index: 999;
+}
+.wood2{
+  z-index: 888;
+}
+.wood3{
+  z-index: 777;
+}
+.wood4{
+  z-index: 666;
+}
+.wood5{
+  z-index: 555;
+}
+
+.wind{
+  width: 2%;
+  position: absolute;
+  top: 38%;
+  left: 26%;
+}
+
+.star{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: star linear forwards infinite 1s alternate-reverse;
+}
+@keyframes star{
+  0%{
+    opacity: 0;
+    }
+
+  50%{
+    opacity: .5;
+    scale: 15;
+    }
+
+  100%{
+    opacity: 1;
+    scale: 30;
+    }
+}
+
+.star2{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: star linear forwards infinite 3s alternate-reverse;
+}
+@keyframes star{
+  0%{
+    opacity: 0.5;
+    }
+
+  100%{
+    opacity: 1;
+    }
+}
+
+
+/* 暗示往下滑的箭頭 */
+.scroll-down {
+            position: absolute;
+            bottom: 5%;
+            right: 50%;
+            
+            z-index: 10;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+        }
+ @media(min-width:1400px) {
+  .scroll-down {  bottom: 20%;
+            }
+ }
+ @media screen and (max-width:400px){
+  .scroll-down{
+    display: none;
+  }
+ }
+
+.scroll-down span:nth-child(2) {
+            animation-delay: -0.2s;
+        }
+
+ .scroll-down span:nth-child(3) {
+            animation-delay: -0.4s;
+        }
+
+ .scroll-down span {
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-bottom: 3px solid white;
+            border-right: 3px solid white;
+            transform: rotate(45deg);
+            margin: -10px;
+            animation: animate 2s infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                opacity: 0;
+                transform: rotate(45deg) translate(-20px, -20px);
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: rotate(45deg) translate(20px, 20px);
+            }
+        }
+
+  </style>
+</head>
+<body>
+   <div class="hotel_top">
+
+    <div class="wood1">
+      <img src="./wood1-01.svg" alt="">
+    </div> 
+    <div class="wood2">
+      <img src="./wood2-01.svg" alt="">
+    </div> 
+    <div class="wood3">
+      <img src="./wood3-01.svg" alt="">
+    </div> 
+    <div class="wood4">
+      <img src="./wood4-01.svg" alt="">
+    </div> 
+    <div class="wood5">
+      <img src="./wood5-01.svg" alt="">
+    </div> 
+    <div class="wind">
+      <img src="./wind.svg" alt="">
+    </div>
+    <div class="star">
+      <img src="./star-01.svg" alt="">
+    </div>
+    <div class="star2">
+      <img src="./star2-01.svg" alt="">
+    </div>
+
+  </div>
+
+<!-- 暗示往下滑的箭頭 -->
+    <div class="scroll-down"> 
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+<script>
+  var h1 = new TimelineMax();
+  h1.to('.wood1', 1, { 
+        opacity:1,
+      })
+      .to('.wood2', 1, { 
+        opacity:1,
+      })
+      .to('.wood3', 1, { 
+        opacity:1,
+      })
+      .to('.wood4', 1, { 
+        opacity:1,
+      })
+      .to('.wood5', 1, { 
+        opacity:1,
+      })
+      
+
+
+
+
+ 
+ 
+  
+</script>
+
+</body>
+</html>

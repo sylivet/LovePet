@@ -35,19 +35,24 @@
   top: 0;
   left: 0;
   z-index: 999;
-  opacity: 1;
-  animation:cloud linear forwards infinite 3s alternate-reverse;
+  animation:cloud linear forwards infinite 8s alternate-reverse;
 }
 @keyframes cloud {
 	0% {
-		transform: translateX(200px);
+    opacity: 0;
+		transform: translateX(500px);
 	}
+
+  50%{
+    opacity: 0.8;
+  }
 
 	100% {
 		opacity: 0;
 		transform: translateX(-1200px);
 	}
 }
+
 
 .clinic{
   width: 20%;

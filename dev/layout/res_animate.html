@@ -12,28 +12,21 @@
   <style>
  
     body{
-      padding-top: 87px;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     
 .res_top{
   position: relative;
-  background-image: url("./img/restaurant/res_back-01.svg");
+  background-image: url("./res_back-01.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 100vh;  
-}
-@media screen and (max-width:400px){
-  .res_top{
-      position: relative;
-      background-image: url("./img/restaurant/res_back-01.svg");
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: top; 
-      width: 100%;
-      height: 50vh;  
-    }
+  padding-top:56.25%;
+  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .cloud{
@@ -42,109 +35,59 @@
   top: 0;
   left: 0;
   z-index: 999;
+  animation:cloud linear forwards infinite 8s alternate-reverse;
+}
+@keyframes cloud {
+	0% {
+    opacity: 0;
+		transform: translateX(500px);
+	}
+
+  50%{
+    opacity: 0.8;
+  }
+
+	100% {
+		opacity: 0;
+		transform: translateX(-1200px);
+	}
 }
 
 .p1{
   width: 100%;
   position: absolute;
-  top: -20%;
+  bottom: 0;
   left: 0;
-}
-@media screen and (max-width:400px){
-  .p1{
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-}
-@media screen and (min-width:401px) and (max-width:1200px){
-  .p1{
-  width: 100%;
-  position: absolute;
-  top: 20%;
-  left: 0;
-}
 }
 
 .p2{
   width: 100%;
   position: absolute;
-  top: -10%;
+  bottom: 10%;
   left:-3%;
-}
-@media screen and (max-width:400px){
-  .p2{
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left:0;
-}
-}
-@media screen and (min-width:401px) and (max-width:1200px){
-  .p2{
-  width: 100%;
-  position: absolute;
-  top: 20%;
-  left:0;
-}
 }
 
 .dog1{
   width: 100%;
   position: absolute;
-  top: -10%;
+  bottom: 10%;
   left: 0;
 }
 
-@media screen and (max-width:400px){
-  .dog1{
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-}
-@media screen and (min-width:401px) and (max-width:1200px){
-  .dog1{
-  width: 100%;
-  position: absolute;
-  top: 20%;
-  left: 0;
-}
-}
 
 .dog2,.dog3,.dog4,.dog5,.dog6,.dog7{
   width: 100%;
   position: absolute;
-  top: -10%;
+  bottom: 10%;
   left: 0;
   opacity: 0;
-}
-@media screen and (max-width:400px){
-  .dog2,.dog3,.dog4,.dog5,.dog6,.dog7{
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-}
-@media screen and (min-width:401px) and (max-width:1200px){
-  .dog2,.dog3,.dog4,.dog5,.dog6,.dog7{
-  width: 100%;
-  position: absolute;
-  top: 20%;
-  left: 0;
-  opacity: 0;
-}
 }
 
 
 /* 暗示往下滑的箭頭 */
 .scroll-down {
             position: absolute;
-            bottom: 10%;
+            bottom: 5%;
             right: 50%;
             
             z-index: 10;
@@ -202,36 +145,36 @@
   <div class="res_top">
 
     <div class="cloud">
-      <img src="./img/restaurant/res_cloud-01.svg" alt="">
+      <img src="./res_cloud-01.svg" alt="">
     </div> 
     <div class="p1">
-      <img src="./img/restaurant/p1-01.svg" alt="">
+      <img src="./p1-01.svg" alt="">
     </div>
     <div class="p2">
-      <img src="./img/restaurant/p2-01.svg" alt="">
+      <img src="./p2-01.svg" alt="">
     </div> 
 
     <div id="runningdog">
       <div class="dog1">
-        <img src="./img/restaurant/dog1-01.svg" alt="">
+        <img src="./dog1-01.svg" alt="">
       </div> 
       <div class="dog2">
-        <img src="./img/restaurant/dog2-01.svg" alt="">
+        <img src="./dog2-01.svg" alt="">
       </div> 
       <div class="dog3">
-        <img src="./img/restaurant/dog3-01.svg" alt="">
+        <img src="./dog3-01.svg" alt="">
       </div> 
       <div class="dog4">
-        <img src="./img/restaurant/dog4-01.svg" alt="">
+        <img src="./dog4-01.svg" alt="">
       </div> 
       <div class="dog5">
-        <img src="./img/restaurant/dog5-01.svg" alt="">
+        <img src="./dog5-01.svg" alt="">
       </div> 
       <div class="dog6">
-        <img src="./img/restaurant/dog6-01.svg" alt="">
+        <img src="./dog6-01.svg" alt="">
       </div>
       <div class="dog7">
-        <img src="./img/restaurant/dog7-01.svg" alt="">
+        <img src="./dog7-01.svg" alt="">
       </div>  
 
     </div>
@@ -285,12 +228,12 @@
   // .to('.dog7' , 0.1 , {opacity:1})
      
     // 雲
-    TweenMax.to('.cloud', 8, { 
-            x: -1200, 
-            y:0, 
-            repeat:-1,
-            ease:Power0.easeNone, 
-    }) ;
+    // TweenMax.to('.cloud', 8, { 
+    //         x: -1200, 
+    //         y:0, 
+    //         repeat:-1,
+    //         ease:Power0.easeNone, 
+    // }) ;
 
     //小狗
   var dl = new TimelineMax();
