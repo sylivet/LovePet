@@ -12,14 +12,12 @@
   <style>
  
     body{
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      padding: 87px;
     }
     
 .clinic_top{
   position: relative;
-  background-image: url("./back_c-01.svg");
+  background-image: url("../img/clinic/back_c-01.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -157,22 +155,22 @@
   <div class="clinic_top">
 
     <div class="cloud">
-      <img src="./cloud.svg" alt="">
+      <img src="../img/clinic/cloud.svg" alt="">
     </div> 
     <div class="doctor">
-      <img src="./Dr.svg" alt="">
+      <img src="../img/clinic/Dr.svg" alt="">
     </div>
     <div class="clinic">
-      <img src="./clinic.svg" alt="">
+      <img src="../img/clinic/clinic.svg" alt="">
     </div> 
     <div class="sun">
-      <img src="./sun-05.svg" alt="">
+      <img src="../img/clinic/sun-05.svg" alt="">
     </div>
     <div class="animals">
-      <img src="./animals.svg" alt="">
+      <img src="../img/clinic/animals.svg" alt="">
     </div>
     <div class="report">
-      <img src="./report.svg" alt="">
+      <img src="../img/clinic/report.svg" alt="">
   </div> 
 
 <!-- 暗示往下滑的箭頭 -->
@@ -185,43 +183,6 @@
   </div>
 
   <script>
-//診所
-
-// gsap.registerPlugin(ScrollTrigger);
-
-//     gsap.defaults({ ease: "ease" })
-//     const t1 = gsap.timeline({
-//       paused: true,
-//       scrollTrigger: {
-//         trigger: '.clinic_top', //要使用ScrollTrigger的範圍
-//         start: 'top top',
-//         end: 'bottom+=2500 top',
-//         pin: true,
-//         scrub: 1,
-//         // markers: true
-//       },
-//       defaults: {
-//         duration: 1
-//       }
-//     })
-//     .to('.clinic', {opacity:0.2})  //診所出現
-//     .to('.clinic', {opacity:1})  //診所出現
-     
-//     .to('.doctor', {scale:2, x:-200}) //醫生往前
-    
-//     .to('.report', {opacity:0.5, opacity:1})   //報告書出現
-
-//     .to('.animals', {scale:0.5, opacity:0.5}) //小動物縮小消失
-//     .to('.animals', {scale:0.2, opacity:0}) //小動物縮小消失
-
-//     .to('.clinic', { scale:1.3, scale:2, y:200})  //診所放大
-
-//     .to('.report', {scale:0.5, opacity:0})  //報告書縮小
-
-
-
-  
-  
 
 var clinic_position = window.innerWidth < 768 ? 0 : 100;
 // var doctor_position = window.innerWidth < 768 ? -100 : -250;
@@ -250,23 +211,13 @@ var C1 = new TimelineMax();
         opacity: 0 
       });
 
-    // 雲
-    // TweenMax.to('.cloud', 8, { 
-    //         x: -1200, 
-    //         y:0, 
-    //         repeat:-1,
-    //         ease:Power0.easeNone, 
-    // }) ;
-
     // 太陽
     TweenMax.to('.sun', 5, {
       rotation:360,
       transformOrigin: 'center center',
       ease:Power0.easeNone,   
       repeat:-1,
-    }); 
-
-  
+    });  
     
   </script>
 </body>

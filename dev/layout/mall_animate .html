@@ -12,14 +12,12 @@
 
   <style>
     body{
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+      padding: 87px;
+      }
   
       .mall_top{
         position: relative;
-        background-image: url("./back_cart-01.svg");
+        background-image: url("../img/mall/back_cart-01.svg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -166,26 +164,26 @@
   <div class="mall_top">
 
     <div class="cloud_cart">
-      <img src="../Mall/cloud_cart-01.svg" alt="">
+      <img src="../img/mall/cloud_cart-01.svg" alt="">
     </div>
     <div class="hand_cart">
-      <img src="../Mall/hand_cart-01.svg" alt="">
+      <img src="../img/mall/hand_cart-01.svg" alt="">
     </div>
     <div class="cart_cart">
-      <img src="../Mall/cart_cart-01.svg" alt="">
+      <img src="../img/mall/cart_cart-01.svg" alt="">
     </div>
  
     <div class="pro1">
-      <img src="../Mall/pro1-01.svg" alt="">
+      <img src="../img/mall/pro1-01.svg" alt="">
     </div>
     <div class="pro2">
-      <img src="../Mall/pro2-01.svg" alt="">
+      <img src="../img/mall/pro2-01.svg" alt="">
     </div>
     <div class="pro3">
-      <img src="../Mall/pro3-01.svg" alt="">
+      <img src="../img/mall/pro3-01.svg" alt="">
     </div>
     <div class="products2_cart">
-      <img src="../Mall/products2_cart-01.svg" alt="">
+      <img src="../img/mall/products2_cart-01.svg" alt="">
     </div>
     <!-- 暗示往下滑的箭頭 -->
     <div class="scroll-down"> 
@@ -198,23 +196,6 @@
   </div>
   
   <script>
-    // gsap.registerPlugin(ScrollTrigger);
-
-    // gsap.defaults({ ease: "ease" })
-    // const t1 = gsap.timeline({
-    //   paused: true,
-    //   scrollTrigger: {
-    //     trigger: '.mall_top',//要使用ScrollTrigger的範圍
-    //     start: 'top top',
-    //     end: 'bottom+=2500 top',
-    //     pin: true,
-    //     scrub: 1,
-    //     // markers: true
-    //   },
-    //   defaults: {
-    //     duration: 1
-    //   }
-    // })
 
     //變數寫法     
 var hand_position = window.innerWidth < 768 ? -180 : -520;
@@ -223,8 +204,6 @@ var MALL = new TimelineMax();
     MALL.to('.hand_cart', 1, { 
             opacity:1, 
     })
-
-    // .to('.hand_cart', { x: -500, x: -520}) //手
     
     .to('.pro1',.1,{opacity:1}) //商品倒出
     .to('.pro2',.1,{opacity:1})
@@ -254,17 +233,7 @@ var MALL = new TimelineMax();
             y:0, 
             opacity:0,
     });
-
-
- //雲
-    // TweenMax.to('.cloud_cart', 8, { 
-    //         x: -1000, 
-    //         y:-50, 
-    //         repeat:-1,
-    // }) ;
-
-
-    
+   
   </script>
 </body>
 </html>
