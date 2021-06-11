@@ -1,181 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-			integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
-			crossorigin="anonymous"
-		/>
-		@@include('layout/style.html')
-		<title>樂寵後台管理</title>
-		<style>
-			body {
-				overflow: auto;
-			}
-			input,
-			select {
-				width: 100px;
-				text-align: right;
-			}
-			.orderdetail{
-				display: none;
-				width: 600px;
-				max-height: 80%;
-				padding: 20px;
-				background-color: #333;
-				box-sizing: border-box;
-				position: fixed;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				border-radius: 5px;
-			}
-			.orderdetail *:not(h4){
-				margin-top: 10px;
-			}
 
-			.orderdetail h4{
-				color:white
-			}
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+	@@include('layout/style.html')
+	<title>樂寵後台管理</title>
+	<style>
+		body {
+			overflow: auto;
+		}
 
-			.orderdetail .r_close{
-				text-align: center;
-				width: 30px;
-				height: 30px;
-				margin-left: auto;
-				line-height:30px;
-				cursor: pointer;
-			}
+		.ADDRESSEE,
+		.PHONE,
+		.ADDRESS {
+			display: none;
+		}
 
-			.r_title{
-				margin-top: -20px;
-			}
+		input,
+		select {
+			width: 100px;
+			text-align: right;
+		}
 
-			.stamp{
-				/* display: none; */
-				position: absolute;
-				top: 20%;
-				left: 15%;
-				width:450px;
-				animation-name: pulse;
-				animation-duration: 0.5s;
+		.orderdetail {
+			display: none;
+			width: 600px;
+			max-height: 80%;
+			padding: 20px;
+			background-color: #333;
+			box-sizing: border-box;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border-radius: 5px;
+		}
+
+		.orderdetail *:not(h4) {
+			margin-top: 10px;
+		}
+
+		.orderdetail h4 {
+			color: white
+		}
+
+		.orderdetail .s_close {
+			text-align: center;
+			width: 30px;
+			height: 30px;
+			margin-left: auto;
+			line-height: 30px;
+			cursor: pointer;
+		}
+
+		.s_title {
+			margin-top: -20px;
+		}
+
+		.stamp {
+			/* display: none; */
+			position: absolute;
+			top: 20%;
+			left: 15%;
+			width: 450px;
+			animation-name: pulse;
+			animation-duration: 0.5s;
+			opacity: 0;
+			animation-fill-mode: forwards;
+			pointer-events: none;
+			box-sizing: border-box;
+			z-index: -1;
+		}
+
+		.s_membername,
+		.s_phone,
+		.s_address,
+		.s_addressee {
+			padding-left: 100px;
+			color: #75aafa;
+		}
+
+		.s_products li,
+		.s_Customproducts li,
+		.s_status li {
+			padding-left: 100px;
+			color: #75aafa;
+		}
+
+		@keyframes pulse {
+			0% {
 				opacity: 0;
-				animation-fill-mode:forwards;
-				pointer-events: none;
-				box-sizing: border-box;
-				z-index: -1;
 			}
 
-			.r_membername, .r_people, .r_pets, .r_creategdate{
-				padding-left: 100px;
-				color:#75aafa;
+			10% {
+				opacity: .50;
+				transform-origin: 50% 50%;
+				transform: rotate(-5deg) scale(5);
+				transition: all .3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
 			}
 
-			.r_dishes li, .r_Customdishes li, .r_status li{
-				padding-left: 100px;
-				color:#75aafa;
+			100% {
+				opacity: 0.6;
+				transform: rotate(0deg) scale(1);
 			}
+		}
 
-			@keyframes pulse{
-				0%{
-					opacity: 0;
-				}
-				10%{
-					opacity:.50;
-					transform-origin: 50% 50%;
-					transform: rotate(-5deg) scale(5);
-					transition: all .3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
-				}
-				100%{
-					opacity:0.6;
-					transform: rotate(0deg) scale(1);
-				}
-			}
+		.done button {
+			width: 100%;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
 
-			.done button{
-				width: 100%;
-				border: 1px solid #000;
-			}
-		</style>
-	</head>
-
-	<body class="backend">
-		<nav class="navbar navbar-light" style="background-color: #ffc857">
-			<div class="container-fluid">
-				<div class="d-flex align-items-center">
-					<img
-						class="ms-5"
-						src="img/common/i_logo.png"
-						alt=""
-						style="max-width: 50px"
-					/>
-					<p class="navbar-brand ms-3">樂寵後台管理</p>
-				</div>
-				<div class="me-5"><a href="#">登出</a></div>
+<body class="backend">
+	<nav class="navbar navbar-light" style="background-color: #ffc857">
+		<div class="container-fluid">
+			<div class="d-flex align-items-center">
+				<img class="ms-5" src="img/common/i_logo.png" alt="" style="max-width: 50px" />
+				<p class="navbar-brand ms-3">樂寵後台管理</p>
 			</div>
-		</nav>
-		<div class="container mt-5">
-			<div class="row">
-				@@include('back_leftSide.html')
-				<div class="col-10">
-					<h2 class="mb-3">商城訂單管理</h2>
-					<select name="" id="byNumber">
-						<option value="訂單編號">訂單編號</option>
-						<option value="會員編號">會員編號</option>
-					</select>
-					<input type="text" id="name" class="mb-3 ms-2" />
-					<table class="table table-striped table-hover text-center">
-						<thead>
-							<tr class="table-warning">
-								<th>訂單編號</th>
-								<th>會員編號</th>
-								<th>成立日期</th>
-								<th>付款方式</th>
-								<th>宅配方式</th>
-								<th>訂單狀態</th>
-								<th>訂單明細</th>
-								<th>編輯</th>
-							</tr>
-						</thead>
-						<tbody class="data">
-						</tbody>
-					</table>
-				</div>
+			<div class="me-5"><a href="#">登出</a></div>
+		</div>
+	</nav>
+	<div class="container mt-5">
+		<div class="row">
+			@@include('back_leftSide.html')
+			<div class="col-10">
+				<h2 class="mb-3">商城訂單管理</h2>
+				<select name="" id="byNumber">
+					<option value="訂單編號">訂單編號</option>
+					<option value="會員編號">會員名稱</option>
+				</select>
+				<input type="text" id="name" class="mb-3 ms-2" />
+				<table class="table table-striped table-hover text-center">
+					<thead>
+						<tr class="table-warning">
+							<th>訂單編號</th>
+							<th>會員名稱</th>
+							<th>成立日期</th>
+							<th>訂單狀態</th>
+							<th>訂單明細</th>
+							<th>編輯</th>
+						</tr>
+					</thead>
+					<tbody class="data">
+					</tbody>
+				</table>
 			</div>
 		</div>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-		<script src="./js/orderNumber.js"></script>
-		<script>
-			axios.post("php/back_end_API/S_select_order.php").then((res) => {
-				getData(res);
-			});
+	</div>
+	<div class="orderdetail">
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+	<script src="./js/orderNumber.js"></script>
+	<script>
+		axios.post("php/back_end_API/S_select_order.php").then((res) => {
+			getData(res);
+		});
 
-			function getData(res) {
-				for (let i = 0; i < res.data.length; i++) {
-					// 日期轉為10位數
-					res.data[i].CREATE_DATE = res.data[i].CREATE_DATE.slice(0,10)
 
-					let data = `
+		function getData(res) {
+			for (let i = 0; i < res.data.length; i++) {
+				// 日期轉為10位數
+				res.data[i].CREATE_DATE = res.data[i].CREATE_DATE.slice(0, 10)
+				let data = `
             <tr class="show">
 								<td style="display: none"><input value="${res.data[i].SHOPPING_ORDER_ID}" name="SHOPPING_ORDER_ID" disabled readonly></td>
 								<td class="SHOPPING_ORDER_ID">${res.data[i].SHOPPING_ORDER_ID}</td>
-								<td class="FK_MEMBER_ID">${res.data[i].FK_MEMBER_ID}</td>
+								<td class="FK_MEMBER_ID">${res.data[i].NAME}</td>
+								<td class="ADDRESSEE">${res.data[i].ADDRESSEE}</td>
+								<td class="PHONE">${res.data[i].PHONE}</td>
+								<td class="ADDRESS">${res.data[i].ADDRESS}</td>
 								<td>${res.data[i].CREATE_DATE}</td>
 								<td>
-									<input type="text" name="PAYMENT" value="${res.data[i].PAYMENT}" disabled/>
-								</td>
-								<td>
-									<input type="text" name="HOME_DELIVERY" value="${res.data[i].HOME_DELIVERY}" disabled/>
-								</td>
-								<td>
 									<select class="ORDER_STATUS" name="ORDER_STATUS" data-id="${i}" disabled>
-										<option class="noShow" value="${res.data[i].ORDER_STATUS}" selected>${res.data[i].ORDER_STATUS === "1"? "已完成" : "未完成" }</option>
+										<option class="noShow" value="${res.data[i].ORDER_STATUS}" selected>${res.data[i].ORDER_STATUS === "1" ? "已完成" : "未完成"}</option>
 										<option value="0">未完成</option>
 										<option value="1">已完成</option>
 									</select>
@@ -192,44 +197,251 @@
 						</tr>
           `;
 
-					$(".data").append(data);
+				$(".data").append(data);
+			}
+		}
+
+
+		//編輯
+		$(".data").on("click", ".edit", function (e) {
+			e.preventDefault();
+			// 使其無法同時編輯兩個
+			$('.data').find('input, select').attr('disabled', true)
+			$('.edit').css('display', 'table-cell')
+			$('.save').css('display', 'none')
+
+
+			$(this).parent().find("input, select").attr("disabled", false);
+			$(this).css("display", "none");
+			$(this).next().css("display", "table-cell");
+			$('.noShow').hide()
+		});
+
+
+		//儲存
+		$(".data").on("click", ".save", function () {
+			$(this).parent().parent().find("input, select").attr("disabled", true);
+			$(this).css("display", "none");
+			$(this).prev().css("display", "table-cell");
+
+			let SHOPPING_ORDER_ID = $(this).parent().find("input[name='SHOPPING_ORDER_ID']").val();
+			let ORDER_STATUS = $(this).parent().find("select[name='ORDER_STATUS']").val();
+			updateOrder(SHOPPING_ORDER_ID, ORDER_STATUS)
+		});
+
+
+		// 搜尋bar
+		$("#name").on("keyup", function () {
+			let byOrderNum = $('#byNumber').val()
+			var value = $(this).val();
+			if (byOrderNum === "訂單編號") {
+				$(".SHOPPING_ORDER_ID").filter(function () {
+					$(this).parent().toggle($(this).text().indexOf(value) != -1)
+				});
+			} else {
+				$(".FK_MEMBER_ID").filter(function () {
+					$(this).parent().toggle($(this).text().indexOf(value) != -1)
+				});
+			}
+		});
+
+
+
+
+
+		// 菜單明細
+		$(".data").on("click", ".detail", function () {
+			$(".orderdetail").html("");
+			$(".orderdetail").fadeIn();
+
+
+			let SHOPPING_ORDER_ID = $(this).parent().find("input[name='SHOPPING_ORDER_ID']").val();
+			let ADDRESSEE = $(this).parent().find("td.ADDRESSEE").text();
+			let PHONE = $(this).parent().find("td.PHONE").text();
+			let ADDRESS = $(this).parent().find("td.ADDRESS").text();
+			let ORDER_STATUS = $(this).parent().find("select[name='ORDER_STATUS']").val();
+			let FK_MEMBER_ID = $(this).parent().find("td.FK_MEMBER_ID").text();
+
+			// 取訂單明細AJAX
+			$.ajax({
+				method: "POST",
+				url: "php/back_end_API/S_select_order_detail.php",
+				data: {
+					'SHOPPING_ORDER_ID': SHOPPING_ORDER_ID
+				},
+				dataType: "text",
+				success: function (res) {
+					let newres = JSON.parse(res)
+					getDetail(newres, SHOPPING_ORDER_ID, ADDRESSEE, PHONE, ADDRESS, ORDER_STATUS, FK_MEMBER_ID)
+				},
+				error: function (exception) {
+					alert("修改失敗")
 				}
+			});
+		});
+
+
+
+		// 取訂單明細
+		function getDetail(newres, SHOPPING_ORDER_ID, ADDRESSEE, PHONE, ADDRESS, ORDER_STATUS, FK_MEMBER_ID) {
+			let detail = `
+					<h4 class="s_close">X</h4>
+					<h4>訂單明細：</h4>
+					<div class="s_membername">會員名稱:${FK_MEMBER_ID}</div>
+					<br>
+					<div class="s_addressee">收件人:${ADDRESSEE}</div>
+					<div class="s_phone">電話:${PHONE}</div>
+					<div class="s_address">地址:${ADDRESS}</div>
+					<div class="s_products"><h4>商品名稱：</h4>
+
+					</div>
+					<div class="s_Customproducts"><h4>客製商品：</h4>
+
+					</div>
+					<div class="s_status">
+						<h4 class="s_status">訂單狀態：</h4>
+								<ul>
+									<li class="forStamp">
+										<span class="finished">${ORDER_STATUS === "1" ? "已完成" : "未完成"}</span>
+									</li>
+								</ul>
+
+						<div class="done">
+							<button class="btn btn-warning btn-big">結單</button>
+						</div>
+					</div>
+					`
+			$(".orderdetail").append(detail);
+
+
+			if (ORDER_STATUS == 1) {
+				$(".forStamp").append(`<img class="stamp" src="./img/restaurant/complete.png">`)
+			}
+
+			if (newres.length !== 0) {
+				for (let i = 0; i < newres.length; i++) {
+
+					let products = `
+								<ul>
+									<li>
+										<span>${i + 1}.${newres[i].PRODUCT_NAME}</span> * <span>${newres[i].NUM_OF_PRODUCT}</span>個
+									</li>
+								</ul>
+							`
+					$(".s_products").append(products);
+				};
+			} else {
+				let products = `
+									<ul>
+										<li>
+											<span>沒有商品</span>
+										</li>
+									</ul>
+								`
+				$(".s_products").append(products);
+			}
+
+			// 取客製商品AJAX
+			$.ajax({
+				method: "POST",
+				url: "php/back_end_API/S_select_order_Customdetail.php",
+				data: {
+					'SHOPPING_ORDER_ID': SHOPPING_ORDER_ID
+				},
+				dataType: "text",
+				success: function (res) {
+					let newres = JSON.parse(res)
+					getCustomDetail(newres)
+				},
+				error: function (exception) {
+					alert("修改失敗")
+				}
+			});
+
+
+			// 訂單明細裡的編輯按鈕
+			$('.done').click(function () {
+				updateOrder(SHOPPING_ORDER_ID, 1)
+				$('.finished').text('已完成');
+				$('.finished').css('color', 'rgb(24, 180, 24)');
+				$(".data").find('.ORDER_STATUS').eq(SHOPPING_ORDER_ID - 1).val('1');
+				$(".forStamp").append(`<img class="stamp" src="./img/restaurant/complete.png">`)
+			})
+
+
+			// 關閉明細燈箱
+			$('.s_close').click(function () {
+				$(this).closest('.orderdetail').fadeOut()
+			});
+
+			//控制燈箱卷軸
+			$('.orderdetail').css('overflow', 'hidden')
+			if ($('.orderdetail').height() >= 400) {
+				$('.orderdetail').css('overflow-y', 'auto')
 			}
 
 
-			//編輯
-			$(".data").on("click", ".edit", function (e) {
-				e.preventDefault();
-				// 使其無法同時編輯兩個
-				$('.data').find('input, select').attr('disabled', true)
-        $('.edit').css('display', 'table-cell')
-        $('.save').css('display', 'none')
+		}
 
 
-				$(this).parent().find("input, select").attr("disabled", false);
-				$(this).css("display", "none");
-				$(this).next().css("display", "table-cell");
-				$('.noShow').hide()
-			});
+		// 取客製商品
+		function getCustomDetail(newres) {
 
-			// 搜尋bar
-			$("#name").on("keyup", function() {
-				let byOrderNum = $('#byNumber').val()
-				var value = $(this).val();
-					if(byOrderNum === "訂單編號"){
-						$(".SHOPPING_ORDER_ID").filter(function() {
-								$(this).parent().toggle($(this).text().indexOf(value) != -1)			
-						});
-					}else{
-						$(".FK_MEMBER_ID").filter(function() {
-								$(this).parent().toggle($(this).text().indexOf(value) != -1)			
-						});
+			for (let i = 0; i < newres.length; i++) {
+				if (newres[0]['FK_SHOPPING_CUSTORMRIZE_ID'] !== null) {
+
+					let products = `
+										<ul>
+											<li>
+												<span class="productName">${i + 1}.${newres[i].COLOR}${newres[i].ITEM}</span>*
+												<span class="productAmonut">${newres[i].SHOPPING_CUSTORMRIZE_AMOUNT}</span>個
+											</li>
+										</ul>
+									`
+
+
+					$(".s_Customproducts").append(products);
+				}
+				else {
+
+					let products = `
+										<ul>
+											<li>
+												<span>沒有客製商品</span>
+											</li>
+										</ul>
+									`
+					$(".s_Customproducts").append(products);
+				}
+
+
+
+				// 訂單狀態css顏色
+				if ($('.finished').text() === "未完成") {
+					$('.finished').css('color', 'red')
+				} else {
+					$('.finished').css('color', 'rgb(24, 180, 24)')
+				};
+			};
+		}
+
+
+			// 更新功能
+			function updateOrder(SHOPPING_ORDER_ID, ORDER_STATUS) {
+				$.ajax({
+					method: "POST",
+					url: "php/back_end_API/S_Update_order.php",
+					data: {
+						'ORDER_STATUS': ORDER_STATUS,
+						'SHOPPING_ORDER_ID': SHOPPING_ORDER_ID
+					},
+					dataType: "text",
+					success: function (res) {
 					}
-			});
+				});
+			}
 
-		</script>
-	</body>
+	</script>
+</body>
+
 </html>
-
-
-
