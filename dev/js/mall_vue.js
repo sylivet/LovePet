@@ -4,8 +4,6 @@ const storage = localStorage;
 Vue.component('the-cart', {
   template: '#cart',
   props: ['counts'], //counts接chooseItem陣列
-  // data() {},
-  // mounted() {},
   methods: {
     plus(index) {
       this.$emit('to-plus', index); //子元件傳值給父元件用$emit(自訂事件)
@@ -16,10 +14,13 @@ Vue.component('the-cart', {
       this.$emit('to-sub', index);
       console.log('有偵測到功能');
     },
-    remove() {
-      this.$emit('to-remove');
+    remove(index) {
+      this.$emit('to-remove', index);
       console.log('有偵測到刪除功能');
     },
+    // getCount(index) {
+    //   this.$emit('show-count', index);
+    // },
   },
   computed: {
     currentPrice() {
@@ -27,19 +28,16 @@ Vue.component('the-cart', {
       //   return this.counts[i].count * this.counts[i].PRODUCT_PRICE;
       // }
     },
-    getName() {
-      // console.log(this.counts);
-      // JSON.parse() 方法把會把一個JSON字串轉換成 JavaScript的數值或是物件
-    },
+    // getCount() {
+    //   let count = JSON.parse(storage.getItem('items'));
+    //   console.log(count);
+    //   return count.item_count;
+    // },
     getPrice() {
       // return JSON.parse(storage.getItem('item_0')).PRODUCT_PRICE;
     },
     getIMG() {
       // return JSON.parse(storage.getItem('item_0')).PRODUCT_IMG;
-    },
-    getCount() {
-      // return JSON.parse(storage.getItem('item_0')).count;
-      return 1;
     },
     getTotalPrice() {
       return 100;
@@ -85,12 +83,14 @@ new Vue({
         self.info[parseInt(location.href.split('#')[1]) - 1],
       ); //動態新增會有問題 index對不上
     });
+    // console.log(this.currentPage);
     axios.post('php/front_end_API/food_select.php').then(function (res) {
       self.food = res.data;
     });
   },
   mounted() {},
   methods: {
+    //======開啟搜尋輸入框======
     showInput() {
       if (this.clicked == false) {
         this.clicked = true;
@@ -98,6 +98,8 @@ new Vue({
         this.clicked = false;
       }
     },
+
+    //======隱藏搜尋輸入框======
     hideInput() {
       if (this.selected < 2) {
         //如果切頁到非用品頁，input輸入框隱藏，點回用品頁時就會重置
@@ -105,19 +107,36 @@ new Vue({
         this.input.text = ''; //切頁後清空輸入內容，切回時就會讓頁面重置，防止切回輸入結果還在的情況
       }
     },
-    increase(i) {
-      this.chooseItem[i].count++;
-      storage.setItem(`item_0`);
-      // console.log(this.info);
-    },
-    decrease(i) {
-      if (this.chooseItem[i].count > 0) {
-        this.chooseItem[i].count--;
-      } else {
-        return 0;
+
+    //======購物車商品數量增加======
+    increase(pointer) {
+      let counts = JSON.parse(localStorage.getItem('items'));
+      for (let i in counts) {
+        if (counts[pointer].item_id == this.chooseItem[i].item_id) {
+          counts[pointer].item_count = parseInt(counts[pointer].item_count) + 1;
+        }
       }
+      storage.setItem('items', JSON.stringify(counts));
     },
+
+    //======購物車商品數量減少======
+    decrease(pointer) {
+      let counts = JSON.parse(localStorage.getItem('items'));
+      for (let i in counts) {
+        if (
+          counts[pointer].item_id == this.chooseItem[i].item_id &&
+          counts[pointer].item_count > 1
+          //商品數量大於1才能減，直到最小為1
+        ) {
+          counts[pointer].item_count = parseInt(counts[pointer].item_count) - 1;
+        }
+      }
+      storage.setItem('items', JSON.stringify(counts));
+    },
+
+    //======商品加到購物車======
     addToCart(product) {
+      alert('成功加入購物車');
       // 只要一按加到購物車就存到localStorage
 
       let cart = {
@@ -125,14 +144,25 @@ new Vue({
         item_img: product.PRODUCT_IMG,
         item_name: product.PRODUCT_NAME,
         item_count: product.count,
+        item_price: product.PRODUCT_PRICE,
       };
       // 設定localStorage的value要放的資料
 
       let value = JSON.parse(localStorage.getItem('items'));
       // getItem() 方法中輸入key可以得到對應的value，並轉換成JS物件型態
+
       if (value) {
-        // 如果items裡有value，cart物件被加到陣列的最後
-        value.push(cart);
+        let repeat = false; //設定repeat變數為false，當開關
+        for (let i in value) {
+          if (value[i].item_id == cart.item_id) {
+            value[i].item_count = parseInt(value[i].item_count) + 1;
+            repeat = true;
+            //如果value的item_id等於cart的item_id，數量直接+1，並且repeat此時變更為true
+          }
+        }
+        if (!repeat) {
+          value.push(cart);
+        }
       } else {
         // 若items裡尚未有value，value就是cart，並以陣列包住
         value = [cart];
@@ -144,24 +174,30 @@ new Vue({
         this.chooseItem.push(product); //chooseItem['陣列']
       }
     },
-    removeToCart() {
+
+    //======商品從購物車移除======
+    removeToCart(pointer) {
       let check_delete = confirm('是否移除?');
       if (check_delete) {
-        for (let i = 1; i < localStorage.length; i++) {
-          if (JSON.stringify(localStorage.key(i)) == `item_1`) {
-            console.log(`item_${this.i}`);
+        let counts = JSON.parse(localStorage.getItem('items'));
+        for (let i in counts) {
+          if (counts[i].item_id == this.chooseItem[pointer].item_id) {
+            //相互比對ID
+            counts.splice(i, 1); //localStorage刪除
+            this.chooseItem.splice(pointer, 1); //畫面刪除
           }
-          // 箭頭函式，尋找陣列chooseItem中符合的元素，並返回其 index值，每個元素都會執行cllback function，如果參數item(陣列元素)也存在於陣列裡，返回它的index值
-          // this.chooseItem.splice(index, 1); //刪除該index
         }
+        storage.setItem('items', JSON.stringify(counts));
       }
     },
+
+    //======字型渲染======
     reRender() {
       window._jf.flush(); //手動更新justfont
     },
+
+    //======開啟購物車======
     openCart() {
-      // console.log('from_vue');
-      // console.log(localStorage);
       this.chooseItem = JSON.parse(localStorage.getItem('items'));
       var shoppingcartbk = document.getElementById('i_shoppingCart_bk');
       if (shoppingcartbk.style.display === 'none') {
@@ -183,7 +219,7 @@ new Vue({
     },
   },
   computed: {
-    // 關鍵字搜尋功能
+    //======關鍵字搜尋功能======
     forsup() {
       if (this.input.text) {
         return this.info.filter(

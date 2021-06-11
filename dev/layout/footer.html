@@ -81,11 +81,11 @@
       <tr class="myItems">
         <td><img :src="item.item_img" alt=""></td>
         <td>
-          <div @click="remove" class="icon">&times;</div>
+          <div @click="remove(index)" class="icon">&times;</div>
         </td>
         <td>{{item.item_name}}</td>
         <td>
-          <div @click="sub" class="icon">−</div>
+          <div @click="sub(index)" class="icon">−</div>
           <!-- 做click事件 -->
           <input type="text" :value="item.item_count" readonly="readonly">
           <div @click="plus(index)" class="icon">+</div>
@@ -116,7 +116,3 @@
 <script src="./vendors/travo-calendar/js/tavo-calendar.js"></script>
 <!-- vue -->
 <script src="./vendors/vue/js/vue.js"></script>
-<!-- 購物車共用組件 -->
-<!-- <script src="js/mall_vue.js"></script> -->
-<!-- 打開與關閉購物車 -->
-<!-- <script src="js/shopping_cart.js"></script> -->
