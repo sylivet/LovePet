@@ -4,8 +4,7 @@
 $db_host = "127.0.0.1";
 $db_user = "root";
 $db_select = "LOVE_PET";
-// $db_pass = "kevin820304";
-$db_pass = "password";
+$db_pass = "ac1234zxc";
 
 
 
