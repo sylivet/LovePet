@@ -3,16 +3,6 @@
        include("../../php/I_conn.php");
 
        ini_set('date.timezone','Asia/Taipei');
-       // function udate($format = 'u', $utimestamp = null)
-       // {
-       // if (is_null($utimestamp)){
-       //  $utimestamp = microtime(true);
-       // }
-       // $timestamp = floor($utimestamp);
-       // $milliseconds = round(($utimestamp - $timestamp) * 1000000);//改這裡的數據控制毫秒位數
-       //  return date(preg_replace('`(?<!\\\\)u`', $milliseconds, $format), $timestamp);
-       // }
-
        $CREATE_DATE = date_create()->format('Y-m-d H:i:s');
 
        //取得POST過來的值
