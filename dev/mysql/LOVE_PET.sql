@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2021-06-09 07:49:29
+-- 產生時間： 2021-06-12 10:31:05
 -- 伺服器版本： 8.0.23
 -- PHP 版本： 8.0.2
 
@@ -68,7 +68,7 @@ INSERT INTO `EMERGENCY` (`EMERGENCY_ID`, `FK_PET_ID`, `CREATE_DATE`, `POSITION`,
 (3, 8, '2021-05-05', '右前腳關節以上', '遭動物咬傷造成局部組織撕裂，甚至傷害到肌腱。同時，因為動物口中常帶有細菌，所以傷口容易被感染。咬傷出現的傷口，請密切注意受傷的部位與傷口的變化，在第一時間尋求醫師幫忙。'),
 (4, 4, '2021-05-05', '右後腿', '意外擦傷，處理好後已無大礙。建議傷口包紮後，恢復的時間要注意給寵物補充營養，熟蛋黃、雞胸肉、牛肉……都有利於毛小孩的傷口恢復，可以適當的喂一些。'),
 (5, 1, '2021-05-05', '左前腳關節處', '和別的貓打架造成的咬傷。雖然傷口不大，但是傷口較深，容易感染化膿，打架，咬傷這些傷口處理時很容易將貓咪的爪子和牙齒上的細菌帶入傷口，所以已將傷口周圍的毛剪掉，讓傷口外漏，進行處理。之後如有問題請及時送去醫院處理。'),
-(6, 5, '2021-05-19', '左側背部', '狗狗的傷口成因有兩個可能性，一是被燙傷，另外免疫系統也可能出現問題，體內細胞攻擊自己的皮膚，造成皮膚潰爛。若果要確實知道原因需要經過多重檢查，包括麻醉和抽組織檢驗，建議去一趟大醫院。');
+(6, 1, '2021-05-19', '左側背部', '狗狗的傷口成因有兩個可能性，一是被燙傷，另外免疫系統也可能出現問題，體內細胞攻擊自己的皮膚，造成皮膚潰爛。若果要確實知道原因需要經過多重檢查，包括麻醉和抽組織檢驗，建議去一趟大醫院。');
 
 -- --------------------------------------------------------
 
@@ -265,10 +265,9 @@ CREATE TABLE `HOSPITAL_ORDER` (
 --
 
 INSERT INTO `HOSPITAL_ORDER` (`HOSPITAL_ORDER_ID`, `FK_MEMBER_ID`, `FK_PET_ID`, `CREATE_DATE`, `BOOKING_DATE`, `FK_SET_MENU_ID`, `FK_HELTH_CHECK_ID`, `FK_HELTH_CHECK_ID2`, `TOTAL_PRICE`, `ORDER_STATUS`) VALUES
-(1, 1, 1, '2021-01-01 00:00:00.000000', '2021-05-05 00:00:00.000000', 2, 26, NULL, 10000, 1),
-(2, 3, 5, '2021-03-21 00:00:00.000000', '2021-06-03 00:00:00.000000', 1, NULL, NULL, 4000, 1),
-(3, 4, 9, '2021-04-06 00:00:00.000000', '2021-07-01 00:00:00.000000', 1, 32, 31, 5500, 0),
-(4, 1, 1, '2021-06-09 13:37:50.000000', '2021-06-16 00:00:00.000000', 2, 30, 31, 10850, 0);
+(1, 1, 1, '2021-01-01 11:23:00.000000', '2021-05-05 00:00:00.000000', 2, 26, NULL, 10000, 1),
+(2, 1, 3, '2021-03-21 18:23:48.000000', '2021-06-03 00:00:00.000000', 1, NULL, NULL, 4000, 1),
+(3, 4, 9, '2021-04-06 23:00:00.000000', '2021-07-01 00:00:00.000000', 1, 32, 31, 5500, 0);
 
 -- --------------------------------------------------------
 
@@ -293,12 +292,15 @@ CREATE TABLE `HOTEL_ORDER` (
 --
 
 INSERT INTO `HOTEL_ORDER` (`HOTEL_ORDER_ID`, `FK_MEMBER_ID`, `CREATE_DATE`, `BOOKING_CHECKIN_DATE`, `BOOKING_CHECKOUT_DATE`, `FK_ROOM_TYPE_ID`, `NUM_OF_PEOPLE`, `NUM_OF_PETS`, `ORDER_STATUS`) VALUES
-(1, 1, '2021-05-20 00:00:00.000000', '2021-05-22', '2021-05-23', 3, 2, 1, 0),
-(2, 2, '2021-05-24 00:00:00.000000', '2021-05-29', '2021-06-01', 5, 2, 2, 1),
-(3, 3, '2021-06-01 00:00:00.000000', '2021-06-06', '2021-06-07', 1, 4, 1, 1),
-(4, 4, '2021-06-05 00:00:00.000000', '2021-06-12', '2021-06-13', 2, 2, 1, 1),
-(5, 5, '2021-06-10 00:00:00.000000', '2021-06-18', '2021-06-20', 4, 4, 4, 0),
-(6, 6, '2021-06-16 00:00:00.000000', '2021-06-22', '2021-06-23', 5, 2, 0, 0);
+(1, 1, '2021-05-20 08:18:08.000000', '2021-05-22', '2021-05-23', 3, 2, 1, 0),
+(2, 2, '2021-05-24 10:00:00.000000', '2021-05-29', '2021-06-01', 5, 2, 2, 1),
+(3, 3, '2021-06-01 00:09:29.119000', '2021-06-06', '2021-06-07', 1, 4, 1, 1),
+(4, 4, '2021-06-05 11:39:09.000000', '2021-06-12', '2021-06-13', 2, 2, 1, 1),
+(5, 5, '2021-06-10 15:31:16.000000', '2021-06-18', '2021-06-20', 4, 4, 4, 0),
+(6, 6, '2021-06-16 00:00:59.000000', '2021-06-22', '2021-06-23', 5, 2, 0, 0),
+(7, 1, '2021-06-12 02:01:54.000000', '2021-06-16', '2021-06-17', 1, 3, 1, 0),
+(8, 1, '2021-06-12 02:03:17.000000', '2021-06-29', '2021-06-30', 1, 3, 1, 0),
+(9, 1, '2021-06-12 02:05:26.000000', '2021-06-22', '2021-06-23', 4, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -334,7 +336,13 @@ INSERT INTO `MEAL_COSTURMRIZE_DETAILS` (`MEAL_COSTURMRIZE_DETAILS_ID`, `FK_MEAL_
 (15, 3, '紅蘿蔔'),
 (16, 3, '放山雞的蛋'),
 (17, 3, '南瓜'),
-(18, 3, '青菜');
+(18, 3, '青菜'),
+(19, 4, '基本款造型餅乾'),
+(20, 4, '冰島鱈魚'),
+(21, 4, '紅蘿蔔'),
+(22, 4, '放山雞的蛋'),
+(23, 4, '青菜'),
+(24, 4, '南瓜');
 
 -- --------------------------------------------------------
 
@@ -355,7 +363,8 @@ CREATE TABLE `MEAL_CUSTORMRIZE` (
 INSERT INTO `MEAL_CUSTORMRIZE` (`MEAL_CUSTORMRIZE_ID`, `FK_RESTAURANT_ORDER_ID`, `MEAL_COSTURMRIZE_AMOUNT`) VALUES
 (1, 1, 1),
 (2, 2, 1),
-(3, 3, 1);
+(3, 3, 1),
+(4, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -439,7 +448,7 @@ CREATE TABLE `MEMBER` (
 
 INSERT INTO `MEMBER` (`MEMBER_ID`, `ACCOUNT`, `NICKNAME`, `PASSWORD`, `NAME`, `ADDRES`, `PHONE`, `AUTHORITY`, `SUBSCRIPTION`, `DELIEVERY_NOTICE`, `MEMBER_IMG`) VALUES
 (1, 'a111111@yahoo.com.tw', '小華', '1111', '王曉華', '台北市士林區承德路四段194巷10號6樓', '0923774956', 2, 0, 1, './img/back_index/h1.jpg'),
-(2, 'a222223@yahoo.com.tw', '小明', '2222', '蔡小明', '台北市大安區和平東路二段294號', '0912442874', 2, 1, 2, './img/back_index/h2.jpg'),
+(2, 'a222222@yahoo.com.tw', '小明', '2222', '蔡小明', '台北市大安區和平東路二段294號', '0912442874', 2, 1, 2, './img/back_index/h2.jpg'),
 (3, 'a333333@yahoo.com.tw', '小花', '3333', '李小花', '新北市土城區亞洲路247號', '0943777493', 2, 0, 1, './img/back_index/h3.jpg'),
 (4, 'a444444@yahoo.com.tw', '小白', '4444', '林小白', '新北市新莊區中港路9巷29號2樓', '0937884932', 2, 1, 2, './img/back_index/h4.jpg'),
 (5, 'a555555@yahoo.com.tw', '小黑', '5555', '吳小黑', '新北市永和區秀朗路一段155號', '0935284712', 2, 1, 0, './img/back_index/h5.jpg'),
@@ -574,9 +583,11 @@ CREATE TABLE `RESTAURANT_ORDER` (
 --
 
 INSERT INTO `RESTAURANT_ORDER` (`RESTAURANT_ORDER_ID`, `FK_MEMBER_ID`, `CREATE_DATE`, `BOOKING_DATE`, `NUM_OF_PEOPLE`, `NUM_OF_PETS`, `ORDER_STATUS`) VALUES
-(1, 3, '2021-05-18 00:00:00.000000', '2021-05-23 00:00:00.000000', 2, 1, 0),
-(2, 4, '2021-05-19 00:00:00.000000', '2021-05-23 00:00:00.000000', 3, 2, 1),
-(3, 5, '2021-05-20 00:00:00.000000', '2021-05-23 00:00:00.000000', 1, 1, 0);
+(1, 3, '2021-05-18 11:00:00.000000', '2021-05-23 00:00:00.000000', 2, 1, 0),
+(2, 4, '2021-05-19 00:34:00.000000', '2021-05-23 00:00:00.000000', 3, 2, 1),
+(3, 5, '2021-05-20 07:00:52.000000', '2021-05-23 00:00:00.000000', 1, 1, 0),
+(4, 1, '2021-06-12 01:56:31.000000', '2021-06-23 00:00:00.000000', 3, 2, 0),
+(5, 1, '2021-06-12 01:56:51.000000', '2021-06-26 00:00:00.000000', 3, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -601,7 +612,12 @@ INSERT INTO `RESTAURTAT_ORDER_DETAIL` (`RESTAURTAT_ORDER_DETAIL_ID`, `FK_RESTAUR
 (3, 2, 18, 2),
 (4, 2, 25, 3),
 (5, 3, 26, 1),
-(6, 3, 19, 2);
+(6, 3, 19, 2),
+(7, 4, 24, 1),
+(8, 4, 17, 1),
+(9, 5, 13, 1),
+(10, 5, 14, 1),
+(11, 5, 25, 1);
 
 -- --------------------------------------------------------
 
@@ -661,18 +677,19 @@ INSERT INTO `SET_MENU` (`SET_MENU_ID`, `SET_MENU_NAME`) VALUES
 
 CREATE TABLE `SHOPPING_CUSTORMRIZE` (
   `SHOPPING_CUSTORMRIZE_ID` int NOT NULL,
-  `FK_SHOPPING_ORDER_ID` int NOT NULL
+  `FK_SHOPPING_ORDER_ID` int NOT NULL,
+  `SHOPPING_CUSTORMRIZE_AMOUNT` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 傾印資料表的資料 `SHOPPING_CUSTORMRIZE`
 --
 
-INSERT INTO `SHOPPING_CUSTORMRIZE` (`SHOPPING_CUSTORMRIZE_ID`, `FK_SHOPPING_ORDER_ID`) VALUES
-(1, 1),
-(2, 1),
-(3, 3),
-(4, 3);
+INSERT INTO `SHOPPING_CUSTORMRIZE` (`SHOPPING_CUSTORMRIZE_ID`, `FK_SHOPPING_ORDER_ID`, `SHOPPING_CUSTORMRIZE_AMOUNT`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 3, 2),
+(4, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -709,8 +726,9 @@ CREATE TABLE `SHOPPING_ORDER` (
   `SHOPPING_ORDER_ID` int NOT NULL,
   `FK_MEMBER_ID` int NOT NULL,
   `CREATE_DATE` datetime(6) NOT NULL,
-  `PAYMENT` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `HOME_DELIVERY` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `ADDRESSEE` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `PHONE` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `ADDRESS` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `ORDER_STATUS` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -718,10 +736,10 @@ CREATE TABLE `SHOPPING_ORDER` (
 -- 傾印資料表的資料 `SHOPPING_ORDER`
 --
 
-INSERT INTO `SHOPPING_ORDER` (`SHOPPING_ORDER_ID`, `FK_MEMBER_ID`, `CREATE_DATE`, `PAYMENT`, `HOME_DELIVERY`, `ORDER_STATUS`) VALUES
-(1, 1, '2021-05-21 00:00:00.000000', '信用卡', '7-11', 1),
-(2, 15, '2021-05-21 00:00:00.000000', '貨到付款', '全家', 0),
-(3, 8, '2021-05-21 00:00:00.000000', '銀行轉帳', '7-11', 1);
+INSERT INTO `SHOPPING_ORDER` (`SHOPPING_ORDER_ID`, `FK_MEMBER_ID`, `CREATE_DATE`, `ADDRESSEE`, `PHONE`, `ADDRESS`, `ORDER_STATUS`) VALUES
+(1, 1, '2021-05-24 00:00:00.000000', '王曉華', '0923774956', '台北市士林區承德路四段194巷10號6樓', 0),
+(2, 1, '2021-05-30 00:00:00.000000', '陳德綸', '0918812715', '新竹市東區食品路275號', 0),
+(3, 8, '2021-06-09 00:00:00.000000', 'Eliza Mendoza', '0935188842', '新北市樹林區備內街53巷12號7樓', 1);
 
 -- --------------------------------------------------------
 
@@ -774,39 +792,39 @@ CREATE TABLE `SHOPPING_PRODUCT` (
 --
 
 INSERT INTO `SHOPPING_PRODUCT` (`PRODUCT_ID`, `PRODUCT_NAME`, `PRODUCT_PRICE`, `PRODUCT_IMG`, `PRODUCT_INFO`, `PRODUCT_SOLD`, `PRODUCT_TYPE`, `PRODUCT_STATUS`, `count`, `IMG1`, `IMG2`, `IMG3`, `IMG4`) VALUES
-(1, '小帳棚', 81000, 'img/mall/tent_4@2x.png', '此款帳篷適用於小型犬。簡單的條紋設計，選色清新可愛。\n天然原木結構，綁帶輕鬆好穩固。內有厚實柔軟的睡墊，一面是冬天好暖不著涼，一面是夏日清爽好舒服。\n睡墊上含有止滑顆粒，讓寵物安全跑跳不位移。布料使用天然的純棉帆布，不僅透氣而且排濕。入口處的布料，可依寵物高度捲起來固定。\n睡墊有設計拉鍊，可分開墊子與睡墊套，清潔容易。拆裝容易，收納也很方便。', 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
-(2, '安全座椅', 1200, 'img/mall/seat1950元-2@2x.png', '項圈固定扣可調節長度，可扣住項圈更安全。\r\n口袋設計收納方便，在座椅兩側附上口袋設計，可收納玩具、背帶、尿墊等小物。\r\n可分離式坐墊，除了是安全座椅，也可以拆開單獨使用坐墊。\r\n守護毛孩，飼主有責，安全座椅防止毛孩暈車、急轉彎時重心不穩、煞車時跌落、上車就開始興奮跑跳....等狀況。', 100, '用品', 1, 1, NULL, NULL, NULL, NULL),
-(3, '成長碗架', 279, 'img/mall/成長碗架279元@2x.png', '陪伴毛孩成長，雙口調整寵物碗架。木製碗架符合中小型犬及貓進食高度，以減少進食角度問題造成消化不適的問題。\r\n高度可調能隨著毛孩體型調整，雙口碗盆斜邊大開口，進食無死角。保護頸椎，減輕頸椎腳關節負擔。\r\n陶瓷碗盆斜邊大開口，清洗容易，大直徑好就口。\r\n結構穩固，碗盆跟餐桌可以分離\r\n，清洗方便。\r\n', 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
-(4, '吸水墊', 699, 'img/mall/吸水墊699元@2x.png', NULL, 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
-(5, '奧利反光寵物胸背帶', 699, 'img/mall/奧利反光寵物胸背帶699元@2x.png', NULL, 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
-(6, '波浪斜坡寵物樓梯', 1590, 'img/mall/波浪斜坡寵物樓梯1590元@2x.png', NULL, 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
-(7, '糰子貓宅', 2490, 'img/mall/糰子貓宅2490元@2x.png', NULL, 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
-(8, '寵物碗架組', 2250, 'img/mall/寵物碗架組2250元@2x.png', NULL, 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
-(9, '貓抓柱', 1690, 'img/mall/貓抓柱1690元@2x.png', NULL, 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
-(10, '鯊魚造型貓窩', 479, 'img/mall/鯊魚造型貓窩NT479@2x.png', NULL, 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
-(11, '黑六角椅墊組', 3350, 'img/mall/黑六角椅墊組3350元@2x.png', NULL, 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
-(12, '太空艙', 500000, 'img/mall/4@2x.png', NULL, 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
-(13, '野菜玉子燒(犬)', 85, 'img/mall/野菜玉子燒(犬)85元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
-(14, '無穀如意棒', 108, 'img/mall/無穀如意棒108元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
-(15, '花之戀SUSHI', 88, 'img/mall/花之戀SUSHI88元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
-(16, '翻滾吧蛋炒飯', 49, 'img/mall/翻滾吧蛋炒飯49元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
-(17, '香甜地瓜雞肉餐', 85, 'img/mall/香甜地瓜雞肉餐85元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
-(18, '雞肉佐南瓜秋葵', 130, 'img/mall/雞肉佐南瓜秋葵130元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
-(19, '清蒸泰鱸魚', 128, 'img/mall/清蒸泰鱸魚128元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
-(20, '古典約克燴肉漢堡', 95, 'img/mall/古典約克燴肉漢堡95元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
-(21, '鮭魚佐低脂雞漢堡9', 95, 'img/mall/鮭魚佐低脂雞漢堡95元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
-(22, '寵物鮮食粽', 85, 'img/mall/寵物鮮食粽85元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
-(23, '麻洋芋豬後腿', 80, 'img/mall/芝麻洋芋豬後腿80元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
-(24, '番茄花菜牛肋脊', 80, 'img/mall/番茄花菜牛肋脊80元@2x.png', NULL, 0, '食品', 1, 1, NULL, NULL, NULL, NULL),
-(25, '', 690, 'img/mall/clothes1@2x.png', NULL, 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
-(26, '', 690, 'img/mall/clothes2@2x.png', NULL, 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
-(27, '', 690, 'img/mall/clothes3@2x.png', NULL, 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
-(28, '', 690, 'img/mall/clothes4@2x.png', NULL, 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
-(29, '', 690, 'img/mall/clothes5@2x.png', NULL, 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
-(30, '', 690, 'img/mall/clothes6@2x.png', NULL, 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
-(31, '', 690, 'img/mall/clothes7@2x.png', NULL, 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
-(32, '', 690, 'img/mall/clothes8@2x.png', NULL, 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
-(33, '', 690, 'img/mall/clothes9@2x.png', NULL, 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL);
+(1, '小帳棚', 81000, 'img/mall/tent_4@2x.png', '此款帳篷適用於小型犬。簡單的條紋設計，選色清新可愛。\n天然原木結構，綁帶輕鬆好穩固。內有厚實柔軟的睡墊，一面是冬天好暖不著涼，一面是夏日清爽好舒服。\n睡墊上含有止滑顆粒，讓寵物安全跑跳不位移。布料使用天然的純棉帆布，不僅透氣而且排濕。入口處的布料，可依寵物高度捲起來固定。\n睡墊有設計拉鍊，可分開墊子與睡墊套，清潔容易。拆裝容易，收納也很方便。', 0, '用品', 1, 1, 'img/mall/tent_1@2x.png', 'img/mall/tent_2@2x.png', 'img/mall/tent_3@2x.png', 'img/mall/tent4@2x.png'),
+(2, '安全座椅', 1200, 'img/mall/seat1950元-2@2x.png', '項圈固定扣可調節長度，可扣住項圈更安全。\r\n口袋設計收納方便，在座椅兩側附上口袋設計，可收納玩具、背帶、尿墊等小物。\r\n可分離式坐墊，除了是安全座椅，也可以拆開單獨使用坐墊。\r\n守護毛孩，飼主有責，安全座椅防止毛孩暈車、急轉彎時重心不穩、煞車時跌落、上車就開始興奮跑跳....等狀況。', 100, '用品', 1, 1, 'img/mall/seat-1@2x.png', 'img/mall/seat-2@2x.png', 'img/mall/seat-3@2x.png', 'img/mall/seat-4@2x.png'),
+(3, '成長碗架', 279, 'img/mall/成長碗架279元@2x.png', '陪伴毛孩成長，雙口調整寵物碗架。木製碗架符合中小型犬及貓進食高度，以減少進食角度問題造成消化不適的問題。\r\n高度可調能隨著毛孩體型調整，雙口碗盆斜邊大開口，進食無死角。保護頸椎，減輕頸椎腳關節負擔。\r\n陶瓷碗盆斜邊大開口，清洗容易，大直徑好就口。\r\n結構穩固，碗盆跟餐桌可以分離\r\n，清洗方便。\r\n', 13, '用品', 1, 1, 'img/mall/bowl-1@2x.png', 'img/mall/bowl-2@2x.png', 'img/mall/bowl-3@2x.png', 'img/mall/bowl-4@2x.png'),
+(4, '吸水墊', 699, 'img/mall/吸水墊699元@2x.png', '這是一個很棒的吸水墊', 11, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(5, '奧利反光寵物胸背帶', 699, 'img/mall/奧利反光寵物胸背帶699元@2x.png', '這是一個很棒的寵物胸背帶', 6, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(6, '波浪斜坡寵物樓梯', 1590, 'img/mall/波浪斜坡寵物樓梯1590元@2x.png', '這是一個好玩的斜坡寵物樓梯', 9, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(7, '糰子貓宅', 2490, 'img/mall/糰子貓宅2490元@2x.png', '貓咪最愛的貓宅', 44, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(8, '寵物碗架組', 2250, 'img/mall/寵物碗架組2250元@2x.png', '寵物吃飯就靠它了', 31, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(9, '貓抓柱', 1690, 'img/mall/貓抓柱1690元@2x.png', '貓咪最愛的遊樂設施', 1, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(10, '鯊魚造型貓窩', 479, 'img/mall/鯊魚造型貓窩NT479@2x.png', '舒服的小窩，值得貓咪擁有', 6, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(11, '黑六角椅墊組', 3350, 'img/mall/黑六角椅墊組3350元@2x.png', '這是一個很棒的椅墊組', 2, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(12, '太空艙', 500000, 'img/mall/4@2x.png', '讓寵物跟你一樣擁有太空夢', 0, '用品', 1, 1, NULL, NULL, NULL, NULL),
+(13, '野菜玉子燒(犬)', 85, 'img/mall/野菜玉子燒(犬)85元@2x.png', '野菜玉子燒', 131, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(14, '無穀如意棒', 108, 'img/mall/無穀如意棒108元@2x.png', '無穀如意棒', 22, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(15, '花之戀SUSHI', 88, 'img/mall/花之戀SUSHI88元@2x.png', '花之戀SUSHI', 66, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(16, '翻滾吧蛋炒飯', 49, 'img/mall/翻滾吧蛋炒飯49元@2x.png', '翻滾吧蛋炒飯', 77, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(17, '香甜地瓜雞肉餐', 85, 'img/mall/香甜地瓜雞肉餐85元@2x.png', '香甜地瓜雞肉餐', 37, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(18, '雞肉佐南瓜秋葵', 130, 'img/mall/雞肉佐南瓜秋葵130元@2x.png', '雞肉佐南瓜秋葵', 82, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(19, '清蒸泰鱸魚', 128, 'img/mall/清蒸泰鱸魚128元@2x.png', '清蒸泰鱸魚', 53, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(20, '古典約克燴肉漢堡', 95, 'img/mall/古典約克燴肉漢堡95元@2x.png', '古典約克燴肉漢堡', 72, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(21, '鮭魚佐低脂雞漢堡', 95, 'img/mall/鮭魚佐低脂雞漢堡95元@2x.png', '鮭魚佐低脂雞漢堡', 83, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(22, '寵物鮮食粽', 85, 'img/mall/寵物鮮食粽85元@2x.png', '寵物鮮食粽', 47, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(23, '麻洋芋豬後腿', 80, 'img/mall/芝麻洋芋豬後腿80元@2x.png', '麻洋芋豬後腿', 39, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(24, '番茄花菜牛肋脊', 80, 'img/mall/番茄花菜牛肋脊80元@2x.png', '番茄花菜牛肋脊', 16, '食品', 1, 1, NULL, NULL, NULL, NULL),
+(25, '比利條紋狗狗衣服', 360, 'img/mall/clothes1@2x.png', '比利條紋狗狗衣服', 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
+(26, '瑪塔狗狗衣服', 780, 'img/mall/clothes2@2x.png', '瑪塔狗狗衣服', 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
+(27, '邦妮狗狗帽T', 500, 'img/mall/clothes3@2x.png', '邦妮狗狗帽T', 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
+(28, '艾比撞色狗狗衣服', 780, 'img/mall/clothes4@2x.png', '艾比撞色狗狗衣服', 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
+(29, '布萊登狗狗連身外套', 730, 'img/mall/clothes5@2x.png', '布萊登狗狗連身外套', 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
+(30, '防風保暖背心', 780, 'img/mall/clothes6@2x.png', '防風保暖背心', 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
+(31, '狗狗運動風帽T', 450, 'img/mall/clothes7@2x.png', '狗狗運動風帽T', 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
+(32, '韓系鋪棉寵物背心', 400, 'img/mall/clothes8@2x.png', '韓系鋪棉寵物背心', 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL),
+(33, '韓系鋪棉寵物背心', 690, 'img/mall/clothes9@2x.png', '韓系鋪棉寵物背心', 0, '虛擬試衣間', 1, 1, NULL, NULL, NULL, NULL);
 
 --
 -- 已傾印資料表的索引
@@ -982,6 +1000,12 @@ ALTER TABLE `SHOPPING_PRODUCT`
 --
 
 --
+-- 使用資料表自動遞增(AUTO_INCREMENT) `DOCTOR_SUGGESTION`
+--
+ALTER TABLE `DOCTOR_SUGGESTION`
+  MODIFY `DOCTOR_SUGGESTION_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- 使用資料表自動遞增(AUTO_INCREMENT) `EMERGENCY`
 --
 ALTER TABLE `EMERGENCY`
@@ -1003,25 +1027,25 @@ ALTER TABLE `HEALTH_CHECK& SET`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `HOSPITAL_ORDER`
 --
 ALTER TABLE `HOSPITAL_ORDER`
-  MODIFY `HOSPITAL_ORDER_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `HOSPITAL_ORDER_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `HOTEL_ORDER`
 --
 ALTER TABLE `HOTEL_ORDER`
-  MODIFY `HOTEL_ORDER_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `HOTEL_ORDER_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `MEAL_COSTURMRIZE_DETAILS`
 --
 ALTER TABLE `MEAL_COSTURMRIZE_DETAILS`
-  MODIFY `MEAL_COSTURMRIZE_DETAILS_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `MEAL_COSTURMRIZE_DETAILS_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `MEAL_CUSTORMRIZE`
 --
 ALTER TABLE `MEAL_CUSTORMRIZE`
-  MODIFY `MEAL_CUSTORMRIZE_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `MEAL_CUSTORMRIZE_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `MEAL_DATA`
@@ -1057,13 +1081,13 @@ ALTER TABLE `PET_INFO`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `RESTAURANT_ORDER`
 --
 ALTER TABLE `RESTAURANT_ORDER`
-  MODIFY `RESTAURANT_ORDER_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `RESTAURANT_ORDER_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `RESTAURTAT_ORDER_DETAIL`
 --
 ALTER TABLE `RESTAURTAT_ORDER_DETAIL`
-  MODIFY `RESTAURTAT_ORDER_DETAIL_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `RESTAURTAT_ORDER_DETAIL_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `ROOM_TYPE`
