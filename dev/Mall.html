@@ -11,17 +11,17 @@
 
 
 <body class="mall">
-  <!-- @@include('layout/mall_animate.html') -->
+  @@include('layout/mall_animate.html')
   <div id="forCart" class="wrapper" v-cloak>
     @@include('layout/header.html')
-    <div class="banner">
+    <!-- <div class="banner">
       <img src="img/mall/rough_cart-01@2x.png" alt="">
-    </div>
+    </div> -->
 
     <main>
       <!-- 選擇區塊 -->
       <div class="choose_button">
-        <select name="" v-model="selected" @change="hideInput">
+        <select name="" v-model="selected" @change="hideInput" @click="reRender">
           <!-- 在select用v-model雙向綁定，會將當下綁定的value值給selected(這裡用於切換頁面)-->
           <!-- 用change事件進行判斷，若點擊搜尋顯示input輸入框時，切頁不會隱藏的狀況 -->
           <option v-for="option in options" :value="option.val">{{option.item}}</option>

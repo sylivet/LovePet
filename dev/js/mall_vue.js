@@ -128,6 +128,7 @@ new Vue({
           }
         }
         if (!repeat) {
+          //if(!repeat)的觀念在if條件裡面是表示:是不是false，而非反轉成true
           value.push(cart);
         }
       } else {
