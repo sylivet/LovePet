@@ -1,8 +1,58 @@
+<!-- 試衣間 -->
+<div id="try_on" class="i_background" style="display: none;">
+  <div class="i_lightbox_bk">
+    <a class="i_closeButton">
+      <img src="img/common/close.png" alt="">
+    </a>
+    <div class="i_lightbox_title">
+      <h2>寵物試衣間</h2>
+    </div>
+    <div class="y_wrapper bar">
+      <!-- 右側選擇區塊 -->
+      <div class="right simu">
+        <div class="select_block">
+          <select name="" id="">
+            <option value="" disabled selected>請選擇您的寵物</option>
+            <option value="">貓</option>
+            <option value="">狗</option>
+          </select>
+
+          <select name="" id="">
+            <option value="" disabled selected>請選擇體型</option>
+            <option value="">小型犬</option>
+            <option value="">中型犬</option>
+            <option value="">大型犬</option>
+          </select>
+
+          <select name="" id="">
+            <option value="">請選擇毛色</option>
+            <option value="">白色</option>
+            <option value="">灰色</option>
+            <option value="">米色</option>
+            <option value="">黑色</option>
+            <option value="">咖啡色</option>
+          </select>
+        </div>
+
+        <div class="fake">
+          <img src="./img/mall/Path 3385@2x.png" alt="">
+        </div>
+
+        <div class="btn_icon">
+          <span class="material-icons">shopping_cart</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <!-- 服飾試穿區塊 -->
 <div class="clothes_block">
 
   <div class="clothes">
-    <div class="icon"></div>
+    <div @click="openSimu" class="try"></div>
     <img src="img/mall/clothes1@2x.png" alt="">
     <div class="view_btn">
       <h3>view</h3>
@@ -10,7 +60,7 @@
   </div>
 
   <div class="clothes">
-    <div class="icon"></div>
+    <div @click="openSimu" class="try"></div>
     <img src="img/mall/clothes2@2x.png" alt="">
     <div class="view_btn">
       <h3>view</h3>
@@ -18,7 +68,7 @@
   </div>
 
   <div class="clothes">
-    <div class="icon"></div>
+    <div @click="openSimu" class="try"></div>
     <img src="img/mall/clothes3@2x.png" alt="">
     <div class="view_btn">
       <h3>view</h3>
@@ -26,7 +76,7 @@
   </div>
 
   <div class="clothes">
-    <div class="icon"></div>
+    <div @click="openSimu" class="try"></div>
     <img src="img/mall/clothes4@2x.png" alt="">
     <div class="view_btn">
       <h3>view</h3>
@@ -34,7 +84,7 @@
   </div>
 
   <div class="clothes">
-    <div class="icon"></div>
+    <div @click="openSimu" class="try"></div>
     <img src="img/mall/clothes5@2x.png" alt="">
     <div class="view_btn">
       <h3>view</h3>
@@ -42,7 +92,7 @@
   </div>
 
   <div class="clothes">
-    <div class="icon"></div>
+    <div @click="openSimu" class="try"></div>
     <img src="img/mall/clothes6@2x.png" alt="">
     <div class="view_btn">
       <h3>view</h3>
@@ -50,7 +100,7 @@
   </div>
 
   <div class="clothes">
-    <div class="icon"></div>
+    <div @click="openSimu" class="try"></div>
     <img src="img/mall/clothes7@2x.png" alt="">
     <div class="view_btn">
       <h3>view</h3>
@@ -58,15 +108,15 @@
   </div>
 
   <div class="clothes">
-    <div class="icon"></div>
+    <div @click="openSimu" class="try"></div>
     <img src="img/mall/clothes8@2x.png" alt="">
     <div class="view_btn">
       <h3>view</h3>
     </div>
   </div>
 
-  <div class="clothes">
-    <div class="icon"></div>
+  <div @click="openSimu" class="clothes">
+    <div class="try"></div>
     <img src="img/mall/clothes9@2x.jpg" alt="">
     <div class="view_btn">
       <h3>view</h3>

@@ -228,6 +228,25 @@ new Vue({
       }
     },
 
+    //======開啟試衣間燈箱======
+    openSimu() {
+      let open = document.getElementsByClassName('try');
+      console.log(open);
+      var tryOnBox = document.getElementById('try_on');
+      if (tryOnBox.style.display === 'none') {
+        tryOnBox.style.display = 'block';
+      }
+
+      let close = document.getElementsByClassName('i_closeButton');
+      for (let i = 0; i < close.length; i++) {
+        close[i].addEventListener('click', function () {
+          if (this.closest('.i_background').style.display === 'block') {
+            this.closest('.i_background').style.display = 'none';
+          }
+        });
+      }
+    },
+
     into(pointer) {
       this.currentPage.push(this.info[pointer]);
       console.log(this.info[this.page]);

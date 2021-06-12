@@ -52,6 +52,7 @@
     text-align-last: center;/*支援Chrome跟Edge瀏覽器*/
   }
   .btn_icon{
+    text-align: center;
     width: 125px;
     height: 60px;
     margin: 35px auto;
@@ -59,14 +60,11 @@
     background-color: #DDDDDD;
     position: relative;
     box-shadow: 0px 0px 10px -3px rgba(#000000, .5);
-    img{
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
-      width: 30%;//設最大寬度，避免吃到共用檔的img100%
+    span {
+      font-size: 36px;
+      line-height: 60px;
+      font-weight: 400;
+      color: #707070;
     }
   }
 }
