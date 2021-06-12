@@ -3,9 +3,15 @@
 //MySQL相關資訊
 $db_host = "127.0.0.1";
 $db_user = "root";
+<<<<<<< HEAD
 $db_select = "LOVE_PET";
 $db_pass = "kevin820304";
 
+=======
+$db_pass = "password";
+$db_select = "LOVE_PET";
+$db_pass = "password";
+>>>>>>> Tony
 
 
 //建立資料庫連線物件
