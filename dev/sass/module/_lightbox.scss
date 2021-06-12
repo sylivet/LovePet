@@ -185,8 +185,10 @@
         justify-content: center;
 
         tr {
+            width: 100%;
             display: flex;
             align-items: center;
+            border-bottom: 1px solid #9e9a9a;
 
             @include mobile {
                 flex-direction: column;
@@ -261,8 +263,7 @@
                 }
 
                 img {
-                    width: 168px;
-                    height: 108px;
+                    width: 150px;
                 }
 
                 input {

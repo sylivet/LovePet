@@ -90,12 +90,12 @@
           <input type="text" :value="item.item_count" readonly="readonly">
           <div @click="plus(index)" class="icon">+</div>
         </td>
-        <td>NT{{item.item_price}}元</td>
+        <td>NT{{item.item_total_price | currency}}元</td>
       </tr>
     </table>
     <hr>
     <div class="i_total">
-      <h3>總價 NT {{getTotalPrice}}元</h3>
+      <h3>總價 NT {{total | currency}}元</h3>
     </div>
     <a href="s_bill.html" class="i_button">結帳</a>
   </div>

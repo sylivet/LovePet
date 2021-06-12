@@ -3,7 +3,7 @@
   <div v-for="(item,index) in forsup" class="items">
     <img :src="item.PRODUCT_IMG" alt="">
     <div class="info_block">
-      <h4>{{item.PRODUCT_NAME}}<br>${{item.PRODUCT_PRICE}}元</h4>
+      <h4>{{item.PRODUCT_NAME}}<br>${{item.PRODUCT_PRICE | currency}}元</h4>
       <div class="view_btn">
         <a :href="`./s_view.html#${item.PRODUCT_ID}`">
           <h3>view</h3>

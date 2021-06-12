@@ -10,7 +10,8 @@
           <h2>購物車清單</h2>
         </div>
         <!-- 購物車組件 -->
-        <the-cart @to-plus="increase" @to-sub="decrease" @to-remove="removeToCart" :counts="chooseItem"></the-cart>
+        <the-cart @to-plus="increase" @to-sub="decrease" @to-remove="removeToCart" :counts="chooseItem" :total="total">
+        </the-cart>
         <!-- 父元件接收自訂事件toplus -->
       </div>
     </div>

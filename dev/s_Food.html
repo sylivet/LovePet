@@ -3,11 +3,9 @@
   <div v-for="(item,index) in forfood" class="items">
     <img :src="item.PRODUCT_IMG" alt="">
     <div class="info_block">
-      <h4>{{item.PRODUCT_NAME}}<br>${{item.PRODUCT_PRICE}}元</h4>
+      <h4>{{item.PRODUCT_NAME}}<br>${{item.PRODUCT_PRICE | currency}}元</h4>
       <div class="view_btn">
-        <a href="#">
-          <h3>view</h3>
-        </a>
+        <h3 @click="addToCart(item)">加入</h3>
       </div>
     </div>
   </div>

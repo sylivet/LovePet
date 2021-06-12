@@ -5,12 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bill</title>
   @@include('layout/style.html')
 </head>
 
 <body class="b_bbb">
 
-  <div class="b_bill">
+  <div id="forCart" class="b_bill">
     @@include('layout/header.html')
     <h3>購物明細</h3>
     <div>
@@ -24,25 +25,25 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td style="width:200px;"><img src="img/mall/bowl-1@2x.png" alt=""></td>
-            <td>測試</td>
-            <td>1</td>
-            <td>$100</td>
+          <tr v-for="items in this.chooseItem">
+            <td style="width:200px;"><img :src="items.item_img" alt=""></td>
+            <td>{{items.item_name}}</td>
+            <td>{{items.item_count}}</td>
+            <td>{{items.item_total_price | currency}}</td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td style="width:200px;"><img src="img/mall/clothes4@2x.png" alt=""></td>
             <td>測試測試測試測試測試</td>
             <td>1</td>
             <td>$100</td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </div>
-    <p style="margin-top: 20px;margin-bottom: 20px; text-align: right;font-size: 20px;">總計：1000元</p>
+    <p style="margin-top: 20px;margin-bottom: 20px; text-align: right;font-size: 20px;">總計：{{total | currency}}元</p>
     <h3>收件人資訊</h3>
     <div class="group">
-      
+
       收件人姓名：
       <input type="text" style="width: 100px;"><input type="checkbox" id="addd"><label for="addd">同會員資訊</label>
       <br><br>
@@ -67,37 +68,8 @@
   </div>
   @@include('layout/footer.html')
 </body>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var cards = document.getElementsByClassName("card");
-    for (let i = 0; i < cards.length; i++) {
-      cards[i].addEventListener("keydown", function (e) {
-        if ((e.which >= 48 && e.which <= 57) || e.which == 8) {
 
-          if (e.target.value.length == 0 && e.which == 8) {
-            let previous_el = this.previousElementSibling;
-            if (previous_el != null) {
-              previous_el.focus();
-            }
-          }
-        } else {
-          e.preventDefault();
-        }
-      });
-
-      // keyup
-      cards[i].addEventListener("keyup", function (e) {
-        let str = (e.target.value).replace(/\D/g, "");
-        e.target.value = str;
-        if (str.length == 4) {
-          let next_el = this.nextElementSibling;
-          if (next_el != null) {
-            next_el.focus();
-          }
-        }
-      });
-    }
-  });
-</script>
+<!-- 購物車共用組件 -->
+<script src="js/mall_vue.js"></script>
 
 </html>
