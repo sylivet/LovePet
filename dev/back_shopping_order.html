@@ -120,10 +120,10 @@
 	<nav class="navbar navbar-light" style="background-color: #ffc857">
 		<div class="container-fluid">
 			<div class="d-flex align-items-center">
-				<img class="ms-5" src="img/common/i_logo.png" alt="" style="max-width: 50px" />
+				<a href="index.html"><img class="ms-5" src="img/common/i_logo.png" alt="" style="max-width: 50px" /></a>
 				<p class="navbar-brand ms-3">樂寵後台管理</p>
 			</div>
-			<div class="me-5"><a href="#">登出</a></div>
+			<div class="me-5"><a href="#" onclick="logout()">登出</a></div>
 		</div>
 	</nav>
 	<div class="container mt-5">
@@ -441,6 +441,26 @@
 				});
 			}
 
+			function logout() {
+        let m_leave = '確認登出嗎?';
+        if (confirm(m_leave) == true) {
+          localStorage.clear(); //清除local
+
+          $.ajax({
+            //清除session ID
+            method: 'POST',
+            url: './php/front_end_API/M_removesession_MID.php',
+            data: {},
+            dataType: 'text',
+            success: function success(response) {
+              window.location.href = "index.html";
+            },
+            error: function error(exception) {
+              alert('數據載入失敗: ' + exception.status);
+            },
+          });
+        }
+      }
 	</script>
 </body>
 

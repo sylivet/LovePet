@@ -9,19 +9,19 @@
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   @@include('layout/back_style.html')
   <style>
-    body{
+    body {
       overflow: auto;
     }
-    input{
+    input {
       width: 80px;
     }
 
-    input[name="NICKNAME"]{
+    input[name="NICKNAME"] {
       width: 50px;
     }
 
     .backend .list-group {
-    width: 76%;
+      width: 76%;
     }
   </style>
   <title>樂寵後台管理</title>
@@ -34,7 +34,7 @@
         <a href="index.html"><img class="ms-5" src="img/common/i_logo.png" alt="" style="max-width: 50px" /></a>
         <p class="navbar-brand ms-3">樂寵後台管理</p>
       </div>
-      <div class="me-5"><a href="#">登出</a></div>
+      <div class="me-5"><a href="#" onclick="logout()">登出</a></div>
     </div>
   </nav>
   <div>
@@ -78,13 +78,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script src="./js/orderNumber.js"></script>
     <script>
-      axios.post("php/back_end_API/M_select.php").then((res)=>{
-            getData(res)
-          })
-          function getData(res){
-            for(let i = 0; i< res.data.length; i++){
-    
-              let data = `
+      axios.post("php/back_end_API/M_select.php").then((res) => {
+        getData(res)
+      })
+      function getData(res) {
+        for (let i = 0; i < res.data.length; i++) {
+
+          let data = `
               <tr class="dataTable">
                     <td style="display: none"><input value="${res.data[i].MEMBER_ID}" class="MEMBER_ID" name="MEMBER_ID" disabled readonly></td>
                     <td>${res.data[i].MEMBER_ID}</td>
@@ -102,7 +102,7 @@
                     </td>
                     <td>
                       <select name="SUBSCRIPTION" disabled>
-                        <option class="noShow" value="${res.data[i].SUBSCRIPTION}" selected>${res.data[i].SUBSCRIPTION==='0'? 'N':'Y'}</option>
+                        <option class="noShow" value="${res.data[i].SUBSCRIPTION}" selected>${res.data[i].SUBSCRIPTION === '0' ? 'N' : 'Y'}</option>
                         <option value="0">N</option>
                         <option value="1">Y</option>
                       </select>
@@ -110,7 +110,7 @@
                   
                     <td >
                       <select name="DELIEVERY_NOTICE" disabled>
-                        <option class="noShow" value="${res.data[i].DELIEVERY_NOTICE}" selected>${res.data[i].DELIEVERY_NOTICE==='0'?'簡訊':'手機'}</option>
+                        <option class="noShow" value="${res.data[i].DELIEVERY_NOTICE}" selected>${res.data[i].DELIEVERY_NOTICE === '0' ? '簡訊' : '手機'}</option>
                         <option value="0">簡訊</option>
                         <option value="1">手機</option>
                       </select>
@@ -119,88 +119,107 @@
                     <td class="cancel"><button class="btn btn-danger btn-sm">刪除</button></td>
               </tr>
               `
-              $('.data').append(data)
-            }
+          $('.data').append(data)
+        }
+      }
+
+
+      //編輯
+      $('.data').on('click', '.edit', function (e) {
+        e.preventDefault()
+        // 使其無法同時編輯兩個
+        $('.data').find('input, select').attr('disabled', true)
+        $('.edit').css('display', 'table-cell')
+        $('.save').css('display', 'none')
+
+
+        $(this).parent().find('input, select').attr('disabled', false)
+        $(this).css('display', 'none')
+        $(this).next().css('display', 'table-cell')
+        $('.noShow').hide()
+      });
+
+      //儲存
+      $('.data').on('click', '.save', function () {
+        $(this).parent().parent().find('input, select').attr('disabled', true)
+        $(this).css('display', 'none')
+        $(this).prev().css('display', 'table-cell')
+
+        let MEMBER_ID = $(this).parent().find("input[name='MEMBER_ID']").val()
+        let PHONE = $(this).parent().find("input[name='PHONE']").val()
+        let DELIEVERY_NOTICE = $(this).parent().find("select[name='DELIEVERY_NOTICE']").val()
+        let AUTHORITY = $(this).parent().find("select[name='AUTHORITY']").val()
+        let SUBSCRIPTION = $(this).parent().find("select[name='SUBSCRIPTION']").val()
+
+
+        $.ajax({
+          method: "POST",
+          url: "php/back_end_API/M_Update.php",
+          data: {
+            'MEMBER_ID': MEMBER_ID,
+            'PHONE': PHONE,
+            'DELIEVERY_NOTICE': DELIEVERY_NOTICE,
+            'AUTHORITY': AUTHORITY,
+            'SUBSCRIPTION': SUBSCRIPTION,
+          },
+          dataType: "text",
+          success: function (res) {
+          },
+          error: function (exception) {
+            alert("修改失敗");
           }
-    
-          
-          //編輯
-          $('.data').on('click', '.edit', function(e){
-            e.preventDefault()
-            // 使其無法同時編輯兩個
-            $('.data').find('input, select').attr('disabled', true)
-            $('.edit').css('display', 'table-cell')
-            $('.save').css('display', 'none')
-    
-    
-            $(this).parent().find('input, select').attr('disabled', false)
-            $(this).css('display', 'none')
-            $(this).next().css('display', 'table-cell')
-            $('.noShow').hide()
-          });
-    
-          //儲存
-          $('.data').on('click', '.save', function(){
-            $(this).parent().parent().find('input, select').attr('disabled', true)
-            $(this).css('display', 'none')
-            $(this).prev().css('display', 'table-cell')
+        });
+      });
 
-            let MEMBER_ID = $(this).parent().find("input[name='MEMBER_ID']").val()
-            let PHONE = $(this).parent().find("input[name='PHONE']").val()
-            let DELIEVERY_NOTICE = $(this).parent().find("select[name='DELIEVERY_NOTICE']").val()
-            let AUTHORITY = $(this).parent().find("select[name='AUTHORITY']").val()
-            let SUBSCRIPTION = $(this).parent().find("select[name='SUBSCRIPTION']").val()
+      //刪除
+      $('.data').on('click', '.cancel', function () {
+        let MEMBER_ID = $(this).parent().find("input[name='MEMBER_ID']").val()
 
-            
-            $.ajax({            
-                method: "POST",
-                url: "php/back_end_API/M_Update.php",
-                data:{
-                  'MEMBER_ID': MEMBER_ID,
-                  'PHONE': PHONE,
-                  'DELIEVERY_NOTICE': DELIEVERY_NOTICE,
-                  'AUTHORITY': AUTHORITY,
-                  'SUBSCRIPTION': SUBSCRIPTION,
-                },            
-                dataType: "text",
-                success: function (res) {   
-                },
-                error: function(exception) {
-                  alert("修改失敗");     
-                }
-            });
-          });
-    
-          //刪除
-          $('.data').on('click', '.cancel', function(){
-            let MEMBER_ID = $(this).parent().find("input[name='MEMBER_ID']").val()
-    
-            let yes = confirm("不要亂刪喔!");
-            if(yes){
-              $(this).parent().fadeOut()
-              $.ajax({            
-                method: "POST",
-                url: "php/back_end_API/M_Delete.php",
-                data:{
-                  'MEMBER_ID': MEMBER_ID,
-                },            
-                dataType: "text",
-                success: function (res) {     
-                }
-              });
+        let yes = confirm("不要亂刪喔!");
+        if (yes) {
+          $(this).parent().fadeOut()
+          $.ajax({
+            method: "POST",
+            url: "php/back_end_API/M_Delete.php",
+            data: {
+              'MEMBER_ID': MEMBER_ID,
+            },
+            dataType: "text",
+            success: function (res) {
             }
           });
+        }
+      });
 
+      // 搜尋bar
+      $("#name").on("keyup", function () {
+        let byOrderNum = $('#byNumber').val()
+        var value = $(this).val();
+        $(".memberName").filter(function () {
+          $(this).parent().toggle($(this).text().indexOf(value) != -1)
+        });
+      });
 
+      function logout() {
+        let m_leave = '確認登出嗎?';
+        if (confirm(m_leave) == true) {
+          localStorage.clear(); //清除local
 
-          // 搜尋bar
-          $("#name").on("keyup", function() {
-            let byOrderNum = $('#byNumber').val()
-            var value = $(this).val();
-            $(".memberName").filter(function() {
-                  $(this).parent().toggle($(this).text().indexOf(value) != -1)			
-              });
+          $.ajax({
+            //清除session ID
+            method: 'POST',
+            url: './php/front_end_API/M_removesession_MID.php',
+            data: {},
+            dataType: 'text',
+            success: function success(response) {
+              window.location.href = "index.html";
+            },
+            error: function error(exception) {
+              alert('數據載入失敗: ' + exception.status);
+            },
           });
+        }
+      }
     </script>
 </body>
 
