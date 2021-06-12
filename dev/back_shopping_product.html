@@ -73,12 +73,12 @@
                 <td style="display: none"><input value="${res.data[i].PRODUCT_ID}" name="PRODUCT_ID" disabled readonly></td>
                 <td>${res.data[i].PRODUCT_ID}</td>
                 <td><input type="text" name="PRODUCT_NAME" style="width:150px;" value="${res.data[i].PRODUCT_NAME}" disabled></td>
-                <td><input type="text" name="PRODUCT_PRICE" style="width:50px;" value="${res.data[i].PRODUCT_PRICE}" disabled></td>
+                <td><input type="text" name="PRODUCT_PRICE" style="width:150px;" value="${res.data[i].PRODUCT_PRICE}" disabled></td>
                 <td style="display: none"><input type="text" name="PRODUCT_IMG" value="${res.data[i].PRODUCT_IMG}" disabled></td>
                 <td><img src="${res.data[i].PRODUCT_IMG}" style="width:80px;"></td>
                 <td><textarea name="PRODUCT_INFO" cols="10" rows="5" disabled>${res.data[i].PRODUCT_INFO}</textarea></td>
-                <td><input type="text" name="PRODUCT_SOLD" style="width:50px;" value="${res.data[i].PRODUCT_SOLD}" disabled></td>
-                <td><input type="text" name="PRODUCT_TYPE" style="width:50px;" value="${res.data[i].PRODUCT_TYPE}" disabled></td>
+                <td>${res.data[i].PRODUCT_SOLD}</td>
+                <td>${res.data[i].PRODUCT_TYPE}</td>
                 <td>
                   <select name="PRODUCT_STATUS" disabled>
                     <option class="noShow" value="${res.data[i].PRODUCT_STATUS}" selected>${res.data[i].PRODUCT_STATUS === "1"? "上架" : "下架" }</option>
@@ -121,10 +121,7 @@
         let PRODUCT_ID = $(this).parent().find("input[name='PRODUCT_ID']").val()
         let PRODUCT_NAME = $(this).parent().find("input[name='PRODUCT_NAME']").val()
         let PRODUCT_PRICE = $(this).parent().find("input[name='PRODUCT_PRICE']").val()
-        let PRODUCT_IMG = $(this).parent().find("input[name='PRODUCT_IMG']").val()
-        let PRODUCT_INFO = $(this).parent().find("input[name='PRODUCT_INFO']").val()
-        let PRODUCT_SOLD = $(this).parent().find("input[name='PRODUCT_SOLD']").val()
-        let PRODUCT_TYPE = $(this).parent().find("input[name='PRODUCT_TYPE']").val()
+        let PRODUCT_INFO = $(this).parent().find("textarea[name='PRODUCT_INFO']").val()
         let PRODUCT_STATUS = $(this).parent().find("select[name='PRODUCT_STATUS']").val()
 
         //判斷是否改變上下架
@@ -138,11 +135,8 @@
             data:{
               'PRODUCT_ID': PRODUCT_ID,
               'PRODUCT_NAME': PRODUCT_NAME,
-              'PPRODUCT_PRICE': PRODUCT_PRICE,
-              'PRODUCT_IMG': PRODUCT_IMG,
+              'PRODUCT_PRICE': PRODUCT_PRICE,
               'PRODUCT_INFO': PRODUCT_INFO,
-              'PRODUCT_SOLD': PRODUCT_SOLD,
-              'PRODUCT_TYPE': PRODUCT_TYPE,
               'PRODUCT_STATUS': PRODUCT_STATUS,
             },            
             dataType: "text",
