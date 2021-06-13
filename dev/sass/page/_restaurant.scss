@@ -2243,3 +2243,130 @@ ol li:not(:first-child) {
   padding: 0;
   z-index: 101;
 }
+
+
+body{
+  padding-top: 87px;
+}
+    
+.res_top{
+  position: relative;
+  background-image: url("../img/restaurant/res_back-01.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  padding-top:56.25%;
+  overflow: hidden;
+  overflow-x: hidden;
+}
+
+.cloud{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  animation:cloud linear forwards infinite 8s alternate-reverse;
+}
+@keyframes cloud {
+	0% {
+    opacity: 0;
+		transform: translateX(500px);
+	}
+
+  50%{
+    opacity: 0.8;
+  }
+
+	100% {
+		opacity: 0;
+		transform: translateX(-1200px);
+	}
+}
+
+.p1{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.p2{
+  width: 100%;
+  position: absolute;
+  bottom: 10%;
+  left:-3%;
+}
+
+.dog1{
+  width: 100%;
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+}
+
+
+.dog2,.dog3,.dog4,.dog5,.dog6,.dog7{
+  width: 100%;
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  opacity: 0;
+}
+
+
+/* 暗示往下滑的箭頭 */
+.scroll-down {
+            position: absolute;
+            bottom: 5%;
+            right: 50%;
+            
+            z-index: 10;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+        }
+ @media(min-width:1400px) {
+  .scroll-down {  bottom: 20%;
+            }
+ }
+ @media screen and (max-width:400px){
+  .scroll-down{
+    display: none;
+  }
+ }
+
+.scroll-down span:nth-child(2) {
+            animation-delay: -0.2s;
+        }
+
+ .scroll-down span:nth-child(3) {
+            animation-delay: -0.4s;
+        }
+
+ .scroll-down span {
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-bottom: 3px solid white;
+            border-right: 3px solid white;
+            transform: rotate(45deg);
+            margin: -10px;
+            animation: animate 2s infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                opacity: 0;
+                transform: rotate(45deg) translate(-20px, -20px);
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: rotate(45deg) translate(20px, 20px);
+            }
+        }
