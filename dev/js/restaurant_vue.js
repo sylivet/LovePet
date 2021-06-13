@@ -460,6 +460,20 @@ $(function () {
 
 
 
+//首頁大圖小狗動畫
+var dl = new TimelineMax();
+dl.to('.dog1' , 0.1 , {opacity:0})
+.to('.dog2' , 0.15 , {opacity:1})
+.to('.dog2' , 0.1 , {opacity:0})
+.to('.dog3' , 0.15 , {opacity:1})
+.to('.dog3' , 0.1 , {opacity:0})
+.to('.dog4' , 0.15 , {opacity:1})
+.to('.dog4' , 0.1 , {opacity:0})
+.to('.dog5' , 0.15 , {opacity:1})
+.to('.dog5' , 0.1 , {opacity:0})
+.to('.dog6' , 0.15 , {opacity:1})
+.to('.dog6' , 0.1 , {opacity:0})
+.to('.dog7' , 0.15 , {opacity:1})
 
 
 
