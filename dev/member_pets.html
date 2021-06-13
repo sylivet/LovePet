@@ -108,18 +108,18 @@
                 <ul>
                     <li>
                         <label for="species">種類</label>
-                        <input type="text" id="species" :value='petspecies==0? "貓貓":"狗狗"'>
-                        <label for="species"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                        <input type="text" id="species" :value='petspecies==0? "貓貓":"狗狗"' disabled>
+                        <label for="species"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px; opacity:0;"></label>
                     </li>
                     <li>
                         <label for="weight">體重</label>
-                        <input type="text" id="weight" v-model="petweight">公斤
-                        <label for="weight"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                        <input type="text" id="weight" v-model="petweight">kg
+                        <label for="weight"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px; opacity:0;"></label>
                     </li>
                     <li>
                         <label for="age">年齡</label>
                         <input type="text" id="age"  v-model='petage'>歲
-                        <label for="age"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                        <label for="age"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px; opacity:0;"></label>
                     </li>
                     <li>
                         <label for="chip_number">晶片</label>

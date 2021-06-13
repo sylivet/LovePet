@@ -280,3 +280,16 @@ ul.personal_info{
     padding: 30px 5px;
   }
 }
+
+
+.m_wrapper main input {
+  line-height: 1;
+}
+
+ul.personal_info input {
+  width: 60%;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  margin: 9px 15px;
+  font-size: 21px;
+}
