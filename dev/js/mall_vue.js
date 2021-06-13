@@ -19,6 +19,14 @@ Vue.component('the-cart', {
       console.log('有偵測到刪除功能');
     },
   },
+  // mounted() {
+  //   Array.prototype.forEach.call(
+  //     document.querySelectorAll('.bar'),
+  //     function (el) {
+  //       new SimpleBar(el);
+  //     },
+  //   );
+  // },
 });
 
 // ======數字轉千分符======
@@ -39,6 +47,8 @@ let data = {
 
   food: [],
 
+  clothes: [],
+
   input: {
     text: '',
   },
@@ -52,6 +62,66 @@ let data = {
   page: 0,
   currentPage: [],
   total: 0, //全部商品總額，初值為0
+  ADDRESSEE: '',
+  PHONE: '',
+  ADDRESS: '',
+  // cartItem: [],
+  // customItem: [],
+  result: null,
+  cart: false,
+  img: '',
+  i: 1,
+  petsPic: null,
+  customProducts: [
+    {
+      PRODUCT_ID: 1,
+      PRODUCT_NAME: '馬克杯',
+      PRODUCT_PRICE: 500,
+      PRODUCT_TYPE: '客製化商品',
+      count: 1,
+      PRODUCT_IMG: 'img/mall/cup@2x.png',
+      IMG1: 'img/mall/blackCup@2x.png',
+      IMG2: 'img/mall/redCup@2x.png',
+      IMG3: 'img/mall/greenCup@2x.png',
+      IMG4: 'img/mall/cup@2x.png',
+    },
+    {
+      PRODUCT_ID: 2,
+      PRODUCT_NAME: 'T恤',
+      PRODUCT_PRICE: 550,
+      PRODUCT_TYPE: '客製化商品',
+      count: 1,
+      PRODUCT_IMG: 'img/mall/T-shirt@2x.png',
+      IMG1: 'img/mall/blackT@2x.png',
+      IMG2: 'img/mall/redT@2x.png',
+      IMG3: 'img/mall/greenT@2x.png',
+      IMG4: 'img/mall/T-shirt@2x.png',
+    },
+    {
+      PRODUCT_ID: 3,
+      PRODUCT_NAME: '棒球帽',
+      PRODUCT_PRICE: 600,
+      PRODUCT_TYPE: '客製化商品',
+      count: 1,
+      PRODUCT_IMG: 'img/mall/cap@2x.png',
+      IMG1: 'img/mall/blackCap@2x.png',
+      IMG2: 'img/mall/redCap@2x.png',
+      IMG3: 'img/mall/greenCap@2x.png',
+      IMG4: 'img/mall/cap@2x.png',
+    },
+    {
+      PRODUCT_ID: 4,
+      PRODUCT_NAME: '環保袋',
+      PRODUCT_PRICE: 650,
+      PRODUCT_TYPE: '客製化商品',
+      count: 1,
+      PRODUCT_IMG: 'img/mall/bag@2x.png',
+      IMG1: 'img/mall/blackbag@2x.png',
+      IMG2: 'img/mall/redbag.png',
+      IMG3: 'img/mall/greenbag.png',
+      IMG4: 'img/mall/bag@2x.png',
+    },
+  ],
 };
 
 new Vue({
@@ -62,13 +132,27 @@ new Vue({
     //對前端頁面資料進行初始化
     axios.post('php/front_end_API/sup_select.php').then(function (res) {
       self.info = res.data;
+      self.$nextTick(() => {
+        $(function () {
+          window._jf.flush();
+        });
+      });
       self.currentPage.push(
         self.info[parseInt(location.href.split('#')[1]) - 1],
       ); //動態新增會有問題 index對不上
+
+      // res.data.filter(item => {
+      //   if (item.PRODUCT_TYPE === '虛擬試衣間') {
+      //     return this.clothes.push(item);
+      //   }
+      // });
     });
     // console.log(this.currentPage);
     axios.post('php/front_end_API/food_select.php').then(function (res) {
       self.food = res.data;
+    });
+    axios.post('php/front_end_API/clothes_select.php').then(function (res) {
+      self.clothes = res.data;
     });
   },
   mounted() {
@@ -78,6 +162,46 @@ new Vue({
     this.total = localStorage.getItem('total');
   },
   methods: {
+    loginCheck() {
+      $.ajax({
+        method: 'POST',
+        url: 'php/front_end_API/M_getsession_MID.php',
+        success: response => {
+          if (response === '"N"') {
+            alert('請先登入會員');
+            $('#m_sign_in_bk').show();
+          } else {
+            this.FK_MEMBER_ID = parseInt(response.split(`"`).join(''));
+            sessionStorage.clear();
+
+            $.ajax({
+              method: 'POST',
+              url: 'php/front_end_API/S_Insert_booking.php',
+              data: {
+                FK_MEMBER_ID: this.FK_MEMBER_ID,
+                ADDRESSEE: this.ADDRESSEE,
+                PHONE: this.PHONE,
+                ADDRESS: this.ADDRESS,
+                chooseItem: this.chooseItem,
+              },
+              dataType: 'text',
+              success: () => {
+                alert('購物完成');
+                window.localStorage.clear();
+                window.location.href = './Mall.html';
+              },
+              error: function (exception) {
+                alert('數據載入失敗: ' + exception.status);
+              },
+            });
+          }
+        },
+        error: function (exception) {
+          alert('數據載入失敗: ' + exception.status);
+        },
+      });
+    },
+
     //======開啟搜尋輸入框======
     showInput() {
       if (this.clicked == false) {
@@ -86,6 +210,71 @@ new Vue({
         this.clicked = false;
       }
     },
+
+    getIMG(item) {
+      this.img = item.PRODUCT_IMG;
+      this.customItem = item;
+    },
+
+    merge() {
+      var c = document.getElementById('canvas');
+      var ctx = c.getContext('2d');
+
+      $('.Selected').each(function () {
+        ctx.drawImage(this, 50, 0, 400, 400);
+      });
+
+      $('.petIMG').each(function () {
+        ctx.drawImage(this, 140, 80, 200, 200);
+      });
+      this.result = c.toDataURL('image/png');
+
+      this.cart = true;
+    },
+
+    //上傳寵物照片
+    uploadIMG() {
+      let file = document.getElementById('theFile').files[0];
+      let readFile = new FileReader();
+      readFile.readAsDataURL(file);
+      readFile.addEventListener('load', () => {
+        let image = document.getElementById('image');
+        image.src = readFile.result;
+        this.petsPic = image.src;
+      });
+    },
+
+    // addCustomCart() {
+    //   this.i++;
+
+    //   let Custom = {
+    //     item_id: this.customProducts.PRODUCT_ID,
+    //     item_name: `客製化商品${this.i}`,
+    //     item_price: '600',
+    //     item_type: '客製化商品',
+    //     item_count: '1',
+    //     item_img: this.result,
+    //     item_total_price: '600',
+    //   };
+
+    // if (!this.chooseItem.includes(Custom)) {
+    //   this.chooseItem.push(Custom);
+    // }
+    //   if (this.chooseItem.indexOf(Custom) == -1) {
+    //     this.chooseItem.push(Custom); //chooseItem['陣列']
+    //   }
+
+    //   let items = JSON.stringify(this.chooseItem);
+    //   localStorage.setItem('items', items);
+
+    //   var c = document.getElementById('canvas');
+    //   var ctx = c.getContext('2d');
+    //   ctx.clearRect(0, 0, c.width, c.height);
+    //   this.result = null;
+    //   this.img = '';
+
+    //   this.cart = false;
+    // },
 
     //======隱藏搜尋輸入框======
     hideInput() {
@@ -98,6 +287,9 @@ new Vue({
 
     //======商品加到購物車======
     addToCart(product) {
+      // if (!this.cartItem.includes(product)) {
+      //   this.cartItem.push(product);
+      // }
       alert('成功加入購物車');
       // 只要一按加到購物車就存到localStorage
 
@@ -138,9 +330,9 @@ new Vue({
       storage.setItem('items', JSON.stringify(value));
       // 加到localStorage，key為items，value為字串化後的items
 
-      if (this.chooseItem.indexOf(product) == -1) {
-        this.chooseItem.push(product); //chooseItem['陣列']
-      }
+      // if (this.chooseItem.indexOf(product) == -1) {
+      //   this.chooseItem.push(product); //chooseItem['陣列']
+      // }
     },
 
     //======購物車商品數量增加======
@@ -292,7 +484,8 @@ document.addEventListener('DOMContentLoaded', function () {
   for (let i = 0; i < cards.length; i++) {
     cards[i].addEventListener('keydown', function (e) {
       if (
-        (e.which >= 48 && e.which <= 57 && e.which <= 105 && e.which >= 96) ||
+        (e.which >= 48 && e.which <= 57) ||
+        (e.which <= 105 && e.which >= 96) ||
         e.which == 8
       ) {
         if (e.target.value.length == 0 && e.which == 8) {
