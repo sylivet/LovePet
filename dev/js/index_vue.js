@@ -116,6 +116,7 @@ let vm = new Vue({
             },
           },
         });
+        window._jf.flush(); //手動更新justfont
       });
     });
   },

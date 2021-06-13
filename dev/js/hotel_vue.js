@@ -31,6 +31,7 @@ Vue.component('room-booking', {
           if (response === '"N"') {
             alert('請先登入會員');
             $('#m_sign_in_bk').show();
+            this.$emit('closelightbox');
           } else {
             this.FK_MEMBER_ID = parseInt(response.split(`"`).join(''));
             sessionStorage.clear();
@@ -301,6 +302,7 @@ let vm = new Vue({
             $('.submenu').hide();
           }, 200);
         });
+        window._jf.flush(); //手動更新justfont
       });
     });
   },
@@ -364,19 +366,57 @@ let vm = new Vue({
   },
 });
 
-var h1 = new TimelineMax();
-h1.to('.wood1', 1, {
-  opacity: 1,
-})
-  .to('.wood2', 1, {
-    opacity: 1,
-  })
-  .to('.wood3', 1, {
-    opacity: 1,
-  })
-  .to('.wood4', 1, {
-    opacity: 1,
-  })
-  .to('.wood5', 1, {
-    opacity: 1,
-  });
+var hotel_bg = new TimelineMax();
+hotel_bg.
+  // 月亮星星
+  to(".h_moon", 1, { opacity: 1, top: "3.5%", left: "1%" }).
+  to(".h_star", .5, { opacity: 1, top: "-1%", left: ".5%", rotation: 5 }).
+  to(".h_star", .3, { opacity: 0, top: "-3%", left: "1%", y: -8, rotation: 10 }).
+  to(".h_star", .5, { opacity: 1, top: "-1%", left: "1.5%", y: -3, rotation: 10 }).
+  to(".h_star", .5, { opacity: 0 }).
+  to(".h_moon", .8, { opacity: 1, top: "4%", left: "2%", rotation: 2, repeat: -1, yoyo: true, ease: Power0.easeNone });
+
+var hotel_house = new TimelineMax();
+hotel_house.delay(4.5).
+  // 風向儀
+  to(".h_anemoscope", .8, { rotationY: 45, z: -300, repeat: -1, yoyo: true }).
+  // 屋頂的貓
+  to(".h_cat", .3, { top: "-1%", left: "-1%", rotation: 5 }).
+  to(".h_cat", .6, { top: "1.5%", left: "-3%", rotation: 0 }).
+  to(".h_cat", .3, { top: "0%", left: "-4.5%", rotation: 5 }).
+  to(".h_cat", .6, { top: "3.5%", left: "-5.5%", rotation: 0 });
+
+// 騎腳踏車的人  
+TweenMax.to(".h_wheel1", 4, { delay: 7, opacity: 1, top: "50%", left: "68.5%", scale: 1.2, rotation: 360 });
+TweenMax.to(".h_wheel2", 4, { delay: 7, opacity: 1, top: "50%", left: "75.3%", scale: 1.2, rotation: 360 });
+TweenMax.to(".h_bicycle", 4, { delay: 7, opacity: 1, top: "37%", left: "70%", scale: 1 });
+
+var hotel_stay = new TimelineMax();
+hotel_stay.delay(11).
+  //遛狗的人
+  to(".h_people", 1, { top: 0, left: "-1%", rotation: 1, ease: Power0.easeNone }).
+  to(".h_people", .4, { top: "1%", left: "-2%", rotation: 0, ease: Power0.easeNone }).
+  to(".h_people", .4, { top: 0, left: "-3%", rotation: 1, ease: Power0.easeNone }).
+  to(".h_people", .4, { top: "1%", left: "-4%", rotation: 0, ease: Power0.easeNone }).
+  to(".h_people", .4, { top: 0, left: "-5%", rotation: 1, ease: Power0.easeNone }).
+  to(".h_people", .4, { top: "1%", left: "-6%", rotation: 0, ease: Power0.easeNone });
+
+// 房型木牌
+var hotel_doorplate = new TimelineMax();
+hotel_doorplate.delay(14.5).
+  to("#wood1", .8, { opacity: 1 }).
+  to("#wood2", .8, { opacity: 1 }).
+  to("#wood3", .8, { opacity: 1 }).
+  to("#wood4", .8, { opacity: 1 }).
+  to("#wood5", .8, { opacity: 1 }).
+  to(".doorplate", .4, { top: "1%", left: "14%" }).
+  to(".doorplate", .5, { top: "-1%", left: "17%" }).
+  to(".doorplate", .5, { top: ".5%", left: "15%" }).
+  to(".doorplate", .6, { top: 0, left: "16%", repeat: -1, yoyo: true });
+
+
+// 下拉選單
+$(function () {
+  // 關閉登入會員燈箱
+  $('.i_closeButton').click(() => $('#m_sign_in_bk').hide())
+});
