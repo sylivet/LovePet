@@ -75,7 +75,7 @@
     //--- 會員
         Vue.component('my-pic',{
                 template: `<div>
-                            <img :src="picsrc" alt="profile"  class="m_person_pic" id="m_pic2">
+                            <img :src="picsrc? picsrc : './img/member/Profile-Male-PNG.jpg' " alt="profile"  class="m_person_pic" id="m_pic2">
                             </div>`,
                 props:['picsrc'],
             });
@@ -84,7 +84,8 @@
                 template: `<section class="m_pets ">
                             <form action="">
                                 <div class="m_frame">
-                                    <img :src='petsrc' alt="profile"  class="m_pet_pic" id="m_pet2">
+                                    <img :src='petsrc? petsrc : "./img/member/Group 2151.jpg"' 
+                                    alt="profile"  class="m_pet_pic" id="m_pet2">
                                 </div>
                                 <div>
                                     <input type="text" id="pet_name2" placeholder="名字" :value='petname'>
@@ -101,16 +102,14 @@
                 <div>       
                     <section>
                         <ul class="m_item_details">
-                            <li class="m_item_title"><p>type <span>shopping cart</span></p>
-                                <p>order number <span>20200408996ZA_02</span></p>
-                                <p>2020/04/08</p>
+                            <li class="m_item_title"><p>種類 <span>購物商城</span></p>
+                                <p>訂單編號 <span>S001</span>號</p>
+                                <p>下單日期2021-05-24</p>
                             </li>
                             <li><h6>狀&emsp;&emsp;態</h6><p>已完成</p></li>
-                            <li><h6>宅配地址</h6><p>北市中山區南京東路二段一號2樓</p></li>
-                            <li><h6>總&emsp;&emsp;計</h6><p>NT $1000</p></li>
-                            <li><h6>購買項目</h6><p>衣服*1</p><p>包包*1</p></li>
-                            <li><h6>其他備註</h6><p>想要新貨</p></li>
-                            <li><h6>新增留言</h6><p><img src="" alt="">無</p></li>
+                            <li><h6>收件人名</h6><p>陳德綸</p></li>
+                            <li><h6>收件地址</h6><p>新竹市東區食品路275號</p></li>
+                            <li><h6>連絡電話</h6><p>0918812715</p></li>
                         </ul>
             
 
@@ -119,24 +118,24 @@
                             <table>
                                 <tr class="m_item_title">
                                     <td  class="m_item_pic">圖片</td>
-                                    <td  class="m_item_id">型號</td>
-                                    <td  class="m_item_type">類別</td>
+                                    <td  class="m_item_id">品名 / 類別</td>
+                                    <td  class="m_item_type">單組金額</td>
                                     <td  class="m_item_amount">數量</td>
-                                    <td  class="m_item_price">金額</td>
+                                    <td  class="m_item_price">小計</td>
                                 </tr>
                                 <tr>
                                     <td  class="m_item_pic"><img src="./img/member/shoppingsample1.png" alt=""></td>
-                                    <td  class="m_item_id">AF0023001</td>
-                                    <td  class="m_item_type">衣服 / M號 / 黑</td>
-                                    <td  class="m_item_amount">1 pcs</td>
-                                    <td  class="m_item_price">$600</td>
+                                    <td  class="m_item_id">鯊魚造型貓窩/用品</td>
+                                    <td  class="m_item_type">479/組</td>
+                                    <td  class="m_item_amount">7</td>
+                                    <td  class="m_item_price">3353元</td>
                                 </tr>
                                 <tr>
                                     <td  class="m_item_pic"><img src="./img/member/shoppingsample2.png" alt=""></td>
-                                    <td  class="m_item_id">AF0023002</td>
-                                    <td  class="m_item_type">包包 / M號 / 黑</td>
-                                    <td  class="m_item_amount">1 pcs</td>
-                                    <td  class="m_item_price">$400</td>
+                                    <td  class="m_item_id">成長碗架/用品</td>
+                                    <td  class="m_item_type">279/組</td>
+                                    <td  class="m_item_amount">11</td>
+                                    <td  class="m_item_price">3069元</td>
                                 </tr>
                             </table>
                         </div>
@@ -172,13 +171,58 @@
 
         Vue.component('notyet',{
             template: `
-                <div>
+            <div>       
                     <section>
-                        <p> 暫無此資料 </p>
-                        <P> 訂單皆完成 </p>
-                    </section> 
+                        <ul class="m_item_details">
+                            <li class="m_item_title"><p>種類 <span>旅館訂房</span></p>
+                                <p>訂單編號 <span>H008</span>號</p>
+                                <p>下單日期:2021-06-12</p>
+                            </li>
+                            <li><h6>狀&emsp;&emsp;態</h6><p>未完成</p></li>
+                            <li><h6>房型選擇</h6><p>時毛玩意</p></li>
+                            <li><h6>入住日期</h6><p>2021-06-29</p></li>
+                            <li><h6>退房日期</h6> <p> 2021-06-30 </p></li>
+                            <li><h6>房型價錢</h6><p>5999</p></li>
+                            <li><h6>入住數量</h6><p>3個人及1隻寵物</p></li>
+                        </ul>
+
+                        <div class="m_buy_details"  :class="{ 'm_appear': isappear}">
+                            <p>項目明細</p>
+                            <table>
+                                <tr class="m_item_title">
+                                    <td  class="m_item_pic">圖片</td>
+                                    <td  class="m_item_id" style='width:90%;'>敘述</td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td  class="m_item_pic"><img src="img/hotel/h_panorama2.jpeg" alt=""></td>
+                                    <td  class="m_item_id"  style='width:90%;'>
+                                    房內採白色的牆面，配上強烈的紅色沙發，以及對比色系的家具，
+                                    形成撞色的時髦感，且窗外撒落的陽光與綠意，讓身處在都市喧囂的我們，
+                                    還能觀賞波光粼粼的河面，獲得片刻的寧靜... 另有開放式廚房及餐桌，選用了時尚的大理石桌板，
+                                    讓您與家人或朋友，可以享受在房內使用餐點的私人空間，不受他人打擾。</td>
+                                    
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="m_dt_streth_btn">
+                            <input type="button" value="訂單明細" @click="dtoggle">
+                        </div>
+                    </section>
                 </div>
             `,
+            methods:{
+                dtoggle(){
+                    this.isappear = !this.isappear;
+                },
+            },
+            data(){
+                return{
+                    isappear : true,
+                    ltype : '旅館訂房',
+                };
+            },
         });
 
     //--- 側邊攔
