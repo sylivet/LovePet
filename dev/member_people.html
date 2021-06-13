@@ -20,6 +20,42 @@
             <!-- ------------------------------個人頭貼---------------------------------- -->
             <my-pic :picsrc='mymember[0].MEMBER_IMG'></my-pic>
 
+            <!-- ------------------------------更換頭貼---------------------------------- -->
+            <p style='text-align: right;
+                      font-size: 19px;
+                      color: gray;
+                      padding: 3px 30px;'
+                @click = "chgimg"
+            >
+                更換照片
+            </p>
+
+            <div id="m_sign_in_bk" class="i_background" :style="appearr">
+                <form action="./php/back_end_API/M_chgimg.php" method="post" enctype="multipart/form-data"
+                >
+                <div class="i_lightbox_bk m_sign_wrap">
+                  <a class="i_closeButton" >
+                    <img src="./img/common/close.png" alt="" @click="closeblock">
+                  </a>
+                  <div class="i_lightbox_title">
+                    <h2>更換照片</h2>
+                  </div>
+                  <div class="m_sign signIn">
+                    <p style='padding-bottom: 20px;' >請選擇您要的大頭照檔案，放進框框內</p>
+                    <input type="file" @change="selectedFile" name="file">
+
+                    <!-- <p>{{image}}</p> -->
+                    <p>
+                        <img :src="image">
+                    </p>
+                        
+                    <input type="submit"  value="更換照片"  >
+                    
+                  </div>
+                </div>
+                </form>
+              </div>
+
             <!-- ------------------------------基本資料---------------------------------- -->
             <my-info :nickname='mymember[0].NICKNAME' :name='mymember[0].NAME' :account='mymember[0].ACCOUNT'
                 :phone='mymember[0].PHONE' :addres='mymember[0].ADDRES' :mid='mymember[0].MEMBER_ID'></my-info>
@@ -27,37 +63,13 @@
             <my-password :pwd='mymember[0].PASSWORD' :mid='mymember[0].MEMBER_ID'></my-password>
 
             <!-- ------------------------------通知設定---------------------------------- -->
-            <!-- <section class="m_info_option">
-                    <h5>通知設定</h5>
-                    <div class="m_underline_2"></div>
 
-                    <form action="">
-                    
-                        <p>是否收到我們電子報</p>
-                        <input type="radio" id="OK_getInfo" name="E-info" value="OK_getInfo">
-                        <label for="OK_getInfo">是&emsp;</label>
-                        <input type="radio" id="NO_getInfo" name="E-info" value="NO_getInfo">
-                        <label for="NO_getInfo">否&emsp;</label>
-                    
-                        <br>  
-                    
-                        <p>購物貨到如何通知您</p>
-                        <input type="checkbox" id="from_mail" name="from_mail" value="from_mail">
-                        <label for="from_mail">郵件</label>
-                        <input type="checkbox" id="from_phone" name="from_phone" value="from_phone">
-                        <label for="from_phone">電話</label><br>
-                    
-
-                    <input type="submit" value="確認送出" class="m_btn">
-                    </form>
-            </section> -->
-
-            <my-notice :getnews='mymember[0].SUBSCRIPTION'></my-notice>
-        </main>
-
-        <!-- <my-component :mmb='mymember' ></my-component> -->
-
-    </div>
+            <my-notice :getnews='mymember[0].SUBSCRIPTION' :delway='mymember[0].DELIEVERY_NOTICE'></my-notice>
+         </main>
+         
+         <!-- <my-component :mmb='mymember' ></my-component> -->
+    
+        </div>
 
     @@include('layout/footer.html')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -72,15 +84,16 @@
     <!-- <script src="./js/m_member_people.js"></script> -->
     <script>
 
-        //-- 個人專區
-        Vue.component('my-component', {
-            template: `<h1 style="color:red;">{{mmb}}</h1>`,
-            props: ['mmb'],
-        });
+    //-- 個人專區
+        // Vue.component('my-component',{
+        //     template: `<h1 style="color:red;">測試內容</h1>`,
+        //     props:['mmb'],
+        //  });
 
         Vue.component('my-pic', {
             template: `<div>
-                         <img :src="picsrc" alt="profile"  class="m_person_pic" id="m_pic2">
+                         <img  
+                         :src="picsrc.includes('img')? picsrc : './img/member/Profile-Male-PNG.jpg' " alt="profile"  class="m_person_pic" id="m_pic2">
                         </div>`,
             props: ['picsrc'],
         });
@@ -122,19 +135,13 @@
                         <input type="button" value="確認更改" class="m_btn" @click="chgperinfo" >
                         </form>
                     </section>`,
-            props: ['nickname', 'name', 'account', 'phone', 'addres', 'mid'],
-            data() {
-                return {
-                    // nickname: '',
-                    // name: '',
-                    // account: '',
-                    // phone: '',
-                    // addres: '',
-                    // mid: '',
+            props:['nickname','name','account','phone','addres','mid'],
+            data(){
+                return{ 
                 };
             },
-            methods: {
-                chgperinfo() {   //--- 登出function
+            methods:{
+                chgperinfo(){   
                     //alert(this.oldpwd);
                     if (this.nickname == '' ||
                         this.name == '' ||
@@ -263,25 +270,89 @@
                             <form action="">
                             
                                 <p>是否收到我們電子報</p>
-                                <input type="radio" id="OK_getInfo" name="E-info" value="OK_getInfo" :checked="getnews" >
+                                <input type="radio" id="OK_getInfo" v-model="getinfo" value="1"  >
                                 <label for="OK_getInfo">是&emsp;</label>
-                                <input type="radio" id="NO_getInfo" name="E-info" value="NO_getInfo"  >
+                                <input type="radio" id="NO_getInfo" v-model="getinfo" value="0"  >
                                 <label for="NO_getInfo">否&emsp;</label>
                             
                                 <br>  
                             
                                 <p>購物貨到如何通知您</p>
-                                <input type="checkbox" id="from_mail" name="from_mail" value="from_mail">
+                                <input type="checkbox" id="from_mail" v-model="chsdel" value="0">
                                 <label for="from_mail">郵件</label>
-                                <input type="checkbox" id="from_phone" name="from_phone" value="from_phone">
+                                <input type="checkbox" id="from_phone" v-model="chsdel" value="1">
                                 <label for="from_phone">電話</label><br>
                             
-
-                            <input type="submit" value="確認送出" class="m_btn">
+                                
+                            <input type="button" value="確認送出" class="m_btn" @click="chgperinfo" >
                             </form>
                     </section>`,
-            props: ['getnews'],
-        });
+            data(){
+                return{
+                    getinfo:'1',
+                    chsdel:[],
+                }
+            },
+            created(){
+                this.getinfo = this.getnews;
+               if(this.delway == 1 ){
+                   this.chsdel = ['1']
+               }else if(this.delway == 2){
+                   this.chsdel = ['0','1']
+               }else{
+                   this.chsdel = ['0']
+               }
+            },
+            props:['getnews','delway'],
+            computed:{
+                switchdelievery(){
+                    console.log(this.chsdel);
+                    if( this.chsdel.includes('1') && this.chsdel.includes('0') ){
+                        return 2;
+                    }
+                    if( this.chsdel.includes('1') ){
+                        return 1 ;
+                    }
+                    if( this.chsdel.includes('0') ){
+                        return 0 ;
+                    }
+                    if( !this.chsdel.includes('1') && !this.chsdel.includes('0') ){
+                        return 404 ;
+                    }
+                },
+            },
+            methods:{
+                chgperinfo(){  
+
+                    if( this.switchdelievery == 404 ){
+                        alert('請務必選擇一項貨到通知，謝謝');
+                    }else{                     
+                    let now = this ;
+                    //console.log(now.switchdelievery);
+
+                    $.ajax({
+                        type : "POST",	
+                        url : "./php/back_end_API/M_noticeUpdate.php",  
+                        data : {  
+                            GTF : now.getinfo,  
+                            DEL : now.switchdelievery,
+                        }, 
+                        dataType : 'html' 
+                        }).done(function(data){    //---載入成功
+
+                        if( data ){ 
+                            alert('資料更新成功!!'); 
+                        };
+                        
+                        }).fail(function(jqXHR){   //---載入失敗
+                        alert("res為ID數據載入失敗: " + jqXHR.status);
+                        });
+
+                    }
+                
+                },
+            },
+         });
 
         Vue.component('my-aside', {
             template:
@@ -336,24 +407,50 @@
         new Vue({
             el: '#app',
             data: {
-                mymember: [],
-                midata: null,
+                mymember:[],
+                midata:null,
+                image: '',
+                inputfile: null,
+                appearr:"display:none",
+
             },
             methods: {
-                getmymemberdata(info) {
-                    let self = this;
-                    this.midata = info;
+                selectedFile(e){
+                    let file = e.target.files[0]; //專用寫法，.files[0];  才能get到檔案 == let file = e.target.files.item(0);  (both JS語法)
+                    
+                    let readFile = new FileReader(); //先宣布型態，才能使用其屬性與方法
+                    readFile.readAsDataURL(file);  //讀取內容的屬性  //連動發生內嵌外部內容事件
+                    readFile.addEventListener('load',this.loadImage);  //內嵌外部內容需使用load事件
+
+                    let inputfile = file;
+                },
+                loadImage(e){
+                    this.image = e.target.result;    
+                },
+                closeblock(){
+                    this.appearr = "display:none";
+                },
+                chgimg(){
+                    let mychg = '確認更換照片嗎?';
+                        if (confirm(mychg) == true) {
+                            this.appearr = "display:block";
+                        } else {
+                        }
+                },
+                getmymemberdata(info){
+                   let self = this;
+                   this.midata = info;
 
                     $.ajax({
-                        type: "POST",
-                        url: "./php/front_end_API/M_apr_memberpeople.php",
-                        data: {
-                            MID: info,            //---透過 MID 去抓該筆會員資料
-                        },
-                        dataType: 'html'
-                    }).done(function (data) {    //---載入成功
-                        console.log(data);
-                        self.mymember = JSON.parse(data);
+                        type : "POST",	
+                        url : "./php/front_end_API/M_apr_memberpeople.php",  
+                        data : {  
+                            MID : info,            //---透過 MID 去抓該筆會員資料
+                        }, 
+                        dataType : 'html' 
+                        }).done(function(data){    //---載入成功
+                            //console.log(data);
+                        self.mymember =  JSON.parse(data);
                         console.log(self.mymember);
 
                     }).fail(function (jqXHR) {   //---載入失敗

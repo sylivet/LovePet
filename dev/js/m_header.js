@@ -104,19 +104,28 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
           //------------------------- m_member_information -------------------------//會員資訊
 
-          let m_header = document.querySelector('.m_header');
-          m_header.classList.toggle('m_toggle');
+            $.ajax({
+              type : "POST",	
+              url : "./php/front_end_API/M_apr_memberpeople.php",  
+              data : {  
+                  MID : res,            //---透過 MID 去抓該筆會員資料
+              }, 
+              dataType : 'html' 
+              }).done(function(data){    //---載入成功
+                  //console.log(data);
+              let mymember =  JSON.parse(data);
+              //console.log(mymember);
 
-          let m_details_o = localStorage.getItem('m_datainfro'); //轉型
+                document.getElementById('m_nickname').innerText = mymember[0]['NICKNAME'];
+                document.getElementById('m_pic').src = mymember[0]['MEMBER_IMG']?  mymember[0]['MEMBER_IMG'] : './img/member/Profile-Male-PNG.jpg';
+              
+              }).fail(function(jqXHR){   //---載入失敗
+              alert("res為ID數據載入失敗: " + jqXHR.status);
+              });
 
-          if (m_details_o != '') {
-            let m_details_ok = JSON.parse(m_details_o);
-            console.log(m_details_ok);
-            //console.log(m_details_ok['NICKNAME']);
-            document.getElementById('m_nickname').innerText =
-              m_details_ok['NICKNAME'];
-            document.getElementById('m_pic').src = m_details_ok['MEMBER_IMG'];
-          }
+              let m_header = document.querySelector('.m_header');
+              m_header.classList.toggle('m_toggle');
+
         }
       },
       error: function error(exception) {
