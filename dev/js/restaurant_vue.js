@@ -2,26 +2,26 @@
 Vue.component("booking", {
   props: ['foods', 'member'],
   template: "#bookingbox",
-  data(){
+  data() {
     return {
-        FK_MEMBER_ID: null,
-        CREATE_DATE:"",
-        BOOKING_DATE:"",
-        numberOfAdults:"0",
-        numberOfKids:"0",
-        numberOfDogs:"0",
-        numberOfCats:"0",
-        // 篩掉客製寵美食的菜單
-        food: [],
-        // 只存客製寵美食的菜單
-        petsFood:[]
+      FK_MEMBER_ID: null,
+      CREATE_DATE: "",
+      BOOKING_DATE: "",
+      numberOfAdults: "0",
+      numberOfKids: "0",
+      numberOfDogs: "0",
+      numberOfCats: "0",
+      // 篩掉客製寵美食的菜單
+      food: [],
+      // 只存客製寵美食的菜單
+      petsFood: []
     }
   },
   methods: {
     closeBox() {
       this.$emit('closelightbox')
     },
-    booking(){
+    booking() {
       // 訂單創建日期
       let t = new Date()
       let y = t.getFullYear()
@@ -33,16 +33,16 @@ Vue.component("booking", {
       this.CREATE_DATE = `${y}-${M}-${d} ${h}:${m}:${s}`
 
 
-      if(!this.BOOKING_DATE){
+      if (!this.BOOKING_DATE) {
         alert('請選預定日期')
-      }else{
-        if(this.numberOfAdults === "0"){
+      } else {
+        if (this.numberOfAdults === "0") {
           alert('請選人數')
-        }else{
-          $.ajax({            
+        } else {
+          $.ajax({
             method: "POST",
             url: "php/front_end_API/R_Insert_booking.php",
-            data:{
+            data: {
               'FK_MEMBER_ID': this.FK_MEMBER_ID,
               'CREATE_DATE': this.CREATE_DATE,
               'BOOKING_DATE': this.BOOKING_DATE,
@@ -51,23 +51,23 @@ Vue.component("booking", {
               'numberOfDogs': this.numberOfDogs,
               'numberOfCats': this.numberOfCats,
               // 篩掉客製寵美食的菜單
-              'food': this.food.length ===0? null: this.food,
+              'food': this.food.length === 0 ? null : this.food,
               // 只存客製寵美食的菜單
-              'petsFood': this.petsFood.length ===0? null: this.petsFood
-            },            
+              'petsFood': this.petsFood.length === 0 ? null : this.petsFood
+            },
             dataType: "text",
-            success: (res)=> {
-              if(res === "ok"){
+            success: (res) => {
+              if (res === "ok") {
                 alert("已幫您預約")
                 this.$emit('closelightbox')
-              }else{
+              } else {
                 alert("預約失敗")
               }
             },
-            error: function(exception) {
-                alert("數據載入失敗: " + exception.status);
+            error: function (exception) {
+              alert("數據載入失敗: " + exception.status);
             }
-        });
+          });
         }
       }
     }
@@ -86,18 +86,18 @@ Vue.component("booking", {
       return this.foods.filter(food => food.MEAL_CATA === "humanFood")
     }
   },
-  mounted(){
+  mounted() {
     // 月曆
     const calendar_el = document.querySelector('.i_calendar');
 
     const my_calendar = new TavoCalendar(calendar_el)
-  
+
     calendar_el.addEventListener('calendar-select', (ev) => {
       this.BOOKING_DATE = my_calendar.getSelected()
     });
   },
-  watch:{
-    foods(){
+  watch: {
+    foods() {
       // 篩掉客製寵美食的菜單
       let noPetsCustom = this.foods.filter(food => food.MEAL_TYPE !== "petsCustom")
       let PetsCustom = this.foods.filter(food => food.MEAL_TYPE === "petsCustom")
@@ -106,7 +106,7 @@ Vue.component("booking", {
       this.petsFood = [];
       this.petsFood = PetsCustom
     },
-    member(){
+    member() {
       this.FK_MEMBER_ID = this.member
     }
   }
@@ -122,7 +122,7 @@ Vue.component("box", {
     closeBox() {
       this.$emit('closelightbox')
     },
-    getFood(food){
+    getFood(food) {
       this.$emit('getfood', food)
     }
   }
@@ -136,7 +136,7 @@ Vue.component("customPetsFood", {
     removeItem(fid, menu) {
       this.$emit('removefood', fid, menu)
     },
-    addCount(){
+    addCount() {
       // 勿刪
     }
   },
@@ -150,8 +150,8 @@ Vue.component("addToHumanMenu", {
     removeItem(fid, menu) {
       this.$emit('removefood', fid, menu)
     },
-    addCount(){
-      this.menu.MEAL_COUNT =parseInt(this.menu.MEAL_COUNT)
+    addCount() {
+      this.menu.MEAL_COUNT = parseInt(this.menu.MEAL_COUNT)
       this.menu.MEAL_COUNT++
     }
   },
@@ -164,8 +164,8 @@ Vue.component("addToPetsMenu", {
     removeItem(fid, menu) {
       this.$emit('removefood', fid, menu)
     },
-    addCount(){
-      this.menu.MEAL_COUNT =parseInt(this.menu.MEAL_COUNT)
+    addCount() {
+      this.menu.MEAL_COUNT = parseInt(this.menu.MEAL_COUNT)
       this.menu.MEAL_COUNT++
     }
   },
@@ -197,98 +197,98 @@ let vm = new Vue({
     allFoodSelection: [],  // 所有被加入的食物
     isLightBoxOpen: false, // 食物燈箱啟閉
     isBookingBoxOpen: false, // 預約燈箱啟閉
-    isDogOut:false, // 狗動畫啟閉
-    forLightBoxInfo:[], // 食物燈箱資訊
+    isDogOut: false, // 狗動畫啟閉
+    forLightBoxInfo: [], // 食物燈箱資訊
     memberID: null,
-    i:0,
-    allFoodMenu:[],
+    i: 0,
+    allFoodMenu: [],
   },
   methods: {
-    loginCheck(){
-      $.ajax({            
+    loginCheck() {
+      $.ajax({
         method: "POST",
         url: "php/front_end_API/M_getsession_MID.php",
-        success: (response)=> {
-          if(response === '"N"'){
-                alert('請先登入會員'); 
-                $('#m_sign_in_bk').show()
-              }else{
-                this.isBookingBoxOpen = true
-                this.memberID = parseInt(response.split(`"`).join(""))
-                sessionStorage.clear()
-            }              
+        success: (response) => {
+          if (response === '"N"') {
+            alert('請先登入會員');
+            $('#m_sign_in_bk').show()
+          } else {
+            this.isBookingBoxOpen = true
+            this.memberID = parseInt(response.split(`"`).join(""))
+            sessionStorage.clear()
+          }
         },
-        error: function(exception) {
-            alert("數據載入失敗: " + exception.status);
+        error: function (exception) {
+          alert("數據載入失敗: " + exception.status);
         }
-    });
+      });
     },
 
     // 客製寵美食下一步
     choosePetCustomFood(food) {
       if (this.petCustomFoodSelection.indexOf(food) == -1) {
         this.petCustomFoodSelection.push(food);
-        switch(food.MEAL_TYPE){
-          case "乾糧" :
+        switch (food.MEAL_TYPE) {
+          case "乾糧":
             this.petCustomFoodSelect = "主食";
             break;
           case "主食":
             this.petCustomFoodSelect = "配菜";
             break;
         }
-        if(this.petCustomFoodSelection.length === 6){
+        if (this.petCustomFoodSelection.length === 6) {
           this.petCustomFoodSelect = "請確認菜單"
-          setTimeout(()=>{this.isDogOut = true;},500)
-          
+          setTimeout(() => { this.isDogOut = true; }, 500)
+
         }
         // 食物動畫
         let className = food.eng
-        this.$nextTick(function(){
+        this.$nextTick(function () {
           gsap.from(`.${className}`, {
-            duration:1, 
-            scale:0,
-            ease:"back"
+            duration: 1,
+            scale: 0,
+            ease: "back"
           })
         })
       }
     },
     // 客製寵美食回上一步
-    undo(){
-      switch(this.petCustomFoodSelect){
+    undo() {
+      switch (this.petCustomFoodSelect) {
         case "主食":
           this.petCustomFoodSelect = "乾糧",
-          this.petCustomFoodSelection.pop();
+            this.petCustomFoodSelection.pop();
           alert('已取消')
           break;
-        case "配菜" :
-          if(this.petCustomFoodSelection.length>2){
+        case "配菜":
+          if (this.petCustomFoodSelection.length > 2) {
             this.petCustomFoodSelection.pop();
             alert('已取消')
-          }else{
+          } else {
             this.petCustomFoodSelect = "主食",
-            this.petCustomFoodSelection.pop();
+              this.petCustomFoodSelection.pop();
             alert('已取消')
           }
           break;
         case "請確認菜單":
           this.petCustomFoodSelect = "配菜",
-          this.petCustomFoodSelection.pop(),
-          alert('已取消')
+            this.petCustomFoodSelection.pop(),
+            alert('已取消')
           this.isDogOut = false;
           break;
       }
     },
 
     // 客製寵美食確認
-    confirmCustomFood(){
+    confirmCustomFood() {
       let id = Date.now()
-      this.i+= 1;
-      var eachItem=[];
-      this.petCustomFoodSelection.forEach(function(item){
+      this.i += 1;
+      var eachItem = [];
+      this.petCustomFoodSelection.forEach(function (item) {
         eachItem.push(item.MEAL_NAME)
       });
-    
-      let customPetFood ={
+
+      let customPetFood = {
         MEAL_DATA_ID: id,
         MEAL_CATA: "petsFood",
         MEAL_TYPE: "petsCustom",
@@ -305,23 +305,23 @@ let vm = new Vue({
       this.petCustomFoodSelection = [];
     },
     // 客製寵美食取消
-    cancelCustomFood(){
+    cancelCustomFood() {
       let yes = confirm("確定取消?")
       if (yes) {
         this.petCustomFoodSelect = "乾糧";
         this.isDogOut = false;
-        this.petCustomFoodSelection = []; 
+        this.petCustomFoodSelection = [];
       }
     },
 
     // 加入菜單
     chooseFood(food) {
       // 因為localstorage 傳參改變，改判斷MEAL_NAME
-      let check = this.allFoodSelection.some((item)=>{
+      let check = this.allFoodSelection.some((item) => {
         return item.MEAL_NAME === food.MEAL_NAME
       })
 
-      if(!check){
+      if (!check) {
         this.allFoodSelection.push(food);
       }
 
@@ -334,17 +334,17 @@ let vm = new Vue({
       } else {
         let yes = confirm("確定移除?")
         if (yes) {
-          let index = this.allFoodSelection.findIndex(item=>item===menu)
+          let index = this.allFoodSelection.findIndex(item => item === menu)
           this.allFoodSelection.splice(index, 1);
         }
       }
     },
     // 打開食物燈箱
-    getLightBoxOpen(food){
+    getLightBoxOpen(food) {
       this.isLightBoxOpen = true
-      this.forLightBoxInfo = this.allFoodMenu.find(item=>item === food)
+      this.forLightBoxInfo = this.allFoodMenu.find(item => item === food)
     },
-    font(){
+    font() {
       window._jf.flush()
     }
   },
@@ -359,7 +359,7 @@ let vm = new Vue({
 
     // 客製寵美食總價
     customTotalPrice() {
-      var result = this.petCustomFoodSelection.reduce((a, b)=>{
+      var result = this.petCustomFoodSelection.reduce((a, b) => {
         return a + b.MEAL_PRICE * b.MEAL_COUNT;
       }, 0)
       return result;
@@ -382,7 +382,7 @@ let vm = new Vue({
     },
     // 分類客製寵食
     filterCataToPetsCustom() {
-      return this.allFoodMenu.filter(food =>food.MEAL_CATA === "petsCustom")
+      return this.allFoodMenu.filter(food => food.MEAL_CATA === "petsCustom")
     },
     // 分類寵物菜單
     filterMenuToPets() {
@@ -393,16 +393,16 @@ let vm = new Vue({
       return this.allFoodSelection.filter(food => food.MEAL_CATA === "humanFood")
     },
   },
-  watch:{
-    totalPrice(){
-      if($(".Price").length>0){
+  watch: {
+    totalPrice() {
+      if ($(".Price").length > 0) {
         $(".Price").css({
-          opacity:1
+          opacity: 1
         })
         gsap.from(".Price", {
-          duration:2, 
-          opacity:0,
-          ease:"ease"
+          duration: 2,
+          opacity: 0,
+          ease: "ease"
         })
       }
     },
@@ -415,13 +415,16 @@ let vm = new Vue({
     }
   },
   mounted() {
-    axios.post("php/front_end_API/R_select.php").then((res)=>{
+    axios.post("php/front_end_API/R_select.php").then((res) => {
       this.allFoodMenu = res.data
+      this.$nextTick(() => {
+        window._jf.flush(); //手動更新justfont
+      });
     });
 
     // 取localStorage
     let value = JSON.parse(sessionStorage.getItem('foods'))
-    if(value){
+    if (value) {
       this.allFoodSelection = value
     };
 
@@ -453,27 +456,27 @@ $(function () {
       $(".submenu").hide();
     }, 200);
   });
-  
+
   // 關閉登入會員燈箱
-  $('.i_closeButton').click(()=>$('#m_sign_in_bk').hide())
+  $('.i_closeButton').click(() => $('#m_sign_in_bk').hide())
 });
 
 
 
 //首頁大圖小狗動畫
 var dl = new TimelineMax();
-dl.to('.dog1' , 0.1 , {opacity:0})
-.to('.dog2' , 0.15 , {opacity:1})
-.to('.dog2' , 0.1 , {opacity:0})
-.to('.dog3' , 0.15 , {opacity:1})
-.to('.dog3' , 0.1 , {opacity:0})
-.to('.dog4' , 0.15 , {opacity:1})
-.to('.dog4' , 0.1 , {opacity:0})
-.to('.dog5' , 0.15 , {opacity:1})
-.to('.dog5' , 0.1 , {opacity:0})
-.to('.dog6' , 0.15 , {opacity:1})
-.to('.dog6' , 0.1 , {opacity:0})
-.to('.dog7' , 0.15 , {opacity:1})
+dl.to('.dog1', 0.1, { opacity: 0 })
+  .to('.dog2', 0.15, { opacity: 1 })
+  .to('.dog2', 0.1, { opacity: 0 })
+  .to('.dog3', 0.15, { opacity: 1 })
+  .to('.dog3', 0.1, { opacity: 0 })
+  .to('.dog4', 0.15, { opacity: 1 })
+  .to('.dog4', 0.1, { opacity: 0 })
+  .to('.dog5', 0.15, { opacity: 1 })
+  .to('.dog5', 0.1, { opacity: 0 })
+  .to('.dog6', 0.15, { opacity: 1 })
+  .to('.dog6', 0.1, { opacity: 0 })
+  .to('.dog7', 0.15, { opacity: 1 })
 
 
 
