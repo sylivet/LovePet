@@ -145,6 +145,12 @@ $m_line_height: 2.5;
 
 //================================== 層 ==================================//
 
+.m_pet_info ul input {
+ 
+  font-size: 21px;
+  line-height: 1;
+}
+
 
 .m_pets_pics{
   display: flex;
@@ -362,4 +368,14 @@ $m_line_height: 2.5;
       background-color: $m_line_color;
       color: white;
     }
+}
+
+.m_member_index .personal_info input {
+
+  text-align: center;
+  font-size: 21px;
+}
+.m_wrapper main input {
+  line-height: 1.2;
+  font-size: 21px;
 }
