@@ -418,7 +418,9 @@ let vm = new Vue({
     axios.post("php/front_end_API/R_select.php").then((res) => {
       this.allFoodMenu = res.data
       this.$nextTick(() => {
-        window._jf.flush(); //手動更新justfont
+        $(function () {
+          window._jf.flush();
+        });
       });
     });
 

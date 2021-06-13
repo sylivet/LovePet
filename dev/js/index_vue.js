@@ -90,6 +90,9 @@ let vm = new Vue({
     axios.post("php/front_end_API/I_select.php").then(function (res) {
       self.news = res.data; //獲取資料
       self.$nextTick(() => {//在DOM已掛載、渲染完成後，執行nextTick()內的程式碼
+        $(function () {
+          window._jf.flush();
+        });
         //最新消息
         let swiper = new Swiper(".mySwiper", {
           slidesPerView: 1,
@@ -116,7 +119,6 @@ let vm = new Vue({
             },
           },
         });
-        window._jf.flush(); //手動更新justfont
       });
     });
   },

@@ -282,7 +282,11 @@ let vm = new Vue({
 
     axios.post('php/front_end_API/H_select.php').then(res => {
       this.rooms = res.data;
+      //手動更新justfont
       this.$nextTick(() => {
+        $(function () {
+          window._jf.flush();
+        });
         /* ----- 房型選擇跟介紹 -----*/
         // console.log($(".mainmenu"))
         $('.mainmenu').click(function () {
@@ -302,7 +306,6 @@ let vm = new Vue({
             $('.submenu').hide();
           }, 200);
         });
-        window._jf.flush(); //手動更新justfont
       });
     });
   },
