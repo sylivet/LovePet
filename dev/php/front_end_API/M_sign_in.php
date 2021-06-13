@@ -13,7 +13,8 @@
     
      // ========== 建立SQL語法 ============ //
 
-     $sql = "SELECT * FROM MEMBER WHERE (`ACCOUNT` = ?) and (`PASSWORD` = ?)";
+     //$sql = "SELECT * FROM MEMBER WHERE (`ACCOUNT` = ?) and (`PASSWORD` = ?)";
+     $sql = "SELECT * FROM MEMBER WHERE (`ACCOUNT` = ?) and (`PASSWORD` = ?) and (`AUTHORITY` = 2)";
      
      //執行
      $statement = $pdo->prepare($sql);    
