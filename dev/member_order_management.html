@@ -19,20 +19,56 @@
         <main>
             <h5>訂單管理</h5>
             <ul class="m_get_type">
-                <li @click="order='complete'"><span @click="chgfocus">已完成</span>
-                    <div class="m_underline_3" :style="{ opacity: opacity }"></div>
-                </li>
-                <li @click="order='notyet'"><span @click="chgfocus">未完成</span>
-                    <div class="m_underline_3" :style="{ opacity: opacity2 }"></div>
-                </li>
+                <li @click="order='complete'" ><span  >已完成</span><div  class="m_underline_3" :style="{ opacity: order === 'complete' ? 1:0 }" ></div></li>
+                <li @click="order='notyet'"><span  >未完成</span><div  class="m_underline_3" :style="{ opacity: order === 'notyet' ? 1:0 }" ></div></li>  
             </ul>
             <div class="m_underline_2"></div>
 
             <keep-alive>
-                <component :is="order"></component>
+            <!-- <component :is="order"
+            :checkout='BOOKING_CHECKOUT_DATE'
+            ></component> -->
             </keep-alive>
 
-        </main>
+            <hotel
+            v-for='(itm,key) in mymemberhotel' 
+            :checkout='itm.BOOKING_CHECKOUT_DATE'
+            :checkin='itm.BOOKING_CHECKIN_DATE'
+            :roomtype='itm.ROOM_NAME'
+            :rprice='itm.PRICE'
+            :crtdate='itm.CREATE_DATE2'
+            :ordernum='itm.HOTEL_ORDER_ID'
+            :peoplenum='itm.NUM_OF_PEOPLE'
+            :petsnum='itm.NUM_OF_PETS'
+            :roomimg='itm.PANNELLUM'
+            :roomdes='itm.ROOM_INFO'
+            
+
+            ></hotel>
+
+            <shopping
+            v-for='(itm,key) in mymembershoporder' 
+            :shoppingorderid='itm.SHOPPING_ORDER_ID'
+            :crtdate='itm.CREATE_DATE'
+            :done='itm.ORDER_STATUS'
+            :addressee='itm.ADDRESSEE'
+            :address='itm.ADDRESS'
+            :phone='itm.PHONE'
+            ></shopping>
+            
+            <resturant 
+            v-for='(itm,key) in mymemberresorder' 
+            :resorderid='itm.RESTAURANT_ORDER_ID'
+            :crtdate='itm.cdate'
+            :done='itm.ORDER_STATUS'
+            :bookingdate='itm.bdate'
+            :peoplenum='itm.NUM_OF_PEOPLE'
+            :petsnum='itm.NUM_OF_PETS'
+            
+            ></resturant>
+
+
+         </main>
     </div>
     @@include('layout/footer.html')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -47,9 +83,432 @@
     <!-- <script src="./js/m_order_contrl.js"></script> -->
     <script>
 
-
-        Vue.component('complete', {
+        Vue.component('hotel',{
             template: `
+                <div>       
+                    <section>
+                        <ul class="m_item_details">
+                            <li class="m_item_title"><p>種類 <span>{{ltype}}</span></p>
+                                <p>訂單編號 <span>{{'H00'+ordernum}}</span>號</p>
+                                <p>下單日期:{{crtdate}}</p>
+                            </li>
+                            <li><h6>狀&emsp;&emsp;態</h6><p>{{done==1? '已完成' : '未完成'}}</p></li>
+                            <li><h6>房型選擇</h6><p>{{roomtype}}</p></li>
+                            <li><h6>入住日期</h6><p>{{checkin}}</p></li>
+                            <li><h6>退房日期</h6> <p> {{checkout}} </p></li>
+                            <li><h6>房型價錢</h6><p>{{rprice}}</p></li>
+                            <li><h6>入住數量</h6><p>{{peoplenum}}個人及{{petsnum}}隻寵物</p></li>
+                        </ul>
+
+                        <div class="m_buy_details"  :class="{ 'm_appear': isappear}">
+                            <p>項目明細</p>
+                            <table>
+                                <tr class="m_item_title">
+                                    <td  class="m_item_pic">圖片</td>
+                                    <td  class="m_item_id" style='width:90%;'>敘述</td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td  class="m_item_pic"><img :src="roomimg" alt=""></td>
+                                    <td  class="m_item_id"  style='width:90%;'>{{roomdes}}</td>
+                                    
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="m_dt_streth_btn">
+                            <input type="button" value="訂單明細" @click="dtoggle">
+                        </div>
+                    </section>
+                </div>
+            `,
+            props:['crtdate','done','ordernum','checkin','checkout','rprice','roomtype','peoplenum','petsnum'
+                    ,'roomimg','roomdes'],
+            methods:{
+                dtoggle(){
+                    this.isappear = !this.isappear;
+                },
+            },
+            data(){
+                return{
+                    isappear : true,
+                    ltype : '旅館訂房',
+                };
+            },
+        });
+
+        Vue.component('shopping',{
+            template: `
+                <div>       
+                    <section>
+                        <ul class="m_item_details">
+                            <li class="m_item_title"><p>種類 <span>{{ltype}}</span></p>
+                                <p>訂單編號 <span>{{'S00'+ shoppingorderid}}</span>號</p>
+                                <p>下單日期{{crtdate}}</p>
+                            </li>
+                            <li><h6>狀&emsp;&emsp;態</h6><p>{{done==1? '已完成' : '未完成'}}</p></li>
+                            <li><h6>收件人名</h6><p>{{addressee}}</p></li>
+                            <li><h6>收件地址</h6><p>{{address}}</p></li>
+                            <li><h6>連絡電話</h6><p>{{phone}}</p></li>
+                        </ul>
+
+                        <div class="m_buy_details"  :class="{ 'm_appear': isappear}">
+                            <p>項目明細</p>
+                            <p style="font-size:19px; color:orange; background-color:#ffff; border-radius:10px;" >一般商品</p>
+                            <table>
+                                <tr class="m_item_title">
+                                    <td  class="m_item_pic">圖片</td>
+                                    <td  class="m_item_id">品名 / 類別</td>
+                                    <td  class="m_item_type">單組金額</td>
+                                    <td  class="m_item_amount">數量</td>
+                                    <td  class="m_item_price">小計</td>
+                                </tr>
+
+                                <slist
+                                v-for='(itm,key) in mymembershopping' 
+                                :sname='itm.PRODUCT_NAME'
+                                :listimg='itm.PRODUCT_IMG'
+                                :ptype='itm.PRODUCT_TYPE'
+                                :pprice='itm.PRODUCT_PRICE'
+                                :pnum='itm.NUM_OF_PRODUCT'
+                                
+                                ></slist>
+                            </table>
+
+                            <p v-if = ' mymembershopspecial.length '
+                            style="font-size:19px; color:orange; background-color:#ffff; border-radius:10px;" >客製商品</p>
+                            <table v-if = '  mymembershopspecial.length  '>
+                                <tr class="m_item_title">
+                                    <td  class="m_item_pic">圖片</td>
+                                    <td  class="m_item_id">型號</td>
+                                    <td  class="m_item_type">類別</td>
+                                    <td  class="m_item_amount">數量</td>
+                                    <td  class="m_item_price">金額</td>
+                                </tr>
+                                
+                                <clist
+                                v-for='(itm,key) in mymembershopspecial '
+                                :pcolor='itm.COLOR'
+                                :sname='itm.ITEM'
+                                :listimg='itm.UPLOAD_IMG'
+                                :pprice='itm.PRICE'
+                                :pnum='itm.SHOPPING_CUSTORMRIZE_AMOUNT'
+                                
+                                ></clist>
+
+                            </table>
+                        </div>
+
+                        <div class="m_msg_details " :class="{ 'm_appear': isappear}">
+                            <p>留言紀錄</p>
+
+                            <membermsg
+                            
+                            v-for='(itm,key) in mymembershopmsg'
+                            :mpic = 'itm.MEMBER_IMG'
+                            :msgcontent = 'itm.MESSAGE_CONTENT'
+                            :recontent = 'itm.OFFICAL_FEEDBACK'
+                            :gettime = 'itm.CREATE_DATE2'
+                            ></membermsg>
+                            
+                            <div v-if = ' ! mymembershopmsg.length  ' class="m_dt_streth_btn" style="width:100%; padding: 0; " >
+                                <ul>
+                                    <li class="m_client_ask "><img src="./img/common/i_logo.png" alt=""  style="margin-left:50px;">
+                                        <article>
+                                            <p style="width:100%;"" >{{message}}</p>
+                                            <input type='text' v-model="message" placeholder="請輸入想留言的文字" style="width:80%; outline:0px; border:0px; padding:15px; border-radius:15px;" >
+                                            <input type="button" value="送出留言" @click="submitmessage">
+                                        </article>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="m_dt_streth_btn">
+                            <input type="button" value="訂單明細" @click="dtoggle">
+                        </div>
+                    </section>
+                </div>
+            `,
+            props:['shoppingorderid','crtdate','done','addressee','address','phone'],
+            methods:{
+                dtoggle(){
+                    this.isappear = !this.isappear;
+                    let info = this.shoppingorderid;
+
+                    let self = this;
+                        $.ajax({
+                            type : "POST",	
+                            url : "./php/front_end_API/M_apr_membershopping.php",  
+                            data : {  
+                                MID : info,            //---透過 MID 去抓該筆會員資料
+                            }, 
+                            dataType : 'html' 
+                            }).done(function(data){    //---載入成功
+                            
+                            self.mymembershopping =  JSON.parse(data);
+                            console.log(self.mymembershopping);
+
+                            }).fail(function(jqXHR){   //---載入失敗
+                            alert("res為ID數據載入失敗: " + jqXHR.status);
+                            });
+
+                            $.ajax({
+                            type : "POST",	
+                            url : "./php/front_end_API/M_apr_membershopspecial.php",  
+                            data : {  
+                                MID : info,            //---透過 MID 去抓該筆會員資料
+                            }, 
+                            dataType : 'html' 
+                            }).done(function(data){    //---載入成功
+                            
+                            self.mymembershopspecial =  JSON.parse(data);
+                            console.log(self.mymembershopspecial);
+
+                            }).fail(function(jqXHR){   //---載入失敗
+                                alert("res為ID數據載入失敗: " + jqXHR.status);
+                            });
+                        
+                            $.ajax({
+                            type : "POST",	
+                            url : "./php/front_end_API/M_apr_membershopmsg.php",  
+                            data : {  
+                                MID : info,            //---透過 MID 去抓該筆會員資料
+                            }, 
+                            dataType : 'html' 
+                            }).done(function(data){    //---載入成功
+                            
+                            self.mymembershopmsg =  JSON.parse(data);
+                            console.log(self.mymembershopmsg[0]);
+
+                        }).fail(function(jqXHR){   //---載入失敗
+                        alert("res為ID數據載入失敗: " + jqXHR.status);
+                        });
+
+                    
+                },
+           
+                submitmessage(){
+                    let info = this.shoppingorderid;
+                    let self = this;
+
+                    $.ajax({
+                        type : "POST",	
+                        url : "./php/back_end_API/M_shop_msg_input.php",  
+                        data : {  
+                            MID : info,
+                            MSG : self.message,            //---透過 MID 去抓該筆會員資料
+                        }, 
+                        dataType : 'html' 
+                        }).done(function(data){    //---載入成功
+                        
+                        if( data == 1 ){
+                            alert('留言已成功傳出去，我們會盡速回覆，謝謝!');
+                            self.isappear = !self.isappear;
+
+                        }else{
+                            alert('留言未成功傳出去，我們會與您聯繫，謝謝!');
+                            self.isappear = !self.isappear;
+                        }
+                    
+                        }).fail(function(jqXHR){   //---載入失敗
+                        alert("res為ID數據載入失敗: " + jqXHR.status);
+                        });
+
+                },
+            },
+            data(){
+                return{
+                    ltype : '購物商城',
+                    isappear : true,
+                    message:'',
+                    mymembershopping:[],
+                    mymembershopspecial:[],
+                    mymembershopmsg:[],
+                };
+            },
+            components:{
+
+                'slist': { //kebab-case
+                    template: `<tr>
+                                    <td  class="m_item_pic"><img :src="listimg" alt=""></td>
+                                    <td  class="m_item_id">{{sname}}/{{ptype}}</td>
+                                    <td  class="m_item_type">{{pprice}}/組</td>
+                                    <td  class="m_item_amount">{{pnum}}</td>
+                                    <td  class="m_item_price">{{psum}}元</td>
+                        </tr>`,
+                    props:['sname', 'ptype','listimg', 'pprice', 'pnum'],
+                    computed:{
+                        psum(){
+                            return this.pprice * this.pnum ;
+                        },
+                    },
+                },
+
+                'clist': { //kebab-case
+                    template: `<tr>
+                                    <td  class="m_item_pic">{{pcolor ? pcolor +'色' : '無' }}</td>
+                                    <td  class="m_item_id">{{sname ? sname : 無}}</td>
+                                    <td  class="m_item_type">{{pprice? pprice +'/組' : '無'}}</td>
+                                    <td  class="m_item_amount">{{pnum? pnum : '無'}}</td>
+                                    <td  class="m_item_price">{{pnum? psum + '元' : '無'}}</td>
+
+                        </tr>`,
+                    props:['pcolor','sname', 'ptype','listimg', 'pprice', 'pnum'],
+                    computed:{
+                        psum(){
+                            return this.pprice * this.pnum ;
+                        },
+                    },
+                },
+
+                'membermsg': { //kebab-case
+                    template: `<div>
+                                <ul>
+                                    <li class="m_client_ask"><img :src='mpic' alt="">
+                                        <article><p>{{msgcontent}}</p><p>時間: {{gettime}}</p></article>
+                                    </li>
+                                    <li class="m_lovepet_re" v-if="recontent" >
+                                        <img src="./img/common/i_logo.png" alt="">
+                                        <article><p>{{recontent}}</p><p>時間: {{gettime}}</p></article>
+                                    </li>
+                                </ul>
+                           </div>`,
+                    props:['mpic','msgcontent','recontent','gettime'],
+                    computed:{
+                        msgtime(){
+                            let yer = new Date().getFullYear();
+                            let mon = new Date().getMonth() +1;
+                            let dat = new Date().getDate();
+
+                            return yer + "-" + mon + "-" + dat ;
+                        },
+                    },
+                },
+            },
+        });
+
+        Vue.component('resturant',{
+            template: `
+                <div>       
+                    <section>
+                        <ul class="m_item_details">
+                            <li class="m_item_title"><p>種類 <span>{{ltype}}</span></p>
+                                <p>訂單編號 <span>{{'R00'+ resorderid}}</span>號</p>
+                                <p>下單日期{{crtdate}}</p>
+                            </li>
+                            <li><h6>狀&emsp;&emsp;態</h6><p>{{done==1? '已完成' : '未完成'}}</p></li>
+                            <li><h6>預約日期</h6><p>{{bookingdate}}</p></li>
+                            <li><h6>用餐人數</h6><p>{{peoplenum}}</p></li>
+                            <li><h6>毛小孩數</h6><p>{{petsnum}}</p></li>
+                        </ul>
+
+                        <div class="m_buy_details"  :class="{ 'm_appear': isappear}">
+                            <p>項目明細</p>
+                            <table>
+                                <tr class="m_item_title">
+                                    <td  class="m_item_pic">圖片</td>
+                                    <td  class="m_item_id" style='width:90%;'>敘述</td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td  class="m_item_pic"><img src="" alt=""></td>
+                                    <td  class="m_item_id"  style='width:90%;'>暫無</td>
+                                    
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="m_dt_streth_btn">
+                            <input type="button" value="訂單明細" @click="dtoggle">
+                        </div>
+                    </section>
+                </div>
+            `,
+            props:['resorderid','crtdate','done','bookingdate','peoplenum','petsnum'],
+            methods:{
+                dtoggle(){
+                    this.isappear = !this.isappear;
+                },
+            },
+            data(){
+                return{
+                    isappear : true,
+                    ltype : '餐廳訂單',
+                };
+            },
+        });
+
+        
+        Vue.component('complete',{
+            template: `
+                <div>       
+                    <section>
+                        <ul class="m_item_details">
+                            <li class="m_item_title"><p>種類 <span>旅館訂房</span></p>
+                                <p>訂單編號 <span>{{htl_crt_date}}</span>號</p>
+                                <p>{{htl_crt_date}}</p>
+                            </li>
+                            <li><h6>狀&emsp;&emsp;態</h6><p>已完成{{done}}</p></li>
+                            <li><h6>房型選擇</h6><p>{{roomtype}}</p></li>
+                            <li><h6>入住日期</h6><p>{{BOOKING_CHECKIN_DATE}}</p></li>
+                            <li><h6>退房日期</h6><p>{{checkout}}</p></li>
+                            <li><h6>房型價錢</h6><p>{{PRICE}}</p></li>
+                            <li><h6>入住數量</h6><p>{{NUM_OF_PEOPLE}}個人及{{NUM_OF_PETS}}隻寵物</p></li>
+                        </ul>
+
+                        <div class="m_buy_details"  :class="{ 'm_appear': isappear}">
+                            <p>項目明細</p>
+                            <table>
+                                <tr class="m_item_title">
+                                    <td  class="m_item_pic">圖片</td>
+                                    <td  class="m_item_id">型號</td>
+                                    <td  class="m_item_type">類別</td>
+                                    <td  class="m_item_amount">數量</td>
+                                    <td  class="m_item_price">金額</td>
+                                </tr>
+                                <tr>
+                                    <td  class="m_item_pic"><img src="./img/member/shoppingsample1.png" alt=""></td>
+                                    <td  class="m_item_id">AF0023001</td>
+                                    <td  class="m_item_type">衣服 / M號 / 黑</td>
+                                    <td  class="m_item_amount">1 pcs</td>
+                                    <td  class="m_item_price">{{}}</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="m_dt_streth_btn">
+                            <input type="button" value="訂單明細" @click="dtoggle">
+                        </div>
+                    </section>
+                </div>
+            `,
+            //props:['htl_crt_date','done','roomtype','BOOKING_CHECKIN_DATE','checkout','roomtype','roomtype','roomtype','roomtype'],
+            props:['checkout'],
+            methods:{
+                dtoggle(){
+                    this.isappear = !this.isappear;
+                },
+            },
+            data(){
+                return{
+                    isappear : true,
+                };
+            },
+        });
+
+       
+        Vue.component('notyet',{
+            template: `
+                <section>
+                <div>
+                    <section>
+                        <p> 暫無此資料 </p>
+                        <P> 訂單皆完成 </p>
+                    </section> 
+                </div>
+
                 <div>       
                     <section>
                         <ul class="m_item_details">
@@ -103,34 +562,13 @@
                                 <li class="m_lovepet_re"><img src="./img/common/i_logo.png" alt=""><article><p>不會，應該的。</p><p>time 2020/04/22 16:00</p></article></li>
                             </ul>
                         </div>
+
                         <div class="m_dt_streth_btn">
                             <input type="button" value="訂單明細" @click="dtoggle">
                         </div>
                         </section>
                 </div>
-            `,
-
-            methods: {
-                dtoggle() {
-                    this.isappear = !this.isappear;
-                },
-            },
-            data() {
-                return {
-                    isappear: true,
-                };
-            },
-        });
-
-
-        Vue.component('notyet', {
-            template: `
-                <div>
-                    <section>
-                        <p> 暫無此資料 </p>
-                        <P> 訂單皆完成 </p>
-                    </section> 
-                </div>
+                </section>
             `,
         });
 
@@ -188,58 +626,132 @@
                 opacity: 1,
                 opacity2: 0,
 
-                mymember: [],
-                mymemberpet: [],
+                mymember:[],
+                mymemberpet:[],
+                mymemberhotel:[],
+
+                mymembershoporder:[],
+                mymemberresorder:[],
+                
             },
-            methods: {
-                chgfocus() {
-                    if (this.opacity == 0) { this.opacity = 1 } else { this.opacity = 0 }
-                    if (this.opacity2 == 0) { this.opacity2 = 1 } else { this.opacity2 = 0 }
-                },
-                getmymemberdata(info) {
+            methods:{
+                // chgfocus(){
+                //     if(this.opacity == 0){this.opacity = 1}else{this.opacity = 0}
+                //     if(this.opacity2 == 0){this.opacity2 = 1}else{this.opacity2 = 0}
+                // },
+                getmymemberdata(info){
                     let self = this;
 
-                    $.ajax({
-                        type: "POST",
-                        url: "./php/front_end_API/M_apr_memberpeople.php",
-                        data: {
-                            MID: info,            //---透過 MID 去抓該筆會員資料
-                        },
-                        dataType: 'html'
-                    }).done(function (data) {    //---載入成功
-                        console.log(data);
-                        self.mymember = JSON.parse(data);
+                        $.ajax({
+                            type : "POST",	
+                            url : "./php/front_end_API/M_apr_memberpeople.php",  
+                            data : {  
+                                MID : info,            //---透過 MID 去抓該筆會員資料
+                            }, 
+                            dataType : 'html' 
+                            }).done(function(data){    //---載入成功
+                                //console.log(data);
+                            self.mymember =  JSON.parse(data);
+                            
+                            }).fail(function(jqXHR){   //---載入失敗
+                            alert("res為ID數據載入失敗: " + jqXHR.status);
+                            });
 
-                    }).fail(function (jqXHR) {   //---載入失敗
+                    },
+                getmemberpetdata(info){
+                let self = this;
+
+                    $.ajax({
+                        type : "POST",	
+                        url : "./php/front_end_API/M_apr_memberpet.php",  
+                        data : {  
+                            MID : info,            //---透過 MID 去抓該筆會員資料
+                        }, 
+                        dataType : 'html' 
+                        }).done(function(data){    //---載入成功
+                            
+                        self.mymemberpet =  JSON.parse(data);
+                        //console.log(self.mymemberpet);
+                        
+                        }).fail(function(jqXHR){   //---載入失敗
                         alert("res為ID數據載入失敗: " + jqXHR.status);
                     });
 
                 },
-                getmemberpetdata(info) {
-                    let self = this;
+                getmemberhoteldata(info){
+                let self = this;
 
                     $.ajax({
-                        type: "POST",
-                        url: "./php/front_end_API/M_apr_memberpet.php",
-                        data: {
-                            MID: info,            //---透過 MID 去抓該筆會員資料
-                        },
-                        dataType: 'html'
-                    }).done(function (data) {    //---載入成功
-                        console.log(data);
-                        self.mymemberpet = JSON.parse(data);
+                        type : "POST",	
+                        url : "./php/front_end_API/M_apr_memberhotel.php",  
+                        data : {  
+                            MID : info,            //---透過 MID 去抓該筆會員資料
+                        }, 
+                        dataType : 'html' 
+                        }).done(function(data){    //---載入成功
+                           
+                        self.mymemberhotel =  JSON.parse(data);
+                        //console.log(self.mymemberhotel);
 
-                    }).fail(function (jqXHR) {   //---載入失敗
+                        }).fail(function(jqXHR){   //---載入失敗
                         alert("res為ID數據載入失敗: " + jqXHR.status);
-                    });
+                        });
 
                 },
+                getmembershoppingorder(info){
+                let self = this;
+
+                    $.ajax({
+                        type : "POST",	
+                        url : "./php/front_end_API/M_apr_membershoporder.php",  
+                        data : {  
+                            MID : info,            //---透過 MID 去抓該筆會員資料
+                        }, 
+                        dataType : 'html' 
+                        }).done(function(data){    //---載入成功
+                           
+                        self.mymembershoporder =  JSON.parse(data);
+                        //console.log(self.mymembershoporder);
+                        //console.log(self.mymembershoporder.length);
+                      
+                        }).fail(function(jqXHR){   //---載入失敗
+                        alert("res為ID數據載入失敗: " + jqXHR.status);
+                        });
+
+                },
+                getmemberresorder(info){
+                let self = this;
+
+                    $.ajax({
+                        type : "POST",	
+                        url : "./php/front_end_API/M_apr_memberresorder.php",  
+                        data : {  
+                            MID : info,            //---透過 MID 去抓該筆會員資料
+                        }, 
+                        dataType : 'html' 
+                        }).done(function(data){    //---載入成功
+                           
+                        self.mymemberresorder =  JSON.parse(data);
+                        console.log(self.mymemberresorder);
+                        console.log(self.mymemberresorder.length);
+                      
+                        }).fail(function(jqXHR){   //---載入失敗
+                        alert("res為ID數據載入失敗: " + jqXHR.status);
+                        });
+
+                },
+               
+                
             },
             created() {
 
-                axios.post("php/front_end_API/M_getsession_MID.php").then((res) => {
-                    this.getmymemberdata(res.data);
-                    this.getmemberpetdata(res.data);
+                axios.post("php/front_end_API/M_getsession_MID.php").then((res)=>{
+                this.getmymemberdata(res.data);
+                this.getmemberpetdata(res.data);
+                this.getmemberhoteldata(res.data);
+                this.getmembershoppingorder(res.data);
+                this.getmemberresorder(res.data);
+                
                 });
 
 

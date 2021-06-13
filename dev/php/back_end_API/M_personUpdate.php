@@ -17,7 +17,7 @@
     //建立SQL
     
     
-    $sql = "UPDATE `LOVE_PET`.`MEMBER` SET `NICKNAME` = ?, `NAME` = ?, `ADDRES` = ?, `PHONE` = ? WHERE (`MEMBER_ID` = ?);";
+    $sql = "UPDATE `MEMBER` SET `NICKNAME` = ?, `NAME` = ?, `ADDRES` = ?, `PHONE` = ? WHERE (`MEMBER_ID` = ?);";
     
     //執行
     $statement = $pdo->prepare($sql);     
