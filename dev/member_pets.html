@@ -17,10 +17,22 @@
          
 <!-- =================================================主要內容===================================================== -->
          <main>
-
+            <p></p>
             <!-- ------------------------------寵物頭貼---------------------------------- -->
             <section class="m_pets m_pets_pics">
-                <my-petpic :class='{"mactive":currentpet===key}' @click.native='currentpet = key' v-for='(itm,key) in mymemberpet' :petsrc='itm.PET_IMG' :petname='itm.PET_NAME'></my-petpic>
+
+                
+                <my-petpic :class='{"mactive":currentpet===key}' 
+                @click.native='currentpet = key' 
+                v-for='(itm,key) in mymemberpet' 
+                :petsrc='itm.PET_IMG' 
+                :petname='itm.PET_NAME'
+                :petid='itm.PET_ID'
+                :itmm='key'
+                @pushpetid = 'getpidforemgy'
+                ></my-petpic>
+                
+
                 <!-- <my-petpic @click.native='currentpet = itm'  :class='{"mactive":currentpet===itm}' v-for='(itm,key) in mymemberpet' :petsrc='itm.PET_IMG' :petname='itm.PET_NAME'></my-petpic> -->
             </section>
 
@@ -33,6 +45,10 @@
              :petchip='itm.PET_CHIP_NUMBER'
              :petgender='itm.PET_GENDER'
              :petcut='itm.PET_STERILIZATION'
+             :petname='itm.PET_NAME'
+             :petid='itm.PET_ID'
+             :itmm='key'
+             @changenm = 'changename'
              
              ></my-petinfo>
              
@@ -53,47 +69,15 @@
                 <h5>緊急處理資訊</h5>
                 <div class="m_underline_2"></div>
                     
-                    <ul>
-                        <li>
-                           <h6>緊急處理編號</h6>
-                           <p>處理編號: 01號</p>
-                        </li>
-                        <li>
-                            <h6>事件發生日期</h6>
-                            <p>2021/05/01</p>
-                        </li>
-                        <li>
-                            <h6>寵物受傷部位</h6>
-                            <p>左前大腿內側關節</p>
-                        </li>
-                        <li class="m_discript">
-                            <h6>緊急處理敘述</h6>
-                            <p>以消毒紗布或敷料（或清潔的布塊或乾淨手帕或用手）置於傷口上，然後以手掌或手指施壓，壓５?１０分鐘，等出血停止後，用繃帶或膠帶包紮固定。但傷口如有尖銳異物或碎骨頭時，不可使用此法。</p>
-                        </li>
-                        <li></li> <!-- style用的 -->
-                    </ul>
+                        <my-petemergency v-for='(itm,key) in emergency'
+                        :edate='itm.CREATE_DATE'
+                        :eposition='itm.POSITION'
+                        :edescription='itm.DESCRIPTION'
+                        :itmm='key+1'
+                        >
+                        </my-petemergency>
 
-                    <ul>
-                        <li>
-                           <h6>緊急處理編號</h6>
-                           <p>處理編號: 01號</p>
-                        </li>
-                        <li>
-                            <h6>事件發生日期</h6>
-                            <p>2021/05/01</p>
-                        </li>
-                        <li>
-                            <h6>寵物受傷部位</h6>
-                            <p>左前大腿內側關節</p>
-                        </li>
-                        <li class="m_discript">
-                            <h6>緊急處理敘述</h6>
-                            <p>以消毒紗布或敷料（或清潔的布塊或乾淨手帕或用手）置於傷口上，然後以手掌或手指施壓，壓５?１０分鐘，等出血停止後，用繃帶或膠帶包紮固定。但傷口如有尖銳異物或碎骨頭時，不可使用此法。</p>
-                        </li>
-                        <li></li> <!-- style用的 -->
-                    </ul>
-
-             </section>
+            </section>
 
 
          </main>
@@ -110,19 +94,26 @@
     <script>
     
              Vue.component('my-petpic',{
-                template: `<section class="m_pets ">
-                            <div>
+                template: `<section class="m_pets " >
+                            <div @click="myClick">
                                 <div >
-                                    <img :src='petsrc' alt="profile"  class="m_pet_pic" id="m_pet2">
+                                    <img :src='petsrc.includes("img") ? petsrc : "./img/member/Group 2151.jpg"' 
+                                    alt="profile"  class="m_pet_pic" id="m_pet2">
                                 </div>
                                 <div>
-                                    <input type="text" id="pet_name2" placeholder="名字" :value='petname'>
-                                    <label for="pet_name3"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                                    <p>{{petname}}</p>
                                 </div>
                             </div>
                         </section>`,
 
-                props:['petsrc','petname'],
+                props:['petsrc','petname','petid','itmm'],
+
+                methods: {  
+                    myClick(){
+                        alert(this.petid);
+                        this.$emit( 'pushpetid',this.petid );
+                    },
+                },
                 
              });
     
@@ -140,51 +131,139 @@
                                 </li>
                                 <li>
                                     <label for="weight">體重</label>
-                                    <input type="text" id="weight" :value="petweight+' 公斤'">
+                                    <input type="text" id="weight" v-model="petweight">公斤
                                     <label for="weight"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
                                 </li>
                                 <li>
                                     <label for="age">年齡</label>
-                                    <input type="text" id="age" :value='petage+" 歲"'>
+                                    <input type="text" id="age"  v-model='petage'>歲
                                     <label for="age"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
                                 </li>
                                 <li>
                                     <label for="chip_number">晶片</label>
-                                    <input type="text" id="chip_number" :value='petchip'>
+                                    <input type="text" id="chip_number" v-model='petchip'>
+                                    <label for="chip_number"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                                </li>
+                                <li>
+                                    <label for="pet_name">名字</label>
+                                    <input type="text" id="pet_name" v-model='petname' @keyup='mykeyup'>
+                                    <label for="pet_name"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
+                                </li>
+                                <li style="opacity:0;">
+                                    <label for="chip_number">晶片</label>
+                                    <input type="text" id="chip_number" v-model='petchip'>
                                     <label for="birthday"><img src="./img/member/edit_icon.png" alt="edit" style="width: 20px;"></label>
                                 </li>
 
                                 <li class="m_pet_radio">
 
                                     <p>性別</p>
-                                    <input type="radio" id="boy" name="gender" value="boy" :checked='petgender===1'>
+                                    <input type="radio" id="boy" v-model="gender" value="1" >
                                     <label for="boy">男生</label>
-                                    <input type="radio" id="girl" name="gender" value="girl" :checked='petgender===0'>
+                                    <input type="radio" id="girl" v-model="gender" value="0">
                                     <label for="girl">女生</label>
 
                                 </li>
                                 <li class="m_pet_radio">
 
                                     <p>是否結紮</p>
-                                    <input type="radio" id="ster_did" name="sterilization" value="boy" :checked='petcut===1?"boy":"girl"'>
+                                    <input type="radio" id="ster_did" v-model="cut" value="1" >
                                     <label for="ster_did">已結</label>
-                                    <input type="radio" id="ster_yet" name="sterilization" value="girl" :checked='petcut===0?"boy":"girl"'>
+                                    <input type="radio" id="ster_yet" v-model="cut" value="0" >
                                     <label for="ster_yet">未結</label>
 
                                 </li>
                             </ul>
 
-                        <input type="submit" value="確認更改" class="m_btn">
+                        <input type="button" value="確認更改" class="m_btn"  @click="chgperinfo">
                         </form>
                     </section>`,
-            props:['petspecies','petweight','petage','petchip','petgender','petcut'],
-            computed:{
-                condition(){
-                    return '' ;
+            props:['petspecies','petweight','petage','petchip','petgender','petcut','petname','petid','itmm'],
+            data(){
+                return{
+                    gender:'',
+                    cut:'',
+                }
+            },
+            created(){
+                this.gender = this.petgender;
+                this.cut = this.petcut;
+            },
+            methods: {  
+                mykeyup(){
+                    //alert(this.petname + this.itmm);
+                    this.$emit( 'changenm',this.petname,this.itmm );
+                },
+
+                chgperinfo(){   
+                    //alert(this.oldpwd);
+                    console.log(this.petage);
+                    if( this.petspecies == '' ||  
+                        this.petweight == '' ||
+                        this.petage == '' ||
+                        this.petchip == ''|| 
+                        this.petname == ''){
+                        alert('不能空白');
+                    }else{ 
+                        
+                        alert('OK');
+                        let newp = this ;
+                        $.ajax({
+                            type : "POST",	
+                            url : "./php/back_end_API/M_petUpdate.php",  
+                            data : {  
+                                SPEC : newp.petspecies,  
+                                WGHT : newp.petweight,
+                                PAGE : newp.petage,
+                                CHIP : newp.petchip,
+                                NAME : newp.petname,
+                                GNDR : newp.gender,
+                                PCUT : newp.cut,
+                                PID  : newp.petid,
+                            }, 
+                            dataType : 'html' 
+                            }).done(function(data){    //---載入成功
+
+                            if( data ){ 
+                                //alert('資料更新成功!!');
+                                alert(data);
+                                //localStorage.setItem('m_datainfro', `{ "NICKNAME": "${newp.nickname}",}` ); //存入storage 
+                            };
+                            
+                            }).fail(function(jqXHR){   //---載入失敗
+                            alert("res為ID數據載入失敗: " + jqXHR.status);
+                            });
+                    }
                 },
             },
          });
-    
+ 
+             Vue.component('my-petemergency',{
+                    template: `<ul>
+                                    <li>
+                                    <h6>緊急處理編號</h6>
+                                    <p>處理編號: {{itmm}}號</p>
+                                    </li>
+                                    <li>
+                                        <h6>事件發生日期</h6>
+                                        <p>{{edate}}</p>
+                                    </li>
+                                    <li>
+                                        <h6>寵物受傷部位</h6>
+                                        <p>{{eposition}}</p>
+                                    </li>
+                                    <li class="m_discript">
+                                        <h6>緊急處理敘述</h6>
+                                        <p>{{edescription}}</p>
+                                    </li>
+                                    <li></li> <!-- style用的 -->
+                                </ul>`,
+
+                                    
+                    props:['edate','eposition','edescription','itmm'],
+                    
+                });
+
              Vue.component('my-aside',{
                 template: 
                     ` <aside>
@@ -236,15 +315,18 @@
              });
     
               
+
                 new Vue({
                 el: '#app',
                 data: {
                     mymember:[],
                     mymemberpet:[],
+                    emergency:[],
                     currentpet:0,
-                    // currentpet:null,
+                    // currentpet:null, 
                 },
                 methods: {
+
                     getmymemberdata(info){
                     let self = this;
 
@@ -275,8 +357,33 @@
                             }, 
                             dataType : 'html' 
                             }).done(function(data){    //---載入成功
-                                console.log(data);
+                                //console.log(data);
                             self.mymemberpet =  JSON.parse(data);
+                            console.log(self.mymemberpet);
+                            // self.currentpet = self.mymemberpet[0]; //陣列
+                            self.getpidforemgy(self.mymemberpet[0].PET_ID);
+
+
+                            }).fail(function(jqXHR){   //---載入失敗
+                            alert("res為ID數據載入失敗: " + jqXHR.status);
+                            });
+
+                    },
+                    getpidforemgy(e){
+                    let self = this;
+                    let emgid = e;
+
+                        $.ajax({
+                            type : "POST",	
+                            url : "./php/front_end_API/M_apr_petemergency.php",  
+                            data : {  
+                                MID : emgid,            //---透過 MID 去抓該筆會員資料
+                            }, 
+                            dataType : 'html' 
+                            }).done(function(data){    //---載入成功
+                                //console.log(data);
+                            self.emergency =  JSON.parse(data);
+                            console.log(self.emergency);
                             // self.currentpet = self.mymemberpet[0]; //陣列
                             
                             }).fail(function(jqXHR){   //---載入失敗
@@ -284,15 +391,20 @@
                             });
 
                     },
+
+                    changename(e,f){
+                        console.log(e + f);
+                        this.mymemberpet[f].PET_NAME = e;
+                    },
                 },
                 created(){
 
                     axios.post("php/front_end_API/M_getsession_MID.php").then((res)=>{
                     this.getmymemberdata(res.data);
                     this.getmemberpetdata(res.data);
+                    
                     });
-
-
+                    
                 },
 
             });
