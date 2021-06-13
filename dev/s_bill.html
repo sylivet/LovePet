@@ -45,13 +45,13 @@
     <div class="group">
 
       收件人姓名：
-      <input type="text" style="width: 100px;"><input type="checkbox" id="addd"><label for="addd">同會員資訊</label>
+      <input v-model="ADDRESSEE" type="text" style="width: 100px;">
       <br><br>
       電話：
-      <input type="text" style="width: 148px;">
+      <input v-model="PHONE" type="text" style="width: 148px;">
       <br><br>
       <label>地址：</label>
-      <input type="text" style="width: 400px;">
+      <input v-model="ADDRESS" type="text" style="width: 400px;">
     </div>
     <h3 style="margin-top: 40px;margin-bottom: 20px;">付款資訊</h3>
     <div class="group">
@@ -64,7 +64,7 @@
       <input type="text" class="card" maxlength="3">
 
     </div>
-    <button style="margin-right: 0px; ">結帳</button>
+    <button @click="loginCheck" style="margin-right: 0px; ">結帳</button>
   </div>
   @@include('layout/footer.html')
 </body>

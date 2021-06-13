@@ -2,93 +2,71 @@
 <div class="choose_items">
   <p>STEP1 請選擇商品</p>
   <div class="items_block">
-    <div class="items">
-      <p>馬克杯</p>
-      <img class="cup" src="img/mall/cup@2x.png" alt="">
+    <div class="items" v-for="(item, index) in customProducts" :key="index">
+      <p>{{item.PRODUCT_NAME}}</p>
+      <img class="cup" :src="item.PRODUCT_IMG" alt="">
       <div class="color_btn">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
+        <div class="box" @click='item.PRODUCT_IMG = item.IMG4'></div>
+        <div class="box" @click='item.PRODUCT_IMG = item.IMG1'></div>
+        <div class="box" @click='item.PRODUCT_IMG = item.IMG2'></div>
+        <div class="box" @click='item.PRODUCT_IMG = item.IMG3'></div>
       </div>
-      <button>加入</button>
-    </div>
-
-    <div class="items">
-      <p>棒球帽</p>
-      <img class="cap" src="img/mall/cap@2x.png" alt="">
-      <div class="color_btn">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-      </div>
-      <button>加入</button>
-    </div>
-
-    <div class="items">
-      <p>T恤</p>
-      <img class="T-shirt" src="img/mall/T-shirt@2x.png" alt="">
-      <div class="color_btn">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-      </div>
-      <button>加入</button>
-    </div>
-
-    <div class="items">
-      <p>環保袋</p>
-      <img class="bag" src="img/mall/bag@2x.png" alt="">
-      <div class="color_btn">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-      </div>
-      <button>加入</button>
-    </div>
-  </div>
-</div>
-
-<!-- 上傳照片區塊 -->
-<div class="choose_photo">
-  <p>STEP2 請上傳寵物照片</p>
-  <div class="photo_block">
-    <div class="upload">
-      <div class="text_block">
-        <h5>圖檔格式:JPG/PNG<br>檔案大小限制:1M</h5>
-      </div>
-    </div>
-
-    <div class="simulation">
-      <div class="result">
-        <h1>模擬圖</h1>
-      </div>
-      <img src="img/mall/simulation@2x.png" alt="">
+      <button @click="getIMG(item)">加入</button>
     </div>
   </div>
 
-  <div class="btn_icon">
-    <div class="upload_block">
-      <label>
-        <!--利用label特性，只要包住input，點label的範圍就會點到input-->
-        <input type="file">
-        <div class="upload_btn">
-          <img src="img/mall/Icon_upload@2x.png" alt="">
+  <!-- 上傳照片區塊 -->
+  <div class="choose_photo">
+    <p>STEP2 請上傳寵物照片</p>
+    <div class="photo_block">
+      <div class="upload">
+        <img id="image" style="max-width:350px;">
+      </div>
+
+      <div class="simulation">
+        <div class="result">
+          <h1>商品</h1>
         </div>
-      </label>
+        <img :src="img" alt="">
+      </div>
     </div>
 
-    <div class="buy_block">
-      <div class="buy_btn">
-        <img src="img/mall/Icon_shopping@2x.png" alt="">
+    <div class="btn_icon">
+      <div class="upload_block">
+        <label>
+          <!--利用label特性，只要包住input，點label的範圍就會點到input-->
+          <input type="file" @change="uploadIMG" id="theFile">
+          <div class="upload_btn">
+            <img src="img/mall/Icon_upload@2x.png" alt="">
+          </div>
+        </label>
+      </div>
+
+      <div class="buy_block">
+        <div>
+          <button class="buy_btn" @click="merge">
+            <h4>合成</h4>
+          </button>
+        </div>
+        <!-- <div class="buy_btn">
+          <img src="img/mall/Icon_shopping@2x.png" alt="">
+        </div> -->
       </div>
     </div>
   </div>
-</div>
+
+
+
+
+  <!-- 合成結果 -->
+  <div id="mergeResult">
+    <img :src="result" alt="">
+  </div>
+
+  <h2 style="text-align: center;margin-bottom:20px;">若喜歡此客製化商品，歡迎來電聯繫挑選布料細節</h2>
+
+  <div class="sampleImages" style="display: none;">
+    <img class="Selected" :src="img" />
+    <img class="petIMG" :src="petsPic" />
+  </div>
+  <canvas id="canvas" width="480" height="350" style="display: none;"></canvas>
