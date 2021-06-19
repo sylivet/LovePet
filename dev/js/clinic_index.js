@@ -43,3 +43,9 @@ new Vue({
     
 
 })
+
+$(function () {
+    // 關閉登入會員燈箱
+    $('.i_closeButton').click(() => $('#m_sign_in_bk').hide())
+  });
+  
