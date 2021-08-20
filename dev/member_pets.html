@@ -17,7 +17,83 @@
 
         <!-- =================================================主要內容===================================================== -->
         <main>
-            <p></p>
+            <p style="text-align:right; padding:5px 20px;" @click='addnewpet' >新增寵物</p>
+             <!-- ------------------------------頭貼彈窗---------------------------------- -->
+             <div id="m_sign_in_bk" class="i_background " :style="petsubmitappear">
+                
+                <div class="i_lightbox_bk m_sign_wrap picc">
+                    <a class="i_closeButton" >
+                      <img src="./img/common/close.png" alt="" @click="closblock">
+                    </a>
+                    <div class="i_lightbox_title">
+                      <h2>新增寵物</h2>
+                    </div>
+                    <div class="m_sign signIn">
+                     
+                        <h5>基本資料</h5>
+                        <div class="m_underline_2"></div> 
+            
+                        <form action="">
+                             <ul>
+                                <!---->
+                                <li class="m_pet_radio">
+            
+                                    <p>寵物種類</p>
+                                    <input type="radio" id="dog" v-model="type" value="1" >
+                                    <label for="dog">狗狗</label>
+                                    <input type="radio" id="cat" v-model="type" value="0" >
+                                    <label for="cat">貓貓</label>
+            
+                                </li> 
+                                <li>
+                                    <label for="weight">體重 </label>
+                                    <input type="text" id="weight" v-model="weight">
+                                    <label for="weight"> kg</label>
+                                </li>
+                                <li>
+                                    <label for="age">年齡 </label>
+                                    <input type="text" id="age"  v-model='age'>
+                                    <label for="age"> 歲</label>
+                                </li>
+                                <li>
+                                    <label for="chip_number">晶片 </label>
+                                    <input type="text" id="chip_number" v-model='chip'>
+                                    <label for="chip_number"> 號</label>
+                                </li>
+                                <li>
+                                    <label for="pet_name">名字 </label>
+                                    <input type="text" id="pet_name" v-model='name'>
+                                    <label for="pet_name"> 名</label>
+                                </li>
+            
+                                <li class="m_pet_radio">
+            
+                                    <p>寵物性別</p>
+                                    <input type="radio" id="pboy" v-model="gender" value="1" >
+                                    <label for="pboy">男生</label>
+                                    <input type="radio" id="pgirl" v-model="gender" value="0">
+                                    <label for="pgirl">女生</label>
+            
+                                </li> 
+                                <li class="m_pet_radio">
+            
+                                    <p>是否結紮</p>
+                                    <input type="radio" id="ster_y" v-model="cut" value="1" >
+                                    <label for="ster_y">已結</label>
+                                    <input type="radio" id="ster_n" v-model="cut" value="0" >
+                                    <label for="ster_n">未結</label>
+            
+                                </li>
+                            </ul> 
+            
+                        <input type="button" value="確認增加" class="m_btn"  @click="confirmtoaddpet">
+                        </form>
+                      
+                    </div>
+                  </div>
+                
+            </div>
+
             <!-- ------------------------------寵物頭貼---------------------------------- -->
             <section class="m_pets m_pets_pics">
 
@@ -28,8 +104,9 @@
 
 
                 <!-- <my-petpic @click.native='currentpet = itm'  :class='{"mactive":currentpet===itm}' v-for='(itm,key) in mymemberpet' :petsrc='itm.PET_IMG' :petname='itm.PET_NAME'></my-petpic> -->
-            </section>
 
+            </section>
+            
             <!-- ------------------------------基本資料---------------------------------- -->
             <my-petinfo v-for='(itm,key) in mymemberpet' v-if="currentpet === key" :petspecies='itm.PET_SPECIES'
                 :petweight='itm.PET_WEIGHT' :petage='itm.PET_AGE' :petchip='itm.PET_CHIP_NUMBER'
@@ -53,11 +130,14 @@
                 <h5>緊急處理資訊</h5>
                 <div class="m_underline_2"></div>
 
+
+
                 <my-petemergency v-for='(itm,key) in emergency' :edate='itm.CREATE_DATE' :eposition='itm.POSITION'
                     :edescription='itm.DESCRIPTION' :itmm='key+1'>
                 </my-petemergency>
 
             </section>
+           
 
 
         </main>
@@ -75,14 +155,52 @@
     <!-- <script src="./js/m_member_pet.js"></script> -->
     <script>
         Vue.component('my-petpic', {
-            template: `<section class="m_pets " >
+            template: 
+            `<section class="m_pets " >
                 <div @click="myClick">
-                    <div >
-                        <img :src='petsrc.includes("img") ? petsrc : "./img/member/Group 2151.jpg"' 
+                    <div>
+                        <img  :src= 'petsrc.includes("") ? petsrc : "./img/member/Group 2151.png" '
                         alt="profile"  class="m_pet_pic" id="m_pet2">
                     </div>
                     <div>
                         <p>{{petname}}</p>
+                        <p style='text-align: right;
+                                font-size: 20px;
+                                color: gray;
+                                padding: 0 3px;
+                                margin-top: -15px;'
+                            @click = "chgimg"
+                        >
+                        ⍓≫
+                        </p>
+                    </div>    
+                </div>
+
+                <div id="m_sign_in_bk" class="i_background " :style="appearr">
+                    <div class="i_lightbox_bk m_sign_wrap picc">
+                        <form action="./php/back_end_API/M_chgpetsimg.php" method="post" enctype="multipart/form-data">
+
+                            <a class="i_closeButton" >
+                                <img src="./img/common/close.png" alt="" @click="closeblock">
+                            </a>
+                            <div class="i_lightbox_title">
+                                <h2>更換照片</h2>
+                            </div>
+                            <div class="m_sign signIn">
+                                <p style='padding-bottom: 20px;' >請選擇您要的寵物大頭照，放進框框內</p>
+                                <input type="file" @change="selectedFile" name="file">
+                                <input type="hidden" name="petid" v-model="petid">
+                                <!-- <p>{{petid}}</p> -->
+                                <p>
+                                    <img :src="image">
+                                </p>
+                                    
+                                <input
+                                <input type="submit"  value="更換照片"  >
+                                
+                            </div>
+
+                        </form>
                     </div>
                 </div>
             </section>`,
@@ -90,11 +208,67 @@
             props: [
                 'petsrc', 'petname', 'petid', 'itmm'
             ],
+            data() {
+                return { 
+                    appearr:"display:none",
+                    image: '',
+                    inputfile: null, 
+                }
+            },
             methods: {
                 myClick() {
                     //alert(this.petid);
+                    //alert(this.itmm);
                     this.$emit('pushpetid', this.petid);
-                }
+                },
+                //打開換照片彈窗
+                chgimg(){
+                    let mychg = '確認更換照片嗎?';
+                        if (confirm(mychg) == true) {
+                            this.appearr = "display:block";
+                        }
+                },
+                //關閉換照片彈窗
+                closeblock(){
+                    this.appearr = "display:none";
+                },
+                //更換照片
+                selectedFile(e){
+                    let file = e.target.files[0]; //專用寫法，.files[0];  才能get到檔案 == let file = e.target.files.item(0);  (both JS語法)
+                    
+                    let readFile = new FileReader(); //先宣布型態，才能使用其屬性與方法
+                    readFile.readAsDataURL(file);  //讀取內容的屬性  //連動發生內嵌外部內容事件
+                    readFile.addEventListener('load',this.loadImage);  //內嵌外部內容需使用load事件
+
+                    let inputfile = file;
+                },
+                //載入更換照片
+                loadImage(e){
+                    this.image = e.target.result;    
+                },
+                // chgselectedpetimg(){
+                //     let pid = this.petid;
+                //     let self = this;
+                //     $.ajax({
+                //             type: "POST",
+                //             url: "./php/back_end_API/M_chgpetsimg.php",
+                //             data: {
+                //                 PID: pid,
+                //             },
+                //             dataType: 'html'
+                //         }).done(function (data) { // ---載入成功
+
+                //             if (data) { // alert('資料更新成功!!');
+                //                 //alert(data);
+                //                 alert('資料更新成功');
+                //                 // localStorage.setItem('m_datainfro', `{ "NICKNAME": "${newp.nickname}",}` ); //存入storage
+                //             };
+
+                //         }).fail(function (jqXHR) { // ---載入失敗
+                //             alert("res為ID數據載入失敗: " + jqXHR.status);
+                //         });
+
+                // }
             }
 
         });
@@ -301,6 +475,16 @@
                 emergency: [],
                 currentpet: 0,
                 // currentpet:null,
+
+                //新增寵物的data
+                petsubmitappear:"display:none",
+                type:null,
+                weight:'',
+                age:'',
+                chip:'',
+                name:'',
+                gender:null,
+                cut:null
             },
             methods: {
                 getmymemberdata(info) {
@@ -369,10 +553,56 @@
                     });
 
                 },
-
+                //名字
                 changename(e, f) {
                     console.log(e + f);
                     this.mymemberpet[f].PET_NAME = e;
+                },
+                //增加寵物
+                addnewpet(){
+                    let yes = confirm('是否增加新寵物');
+                    if(yes){
+                        this.petsubmitappear = "display:block";
+                    }
+                },
+                closblock(){
+                    this.petsubmitappear = "display:none";
+                },
+                confirmtoaddpet(){
+                    //alert('確認ok');
+                    if (this.type == '' || this.weight == '' || this.age == '' ||
+                        this.chip == '' || this.name == '' || this.gender == '' || this.cut == '') {
+                        alert('不能空白');
+                    } else {
+                        //alert('OK');
+                        let self = this;
+                        $.ajax({
+                            type: "POST",
+                            url: "./php/back_end_API/M_petInsert.php",
+                            data: {
+                                SPEC: self.type,
+                                WGHT: self.weight,
+                                PAGE: self.age,
+                                CHIP: self.chip,
+                                NAME: self.name,
+                                GNDR: self.gender,
+                                PCUT: self.cut
+                            },
+                            dataType: 'html'
+                        }).done(function (data) { // ---載入成功
+
+                            let closeblock = self.petsubmitappear;
+                            if (data) {
+                                //alert(data);
+                                closeblock = "display:none";
+                                alert('資料更新成功');
+                                location.reload();
+                            };
+
+                        }).fail(function (jqXHR) { // ---載入失敗
+                            alert("res為ID數據載入失敗: " + jqXHR.status);
+                        });
+                    }
                 }
             },
             created() {

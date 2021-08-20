@@ -4,6 +4,9 @@
        session_start(); 
        $MID = $_SESSION["memberID"];
 
+       $input_pid = $_POST["petid"];
+       // $input_pid = 4;
+
 
        include("../../php/M_conn.php");
 
@@ -27,7 +30,7 @@
               $filePath = $ServerRoot."/love_pet/dist/img/back_index/".$fileName;
 
               $photoPath = "./img/back_index/".$fileName;
-              
+              // $photoPath = "./img/back_index/h1_c1.jpg";
 
               
        
@@ -53,13 +56,14 @@
 
 
        //建立SQL
-       //$sql = 'UPDATE `tibamefe_tfd101g2`.`MEMBER` SET `MEMBER_IMG` = ?  WHERE (`MEMBER_ID` = ? );';
-       $sql = 'UPDATE `LOVE_PET`.`MEMBER` SET `MEMBER_IMG` = ?  WHERE (`MEMBER_ID` = ? );';
+       //$sql = 'UPDATE `tibamefe_tfd101g2`.`PET_INFO` SET `PET_IMG` = ? WHERE (`PET_ID` = ? );';
+       $sql = 'UPDATE `LOVE_PET`.`PET_INFO` SET `PET_IMG` = ? WHERE (`PET_ID` = ? );';
+       
 
        //執行
        $statement = $pdo->prepare($sql);     
        $statement->bindValue(1 , $photoPath); 
-       $statement->bindValue(2 , $MID);
+       $statement->bindValue(2 , $input_pid);
        $x = $statement->execute();
 
 
@@ -67,12 +71,12 @@
 
        //echo   "這是echo的".$photoPath;
        //echo    "這是echo的".$MID;
-       echo "<script>alert('更新照片很成功'); location.href = '../.././member_people.html';</script>";
+       echo "<script>alert('更新照片很成功'); location.href = '../.././member_pets.html';</script>";
        
 
 
        }else{
-              echo "<script>alert('更新照片失敗，請聯繫系統'); location.href = '../.././member_people.html';</script>";
+              echo "<script>alert('更新照片失敗，請聯繫系統'); location.href = '../.././member_pets.html';</script>";
        }
 
 

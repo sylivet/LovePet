@@ -1,78 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @@include('layout/style.html')
     <title>header</title>
-</head>
+  </head>
 
-<body>
+  <body>
     @@include('layout/header.html')
     <!-- =================================================側邊攔===================================================== -->
-    <div class="m_wrapper" id='app'>
-        <my-aside :class="'-'+order"></my-aside>
+    <div class="m_wrapper" id="app">
+      <my-aside :class="'-'+order"></my-aside>
 
-        <!-- =================================================主要內容===================================================== -->
-        <main>
-            <h5>訂單管理</h5>
-            <ul class="m_get_type">
-                <li @click="order='complete'" ><span  >已完成</span><div  class="m_underline_3" :style="{ opacity: order === 'complete' ? 1:0 }" ></div></li>
-                <li @click="order='notyet'"><span  >未完成</span><div  class="m_underline_3" :style="{ opacity: order === 'notyet' ? 1:0 }" ></div></li>  
-            </ul>
-            <div class="m_underline_2"></div>
+      <!-- =================================================主要內容===================================================== -->
+      <main>
+        <h5>訂單管理</h5>
+        <ul class="m_get_type">
+          <li @click="order='complete'">
+            <span>已完成</span>
+            <div
+              class="m_underline_3"
+              :style="{ opacity: order === 'complete' ? 1:0 }"
+            ></div>
+          </li>
+          <li @click="order='notyet'">
+            <span>未完成</span>
+            <div
+              class="m_underline_3"
+              :style="{ opacity: order === 'notyet' ? 1:0 }"
+            ></div>
+          </li>
+        </ul>
+        <div class="m_underline_2"></div>
 
-            <keep-alive>
-            <!-- <component :is="order"
+        <keep-alive>
+          <!-- <component :is="order"
             :checkout='BOOKING_CHECKOUT_DATE'
             ></component> -->
-            </keep-alive>
+        </keep-alive>
 
-            <hotel
-            v-for='(itm,key) in mymemberhotel' 
-            :checkout='itm.BOOKING_CHECKOUT_DATE'
-            :checkin='itm.BOOKING_CHECKIN_DATE'
-            :roomtype='itm.ROOM_NAME'
-            :rprice='itm.PRICE'
-            :crtdate='itm.CREATE_DATE2'
-            :ordernum='itm.HOTEL_ORDER_ID'
-            :peoplenum='itm.NUM_OF_PEOPLE'
-            :petsnum='itm.NUM_OF_PETS'
-            :roomimg='itm.PANNELLUM'
-            :roomdes='itm.ROOM_INFO'
-            
+        <hotel
+          v-for="(itm,key) in mymemberhotel"
+          :checkout="itm.BOOKING_CHECKOUT_DATE"
+          :checkin="itm.BOOKING_CHECKIN_DATE"
+          :roomtype="itm.ROOM_NAME"
+          :rprice="itm.PRICE"
+          :crtdate="itm.CREATE_DATE2"
+          :ordernum="itm.HOTEL_ORDER_ID"
+          :peoplenum="itm.NUM_OF_PEOPLE"
+          :petsnum="itm.NUM_OF_PETS"
+          :roomimg="itm.PANNELLUM"
+          :roomdes="itm.ROOM_INFO"
+        ></hotel>
 
-            ></hotel>
+        <shopping
+          v-for="(itm,key) in mymembershoporder"
+          :shoppingorderid="itm.SHOPPING_ORDER_ID"
+          :crtdate="itm.CREATE_DATE"
+          :done="itm.ORDER_STATUS"
+          :addressee="itm.ADDRESSEE"
+          :address="itm.ADDRESS"
+          :phone="itm.PHONE"
+        ></shopping>
 
-            <shopping
-            v-for='(itm,key) in mymembershoporder' 
-            :shoppingorderid='itm.SHOPPING_ORDER_ID'
-            :crtdate='itm.CREATE_DATE'
-            :done='itm.ORDER_STATUS'
-            :addressee='itm.ADDRESSEE'
-            :address='itm.ADDRESS'
-            :phone='itm.PHONE'
-            ></shopping>
-            
-            <resturant 
-            v-for='(itm,key) in mymemberresorder' 
-            :resorderid='itm.RESTAURANT_ORDER_ID'
-            :crtdate='itm.cdate'
-            :done='itm.ORDER_STATUS'
-            :bookingdate='itm.bdate'
-            :peoplenum='itm.NUM_OF_PEOPLE'
-            :petsnum='itm.NUM_OF_PETS'
-            
-            ></resturant>
-
-
-         </main>
+        <resturant
+          v-for="(itm,key) in mymemberresorder"
+          :resorderid="itm.RESTAURANT_ORDER_ID"
+          :crtdate="itm.cdate"
+          :done="itm.ORDER_STATUS"
+          :bookingdate="itm.bdate"
+          :peoplenum="itm.NUM_OF_PEOPLE"
+          :petsnum="itm.NUM_OF_PETS"
+        ></resturant>
+      </main>
     </div>
     @@include('layout/footer.html')
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
     <!-- axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <!-- vue -->
@@ -82,9 +91,8 @@
     <!-- <script src="./js/m_aside_contrl.js"></script> -->
     <!-- <script src="./js/m_order_contrl.js"></script> -->
     <script>
-
-        Vue.component('hotel',{
-            template: `
+      Vue.component("hotel", {
+        template: `
                 <div>       
                     <section>
                         <ul class="m_item_details">
@@ -122,23 +130,34 @@
                     </section>
                 </div>
             `,
-            props:['crtdate','done','ordernum','checkin','checkout','rprice','roomtype','peoplenum','petsnum'
-                    ,'roomimg','roomdes'],
-            methods:{
-                dtoggle(){
-                    this.isappear = !this.isappear;
-                },
-            },
-            data(){
-                return{
-                    isappear : true,
-                    ltype : '旅館訂房',
-                };
-            },
-        });
+        props: [
+          "crtdate",
+          "done",
+          "ordernum",
+          "checkin",
+          "checkout",
+          "rprice",
+          "roomtype",
+          "peoplenum",
+          "petsnum",
+          "roomimg",
+          "roomdes",
+        ],
+        methods: {
+          dtoggle() {
+            this.isappear = !this.isappear;
+          },
+        },
+        data() {
+          return {
+            isappear: true,
+            ltype: "旅館訂房",
+          };
+        },
+      });
 
-        Vue.component('shopping',{
-            template: `
+      Vue.component("shopping", {
+        template: `
                 <div>       
                     <section>
                         <ul class="m_item_details">
@@ -231,123 +250,139 @@
                     </section>
                 </div>
             `,
-            props:['shoppingorderid','crtdate','done','addressee','address','phone'],
-            methods:{
-                dtoggle(){
-                    this.isappear = !this.isappear;
-                    let info = this.shoppingorderid;
+        props: [
+          "shoppingorderid",
+          "crtdate",
+          "done",
+          "addressee",
+          "address",
+          "phone",
+        ],
+        methods: {
+          dtoggle() {
+            this.isappear = !this.isappear;
+            let info = this.shoppingorderid;
 
-                    let self = this;
-                        $.ajax({
-                            type : "POST",	
-                            url : "./php/front_end_API/M_apr_membershopping.php",  
-                            data : {  
-                                MID : info,            //---透過 MID 去抓該筆會員資料
-                            }, 
-                            dataType : 'html' 
-                            }).done(function(data){    //---載入成功
-                            
-                            self.mymembershopping =  JSON.parse(data);
-                            console.log(self.mymembershopping);
+            let self = this;
+            $.ajax({
+              type: "POST",
+              url: "./php/front_end_API/M_apr_membershopping.php",
+              data: {
+                MID: info, //---透過 MID 去抓該筆會員資料
+              },
+              dataType: "html",
+            })
+              .done(function (data) {
+                //---載入成功
 
-                            }).fail(function(jqXHR){   //---載入失敗
-                            alert("res為ID數據載入失敗: " + jqXHR.status);
-                            });
+                self.mymembershopping = JSON.parse(data);
+                console.log(self.mymembershopping);
+              })
+              .fail(function (jqXHR) {
+                //---載入失敗
+                alert("res為ID數據載入失敗: " + jqXHR.status);
+              });
 
-                            $.ajax({
-                            type : "POST",	
-                            url : "./php/front_end_API/M_apr_membershopspecial.php",  
-                            data : {  
-                                MID : info,            //---透過 MID 去抓該筆會員資料
-                            }, 
-                            dataType : 'html' 
-                            }).done(function(data){    //---載入成功
-                            
-                            self.mymembershopspecial =  JSON.parse(data);
-                            console.log(self.mymembershopspecial);
+            $.ajax({
+              type: "POST",
+              url: "./php/front_end_API/M_apr_membershopspecial.php",
+              data: {
+                MID: info, //---透過 MID 去抓該筆會員資料
+              },
+              dataType: "html",
+            })
+              .done(function (data) {
+                //---載入成功
 
-                            }).fail(function(jqXHR){   //---載入失敗
-                                alert("res為ID數據載入失敗: " + jqXHR.status);
-                            });
-                        
-                            $.ajax({
-                            type : "POST",	
-                            url : "./php/front_end_API/M_apr_membershopmsg.php",  
-                            data : {  
-                                MID : info,            //---透過 MID 去抓該筆會員資料
-                            }, 
-                            dataType : 'html' 
-                            }).done(function(data){    //---載入成功
-                            
-                            self.mymembershopmsg =  JSON.parse(data);
-                            console.log(self.mymembershopmsg[0]);
+                self.mymembershopspecial = JSON.parse(data);
+                console.log(self.mymembershopspecial);
+              })
+              .fail(function (jqXHR) {
+                //---載入失敗
+                alert("res為ID數據載入失敗: " + jqXHR.status);
+              });
 
-                        }).fail(function(jqXHR){   //---載入失敗
-                        alert("res為ID數據載入失敗: " + jqXHR.status);
-                        });
+            $.ajax({
+              type: "POST",
+              url: "./php/front_end_API/M_apr_membershopmsg.php",
+              data: {
+                MID: info, //---透過 MID 去抓該筆會員資料
+              },
+              dataType: "html",
+            })
+              .done(function (data) {
+                //---載入成功
 
-                    
-                },
-           
-                submitmessage(){
-                    let info = this.shoppingorderid;
-                    let self = this;
+                self.mymembershopmsg = JSON.parse(data);
+                console.log(self.mymembershopmsg[0]);
+              })
+              .fail(function (jqXHR) {
+                //---載入失敗
+                alert("res為ID數據載入失敗: " + jqXHR.status);
+              });
+          },
 
-                    $.ajax({
-                        type : "POST",	
-                        url : "./php/back_end_API/M_shop_msg_input.php",  
-                        data : {  
-                            MID : info,
-                            MSG : self.message,            //---透過 MID 去抓該筆會員資料
-                        }, 
-                        dataType : 'html' 
-                        }).done(function(data){    //---載入成功
-                        
-                        if( data == 1 ){
-                            alert('留言已成功傳出去，我們會盡速回覆，謝謝!');
-                            self.isappear = !self.isappear;
+          submitmessage() {
+            let info = this.shoppingorderid;
+            let self = this;
 
-                        }else{
-                            alert('留言未成功傳出去，我們會與您聯繫，謝謝!');
-                            self.isappear = !self.isappear;
-                        }
-                    
-                        }).fail(function(jqXHR){   //---載入失敗
-                        alert("res為ID數據載入失敗: " + jqXHR.status);
-                        });
+            $.ajax({
+              type: "POST",
+              url: "./php/back_end_API/M_shop_msg_input.php",
+              data: {
+                MID: info,
+                MSG: self.message, //---透過 MID 去抓該筆會員資料
+              },
+              dataType: "html",
+            })
+              .done(function (data) {
+                //---載入成功
 
-                },
-            },
-            data(){
-                return{
-                    ltype : '購物商城',
-                    isappear : true,
-                    message:'',
-                    mymembershopping:[],
-                    mymembershopspecial:[],
-                    mymembershopmsg:[],
-                };
-            },
-            components:{
-
-                'slist': { //kebab-case
-                    template: `<tr>
+                if (data == 1) {
+                  alert("留言已成功傳出去，我們會盡速回覆，謝謝!");
+                  self.isappear = !self.isappear;
+                } else {
+                  alert("留言未成功傳出去，我們會與您聯繫，謝謝!");
+                  self.isappear = !self.isappear;
+                }
+              })
+              .fail(function (jqXHR) {
+                //---載入失敗
+                alert("res為ID數據載入失敗: " + jqXHR.status);
+              });
+          },
+        },
+        data() {
+          return {
+            ltype: "購物商城",
+            isappear: true,
+            message: "",
+            mymembershopping: [],
+            mymembershopspecial: [],
+            mymembershopmsg: [],
+          };
+        },
+        components: {
+          slist: {
+            //kebab-case
+            template: `<tr>
                                     <td  class="m_item_pic"><img :src="listimg" alt=""></td>
                                     <td  class="m_item_id">{{sname}}/{{ptype}}</td>
                                     <td  class="m_item_type">{{pprice}}/組</td>
                                     <td  class="m_item_amount">{{pnum}}</td>
                                     <td  class="m_item_price">{{psum}}元</td>
                         </tr>`,
-                    props:['sname', 'ptype','listimg', 'pprice', 'pnum'],
-                    computed:{
-                        psum(){
-                            return this.pprice * this.pnum ;
-                        },
-                    },
-                },
+            props: ["sname", "ptype", "listimg", "pprice", "pnum"],
+            computed: {
+              psum() {
+                return this.pprice * this.pnum;
+              },
+            },
+          },
 
-                'clist': { //kebab-case
-                    template: `<tr>
+          clist: {
+            //kebab-case
+            template: `<tr>
                                     <td  class="m_item_pic">{{pcolor ? pcolor +'色' : '無' }}</td>
                                     <td  class="m_item_id">{{sname ? sname : 無}}</td>
                                     <td  class="m_item_type">{{pprice? pprice +'/組' : '無'}}</td>
@@ -355,16 +390,17 @@
                                     <td  class="m_item_price">{{pnum? psum + '元' : '無'}}</td>
 
                         </tr>`,
-                    props:['pcolor','sname', 'ptype','listimg', 'pprice', 'pnum'],
-                    computed:{
-                        psum(){
-                            return this.pprice * this.pnum ;
-                        },
-                    },
-                },
+            props: ["pcolor", "sname", "ptype", "listimg", "pprice", "pnum"],
+            computed: {
+              psum() {
+                return this.pprice * this.pnum;
+              },
+            },
+          },
 
-                'membermsg': { //kebab-case
-                    template: `<div>
+          membermsg: {
+            //kebab-case
+            template: `<div>
                                 <ul>
                                     <li class="m_client_ask"><img :src='mpic' alt="">
                                         <article><p>{{msgcontent}}</p><p>時間: {{gettime}}</p></article>
@@ -375,22 +411,22 @@
                                     </li>
                                 </ul>
                            </div>`,
-                    props:['mpic','msgcontent','recontent','gettime'],
-                    computed:{
-                        msgtime(){
-                            let yer = new Date().getFullYear();
-                            let mon = new Date().getMonth() +1;
-                            let dat = new Date().getDate();
+            props: ["mpic", "msgcontent", "recontent", "gettime"],
+            computed: {
+              msgtime() {
+                let yer = new Date().getFullYear();
+                let mon = new Date().getMonth() + 1;
+                let dat = new Date().getDate();
 
-                            return yer + "-" + mon + "-" + dat ;
-                        },
-                    },
-                },
+                return yer + "-" + mon + "-" + dat;
+              },
             },
-        });
+          },
+        },
+      });
 
-        Vue.component('resturant',{
-            template: `
+      Vue.component("resturant", {
+        template: `
                 <div>       
                     <section>
                         <ul class="m_item_details">
@@ -426,23 +462,29 @@
                     </section>
                 </div>
             `,
-            props:['resorderid','crtdate','done','bookingdate','peoplenum','petsnum'],
-            methods:{
-                dtoggle(){
-                    this.isappear = !this.isappear;
-                },
-            },
-            data(){
-                return{
-                    isappear : true,
-                    ltype : '餐廳訂單',
-                };
-            },
-        });
+        props: [
+          "resorderid",
+          "crtdate",
+          "done",
+          "bookingdate",
+          "peoplenum",
+          "petsnum",
+        ],
+        methods: {
+          dtoggle() {
+            this.isappear = !this.isappear;
+          },
+        },
+        data() {
+          return {
+            isappear: true,
+            ltype: "餐廳訂單",
+          };
+        },
+      });
 
-        
-        Vue.component('complete',{
-            template: `
+      Vue.component("complete", {
+        template: `
                 <div>       
                     <section>
                         <ul class="m_item_details">
@@ -484,23 +526,22 @@
                     </section>
                 </div>
             `,
-            //props:['htl_crt_date','done','roomtype','BOOKING_CHECKIN_DATE','checkout','roomtype','roomtype','roomtype','roomtype'],
-            props:['checkout'],
-            methods:{
-                dtoggle(){
-                    this.isappear = !this.isappear;
-                },
-            },
-            data(){
-                return{
-                    isappear : true,
-                };
-            },
-        });
+        //props:['htl_crt_date','done','roomtype','BOOKING_CHECKIN_DATE','checkout','roomtype','roomtype','roomtype','roomtype'],
+        props: ["checkout"],
+        methods: {
+          dtoggle() {
+            this.isappear = !this.isappear;
+          },
+        },
+        data() {
+          return {
+            isappear: true,
+          };
+        },
+      });
 
-       
-        Vue.component('notyet',{
-            template: `
+      Vue.component("notyet", {
+        template: `
                 <section>
                 <div>
                     <section>
@@ -570,12 +611,10 @@
                 </div>
                 </section>
             `,
-        });
+      });
 
-
-        Vue.component('my-aside', {
-            template:
-                ` <aside>
+      Vue.component("my-aside", {
+        template: ` <aside>
                   <div>
                       <h5><a href="./member_index.html"><img src="./img/member/catlogo-8.png" alt=""><span>會員專區</span><img src="./img/member/catlogo-8.png" alt="" class="m_imgblock"></a></h5>
                       <div class="m_underline_1"></div>
@@ -589,178 +628,177 @@
                       <input type="button" value="登 出" @click="mleave" >
                   </div>
                  </aside>`,
-            data() {
-                return {
-                    mconfirm: '確認登出嗎?',
-                };
-            },
-            methods: {
-                mleave() {   //--- 登出function
-                    if (confirm(this.mconfirm) == true) {
-                        localStorage.clear();                            //清除local
+        data() {
+          return {
+            mconfirm: "確認登出嗎?",
+          };
+        },
+        methods: {
+          mleave() {
+            //--- 登出function
+            if (confirm(this.mconfirm) == true) {
+              localStorage.clear(); //清除local
 
-                        $.ajax({                                         //清除session ID
-                            method: "POST",
-                            url: "./php/front_end_API/M_removesession_MID.php",
-                            data: {},
-                            dataType: "text",
-                            success: function success(response) {
-                                window.location.href = "front_index.html";
-                            },
-                            error: function error(exception) {
-                                alert("數據載入失敗: " + exception.status);
-                            }
-                        });
-
-                    } else {
-
-                    };
+              $.ajax({
+                //清除session ID
+                method: "POST",
+                url: "./php/front_end_API/M_removesession_MID.php",
+                data: {},
+                dataType: "text",
+                success: function success(response) {
+                  window.location.href = "front_index.html";
                 },
-            },
-        });
-
-        new Vue({
-            el: '#app',
-            data: {
-                order: 'complete',
-                opacity: 1,
-                opacity2: 0,
-
-                mymember:[],
-                mymemberpet:[],
-                mymemberhotel:[],
-
-                mymembershoporder:[],
-                mymemberresorder:[],
-                
-            },
-            methods:{
-                // chgfocus(){
-                //     if(this.opacity == 0){this.opacity = 1}else{this.opacity = 0}
-                //     if(this.opacity2 == 0){this.opacity2 = 1}else{this.opacity2 = 0}
-                // },
-                getmymemberdata(info){
-                    let self = this;
-
-                        $.ajax({
-                            type : "POST",	
-                            url : "./php/front_end_API/M_apr_memberpeople.php",  
-                            data : {  
-                                MID : info,            //---透過 MID 去抓該筆會員資料
-                            }, 
-                            dataType : 'html' 
-                            }).done(function(data){    //---載入成功
-                                //console.log(data);
-                            self.mymember =  JSON.parse(data);
-                            
-                            }).fail(function(jqXHR){   //---載入失敗
-                            alert("res為ID數據載入失敗: " + jqXHR.status);
-                            });
-
-                    },
-                getmemberpetdata(info){
-                let self = this;
-
-                    $.ajax({
-                        type : "POST",	
-                        url : "./php/front_end_API/M_apr_memberpet.php",  
-                        data : {  
-                            MID : info,            //---透過 MID 去抓該筆會員資料
-                        }, 
-                        dataType : 'html' 
-                        }).done(function(data){    //---載入成功
-                            
-                        self.mymemberpet =  JSON.parse(data);
-                        //console.log(self.mymemberpet);
-                        
-                        }).fail(function(jqXHR){   //---載入失敗
-                        alert("res為ID數據載入失敗: " + jqXHR.status);
-                    });
-
+                error: function error(exception) {
+                  alert("數據載入失敗: " + exception.status);
                 },
-                getmemberhoteldata(info){
-                let self = this;
+              });
+            } else {
+            }
+          },
+        },
+      });
 
-                    $.ajax({
-                        type : "POST",	
-                        url : "./php/front_end_API/M_apr_memberhotel.php",  
-                        data : {  
-                            MID : info,            //---透過 MID 去抓該筆會員資料
-                        }, 
-                        dataType : 'html' 
-                        }).done(function(data){    //---載入成功
-                           
-                        self.mymemberhotel =  JSON.parse(data);
-                        //console.log(self.mymemberhotel);
+      new Vue({
+        el: "#app",
+        data: {
+          order: "complete",
+          opacity: 1,
+          opacity2: 0,
 
-                        }).fail(function(jqXHR){   //---載入失敗
-                        alert("res為ID數據載入失敗: " + jqXHR.status);
-                        });
+          mymember: [],
+          mymemberpet: [],
+          mymemberhotel: [],
 
-                },
-                getmembershoppingorder(info){
-                let self = this;
+          mymembershoporder: [],
+          mymemberresorder: [],
+        },
+        methods: {
+          // chgfocus(){
+          //     if(this.opacity == 0){this.opacity = 1}else{this.opacity = 0}
+          //     if(this.opacity2 == 0){this.opacity2 = 1}else{this.opacity2 = 0}
+          // },
+          getmymemberdata(info) {
+            let self = this;
 
-                    $.ajax({
-                        type : "POST",	
-                        url : "./php/front_end_API/M_apr_membershoporder.php",  
-                        data : {  
-                            MID : info,            //---透過 MID 去抓該筆會員資料
-                        }, 
-                        dataType : 'html' 
-                        }).done(function(data){    //---載入成功
-                           
-                        self.mymembershoporder =  JSON.parse(data);
-                        //console.log(self.mymembershoporder);
-                        //console.log(self.mymembershoporder.length);
-                      
-                        }).fail(function(jqXHR){   //---載入失敗
-                        alert("res為ID數據載入失敗: " + jqXHR.status);
-                        });
+            $.ajax({
+              type: "POST",
+              url: "./php/front_end_API/M_apr_memberpeople.php",
+              data: {
+                MID: info, //---透過 MID 去抓該筆會員資料
+              },
+              dataType: "html",
+            })
+              .done(function (data) {
+                //---載入成功
+                //console.log(data);
+                self.mymember = JSON.parse(data);
+              })
+              .fail(function (jqXHR) {
+                //---載入失敗
+                alert("res為ID數據載入失敗: " + jqXHR.status);
+              });
+          },
+          getmemberpetdata(info) {
+            let self = this;
 
-                },
-                getmemberresorder(info){
-                let self = this;
+            $.ajax({
+              type: "POST",
+              url: "./php/front_end_API/M_apr_memberpet.php",
+              data: {
+                MID: info, //---透過 MID 去抓該筆會員資料
+              },
+              dataType: "html",
+            })
+              .done(function (data) {
+                //---載入成功
 
-                    $.ajax({
-                        type : "POST",	
-                        url : "./php/front_end_API/M_apr_memberresorder.php",  
-                        data : {  
-                            MID : info,            //---透過 MID 去抓該筆會員資料
-                        }, 
-                        dataType : 'html' 
-                        }).done(function(data){    //---載入成功
-                           
-                        self.mymemberresorder =  JSON.parse(data);
-                        console.log(self.mymemberresorder);
-                        console.log(self.mymemberresorder.length);
-                      
-                        }).fail(function(jqXHR){   //---載入失敗
-                        alert("res為ID數據載入失敗: " + jqXHR.status);
-                        });
+                self.mymemberpet = JSON.parse(data);
+                //console.log(self.mymemberpet);
+              })
+              .fail(function (jqXHR) {
+                //---載入失敗
+                alert("res為ID數據載入失敗: " + jqXHR.status);
+              });
+          },
+          getmemberhoteldata(info) {
+            let self = this;
 
-                },
-               
-                
-            },
-            created() {
+            $.ajax({
+              type: "POST",
+              url: "./php/front_end_API/M_apr_memberhotel.php",
+              data: {
+                MID: info, //---透過 MID 去抓該筆會員資料
+              },
+              dataType: "html",
+            })
+              .done(function (data) {
+                //---載入成功
 
-                axios.post("php/front_end_API/M_getsession_MID.php").then((res)=>{
-                this.getmymemberdata(res.data);
-                this.getmemberpetdata(res.data);
-                this.getmemberhoteldata(res.data);
-                this.getmembershoppingorder(res.data);
-                this.getmemberresorder(res.data);
-                
-                });
+                self.mymemberhotel = JSON.parse(data);
+                //console.log(self.mymemberhotel);
+              })
+              .fail(function (jqXHR) {
+                //---載入失敗
+                alert("res為ID數據載入失敗: " + jqXHR.status);
+              });
+          },
+          getmembershoppingorder(info) {
+            let self = this;
 
+            $.ajax({
+              type: "POST",
+              url: "./php/front_end_API/M_apr_membershoporder.php",
+              data: {
+                MID: info, //---透過 MID 去抓該筆會員資料
+              },
+              dataType: "html",
+            })
+              .done(function (data) {
+                //---載入成功
 
-            },
-        });
+                self.mymembershoporder = JSON.parse(data);
+                //console.log(self.mymembershoporder);
+                //console.log(self.mymembershoporder.length);
+              })
+              .fail(function (jqXHR) {
+                //---載入失敗
+                alert("res為ID數據載入失敗: " + jqXHR.status);
+              });
+          },
+          getmemberresorder(info) {
+            let self = this;
 
+            $.ajax({
+              type: "POST",
+              url: "./php/front_end_API/M_apr_memberresorder.php",
+              data: {
+                MID: info, //---透過 MID 去抓該筆會員資料
+              },
+              dataType: "html",
+            })
+              .done(function (data) {
+                //---載入成功
 
-
+                self.mymemberresorder = JSON.parse(data);
+                console.log(self.mymemberresorder);
+                console.log(self.mymemberresorder.length);
+              })
+              .fail(function (jqXHR) {
+                //---載入失敗
+                alert("res為ID數據載入失敗: " + jqXHR.status);
+              });
+          },
+        },
+        created() {
+          axios.post("php/front_end_API/M_getsession_MID.php").then((res) => {
+            this.getmymemberdata(res.data);
+            this.getmemberpetdata(res.data);
+            this.getmemberhoteldata(res.data); //旅館
+            this.getmembershoppingorder(res.data); //商城
+            this.getmemberresorder(res.data); //餐廳訂單
+          });
+        },
+      });
     </script>
-</body>
-
+  </body>
 </html>

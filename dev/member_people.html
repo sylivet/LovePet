@@ -30,6 +30,7 @@
                 更換照片
             </p>
 
+            <!-- ------------------------------頭貼彈窗---------------------------------- -->
             <div id="m_sign_in_bk" class="i_background " :style="appearr">
                 <form action="./php/back_end_API/M_chgimg.php" method="post" enctype="multipart/form-data"
                 >
@@ -44,7 +45,6 @@
                     <p style='padding-bottom: 20px;' >請選擇您要的大頭照檔案，放進框框內</p>
                     <input type="file" @change="selectedFile" name="file">
 
-                    <!-- <p>{{image}}</p> -->
                     <p>
                         <img :src="image">
                     </p>
@@ -54,7 +54,7 @@
                   </div>
                 </div>
                 </form>
-              </div>
+            </div>
 
             <!-- ------------------------------基本資料---------------------------------- -->
             <my-info :nickname='mymember[0].NICKNAME' :name='mymember[0].NAME' :account='mymember[0].ACCOUNT'
@@ -93,7 +93,12 @@
         Vue.component('my-pic', {
             template: `<div>
                          <img  
-                         :src="picsrc.includes('img')? picsrc : './img/member/Profile-Male-PNG.jpg' " alt="profile"  class="m_person_pic" id="m_pic2">
+                         :src='picsrc ? picsrc : "./img/member/Profile-Male-PNG.jpg" ' 
+                         alt="profile"  class="m_person_pic" id="m_pic2">
+                         <!--<img  
+                         src='./img/member/Profile-Male-PNG.jpg ' 
+                         alt="profile"  class="m_person_pic" id="m_pic2">-->
+
                         </div>`,
             props: ['picsrc'],
         });
@@ -215,10 +220,10 @@
                 };
             },
             methods: {
-                chgpassword() {   //--- 登出function
+                chgpassword() {   //--- 更換密碼
                     //alert(this.oldpwd);
                     if (this.oldpwd === this.pwd) {
-                        alert('密碼一致，繼續下一步');
+                        alert('密碼一致，請接著繼續下一步');
                         let newp = this;
                         if (newp.newpwd === newp.chkpwd) {
                             alert('變更密碼成功!');
@@ -407,14 +412,15 @@
         new Vue({
             el: '#app',
             data: {
-                mymember:[],
-                midata:null,
+                mymember:[], //會員個人資料
+                midata:null, //會員編號
                 image: '',
                 inputfile: null,
                 appearr:"display:none",
 
             },
             methods: {
+                //更換照片
                 selectedFile(e){
                     let file = e.target.files[0]; //專用寫法，.files[0];  才能get到檔案 == let file = e.target.files.item(0);  (both JS語法)
                     
@@ -424,12 +430,15 @@
 
                     let inputfile = file;
                 },
+                //載入更換照片
                 loadImage(e){
                     this.image = e.target.result;    
                 },
+                //關閉換照片彈窗
                 closeblock(){
                     this.appearr = "display:none";
                 },
+                //打開換照片彈窗
                 chgimg(){
                     let mychg = '確認更換照片嗎?';
                         if (confirm(mychg) == true) {
@@ -437,9 +446,10 @@
                         } else {
                         }
                 },
+                //取得會員資料
                 getmymemberdata(info){
                    let self = this;
-                   this.midata = info;
+                   //this.midata = info;
 
                     $.ajax({
                         type : "POST",	
@@ -449,7 +459,7 @@
                         }, 
                         dataType : 'html' 
                         }).done(function(data){    //---載入成功
-                            //console.log(data);
+                        //console.log(data);
                         self.mymember =  JSON.parse(data);
                         console.log(self.mymember);
 
@@ -460,9 +470,10 @@
                 },
             },
             created() {
-
+                //取得會員編號
                 axios.post("php/front_end_API/M_getsession_MID.php").then((res) => {
                     this.getmymemberdata(res.data);
+                    //console.log(res.data);
                 });
 
 
